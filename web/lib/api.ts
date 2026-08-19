@@ -11,6 +11,10 @@ export interface StreamHandlers {
   onToken?: (delta: string) => void;
   /** 反思重生成:旧回答作废,调用方应清空正在流式输出的消息内容 */
   onReflect?: (feedback: string) => void;
+  /** 复杂度路由结果:每个流的第一个事件。tier=simple|medium|complex */
+  onTier?: (tier: string, confidence: number, source: string) => void;
+  /** 升级到更高 tier 重跑:同 onReflect,需清空当前输出并展示"深入分析" */
+  onEscalation?: (fromTier: string, toTier: string, reason: string) => void;
   onError?: (msg: string) => void;
   onDone?: () => void;
 }
@@ -128,6 +132,17 @@ export async function streamChat(
             continue;
           }
           switch (obj.type) {
+            case "tier":
+              handlers.onTier?.(obj.tier, obj.confidence ?? 0, obj.source || "");
+              break;
+            case "escalation":
+              // 升级重跑:清空旧输出(复用 reflect 的重置语义)
+              handlers.onEscalation?.(
+                obj.from_tier || "",
+                obj.to_tier || "",
+                obj.reason || ""
+              );
+              break;
             case "status":
               handlers.onStatus?.(obj.message || "");
               break;

@@ -225,12 +225,12 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 7：SSE 事件契约 + 前端适配
 
-- [ ] **7.1** 确认三条路径的事件序列文档化（写在 `agent_reasoning/ReAct/__init__.py` 或单独的 `docs/sse_events.md`）：
+- [x] **7.1** 确认三条路径的事件序列文档化（写在 `agent_reasoning/ReAct/__init__.py` 或单独的 `docs/sse_events.md`）：
   - simple：`tier → status → token* → assistant_message → grounding? → done`
   - medium：`tier → status(setup) → ...现有序列... → done`
   - complex：`tier → plan → step_start*(每步) → tool_call/tool_result/token* → step_end* → synthesis_start → token* → assistant_message → grounding → done`
-- [ ] **7.2** 新增 `escalation` 事件格式：`{"type": "escalation", "from_tier": str, "to_tier": str, "reason": str}`。
-- [ ] **7.3** 改 `web/` 前端 SSE 解析：
+- [x] **7.2** 新增 `escalation` 事件格式：`{"type": "escalation", "from_tier": str, "to_tier": str, "reason": str}`。
+- [x] **7.3** 改 `web/` 前端 SSE 解析：
   - 收到 `tier` 事件可展示对应 UI（如 complex 展示计划步骤进度）
   - 收到 `escalation` 事件重置流式输出区，展示"正在深入分析..."
   - 现有 `reflect` 事件的重置逻辑复用于 escalation

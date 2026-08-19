@@ -10,9 +10,16 @@ interface Props {
   conversation: Conversation | null;
   streaming: boolean;
   status: string;            // 检索/加载状态文案
+  tier?: string;             // 本次请求所选推理范式 simple|medium|complex
   onSend: (text: string) => void;
   onStop: () => void;
 }
+
+const TIER_LABEL: Record<string, string> = {
+  simple: "快速直答",
+  medium: "检索推理",
+  complex: "计划执行",
+};
 
 const SUGGESTIONS = [
   { icon: BookOpen, text: "ALD 原子层沉积的基本原理是什么?" },
@@ -21,7 +28,7 @@ const SUGGESTIONS = [
   { icon: Sparkles, text: "ALD 与 CVD 的主要区别?" },
 ];
 
-export function ChatBox({ conversation, streaming, status, onSend, onStop }: Props) {
+export function ChatBox({ conversation, streaming, status, tier, onSend, onStop }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const stickToBottomRef = useRef(true);
@@ -93,6 +100,11 @@ export function ChatBox({ conversation, streaming, status, onSend, onStop }: Pro
             {/* 检索/加载状态(流式中且当前 assistant 还没吐字) */}
             {streaming && status && (
               <div className="flex items-center gap-2 text-[12px] text-t3 animate-fade-in">
+                {tier && TIER_LABEL[tier] && (
+                  <span className="rounded-full border border-[#3a3a3e] bg-[#27272a] px-2 py-0.5 text-[11px] text-t2">
+                    {TIER_LABEL[tier]}
+                  </span>
+                )}
                 <span className="flex gap-1">
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-t3 [animation-delay:0ms]" />
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-t3 [animation-delay:150ms]" />

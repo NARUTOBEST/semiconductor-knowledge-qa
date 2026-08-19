@@ -24,6 +24,8 @@ export default function Page() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [streaming, setStreaming] = useState(false);
   const [status, setStatus] = useState("");
+  // 本次请求所选推理范式(simple/medium/complex),用于展示对应 UI
+  const [tier, setTier] = useState<string>("");
   const abortRef = useRef<AbortController | null>(null);
 
   // ---- 路由守卫:未登录跳转 /login ----
@@ -168,6 +170,7 @@ export default function Page() {
 
       setStreaming(true);
       setStatus("");
+      setTier("");
 
       const controller = new AbortController();
       abortRef.current = controller;
@@ -176,6 +179,13 @@ export default function Page() {
         text,
         history,
         {
+          onTier: (t) => setTier(t),
+          onEscalation: (_from, to, _reason) => {
+            // 升级到更高 tier 重跑:清空旧输出,展示深入分析提示
+            patchMessage(cid, aiMsg.id, (m) => ({ ...m, content: "" }));
+            setTier(to);
+            setStatus("正在深入分析…");
+          },
           onStatus: (m) => setStatus(m),
           onSources: (items) =>
             patchMessage(cid, aiMsg.id, (m) => ({ ...m, sources: items })),
@@ -237,6 +247,7 @@ export default function Page() {
             conversation={active}
             streaming={streaming}
             status={status}
+            tier={tier}
             onSend={send}
             onStop={stop}
           />
