@@ -165,7 +165,7 @@ START → setup → recall → rewrite → plan → build_messages → agent
   - 更新 `graph.py` 的边：agent → tools → agent → coverage_check →（回退 | grounding）→ finalize。
 - [x] **1.3** 把 `setup / recall / rewrite / build_messages` 等前置节点做成可按 tier 开关：`react_loop()` 接受参数控制是否跳过 rewrite、是否跳过 recall、是否绑定 tools。simple 路径需要跳过 rewrite 和 tools。
 - [x] **1.4** 泛化 `support/runner.py`：把 trace 初始化、checkpoint、短期流水落库、长期升迁触发、异常兜底等横切逻辑抽成一个通用的 `run_path(path_name, event_iterable, thread_id, username, session_id, trace_id)` 包装器，能包裹 simple / react / P&E 任意一条事件流。`run_agent_graph` 改为调用它。
-- [ ] **1.5** 全量测试通过，现有测试无需大改（如果测试断言了具体事件序列，按拆分后的新序列更新）。
+- [x] **1.5** 全量测试通过，现有测试无需大改（如果测试断言了具体事件序列，按拆分后的新序列更新）。
 
 ### 阶段 2：简单路径（single-shot, no tools）
 
