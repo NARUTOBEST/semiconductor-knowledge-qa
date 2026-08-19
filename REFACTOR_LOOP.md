@@ -169,11 +169,11 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 2：简单路径（single-shot, no tools）
 
-- [ ] **2.1** 新建 `agent_reasoning/ReAct/paths/simple.py`：一次 LLM 调用，不绑定 `tools` 参数，模型用 `config.TIER_MODEL_SIMPLE`（新增配置，默认 `doubao-seed-2.0-lite`）。yield `status → token* → assistant_message` 事件。
-- [ ] **2.2** 裁剪 system prompt：新建 `context management/system_prompt_simple.py`（或在 `system_prompt.py` 加 `SIMPLE_SYSTEM_PROMPT`），只保留角色定义 + 安全规则，去掉工具说明和引用规则。
-- [ ] **2.3** simple 路径跳过 `rewrite_node`（不调改写 LLM）；保留 `recall`（长期记忆召回，便宜的向量检索，用于个性化）。
-- [ ] **2.4** simple 路径接入阶段 1.4 的通用 runner 包装器（trace、流水、升迁、checkpoint 都要有）。
-- [ ] **2.5** 写测试：`tests/test_simple_path.py`，mock LLM，验证不调工具、事件序列正确、模型用 lite、流水落库。
+- [x] **2.1** 新建 `agent_reasoning/ReAct/paths/simple.py`：一次 LLM 调用，不绑定 `tools` 参数，模型用 `config.TIER_MODEL_SIMPLE`（新增配置，默认 `doubao-seed-2.0-lite`）。yield `status → token* → assistant_message` 事件。
+- [x] **2.2** 裁剪 system prompt：新建 `context management/system_prompt_simple.py`（或在 `system_prompt.py` 加 `SIMPLE_SYSTEM_PROMPT`），只保留角色定义 + 安全规则，去掉工具说明和引用规则。
+- [x] **2.3** simple 路径跳过 `rewrite_node`（不调改写 LLM）；保留 `recall`（长期记忆召回，便宜的向量检索，用于个性化）。
+- [x] **2.4** simple 路径接入阶段 1.4 的通用 runner 包装器（trace、流水、升迁、checkpoint 都要有）。
+- [x] **2.5** 写测试：`tests/test_simple_path.py`，mock LLM，验证不调工具、事件序列正确、模型用 lite、流水落库。
 
 ### 阶段 3：复杂度路由器
 

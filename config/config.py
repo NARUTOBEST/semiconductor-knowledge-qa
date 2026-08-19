@@ -58,8 +58,13 @@ _CLAUDE_LLM = _claude_llm_env()
 # 对话推理 (云:火山 ARK codingplan 接口,OpenAI 兼容;env 显式配置优先,其次 settings.json 回退)
 OPENAI_BASE_URL      = os.getenv("OPENAI_BASE_URL", "") or _CLAUDE_LLM.get("base", "")  # 对话 API 基础地址
 OPENAI_API_KEY       = os.getenv("OPENAI_API_KEY", "") or _CLAUDE_LLM.get("key", "")   # 对话 API 密钥
-OPENAI_TEXT_MODEL    = os.getenv("OPENAI_TEXT_MODEL", "") or "deepseek-v4-flash"       # 首选文本对话模型
+OPENAI_TEXT_MODEL    = os.getenv("OPENAI_TEXT_MODEL", "") or "deepseek-v4-flash"       # 首选文本对话模型(medium ReAct)
 OPENAI_FALLBACK_MODEL = os.getenv("OPENAI_FALLBACK_MODEL", "") or "doubao-seed-2.0-lite"  # 备用文本对话模型(主模型不可用时自动切换)
+
+# ---- 三级范式:按复杂度路由的模型(阶段 2/3;9.1 补齐各 tier 的步数/时长/质检深度)----
+TIER_MODEL_SIMPLE  = os.getenv("TIER_MODEL_SIMPLE", "") or "doubao-seed-2.0-lite"   # simple 单轮直答(lite)
+TIER_MODEL_MEDIUM  = os.getenv("TIER_MODEL_MEDIUM", "") or OPENAI_TEXT_MODEL         # medium ReAct
+TIER_MODEL_COMPLEX = os.getenv("TIER_MODEL_COMPLEX", "") or OPENAI_TEXT_MODEL        # complex Plan-and-Execute
 
 # 在线多模态 (vLLM 实例 2: Qwen2.5-VL-7B-Instruct-AWQ, 端口 8001)
 OPENAI_VL_BASE_URL   = os.getenv("OPENAI_VL_BASE_URL", OPENAI_BASE_URL)   # 多模态 API 基础地址
