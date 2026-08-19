@@ -31,6 +31,7 @@ from agent_reasoning.ReAct.support.answer_grounding import (
 )
 from agent_reasoning.router import classify_complexity
 from agent_reasoning.quality_gate import check as quality_check
+import config as C
 
 __all__ = [
     "react_stream",
@@ -55,10 +56,14 @@ def _run_tier(tier: str,
               **kwargs):
     """按 tier 调用对应路径,返回事件生成器。
 
-    simple -> run_simple;medium -> run_agent_graph;complex -> run_plan_execute。
+    simple -> run_simple(不支持步数/时长预算,单轮直答);
+    medium -> run_agent_graph;complex -> run_plan_execute。
+    simple 路径会忽略 max_steps / max_total_seconds。
     """
     if tier == "simple":
-        return run_simple(message, history, **kwargs)
+        simple_kw = {k: v for k, v in kwargs.items()
+                     if k not in ("max_steps", "max_total_seconds")}
+        return run_simple(message, history, **simple_kw)
     if tier == "complex":
         return run_plan_execute(message, history, **kwargs)
     return run_agent_graph(message, history, **kwargs)
@@ -70,13 +75,13 @@ def _last(seq):
 
 def react_stream(message,
                  history,
-                 max_total_seconds: int = 60,
+                 max_total_seconds: Optional[int] = None,
                  on_event: Optional[Callable[[dict], None]] = None,
                  *,
                  thread_id: Optional[str] = None,
                  username: Optional[str] = None,
                  session_id: Optional[str] = None,
-                 max_steps: int = 6):
+                 max_steps: Optional[int] = None):
     """生成器:yield SSE 事件 dict。
 
     流程(阶段 3 路由 + 阶段 4 质检/升级):
@@ -111,10 +116,16 @@ def react_stream(message,
         answer = ""
         path_errored = False
 
+        # 每个 tier 用自己的步数/时长预算(9.1);显式入参覆盖配置(测试/调用方可用)
+        tcfg = C.TIER_CONFIG.get(tier, C.TIER_CONFIG["medium"])
+        tier_max_steps = max_steps if max_steps is not None else tcfg["max_steps"]
+        tier_max_total = (max_total_seconds if max_total_seconds is not None
+                          else tcfg["max_total_seconds"])
+
         gen = _run_tier(
             tier, message, run_history,
             thread_id=thread_id, username=username, session_id=session_id,
-            max_steps=max_steps, max_total_seconds=max_total_seconds,
+            max_steps=tier_max_steps, max_total_seconds=tier_max_total,
             on_event=on_event,
         )
         for ev in gen:

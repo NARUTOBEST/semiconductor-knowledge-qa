@@ -71,6 +71,39 @@ ROUTER_TIMEOUT          = float(os.getenv("ROUTER_TIMEOUT", "8"))        # 分�
 ROUTER_CONFIDENCE_MIN   = float(os.getenv("ROUTER_CONFIDENCE_MIN", "0.6"))  # 低于此置信度兜底 medium
 ROUTER_SHORT_LEN        = int(os.getenv("ROUTER_SHORT_LEN", "6"))        # 不超过该长度且无领域术语/复杂特征 -> 规则预筛 simple
 
+# ---- 各推理范式运行参数(阶段 9.1/9.3,均可经环境变量覆盖)----
+# quality_depth:
+#   light   - simple:只判空/过短,不调 grounding LLM;
+#   standard- medium:grounding 校验 + 失败时判断是否升级;
+#   deep    - complex:grounding + 计划步骤覆盖度(uncovered_steps)联合判定。
+def _int(env_key, default):
+    return int(os.getenv(env_key, str(default)))
+
+
+TIER_CONFIG = {
+    "simple": {
+        "model": TIER_MODEL_SIMPLE,
+        "max_steps": _int("TIER_SIMPLE_MAX_STEPS", 1),       # 单轮直答,无工具循环
+        "max_total_seconds": _int("TIER_SIMPLE_MAX_TOTAL_SECONDS", 20),
+        "plan_enabled": False,                                # simple 不做规划
+        "quality_depth": "light",
+    },
+    "medium": {
+        "model": TIER_MODEL_MEDIUM,
+        "max_steps": _int("TIER_MEDIUM_MAX_STEPS", 6),
+        "max_total_seconds": _int("TIER_MEDIUM_MAX_TOTAL_SECONDS", 60),
+        "plan_enabled": os.getenv("TIER_MEDIUM_PLAN_ENABLED", "1") not in ("0", "false", "False"),
+        "quality_depth": "standard",
+    },
+    "complex": {
+        "model": TIER_MODEL_COMPLEX,
+        "max_steps": _int("TIER_COMPLEX_MAX_STEPS", 4),       # 计划步数上限(generate_plan max_steps)
+        "max_total_seconds": _int("TIER_COMPLEX_MAX_TOTAL_SECONDS", 120),
+        "plan_enabled": True,                                 # complex 必经规划
+        "quality_depth": "deep",
+    },
+}
+
 # 在线多模态 (vLLM 实例 2: Qwen2.5-VL-7B-Instruct-AWQ, 端口 8001)
 OPENAI_VL_BASE_URL   = os.getenv("OPENAI_VL_BASE_URL", OPENAI_BASE_URL)   # 多模态 API 基础地址
 OPENAI_VL_API_KEY    = os.getenv("OPENAI_VL_API_KEY", OPENAI_API_KEY)     # 多模态 API 密钥

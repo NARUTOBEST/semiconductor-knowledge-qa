@@ -247,14 +247,14 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 9：配置
 
-- [ ] **9.1** `config/config.py` 新增 tier 配置：
+- [x] **9.1** `config/config.py` 新增 tier 配置：
   - `TIER_MODEL_SIMPLE`（默认 `doubao-seed-2.0-lite`）
   - `TIER_MODEL_MEDIUM`（默认 `deepseek-v4-flash`，即现有 `OPENAI_TEXT_MODEL`）
   - `TIER_MODEL_COMPLEX`（默认 `deepseek-v4-flash`）
   - 各 tier 的 `max_steps`、`max_total_seconds`、是否启用 plan、质检深度
   - 路由器超时、置信度阈值
-- [ ] **9.2** `env/env.example` 同步更新所有新配置项，带注释。
-- [ ] **9.3** 所有 tier 参数可通过环境变量覆盖。
+- [x] **9.2** `env/env.example` 同步更新所有新配置项，带注释。
+- [x] **9.3** 所有 tier 参数可通过环境变量覆盖。
 
 ### 阶段 10：最终验证
 
