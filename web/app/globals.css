@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: #18181b;
+  color: #e5e5e7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 自定义滚动条(细、融入深色背景) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a3e;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4f;
+}
+
+/* ===== Markdown 渲染(豆包风格) ===== */
+.md {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #e5e5e7;
+  word-break: break-word;
+}
+.md > *:first-child { margin-top: 0; }
+.md > *:last-child { margin-bottom: 0; }
+
+.md h1,
+.md h2,
+.md h3,
+.md h4 {
+  color: #f4f4f5;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 16px 0 10px;
+}
+.md h1 { font-size: 22px; }
+.md h2 { font-size: 19px; }
+.md h3 { font-size: 17px; }
+.md h4 { font-size: 15px; }
+
+.md p { margin: 10px 0; }
+
+.md ul,
+.md ol {
+  margin: 10px 0;
+  padding-left: 22px;
+}
+.md ul { list-style: disc; }
+.md ol { list-style: decimal; }
+.md li { margin: 4px 0; }
+.md li::marker { color: #a1a1a6; }
+
+.md a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+.md a:hover { text-decoration: underline; }
+
+.md blockquote {
+  border-left: 3px solid #71717a;
+  padding: 2px 0 2px 12px;
+  margin: 12px 0;
+  color: #d4d4d8;
+}
+
+.md code {
+  background: #27272a;
+  color: #fbbf24;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 13px;
+  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas,
+    "Courier New", monospace;
+}
+
+.md pre {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 0;
+  margin: 12px 0;
+  overflow: hidden;
+}
+.md pre code {
+  display: block;
+  background: transparent;
+  color: #e5e5e7;
+  padding: 12px 14px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.md table {
+  border-collapse: collapse;
+  margin: 12px 0;
+  width: 100%;
+  font-size: 13px;
+  display: block;
+  overflow-x: auto;
+}
+.md th,
+.md td {
+  border: 1px solid #3a3a3e;
+  padding: 6px 10px;
+  text-align: left;
+}
+.md th {
+  background: #27272a;
+  color: #f4f4f5;
+  font-weight: 600;
+}
+.md tr:nth-child(even) td {
+  background: #1e1e1e;
+}
+
+.md hr {
+  border: none;
+  border-top: 1px solid #2f2f33;
+  margin: 16px 0;
+}
+
+/* 流式光标 */
+.stream-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: #e5e5e7;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-start infinite;
+  border-radius: 1px;
+}
+
+/* 输入框 textarea 自适应,无 outline */
+textarea {
+  outline: none;
+  resize: none;
+}

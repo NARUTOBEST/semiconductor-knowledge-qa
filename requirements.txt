@@ -1,0 +1,29 @@
+# 注:torch 版本需按服务器 CUDA 调整(如 cu121/cu124),CPU 服务器装 torch(CPU 版)
+fastapi==0.140.7
+uvicorn==0.51.0
+openai==2.49.0
+qdrant-client==1.18.0
+FlagEmbedding==1.4.0
+sentence-transformers==5.6.1
+torch==2.8.0+cu128
+python-dotenv==1.2.2
+numpy==2.5.1
+Pillow==12.3.0
+huggingface-hub==0.36.2
+pydantic==2.13.4
+anyio==4.14.2
+starlette==0.52.1
+PyJWT==2.10.1
+bcrypt==4.2.1
+httpx==0.28.1
+redis>=5.0.0
+# Agent 记忆系统（LangGraph 编排 + PG/Redis 持久化 + pgvector）
+# typing_extensions: langchain-core 运行时依赖，显式锁定（Python 3.14 需 >=4.12）
+typing_extensions==4.15.0
+langgraph==1.2.11
+langchain-core==1.5.4
+langchain-openai==1.5.0
+langgraph-checkpoint-postgres==3.1.2
+psycopg[binary]==3.3.4
+psycopg2-binary==2.9.12
+pgvector==0.5.0

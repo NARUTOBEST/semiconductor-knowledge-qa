@@ -1,0 +1,71 @@
+﻿# ==================== 敏感信息 ====================
+# env.env 含 API Key 等敏感凭证,绝不提交;env.example 作为模板保留
+env/env.env
+env/*.env
+!env/env.example
+
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 虚拟环境
+.venv*/
+venv/
+
+# ==================== Node.js / Next.js ====================
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# ==================== 日志 ====================
+*.log
+agent.log
+
+# ==================== 数据 / 产物(体积大,不入库) ====================
+# Qdrant 向量数据库
+qdrant_db/
+
+# MinerU 清洗产物
+清洗产物/
+D:\清洗文件/
+
+# 分块产物
+分块产物/
+
+# 大 PDF 拆分临时文件
+_split_temp/
+
+# 原始半导体资料库（PDF/视频，约 1GB，不入库）
+180-半导体设备相关资料！/
+
+# ==================== IDE / 编辑器 ====================
+.idea/
+.vscode/
+.claude/settings.local.json
+*.swp
+*.swo
+*~
+
+# ==================== 系统 ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==================== 临时文件 ====================
+.tmp_clean/
+*.tmp
+
+# 认证数据库
+auth.db
+
+# 根目录杂项空文件
+/Chat
