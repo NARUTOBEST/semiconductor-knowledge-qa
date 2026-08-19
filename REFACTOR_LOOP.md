@@ -218,10 +218,10 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 6：plan_node 双路径逻辑区分
 
-- [ ] **6.1** medium ReAct 路径：plan 条件触发（保留 `_looks_complex` 粗筛），steps 作为 system prompt 软引导（现有行为不变），但调用的是阶段 5.1 抽出的共享 `_generate_plan()`。
-- [ ] **6.2** complex P&E 路径：plan 必经，steps 驱动阶段 5.2 的 executor 循环（硬约束）。
-- [ ] **6.3** 删除 `nodes.py` 中旧的 `plan_node` 内联实现，改为调用共享函数；确认两条路径的 plan 行为差异正确。
-- [ ] **6.4** 全量测试通过。
+- [x] **6.1** medium ReAct 路径：plan 条件触发（保留 `_looks_complex` 粗筛），steps 作为 system prompt 软引导（现有行为不变），但调用的是阶段 5.1 抽出的共享 `_generate_plan()`。
+- [x] **6.2** complex P&E 路径：plan 必经，steps 驱动阶段 5.2 的 executor 循环（硬约束）。
+- [x] **6.3** 删除 `nodes.py` 中旧的 `plan_node` 内联实现，改为调用共享函数；确认两条路径的 plan 行为差异正确。
+- [x] **6.4** 全量测试通过。
 
 ### 阶段 7：SSE 事件契约 + 前端适配
 

@@ -195,7 +195,8 @@ class TestPlannerDegradation:
             yield {"type": "done", "trace": {}}
 
         from memories.storage.short import short_term as _st
-        with patch.object(runner_mod, "generate_plan", return_value=[]), \
+        with patch.object(runner_mod, "generate_plan",
+                          return_value=([], "planner down")), \
              patch.object(runner_mod, "run_agent_graph", side_effect=_fake_react), \
              patch.object(_st, "append_event", lambda *a, **k: None), \
              patch.object(runner_mod, "after_stream", lambda *a, **k: None), \
@@ -218,13 +219,16 @@ class TestGeneratePlanShared:
                    return_value=MagicMock()), \
              patch("agent_reasoning.ReAct.support.planning.llm_create_with_retry",
                    return_value=(resp, None)):
-            steps = generate_plan("对比 ALD 和 CVD", force=True)
+            steps, err = generate_plan("对比 ALD 和 CVD", force=True)
         assert steps == ["查 ALD", "查 CVD"]
+        assert err is None
 
-    def test_generate_plan_failure_returns_empty(self):
+    def test_generate_plan_failure_returns_empty_with_error(self):
         from agent_reasoning.ReAct.support.planning import generate_plan
         with patch("agent_reasoning.ReAct.support.planning.get_client",
                    return_value=MagicMock()), \
              patch("agent_reasoning.ReAct.support.planning.llm_create_with_retry",
                    return_value=(None, RuntimeError("down"))):
-            assert generate_plan("q", force=True) == []
+            steps, err = generate_plan("q", force=True)
+        assert steps == []
+        assert err and "down" in err

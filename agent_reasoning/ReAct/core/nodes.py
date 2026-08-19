@@ -47,6 +47,10 @@ from ..support.llm import (  # noqa: E402
 )
 from ..support.answer_grounding import grounding_check  # noqa: E402
 from ..support.plan_grounding import CoverageTracker, _JUDGE_TIMEOUT  # noqa: E402
+from ..support.planning import (  # noqa: E402
+    generate_plan, looks_complex,
+    MAX_PLAN_STEPS, PLAN_MIN_REMAINING_SECONDS,
+)
 from memories.storage.working.summarize import (  # noqa: E402
     maybe_summarize, format_summary_block, schedule_pregeneration,
 )
@@ -60,14 +64,6 @@ MAX_TOTAL_SECONDS = 60
 MAX_REFLECT = 1   # grounding 校验失败后最多反思重生成的次数
 MAX_COVERAGE_ROLLBACKS = 1  # 计划步骤未覆盖时最多回退重检索的次数
 _MAX_TOOL_RETRIES = 1  # 工具瞬时异常自动重试次数
-PLAN_TRIGGER_MIN_LEN = 30  # 问题长度达到该值即视为复杂,触发规划
-MAX_PLAN_STEPS = 4        # 计划最多拆解步数
-PLAN_MIN_REMAINING_SECONDS = 10  # 剩余总预算低于此值则跳过规划(避免规划挤占生成时间)
-# 复杂问题特征词(命中任一即触发规划,即使问题很短)
-_COMPLEX_MARKERS = (
-    "对比", "比较", "分别", "优缺点", "流程", "步骤", "综合", "总结",
-    "以及", "并且", "同时", "两者", "多个",
-)
 LOW_CONFIDENCE_THRESHOLD = 0.01
 ARGS_PREVIEW_LEN = 60
 RESULT_PREVIEW_LEN = 500
@@ -143,31 +139,6 @@ def _dispatch_with_retry(name, args, recorder, trace_id, step, w):
         "error": (f"{name} 调度异常(已重试{_MAX_TOOL_RETRIES}次): "
                   f"{type(last_exc).__name__}: {last_exc}")
     }
-
-
-def _looks_complex(question: str, sub_queries: list[str]) -> bool:
-    """复杂问题粗筛(避免每个简单问题都多花一次 LLM 规划调用):
-    长问题 / 改写出多个子查询 / 含多意图特征词,任一命中即复杂。"""
-    q = (question or "").strip()
-    if len(q) >= PLAN_TRIGGER_MIN_LEN:
-        return True
-    if sub_queries and len(sub_queries) > 1:
-        return True
-    return any(m in q for m in _COMPLEX_MARKERS)
-
-
-def _parse_plan_json(text: str) -> dict[str, Any] | None:
-    """从 LLM 输出解析计划 JSON(容忍 markdown 代码块/前后缀文本)。"""
-    if not text:
-        return None
-    start, end = text.find("{"), text.rfind("}")
-    if start < 0 or end <= start:
-        return None
-    try:
-        obj = json.loads(text[start:end + 1])
-    except Exception:
-        return None
-    return obj if isinstance(obj, dict) else None
 
 
 def _format_plan_block(task_plan: dict[str, Any] | None,
@@ -322,7 +293,8 @@ def plan_node(state: AgentState, config) -> dict:
     question = state["question"]
     sub_queries = state.get("sub_queries") or []
 
-    if not _looks_complex(question, sub_queries):
+    # 粗筛(medium 条件触发,6.1):单一意图/短问题不规划,省一次 LLM 调用
+    if not looks_complex(question, sub_queries):
         return {"task_plan": {"need_plan": False}}
 
     # 剩余总预算不足时跳过规划(规划 LLM 调用最长 30s,会挤占生成时间)
@@ -336,57 +308,36 @@ def plan_node(state: AgentState, config) -> dict:
 
     w({"type": "status", "message": "问题较复杂,正在制定检索计划…",
        "trace_id": trace_id})
-    prompt = (
-        "你是检索规划器。判断下面的问题是否需要拆解成多步检索计划,"
-        '只输出 JSON,格式:{"need_plan": true, "steps": ["步骤1", "步骤2"]}。'
-        "need_plan 仅当问题包含多个子任务或需要多轮不同角度检索时为 true,"
-        f"单点事实型问题为 false;steps 最多 {MAX_PLAN_STEPS} 步,"
-        "每步一句话,说明该检索什么/做什么。\n\n"
-        f"问题:{question}"
+
+    # 6.1/6.3:LLM 调用 + JSON 解析逻辑统一交给共享函数(与 complex P&E 同口径)。
+    # force=False:允许 LLM 判定单点事实题返回空(不规划,静默降级)。
+    steps, plan_err = generate_plan(
+        question, force=False, trace_id=trace_id,
+        max_steps=MAX_PLAN_STEPS,
     )
-    client = get_client()
-    resp, err = llm_create_with_retry(
-        client, trace_id=trace_id,
-        model=C.OPENAI_TEXT_MODEL,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0, timeout=LLM_TIMEOUT,
-    )
-    if err is not None:
-        err_doc = recorder.record_error(0, "plan", err)
+    if plan_err is not None:
+        # 记录真实异常到 trace(错误可降级、不阻断回答),并给前端可见提示
+        err_doc = recorder.record_error(0, "plan", RuntimeError(plan_err))
         w({"type": "error_trace", "trace_id": trace_id, **err_doc})
-        # 规划失败是可降级的(不阻断回答),但要给前端可见提示
         w({"type": "status",
            "message": "检索规划服务因临时异常暂不可用,将直接检索作答…",
            "trace_id": trace_id})
         return {"task_plan": {"need_plan": False}}
-
-    text = ""
-    try:
-        text = (resp.choices[0].message.content or "").strip()
-    except Exception:
-        pass
-    plan = _parse_plan_json(text)
-    steps = [str(s).strip() for s in (plan or {}).get("steps") or []
-             if str(s).strip()][:MAX_PLAN_STEPS] \
-        if plan and plan.get("need_plan") else []
     if not steps:
+        # LLM 判定无需规划(单点事实题)或产出空步骤 -> 直接作答
         return {"task_plan": {"need_plan": False}}
 
     w({"type": "plan", "trace_id": trace_id,
        "steps": steps, "question": question})
     w({"type": "status", "message": f"已生成 {len(steps)} 步检索计划",
        "trace_id": trace_id})
-    recorder.record_plan(steps, question)  # 事后 trace 可见(缺口5)
+    recorder.record_plan(steps, question)  # 事后 trace 可见
     # 启动异步覆盖度追踪:守护线程随检索资料到达持续维护覆盖文档,
-    # 供 reflect_node 在 grounding 前做"计划每一步是否被资料覆盖"的判定。
+    # 供 coverage_check_node 在 grounding 前做"计划每一步是否被资料覆盖"的判定。
     tracker = _tracker(config)
     if tracker is not None:
         tracker.set_plan(steps, question)
-    patch: dict[str, Any] = {"task_plan": {"need_plan": True, "steps": steps}}
-    usage = _extract_usage(resp)
-    if usage:
-        patch["usage"] = usage
-    return patch
+    return {"task_plan": {"need_plan": True, "steps": steps}}
 
 
 def build_messages_node(state: AgentState, config) -> dict:

@@ -241,7 +241,10 @@ def run_plan_execute(message: str,
 
     # ---- 必经规划(5.1 / 5.2);失败降级普通 ReAct(5.8)----
     try:
-        steps = generate_plan(message, force=True, trace_id=trace_id)
+        steps, plan_err = generate_plan(message, force=True, trace_id=trace_id)
+        if plan_err:
+            logger.warning("planner failed, fallback to react: %s", plan_err)
+            steps = []
     except Exception as e:
         logger.warning("planner exception, fallback to react: %s", e)
         steps = []

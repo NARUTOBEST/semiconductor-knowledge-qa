@@ -64,7 +64,7 @@ def generate_plan(question: str,
                   force: bool = False,
                   timeout: Optional[float] = None,
                   trace_id: str = "plan",
-                  model: Optional[str] = None) -> list[str]:
+                  model: Optional[str] = None) -> tuple[list[str], str | None]:
     """调一次 LLM 生成检索计划步骤。
 
     :param question:  用户原问题。
@@ -74,8 +74,9 @@ def generate_plan(question: str,
     :param timeout:   LLM 超时,默认 LLM_TIMEOUT。
     :param trace_id:  追踪 id。
     :param model:     覆盖模型(默认 OPENAI_TEXT_MODEL)。
-    :return: 步骤字符串列表;LLM 异常/解析失败/判定无需规划时返回 ``[]``。
-        调用方据此降级(medium 直接作答;P&E 降级普通 ReAct)。
+    :return: ``(steps, error)``。``steps`` 为步骤字符串列表(LLM 判定无需规划时为
+        ``[]``);``error`` 为非空字符串表示 LLM 调用/解析失败(调用方可据此给可见
+        警示),正常或"无需规划"时为 ``None``。P&E 调用方只看 steps 是否为空即可降级。
     """
     if force:
         plan_instruction = (
@@ -104,10 +105,10 @@ def generate_plan(question: str,
         )
     except Exception as e:
         logger.warning("generate_plan exception: %s", e)
-        return []
+        return [], f"{type(e).__name__}: {e}"
     if err is not None:
         logger.warning("generate_plan failed: %s", err)
-        return []
+        return [], f"{type(err).__name__}: {err}"
 
     try:
         text = (resp.choices[0].message.content or "").strip()
@@ -115,9 +116,13 @@ def generate_plan(question: str,
         text = ""
     plan = parse_plan_json(text)
     if not plan:
-        return []
+        # 解析失败也算错误(给 medium 可见提示);空 steps 但合法 JSON 且 need_plan=false
+        # 则是"无需规划",不算错误。
+        if not force and text and "need_plan" in text and "false" in text.lower():
+            return [], None
+        return [], "计划结果解析失败"
     if not force and not plan.get("need_plan"):
-        return []
+        return [], None
     steps = [str(s).strip() for s in (plan.get("steps") or [])
              if str(s).strip()][:max_steps]
-    return steps
+    return steps, None
