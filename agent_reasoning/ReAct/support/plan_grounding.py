@@ -4,7 +4,7 @@
 设计(对应需求):在 ReAct 工作流中异步起一个线程,随着检索资料不断到达,
 持续维护一份"计划每一步 是否已被已检索资料覆盖"的判定文档;在最终交给
 grounding 检查之前,由该线程基于维护好的文档调用 LLM 做一次覆盖判定。
-若某一步未被覆盖/资料有误,reflect_node 据此回退到该步重新检索。
+若某一步未被覆盖/资料有误,coverage_check_node 据此回退到该步重新检索。
 
 为什么用线程而不是节点:LangGraph 节点是同步串行的,无法在 agent↔tools
 循环期间"后台"做事。把追踪器作为不可序列化对象放进
@@ -14,7 +14,7 @@ tools_node 写入新来源后被唤醒增量重建覆盖文档,与后续 LLM 生
 线程生命周期:plan_node 在 need_plan=True 时创建并 start();finalize/
 runner 结束时 close()。daemon=True,进程退出不阻塞。断点续跑跨进程重启后
 线程不复存在,节点侧需做"无 tracker 则跳过覆盖判定、fail-open 进 grounding"
-的兜底(见 reflect_node)。
+的兜底(见 coverage_check_node)。
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ logger = logging.getLogger("agent")
 # 覆盖文档/判定相关参数
 _DOC_SNIPPET_LEN = 200     # 每条来源片段进入覆盖文档的截断长度
 _DOC_MAX_PER_STEP = 3      # 每个步骤最多挂几条最相关片段
-_JUDGE_TIMEOUT = 25.0      # reflect_node 等待覆盖判定的最长时间(s);LLM 调用本身 20s,留余量给文档重建
+_JUDGE_TIMEOUT = 25.0      # coverage_check_node 等待覆盖判定的最长时间(s);LLM 调用本身 20s,留余量给文档重建
 _STOP_TIMEOUT = 1.0        # close 等待守护线程退出(s)
 
 # 判定 LLM 输出解析:{"covered":[true,false,...],"uncovered_steps":[2],"reason":"..."}
@@ -124,7 +124,7 @@ class CoverageTracker:
     def request_judgment(self, answer: str) -> Optional["_FutureBox"]:
         """请求一次 LLM 覆盖判定(由守护线程执行),返回 FutureBox;无计划返回 None。
 
-        reflect_node 在 grounding 之前调用,并在其上 block 至多 _JUDGE_TIMEOUT。
+        coverage_check_node 在 grounding 之前调用,并在其上 block 至多 _JUDGE_TIMEOUT。
         若上一次判定尚未完成,直接复用其 future(不重复提交)。
         """
         with self._lock:

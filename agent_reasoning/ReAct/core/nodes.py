@@ -838,13 +838,28 @@ def _maybe_coverage_rollback(state: AgentState, config) -> dict | None:
     }
 
 
-def reflect_node(state: AgentState, config) -> dict:
-    """反思回路:grounding 校验从 finalize 前移到此处,形成闭环。
+def coverage_check_node(state: AgentState, config) -> dict:
+    """计划步骤覆盖度判定 + 回退(原 reflect_node 的第①部分,1.2 拆出)。
 
-    在 grounding 之前先做"计划步骤覆盖判定"(由异步 CoverageTracker 维护的
-    覆盖文档 + LLM 判定):若某计划步骤未被已检索资料覆盖且预算未耗尽,回退到
-    该步骤重新检索(rollback),不进入 grounding。覆盖通过后再做原有的
-    引用/忠实度 grounding 校验;任一失败且预算允许则反思重生成。
+    由异步 CoverageTracker 维护的覆盖文档 + LLM 判定:若某计划步骤未被已检索
+    资料覆盖且预算未耗尽,回退到该步骤重新检索(rollback),回到 react 循环。
+    不适用(无计划/非 answer 终态/timeout/max_steps)或判定通过/不可用时返回
+    空 patch,交由后续 grounding_node 处理。
+    """
+    decision = state.get("final_reason") or "answer"
+    full_reply = state.get("full_reply", "")
+    # 仅对"正常作答完成且有计划"的情形判定;timeout/max_steps 无步可退,直接进 grounding。
+    if not (full_reply.strip() and decision == "answer"
+            and (state.get("task_plan") or {}).get("need_plan")):
+        return {}
+    return _maybe_coverage_rollback(state, config) or {}
+
+
+def grounding_node(state: AgentState, config) -> dict:
+    """引用校验 + 忠实度检测 + 反思重生成(原 reflect_node 的第②部分,1.2 拆出)。
+
+    grounding 失败且预算允许时,反思重生成:置 final_reason=None 并写入
+    reflect_feedback,回到 react 循环;否则把 grounding 结果写入 state 进入收尾。
     """
     w = get_stream_writer()
     recorder = _recorder(config)
@@ -854,14 +869,6 @@ def reflect_node(state: AgentState, config) -> dict:
     full_reply = state.get("full_reply", "")
     collected_sources = state.get("collected_sources") or {}
     reflect_count = int(state.get("reflect_count") or 0)
-
-    # ---- ① 计划步骤覆盖判定(grounding 之前)----
-    # 仅对"正常作答完成且仍有余步"的情形判定;timeout/max_steps 无步可退,直接进 grounding。
-    if (full_reply.strip() and decision == "answer"
-            and (state.get("task_plan") or {}).get("need_plan")):
-        rollback_patch = _maybe_coverage_rollback(state, config)
-        if rollback_patch is not None:
-            return rollback_patch
 
     grounding = None
     retrieval_down = bool(state.get("retrieval_down"))
@@ -898,7 +905,7 @@ def reflect_node(state: AgentState, config) -> dict:
             w({"type": "grounding", "trace_id": trace_id, "step": step,
                "passed": False, "warnings": grounding["warnings"]})
 
-    # ---- 是否允许再生成一轮(有界:次数 + 总时长;步数由 agent 的 max_steps 兜底)----
+    # ---- 是否允许再生成一轮(有界:次数 + 总时长;步数由 react 的 max_steps 兜底)----
     can_retry = (
         decision == "answer"
         and grounding is not None and not grounding["passed"]
@@ -934,7 +941,7 @@ def reflect_node(state: AgentState, config) -> dict:
             "reflect_count": reflect_count + 1,
             "reflect_feedback": feedback,
             "grounding": grounding,
-            "final_reason": None,   # 回到 agent 再生成(可继续调工具补检索)
+            "final_reason": None,   # 回到 react 再生成(可继续调工具补检索)
             "full_reply": "",       # 重生成从零累积,避免新旧答案串联
             "messages": [HumanMessage(
                 content=instruction,

@@ -90,7 +90,7 @@ class AgentState(TypedDict, total=False):
       search_count      : 本轮已执行检索工具调用次数(粗粒度计划进度信号,
                           tools_node 累加,build_messages 展示"已检索 N 次")
       coverage_rollbacks: 因计划某步未被检索资料覆盖而回退重检索的次数(有界,
-                          reflect_node 累加,setup 每轮重置)
+                          coverage_check_node 累加,setup 每轮重置)
     """
 
     # ---- 输入主键 ----
