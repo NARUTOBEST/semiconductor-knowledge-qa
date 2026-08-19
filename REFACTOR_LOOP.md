@@ -188,17 +188,17 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 > 这是安全网，必须在 P&E（阶段 5）之前完成。
 
-- [ ] **4.1** 新建 `agent_reasoning/quality_gate.py`：`check(answer, context, tier) -> {verdict, feedback}`，verdict ∈ `passed` / `failed` / `needs_escalation`。
-- [ ] **4.2** 按 tier 实现检查深度：
+- [x] **4.1** 新建 `agent_reasoning/quality_gate.py`：`check(answer, context, tier) -> {verdict, feedback}`，verdict ∈ `passed` / `failed` / `needs_escalation`。
+- [x] **4.2** 按 tier 实现检查深度：
   - simple：安全/格式检查；若答案涉及领域事实内容（启发式：含半导体术语/型号/参数）→ `needs_escalation`
   - medium：调用现有 `grounding_check`（引用 + 忠实度）
   - complex：引用 + 忠实度 + 覆盖度（复用阶段 1.2 拆出的覆盖度检查）
-- [ ] **4.3** 在 runner 包装器中接入质检门：答案产出后、`done` 事件前调用。
+- [x] **4.3** 在 runner 包装器中接入质检门：答案产出后、`done` 事件前调用。
   - `failed`：带 feedback 退回当前路径重做（重做次数有界，建议最多 1 次，复用现有 reflect 机制）
   - `needs_escalation`：升级 tier 重跑（见 4.4）
-- [ ] **4.4** 实现升级链：simple→medium，medium→complex，**最多升级一次**。升级时带上已有对话历史和失败反馈，发 `{"type": "escalation", "from_tier": ..., "to_tier": ...}` 事件，前端据此重置流式输出区。complex 无法再升，质检失败就带警示放行。
-- [ ] **4.5** 质检 LLM 失败时 fail-open 带可见警示（沿用现有 `grounding_check` 异常处理逻辑）。
-- [ ] **4.6** 写测试：`tests/test_quality_gate.py`（三态判定、各 tier 深度）；`tests/test_escalation.py`（simple 领域题升级 medium、medium 多子问题升级 complex、只升一次、升级事件格式）。
+- [x] **4.4** 实现升级链：simple→medium，medium→complex，**最多升级一次**。升级时带上已有对话历史和失败反馈，发 `{"type": "escalation", "from_tier": ..., "to_tier": ...}` 事件，前端据此重置流式输出区。complex 无法再升，质检失败就带警示放行。
+- [x] **4.5** 质检 LLM 失败时 fail-open 带可见警示（沿用现有 `grounding_check` 异常处理逻辑）。
+- [x] **4.6** 写测试：`tests/test_quality_gate.py`（三态判定、各 tier 深度）；`tests/test_escalation.py`（simple 领域题升级 medium、medium 多子问题升级 complex、只升一次、升级事件格式）。
 
 ### 阶段 5：Plan-and-Execute 路径
 

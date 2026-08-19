@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-"""阶段 3.6:服务层按 tier 分发到正确路径,并先发 tier 事件。
+"""阶段 3.6 / 4:服务层按 tier 分发到正确路径,并先发 tier 事件。
 
-打桩 run_simple / run_agent_graph,验证 react_stream:
+打桩 run_simple / run_agent_graph 与 quality_check(质检逻辑在 test_quality_gate/
+test_escalation 单测),验证 react_stream:
   - 先 yield {"type":"tier", ...}
   - simple  -> run_simple
   - medium  -> run_agent_graph
@@ -13,9 +14,18 @@ from unittest.mock import patch, MagicMock
 
 import chat.service as svc
 
+# 桩路径统一产出一条非领域答案 + done,避免 simple 领域启发式触发升级
+_PASSED_GATE = {"verdict": "passed", "feedback": "", "warnings": []}
+_DONE = {"type": "done", "trace": {}}
 
-def _stub_path(events):
-    """返回一个 MagicMock,被调用时返回产出给定事件的生成器。"""
+
+def _stub_path(extra=None):
+    """返回一个 MagicMock,被调用时产出 assistant_message + 给定附加事件 + done。"""
+    events = [{"type": "assistant_message", "content": "好的,我知道了。"}]
+    if extra:
+        events.extend(extra)
+    events.append(_DONE)
+
     def _gen(*a, **k):
         for ev in events:
             yield ev
@@ -27,9 +37,9 @@ class TestTierDispatch:
         with patch.object(svc, "classify_complexity",
                           return_value={"tier": "medium", "confidence": 0.9,
                                         "source": "llm"}), \
-             patch.object(svc, "run_agent_graph",
-                          new=_stub_path([{"type": "done"}])) as rag, \
-             patch.object(svc, "run_simple", new=_stub_path([])) as rs:
+             patch.object(svc, "quality_check", return_value=_PASSED_GATE), \
+             patch.object(svc, "run_agent_graph", new=_stub_path()) as rag, \
+             patch.object(svc, "run_simple", new=_stub_path()) as rs:
             events = list(svc.react_stream("你好", [], thread_id="t1"))
         assert events[0]["type"] == "tier"
         assert events[0]["tier"] == "medium"
@@ -37,15 +47,15 @@ class TestTierDispatch:
         assert events[0]["source"] == "llm"
         rag.assert_called_once()
         rs.assert_not_called()
+        assert events[-1]["type"] == "done"
 
     def test_simple_dispatches_to_run_simple(self):
         with patch.object(svc, "classify_complexity",
                           return_value={"tier": "simple", "confidence": 0.95,
                                         "source": "rule"}), \
-             patch.object(svc, "run_simple",
-                          new=_stub_path([{"type": "assistant_message"},
-                                          {"type": "done"}])) as rs, \
-             patch.object(svc, "run_agent_graph", new=_stub_path([])) as rag:
+             patch.object(svc, "quality_check", return_value=_PASSED_GATE), \
+             patch.object(svc, "run_simple", new=_stub_path()) as rs, \
+             patch.object(svc, "run_agent_graph", new=_stub_path()) as rag:
             events = list(svc.react_stream("你好", [], thread_id="t2",
                                            username="alice", session_id="s2"))
         rs.assert_called_once()
@@ -63,9 +73,9 @@ class TestTierDispatch:
         with patch.object(svc, "classify_complexity",
                           return_value={"tier": "complex", "confidence": 0.85,
                                         "source": "rule"}), \
-             patch.object(svc, "run_agent_graph",
-                          new=_stub_path([{"type": "done"}])) as rag, \
-             patch.object(svc, "run_simple", new=_stub_path([])):
+             patch.object(svc, "quality_check", return_value=_PASSED_GATE), \
+             patch.object(svc, "run_agent_graph", new=_stub_path()) as rag, \
+             patch.object(svc, "run_simple", new=_stub_path()):
             events = list(svc.react_stream("对比 ALD 和 CVD", [],
                                            thread_id="t3"))
         assert events[0]["tier"] == "complex"
@@ -76,12 +86,13 @@ class TestTierDispatch:
 
         def _capture(*a, **k):
             captured.update(k)
-            if False:
-                yield  # 使其成为生成器
+            yield {"type": "assistant_message", "content": "好的"}
+            yield _DONE
 
         with patch.object(svc, "classify_complexity",
                           return_value={"tier": "simple", "confidence": 1.0,
                                         "source": "rule"}), \
+             patch.object(svc, "quality_check", return_value=_PASSED_GATE), \
              patch.object(svc, "run_simple", side_effect=_capture):
             list(svc.react_stream("hi", []))
         assert captured.get("thread_id")  # 非空字符串
