@@ -240,14 +240,19 @@ def run_plan_execute(message: str,
     recorder = TraceRecorder(trace_id, t0, message)
 
     # ---- 必经规划(5.1 / 5.2);失败降级普通 ReAct(5.8)----
+    planner_error = None
+    t_plan_start = time.time()
     try:
         steps, plan_err = generate_plan(message, force=True, trace_id=trace_id)
         if plan_err:
+            planner_error = plan_err
             logger.warning("planner failed, fallback to react: %s", plan_err)
             steps = []
     except Exception as e:
+        planner_error = f"{type(e).__name__}: {e}"
         logger.warning("planner exception, fallback to react: %s", e)
         steps = []
+    planner_duration_ms = int((time.time() - t_plan_start) * 1000)
 
     if not steps:
         # planner 不可用:降级 medium ReAct,不阻断。直接委托 run_agent_graph
@@ -277,6 +282,8 @@ def run_plan_execute(message: str,
         recorder=recorder, trace_id=trace_id, t0=t0,
         thread_id=thread_id, username=username,
         max_total_seconds=max_total_seconds,
+        planner_error=planner_error,
+        planner_duration_ms=planner_duration_ms,
     )
     yield from run_path(
         "plan_execute", event_iterable,

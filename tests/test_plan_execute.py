@@ -183,6 +183,56 @@ class TestPlanExecute:
         # s2,s3 标记为缺失
         assert len(cov["uncovered_steps"]) == 2
 
+    def test_nested_trace_structure(self):
+        """8.3:每步用独立子 recorder,嵌套进 plan_execute.step_results;synthesizer 独立段。"""
+        def _recording_step(answer, tool_name):
+            def _gen(*a, **k):
+                child = k["configurable"]["trace_recorder"]
+                sd = child.new_step(1)
+                child.record_llm(sd, finish_reason="tool_calls",
+                                 usage={"prompt_tokens": 3, "completion_tokens": 2,
+                                        "total_tokens": 5},
+                                 thought="思考", tool_calls=[{"id": "c1", "name": tool_name}])
+                child.record_tool(sd, tool_call_id="c1", name=tool_name,
+                                  args={"q": answer}, ok=True, duration_ms=10,
+                                  result={"hits": [answer]})
+                child.finish_step(sd, "tool_calls", new_sources_count=1)
+                yield {"type": "step_start", "step": 1}
+                return {"full_reply": answer,
+                        "collected_sources": {"d1": {"chunk_id": "d1"}},
+                        "search_count": 1, "final_reason": "answer"}
+            return _gen
+
+        events, recorder, rl = _run_path(
+            ["查 ALD", "查 CVD"],
+            react_factories=[_recording_step("ALD答案", "search"),
+                             _recording_step("CVD答案", "search")],
+        )
+        pe = recorder.plan_execute
+        assert pe is not None
+        assert pe["planned_steps"] == ["查 ALD", "查 CVD"]
+        # planner 段已记录
+        assert pe["planner"] and pe["planner"]["steps"] == ["查 ALD", "查 CVD"]
+        # 每步独立嵌套
+        results = pe["step_results"]
+        assert [r["instruction"] for r in results] == ["查 ALD", "查 CVD"]
+        assert all(not r["missing"] for r in results)
+        # 子步骤的 tool/llm 折叠进了嵌套 steps,且不污染父 recorder.steps
+        assert results[0]["steps"][0]["tools"][0]["name"] == "search"
+        assert results[0]["tokens"]["total"] == 5
+        # 父 steps 不混入子循环记录(只有 synthesizer 也已移走,故为空)
+        assert recorder.steps == []
+        # token 累加进父(每步 5 + synth 9)
+        assert recorder.total_tokens["total"] == 5 + 5 + 9
+        # synthesizer 独立段
+        synth = pe["synthesizer"]
+        assert synth is not None
+        assert synth["answer_len"] > 0
+        assert synth["usage"]["total_tokens"] == 9
+        # to_dict 携带 plan_execute
+        d = recorder.to_dict()
+        assert d["plan_execute"] is pe
+
 
 class TestPlannerDegradation:
     def test_planner_failure_falls_back_to_react(self):

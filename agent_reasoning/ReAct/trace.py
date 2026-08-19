@@ -56,6 +56,15 @@ class TraceRecorder:
         self.final_reason = None       # answer / timeout / max_steps / error
         self.plan = None               # {"steps": [...], "question": ...} 或 None
         self.coverage = None           # {"covered":[...], "uncovered_steps":[...], "reason":...} 或 None
+        # P&E 嵌套结构(仅 complex 路径填充,其它路径为 None):
+        # {"question","planned_steps","planner":{"steps","error","duration_ms"},
+        #  "step_results":[{"index","instruction","missing","retried",
+        #                   "steps":[...子 TraceRecorder.steps...],
+        #                   "tokens":{...},"errors":[...],
+        #                   "answer_preview","sources_count","search_count",
+        #                   "final_reason","elapsed_ms"}],
+        #  "synthesizer":{"answer_preview","usage","error","duration_ms"}|None}
+        self.plan_execute = None
 
     def _elapsed_ms(self):
         return int((time.time() - self.t0) * 1000)
@@ -139,6 +148,75 @@ class TraceRecorder:
         """记录计划步骤覆盖判定(coverage tracker 产出,事后 trace 可见)。"""
         self.coverage = coverage
 
+    # ---- P&E 嵌套结构(complex 路径)----
+    def begin_plan_execute(self, question, planned_steps):
+        """初始化 P&E 嵌套 trace。每个执行步用独立子 TraceRecorder 记录,
+        再通过 :meth:`record_pe_step` 折叠进父 trace,实现步骤隔离(Q3)。
+        """
+        self.plan_execute = {
+            "question": question or "",
+            "planned_steps": list(planned_steps or []),
+            "planner": None,
+            "step_results": [],
+            "synthesizer": None,
+        }
+        return self.plan_execute
+
+    def record_pe_planner(self, *, steps=None, error=None, duration_ms=None):
+        if self.plan_execute is None:
+            return
+        self.plan_execute["planner"] = {
+            "steps": list(steps or []) if steps is not None else None,
+            "error": error,
+            "duration_ms": duration_ms,
+        }
+
+    def record_pe_step(self, index, instruction, child, *,
+                       answer="", sources_count=0, search_count=0,
+                       final_reason=None, missing=False, retried=False,
+                       elapsed_ms=None):
+        """折叠一个 P&E 执行步的子 TraceRecorder 到父 trace,并把 token 用量累加。
+
+        每步用独立子 recorder 记录(步骤间隔离,Q3),完成后把其 steps/errors/tokens
+        复制进父 trace 的嵌套结构。
+        """
+        if self.plan_execute is None:
+            return
+        if child is not None:
+            self.total_tokens["prompt"] += child.total_tokens["prompt"]
+            self.total_tokens["completion"] += child.total_tokens["completion"]
+            self.total_tokens["total"] += child.total_tokens["total"]
+        entry = {
+            "index": index,
+            "instruction": instruction,
+            "missing": bool(missing),
+            "retried": bool(retried),
+            "elapsed_ms": elapsed_ms,
+            "answer_preview": preview(answer),
+            "answer_len": len(answer or ""),
+            "sources_count": sources_count,
+            "search_count": search_count,
+            "final_reason": final_reason,
+            "tokens": dict(child.total_tokens) if child is not None
+                      else {"prompt": 0, "completion": 0, "total": 0},
+            "steps": list(child.steps) if child is not None else [],
+            "errors": list(child.errors) if child is not None else [],
+        }
+        self.plan_execute["step_results"].append(entry)
+        return entry
+
+    def record_pe_synthesizer(self, *, answer="", usage=None, error=None,
+                              duration_ms=None):
+        if self.plan_execute is None:
+            return
+        self.plan_execute["synthesizer"] = {
+            "answer_preview": preview(answer),
+            "answer_len": len(answer or ""),
+            "usage": dict(usage) if usage else None,
+            "error": str(error) if error else None,
+            "duration_ms": duration_ms,
+        }
+
     def record_error(self, step, phase, exc):
         """记录异常(带 traceback 预览)。phase 见 service.py。"""
         # 仅当当前处于 except 上下文中时才取 traceback,
@@ -170,6 +248,7 @@ class TraceRecorder:
             "grounding": self.grounding,
             "plan": self.plan,
             "coverage": self.coverage,
+            "plan_execute": self.plan_execute,
             "errors": list(self.errors),
             "steps": self.steps,
         }

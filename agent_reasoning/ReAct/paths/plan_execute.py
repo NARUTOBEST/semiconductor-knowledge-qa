@@ -60,19 +60,24 @@ def _extract_usage(chunk):
 
 def _run_one_step(step_instruction: str,
                   *,
-                  recorder: TraceRecorder,
+                  parent_recorder: TraceRecorder,
                   trace_id: str,
-                  configurable: dict[str, Any],
+                  configurable_base: dict[str, Any],
                   step_budget: float,
                   started_at: float):
-    """跑一个步骤的 ReAct 子循环,返回 (events, result)。
+    """跑一个步骤的 ReAct 子循环,返回 (events, result, child_recorder)。
 
     result: {"answer", "sources"(list), "search_count", "final_reason"}。
-    步骤间隔离:每次新建独立 state/messages,只回传该步产物,不带入其它步骤上下文。
+    步骤间隔离(Q3):每次新建独立 state/messages,且用独立子 TraceRecorder 记录该步
+    的 tools/llm,完成后由调用方折叠进父 recorder 的嵌套结构,不污染父 steps 列表。
     """
     initial_messages = [SystemMessage(content=SYSTEM_PROMPT)]
     events: list[dict] = []
     final = {}
+
+    child_recorder = TraceRecorder(trace_id, started_at, step_instruction)
+    configurable = dict(configurable_base)
+    configurable["trace_recorder"] = child_recorder
 
     gen = react_loop(
         initial_messages,
@@ -103,7 +108,7 @@ def _run_one_step(step_instruction: str,
         "sources": sources,
         "search_count": int(final.get("search_count") or 0),
         "final_reason": final.get("final_reason"),
-    }
+    }, child_recorder
 
 
 def _step_found_nothing(result: dict) -> bool:
@@ -114,12 +119,13 @@ def _step_found_nothing(result: dict) -> bool:
 def _synthesize(question: str,
                 step_results: list[dict],
                 *,
-                recorder: TraceRecorder,
+                parent_recorder: TraceRecorder,
                 trace_id: str,
                 t0: float):
     """一次 LLM 调用整合各步结果,生成器:yield synthesis_start/token*/assistant_message。
 
-    返回 (answer, usage, error)。synthesizer 失败时由调用方拼接各步结果降级(5.4/5.8)。
+    返回 (answer, usage, error, synth_recorder)。synthesizer 用独立子 recorder 记录
+    (不污染父 steps),token 用量由调用方折叠;失败时由调用方拼接各步结果降级(5.4/5.8)。
     """
     blocks = []
     for i, r in enumerate(step_results, 1):
@@ -138,7 +144,8 @@ def _synthesize(question: str,
     )
     yield {"type": "synthesis_start", "trace_id": trace_id}
 
-    step_doc = recorder.new_step(1)
+    synth_recorder = TraceRecorder(trace_id, t0, "synthesis")
+    step_doc = synth_recorder.new_step(1)
     t_llm = time.time()
     stream, err = llm_create_with_retry(
         get_client(), trace_id=trace_id,
@@ -148,10 +155,10 @@ def _synthesize(question: str,
         temperature=0.3, timeout=STREAM_TIMEOUT,
     )
     if err is not None:
-        err_doc = recorder.record_error(1, "synthesis_create", err)
+        err_doc = synth_recorder.record_error(1, "synthesis_create", err)
         yield {"type": "error_trace", "trace_id": trace_id, **err_doc}
-        recorder.finish_step(step_doc, "error")
-        return "", None, err
+        synth_recorder.finish_step(step_doc, "error")
+        return "", None, err, synth_recorder
 
     content_buf = ""
     usage = None
@@ -171,23 +178,23 @@ def _synthesize(question: str,
             if cu:
                 usage = cu
     except Exception as e:
-        err_doc = recorder.record_error(1, "synthesis_stream", e)
+        err_doc = synth_recorder.record_error(1, "synthesis_stream", e)
         yield {"type": "error_trace", "trace_id": trace_id, **err_doc}
-        recorder.finish_step(step_doc, "error")
-        return content_buf, usage, e
+        synth_recorder.finish_step(step_doc, "error")
+        return content_buf, usage, e, synth_recorder
 
-    recorder.record_llm(
+    synth_recorder.record_llm(
         step_doc, finish_reason=finish_reason, usage=usage,
         thought=content_buf, tool_calls=[],
         stream_duration_ms=int((time.time() - t_llm) * 1000),
     )
     if usage:
         metrics.record_tokens(usage["prompt_tokens"], usage["completion_tokens"])
-    recorder.finish_step(step_doc, "answer")
+    synth_recorder.finish_step(step_doc, "answer")
 
     yield {"type": "assistant_message", "trace_id": trace_id,
            "content": content_buf}
-    return content_buf, usage, None
+    return content_buf, usage, None, synth_recorder
 
 
 def plan_execute_stream(question: str,
@@ -199,7 +206,9 @@ def plan_execute_stream(question: str,
                         t0: float,
                         thread_id: Optional[str] = None,
                         username: Optional[str] = None,
-                        max_total_seconds: int = 60):
+                        max_total_seconds: int = 60,
+                        planner_error: Optional[str] = None,
+                        planner_duration_ms: Optional[int] = None):
     """生成器:执行已规划好的 P&E 步骤并综合作答,yield SSE 事件 dict。
 
     ``steps`` 由调用方(5.1 generate_plan)生成并已判定非空;planner 失败的降级
@@ -207,15 +216,18 @@ def plan_execute_stream(question: str,
     """
     history = history or []
     max_total = int(max_total_seconds) if max_total_seconds is not None else 60
-    configurable: dict[str, Any] = {
+    # 每步用独立子 TraceRecorder(在 _run_one_step 内注入),base 不带父 recorder;
+    # 5.7:P&E 不挂 CoverageTracker;覆盖度由步骤 missing 列表结构性保证
+    configurable_base: dict[str, Any] = {
         "thread_id": thread_id,
         "user_id": username,
-        "trace_recorder": recorder,
-        # 5.7:P&E 不挂 CoverageTracker;覆盖度由步骤 missing 列表结构性保证
     }
 
     # 计划开始事件(planner 已在 runner 层跑过,这里补发 plan 事件给前端)
     recorder.record_plan(steps, question)
+    recorder.begin_plan_execute(question, steps)
+    recorder.record_pe_planner(steps=steps, error=planner_error,
+                               duration_ms=planner_duration_ms)
     yield {"type": "plan", "trace_id": trace_id, "steps": steps, "question": question}
 
     step_results: list[dict] = []
@@ -230,6 +242,10 @@ def plan_execute_stream(question: str,
             for later in steps[idx - 1:]:
                 step_results.append({"instruction": later, "answer": "",
                                      "sources": [], "missing": True})
+                recorder.record_pe_step(
+                    idx, later, None, missing=True, retried=False,
+                    elapsed_ms=0,
+                )
             break
 
         step_budget = min(_STEP_BUDGET, remaining - _SYNTH_RESERVE)
@@ -237,17 +253,19 @@ def plan_execute_stream(question: str,
                "message": f"执行计划第 {idx}/{len(steps)} 步:{instruction}"}
 
         step_start = time.time()
-        events, result = _run_one_step(
-            instruction, recorder=recorder, trace_id=trace_id,
-            configurable=configurable, step_budget=step_budget,
+        events, result, child = _run_one_step(
+            instruction, parent_recorder=recorder, trace_id=trace_id,
+            configurable_base=configurable_base, step_budget=step_budget,
             started_at=step_start,
         )
         for ev in events:
             yield ev
 
         missing = False
+        retried = False
         # 5.3 搜不到结果 -> 换词重试 1 次
         if _step_found_nothing(result):
+            retried = True
             yield {"type": "status", "trace_id": trace_id,
                    "message": f"第 {idx} 步未检索到结果,更换关键词重试…"}
             retry_instruction = (f"{instruction}(上一次未找到资料,"
@@ -255,9 +273,9 @@ def plan_execute_stream(question: str,
             retry_start = time.time()
             retry_budget = min(_STEP_BUDGET,
                                max_total - (time.time() - t0) - _SYNTH_RESERVE)
-            _, result = _run_one_step(
-                retry_instruction, recorder=recorder, trace_id=trace_id,
-                configurable=configurable, step_budget=max(retry_budget, 5),
+            _, result, child = _run_one_step(
+                retry_instruction, parent_recorder=recorder, trace_id=trace_id,
+                configurable_base=configurable_base, step_budget=max(retry_budget, 5),
                 started_at=retry_start,
             )
             if _step_found_nothing(result):
@@ -269,13 +287,25 @@ def plan_execute_stream(question: str,
         result["missing"] = missing
         step_results.append(result)
         all_sources.extend(result["sources"])
+        # 折叠该步子 recorder 进父 trace 的嵌套结构(含 token 累加)
+        recorder.record_pe_step(
+            idx, instruction, child,
+            answer=result["answer"],
+            sources_count=len(result["sources"]),
+            search_count=result["search_count"],
+            final_reason=result["final_reason"],
+            missing=missing, retried=retried,
+            elapsed_ms=int((time.time() - step_start) * 1000),
+        )
 
     # ---- synthesizer(5.4)----
     synth_gen = _synthesize(question, step_results,
-                            recorder=recorder, trace_id=trace_id, t0=t0)
+                            parent_recorder=recorder, trace_id=trace_id, t0=t0)
     answer = ""
     usage = None
     synth_err = None
+    synth_recorder = None
+    synth_start = time.time()
     try:
         while True:
             ev = next(synth_gen)
@@ -283,7 +313,17 @@ def plan_execute_stream(question: str,
                 answer = ev.get("content", "")
             yield ev
     except StopIteration as stop:
-        answer, usage, synth_err = stop.value  # type: ignore[misc]
+        answer, usage, synth_err, synth_recorder = stop.value  # type: ignore[misc]
+
+    # 折叠 synthesizer 子 recorder 的 token 到父,并记录嵌套 synthesizer 段
+    if synth_recorder is not None:
+        recorder.total_tokens["prompt"] += synth_recorder.total_tokens["prompt"]
+        recorder.total_tokens["completion"] += synth_recorder.total_tokens["completion"]
+        recorder.total_tokens["total"] += synth_recorder.total_tokens["total"]
+    recorder.record_pe_synthesizer(
+        answer=answer, usage=usage, error=synth_err,
+        duration_ms=int((time.time() - synth_start) * 1000),
+    )
 
     # 5.8 synthesizer 失败 -> 拼接各步结果降级返回
     if synth_err is not None or not answer.strip():
