@@ -177,12 +177,12 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 3：复杂度路由器
 
-- [ ] **3.1** 新建 `agent_reasoning/router.py`：`classify_complexity(question, history) -> {tier, confidence}`，用 `config.TIER_MODEL_SIMPLE`（lite 模型）做一次短调用，prompt 只输出 `simple`/`medium`/`complex`，超时 5-10s，失败默认 medium。
-- [ ] **3.2** 分类 prompt 设计：simple 仅限闲聊/元问题/明确不需要领域知识；**领域事实题哪怕很短也走 medium**；complex 为多子问题、多维度对比、含"对比/分别/优缺点/流程/步骤/综合"等特征。参考现有 `_COMPLEX_MARKERS` 和 `_looks_complex` 逻辑。
-- [ ] **3.3** 置信度阈值：LLM 输出解析不出或置信度低时兜底 `medium`。加规则预筛：纯问候/超短无领域术语可直接判 simple，省一次调用（可选优化）。
-- [ ] **3.4** `server/chat/service.py` 的 `react_stream` 改为：先调路由器 → 按 tier 分发到 simple / react / P&E 路径。thread_id/username/session_id 透传。
-- [ ] **3.5** 流开始时发 `{"type": "tier", "tier": "simple|medium|complex"}` 事件，告知前端。
-- [ ] **3.6** 写测试：`tests/test_router.py`，mock LLM 输出，验证三分类、解析失败兜底 medium、低置信度兜底 medium；`tests/test_routing.py` 验证分发到正确路径。
+- [x] **3.1** 新建 `agent_reasoning/router.py`：`classify_complexity(question, history) -> {tier, confidence}`，用 `config.TIER_MODEL_SIMPLE`（lite 模型）做一次短调用，prompt 只输出 `simple`/`medium`/`complex`，超时 5-10s，失败默认 medium。
+- [x] **3.2** 分类 prompt 设计：simple 仅限闲聊/元问题/明确不需要领域知识；**领域事实题哪怕很短也走 medium**；complex 为多子问题、多维度对比、含"对比/分别/优缺点/流程/步骤/综合"等特征。参考现有 `_COMPLEX_MARKERS` 和 `_looks_complex` 逻辑。
+- [x] **3.3** 置信度阈值：LLM 输出解析不出或置信度低时兜底 `medium`。加规则预筛：纯问候/超短无领域术语可直接判 simple，省一次调用（可选优化）。
+- [x] **3.4** `server/chat/service.py` 的 `react_stream` 改为：先调路由器 → 按 tier 分发到 simple / react / P&E 路径。thread_id/username/session_id 透传。
+- [x] **3.5** 流开始时发 `{"type": "tier", "tier": "simple|medium|complex"}` 事件，告知前端。
+- [x] **3.6** 写测试：`tests/test_router.py`，mock LLM 输出，验证三分类、解析失败兜底 medium、低置信度兜底 medium；`tests/test_routing.py` 验证分发到正确路径。
 
 ### 阶段 4：共享质检门 + 升级通道
 

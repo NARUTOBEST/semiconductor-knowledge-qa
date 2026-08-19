@@ -116,6 +116,10 @@ def _isolated_deps():
         patch.object(runner, "after_stream", lambda *a, **k: None),
         patch.object(_se.short_term, "append_event", lambda *a, **k: None),
         patch.object(_short, "append_event", lambda *a, **k: None),
+        # 阶段 3:react_stream 现先做复杂度路由;固定走 medium ReAct,避免真实 LLM 分类
+        patch.object(svc, "classify_complexity",
+                     return_value={"tier": "medium", "confidence": 1.0,
+                                   "source": "rule"}),
     ]
     for p in node_patches + runner_patches:
         p.start()
@@ -142,8 +146,9 @@ class TestAnswerOnlyTrace:
 
         order, by_type = _collect(events)
 
-        # 关键事件顺序
-        assert order[0] == "status"
+        # 关键事件顺序(阶段 3:首个事件为 tier,随后才是 status)
+        assert order[0] == "tier"
+        assert "status" in order
         assert "step_start" in order
         assert "llm_response" in order
         assert "step_end" in order

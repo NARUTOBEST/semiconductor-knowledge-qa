@@ -66,6 +66,11 @@ TIER_MODEL_SIMPLE  = os.getenv("TIER_MODEL_SIMPLE", "") or "doubao-seed-2.0-lite
 TIER_MODEL_MEDIUM  = os.getenv("TIER_MODEL_MEDIUM", "") or OPENAI_TEXT_MODEL         # medium ReAct
 TIER_MODEL_COMPLEX = os.getenv("TIER_MODEL_COMPLEX", "") or OPENAI_TEXT_MODEL        # complex Plan-and-Execute
 
+# ---- 复杂度路由器(阶段 3)----
+ROUTER_TIMEOUT          = float(os.getenv("ROUTER_TIMEOUT", "8"))        # 分类 LLM 调用超时(s)
+ROUTER_CONFIDENCE_MIN   = float(os.getenv("ROUTER_CONFIDENCE_MIN", "0.6"))  # 低于此置信度兜底 medium
+ROUTER_SHORT_LEN        = int(os.getenv("ROUTER_SHORT_LEN", "6"))        # 不超过该长度且无领域术语/复杂特征 -> 规则预筛 simple
+
 # 在线多模态 (vLLM 实例 2: Qwen2.5-VL-7B-Instruct-AWQ, 端口 8001)
 OPENAI_VL_BASE_URL   = os.getenv("OPENAI_VL_BASE_URL", OPENAI_BASE_URL)   # 多模态 API 基础地址
 OPENAI_VL_API_KEY    = os.getenv("OPENAI_VL_API_KEY", OPENAI_API_KEY)     # 多模态 API 密钥
