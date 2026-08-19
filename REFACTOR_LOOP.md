@@ -258,10 +258,10 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 10：最终验证
 
-- [ ] **10.1** 全量测试通过。
+- [x] **10.1** 全量测试通过。
 - [ ] **10.2** 启动完整服务（`启动配置/run_agent.ps1`），手动验证：闲聊走 simple 且快、领域问题走 medium、多步对比走 complex、分错时能升级。
 - [ ] **10.3** 检查日志无异常、metrics 端点正常、健康检查正常。
-- [ ] **10.4** 更新 `TESTING.md` 和 `SESSION_HANDOFF.md`（或新建 `README.md`）记录新架构。
+- [x] **10.4** 更新 `TESTING.md` 和 `SESSION_HANDOFF.md`（或新建 `README.md`）记录新架构。
 
 ---
 
