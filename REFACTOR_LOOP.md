@@ -153,8 +153,8 @@ START → setup → recall → rewrite → plan → build_messages → agent
 ### 阶段 0：环境与基线
 
 - [x] **0.1** 修复环境：安装缺失的 `typing_extensions`；把它加入 `requirements.txt`（langchain-core 的依赖，应显式锁定）。验证 `python -m pytest -p no:langsmith` 能正常收集并全绿（基线 132+ passed）。
-- [ ] **0.2** `git init`，配置 `.gitignore`（已存在，确认覆盖新产物），首次提交当前代码作为基线。
-- [ ] **0.3** 更新 `TESTING.md`：同步实际测试文件数（当前 17 个）和用例数；修正文档中过时的路径描述。
+- [x] **0.2** `git init`，配置 `.gitignore`（已存在，确认覆盖新产物），首次提交当前代码作为基线。
+- [x] **0.3** 更新 `TESTING.md`：同步实际测试文件数（当前 17 个）和用例数；修正文档中过时的路径描述。
 
 ### 阶段 1：重构准备 — 抽取可复用核心
 
