@@ -18,10 +18,10 @@ from __future__ import annotations
 import uuid
 from typing import Callable, Optional
 
-# ---- 新版 ReAct 实现(已独立到顶层包 agent_reasoning.ReAct)----
-from agent_reasoning.ReAct.support.runner import (
-    run_agent_graph, run_simple, run_plan_execute,
-)
+# ---- 新版三级范式实现(按范式分包:ReAct 为 medium,另有 simple/PE)----
+from agent_reasoning.ReAct.support.runner import run_agent_graph
+from agent_reasoning.simple import run_simple
+from agent_reasoning.PE import run_plan_execute
 from agent_reasoning.ReAct.support.llm import get_client, llm_create_with_retry, LLM_RETRIES
 from agent_reasoning.ReAct.support.answer_grounding import (
     verify_citations,

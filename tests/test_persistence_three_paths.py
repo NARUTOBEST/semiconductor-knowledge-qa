@@ -12,9 +12,14 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from agent_reasoning.ReAct.support import runner as runner_mod  # noqa: E402
+import agent_reasoning.simple.runner as simple_runner  # noqa: E402
+import agent_reasoning.simple.stream as simple_stream  # noqa: E402
+import agent_reasoning.PE.runner as pe_runner  # noqa: E402
 
 
 def _patch_common(monkeypatch, *, persisted, promoted):
+    # persist_event/after_stream 在 runner_mod 中被 run_path 以模块全局名调用,
+    # 三条路径都复用同一个 run_path,patch runner_mod 即可全部命中。
     monkeypatch.setattr(runner_mod, "persist_event",
                         lambda ev, **kw: persisted.append(ev))
     monkeypatch.setattr(runner_mod, "after_stream",
@@ -32,7 +37,6 @@ def _patch_common(monkeypatch, *, persisted, promoted):
 # ---------------- simple ----------------
 def test_simple_path_persists_and_promotes(monkeypatch):
     import types as _types
-    from agent_reasoning.ReAct.paths import simple as simple_mod
 
     class _Delta:
         def __init__(self, content):
@@ -56,15 +60,15 @@ def test_simple_path_persists_and_promotes(monkeypatch):
             yield _Chunk(None, finish="stop", usage=True)
         return _g(), None
 
-    monkeypatch.setattr(simple_mod, "llm_create_with_retry", _fake_llm)
+    monkeypatch.setattr(simple_stream, "llm_create_with_retry", _fake_llm)
     import memories.storage.long as long_mod
     monkeypatch.setattr(long_mod, "recall_memories", lambda *a, **k: [])
 
     persisted, promoted = [], []
     user_msgs = _patch_common(monkeypatch, persisted=persisted, promoted=promoted)
 
-    evs = list(runner_mod.run_simple("你好", history=[],
-                                     thread_id="t1", username="alice", session_id="s1"))
+    evs = list(simple_runner.run_simple("你好", history=[],
+                                        thread_id="t1", username="alice", session_id="s1"))
 
     types = [e["type"] for e in evs]
     assert types[-1] == "done"
@@ -120,7 +124,7 @@ def test_plan_execute_path_persists_and_promotes(monkeypatch):
     persisted, promoted = [], []
     user_msgs = _patch_common(monkeypatch, persisted=persisted, promoted=promoted)
 
-    monkeypatch.setattr(runner_mod, "generate_plan",
+    monkeypatch.setattr(pe_runner, "generate_plan",
                         lambda *a, **k: (["查 ALD", "查 CVD"], None))
 
     def _fake_pe_stream(*a, **k):
@@ -128,11 +132,12 @@ def test_plan_execute_path_persists_and_promotes(monkeypatch):
         yield {"type": "assistant_message", "content": "综合答案"}
         yield {"type": "done", "trace": {}}
 
-    monkeypatch.setattr(runner_mod, "plan_execute_stream", _fake_pe_stream)
+    # PE.runner 用 `from .plan_execute import plan_execute_stream` 引入到本命名空间
+    monkeypatch.setattr(pe_runner, "plan_execute_stream", _fake_pe_stream)
 
-    evs = list(runner_mod.run_plan_execute("对比 ALD 和 CVD", history=[],
-                                           thread_id="t3", username="carol",
-                                           session_id="s3"))
+    evs = list(pe_runner.run_plan_execute("对比 ALD 和 CVD", history=[],
+                                          thread_id="t3", username="carol",
+                                          session_id="s3"))
 
     types = [e["type"] for e in evs]
     assert "plan" in types
@@ -148,7 +153,7 @@ def test_plan_execute_path_persists_and_promotes(monkeypatch):
 def test_all_paths_promote_even_on_exception(monkeypatch):
     for path_name, runner_fn in [
         ("react", runner_mod.run_agent_graph),
-        ("plan_execute", runner_mod.run_plan_execute),
+        ("plan_execute", pe_runner.run_plan_execute),
     ]:
         persisted, promoted = [], []
         _patch_common(monkeypatch, persisted=persisted, promoted=promoted)
@@ -172,14 +177,14 @@ def test_all_paths_promote_even_on_exception(monkeypatch):
             monkeypatch.setattr(runner_mod, "working_saver",
                                 lambda: _CtxManager())
         else:
-            monkeypatch.setattr(runner_mod, "generate_plan",
+            monkeypatch.setattr(pe_runner, "generate_plan",
                                 lambda *a, **k: (["s1"], None))
 
             def _boom_pe(*a, **k):
                 yield {"type": "plan", "steps": ["s1"]}
                 raise RuntimeError("pe boom")
 
-            monkeypatch.setattr(runner_mod, "plan_execute_stream", _boom_pe)
+            monkeypatch.setattr(pe_runner, "plan_execute_stream", _boom_pe)
 
         evs = list(runner_fn("q", history=[], thread_id="tX", username="u"))
         # run_path 在内部流异常时补发 error 事件(done 由 HTTP 层补),不向上抛

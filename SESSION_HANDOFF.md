@@ -40,9 +40,9 @@ done(含结构化 trace)
 | `agent_reasoning/quality_gate.py` | `check()`：按 tier 深浅返回 `passed/failed/needs_escalation`；复用 medium 图已算好的 grounding，避免重复 LLM |
 | `server/chat/service.py` | `react_stream()`：路由→分发→扣留 `done`→质检→重做/升级；按 tier 取 `TIER_CONFIG` 预算 |
 | `server/chat/router.py` | HTTP `/api/chat` → SSE；观测 `tier/escalation/grounding` 事件写 per-tier metrics |
-| `agent_reasoning/ReAct/support/runner.py` | `run_path()` 通用包装器：短期流水落库 + `on_event` + 异常兜底 + `finally` 触发 `after_stream`；三个入口 `run_simple/run_agent_graph/run_plan_execute` |
-| `agent_reasoning/ReAct/paths/simple.py` | simple 路径：一次 LLM 调用，不绑工具，保留 recall，跳过 rewrite |
-| `agent_reasoning/ReAct/paths/plan_execute.py` | complex P&E：planner→逐步隔离 `react_loop`（缺资料换词重试 1 次）→synthesizer→grounding；每步独立子 `TraceRecorder` |
+| `agent_reasoning/ReAct/support/runner.py` | `run_path()` 通用包装器：短期流水落库 + `on_event` + 异常兜底 + `finally` 触发 `after_stream`；以及 medium 入口 `run_agent_graph` |
+| `agent_reasoning/simple/`（`stream.py`+`runner.py`） | simple 范式：一次 LLM 调用，不绑工具，保留 recall，跳过 rewrite；入口 `run_simple` |
+| `agent_reasoning/PE/`（`plan_execute.py`+`runner.py`） | complex P&E 范式：planner→逐步隔离 `react_loop`（缺资料换词重试 1 次）→synthesizer→grounding；每步独立子 `TraceRecorder`；入口 `run_plan_execute` |
 | `agent_reasoning/ReAct/support/planning.py` | `generate_plan(force=…)` 共享规划，返回 `(steps, error)`；medium 条件触发、complex force=True |
 | `agent_reasoning/ReAct/trace.py` | `TraceRecorder`；P&E 嵌套结构 `plan_execute{planner, step_results[], synthesizer}` |
 | `server/support/metrics.py` | 内存指标；新增 `record_tier_result/record_escalation`，`get_stats()["by_tier"]` 含请求量/错误率/升级数/延迟 p50/p95/grounding 通过率/token |

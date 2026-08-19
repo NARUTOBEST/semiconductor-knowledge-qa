@@ -18,9 +18,9 @@ from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from agent_reasoning.ReAct.paths import plan_execute as pe_mod
+from agent_reasoning.PE import plan_execute as pe_mod
 from agent_reasoning.ReAct.trace import TraceRecorder
-import agent_reasoning.ReAct.support.runner as runner_mod
+import agent_reasoning.PE.runner as runner_mod
 
 
 def _fake_step(answer="该步答案", sources=None, found=True):
@@ -245,12 +245,13 @@ class TestPlannerDegradation:
             yield {"type": "done", "trace": {}}
 
         from memories.storage.short import short_term as _st
+        import agent_reasoning.ReAct.support.runner as react_runner
         with patch.object(runner_mod, "generate_plan",
                           return_value=([], "planner down")), \
              patch.object(runner_mod, "run_agent_graph", side_effect=_fake_react), \
              patch.object(_st, "append_event", lambda *a, **k: None), \
-             patch.object(runner_mod, "after_stream", lambda *a, **k: None), \
-             patch.object(runner_mod, "persist_event", lambda *a, **k: None):
+             patch.object(react_runner, "after_stream", lambda *a, **k: None), \
+             patch.object(react_runner, "persist_event", lambda *a, **k: None):
             events = list(runner_mod.run_plan_execute(
                 "复杂问题", [], thread_id="t1"))
         assert called["react"] is True

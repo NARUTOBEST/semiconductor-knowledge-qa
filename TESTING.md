@@ -48,7 +48,7 @@ python -m pytest -v --tb=long
 | `test_query_rewrite.py` | 13 | `context management/query_rewrite.py` | LLM 查询改写成功/回退/历史处理/markdown 清洗等 |
 | `test_trace.py` | 12 | `agent_reasoning/ReAct/trace.py`、`support/runner.py` | ReAct 结构化事件(step_start/tool_call/tool_result/grounding/error/done)与完整 trace |
 | `test_ratelimit.py` | 10 | `server/support/ratelimit.py` | 单用户限流、全局限流、并发模拟、release_all |
-| `test_plan_execute.py` | 10 | `ReAct/paths/plan_execute.py` | complex P&E:多步顺序、步骤隔离、缺失重试、synthesizer、预算截断、planner 降级、嵌套 trace |
+| `test_plan_execute.py` | 10 | `agent_reasoning/PE/` | complex P&E:多步顺序、步骤隔离、缺失重试、synthesizer、预算截断、planner 降级、嵌套 trace |
 | `test_agent_graph_stream.py` | 9 | `agent_reasoning/ReAct/core/` | 图流式执行、节点序列、状态流转 |
 | `test_context_management.py` | 8 | `context management/` | 工具结果截断：错误透传、长文本截断并保留元数据、短文本不截断 |
 | `test_escalation.py` | 7 | `server/chat/service.py` | 升级链:simple→medium→complex、最多一次、complex 不可升、失败重做、异常跳过质检 |
@@ -62,7 +62,7 @@ python -m pytest -v --tb=long
 | `test_persistence_three_paths.py` | 4 | `support/runner.py` | 三条路径都落短期流水 + 触发 after_stream(含异常路径) |
 | `test_migrate.py` | 4 | `memories/db/migrate.py` | DB 迁移脚本 |
 | `test_tier_flags.py` | 3 | `support/plan_grounding.py` 等 | tier 相关开关 |
-| `test_simple_path.py` | 3 | `ReAct/paths/simple.py` | simple 单轮直答:无工具、lite 模型、流水/升迁 |
+| `test_simple_path.py` | 3 | `agent_reasoning/simple/` | simple 单轮直答:无工具、lite 模型、流水/升迁 |
 | `test_runner_wrapper.py` | 3 | `support/runner.py` | run_path 通用包装器:透传/落库/升迁/异常兜底 |
 | `test_working_saver_fallback.py` | 2 | `memories/storage/working/` | PG checkpoint 不可用时回退内存 saver |
 | `test_working_memory.py` | 0 | `tests/checkpoint_demo_graph.py` | **手动集成脚本**，见下文，不参与自动收集 |

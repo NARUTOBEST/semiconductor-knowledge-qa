@@ -16,8 +16,9 @@ import types
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from agent_reasoning.ReAct.paths import simple as simple_mod  # noqa: E402
-from agent_reasoning.ReAct.paths.simple import simple_answer_stream  # noqa: E402
+from agent_reasoning.simple import stream as simple_mod  # noqa: E402
+from agent_reasoning.simple.stream import simple_answer_stream  # noqa: E402
+from agent_reasoning.simple import runner as simple_runner  # noqa: E402
 from agent_reasoning.ReAct.support import runner as runner_mod  # noqa: E402
 from agent_reasoning.ReAct.trace import TraceRecorder  # noqa: E402
 
@@ -108,7 +109,7 @@ def test_run_simple_persists_events_and_recalls(monkeypatch):
                         lambda tid, etype, payload, **k: user_msg_seen.append(etype),
                         raising=False)
 
-    evs = list(runner_mod.run_simple(
+    evs = list(simple_runner.run_simple(
         "你好", history=[],
         thread_id="t1", username="alice", session_id="s1",
     ))
@@ -141,7 +142,7 @@ def test_run_simple_llm_error_emits_error_and_still_promotes(monkeypatch):
     monkeypatch.setattr(short_mod.short_term, "append_event",
                         lambda *a, **k: None, raising=False)
 
-    evs = list(runner_mod.run_simple("x", thread_id="t", username=None))
+    evs = list(simple_runner.run_simple("x", thread_id="t", username=None))
     types = [e["type"] for e in evs]
     assert "error" in types
     assert "boom" in next(e["message"] for e in evs if e["type"] == "error")

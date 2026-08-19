@@ -30,12 +30,13 @@ from langchain_core.messages import SystemMessage
 import config as C  # noqa: E402
 from support.metrics import metrics  # noqa: E402
 from system_prompt import SYSTEM_PROMPT  # noqa: E402
-from ..core.loop import react_loop  # noqa: E402
-from ..support.llm import get_client, llm_create_with_retry, STREAM_TIMEOUT  # noqa: E402
-from ..support.answer_grounding import grounding_check  # noqa: E402
-from ..support.planning import generate_plan  # noqa: E402
-from ..trace import TraceRecorder  # noqa: E402
-from ..utils.events import meta_event  # noqa: E402
+from agent_reasoning.ReAct.core.loop import react_loop  # noqa: E402
+from agent_reasoning.ReAct.support.llm import (  # noqa: E402
+    get_client, llm_create_with_retry, STREAM_TIMEOUT,
+)
+from agent_reasoning.ReAct.support.answer_grounding import grounding_check  # noqa: E402
+from agent_reasoning.ReAct.trace import TraceRecorder  # noqa: E402
+from agent_reasoning.ReAct.utils.events import meta_event  # noqa: E402
 
 logger = logging.getLogger("agent")
 
