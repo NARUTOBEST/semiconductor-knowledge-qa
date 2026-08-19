@@ -35,6 +35,15 @@ class Metrics:
         self._grounding_failed = 0
         self._tokens = {"prompt": 0, "completion": 0, "total": 0}
         self._per_user = defaultdict(int)
+        # 按推理范式(simple/medium/complex)分维度统计(阶段 8.4)
+        self._tier_count = defaultdict(int)
+        self._tier_escalations = defaultdict(int)   # 该 tier 被升级离开的次数
+        self._tier_errors = defaultdict(int)
+        self._tier_latencies = defaultdict(list)    # 每 tier 延迟 ms(最近 1000)
+        self._tier_grounding_passed = defaultdict(int)
+        self._tier_grounding_failed = defaultdict(int)
+        self._tier_tokens = defaultdict(lambda: {"prompt": 0, "completion": 0, "total": 0})
+        self._escalations_total = 0
 
     def record_request(self, username, latency_ms, error=False):
         with self._lock:
@@ -72,6 +81,43 @@ class Metrics:
             self._tokens["prompt"] += prompt
             self._tokens["completion"] += completion
             self._tokens["total"] += prompt + completion
+
+    def record_escalation(self, from_tier, to_tier):
+        """一次范式升级(simple->medium / medium->complex)。"""
+        with self._lock:
+            self._escalations_total += 1
+            if from_tier:
+                self._tier_escalations[from_tier] += 1
+
+    def record_tier_result(self, tier, latency_ms, *, error=False,
+                           escalated=False, grounding_passed=None,
+                           tokens=None):
+        """一次请求结束时按最终范式记账(阶段 8.4)。
+
+        :param tier: 最终产出答案的范式(simple/medium/complex)
+        :param latency_ms: 整条请求耗时
+        :param error: 是否出错
+        :param escalated: 本次请求是否经历过升级
+        :param grounding_passed: 最终答案 grounding 是否通过(None 表示未做)
+        :param tokens: 整条请求的 token 用量 dict(prompt/completion/total)
+        """
+        with self._lock:
+            self._tier_count[tier] += 1
+            if error:
+                self._tier_errors[tier] += 1
+            lats = self._tier_latencies[tier]
+            lats.append(latency_ms)
+            if len(lats) > 1000:
+                del lats[:-1000]
+            if grounding_passed is True:
+                self._tier_grounding_passed[tier] += 1
+            elif grounding_passed is False:
+                self._tier_grounding_failed[tier] += 1
+            if tokens:
+                tt = self._tier_tokens[tier]
+                tt["prompt"] += int(tokens.get("prompt", 0) or 0)
+                tt["completion"] += int(tokens.get("completion", 0) or 0)
+                tt["total"] += int(tokens.get("total", 0) or 0)
 
     def get_stats(self):
         with self._lock:
@@ -120,7 +166,46 @@ class Metrics:
                 },
                 "tokens": dict(self._tokens),
                 "per_user": dict(self._per_user),
+                "escalations_total": self._escalations_total,
+                "escalation_rate": round(
+                    self._escalations_total / self._requests, 4
+                ) if self._requests else 0,
+                "by_tier": self._tier_stats(),
             }
+
+    def _percentile(self, sorted_vals, q):
+        n = len(sorted_vals)
+        if not n:
+            return 0
+        return sorted_vals[min(n - 1, int(n * q))]
+
+    def _tier_stats(self):
+        out = {}
+        for tier in self._tier_count:
+            lats = sorted(self._tier_latencies[tier])
+            n = len(lats)
+            g_pass = self._tier_grounding_passed[tier]
+            g_fail = self._tier_grounding_failed[tier]
+            g_total = g_pass + g_fail
+            count = self._tier_count[tier]
+            out[tier] = {
+                "requests": count,
+                "errors": self._tier_errors[tier],
+                "error_rate": round(self._tier_errors[tier] / count, 4) if count else 0,
+                "escalations_from": self._tier_escalations[tier],
+                "latency_ms": {
+                    "avg": round(sum(lats) / n) if n else 0,
+                    "p50": self._percentile(lats, 0.50),
+                    "p95": self._percentile(lats, 0.95),
+                },
+                "grounding": {
+                    "passed": g_pass,
+                    "failed": g_fail,
+                    "pass_rate": round(g_pass / g_total, 4) if g_total else 0,
+                },
+                "tokens": dict(self._tier_tokens[tier]),
+            }
+        return out
 
 
 # 全局单例

@@ -45,6 +45,11 @@ async def api_chat(req: ChatRequest, user=Depends(get_current_user)):
         t_start = time.time()
         had_error = False
         acquired = False
+        # 按范式分维度记账所需状态(阶段 8.4)
+        cur_tier = None            # 当前正在产出的 tier
+        final_tier = None          # 最终产出答案的 tier
+        escalated = False
+        grounding_passed = None    # 最近一次 grounding 结果(最终答案的)
         try:
             try:
                 acquire_user_slot(username)
@@ -65,8 +70,18 @@ async def api_chat(req: ChatRequest, user=Depends(get_current_user)):
                                    thread_id=thread_id,
                                    username=username,
                                    session_id=session_id):
-                if ev.get("type") == "error":
+                etype = ev.get("type")
+                if etype == "error":
                     had_error = True
+                elif etype == "tier":
+                    cur_tier = ev.get("tier")
+                    final_tier = cur_tier
+                elif etype == "escalation":
+                    escalated = True
+                    metrics.record_escalation(ev.get("from_tier", ""),
+                                              ev.get("to_tier", ""))
+                elif etype == "grounding":
+                    grounding_passed = bool(ev.get("passed"))
                 yield f"data: {json.dumps(ev, ensure_ascii=False)}\n\n"
         except Exception:
             had_error = True
@@ -76,6 +91,11 @@ async def api_chat(req: ChatRequest, user=Depends(get_current_user)):
         finally:
             latency_ms = int((time.time() - t_start) * 1000)
             metrics.record_request(username, latency_ms, error=had_error)
+            if final_tier:
+                metrics.record_tier_result(
+                    final_tier, latency_ms, error=had_error,
+                    escalated=escalated, grounding_passed=grounding_passed,
+                )
             if acquired:
                 release_all(username)
 
