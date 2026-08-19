@@ -75,6 +75,7 @@ class TestEscalation:
              patch.object(svc, "quality_check",
                           _gate(["needs_escalation", "passed"])), \
              patch.object(svc, "run_agent_graph", _path_stub(calls=calls)), \
+             patch.object(svc, "run_plan_execute", _path_stub(calls=calls)), \
              patch.object(svc, "run_simple", _path_stub()):
             events = list(svc.react_stream("对比 ALD 和 CVD 的优缺点", [],
                                            thread_id="t"))
@@ -110,7 +111,7 @@ class TestEscalation:
                           return_value={"tier": "complex", "confidence": 0.9,
                                         "source": "rule"}), \
              patch.object(svc, "quality_check", gate), \
-             patch.object(svc, "run_agent_graph", _path_stub(calls=calls)):
+             patch.object(svc, "run_plan_execute", _path_stub(calls=calls)):
             events = list(svc.react_stream("综合分析 ALD 工艺", [],
                                            thread_id="t"))
         assert len(calls) == 1   # 没有升级,也没有重做(verdict 不是 failed)

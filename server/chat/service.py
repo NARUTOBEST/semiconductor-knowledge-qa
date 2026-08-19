@@ -19,7 +19,9 @@ import uuid
 from typing import Callable, Optional
 
 # ---- 新版 ReAct 实现(已独立到顶层包 agent_reasoning.ReAct)----
-from agent_reasoning.ReAct.support.runner import run_agent_graph, run_simple
+from agent_reasoning.ReAct.support.runner import (
+    run_agent_graph, run_simple, run_plan_execute,
+)
 from agent_reasoning.ReAct.support.llm import get_client, llm_create_with_retry, LLM_RETRIES
 from agent_reasoning.ReAct.support.answer_grounding import (
     verify_citations,
@@ -53,10 +55,12 @@ def _run_tier(tier: str,
               **kwargs):
     """按 tier 调用对应路径,返回事件生成器。
 
-    complex 在阶段 5 接入 Plan-and-Execute 前先走 run_agent_graph(medium ReAct)。
+    simple -> run_simple;medium -> run_agent_graph;complex -> run_plan_execute。
     """
     if tier == "simple":
         return run_simple(message, history, **kwargs)
+    if tier == "complex":
+        return run_plan_execute(message, history, **kwargs)
     return run_agent_graph(message, history, **kwargs)
 
 

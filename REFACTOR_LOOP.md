@@ -202,19 +202,19 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 5：Plan-and-Execute 路径
 
-- [ ] **5.1** 抽 `_generate_plan(question)` 共享函数（从现有 `plan_node` 提取 LLM 调用 + JSON 解析逻辑），放 `agent_reasoning/ReAct/support/planning.py`，medium 和 complex 都能调。
-- [ ] **5.2** 新建 `agent_reasoning/ReAct/paths/plan_execute.py`：
+- [x] **5.1** 抽 `_generate_plan(question)` 共享函数（从现有 `plan_node` 提取 LLM 调用 + JSON 解析逻辑），放 `agent_reasoning/ReAct/support/planning.py`，medium 和 complex 都能调。
+- [x] **5.2** 新建 `agent_reasoning/ReAct/paths/plan_execute.py`：
   - 第一步调 `_generate_plan()` 生成 steps（必经，非条件触发）
   - 发 `plan` 事件
   - 对每个 step 调阶段 1.1 的 `react_loop(step_instruction=step)`，每步独立 messages/state，步骤间隔离
   - 收集每步结果
-- [ ] **5.3** 步骤失败处理：某步搜不到结果 → 换词重试 1 次 → 仍失败则跳过，标记该步缺失，不中断整体。
-- [ ] **5.4** 新建 synthesizer：一次 LLM 调用，输入 = 原问题 + 各步结果（含缺失标记），输出最终整合答案。yield `synthesis_start → token* → assistant_message`。
-- [ ] **5.5** 跨步骤总预算：P&E 整体受 `max_total_seconds` 和总 token 预算约束，N 个子循环不能各算各的导致乘爆。预算不足时跳过剩余步骤直接 synthesizer。
-- [ ] **5.6** P&E 的 grounding 在 synthesizer 之后做（质检门 complex 深度），校验最终答案是否忠于各步结果。
-- [ ] **5.7** 评估 `CoverageTracker` 在 P&E 中的去留：结构上每步已执行，覆盖度由步骤完成度保证。决定保留（检查 synthesizer 是否漏用某步结果）或移除，并更新代码。
-- [ ] **5.8** 降级：planner 失败 → 降级普通 ReAct（发 status 告知用户）；synthesizer 失败 → 拼接各步结果返回。
-- [ ] **5.9** 写测试：`tests/test_plan_execute.py`，mock LLM 和 react_loop，验证多步执行顺序、步骤隔离、步骤失败跳过、synthesizer 调用、总预算截断、planner 失败降级。
+- [x] **5.3** 步骤失败处理：某步搜不到结果 → 换词重试 1 次 → 仍失败则跳过，标记该步缺失，不中断整体。
+- [x] **5.4** 新建 synthesizer：一次 LLM 调用，输入 = 原问题 + 各步结果（含缺失标记），输出最终整合答案。yield `synthesis_start → token* → assistant_message`。
+- [x] **5.5** 跨步骤总预算：P&E 整体受 `max_total_seconds` 和总 token 预算约束，N 个子循环不能各算各的导致乘爆。预算不足时跳过剩余步骤直接 synthesizer。
+- [x] **5.6** P&E 的 grounding 在 synthesizer 之后做（质检门 complex 深度），校验最终答案是否忠于各步结果。
+- [x] **5.7** 评估 `CoverageTracker` 在 P&E 中的去留：结构上每步已执行，覆盖度由步骤完成度保证。决定保留（检查 synthesizer 是否漏用某步结果）或移除，并更新代码。
+- [x] **5.8** 降级：planner 失败 → 降级普通 ReAct（发 status 告知用户）；synthesizer 失败 → 拼接各步结果返回。
+- [x] **5.9** 写测试：`tests/test_plan_execute.py`，mock LLM 和 react_loop，验证多步执行顺序、步骤隔离、步骤失败跳过、synthesizer 调用、总预算截断、planner 失败降级。
 
 ### 阶段 6：plan_node 双路径逻辑区分
 
