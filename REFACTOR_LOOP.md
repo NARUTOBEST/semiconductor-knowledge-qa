@@ -158,7 +158,7 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 1：重构准备 — 抽取可复用核心
 
-- [ ] **1.1** 把 `agent_reasoning/ReAct/core/nodes.py` 中 `agent_node ↔ tools_node` 的循环抽成独立的 `react_loop()` 函数（放在 `agent_reasoning/ReAct/core/loop.py`）。它接受初始 messages、step 指令（可选，P&E 每步传入）、max_steps、max_total_seconds、checkpointer、configurable，yield SSE 事件 dict 并返回最终 state。现有图改为调用这个函数，行为不变。
+- [x] **1.1** 把 `agent_reasoning/ReAct/core/nodes.py` 中 `agent_node ↔ tools_node` 的循环抽成独立的 `react_loop()` 函数（放在 `agent_reasoning/ReAct/core/loop.py`）。它接受初始 messages、step 指令（可选，P&E 每步传入）、max_steps、max_total_seconds、checkpointer、configurable，yield SSE 事件 dict 并返回最终 state。现有图改为调用这个函数，行为不变。
 - [ ] **1.2** 拆分 `reflect_node` 为两个独立节点：
   - `coverage_check_node`：计划覆盖度判定 + 回退逻辑（原 `_maybe_coverage_rollback` 相关）
   - `grounding_node`：引用校验 + 忠实度检测 + 反思重生成
