@@ -239,11 +239,11 @@ START → setup → recall → rewrite → plan → build_messages → agent
 
 ### 阶段 8：记忆 / Trace / Metrics 全路径接线
 
-- [ ] **8.1** 确认三条路径都通过阶段 1.4 的通用 runner 写短期流水（白名单：user_message / assistant_message / tool_call / tool_result / grounding / error / done）。
-- [ ] **8.2** 确认三条路径结束后都触发 `after_stream` 长期升迁。
-- [ ] **8.3** `TraceRecorder` 支持 P&E 嵌套结构：trace 中包含 planner 步骤 + 每步独立的 tools/llm 记录 + synthesizer 记录。更新 `trace.py` 的数据结构和 `to_dict()`。
-- [ ] **8.4** `server/support/metrics.py` 按 tier 分维度：请求量、升级率、grounding 通过率、p50/p95 延迟、token 消耗。`/metrics` 端点返回 per-tier 统计。
-- [ ] **8.5** 写测试验证三条路径的流水落库和升迁触发。
+- [x] **8.1** 确认三条路径都通过阶段 1.4 的通用 runner 写短期流水（白名单：user_message / assistant_message / tool_call / tool_result / grounding / error / done）。
+- [x] **8.2** 确认三条路径结束后都触发 `after_stream` 长期升迁。
+- [x] **8.3** `TraceRecorder` 支持 P&E 嵌套结构：trace 中包含 planner 步骤 + 每步独立的 tools/llm 记录 + synthesizer 记录。更新 `trace.py` 的数据结构和 `to_dict()`。
+- [x] **8.4** `server/support/metrics.py` 按 tier 分维度：请求量、升级率、grounding 通过率、p50/p95 延迟、token 消耗。`/metrics` 端点返回 per-tier 统计。
+- [x] **8.5** 写测试验证三条路径的流水落库和升迁触发。
 
 ### 阶段 9：配置
 
