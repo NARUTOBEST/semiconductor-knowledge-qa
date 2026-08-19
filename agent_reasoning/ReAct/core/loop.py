@@ -86,6 +86,9 @@ def react_loop(initial_messages: list,
                started_at: Optional[float] = None,
                checkpointer=None,
                configurable: Optional[dict[str, Any]] = None,
+               bind_tools: bool = True,
+               skip_rewrite: bool = False,
+               skip_recall: bool = False,
                **state_kw):
     """独立运行一次 agent↔tools 循环(不依赖外层图)。
 
@@ -98,6 +101,10 @@ def react_loop(initial_messages: list,
     :param checkpointer: 子图 checkpointer(默认 None,无状态)。
     :param configurable: 透传给节点的运行时对象(trace_recorder/coverage_tracker/
         thread_id/user_id 等)。
+    :param bind_tools: 是否给 LLM 绑定检索工具 schema。False(simple 直答)时不发
+        tool_calls,模型只作答。
+    :param skip_rewrite/skip_recall: 写入 state 的 tier 开关,供外层前置节点
+        (rewrite_node/recall_node)按 tier 跳过;react_loop 自身只含 agent↔tools。
     :param state_kw: 其余 AgentState 字段(question/trace_id/full_reply/usage/
         collected_sources/retrieval_down/search_count 等)。
     :yield: SSE 事件 dict。
@@ -119,6 +126,9 @@ def react_loop(initial_messages: list,
         "max_total_seconds": max_total_seconds,
         "final_reason": None,
         "full_reply": state.get("full_reply", ""),
+        "bind_tools": bind_tools,
+        "skip_rewrite": skip_rewrite,
+        "skip_recall": skip_recall,
     })
 
     evs, get_final = _run_react_stream(state, configurable or {})

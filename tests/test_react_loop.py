@@ -169,3 +169,43 @@ def test_max_steps_bounds_loop(monkeypatch):
     types = [e["type"] for e in evs]
     assert types.count("tool_call") == 2
     assert final["final_reason"] == "max_steps"
+
+
+def test_bind_tools_false_omits_tools_kwarg(monkeypatch):
+    # bind_tools=False(simple 直答):LLM 调用不得带 tools/tool_choice,
+    # 且即便 mock 流里没有 tool_calls,也应正常作答、不进入工具节点。
+    monkeypatch.setattr(nodes, "recall_memories", lambda *a, **k: [])
+    monkeypatch.setattr(nodes, "rewrite_query", lambda m, h=None: [m])
+
+    captured = {}
+
+    def fake_create_with_retry(client, trace_id="", retries=1, **kwargs):
+        captured["kwargs"] = kwargs
+        return _answer_stream("直接答案"), None
+
+    # nodes.py 通过 `from ..support.llm import llm_create_with_retry` 绑定,
+    # 必须 patch nodes 模块上的名字才生效。
+    monkeypatch.setattr(nodes, "llm_create_with_retry",
+                        fake_create_with_retry)
+
+    msgs = [SystemMessage(content="sys", id="p"), HumanMessage(content="你好")]
+    recorder = TraceRecorder("tr", time.time(), "你好")
+    cfg = {"thread_id": "t1", "user_id": "alice", "trace_recorder": recorder}
+    gen = react_loop(msgs, max_steps=6, max_total_seconds=60,
+                     configurable=cfg, question="你好", trace_id="tr",
+                     bind_tools=False)
+    evs = []
+    final = None
+    try:
+        while True:
+            evs.append(next(gen))
+    except StopIteration as e:
+        final = e.value
+
+    kw = captured["kwargs"]
+    assert "tools" not in kw
+    assert "tool_choice" not in kw
+    assert final["final_reason"] == "answer"
+    assert final["full_reply"] == "直接答案"
+    assert final["bind_tools"] is False
+    assert [e["type"] for e in evs].count("tool_call") == 0

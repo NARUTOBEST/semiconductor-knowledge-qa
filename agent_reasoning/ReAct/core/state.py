@@ -91,6 +91,11 @@ class AgentState(TypedDict, total=False):
                           tools_node 累加,build_messages 展示"已检索 N 次")
       coverage_rollbacks: 因计划某步未被检索资料覆盖而回退重检索的次数(有界,
                           coverage_check_node 累加,setup 每轮重置)
+      bind_tools      : 是否给 LLM 绑定检索工具 schema。True(默认,medium/P&E)
+                        传 tools 走 ReAct;False(simple 直答)不传 tools,模型只作答。
+      skip_recall     : True 时 recall_node 跳过长期记忆召回(simple 不需要/已做过)。
+      skip_rewrite    : True 时 rewrite_node 跳过查询改写 LLM,sub_queries 直接用原问题
+                        (simple 不改写;P&E 每步也跳过,改写只在顶层做一次)。
     """
 
     # ---- 输入主键 ----
@@ -124,6 +129,9 @@ class AgentState(TypedDict, total=False):
     task_plan: dict[str, Any]
     search_count: int
     coverage_rollbacks: int
+    bind_tools: bool
+    skip_recall: bool
+    skip_rewrite: bool
 
 
 # 运行时对象通过 config["configurable"] 传递,不进 State(不可 JSON 序列化):

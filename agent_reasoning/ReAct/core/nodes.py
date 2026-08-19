@@ -273,7 +273,9 @@ def setup_node(state: AgentState, config) -> dict:
 
 
 def recall_node(state: AgentState, config) -> dict:
-    """召回长期记忆(失败降级为空,不阻断)。"""
+    """召回长期记忆(失败降级为空,不阻断)。skip_recall=True 时直接跳过。"""
+    if state.get("skip_recall"):
+        return {"recalled_memories": []}
     user_id = config["configurable"].get("user_id") or state.get("user_id")
     question = state["question"]
     mems: list = []
@@ -286,11 +288,15 @@ def recall_node(state: AgentState, config) -> dict:
 
 
 def rewrite_node(state: AgentState, config) -> dict:
-    """查询改写(失败回退原问题)。"""
+    """查询改写(失败回退原问题)。skip_rewrite=True 时不调 LLM,直接用原问题。"""
     recorder = _recorder(config)
     trace_id = state["trace_id"]
     w = get_stream_writer()
     question = state["question"]
+    if state.get("skip_rewrite"):
+        sub_queries = [question]
+        recorder.sub_queries = list(sub_queries)
+        return {"sub_queries": sub_queries}
     history = state.get("history") or []
     try:
         sub_queries = rewrite_query(question, history)
@@ -484,15 +490,21 @@ def agent_node(state: AgentState, config) -> dict:
     w({"type": "status", "message": "思考中…", "trace_id": trace_id, "step": step})
 
     # ---- LLM 调用 ----
+    # bind_tools=False(simple 直答路径)时不传 tools schema,模型只生成文本、不会发 tool_calls。
+    bind_tools = bool(state.get("bind_tools", True))
+    llm_kwargs: dict[str, Any] = dict(
+        model=C.OPENAI_TEXT_MODEL,
+        messages=_msgs_to_openai(state["messages"]),
+        stream=True, stream_options={"include_usage": True},
+        temperature=0.3, timeout=STREAM_TIMEOUT,
+    )
+    if bind_tools:
+        llm_kwargs["tools"] = _TOOL_SCHEMAS
+        llm_kwargs["tool_choice"] = "auto"
     client = get_client()
     t_llm = time.time()
     stream, err = llm_create_with_retry(
-        client, trace_id=trace_id,
-        model=C.OPENAI_TEXT_MODEL,
-        messages=_msgs_to_openai(state["messages"]),
-        tools=_TOOL_SCHEMAS, tool_choice="auto",
-        stream=True, stream_options={"include_usage": True},
-        temperature=0.3, timeout=STREAM_TIMEOUT,
+        client, trace_id=trace_id, **llm_kwargs,
     )
     if err is not None:
         err_doc = recorder.record_error(step, "llm_create", err)
