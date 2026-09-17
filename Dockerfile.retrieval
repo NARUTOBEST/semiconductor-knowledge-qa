@@ -1,0 +1,50 @@
+# ============================================================
+# 检索微服务 :8002(BGE-m3 文本 + CLIP 图像 + Reranker + Qdrant 客户端)—— CPU 版
+# 【生产检索部署在项目机 docker-project(EMBED_DEVICE=cpu,内存运行);
+#   GPU 网关机(docker-gateway/)不再部署检索。】
+#
+# 权重来源:named build context `models`,指向本地 hub_local 权重目录
+# (与 embed.py 的 _ensure_snapshot 同路径结构,运行时 local_files_only 零下载):
+#   docker build --build-context models=/c/Users/<user>/.cache/huggingface/hub_local \
+#       -f Dockerfile.retrieval -t semi-retrieval:local .
+# 之后: docker save semi-retrieval:local -o docker-project/images/semi-images.tar
+# ============================================================
+
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    HF_ENDPOINT=https://hf-mirror.com \
+    HF_HOME=/root/.cache/huggingface \
+    EMBED_DEVICE=cpu \
+    RETRIEVAL_HOST=0.0.0.0 \
+    RETRIEVAL_PORT=8002
+
+WORKDIR /app
+
+# 系统库:sentence-transformers/tokenizers 运行所需
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# 先装依赖(CPU 版 torch,比 CUDA 版小一个数量级)
+COPY requirements.txt .
+RUN pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu \
+    && grep -v -iE "^torch" requirements.txt > /tmp/req-retrieval.txt \
+    && pip install -r /tmp/req-retrieval.txt
+
+# 模型本体【烤进镜像】:来自 named build context `models`(hub_local 目录)
+COPY --from=models BAAI__bge-m3 \
+     /root/.cache/huggingface/hub_local/BAAI__bge-m3
+COPY --from=models BAAI__bge-reranker-v2-m3 \
+     /root/.cache/huggingface/hub_local/BAAI__bge-reranker-v2-m3
+COPY --from=models sentence-transformers__clip-ViT-B-32 \
+     /root/.cache/huggingface/hub_local/sentence-transformers__clip-ViT-B-32
+
+COPY . .
+
+EXPOSE 8002
+
+# 入口脚本自带 sys.path 设置与后台预热(BGE-m3 + reranker);/mcp 为 MCP 工具接口
+CMD ["python", "mcp_servers/retrieval/service.py"]

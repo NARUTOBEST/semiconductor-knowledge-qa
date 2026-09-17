@@ -1,5 +1,6 @@
 # 注:torch 版本需按服务器 CUDA 调整(如 cu121/cu124),CPU 服务器装 torch(CPU 版)
 fastapi==0.140.7
+python-multipart==0.0.20
 uvicorn==0.51.0
 openai==2.49.0
 qdrant-client==1.18.0
@@ -17,13 +18,29 @@ PyJWT==2.10.1
 bcrypt==4.2.1
 httpx==0.28.1
 redis>=5.0.0
-# Agent 记忆系统（LangGraph 编排 + PG/Redis 持久化 + pgvector）
+# RAG 多格式清洗:docx/python-docx、pptx/python-pptx、xlsx/openpyxl(pdf 走 MinerU)
+openpyxl==3.1.5
+# chunker P5: 修复 OCR 英文单词粘连(如 thechamber -> the chamber),纯 Python 自带词频表
+wordninja==2.0.0
+# Agent 记忆系统（LangGraph 编排；工作/短期记忆均持久化到 Redis）
 # typing_extensions: langchain-core 运行时依赖，显式锁定（Python 3.14 需 >=4.12）
 typing_extensions==4.15.0
 langgraph==1.2.11
 langchain-core==1.5.4
 langchain-openai==1.5.0
-langgraph-checkpoint-postgres==3.1.2
+# 工作记忆 checkpoint:RedisSaver(替代原 PostgresSaver);自带兼容 redis-py 版本约束
+langgraph-checkpoint-redis==0.5.2
+# 工作记忆二级降级 checkpointer(Redis 不可用时落本地 SQLite 文件,多 worker 共享)
+langgraph-checkpoint-sqlite==3.1.1
+# 长期记忆(用户偏好):PostgreSQL + pgvector,用 psycopg3 直连(memories/storage/long)
 psycopg[binary]==3.3.4
-psycopg2-binary==2.9.12
 pgvector==0.5.0
+# [遗留] RedisSaver 之前的 PostgresSaver;暂保留以免其他脚本隐式 import,可在确认无引用后移除
+langgraph-checkpoint-postgres==3.1.2
+psycopg2-binary==2.9.12
+# 火山引擎 TOS(S3 兼容)图片预签名:mcp_servers/retrieval/image_s3.py 惰性 import,
+# 仅在配齐 TOS_* 时生效;retrieval 服务对检索结果图片路径签名为 HTTPS 时需要。
+boto3>=1.34.0
+# MCP:agent 经 tools/mcp_bridge.py 作为 MCP Client 连接外部工具服务
+# (检索三件套在 mcp_servers/retrieval,经 /mcp 暴露)
+mcp>=2.2.0

@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
-"""验证:工作记忆 + PostgresSaver checkpoint 的"断点续跑"真的生效。
+"""验证:工作记忆 + RedisSaver checkpoint 的"断点续跑"真的生效(需本地 Redis 在跑)。
 
 关键设计:用两个**独立 Python 进程**分别执行 run / resume,模拟"程序关掉再重新运行"。
 工具调用次数通过磁盘文件 .weather_tool_calls.json 跨进程计数,作为权威证据。
+checkpoint 落 Redis(langgraph-checkpoint-redis 的 RedisSaver)。
 
-用法:
+用法(需先在 WSL2 起好 redis):
     python tests/test_working_memory.py            # 跑完整两阶段(自动起子进程)
     python tests/test_working_memory.py run        # 仅首轮(新进程)
     python tests/test_working_memory.py resume     # 仅恢复(新进程)
 
 成功标志:
     - 首轮:工具调用 1 次,AI 回复与 token 写入 checkpoint。
-    - 恢复进程:能从 PG 读回首轮状态(回复、token);空输入再次 invoke 时工具调用次数
+    - 恢复进程:能从 Redis 读回首轮状态(回复、token);空输入再次 invoke 时工具调用次数
       仍为 1(不重复调外部工具)。
 """
 import json
@@ -25,20 +26,16 @@ from checkpoint_demo_graph import (
     build_graph,
     reset_calls,
 )
-from memories.storage import pg_conn
 
 THREAD_ID = "task-001"
 thread_config = {"configurable": {"thread_id": THREAD_ID}}
 
-# LangGraph PostgresSaver 的 checkpoint 表
-_CHECKPOINT_TABLES = ["checkpoint_writes", "checkpoints", "checkpoint_blobs"]
-
 
 def _purge_thread(thread_id: str) -> None:
-    """从 working_db 删除某 thread 的全部 checkpoint,保证测试可重复运行。"""
-    with pg_conn("working", dict_row=False) as (conn, cur):
-        for tbl in _CHECKPOINT_TABLES:
-            cur.execute(f"DELETE FROM {tbl} WHERE thread_id = %s", (thread_id,))
+    """删除某 thread 在 Redis 的全部 checkpoint,保证脚本可重复运行。"""
+    from memories.storage import working_saver
+    with working_saver() as cp:
+        cp.delete_thread(thread_id)
 
 _PY = sys.executable
 _HERE = os.path.dirname(os.path.abspath(__file__))
@@ -84,7 +81,7 @@ def _phase_resume():
         assert _read_calls() == 1, "已完成的任务恢复后不应再次调用工具!checkpoint 未生效"
     finally:
         cm.__exit__(None, None, None)
-    print("\n✅ 验证成功:状态从 PostgreSQL checkpoint 恢复,工具未重复执行。")
+    print("\n✅ 验证成功:状态从 Redis checkpoint 恢复,工具未重复执行。")
 
 
 def main():

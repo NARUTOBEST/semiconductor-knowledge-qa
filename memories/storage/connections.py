@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
-"""连接工厂:三个 PG 库 + 可选 Redis。
+"""连接工厂:Redis(工作记忆 checkpoint + 短期记忆流水共用同一实例)。
 
-- PG 用 psycopg2(v2),每调用新建短连接(简单可靠;后续可换连接池)。
-- Redis 为可选高速缓存:连接失败不抛异常,降级为不可用,调用方据此跳过缓存。
-- 连接信息全部来自 config,禁止硬编码。
+- 工作记忆走 langgraph-checkpoint-redis 的 RedisSaver,用 RedisSaver.from_conn_string
+  直接吃 config.REDIS_URL(见 working.py),不在此建客户端。
+- 短期记忆流水(mem:* 键)用 get_redis() 返回的 decode_responses=True 单例。
+- Redis 连接信息全部来自 config(REDIS_HOST/PORT/PASSWORD/DB / REDIS_URL),禁止硬编码。
+- redis-py 客户端在每条命令失败后会自动重连,无需永久"死亡"标记;调用方(短期流水)
+  对写入异常做吞掉处理,记忆是旁路但 Redis 为主存储,故超时给足而非缓存级 1s。
 """
-import contextlib
 import logging
 import os
 import sys
-import threading
 
-import psycopg2
-import psycopg2.extras  # noqa: F401  注册 jsonb/uuid 等适配
-from psycopg2 import pool as pg_pool
-
-# 本文件位于 memories/storage/;项目根在上两级(memories/storage -> memories -> 项目根)
+# 本文件位于 memories/storage/;项目根在上两级
 _PROJECT_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 sys.path.insert(0, os.path.join(_PROJECT_ROOT, "config"))
@@ -23,82 +20,14 @@ import config as C  # noqa: E402
 
 logger = logging.getLogger("agent")
 
-# PG 连接池:每个库一个 ThreadedConnectionPool(进程级单例,懒加载)。
-# 三库合计最多 3*PG_POOL_MAX 条连接,需与 PG max_connections 协调。
-_POOL_MIN = int(os.getenv("PG_POOL_MIN", "1"))
-_POOL_MAX = int(os.getenv("PG_POOL_MAX", "10"))
-_PG_CONNECT_TIMEOUT = int(os.getenv("PG_CONNECT_TIMEOUT", "3"))
+_CONNECT_TIMEOUT = float(os.getenv("REDIS_CONNECT_TIMEOUT", "3"))
+_SOCKET_TIMEOUT = float(os.getenv("REDIS_SOCKET_TIMEOUT", "5"))
 
-_pools: dict[str, "pg_pool.ThreadedConnectionPool"] = {}
-_pool_sems: dict[str, threading.BoundedSemaphore] = {}
-_pools_lock = threading.Lock()
-
-# 等待空闲连接的最长秒数;超时抛 PoolTimeout,由上层降级/报错而非无限堆积线程。
-_POOL_ACQUIRE_TIMEOUT = float(os.getenv("PG_POOL_ACQUIRE_TIMEOUT", "30"))
-
-
-def _get_pool(which: str) -> "pg_pool.ThreadedConnectionPool":
-    """获取(惰性创建)指定库的线程连接池及其许可信号量。线程安全。"""
-    if which in _pools:
-        return _pools[which]
-    with _pools_lock:
-        if which in _pools:  # double-checked
-            return _pools[which]
-        uri = _uri_for(which)
-        p = pg_pool.ThreadedConnectionPool(
-            _POOL_MIN, _POOL_MAX, _pool_uri(uri),
-        )
-        _pools[which] = p
-        # 用有界信号量把 getconn 变成"阻塞等待":ThreadedConnectionPool 自身在
-        # 池满时会直接抛 PoolError,信号量保证同时取连接数不超过 _POOL_MAX。
-        _pool_sems[which] = threading.BoundedSemaphore(_POOL_MAX)
-        return p
-
-
-def pool_getconn(which: str):
-    """从指定库池取一个连接,池满时阻塞等待至超时。
-
-    配合 pool_putconn 使用。超时抛 psycopg2.pool.PoolError。
-    """
-    pool = _get_pool(which)
-    sem = _pool_sems[which]
-    if not sem.acquire(timeout=_POOL_ACQUIRE_TIMEOUT):
-        raise pg_pool.PoolError(
-            f"连接池 {which} 等待空闲连接超时({_POOL_ACQUIRE_TIMEOUT}s)")
-    try:
-        return pool.getconn()
-    except Exception:
-        sem.release()
-        raise
-
-
-def pool_putconn(which: str, conn, *, close: bool = False) -> None:
-    """归还连接到池并释放许可。close=True 时丢弃坏连接并重建。"""
-    pool = _get_pool(which)
-    try:
-        pool.putconn(conn, close=close)
-    finally:
-        try:
-            _pool_sems[which].release()
-        except ValueError:
-            pass
-
-
-def _pool_uri(uri: str) -> str:
-    if "connect_timeout" in uri:
-        return uri
-    sep = "&" if "?" in uri else "?"
-    return f"{uri}{sep}connect_timeout={_PG_CONNECT_TIMEOUT}"
-
-
-# ---------------------------------------------------------------- Redis
 _redis_client = None
-_redis_checked = False
-_redis_available = False
 
 
-def _build_redis():
-    """尝试构建 Redis 客户端;不验证连通性(交给 ping)。"""
+def _build_redis(*, decode_responses: bool):
+    """构建 Redis 客户端;不验证连通性(交给首次命令/ping)。失败返回 None。"""
     try:
         import redis  # redis-py
     except Exception:
@@ -109,75 +38,93 @@ def _build_redis():
             port=C.REDIS_PORT,
             password=C.REDIS_PASSWORD or None,
             db=C.REDIS_DB,
-            decode_responses=True,
-            socket_connect_timeout=1.0,
-            socket_timeout=1.0,
+            decode_responses=decode_responses,
+            socket_connect_timeout=_CONNECT_TIMEOUT,
+            socket_timeout=_SOCKET_TIMEOUT,
+            # 健康检查:借出连接前若距上次活动超过 idle 则先发 PING,避免用到坏连接
+            health_check_interval=30,
         )
     except Exception:
         return None
 
 
 def get_redis():
-    """返回 Redis 客户端;不可用时返回 None。
+    """返回 decode_responses=True 的 Redis 单例(短期流水用);未装 redis 包时返回 None。
 
-    仅探测一次(进程生命周期内)。Redis 不可用不影响主流程。
+    不做一次性"永久不可用"标记:redis-py 在命令失败后自动重连,Redis 晚于进程启动
+    也能在下一条命令恢复。连通性用 ping_redis() 显式探测。
     """
-    global _redis_client, _redis_checked, _redis_available
-    if _redis_checked:
-        return _redis_client if _redis_available else None
-    _redis_checked = True
-    client = _build_redis()
-    if client is not None:
-        try:
-            client.ping()
-            _redis_available = True
-            _redis_client = client
-        except Exception:
-            _redis_available = False
-            _redis_client = None
+    global _redis_client
+    if _redis_client is None:
+        _redis_client = _build_redis(decode_responses=True)
     return _redis_client
 
 
 def ping_redis() -> bool:
-    """显式探测 Redis 连通性(同时强制重新检测)。"""
-    global _redis_checked
-    _redis_checked = False
-    return get_redis() is not None
-
-
-# ---------------------------------------------------------------- PG
-def _uri_for(which: str) -> str:
-    uri = {"working": C.WORKING_PG_URI, "short": C.SHORT_PG_URI,
-           "long": C.LONG_PG_URI}.get(which)
-    if not uri:
-        raise RuntimeError(f"{which.upper()}_PG_URI 未配置,请检查 env/env.env")
-    return uri
-
-
-@contextlib.contextmanager
-def pg_conn(which: str, dict_row: bool = True):
-    """从连接池取一个指定 PG 库连接的上下文管理器。
-
-    which: 'working' | 'short' | 'long'
-    dict_row=True 时游标返回 dict-like 行。默认 autocommit=False,由调用方提交。
-    连接用毕归还连接池(失败时丢弃坏连接,避免污染池)。
-    """
-    conn = pool_getconn(which)
+    """显式探测 Redis 连通性。"""
+    client = get_redis()
+    if client is None:
+        return False
     try:
-        if dict_row:
-            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
-                yield conn, cur
-        else:
-            with conn.cursor() as cur:
-                yield conn, cur
-        conn.commit()
+        return bool(client.ping())
     except Exception:
-        # 回滚后连接通常仍干净可复用;仅回滚本身失败才丢弃连接
+        return False
+
+
+# ---- 热路径快探(供"每轮都要跑"的旁路读取,如短期近期对话注入)----
+# 共享客户端带 3s/5s 超时 + 重试,Redis 半挂(端口在但不应答)时一次命令可能阻塞十余秒。
+# 热路径旁路不能这么慢:这里用【短超时 + 无重试】的一次性客户端探活,失败后进入冷却,
+# 冷却期内直接判定不可用(不再发探测),把对主流程的影响压到亚秒级且只付一次。
+import time as _time  # noqa: E402
+
+_probe_fail_until = 0.0
+_PROBE_TIMEOUT = float(os.getenv("REDIS_FAST_PROBE_TIMEOUT", "0.2"))
+_PROBE_COOLDOWN = float(os.getenv("REDIS_FAST_PROBE_COOLDOWN", "30"))
+
+
+def redis_ready_fast(cooldown: float = None) -> bool:
+    """热路径用的 Redis 快探:亚秒级超时、无重试、失败冷却。
+
+    与 ping_redis() 的区别:ping_redis 用共享客户端(超时/重试较宽松,适合启动探测);
+    本函数用于每次请求都会执行的旁路读取,必须在 Redis 不可用时【快速】返回 False。
+    成功不缓存(本地 Redis ping 亚毫秒,代价可忽略);失败冷却默认 _PROBE_COOLDOWN 秒,
+    可用 cooldown 参数覆盖(如熔断器半开探测传 0 强制真实连接,绕过冷却缓存)。
+    """
+    global _probe_fail_until
+    _cd = _PROBE_COOLDOWN if cooldown is None else cooldown
+    if _time.monotonic() < _probe_fail_until:
+        return False
+    try:
+        import redis  # redis-py
         try:
-            conn.rollback()
+            from redis.retry import Retry
+            from redis.backoff import NoBackoff
+            retry = Retry(NoBackoff(), 0)  # 0 次重试 = 仅单次尝试
         except Exception:
-            pool_putconn(which, conn, close=True)
-            raise
-        raise
-    finally:
-        pool_putconn(which, conn)
+            retry = None
+        probe = redis.Redis(
+            host=C.REDIS_HOST, port=C.REDIS_PORT,
+            password=C.REDIS_PASSWORD or None, db=C.REDIS_DB,
+            socket_connect_timeout=_PROBE_TIMEOUT,
+            socket_timeout=_PROBE_TIMEOUT,
+            retry=retry,
+        )
+        try:
+            return bool(probe.ping())
+        finally:
+            try:
+                probe.close()  # 立即释放一次性连接池/socket
+            except Exception:
+                pass
+    except Exception:
+        _probe_fail_until = _time.monotonic() + _cd
+        return False
+
+
+def memory_ttl_seconds() -> int:
+    """短期记忆流水键的 TTL(秒),取 config.MEMORY_TTL_DAYS;<=0 表示不设过期。"""
+    try:
+        days = int(getattr(C, "MEMORY_TTL_DAYS", 30))
+    except Exception:
+        days = 30
+    return max(0, days) * 86400

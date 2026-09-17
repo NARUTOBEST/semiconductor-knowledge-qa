@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Sparkles, Eye, EyeOff } from "lucide-react";
 import { useAuth } from "@/lib/auth";
+import { BRAND_NAME } from "@/lib/brand";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -49,7 +50,7 @@ export default function LoginPage() {
           <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] shadow-lg shadow-[#3b82f6]/20">
             <Sparkles size={30} className="text-white" />
           </div>
-          <h1 className="text-[22px] font-semibold text-t1">半导体知识助手</h1>
+          <h1 className="text-[22px] font-semibold text-t1">{BRAND_NAME}</h1>
           <p className="mt-1 text-[13px] text-t2">登录以继续</p>
         </div>
         <form onSubmit={submit} className="flex flex-col gap-3">

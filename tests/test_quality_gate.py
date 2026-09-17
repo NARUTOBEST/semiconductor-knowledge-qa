@@ -1,20 +1,14 @@
 # -*- coding: utf-8 -*-
-"""阶段 4.6:共享质检门 quality_gate.check 三态判定 + 各 tier 深度。
+"""两级范式共享质检门 quality_gate.check 三态判定。
 
-不调真实 LLM:grounding_check 全部打桩。
+不调任何 LLM(两级都无旁路 LLM):
+  - simple(L1):启发式,空答案 -> failed;领域内容 -> needs_escalation;闲聊 -> passed。
+  - react(L2):只判空答案,空 -> failed;非空即 passed。
 """
-from unittest.mock import patch, MagicMock
-
-import pytest
-
 from agent_reasoning.quality_gate import check
 
 
-_G_PASSED = {"passed": True, "warnings": []}
-_G_FAILED = {"passed": False, "warnings": ["回答的部分内容未能从检索资料中验证"]}
-
-
-# ---------- simple ----------
+# ---------- simple(L1) ----------
 
 class TestSimpleGate:
     def test_chitchat_passes(self):
@@ -28,113 +22,59 @@ class TestSimpleGate:
         assert r2["verdict"] == "failed"
 
     def test_domain_content_escalates(self):
-        # 答案冒出半导体领域术语 -> 需升级检索
+        # 答案冒出半导体领域术语 -> 需升级到 react 检索
         r = check("ALD 是一种原子层沉积薄膜工艺。", {}, tier="simple")
         assert r["verdict"] == "needs_escalation"
-        assert "medium" in r["feedback"]
-
-    def test_does_not_call_grounding(self):
-        # simple 只做启发式,不应调 grounding LLM
-        with patch("agent_reasoning.quality_gate.grounding_check") as gc:
-            check("你好呀", {}, tier="simple")
-        gc.assert_not_called()
+        assert "react" in r["feedback"]
 
 
-# ---------- medium ----------
+# ---------- react(L2):只判空答案,无旁路 LLM ----------
 
-class TestMediumGate:
-    def test_grounding_passed(self):
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_PASSED):
-            r = check("根据资料,这是一个原理解释。",
-                      {"question": "ALD 原理是什么?", "sources": [{"s": 1}]},
-                      tier="medium")
+class TestReactGate:
+    def test_non_empty_passes(self):
+        r = check("根据检索资料,ALD 是一种原子层沉积工艺。",
+                  {"question": "ALD 原理?", "history": []},
+                  tier="react")
         assert r["verdict"] == "passed"
-
-    def test_grounding_failed_single_topic_failed(self):
-        # 单一意图问题 grounding 失败、且无预计算结果 -> 退回重做
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_FAILED):
-            r = check("一段没有来源支撑的回答内容。",
-                      {"question": "ALD 原理是什么?", "sources": [{"s": 1}]},
-                      tier="medium")
-        assert r["verdict"] == "failed"
-
-    def test_grounding_failed_complex_question_escalates(self):
-        # 问题本身含复杂特征 -> grounding 失败时升级 complex
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_FAILED):
-            r = check("一段没有来源支撑的回答内容。",
-                      {"question": "对比 ALD 和 CVD 的优缺点和流程",
-                       "sources": [{"s": 1}]},
-                      tier="medium")
-        assert r["verdict"] == "needs_escalation"
-
-    def test_precomputed_grounding_failed_failopen_no_redo(self):
-        # trace 已带 grounding 失败(图内部已 reflect 过一次) -> 不重复跑图,带警示放行
-        with patch("agent_reasoning.quality_gate.grounding_check") as gc:
-            r = check("一段回答。",
-                      {"question": "ALD 原理?",
-                       "grounding": _G_FAILED},
-                      tier="medium")
-        gc.assert_not_called()
-        assert r["verdict"] == "passed"   # fail-open
-        assert r["warnings"]              # 但带可见警示
 
     def test_empty_answer_failed(self):
-        r = check("", {"question": "x"}, tier="medium")
+        r = check("", {"question": "x"}, tier="react")
         assert r["verdict"] == "failed"
 
-
-# ---------- complex ----------
-
-class TestComplexGate:
-    def test_all_good_passes(self):
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_PASSED):
-            r = check("综合回答…",
-                      {"question": "对比 ALD 和 CVD",
-                       "coverage": {"uncovered_steps": []}},
-                      tier="complex")
+    def test_unknown_tier_treated_as_react(self):
+        r = check("一段回答。", {"question": "q"}, tier="nonsense")
         assert r["verdict"] == "passed"
 
-    def test_grounding_failed_is_failed_not_escalation(self):
-        # complex 已是最高级,失败只返回 failed(不再升级)
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_FAILED):
-            r = check("回答…",
-                      {"question": "对比", "coverage": {"uncovered_steps": []}},
-                      tier="complex")
+    def test_low_confidence_redo_when_enabled(self, monkeypatch):
+        """QC_LOW_CONF_REDO=1 时:低置信 -> failed(触发换关键词重进)。"""
+        import config as C
+        monkeypatch.setattr(C, "QC_LOW_CONF_REDO", True)
+        r = check("一段非空回答。",
+                  {"question": "q", "retrieval_max_score": 0.12, "search_count": 2},
+                  tier="react")
         assert r["verdict"] == "failed"
+        assert "关键词" in r["feedback"]
 
-    def test_uncovered_steps_failed(self):
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_PASSED):
-            r = check("回答…",
-                      {"question": "对比",
-                       "coverage": {"uncovered_steps": ["刻蚀参数"]}},
-                      tier="complex")
-        assert r["verdict"] == "failed"
-        assert any("刻蚀参数" in w for w in r["warnings"])
+    def test_low_confidence_default_passes_with_warning(self):
+        """默认(QC_LOW_CONF_REDO=0):低置信不再整轮 redo,放行+可见警示
+        (react 的 reflect_node 循环内 requery 已覆盖重查,redo 纯属 +12s 重复)。"""
+        import config as C
+        assert not getattr(C, "QC_LOW_CONF_REDO", False)
+        r = check("一段非空回答。",
+                  {"question": "q", "retrieval_max_score": 0.12, "search_count": 2},
+                  tier="react")
+        assert r["verdict"] == "passed"
+        assert r["warnings"], "低置信放行必须带可见警示"
 
-    def test_coverage_none_failopen(self):
-        # 未启用 coverage tracker(None) -> 不因覆盖度阻断
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   return_value=_G_PASSED):
-            r = check("回答…", {"question": "对比", "coverage": None},
-                      tier="complex")
+    def test_high_confidence_passes(self):
+        r = check("一段非空回答。",
+                  {"question": "q", "retrieval_max_score": 0.9, "search_count": 1},
+                  tier="react")
         assert r["verdict"] == "passed"
 
-
-# ---------- fail-open ----------
-
-class TestFailOpen:
-    def test_grounding_exception_passes_with_warning(self):
-        with patch("agent_reasoning.quality_gate.grounding_check",
-                   side_effect=RuntimeError("llm down")):
-            r = check("回答内容。",
-                      {"question": "ALD 原理?", "sources": [{"s": 1}]},
-                      tier="medium")
-        # 异常被捕获 -> fail-open
+    def test_zero_score_without_search_passes(self):
+        """没实际检索(search_count=0,如检索服务降级/模型未调工具)分数 0 不误触发低置信重做。"""
+        r = check("一段非空回答。",
+                  {"question": "q", "retrieval_max_score": 0.0, "search_count": 0},
+                  tier="react")
         assert r["verdict"] == "passed"
-        assert any("暂不可用" in w for w in r["warnings"])

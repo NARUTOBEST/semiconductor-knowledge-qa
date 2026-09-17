@@ -51,14 +51,14 @@ def _tokens(msgs):
 # ---------------- 边界算法 ----------------
 def test_compaction_none_below_trigger():
     # 总量低于 COMPACT_TRIGGER -> 不压缩
-    msgs = _big_dialog(5)
+    msgs = _big_dialog(4)
     assert _tokens(msgs) < COMPACT_TRIGGER_TOKENS
     assert calculate_compaction_keep_index(msgs) is None
 
 
 def test_compaction_returns_keep_index_and_respects_window():
-    # 构造超过 68k 的对话
-    msgs = _big_dialog(40)
+    # 构造超过压缩阈值(22k)的对话
+    msgs = _big_dialog(9)
     assert _tokens(msgs) >= COMPACT_TRIGGER_TOKENS
     kf = calculate_compaction_keep_index(msgs)
     assert kf is not None and kf > 0
@@ -72,15 +72,15 @@ def test_compaction_returns_keep_index_and_respects_window():
 
 
 def test_pregen_starts_earlier_than_compaction():
-    # SUMMARY_START(40k) < COMPACT_TRIGGER(68k)
-    early = _big_dialog(20)  # ~44k
+    # SUMMARY_START(13k) < COMPACT_TRIGGER(22k)
+    early = _big_dialog(6)  # ~15.8k
     assert SUMMARY_START_TOKENS < _tokens(early) < COMPACT_TRIGGER_TOKENS
     assert calculate_pregen_keep_index(early) is not None
     assert calculate_compaction_keep_index(early) is None
 
 
 def test_pregen_none_below_start():
-    msgs = _big_dialog(5)
+    msgs = _big_dialog(4)
     assert _tokens(msgs) < SUMMARY_START_TOKENS
     assert calculate_pregen_keep_index(msgs) is None
 
@@ -88,12 +88,12 @@ def test_pregen_none_below_start():
 def test_pregen_and_compact_agree_on_same_messages():
     # 实际时序:finalize 与下一轮 build_messages 看到同一份 state,
     # 故预生成与压缩算出的保留段必须一致(缓存才能命中)
-    msgs = _big_dialog(40)
+    msgs = _big_dialog(9)
     assert calculate_pregen_keep_index(msgs) == calculate_compaction_keep_index(msgs)
 
 
 def test_keep_index_ignores_system():
-    msgs = [SystemMessage(content="sys", id="sys")] + _big_dialog(40)
+    msgs = [SystemMessage(content="sys", id="sys")] + _big_dialog(9)
     kf = calculate_compaction_keep_index(msgs)
     removed_ids = [m.id for m in summarize._removed_messages(msgs, kf)]
     assert "sys" not in removed_ids
@@ -110,9 +110,9 @@ def test_format_summary_block_truncates():
 
 # ---------------- maybe_summarize ----------------
 def test_maybe_summarize_compacts(monkeypatch):
-    msgs = _big_dialog(40)
+    msgs = _big_dialog(9)
     monkeypatch.setattr(summarize, "_llm_summarize",
-                        lambda prev, tx, tid="": "增量摘要")
+                        lambda prev, tx, tid="", **kw: "增量摘要")
     out = maybe_summarize({"messages": msgs, "summary": "旧"})
     assert out["summary"] == "增量摘要"
     assert all(isinstance(m, RemoveMessage) for m in out["messages"])
@@ -121,11 +121,11 @@ def test_maybe_summarize_compacts(monkeypatch):
 
 
 def test_maybe_summarize_noop_below_trigger():
-    assert maybe_summarize({"messages": _big_dialog(5), "summary": ""}) == {}
+    assert maybe_summarize({"messages": _big_dialog(4), "summary": ""}) == {}
 
 
 def test_maybe_summarize_failure_keeps_messages(monkeypatch):
-    msgs = _big_dialog(40)
+    msgs = _big_dialog(9)
     monkeypatch.setattr(summarize, "_llm_summarize", lambda *a, **k: None)
     assert maybe_summarize({"messages": msgs, "summary": ""}) == {}
 
@@ -135,13 +135,13 @@ def test_pregeneration_consumed_at_compaction(monkeypatch):
     import queue
     q = queue.Queue()
 
-    def fake_llm(prev, transcript, trace_id=""):
+    def fake_llm(prev, transcript, trace_id="", **kw):
         return q.get(timeout=5)
 
     monkeypatch.setattr(summarize, "_llm_summarize", fake_llm)
 
-    # 已超 68k:finalize 调度预生成
-    msgs = _big_dialog(40)
+    # 已超压缩阈值:finalize 调度预生成
+    msgs = _big_dialog(9)
     schedule_pregeneration(msgs, prev_summary="旧", thread_id="tA", trace_id="tr")
     q.put("预生成摘要")
 
@@ -162,13 +162,13 @@ def test_pregeneration_consumed_at_compaction(monkeypatch):
 
 
 def test_pregeneration_not_triggered_below_start():
-    schedule_pregeneration(_big_dialog(5), prev_summary="", thread_id="tB")
+    schedule_pregeneration(_big_dialog(4), prev_summary="", thread_id="tB")
     with summarize._pregen_lock:
         assert "tB" not in summarize._pregen
 
 
 def test_pregen_mismatch_falls_back_to_sync(monkeypatch):
-    msgs = _big_dialog(40)
+    msgs = _big_dialog(9)
     schedule_pregeneration(msgs, prev_summary="摘要A", thread_id="tC")
     with summarize._pregen_lock:
         fut = summarize._pregen["tC"]["future"]
@@ -176,7 +176,7 @@ def test_pregen_mismatch_falls_back_to_sync(monkeypatch):
 
     called = []
     monkeypatch.setattr(summarize, "_llm_summarize",
-                        lambda prev, tx, tid="": called.append(1) or "同步摘要")
+                        lambda prev, tx, tid="", **kw: called.append(1) or "同步摘要")
     # 真实提交时旧摘要不同 -> key 不匹配 -> 同步兜底
     out = maybe_summarize({"messages": msgs, "summary": "摘要B(变了)"},
                           thread_id="tC")
@@ -195,7 +195,7 @@ def test_pregen_cache_bounded_lru(monkeypatch):
         return fut
     monkeypatch.setattr(summarize, "_submit_pregen", _fake_submit)
 
-    msgs = _big_dialog(40)  # 超过 pregen 阈值,keep_from 非 None
+    msgs = _big_dialog(9)  # 超过 pregen 阈值,keep_from 非 None
     keys = [frozenset([f"id{i}"]) for i in range(5)]
     # 直接往缓存写 5 个不同 thread 的条目(绕过 schedule 的 key 一致性判断)
     with summarize._pregen_lock:
@@ -290,3 +290,28 @@ def test_prune_inactive_batch(monkeypatch):
     assert result == {"candidates": 2, "checkpoints_deleted": 2,
                       "short_deleted": 5}
     assert set(deleted) == {"t1", "t2"}
+
+
+def test_delete_thread_artifacts_removes_facts_and_session_file(monkeypatch):
+    # memory-loop 制品:短期事实表(memf:*)+ 会话摘要文件也要随会话删除级联。
+    from memories.orchestration.working import lifecycle as cleanup
+    from memories.storage.short import facts as facts_mod
+    from memories.storage.working import session_file as sf_mod
+
+    removed_facts, removed_files = [], []
+
+    class _FakeSaver:
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def delete_thread(self, tid): pass
+
+    monkeypatch.setattr(cleanup, "working_saver", lambda: _FakeSaver())
+    monkeypatch.setattr(cleanup.short_term, "delete_thread", lambda tid: 0)
+    monkeypatch.setattr(facts_mod.fact_table, "delete_thread",
+                        lambda tid: removed_facts.append(tid) or 1)
+    monkeypatch.setattr(sf_mod.SessionFile, "delete",
+                        lambda self: removed_files.append(self.thread_id))
+
+    cleanup.delete_thread_artifacts("alice|t-9")
+    assert removed_facts == ["alice|t-9"]
+    assert removed_files == ["alice|t-9"]

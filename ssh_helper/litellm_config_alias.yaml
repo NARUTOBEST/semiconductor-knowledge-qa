@@ -1,0 +1,58 @@
+# ============================================================
+# LiteLLM 网关配置:把业务的逻辑模型名(main/light)映射到 GPU 上的 vLLM,
+# 并做健康检查/故障转移/可选云端兜底。业务端只看到 http://<网关>:4000/v1。
+#
+# 换 GPU 服务器:无需改业务,只要新机器上 vLLM 起同样的 served-model-name;
+# 若网关地址变了,只改业务端 LLM_GATEWAY_BASE_URL 一个环境变量。
+# ============================================================
+
+model_list:
+  # ---- 核心作答:GPU 上的 vLLM 主模型 ----
+  - model_name: main
+    litellm_params:
+      model: openai/vllm-main                       # 对应 vLLM 的 --served-model-name
+      api_base: os.environ/VLLM_MAIN_BASE_URL
+      api_key: os.environ/VLLM_API_KEY
+
+  # ---- 轻量旁路(复杂度路由/对话摘要/入库图描述):同一 vLLM 的别名或另一小模型 ----
+  - model_name: light
+    litellm_params:
+      model: openai/vllm-light
+      api_base: os.environ/VLLM_LIGHT_BASE_URL
+      api_key: os.environ/VLLM_API_KEY
+
+  # ---- 云端兜底(火山 ARK;vLLM 满载/故障时自动回落)----
+  # CLOUD_BASE_URL / CLOUD_API_KEY / CLOUD_MAIN_MODEL 由 setup-env.sh 写入 .env、compose 注入。
+  - model_name: cloud-main
+    litellm_params:
+      model: openai/deepseek-v4-flash            # 云端模型(openai/ 前缀走 OpenAI 兼容协议)
+      api_base: os.environ/CLOUD_BASE_URL
+      api_key:  os.environ/CLOUD_API_KEY
+
+  - model_name: deepseek-v4-flash
+    litellm_params:
+      model: openai/deepseek-v4-flash
+      api_base: os.environ/CLOUD_BASE_URL
+      api_key:  os.environ/CLOUD_API_KEY
+
+litellm_settings:
+  drop_params: true            # 忽略 vLLM 不支持的参数(如 temperature 细节),避免报错
+  request_timeout: 60          # 单次请求超时(秒);流式答案可更长
+  num_retries: 2
+  # 成功响应缓存(路由/改写等重复调用命中缓存,进一步省算力);按需开启
+  # cache: true
+
+router_settings:
+  routing_strategy: least-busy     # 多副本时选最空闲的
+  num_retries: 2
+  timeout: 60
+  allowed_fails: 3                 # 连续失败 3 次将该上游熔断冷却
+  cooldown_time: 30                # 熔断冷却秒数
+  # 云端兜底:vLLM 模型失败/被熔断时自动改投 cloud-main(火山 ARK),业务无感知。
+  fallbacks:
+    - main: ["cloud-main"]
+    - light: ["cloud-main"]
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY   # 业务端 LLM_GATEWAY_API_KEY 填这个
+  # 如需按模块分别限流/鉴权,可在此加 virtual keys / team 配置

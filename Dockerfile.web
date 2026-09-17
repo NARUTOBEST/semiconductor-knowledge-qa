@@ -1,0 +1,28 @@
+# ============================================================
+# 前端 Next.js :3000(standalone 生产模式)
+# /api/* 经 next.config rewrites 代理到 BACKEND_URL(compose 内为 backend:8001),
+# SSE 流式透传、免 CORS。
+# ============================================================
+FROM node:20-slim AS deps
+WORKDIR /app
+COPY web/package.json web/package-lock.json ./
+RUN npm ci
+
+FROM node:20-slim AS build
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY web/ ./
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+FROM node:20-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+EXPOSE 3000
+# HOSTNAME=0.0.0.0 让 Next 容器外可访问;BACKEND_URL 在 compose 注入
+ENV HOSTNAME=0.0.0.0
+CMD ["node", "server.js"]

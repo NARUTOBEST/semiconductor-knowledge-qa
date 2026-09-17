@@ -1,10 +1,11 @@
 ﻿import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth";
+import { BRAND_NAME, BRAND_SHORT } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "半导体知识助手",
-  description: "半导体设备与工艺(ALD/光刻/键合/封装)学习问答助手",
+  title: BRAND_NAME,
+  description: `${BRAND_SHORT}:基于公司内部设备手册、维护规程与技术资料的检索问答`,
 };
 
 export default function RootLayout({

@@ -10,13 +10,44 @@ for _p in [
     _PROJECT,
     os.path.join(_PROJECT, "config"),
     os.path.join(_PROJECT, "RAG"),
+    os.path.join(_PROJECT, "RAG", "pdf"),
     os.path.join(_PROJECT, "server"),
     os.path.join(_PROJECT, "context management"),
 ]:
+    # 注:mcp_servers/retrieval 不入 sys.path——它含 tools.py,提前插入会让
+    # ``import tools`` 解析到检索服务的工具模块而非 agent 工具包(子模块
+    # 自带 sys.path 兜底,裸 import 无需此路径)。
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
 os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
+
+# MCP 工具桥默认走 memory 传输在进程内直连检索工具声明(不触网、不加载模型):
+# import tools 即注册三件套进 registry,与旧本地子包 import 期注册行为等价。
+os.environ.setdefault(
+    "MCP_SERVERS",
+    '[{"name": "retrieval", "module": "mcp_servers.retrieval.tools"}]',
+)
+
+# 测试默认跑【全功能模式】:经济模式(ECONOMY_MODE)在无网关时会自动关闭路由/质检/
+# 升迁等旁路 LLM,而单测用 mock LLM 验证这些完整路径,故这里显式关闭经济模式。
+# 生产环境不受影响(未配置网关时仍自动进入经济模式)。
+os.environ.setdefault("ECONOMY_MODE", "0")
+
+# 长期记忆(PG 偏好)默认在单测里关闭:它会直连真实 PostgreSQL 并同步调用检索微服务
+# /embed_text(不走 dispatch_fn/LLM 的 mock),属外部依赖。专项测试
+# (test_long_*.py)用 monkeypatch 显式打开并打桩;其余图/流式测试不应触网。
+os.environ.setdefault("LONG_MEM_ENABLED", "0")
+
+# 运行态(限流/指标/admin任务态)外置 Redis;单测强制内存后端保证确定性
+# (不连真实 Redis、计数互不污染)。Redis 路径由 test_state_redis.py 用
+# fakeredis 注入专项覆盖。setdefault 允许个别用例自行切回。
+os.environ.setdefault("RUNTIME_STATE_BACKEND", "memory")
+
+# 服务间鉴权默认关闭:本地 env/env.env 现已配置 RETRIEVAL_INTERNAL_TOKEN(生产),
+# 而多数 HTTP 端点测试依赖"未设 token 直接放行"。专项鉴权用例
+# (test_retrieval_guards)自行 monkeypatch 置非空验证 403 路径。
+os.environ.setdefault("RETRIEVAL_INTERNAL_TOKEN", "")
 
 import pytest
 
@@ -52,6 +83,15 @@ def _reset_login_rate_limit():
     except Exception:
         pass
     yield
+
+
+@pytest.fixture
+def isolated_registry():
+    """测试用例注册的临时工具在用例结束后清理,保留 import 期注册的检索工具。"""
+    from tools import registry
+    saved = dict(registry._specs)
+    yield registry
+    registry._specs = saved
 
 
 @pytest.fixture

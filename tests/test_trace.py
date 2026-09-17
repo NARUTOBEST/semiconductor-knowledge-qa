@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-"""ReAct trace / observability tests(经新版 LangGraph 实现)。
+"""ReAct trace / observability tests。
 
-经 chat.service.react_stream -> agent_reasoning.ReAct.support.runner 跑内存 checkpointer 的图,
-mock 掉 LLM 流、检索、召回、短期落库,验证产出的结构化事件与完整 trace:
+直接调 agent_reasoning.ReAct.support.runner.run_agent_graph 跑内存 checkpointer 的图。
+两级范式下无任何旁路节点(改写/grounding/coverage/plan 均已删除):一轮直答即 done,
+或 ReAct 工具循环后作答。mock 掉 LLM 流、检索、短期落库,验证产出的结构化事件与完整 trace:
   step_start / llm_response / tool_call / tool_result / step_end /
-  grounding / error_trace,以及 done 事件携带的完整 trace。
+  error_trace,以及 done 事件携带的完整 trace。
 """
 import contextlib
 import json
 import pytest
 from unittest.mock import patch, MagicMock
 
-import chat.service as svc
 import agent_reasoning.ReAct.core.nodes as nodes
 import agent_reasoning.ReAct.support.runner as runner
 from langgraph.checkpoint.memory import InMemorySaver
@@ -93,33 +93,24 @@ def _collect(events):
 
 @pytest.fixture
 def _isolated_deps():
-    """隔离外部依赖:内存 checkpointer、不连短期/长期库、改写/LLM/消息/dispatch 打桩。"""
+    """隔离外部依赖:内存 checkpointer、不连短期库、LLM/消息/dispatch 打桩。"""
     @contextlib.contextmanager
     def _mem_saver():
         yield InMemorySaver()
 
     # 节点内依赖:在 agent_reasoning.ReAct.core.nodes 命名空间打桩
     node_patches = [
-        patch.object(nodes, "rewrite_query", return_value=["ALD principle"]),
-        patch.object(nodes, "recall_memories", return_value=[]),
         patch.object(nodes, "get_client", return_value=MagicMock()),
         patch.object(nodes, "build_messages",
-                     side_effect=lambda msg, hist, sub_queries=None: [
+                     side_effect=lambda msg, hist=None: [
                          {"role": "user", "content": msg}]),
         patch.object(nodes, "dispatch", side_effect=lambda n, a: []),
     ]
-    # runner 依赖:用内存 checkpointer 替换 PostgresSaver,跳过升迁、静默短期落库
-    import memories.orchestration.short.events as _se
+    # runner 依赖:用内存 checkpointer 替换 PostgresSaver,静默短期落库
     from memories.storage.short import short_term as _short
     runner_patches = [
         patch.object(runner, "working_saver", _mem_saver),
-        patch.object(runner, "after_stream", lambda *a, **k: None),
-        patch.object(_se.short_term, "append_event", lambda *a, **k: None),
         patch.object(_short, "append_event", lambda *a, **k: None),
-        # 阶段 3:react_stream 现先做复杂度路由;固定走 medium ReAct,避免真实 LLM 分类
-        patch.object(svc, "classify_complexity",
-                     return_value={"tier": "medium", "confidence": 1.0,
-                                   "source": "rule"}),
     ]
     for p in node_patches + runner_patches:
         p.start()
@@ -128,54 +119,47 @@ def _isolated_deps():
         p.stop()
 
 
-def _run(message="什么是 ALD?", **kwargs):
-    """通过 service.react_stream 跑图(匿名用户 -> 不触发长期升迁)。"""
-    return list(svc.react_stream(message, [], thread_id="t-trace", **kwargs))
+def _run(message="什么是 ALD?", on_event=None):
+    """直接跑 ReAct 图(匿名用户),两级范式无旁路开关。"""
+    return list(runner.run_agent_graph(
+        message, [], thread_id="t-trace", username=None,
+        on_event=on_event))
 
 
 # ---------- 测试 ----------
 
 class TestAnswerOnlyTrace:
     def test_full_trace_structure_and_order(self, _isolated_deps):
-        # 无检索来源的回答会被 grounding 拦截并触发一次反思重生成(缺口1修复),
-        # 因此需要两个 answer stream:第一轮被作废、第二轮经 MAX_REFLECT 上限后收尾。
-        streams = [_answer_stream(), _answer_stream()]
+        # 两级范式无 grounding/reflect:一轮直答即 done。
         with patch.object(nodes, "llm_create_with_retry",
-                          side_effect=lambda *a, **k: (streams.pop(0), None)):
+                          return_value=(_answer_stream(), None)):
             events = _run()
 
         order, by_type = _collect(events)
 
-        # 关键事件顺序(阶段 3:首个事件为 tier,随后才是 status)
-        assert order[0] == "tier"
-        assert "status" in order
+        # 关键事件顺序(直跑图:首个事件为 status,随后进入 ReAct 步骤;
+        # tier 事件由 service 层发出,不在本测试范围)
+        assert order[0] == "status"
         assert "step_start" in order
         assert "llm_response" in order
         assert "step_end" in order
-        assert "grounding" in order   # 无来源也发 grounding(passed=False)
-        assert "reflect" in order    # 触发反思重生成
         assert order[-1] == "done"
 
         done = by_type["done"][-1]
         trace = done["trace"]
         assert trace["final_reason"] == "answer"
-        assert trace["steps_count"] == 2  # 第一轮 answer 被反思,第二轮收尾
+        assert trace["steps_count"] == 1  # 一轮直答
         assert trace["steps"][-1]["decision"] == "answer"
         assert trace["steps"][-1]["llm"]["finish_reason"] == "stop"
         assert trace["steps"][-1]["llm"]["has_tool_calls"] is False
         assert trace["steps"][-1]["llm"]["thought_len"] > 0
-        assert trace["total_tokens"]["total"] == 60
-        assert trace["sub_queries"] == ["ALD principle"]
+        assert trace["total_tokens"]["total"] == 30
 
     def test_token_events_accumulate_to_full_reply(self, _isolated_deps):
         text = "ALD 是一种薄膜沉积技术。"
-        # 第一轮先输出被作废的占位答案(触发无来源反思),第二轮输出真正答案。
-        streams = [_answer_stream(text="占位"), _answer_stream(text=text)]
         with patch.object(nodes, "llm_create_with_retry",
-                          side_effect=lambda *a, **k: (streams.pop(0), None)):
+                          return_value=(_answer_stream(text=text), None)):
             events = _run()
-        # 用户最终看到的 assistant_message 只含第二轮重生成的内容
-        # (第一轮已由 reflect 置 full_reply="" 作废,不与新答案串联)
         final = [e for e in events if e["type"] == "assistant_message"]
         assert final and final[-1]["content"] == text
 
@@ -201,9 +185,7 @@ class TestToolCallTrace:
 
         with patch.object(nodes, "llm_create_with_retry",
                           side_effect=lambda *a, **k: (streams.pop(0), None)), \
-             patch.object(nodes, "dispatch", return_value=tool_result) as disp, \
-             patch.object(nodes, "grounding_check",
-                          return_value={"passed": True, "warnings": []}):
+             patch.object(nodes, "dispatch", return_value=tool_result) as disp:
             events = _run("ALD 原理?")
 
         _, by_type = _collect(events)
@@ -211,7 +193,6 @@ class TestToolCallTrace:
         tc = by_type["tool_call"][0]
         assert tc["name"] == "search_text"
         assert tc["args"]["query"] == "ALD principle"
-        assert tc["args_parse_error"] is None
 
         tr = by_type["tool_result"][0]
         assert tr["ok"] is True
@@ -252,8 +233,9 @@ class TestToolCallTrace:
         assert trace["steps"][0]["tools"][0]["ok"] is False
 
     def test_invalid_tool_arguments_parse_error(self, _isolated_deps):
-        """参数 JSON 非法时不真正执行工具(P0①:避免空参数兜底触发非预期调用、
-        假来源混入 collected_sources),把解析错误作为 tool_result 回传给模型自修。"""
+        """参数 JSON 非法时,validate_runtime 节点拦截:不真正执行工具(避免空参数
+        兜底触发非预期调用、假来源混入 collected_sources),把解析错误作为 json_parse
+        的 tool_result 回传给模型自修;tool_call 事件只对通过校验的调用发出。"""
         bad_stream = _toolcall_stream(arguments="{not valid json")
         answer = iter([_chunk(content="好的"), _chunk(finish_reason="stop"),
                        _usage_chunk()])
@@ -263,14 +245,14 @@ class TestToolCallTrace:
              patch.object(nodes, "dispatch", return_value=[]) as disp:
             events = _run("ALD?")
         _, by_type = _collect(events)
-        tc = by_type["tool_call"][0]
-        assert tc["args_parse_error"] is not None
-        # dispatch 不被调用(参数坏了不能带着空参数执行)
+        # 参数坏了:execute 不发 tool_call、dispatch 不被调用
+        assert "tool_call" not in by_type
         disp.assert_not_called()
-        # 仍产生 tool_result,内容是让模型修正参数的错误提示
+        # validate_runtime 产生 json_parse 的失败 tool_result,回灌让模型修正参数
         assert by_type["tool_result"]
         tr = by_type["tool_result"][0]
         assert tr["ok"] is False
+        assert tr["error_type"] == "json_parse"
         assert "参数 JSON 解析失败" in tr["result_preview"]
 
 
@@ -334,28 +316,6 @@ class TestOnEventCallback:
         assert any(e["type"] == "token" for e in events)
 
 
-class TestGroundingEvent:
-    def test_grounding_event_emitted_when_sources_present(self, _isolated_deps):
-        tool_result = [{"chunk_id": "d__t1", "source_stem": "manual",
-                        "page_start": 12, "score": 0.9, "content": "ALD..."}]
-        answer = iter([_chunk(content="根据资料回答"),
-                       _chunk(finish_reason="stop"), _usage_chunk()])
-        streams = [_toolcall_stream(), answer]
-        # grounding_check 通过(在 nodes 命名空间打桩)
-        with patch.object(nodes, "llm_create_with_retry",
-                          side_effect=lambda *a, **k: (streams.pop(0), None)), \
-             patch.object(nodes, "dispatch", return_value=tool_result), \
-             patch.object(nodes, "grounding_check",
-                          return_value={"passed": True, "warnings": []}):
-            events = _run("ALD?")
-        _, by_type = _collect(events)
-        assert "grounding" in by_type
-        g = by_type["grounding"][0]
-        assert g["passed"] is True
-        trace = by_type["done"][-1]["trace"]
-        assert trace["grounding"]["passed"] is True
-
-
 class TestSSEPassthrough:
     """路由层对新事件类型透明转发(不被过滤)。"""
     def test_new_event_types_forwarded_over_sse(self, isolated_ratelimit):
@@ -370,7 +330,6 @@ class TestSSEPassthrough:
             {"type": "tool_call", "step": 1, "name": "search_text"},
             {"type": "tool_result", "step": 1, "ok": True},
             {"type": "step_end", "step": 1, "decision": "answer"},
-            {"type": "grounding", "passed": True, "warnings": []},
             {"type": "error_trace", "phase": "llm_stream",
              "error_type": "ValueError", "message": "x", "traceback_preview": ""},
             {"type": "done"},
@@ -399,6 +358,6 @@ class TestSSEPassthrough:
                         parsed.append(json.loads(s))
         received_types = [e["type"] for e in parsed]
         for expected in ["step_start", "llm_response", "tool_call",
-                         "tool_result", "step_end", "grounding",
+                         "tool_result", "step_end",
                          "error_trace", "done"]:
             assert expected in received_types, f"{expected} 未被 SSE 转发"

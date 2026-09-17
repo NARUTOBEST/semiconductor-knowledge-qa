@@ -1,10 +1,20 @@
-﻿# run_agent.ps1 - 半导体知识助手启动器 (单窗口版)
+﻿# run_agent.ps1 - 半导体设备知识问答系统启动器 (单窗口版)
 # 前后端都在本窗口运行(共享控制台输出), 不再分别弹窗。
 # 三重保障, 关闭窗口 / Ctrl+C / 按任意键 任一方式退出都会终止全部进程:
 #   1) Windows Job Object (KILL_ON_JOB_CLOSE): OS 级, 本进程退出即杀整个进程树(含 python/node)
 #   2) SetConsoleCtrlHandler: 捕获 CTRL_CLOSE/C 事件 -> TerminateJobObject 杀 job 全树 + taskkill /T 兜底
 #   3) finally: 退出时主动 TerminateJobObject + taskkill /T
 $ErrorActionPreference = 'Stop'
+# 本地服务互调(8001/8002/3000)必须绕过系统代理(Clash 等会把 127.0.0.1 请求代理成 502);
+# 只排除本地回环,外网 LLM API 仍可正常走 HTTP_PROXY。
+# 本地回环 + 国内端点必须直连:火山方舟 LLM/视觉(ark.cn-beijing.volces.com)与 HF 国内镜像
+# 若被 Clash 等代理绕到国外节点会 ReadTimeout(实测经代理 5/5 超时,直连 5/5 ~0.5s)。
+# 国外服务(Tavily/Serper 联网搜索)不在此列,仍走 HTTP_PROXY。
+$env:NO_PROXY = '127.0.0.1,localhost,::1,.volces.com,volces.com,.hf-mirror.com,hf-mirror.com'
+$env:no_proxy = '127.0.0.1,localhost,::1,.volces.com,volces.com,.hf-mirror.com,hf-mirror.com'
+# Qdrant 走服务器模式(Docker :6333),不再用会每次重建 HNSW 的本地文件模式(path=)。
+# 留空则回退本地文件模式;query.py / ingest_core.py / pdf.ingest.py 均读此变量。
+$env:QDRANT_URL = 'http://127.0.0.1:6333'
 try { chcp 65001 | Out-Null } catch {}
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch {}
 
@@ -12,7 +22,7 @@ $root = Split-Path $PSScriptRoot -Parent
 $py   = Join-Path $root '.venv_mineru\Scripts\python.exe'
 
 Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "   半导体知识助手 启动器 (单窗口)" -ForegroundColor Cyan
+Write-Host "   半导体设备知识问答系统 启动器 (单窗口)" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 
 if (-not (Test-Path -LiteralPath $py)) { Write-Host "[错误] 未找到 Python: $py" -ForegroundColor Red; exit 1 }
@@ -74,11 +84,11 @@ function Start-Inline($file, $argList, $workdir) {
 }
 
 Write-Host ""
-Write-Host "向量库: Qdrant 本地嵌入式模式 (qdrant_db/), 无需 Docker" -ForegroundColor DarkGray
+Write-Host "向量库: Qdrant 服务器模式 (Docker $env:QDRANT_URL)" -ForegroundColor DarkGray
 
 Write-Host ""
-Write-Host "[1/3] 启动检索微服务  http://127.0.0.1:8002 ..." -ForegroundColor Cyan
-$rs = Start-Inline $py 'server\retrieval_service.py' $root
+Write-Host "[1/3] 启动检索服务(MCP /mcp + HTTP)  http://127.0.0.1:8002 ..." -ForegroundColor Cyan
+$rs = Start-Inline $py 'mcp_servers\retrieval\service.py' $root
 Add-ToJob $rs
 
 Write-Host "[2/3] 启动后端  FastAPI  http://127.0.0.1:8001 ..." -ForegroundColor Cyan

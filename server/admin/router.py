@@ -10,11 +10,15 @@ from admin.pipeline import start_pipeline, get_task, list_tasks
 logger = logging.getLogger("admin")
 router = APIRouter()
 
-# 上传保存目录必须与 config.SRC_ROOT(流水线入库的源目录)一致:
-# server/admin/router.py -> 三层 dirname 才是项目根
-_SRC_ROOT = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "180-半导体设备相关资料！")
+# 上传保存目录必须与 config.SRC_ROOT(流水线入库的源目录)一致,直接复用 config
+import sys as _sys
+for _p in (
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "config"),
+):
+    if _p not in _sys.path:
+        _sys.path.insert(0, _p)
+import config as _C
+_SRC_ROOT = _C.SRC_ROOT
 _MAX_UPLOAD_BYTES = 200 * 1024 * 1024  # 200MB
 
 

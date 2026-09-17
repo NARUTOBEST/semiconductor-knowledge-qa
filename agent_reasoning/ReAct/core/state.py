@@ -2,7 +2,7 @@
 """Agent Graph 的 State 定义。
 
 字段来源是 server/chat/service.py:react_stream 中实际流转的数据,
-并补齐记忆系统所需字段。全部字段必须 JSON 可序列化(会被 PostgresSaver 写入 checkpoint)。
+并补齐记忆系统所需字段。全部字段必须 JSON 可序列化(会被 RedisSaver 写入 checkpoint)。
 
 reducer 说明:
   - messages          : add_messages,支持多节点追加/按 id 更新
@@ -57,6 +57,29 @@ def _merge_sources(left: Optional[dict[str, dict[str, Any]]],
     return merged
 
 
+def _merge_tool_status(left: Optional[dict[str, str]],
+                       right: Optional[dict[str, str]]) -> dict[str, str]:
+    """合并各工具类别的可用性状态(category -> "up"/"down")。
+
+    按 key 合并,后写覆盖前写;"down" 是粘性的(一旦某类别标记 down,
+    本轮不会被后续 "up" 覆盖,除非 setup 用 "__reset__" 显式复位)。
+    哨兵:right 含 "__reset__" 表示 setup 每轮复位(其值即复位后的默认 dict)。
+    """
+    if right and "__reset__" in right:
+        return {k: v for k, v in right.items() if k != "__reset__"}
+    if not left:
+        return dict(right or {})
+    if not right:
+        return dict(left)
+    merged = dict(left)
+    for cat, status in right.items():
+        # down 粘性:已经是 down 则不被 up 覆盖
+        if merged.get(cat) == "down" and status == "up":
+            continue
+        merged[cat] = status
+    return merged
+
+
 class AgentState(TypedDict, total=False):
     """一次对话 thread 在图中流转的状态。
 
@@ -70,32 +93,22 @@ class AgentState(TypedDict, total=False):
 
     运行期字段(节点逐步填充):
       trace_id    : 短 uuid,日志/事件关联
-      sub_queries : query 改写产物
-      recalled_memories : 召回网关返回的长期记忆(注入 system message + 审计)
       summary     : 跨轮旧消息的增量摘要(会话级工作记忆压缩,见 summarize.py)
       messages    : LLM 对话消息,add_messages
       step        : 当前步数
       full_reply  : 累积的最终回答文本(token 流拼接)
       collected_sources : {chunk_key: source_dict},合并 reducer
-      retrieval_down    : 检索工具是否失败
+      tool_status       : {category: "up"/"down"},按工具类别的故障隔离标记,
+                          合并 reducer(down 粘性,setup 每轮复位)
       usage             : 累积 token usage,累加 reducer
-      final_reason      : answer/tool_calls/max_steps/timeout/error
-      grounding         : {passed, warnings} 或 None
+      final_reason      : answer/max_steps/timeout/error
       error             : 终端错误 {phase, message} 或 None
-      reflect_count     : 已反思重生成的次数(每轮对话内,setup 重置)
-      reflect_feedback  : 上一次反思的修正意见(重生成时注入 messages)
-      task_plan         : 复杂问题检索计划 {need_plan: bool, steps: [str]}
-                          (plan_node 产出,build_messages 拼进 system message;
-                          setup 每轮重置,不跨轮复用)
-      search_count      : 本轮已执行检索工具调用次数(粗粒度计划进度信号,
-                          tools_node 累加,build_messages 展示"已检索 N 次")
-      coverage_rollbacks: 因计划某步未被检索资料覆盖而回退重检索的次数(有界,
-                          coverage_check_node 累加,setup 每轮重置)
-      bind_tools      : 是否给 LLM 绑定检索工具 schema。True(默认,medium/P&E)
-                        传 tools 走 ReAct;False(simple 直答)不传 tools,模型只作答。
-      skip_recall     : True 时 recall_node 跳过长期记忆召回(simple 不需要/已做过)。
-      skip_rewrite    : True 时 rewrite_node 跳过查询改写 LLM,sub_queries 直接用原问题
-                        (simple 不改写;P&E 每步也跳过,改写只在顶层做一次)。
+      search_count      : 本轮已执行检索工具调用次数(tools_node 累加)
+      retrieval_max_score : 本轮检索到的最高 rerank 相关分(tools_node 从
+                          collected_sources 计算,标量覆写;setup 复位为 0.0)。
+                          用于低置信自适应检索与 react 质检门判定。
+      bind_tools        : 是否给 LLM 绑定检索工具 schema。True(默认 react)传 tools
+                          走 ReAct;False(simple 直答)不传 tools,模型只作答。
     """
 
     # ---- 输入主键 ----
@@ -107,36 +120,55 @@ class AgentState(TypedDict, total=False):
     max_steps: int
     max_total_seconds: int
     started_at: float
+    hard_deadline: Optional[float]   # 端到端硬截止墙钟时间戳(service 层跨升级/重做统一下发)
+    # 质检/升级反馈(service 层显式下发,重做/升级那轮注入 user 槽位):此前经
+    # history 夹带,但冷启动种子以 Redis 短期流水为权威时会忽略 history,反馈丢失。
+    qc_feedback: str
 
     # ---- 运行期 ----
     trace_id: str
-    sub_queries: list[str]
-    recalled_memories: list[dict[str, Any]]
     summary: str
     messages: Annotated[list[BaseMessage], add_messages]
     step: int
     full_reply: str
     collected_sources: Annotated[dict[str, dict[str, Any]], _merge_sources]
-    retrieval_down: bool
+    tool_status: Annotated[dict[str, str], _merge_tool_status]
     usage: Annotated[dict[str, int], _add_usage]
-    # tool_call_id -> 参数解析错误文本(每轮 agent 写入,tools 读取后随 tool_call 事件暴露)
+    # tool_call_id -> 参数解析错误文本(每轮 agent 写入,validate_runtime 读取回灌)
     tool_parse_errors: dict[str, str]
+    # 本轮待执行的合法工具调用(validate_generation→validate_runtime→execute 节点间透传):
+    # [{"id","name","args"}]。每轮由校验节点重建,普通标量覆写 reducer。
+    pending_tool_calls: list[dict[str, Any]]
+    # execute 节点产出的每个调用结果(供 reflect 决策研判):
+    # [{"name","category","ok","kind","empty",...}],reflect 消费后清空。
+    tool_outcomes: list[dict[str, Any]]
+    # 工具名 -> 本次请求内连续失败次数(reflect 累加,达阈值摘工具);setup 复位。
+    tool_fail_streak: dict[str, int]
+    # 工具名 -> 本次请求内"空结果/低置信换词提示"累计次数(Req8):reflect 累加,
+    # 达 REACT_TOOL_REQUERY_MAX 后不再为该工具注入换词 hint(改为"内部资料未覆盖"口径);
+    # setup 复位。普通标量覆写(reflect 每轮读全量、回写全量)。
+    tool_requery_count: dict[str, int]
+    # 记忆链内部 LLM(升迁门/摘要)token 用量,与作答 usage【分账】(Req12):累加 reducer,
+    # 仅观测/metrics 用,绝不混入对外 billable 的 usage / meta / done。
+    usage_internal: Annotated[dict[str, int], _add_usage]
     final_reason: Optional[str]
-    grounding: Optional[dict[str, Any]]
     error: Optional[dict[str, str]]
-    reflect_count: int
-    reflect_feedback: str
-    task_plan: dict[str, Any]
     search_count: int
-    coverage_rollbacks: int
+    # 服务层投机检索结果(原始问题的 search_text 块列表,
+    # runner 已把 future 解析为可序列化结果;None=无)。
+    # react 首轮注入为预检索上下文,模型可直接引用(免一次
+    # 检索步);来源同步并入 collected_sources。
+    pre_search: Optional[list]
+    retrieval_max_score: float
     bind_tools: bool
-    skip_recall: bool
-    skip_rewrite: bool
+
+    # 注:记忆维护已迁出主图(后台记忆管道,见 memories/orchestration/memory_loop),
+    # state 不再承载记忆路由字段;每轮记忆原料快照经 config["configurable"]["mem_snapshot"]
+    # 传递(运行时对象不进 state)。
 
 
 # 运行时对象通过 config["configurable"] 传递,不进 State(不可 JSON 序列化):
 #   trace_recorder   : TraceRecorder 实例
-#   coverage_tracker : CoverageTracker 实例(异步维护计划步骤覆盖文档,见 plan_grounding.py)
 #   writer           : get_stream_writer() 发出的 SSE 事件流
 #   on_event         : 后端二次消费回调(落短期记忆/转发监控)
 #   client           : OpenAI 客户端单例

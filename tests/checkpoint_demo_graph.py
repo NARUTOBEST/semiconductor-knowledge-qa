@@ -4,7 +4,7 @@
 图结构: START -> weather_tool -> END
 - weather_tool 节点每次执行都会把"工具被调用次数"写进 SIDE_EFFECT_FILE(跨进程证据),
   并写入一条 AI 消息 + usage token 统计。
-- 编译时挂 working_saver()(PostgresSaver),状态按 thread_id 落 PG。
+- 编译时挂 working_saver()(RedisSaver),状态按 thread_id 落 Redis。
 """
 import json
 import os

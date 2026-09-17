@@ -1,56 +1,54 @@
-# Agent 记忆系统数据库初始化
+# Agent 三层记忆系统初始化(Redis + PostgreSQL)
 
-多库分表:三个独立 PostgreSQL 数据库,禁止跨库 join。
+三层记忆落在不同后端:
 
-| 库 | 用途 | 建表方式 |
-|---|---|---|
-| `agent_working_db` | 工作记忆(LangGraph checkpoint) | `PostgresSaver.setup()` 自动生成 |
-| `agent_short_db` | 短期会话流水 `session_events` | `01_short_session_events.sql` |
-| `agent_long_db` | 长期记忆 `long_term_memories` + vector | `02_long_term_memories.sql` |
+| 层 | 用途 | 后端 / 结构 | 初始化方式 |
+|---|---|---|---|
+| 工作记忆 | LangGraph checkpoint(会话级 state 快照、跨轮续跑) | Redis `checkpoint:*` / `checkpoint_write:*` | `RedisSaver.setup()` 自动建索引 |
+| 短期记忆 | 会话事件流水(审计/回放/溯源) | Redis `mem:*`(运行期自动创建) | 无需建表 |
+| 长期记忆 | 用户个人偏好(跨会话个性化) | **PostgreSQL + pgvector**,`user_profile` + `long_mem_00..N-1` 分片表 | `long_term.setup()` 幂等建表 |
 
-连接参数全部来自 `env/env.env`(`WORKING_PG_URI`/`SHORT_PG_URI`/`LONG_PG_URI`),禁止硬编码。
+- Redis(工作 + 短期)连接参数来自 env(`REDIS_HOST/PORT/PASSWORD/DB` 或 `REDIS_URL`)。
+- 长期记忆连接参数来自 env(`LONG_PG_URI` 或 `POSTGRES_HOST/PORT/DB/USER/PASSWORD`),
+  按 `blake2b(username) % LONG_MEM_SHARD_COUNT`(默认 16)分表,向量列 `vector(1024)`
+  存 BGE-m3 dense(复用检索微服务 `/embed_text`)。**长期记忆是旁路增强**:PG 不可用时
+  自动降级(不抽取、不注入),不影响聊天;`LONG_MEM_ENABLED=0` 可整体关闭。
 
-## 步骤 1:在 PostgreSQL 手动建库(仅首次)
+## 本地开发(WSL2)
 
-```sql
-CREATE DATABASE agent_working_db;
-CREATE DATABASE agent_short_db;
-CREATE DATABASE agent_long_db;
-```
-
-也可命令行:`createdb -h 127.0.0.1 -U postgres agent_working_db`(其余两个同理)。
-
-## 步骤 2-5:一键初始化(幂等,可重复执行)
-
-在**项目根目录**执行:
+在 WSL2 里装并启动 Redis(任选其一):
 
 ```bash
-.venv_mineru/Scripts/python.exe memories/db/init_all.py
+# 方式 A:apt 装 redis-server
+sudo apt update && sudo apt install -y redis-server
+sudo service redis-server start
+
+# 方式 B:直接用 docker 跑一个
+docker run -d --name redis -p 6379:6379 redis:7-alpine
 ```
 
-脚本依次:三个库 `CREATE EXTENSION vector` → working 库 `PostgresSaver.setup()` → short/long 库执行业务 DDL。
-仅检查连接不建表:`python memories/db/init_all.py --check`。
-
-## WSL2 端口转发风险(重要)
-
-Python 业务代码在 Windows,PG/Redis 在 WSL2,通过 `127.0.0.1` 访问依赖 **netsh 端口转发**。
-**WSL2 重启后端口转发规则会失效**,需在管理员 PowerShell 重建(按实际 WSL IP):
+WSL2 默认开启 localhost 转发,Windows 侧业务代码经 `127.0.0.1:6379` 即可访问;
+若访问不通(少数环境转发失效),再按 WSL IP(`wsl hostname -I`)做 netsh portproxy:
 
 ```powershell
-netsh interface portproxy add v4tov4 listenport=5432 listenaddress=127.0.0.1 connectport=5432 connectaddress=<WSL_IP>
 netsh interface portproxy add v4tov4 listenport=6379 listenaddress=127.0.0.1 connectport=6379 connectaddress=<WSL_IP>
 ```
 
-查看 WSL IP:`wsl hostname -I`;查看已有规则:`netsh interface portproxy show all`。
-**生产环境不要依赖此方案**,应使用独立数据库服务器或固定网络地址。
+Windows 侧 env 设置 `REDIS_HOST=127.0.0.1 REDIS_PORT=6379`(有密码则 `REDIS_PASSWORD=...`)。
 
-## 手工执行 SQL(可选,不用 init_all.py 时)
+## Ubuntu Server / docker-compose
+
+compose 内置 `redis` 服务,backend 经 `REDIS_HOST=redis` 访问,无需手工初始化。
+
+## 一键初始化 / 健康检查(幂等)
+
+在**项目根目录**:
 
 ```bash
-psql -h 127.0.0.1 -U postgres -d agent_working_db -f create_extensions.sql
-psql -h 127.0.0.1 -U postgres -d agent_short_db   -f create_extensions.sql
-psql -h 127.0.0.1 -U postgres -d agent_long_db    -f create_extensions.sql
-psql -h 127.0.0.1 -U postgres -d agent_short_db   -f 01_short_session_events.sql
-psql -h 127.0.0.1 -U postgres -d agent_long_db    -f 02_long_term_memories.sql
-# working 库 checkpoint 表仍需由 PostgresSaver.setup() 创建(跑一次 init_all.py 或调 working_saver())
+python memories/db/init_all.py            # PING + 建工作记忆 checkpoint 索引
+python memories/db/init_all.py --check    # 只探测连通性
 ```
+
+短期流水键在首次写事件时由 `memories/storage/short/short_term.py` 自动创建;
+工作记忆 checkpoint 索引也会在后端首次 `working_saver()` 时由 `setup()` 幂等创建,
+init_all.py 主要用于部署时提前验证与建索引。

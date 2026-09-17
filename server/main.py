@@ -1,5 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
-"""半导体知识助手后端 -- FastAPI HTTP 壳。
+"""半导体设备知识问答系统后端 -- FastAPI HTTP 壳。
 
 职责仅限 HTTP 层:
   GET  /          存活探针(路由在 health/router.py)
@@ -20,8 +20,10 @@
 """
 import os
 import logging
+from typing import Optional
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends, HTTPException, Header
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -47,7 +49,6 @@ logging.basicConfig(
     level=logging.DEBUG if IS_DEV else logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
     handlers=[
-        logging.FileHandler("agent.log", encoding="utf-8"),
         logging.StreamHandler(),
     ],
 )
@@ -65,7 +66,7 @@ PORT   = int(os.getenv("PORT", "8001"))
 # ==================== FastAPI 应用 ====================
 # 生产环境关闭文档端点(/docs /redoc /openapi.json),避免暴露 API 结构
 app = FastAPI(
-    title="半导体知识助手",
+    title=C.BRAND_NAME,
     docs_url="/docs" if IS_DEV else None,
     redoc_url="/redoc" if IS_DEV else None,
     openapi_url="/openapi.json" if IS_DEV else None,
@@ -81,7 +82,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=_cors_origins,
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
 
@@ -131,27 +132,62 @@ app.include_router(admin_router, prefix="/api/admin")
 init_conv_table()
 
 # ==================== Metrics 端点 ====================
+_metrics_bearer = HTTPBearer(auto_error=False)
+
+
+def _require_metrics_access(
+    x_internal_token: Optional[str] = Header(default=None),
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(_metrics_bearer),
+):
+    """指标访问控制:admin 用户 JWT,或配置了内部抓取密钥且请求头匹配。
+
+    指标含每用户用户名/用量等敏感运营数据,故默认不允许匿名:
+      - 已登录且 role=admin -> 放行;
+      - 配置了 METRICS_INTERNAL_TOKEN 且 X-Internal-Token 匹配 -> 放行(供 Prometheus 等);
+      - 其余 -> 403。
+    """
+    # 内部抓取密钥优先(无 JWT 也可,供监控系统拉取)
+    internal = getattr(C, "METRICS_INTERNAL_TOKEN", "") or ""
+    if internal and x_internal_token and x_internal_token == internal:
+        return {"username": "internal-scraper", "role": "internal"}
+    # 否则解析用户 JWT(软解析:无 token / 无效不抛 401,落到统一 403)
+    if credentials:
+        from auth.service import verify_token
+        from auth.db import get_user_by_username
+        payload = verify_token(credentials.credentials)
+        uname = (payload or {}).get("sub")
+        u = get_user_by_username(uname) if uname else None
+        # get_user_by_username 返回 sqlite3.Row(无 .get()),用 keys() 守卫后按键取
+        if u is not None and "role" in u.keys() and u["role"] == "admin":
+            return u
+    raise HTTPException(status_code=403, detail="仅管理员可访问")
+
+
 @app.get("/metrics")
-def get_metrics():
-    """返回运行指标(JSON)。无需认证,内部监控用。"""
+def get_metrics(_user=Depends(_require_metrics_access)):
+    """返回运行指标(JSON)。需 admin JWT,或匹配 X-Internal-Token(指标含用户名等敏感数据)。"""
     return metrics.get_stats()
 
 # ==================== 启动 ====================
-if __name__ == "__main__":
-    print("半导体知识助手后端  http://{}:{}  (ReAct 流式, env={})".format(HOST, PORT, ENV), flush=True)
-    # 启动时后台预热文本检索模型(BGE-m3),避免用户首次检索时多等约 30s。
-    # daemon 线程:不阻塞 uvicorn 启动,服务立即可用;模型在后台加载,
-    # 若用户在加载完成前提问,ensure_retriever 的锁会等其加载完(不会重复加载)。
+def _start_background_tasks():
+    """启动后台任务。放在 startup 事件里:uvicorn 多 worker(workers=N)时
+    每个子进程都会执行(预热无害——只是 HTTP 轮询微服务 /health;prune 清理
+    由 Redis 值班锁选主,仅一个 worker 实际执行,见 lifecycle.prune_loop)。"""
     import threading
+
+    # 后台预热文本检索模型(BGE-m3 在检索微服务进程内,这里只是等它就绪),
+    # 避免用户首次检索时多等约 30s。daemon 线程:不阻塞启动。
     def _warmup_retriever():
         try:
             print("[startup] 后台预热 BGE-m3 文本检索模型…", flush=True)
             retriever_warmup.ensure_retriever()
         except Exception as e:
             print("[startup] BGE-m3 预热失败: {}".format(e), flush=True)
-    threading.Thread(target=_warmup_retriever, daemon=True, name="bge-warmup").start()
+    threading.Thread(target=_warmup_retriever, daemon=True,
+                     name="bge-warmup").start()
 
-    # 工作记忆滚动 TTL:daemon 线程每日清理 30 天未活动会话的 checkpoint + 短期流水
+    # 工作记忆滚动 TTL:守护线程每日清理 30 天未活动会话的 checkpoint + 短期流水
+    # (多 worker 下由 Redis 值班锁选主,单 worker 行为不变)
     try:
         from memories.orchestration import start_prune_daemon
         start_prune_daemon()
@@ -159,13 +195,20 @@ if __name__ == "__main__":
     except Exception as e:
         print("[startup] TTL 守护启动失败: {}".format(e), flush=True)
 
-    # 升迁补偿:进程退出时未落库的 daemon 升迁靠水位下次重试,但若该会话之后
-    # 再无对话就永不升迁。启动时后台扫一遍待升迁 thread 补齐(不阻塞启动)。
-    try:
-        from memories.orchestration import start_recovery_daemon
-        start_recovery_daemon()
-        print("[startup] 升迁补偿扫描已在后台启动", flush=True)
-    except Exception as e:
-        print("[startup] 升迁补偿启动失败: {}".format(e), flush=True)
 
-    uvicorn.run(app, host=HOST, port=PORT, log_level="info")
+@app.on_event("startup")
+def _run_startup_tasks():
+    _start_background_tasks()
+
+
+if __name__ == "__main__":
+    print("{}后端  http://{}:{}  (RAG 检索流式, env={})".format(C.BRAND_NAME, HOST, PORT, ENV), flush=True)
+    # WORKERS>1 开多进程(worker 模式要求应用以 import string 传入;子进程经
+    # spawn 继承 sys.path,"main:app" 以 server/ 在 sys.path 中解析)。
+    # 默认 1:与原单进程行为完全一致。
+    _workers = int(os.getenv("WORKERS", "1"))
+    if _workers > 1:
+        uvicorn.run("main:app", host=HOST, port=PORT, workers=_workers,
+                    log_level="info")
+    else:
+        uvicorn.run(app, host=HOST, port=PORT, log_level="info")

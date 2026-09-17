@@ -1,0 +1,90 @@
+# ============================================================
+# 半导体设备知识问答系统 —— 项目机离线编排(5 服务,零模型)
+# 【检索全套(BGE-m3/CLIP/Reranker)与 LLM(vLLM×2+LiteLLM)均部署在 GPU 机,
+#   本机只跑业务前后端与存储;通过 SSH 反向隧道访问 GPU 机的 4000/8002。】
+#   - backend .env 关键项:LLM_GATEWAY_BASE_URL=http://host.docker.internal:4000/v1
+#                         RETRIEVAL_SERVICE_URL=http://host.docker.internal:8002
+#                         (隧道 -L 需绑 0.0.0.0,容器经 host-gateway 回宿主机)
+# 全部使用本地镜像(images/ 导入),不联网、不构建。
+# ============================================================
+name: semi
+
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.0
+    container_name: semi-qdrant
+    restart: unless-stopped
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    ports:
+      - "${QDRANT_BIND:-127.0.0.1}:6333:6333"
+
+  redis:
+    image: redis/redis-stack-server:7.4.0-v2
+    container_name: semi-redis
+    restart: unless-stopped
+    # 必须 redis-stack-server(RediSearch):LangGraph RedisSaver 的 checkpoint
+    # 索引依赖 FT.* 命令,纯 redis 会 unknown command 'FT.INFO' 降级为内存 checkpoint
+    command: ["redis-stack-server", "--requirepass", "${REDIS_PASSWORD}"]
+    volumes:
+      - ./data/redis:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$REDIS_PASSWORD\" ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: semi-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: memory_long
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d memory_long"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  backend:
+    image: semi-backend:local
+    container_name: semi-backend
+    restart: unless-stopped
+    depends_on:
+      redis: {condition: service_healthy}
+      postgres: {condition: service_healthy}
+      qdrant: {condition: service_started}
+    env_file: .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # 经宿主机隧道(0.0.0.0:4000/8002)访问 GPU 机
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8001"
+      WORKING_MEMORY_BACKEND: redis
+      REDIS_HOST: redis
+      POSTGRES_HOST: postgres
+      QDRANT_URL: http://qdrant:6333
+      AUTH_DB_PATH: /app/data/auth/auth.db
+      MEM_SESSION_DIR: /app/data/sessions
+      NO_PROXY: redis,postgres,qdrant,backend,127.0.0.1,localhost,host.docker.internal
+      no_proxy: redis,postgres,qdrant,backend,127.0.0.1,localhost,host.docker.internal
+    volumes:
+      - ./data/auth:/app/data/auth
+      - ./data/sessions:/app/data/sessions
+    ports:
+      - "127.0.0.1:8001:8001"
+
+  web:
+    image: semi-web:local
+    container_name: semi-web
+    restart: unless-stopped
+    depends_on: [backend]
+    # 镜像内 Next.js rewrite 硬编码 http://127.0.0.1:8001 → 用 host 网络,
+    # 直接命中宿主机发布的 backend(127.0.0.1:8001);对外端口 3000
+    network_mode: host
+
+volumes:
+  qdrant_storage:

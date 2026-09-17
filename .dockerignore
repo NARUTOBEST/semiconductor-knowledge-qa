@@ -1,0 +1,38 @@
+# Python / Node
+.venv*/
+**/__pycache__/
+*.pyc
+web/node_modules/
+web/.next/
+
+# 数据与产物(运行时以卷挂载,不进镜像)
+qdrant_db/
+分块产物/
+*.db
+auth.db
+hf-cache/
+# Docker 离线交付包(镜像 tar / qdrant 快照,共约 25G,绝不进构建上下文)
+docker-project/
+docker-gateway/
+# 本地含真实密钥的 env 不进镜像(容器配置由 compose 环境变量注入)
+env/env.env
+
+# 杂项
+.git/
+.playwright-mcp/
+.tmp_clean/
+.tmp_gpu_app/
+.pytest_cache/
+_kb_cleanup/
+memories_data/
+data/
+logs/
+tests/
+evals/
+eval/
+*.log
+server/agent.log
+_img_tmp.json
+_s*.json
+nul
+# (离线交付包已移至根目录 docker-project/ docker-gateway/,在上方统一排除)

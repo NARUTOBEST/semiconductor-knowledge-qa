@@ -11,6 +11,12 @@ import config as C
 def get_conn():
     conn = sqlite3.connect(C.AUTH_DB_PATH, timeout=10)
     conn.row_factory = sqlite3.Row
+    # WAL:读写互不阻塞(写-写仍由 timeout=10 排队),避免并发写报 database is locked。
+    # WAL 对库文件持久,重复设置幂等;个别盘(网络盘)不支持时静默回退默认 journal。
+    try:
+        conn.execute("PRAGMA journal_mode=WAL")
+    except sqlite3.OperationalError:
+        pass
     return conn
 
 
@@ -62,3 +68,14 @@ def count_users():
     n = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
     conn.close()
     return n
+
+
+def delete_user(username: str) -> bool:
+    """删除用户行(账号注销)。返回是否确实删除了一行。"""
+    conn = get_conn()
+    try:
+        cur = conn.execute("DELETE FROM users WHERE username = ?", (username,))
+        conn.commit()
+        return cur.rowcount > 0
+    finally:
+        conn.close()

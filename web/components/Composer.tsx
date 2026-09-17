@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { ArrowUp, Square, Paperclip, Mic, Globe, Lightbulb, Image as ImageIcon } from "lucide-react";
+import { ArrowUp, Square, Paperclip } from "lucide-react";
+import { BRAND_SHORT } from "@/lib/brand";
 
 interface Props {
   onSend: (text: string) => void;
@@ -9,12 +10,6 @@ interface Props {
   streaming: boolean;
   disabled?: boolean;
 }
-
-const SKILLS = [
-  { icon: Globe, label: "联网搜索" },
-  { icon: Lightbulb, label: "深度思考" },
-  { icon: ImageIcon, label: "图像生成" },
-];
 
 export function Composer({ onSend, onStop, streaming, disabled }: Props) {
   const [text, setText] = useState("");
@@ -53,7 +48,7 @@ export function Composer({ onSend, onStop, streaming, disabled }: Props) {
             onChange={(e) => setText(e.target.value)}
             onKeyDown={onKeyDown}
             rows={1}
-            placeholder="给半导体知识助手发消息…  (Enter 发送 / Shift+Enter 换行)"
+            placeholder={`给${BRAND_SHORT}发消息,可问设备操作、保养、报警排查…  (Enter 发送 / Shift+Enter 换行)`}
             className="block w-full resize-none bg-transparent px-4 pt-3 text-[14px] leading-relaxed text-t1 placeholder:text-t3 focus:outline-none"
             style={{ minHeight: 24 }}
           />
@@ -65,16 +60,6 @@ export function Composer({ onSend, onStop, streaming, disabled }: Props) {
             >
               <Paperclip size={18} />
             </button>
-            {SKILLS.map((s) => (
-              <button
-                key={s.label}
-                className="flex items-center gap-1 rounded-md px-2 h-7 text-[12px] text-t4 hover:bg-[#3f3f46] hover:text-t1 transition-colors"
-                title={s.label}
-              >
-                <s.icon size={14} />
-                {s.label}
-              </button>
-            ))}
             <div className="flex-1" />
             {streaming ? (
               <button
@@ -97,7 +82,7 @@ export function Composer({ onSend, onStop, streaming, disabled }: Props) {
           </div>
         </div>
         <div className="mt-1.5 text-center text-[11px] text-t3">
-          半导体知识助手基于本地 ALD 知识库检索,内容仅供参考,请注意核实。
+          {BRAND_SHORT}基于公司内部设备手册与技术资料检索,内容仅供参考,请以官方手册为准。
         </div>
       </div>
     </div>

@@ -18,6 +18,12 @@ import config as C
 def get_conn():
     conn = sqlite3.connect(C.AUTH_DB_PATH, timeout=10)
     conn.row_factory = sqlite3.Row
+    # WAL:读写互不阻塞(写-写仍由 timeout=10 排队),避免并发写报 database is locked。
+    # WAL 对库文件持久,重复设置幂等;个别盘(网络盘)不支持时静默回退默认 journal。
+    try:
+        conn.execute("PRAGMA journal_mode=WAL")
+    except sqlite3.OperationalError:
+        pass
     return conn
 
 
@@ -79,6 +85,19 @@ def get_conversations(user_id):
         "createdAt": r["created_at"],
         "updatedAt": r["updated_at"],
     } for r in rows]
+
+
+def delete_all_for_user(user_id) -> int:
+    """删除某用户的全部会话(账号注销级联)。返回删除行数。"""
+    conn = get_conn()
+    try:
+        cur = conn.execute(
+            "DELETE FROM conversations WHERE user_id = ?", (user_id,)
+        )
+        conn.commit()
+        return cur.rowcount
+    finally:
+        conn.close()
 
 
 def delete_conversation(conv_id, user_id):

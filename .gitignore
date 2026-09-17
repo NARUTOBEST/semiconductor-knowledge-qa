@@ -28,7 +28,6 @@ out/
 
 # ==================== 日志 ====================
 *.log
-agent.log
 
 # ==================== 数据 / 产物(体积大,不入库) ====================
 # Qdrant 向量数据库
@@ -67,5 +66,71 @@ desktop.ini
 # 认证数据库
 auth.db
 
+# ==================== Docker 离线部署包(大文件/运行时数据不入库) ====================
+# 镜像 tar 与 Qdrant 快照体积大(约 25G),仅本地/D盘留存,不提交;
+# compose、脚本、README、*.example、litellm_config.yaml 仍入库。
+docker-project/images/
+docker-project/snapshots/
+docker-project/data/
+docker-gateway/images/
+docker-gateway/data/
+# 重建网关镜像时下载的模型权重(约 9G+,仅本地)
+docker-gateway/models/
+# 部署时由 *.example 复制出的真实 env(含密钥),不入库
+docker-project/.env
+docker-gateway/.env
+
 # 根目录杂项空文件
 /Chat
+
+# 离线评测产物(报告/草稿),不入库
+eval/results/
+
+# 本机验证用的 compose 覆盖(端口重映射等)
+docker-project/docker-compose.override.yml
+
+# ==================== 2026-09-17 GitHub 入库清理 ====================
+# 浏览器自动化产物(截图/下载件)
+.playwright-mcp/
+# 临时目录与运行时数据
+.tmp_gpu_app/
+trace/
+memories_data/
+data/
+ossutil_output/
+_kb_cleanup/
+# 评测产物(代码入库,结果/日志不入库)
+eval/results*/
+eval/*.log
+eval/_tunnel_watchdog.log
+# 运行时状态文件
+RAG/pdf/_ingest_md5.json*
+RAG/pdf/working_degrade.sqlite3
+*.bak
+*.sqlite3
+# 根目录杂项截图/审计输出
+aliyun-login-qr.png
+jd-login.png
+jd-risk-page.png
+er_result.png
+missing_*.json
+true_miss_*.json
+qdrant_stems.json
+_tos_uploaded.txt
+# GPU 机运行环境(含内部 token)
+ssh_helper/*.env
+# projectdocker 部署包(大文件/运行时数据不入库,同 docker-project)
+projectdocker/images/
+projectdocker/snapshots/
+projectdocker/data/
+projectdocker/.env
+# 资料样本/审计中间产物(不入库)
+RAG/CAD/
+RAG/docx/
+RAG/jpg and png/
+RAG/mp4/
+RAG/pptx/
+RAG/xlsx/
+RAG/pdf/checklist.json*
+eval_results_part1.json
+facet_*.json

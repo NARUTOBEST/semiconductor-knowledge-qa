@@ -1,0 +1,37 @@
+[
+ {
+  "id": "u20_96",
+  "q": "你是基于什么大模型做的?",
+  "source": null,
+  "facts": [],
+  "tier": "simple"
+ },
+ {
+  "id": "u20_97",
+  "q": "再见,下次再聊",
+  "source": null,
+  "facts": [],
+  "tier": "simple"
+ },
+ {
+  "id": "u20_98",
+  "q": "你好呀,今天过得怎么样?",
+  "source": null,
+  "facts": [],
+  "tier": "simple"
+ },
+ {
+  "id": "u20_99",
+  "q": "你叫什么名字?",
+  "source": null,
+  "facts": [],
+  "tier": "simple"
+ },
+ {
+  "id": "u20_100",
+  "q": "你是机器人还是真人?",
+  "source": null,
+  "facts": [],
+  "tier": "simple"
+ }
+]

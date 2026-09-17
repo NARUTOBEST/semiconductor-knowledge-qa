@@ -6,7 +6,9 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 _RAG = os.path.dirname(_HERE)
 _PROJECT = os.path.dirname(_RAG)
 _CONFIG = os.path.join(_PROJECT, "config")
-for _p in (_CONFIG, _RAG):
+# query.py 已迁至 mcp_servers/retrieval;embed.py 仍在 RAG/
+_RETRIEVAL_SETTINGS = os.path.join(_PROJECT, "mcp_servers", "retrieval")
+for _p in (_CONFIG, _RAG, _RETRIEVAL_SETTINGS):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 import config as C

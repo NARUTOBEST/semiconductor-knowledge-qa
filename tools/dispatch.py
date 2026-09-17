@@ -1,42 +1,38 @@
-﻿# -*- coding: utf-8 -*-
-"""工具分发器:按 (name, args) 路由到对应工具函数并执行。
+# -*- coding: utf-8 -*-
+"""工具分发器(极简单次路由)。
 
-工具函数通过 HTTP 调用检索微服务,超时由 httpx 管理(关连接,无僵尸线程)。
-dispatch 只做路由 + 参数过滤 + 错误捕获,不再起子线程。
+本模块只做一件事:按 name 从 registry 取 ToolSpec,调用【一次】 handler。
+  - 不做重试 / 熔断 / 限流 / 错误分类(这些「机械重试」已上移到
+    agent_reasoning.ReAct.support.tool_resilience 韧性中间件);
+  - 不做参数校验 / JSON 解析 / schema 检查(这些「决策」在 ReAct 的
+    validate_runtime 节点完成;进入这里的 args 已校验、已规范化)。
+
+handler 抛出的异常(httpx 超时/5xx、handler bug 等)由本函数【原样上抛】,
+交给韧性中间件捕获分类与重试;中间件是"不抛异常"的边界。
+未知/禁用工具返回统一错误 dict(正常已被 validate_generation 拦截,此处仅兜底)。
+
+向后兼容:``dispatch(name, args)`` 两参签名不变,现有节点调用与测试 monkeypatch 继续生效。
 """
-import inspect
-import logging
-
-from .search_tools import search_text, search_image, get_chunk
-
-logger = logging.getLogger("dispatch")
-
-_HANDLERS = {
-    "search_text": search_text,
-    "search_image": search_image,
-    "get_chunk": get_chunk,
-}
+from .base import ErrorType, make_error
+from .registry import registry
 
 
-def dispatch(name, args=None, timeout=None):
-    """按工具名分发调用。
+def dispatch(name, args=None, **_ignored):
+    """按工具名分发【单次】调用。
 
-    工具函数内部通过 httpx 调用检索微服务,自带 30s 超时。
-    超时 = httpx 关闭 HTTP 连接 = 干干净净,无僵尸线程。
-
-    返回:
-      - 工具原样结果(list/dict/None);
-      - 出错时返回 {"error": "..."},不抛异常。
+    :param name: 工具名(须已注册)
+    :param args: 已校验的参数字典(仅含 handler 声明的参数)
+    :returns: 工具裸结果;未知/禁用工具返回 ``{"error","error_type","tool"}``;
+              handler 异常原样上抛(由韧性中间件处理)。
     """
-    fn = _HANDLERS.get(name)
-    if fn is None:
-        return {"error": f"未知工具: {name}(可用: {sorted(_HANDLERS)})"}
     args = args or {}
-    try:
-        params = inspect.signature(fn).parameters
-        accepted = {k: v for k, v in args.items() if k in params}
-        return fn(**accepted)
-    except Exception as e:
-        if isinstance(e, TypeError):
-            return {"error": f"参数错误({name}): {e}"}
-        return {"error": f"{name} 执行失败: {type(e).__name__}: {e}"}
+    spec = registry.get(name)
+    if spec is None:
+        return make_error(
+            f"未知工具: {name}(可用: {sorted(registry.names())})",
+            ErrorType.FATAL, name)
+    if not spec.enabled:
+        return make_error(f"工具 {name} 暂不可用", ErrorType.FATAL, name)
+
+    # 单次执行;异常不在此捕获,交由韧性中间件分类/重试。
+    return spec.handler(**args)

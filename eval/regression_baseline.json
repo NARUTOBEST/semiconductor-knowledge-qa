@@ -1,0 +1,32 @@
+{
+ "run": {
+  "n": 250,
+  "completion_rate": 1.0,
+  "error_rate": 0.0,
+  "sources_hit_rate": 0.972,
+  "latency_median_s": 35.0,
+  "latency_p95_s": 81.7
+ },
+ "judge": {
+  "judged": 243,
+  "hallucination_rate": 0.0793,
+  "avg_faithfulness": 0.9285,
+  "avg_context_precision": 0.5104,
+  "avg_context_recall": 0.8651,
+  "avg_answer_relevancy": 0.935
+ },
+ "hard": {
+  "mrr": 0.7598,
+  "P@5": 0.4714,
+  "R@5": 0.8115,
+  "F1@5": 0.5535,
+  "NDCG@5": 0.765,
+  "tier_ok": 1.0
+ },
+ "date": "2026-09-17",
+ "config": {
+  "base": "http://192.168.88.138:3000",
+  "users": 50,
+  "sets_dir": "qa_sets_50x5"
+ }
+}

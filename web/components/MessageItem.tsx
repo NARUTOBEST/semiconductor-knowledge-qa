@@ -12,6 +12,7 @@ import {
   User,
   AlertTriangle,
   FileText,
+  HelpCircle,
 } from "lucide-react";
 import { Markdown } from "./Markdown";
 import type { Message } from "@/lib/types";
@@ -53,6 +54,37 @@ function SourcesBar({ sources }: { sources: NonNullable<Message["sources"]> }) {
   );
 }
 
+/** 澄清反问卡片:信息不足时助手提问,候选可点击直接回复 */
+function ClarifyCard({
+  clarify,
+  onPick,
+}: {
+  clarify: NonNullable<Message["clarify"]>;
+  onPick?: (text: string) => void;
+}) {
+  return (
+    <div className="mb-2 rounded-xl border border-[#3a3a6e] bg-[#1b1f3a] px-3.5 py-3">
+      <div className="flex items-start gap-2 text-[13px] text-t1">
+        <HelpCircle size={15} className="mt-0.5 shrink-0 text-[#8b9cf6]" />
+        <span>{clarify.question}</span>
+      </div>
+      {clarify.options.length > 0 && (
+        <div className="mt-2.5 flex flex-wrap gap-2 pl-6">
+          {clarify.options.map((opt, i) => (
+            <button
+              key={i}
+              onClick={() => onPick?.(opt)}
+              className="rounded-lg border border-[#3a3a6e] bg-[#23284a] px-3 py-1.5 text-[12px] text-t2 transition-colors hover:border-[#5b67d6] hover:bg-[#2b3160] hover:text-t1"
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /** AI 消息底部操作按钮栏 */
 function ActionRow({ content }: { content: string }) {
   const [copied, setCopied] = useState(false);
@@ -88,7 +120,9 @@ function ActionRow({ content }: { content: string }) {
   );
 }
 
-export function MessageItem({ msg }: { msg: Message }) {
+export function MessageItem(
+  { msg, onClarifyPick }: { msg: Message; onClarifyPick?: (text: string) => void }
+) {
   if (msg.role === "user") {
     // 用户消息:气泡在左,头像在右(豆包风格)
     return (
@@ -114,13 +148,15 @@ export function MessageItem({ msg }: { msg: Message }) {
             <AlertTriangle size={15} className="mt-0.5 shrink-0" />
             <span>{msg.error}</span>
           </div>
+        ) : msg.clarify ? (
+          <ClarifyCard clarify={msg.clarify} onPick={onClarifyPick} />
         ) : (
           <div className="relative">
             <Markdown content={msg.content} />
             {msg.streaming && <span className="stream-cursor" />}
           </div>
         )}
-        {!msg.streaming && msg.content && !msg.error && (
+        {!msg.streaming && msg.content && !msg.error && !msg.clarify && (
           <ActionRow content={msg.content} />
         )}
       </div>

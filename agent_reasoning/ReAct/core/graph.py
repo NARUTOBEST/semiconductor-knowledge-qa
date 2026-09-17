@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 """LangGraph 图定义:把节点与边拼成 ReAct 图。
 
-拓扑(1.2 将 reflect 拆成 coverage_check + grounding 两个独立节点):
-  START → setup → recall → rewrite → plan → build_messages → react
-                                                          ↓
-                                                   coverage_check
-                                                    ├─(回退)→ react
-                                                    └─→ grounding
-                                                          ├─(反思重生成)→ react
-                                                          └─→ finalize → END
+拓扑:
+  START → setup → build_messages → react → finalize → emit_done → END
 
-- react 节点内部自循环到出答案/终态(answer/timeout/max_steps/error)。
-- coverage_check:计划步骤覆盖度判定,未覆盖且有预算则回退重检索。
-- grounding:引用校验 + 忠实度检测,失败且有预算则反思重生成。
-- 回退/重生成均置 final_reason=None 并写入 reflect_feedback,据此路由回 react。
+- react 节点(loop.react_node)内部托管 agent↔tools 子图,自循环到出答案/终态。
+- 记忆维护【已整体迁出主图】:finalize → emit_done 后图流即完即关,done 立即
+  发、限流槽立即释放;每轮记忆任务由 runner 在流结束后提交给后台记忆管道
+  (memories/orchestration/memory_loop/pipeline.py,独立记忆图 + 按会话串行),
+  全程不占请求流。同会话下一轮请求在入口经 wait_idle 等上一轮记忆完成。
+- build_compaction_graph():最小图,仅供后台把摘要节点产出的 RemoveMessage
+  经 update_state 应用到会话 checkpoint(两轮之间执行,安全落压缩)。
 """
 from langgraph.graph import START, END, StateGraph
 
@@ -22,48 +19,33 @@ from . import nodes
 from .loop import react_node
 
 
-def _after_coverage(state: AgentState) -> str:
-    # coverage 回退时置 final_reason=None 并写入 reflect_feedback -> 回到 react
-    if state.get("final_reason") is None and state.get("reflect_feedback"):
-        return "react"
-    return "grounding"
-
-
-def _after_grounding(state: AgentState) -> str:
-    # grounding 反思重生成时置 final_reason=None 并写入 reflect_feedback -> 回到 react
-    if state.get("final_reason") is None and state.get("reflect_feedback"):
-        return "react"
-    return "finalize"
-
-
 def build_graph(checkpointer=None):
     """编译 ReAct 图。checkpointer 为 None 时为无状态图(测试用)。"""
     b = StateGraph(AgentState)
     b.add_node("setup", nodes.setup_node)
-    b.add_node("recall", nodes.recall_node)
-    b.add_node("rewrite", nodes.rewrite_node)
-    b.add_node("plan", nodes.plan_node)
     b.add_node("build_messages", nodes.build_messages_node)
     b.add_node("react", react_node)
-    b.add_node("coverage_check", nodes.coverage_check_node)
-    b.add_node("grounding", nodes.grounding_node)
     b.add_node("finalize", nodes.finalize_node)
+    b.add_node("emit_done", nodes.emit_done_node)
 
     b.add_edge(START, "setup")
-    b.add_edge("setup", "recall")
-    b.add_edge("recall", "rewrite")
-    b.add_edge("rewrite", "plan")
-    b.add_edge("plan", "build_messages")
+    b.add_edge("setup", "build_messages")
     b.add_edge("build_messages", "react")
-    b.add_edge("react", "coverage_check")
-    b.add_conditional_edges(
-        "coverage_check", _after_coverage,
-        {"react": "react", "grounding": "grounding"},
-    )
-    b.add_conditional_edges(
-        "grounding", _after_grounding,
-        {"react": "react", "finalize": "finalize"},
-    )
-    b.add_edge("finalize", END)
+    b.add_edge("react", "finalize")
+    b.add_edge("finalize", "emit_done")
+    b.add_edge("emit_done", END)
 
+    return b.compile(checkpointer=checkpointer)
+
+
+def build_compaction_graph(checkpointer=None):
+    """最小图(单 no-op 节点),复用 AgentState 的 messages 通道语义。
+
+    后台记忆管道经 graph.update_state(config, {"messages": [RemoveMessage...]})
+    把 Auto-Compact 应用到会话 checkpoint——不经过任何 LLM/工具节点。
+    """
+    b = StateGraph(AgentState)
+    b.add_node("noop", lambda state: {})
+    b.add_edge(START, "noop")
+    b.add_edge("noop", END)
     return b.compile(checkpointer=checkpointer)

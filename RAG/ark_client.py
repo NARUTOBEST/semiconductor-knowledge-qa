@@ -85,7 +85,7 @@ def llm_split_text(text, target=500, retries=2):
     for i in range(retries):
         try:
             resp = client.chat.completions.create(
-                model=C.OPENAI_TEXT_MODEL,
+                model=C.MODEL_LIGHT,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0,
             )
@@ -135,7 +135,7 @@ def describe_with_cache(img_relname, img_abspath, auto_dir, cache=None):
 
 if __name__ == "__main__":
     # 自测:描述 Oxford 的第一张图,确认多模态模型 id 可用
-    CLEAN = r"D:\清洗文件\0001 半导体设备资料合集\ALD原子沉积资料\ALD原子沉积资料"
+    CLEAN = r"D:\清洗文件\pdf\0001 半导体设备资料合集\ALD原子沉积资料\ALD原子沉积资料"
     stem = "Oxford ALD Operation Manual"
     auto = os.path.join(CLEAN, stem, "auto")
     # 找第一张图

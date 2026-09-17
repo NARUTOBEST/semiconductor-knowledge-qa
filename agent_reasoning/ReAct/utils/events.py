@@ -19,11 +19,10 @@ def log_done(trace_id, t0, step, reason=""):
 
 
 def meta_event(trace_id, t0, step, collected_sources,
-               tokens=None, tools_count=0, grounding_passed=None):
+               tokens=None, tools_count=0):
     """生成成本/性能元数据事件。
 
     tokens: {"prompt":..,"completion":..,"total":..} 或 None
-    grounding_passed: True/False/None(未检查)
     """
     return {
         "type": "meta",
@@ -32,6 +31,5 @@ def meta_event(trace_id, t0, step, collected_sources,
         "steps": step,
         "sources_count": len(collected_sources),
         "tools_count": tools_count,
-        "grounding_passed": grounding_passed,
         "tokens": tokens,
     }

@@ -1,21 +1,34 @@
 # -*- coding: utf-8 -*-
-"""LangGraph 节点:把原 react_stream 生成器拆成图节点。
+"""LangGraph 节点:主链路「检索 → ReAct 工具调用循环 → 回答」。
+
+图拓扑:START → setup → build_messages → react → finalize → END。
+react 节点(loop.react_node)内部托管 agent↔tools 子图自循环到出答案/终态。
 
 每个节点签名 (state: AgentState, config: RunnableConfig) -> dict,返回 state 更新。
-- SSE/审计事件通过 get_stream_writer() 发出(结构与旧 react_stream 完全一致)。
+- SSE/审计事件通过 get_stream_writer() 发出。
 - 不可序列化的 TraceRecorder 走 config["configurable"]["trace_recorder"]。
 - OpenAI 客户端用同包 llm.get_client() 单例,不进 state。
-
-复用(不重写):rewrite_query / build_messages / dispatch / TraceRecorder /
-truncate_tool_result / sources_from_result / grounding_check / meta_event。
 """
 from __future__ import annotations
 
+import inspect
 import json
 import logging
+import re
 import time
 import uuid
-from typing import Any
+
+# 过程性叙述误当终答的检测(GLM 偶发:输出"我再检索一下…"这类中间独白却不再调工具,
+# 文本无 tool_calls 即被判为 final answer)。命中则旁路重问一次(见 agent_node)。
+_NARRATION_RE = re.compile(
+    r"(我再?检索|我需要检索|再检索一下|预检索|换一?[个组批]?(不同|其他)?关键词|"
+    r"未直接命中|让我(检索|查)|接下来(我|先|再)|先(检索|查|看)|继续(检索|查)|"
+    r"我(继续|再)(查|找|看))")
+
+# 记忆指令型问题("请记住…"类):答案是对指令的确认而非知识问答,零检索也正当。
+_MEMORY_INSTR_RE = re.compile(r"记(住|下|着|一?下)|帮我记|记住一?个")
+from concurrent.futures import TimeoutError as FuturesTimeout
+from typing import Any, Optional
 
 from langchain_core.messages import (
     AIMessage,
@@ -28,45 +41,48 @@ from langgraph.config import get_stream_writer
 
 # 业务模块由 agent_reasoning 包 __init__ 与项目根 sys.path 提供
 import config as C  # noqa: E402
-from tools import search_tools as _ALL_TOOLS, dispatch  # noqa: E402
+from tools import dispatch, registry, Category, ALL_CATEGORIES  # noqa: E402
+from tools.base import cache_hit_var  # noqa: E402
+from ..support.tool_circuit import circuit_snapshot  # noqa: E402
+from ..support.tool_resilience import call_with_resilience  # noqa: E402
+from ..support.tool_errors import Stage, Kind, ToolCallError, error_tool_message  # noqa: E402
 from support.metrics import metrics  # noqa: E402
-from query_rewrite import rewrite_query  # noqa: E402
 from message_builder import build_messages  # noqa: E402
 from context_management import truncate_tool_result  # noqa: E402
 from ..trace import TraceRecorder  # noqa: E402
-from ..utils.sources import sources_from_result  # noqa: E402
+from ..utils.sources import sources_from_result, final_citation_cards  # noqa: E402
 from ..utils.events import meta_event  # noqa: E402
 
 logger = logging.getLogger("agent")
 
-from memories.storage.long import recall_memories, format_memories_for_prompt  # noqa: E402
-
 from .state import AgentState  # noqa: E402
 from ..support.llm import (  # noqa: E402
-    get_client, llm_create_with_retry, LLM_TIMEOUT, STREAM_TIMEOUT,
+    get_client, llm_create_with_retry, STREAM_TIMEOUT, no_think_extra,
+    arm_stream_watchdog,
 )
-from ..support.answer_grounding import grounding_check  # noqa: E402
-from ..support.plan_grounding import CoverageTracker, _JUDGE_TIMEOUT  # noqa: E402
-from ..support.planning import (  # noqa: E402
-    generate_plan, looks_complex,
-    MAX_PLAN_STEPS, PLAN_MIN_REMAINING_SECONDS,
-)
-from memories.storage.working.summarize import (  # noqa: E402
-    maybe_summarize, format_summary_block, schedule_pregeneration,
-)
+from ..support.tool_pool import get_pool  # noqa: E402
+from memories.storage.working.summarize import format_summary_block  # noqa: E402
+
+# recall_memory 现为注册进 registry 的普通工具(Category.MEMORY);仅需其名字做匿名过滤。
+try:
+    from memories.orchestration import MEMORY_TOOL_NAME  # noqa: E402
+except Exception:  # noqa: BLE001
+    MEMORY_TOOL_NAME = "recall_memory"
 
 # ==================== 常量 ====================
-_TOOL_SCHEMAS = _ALL_TOOLS
-_TOOL_NAMES = {t["function"]["name"] for t in _ALL_TOOLS}
-_SEARCH_TOOL_NAMES = _TOOL_NAMES & {"search_text", "search_image"}
+# 工具 schema 在模块加载时从 registry 取快照。注册发生在 tools 包 import 期,
+# 此处取到的即全部已注册且启用工具(检索三件套)。
+# 工具 schema 每次活取 registry.schemas()(不再 import 期快照):
+# MCP 桥是后台线程异步注册的,晚连上的工具须下一请求即生效。
+
 MAX_STEPS = 6
 MAX_TOTAL_SECONDS = 60
-MAX_REFLECT = 1   # grounding 校验失败后最多反思重生成的次数
-MAX_COVERAGE_ROLLBACKS = 1  # 计划步骤未覆盖时最多回退重检索的次数
-_MAX_TOOL_RETRIES = 1  # 工具瞬时异常自动重试次数
 LOW_CONFIDENCE_THRESHOLD = 0.01
 ARGS_PREVIEW_LEN = 60
 RESULT_PREVIEW_LEN = 500
+
+# setup 每轮把各工具类别可用性复位为 "up";tools_node 按故障把某类别标 "down"。
+_DEFAULT_TOOL_STATUS = {cat: "up" for cat in ALL_CATEGORIES}
 
 
 # ==================== 辅助 ====================
@@ -110,67 +126,107 @@ def _same_tool_calls(a: list[dict], b: list[dict]) -> bool:
     return sigs_a == sigs_b
 
 
-def _dispatch_with_retry(name, args, recorder, trace_id, step, w):
-    """工具调用包装:未捕获异常(网络/IO 瞬时故障)自动重试 N 次。
+def _no_source_status(tool_status: dict[str, str]) -> str:
+    """本轮所有工具都没拿到来源时,按故障 category 给前端不同提示。
 
-    业务层面返回的 {error: ...} 不重试(dispatch 已把参数错误等确定性
-    失败包装成 error);只有真正抛异常才走重试。
+    tool_status[category] 为 "up"/"down"(跨轮粘性,setup 复位)。
     """
-    last_exc = None
-    for attempt in range(_MAX_TOOL_RETRIES + 1):
-        try:
-            return dispatch(name, args)
-        except Exception as e:
-            last_exc = e
-            err_doc = recorder.record_error(step, "tool_dispatch", e)
-            w({"type": "error_trace", "trace_id": trace_id, **err_doc})
-            if attempt < _MAX_TOOL_RETRIES:
-                wait = 0.5 * (attempt + 1)
-                logger.info(
-                    "tool %s dispatch failed (attempt %d/%d), retry in %.1fs: %s",
-                    name, attempt + 1, _MAX_TOOL_RETRIES + 1, wait, e)
-                w({"type": "status",
-                   "message": f"工具 {name} 调用异常,{wait:.1f}s 后重试…",
-                   "trace_id": trace_id, "step": step})
-                time.sleep(wait)
-            else:
-                break
-    return {
-        "error": (f"{name} 调度异常(已重试{_MAX_TOOL_RETRIES}次): "
-                  f"{type(last_exc).__name__}: {last_exc}")
-    }
+    if tool_status.get(Category.RETRIEVAL) == "down":
+        return ("⚠️ 检索服务暂时不可用，以下回答可能缺乏文献支持，请注意核实。")
+    return "未检索到相关资料,尝试基于通用知识回答…"
 
 
-def _format_plan_block(task_plan: dict[str, Any] | None,
-                       search_count: int = 0) -> str:
-    """把 task_plan 渲染为注入 system message 的计划文本块(含已检索进度)。
+# 各工具类别故障时给模型的人类可读名称与替代策略(注入 system 提示,引导自适应)
+_CATEGORY_HEALTH = {
+    Category.RETRIEVAL: {
+        "label": "本地知识库检索",
+        "fallback": "基于通用知识谨慎作答,并明确告知用户本地知识库暂时不可用、"
+                    "答案未经内部资料核实。",
+    },
+    # 记忆类独立隔离:故障只摘 recall_memory,检索三件套与主流程不受影响。
+    Category.MEMORY: {
+        "label": "记忆召回",
+        "fallback": "不再调用 recall_memory;按当前对话与通用知识作答即可,"
+                    "不要假设该用户的历史偏好。",
+    },
+}
 
-    search_count 是本轮已执行的检索工具次数,作为粗粒度进度信号提示模型:
-    已经检索过若干轮,应在新资料基础上继续推进计划剩余步骤,而非重复开头的检索。
+
+def _unavailable_tools(tool_status: dict[str, str]) -> tuple[set[str], list[str]]:
+    """汇总当前不可用的工具。
+
+    合并两个信号:
+      - 本轮内已故障的类别(tool_status[category] == "down",粘性);
+      - 跨轮持久熔断中(breaker state == "open";half_open 仍可试探,不摘)。
+    返回 (不可用工具名集合, 故障类别列表)。熔断器关闭/特性关闭时返回空。
     """
-    plan = task_plan or {}
-    if not plan.get("need_plan"):
+    down_cats = {cat for cat, st in (tool_status or {}).items() if st == "down"}
+    open_tools: set[str] = set()
+    try:
+        if C.TOOL_HEALTH_ADAPT_ENABLED:
+            for tname, tstate in circuit_snapshot().items():
+                if tstate == "open":
+                    open_tools.add(tname)
+    except Exception:
+        logger.warning("读取熔断快照异常,忽略健康度自适应", exc_info=True)
+        open_tools = set()
+
+    unavailable: set[str] = set(open_tools)
+    for spec in registry.all():
+        if spec.category in down_cats:
+            unavailable.add(spec.name)
+    # 熔断打开工具的类别:用 registry.get 取 spec(熔断工具可能当前 disabled,
+    # 不在 registry.all() 的 enabled 集合里,但类别仍需提示)。
+    open_cats = set()
+    for tname in open_tools:
+        spec = registry.get(tname)
+        if spec is not None:
+            open_cats.add(spec.category)
+    return unavailable, sorted(down_cats | open_cats)
+
+
+def _tool_health_block(unavailable: set[str], down_cats: list[str]) -> str:
+    """构造注入 system message 的工具健康度自适应提示块。无故障时返回空串。"""
+    if not down_cats:
         return ""
-    steps = [str(s).strip() for s in plan.get("steps") or [] if str(s).strip()]
-    if not steps:
-        return ""
-    lines = "\n".join(f"{i}. {s}" for i, s in enumerate(steps, 1))
-    progress = ""
-    if search_count > 0:
-        progress = (f"\n\n进度提示:你已经完成 {search_count} 次检索,"
-                    "请基于已获得的资料继续推进尚未完成的计划步骤,"
-                    "不要重复已经做过的检索;若资料已足够,直接综合作答。")
-    return ("## 任务计划\n"
-            "请按以下计划逐步检索,完成一步再进行下一步:\n" + lines + progress)
+    lines = ["【工具健康度提示】以下工具/服务当前不可用,严禁再调用它们:"]
+    for cat in down_cats:
+        info = _CATEGORY_HEALTH.get(cat)
+        if info is None:
+            continue
+        names = [s.name for s in registry.by_category(cat)
+                 if s.name in unavailable] or [s.name for s in registry.by_category(cat)]
+        lines.append(f"- {info['label']}(工具: {', '.join(names)})不可用。{info['fallback']}")
+    lines.append("请直接采用上述替代策略继续,不要重复尝试已不可用的工具。")
+    return "\n".join(lines)
 
 
 def _recorder(config) -> TraceRecorder:
     return config["configurable"]["trace_recorder"]
 
 
-def _tracker(config) -> CoverageTracker | None:
-    """取异步覆盖度追踪器;不存在(简单问题/断点续跑跨进程)返回 None。"""
-    return config["configurable"].get("coverage_tracker")
+def _hard_deadline(state) -> float | None:
+    """端到端硬截止墙钟时间戳;未设置(如测试直连图)返回 None。
+
+    由 service 层按整条请求(含升级/重做)计算后经 state 传入,使旁路 LLM/工具
+    等待都受同一条端到端预算约束,而不是各花各的 tier 预算叠加成数分钟。
+    """
+    dl = state.get("hard_deadline")
+    return float(dl) if dl else None
+
+
+def _remaining_budget(state) -> Optional[float]:
+    """距硬截止还剩多少秒;无硬截止时回退到 tier 相对预算(started_at+max_total)。
+
+    返回值可能 <= 0(已超时),调用方应据此短路;旁路等待用
+    ``min(自身超时, max(剩余, 下限))`` 钳制,保证绝不越过端到端硬预算。
+    """
+    max_total = int(state.get("max_total_seconds") or MAX_TOTAL_SECONDS)
+    started = float(state.get("started_at") or time.time())
+    dl = _hard_deadline(state)
+    if dl is None:
+        return max_total - (time.time() - started)
+    return min(dl, started + max_total) - time.time()
 
 
 def _msgs_to_openai(messages: list[BaseMessage]) -> list[dict]:
@@ -217,9 +273,8 @@ def _extract_usage(chunk):
 def setup_node(state: AgentState, config) -> dict:
     """初始化本轮运行期字段,发出初始 status。
 
-    State 经 checkpoint 跨轮持久化,除 step/retrieval_down 外,
-    full_reply / collected_sources / error 等运行期字段若不重置,
-    会把上一轮的回答、来源、错误带入下一轮(回答跨轮串联)。
+    State 经 checkpoint 跨轮持久化,full_reply / collected_sources / error 等
+    运行期字段若不重置,会把上一轮的回答、来源、错误带入下一轮(回答跨轮串联)。
     """
     w = get_stream_writer()
     trace_id = state.get("trace_id") or str(uuid.uuid4())[:8]
@@ -227,186 +282,123 @@ def setup_node(state: AgentState, config) -> dict:
     return {
         "trace_id": trace_id,
         "step": 0,
-        "retrieval_down": False,
+        # 哨兵键通知 _merge_tool_status reducer 复位为全部 "up"(见 state.py)
+        "tool_status": {"__reset__": True, **_DEFAULT_TOOL_STATUS},
         "full_reply": "",
         # 哨兵键:通知 _merge_sources reducer 清空跨轮残留(见 state.py)
         "collected_sources": {"__reset__": True},
         "tool_parse_errors": {},
+        "pending_tool_calls": [],
+        "tool_outcomes": [],
+        "tool_fail_streak": {},
+        "tool_requery_count": {},
         "error": None,
         "final_reason": None,
-        "grounding": None,
-        "reflect_count": 0,
-        "reflect_feedback": "",
-        "task_plan": {"need_plan": False},
         "search_count": 0,
-        "coverage_rollbacks": 0,
+        "retrieval_max_score": 0.0,
     }
 
 
-def recall_node(state: AgentState, config) -> dict:
-    """召回长期记忆(失败降级为空,不阻断)。skip_recall=True 时直接跳过。"""
-    if state.get("skip_recall"):
-        return {"recalled_memories": []}
-    user_id = config["configurable"].get("user_id") or state.get("user_id")
-    question = state["question"]
-    mems: list = []
-    if user_id:
-        try:
-            mems = recall_memories(user_id, question)
-        except Exception:
-            mems = []
-    return {"recalled_memories": mems}
-
-
-def rewrite_node(state: AgentState, config) -> dict:
-    """查询改写(失败回退原问题)。skip_rewrite=True 时不调 LLM,直接用原问题。"""
-    recorder = _recorder(config)
-    trace_id = state["trace_id"]
-    w = get_stream_writer()
-    question = state["question"]
-    if state.get("skip_rewrite"):
-        sub_queries = [question]
-        recorder.sub_queries = list(sub_queries)
-        return {"sub_queries": sub_queries}
-    history = state.get("history") or []
-    try:
-        sub_queries = rewrite_query(question, history)
-    except Exception as e:
-        err = recorder.record_error(0, "query_rewrite", e)
-        w({"type": "error_trace", "trace_id": trace_id, **err})
-        sub_queries = [question]
-    recorder.sub_queries = list(sub_queries)
-    return {"sub_queries": sub_queries}
-
-
-def plan_node(state: AgentState, config) -> dict:
-    """复杂问题规划:粗筛命中才调一次 LLM 生成多步检索计划。
-
-    计划写入 state.task_plan,由 build_messages_node 拼进 system message,
-    引导 agent "按计划逐步检索,完成一步再进行下一步"。
-    任何失败(LLM 异常/JSON 解析失败/无步骤)都降级为 need_plan=False,
-    不阻断主流程。
-    """
-    w = get_stream_writer()
-    recorder = _recorder(config)
-    trace_id = state["trace_id"]
-    question = state["question"]
-    sub_queries = state.get("sub_queries") or []
-
-    # 粗筛(medium 条件触发,6.1):单一意图/短问题不规划,省一次 LLM 调用
-    if not looks_complex(question, sub_queries):
-        return {"task_plan": {"need_plan": False}}
-
-    # 剩余总预算不足时跳过规划(规划 LLM 调用最长 30s,会挤占生成时间)
-    max_total = int(state.get("max_total_seconds") or MAX_TOTAL_SECONDS)
-    remaining = max_total - (time.time() - state["started_at"])
-    if remaining < PLAN_MIN_REMAINING_SECONDS:
-        w({"type": "status",
-           "message": "剩余响应时间不足,跳过规划直接回答…",
-           "trace_id": trace_id})
-        return {"task_plan": {"need_plan": False}}
-
-    w({"type": "status", "message": "问题较复杂,正在制定检索计划…",
-       "trace_id": trace_id})
-
-    # 6.1/6.3:LLM 调用 + JSON 解析逻辑统一交给共享函数(与 complex P&E 同口径)。
-    # force=False:允许 LLM 判定单点事实题返回空(不规划,静默降级)。
-    steps, plan_err = generate_plan(
-        question, force=False, trace_id=trace_id,
-        max_steps=MAX_PLAN_STEPS,
-    )
-    if plan_err is not None:
-        # 记录真实异常到 trace(错误可降级、不阻断回答),并给前端可见提示
-        err_doc = recorder.record_error(0, "plan", RuntimeError(plan_err))
-        w({"type": "error_trace", "trace_id": trace_id, **err_doc})
-        w({"type": "status",
-           "message": "检索规划服务因临时异常暂不可用,将直接检索作答…",
-           "trace_id": trace_id})
-        return {"task_plan": {"need_plan": False}}
-    if not steps:
-        # LLM 判定无需规划(单点事实题)或产出空步骤 -> 直接作答
-        return {"task_plan": {"need_plan": False}}
-
-    w({"type": "plan", "trace_id": trace_id,
-       "steps": steps, "question": question})
-    w({"type": "status", "message": f"已生成 {len(steps)} 步检索计划",
-       "trace_id": trace_id})
-    recorder.record_plan(steps, question)  # 事后 trace 可见
-    # 启动异步覆盖度追踪:守护线程随检索资料到达持续维护覆盖文档,
-    # 供 coverage_check_node 在 grounding 前做"计划每一步是否被资料覆盖"的判定。
-    tracker = _tracker(config)
-    if tracker is not None:
-        tracker.set_plan(steps, question)
-    return {"task_plan": {"need_plan": True, "steps": steps}}
-
-
 def build_messages_node(state: AgentState, config) -> dict:
-    """构建 LLM messages(system+history+user),并注入长期记忆与对话摘要。
+    """构建 LLM messages(system+history+user),并注入对话摘要。
 
     断点续跑/多轮:system 用固定 id(按 id 更新而非重复追加);已有 messages 时
-    只追加本轮新 user 问题,不重复灌前端 history。跨轮消息过长时先做摘要压缩
-    (summarize.maybe_summarize),旧轮次从 checkpoint 删除并并入 summary。
+    只追加本轮新 user 问题,不重复灌前端 history。
+
+    跨轮旧消息的压缩/摘要【不在本节点】:由后台记忆管道在上一轮结束后完成
+    (RemoveMessage 经 update_state 删旧轮 + summary 落盘),故本轮所见 existing 已是
+    压缩后结果,这里只需按固定 id 更新 system prompt(注入 summary 块)。
+
+    记忆注入(Req1):本节点做一次【确定性、无 LLM】的预取——长期高置信偏好(带条目 id)
+    + 游标后的近期对话原文,并入 system 摘要块(失败软降级,不阻断)。模型随后仍可显式
+    调用 recall_memory 工具做扩量/翻页(结果按预取 id 去重)。
     """
     question = state["question"]
-    sub_queries = state.get("sub_queries")
-    recalled = state.get("recalled_memories") or []
     existing = state.get("messages") or []
-    trace_id = state.get("trace_id", "")
+    # 冷启动 = checkpointer 无既有 messages(首轮 / 重启恢复 / 换设备)。此轮多轮上下文
+    # 以服务端 Redis 短期流水为权威来源铺成结构化消息(见下方 else 分支),不再依赖前端
+    # 重发 history;相应地让预取跳过②近期文本块,避免同段历史重复注入。
+    cold_start = not existing
     SYSTEM_MSG_ID = "system-prompt"
 
     summary = state.get("summary") or ""
+
+    # 确定性预取(无 LLM):长期偏好 + 游标后近期对话。失败软降级为空块。
+    cfg = (config or {}).get("configurable", {}) or {}
+    username = cfg.get("user_id") or state.get("user_id")
+    thread_id = cfg.get("thread_id")
+    prefetch_block = ""
+    prefetch_ids: set = set()
+    try:
+        from memories.orchestration.long.prefetch import build_prefetch_block
+        pf = build_prefetch_block(username, thread_id, question,
+                                  include_recent=not cold_start)
+        prefetch_block = pf.get("block") or ""
+        prefetch_ids = pf.get("mem_ids") or set()
+    except Exception as e:  # noqa: BLE001  预取全程旁路
+        logger.info("prefetch skipped: %s: %s", type(e).__name__, str(e)[:120])
+    # 预取条目 id 经 contextvar 传给 recall_memory 工具做长期条目去重(同一条目不重复注入)。
+    # 近期对话只由本预取通道注入,工具不再拉短期。
+    try:
+        from tools.memory_tool import set_prefetched_ids
+        set_prefetched_ids(prefetch_ids)
+    except Exception:  # noqa: BLE001
+        pass
+
+    def _with_blocks(base_sys: str) -> str:
+        for blk in (format_summary_block(summary), prefetch_block):
+            if blk:
+                base_sys += "\n\n" + blk
+        return base_sys
+
     patch: dict[str, Any] = {}
+    qc_feedback = (state.get("qc_feedback") or "").strip()
 
     if existing:
-        # 跨轮:先按需压缩旧消息(优先用临界点前的异步预生成摘要,否则同步兜底)
-        thread_id = config.get("configurable", {}).get("thread_id")
-        summ = maybe_summarize(state, trace_id, thread_id=thread_id)
-        remove_msgs: list[BaseMessage] = []
-        if summ:
-            remove_msgs = summ.get("messages") or []
-            if summ.get("summary"):
-                summary = summ["summary"]
-                patch["summary"] = summary
-
-        raw_sys = build_messages(question, [], sub_queries=sub_queries)[0]
-        extra_blocks = [b for b in (
-            _format_plan_block(state.get("task_plan"),
-                               int(state.get("search_count") or 0)),
-            format_summary_block(summary),
-            format_memories_for_prompt(recalled),
-        ) if b]
-        sys_content = raw_sys["content"] + (
-            "\n\n" + "\n\n".join(extra_blocks) if extra_blocks else "")
-        patch_msgs: list[BaseMessage] = remove_msgs + [
+        # 跨轮:旧消息已由 memory-loop 压缩落盘;仅更新 system(注入 summary+预取块)+ 追加新问题
+        raw_sys = build_messages(question, [])[0]
+        sys_content = _with_blocks(raw_sys["content"])
+        patch_msgs: list[BaseMessage] = [
             SystemMessage(content=sys_content, id=SYSTEM_MSG_ID)]
         last = existing[-1]
         already = isinstance(last, HumanMessage) and last.content == question
         if not already:
             patch_msgs.append(HumanMessage(content=question))
+        if qc_feedback:
+            # 质检/升级重做轮:显式注入系统质检反馈(user 槽位,标注非用户发言)
+            patch_msgs.append(HumanMessage(content=qc_feedback))
         patch["messages"] = patch_msgs
         return patch
 
-    history = state.get("history") or []
-    raw = build_messages(question, history, sub_queries=sub_queries)
-    extra_blocks = [b for b in (
-        _format_plan_block(state.get("task_plan"),
-                           int(state.get("search_count") or 0)),
-        format_summary_block(summary),
-        format_memories_for_prompt(recalled),
-    ) if b]
-    if extra_blocks and raw and raw[0].get("role") == "system":
-        raw[0]["content"] = raw[0]["content"] + "\n\n" + "\n\n".join(extra_blocks)
+    # 冷启动种子多轮:以服务端 Redis 短期流水为权威来源(不再用前端重发的 history)。
+    # 仅当 Redis 不可用/无流水(返回 [])时,才紧急退回前端 history 兜底,保证不丢上下文。
+    seed_turns: list[dict] = []
+    try:
+        from memories.orchestration.short.recall import recent_dialogue_messages
+        seed_turns = recent_dialogue_messages(thread_id, question, limit=10)
+    except Exception as e:  # noqa: BLE001  旁路:取短期流水失败不阻断
+        logger.info("seed recent_dialogue skipped: %s: %s",
+                    type(e).__name__, str(e)[:120])
+    if not seed_turns:
+        seed_turns = [
+            {"role": h.get("role"), "content": h.get("content")}
+            for h in (state.get("history") or [])
+            if h.get("role") in ("user", "assistant") and h.get("content")
+        ][-10:]
 
-    msgs: list[BaseMessage] = []
-    for d in raw:
-        role = d["role"]
-        content = d["content"]
-        if role == "system":
-            msgs.append(SystemMessage(content=content, id=SYSTEM_MSG_ID))
-        elif role == "assistant":
-            msgs.append(AIMessage(content=content))
+    # system(注入 summary+预取块) + Redis 种子多轮 + 本轮问题(+质检反馈)
+    sys_content = _with_blocks(build_messages(question, [])[0]["content"])
+    msgs: list[BaseMessage] = [SystemMessage(content=sys_content, id=SYSTEM_MSG_ID)]
+    for t in seed_turns:
+        if t["role"] == "assistant":
+            msgs.append(AIMessage(content=t["content"]))
         else:
-            msgs.append(HumanMessage(content=content))
+            msgs.append(HumanMessage(content=t["content"]))
+    msgs.append(HumanMessage(content=question))
+    # 质检/升级反馈:history 夹带渠道在"种子以 Redis 流水为权威"时会被忽略,
+    # 故显式注入(若流水兜底渠道已带同文则不重复)。
+    if qc_feedback and not (seed_turns and seed_turns[-1].get("content") == qc_feedback):
+        msgs.append(HumanMessage(content=qc_feedback))
     return {"messages": msgs}
 
 
@@ -419,7 +411,6 @@ def agent_node(state: AgentState, config) -> dict:
 
     prev_step = int(state.get("step", 0))
     max_steps = int(state.get("max_steps") or MAX_STEPS)
-    max_total_seconds = int(state.get("max_total_seconds") or MAX_TOTAL_SECONDS)
 
     # 已完整执行完 max_steps 轮且仍需继续 -> 停止(复刻 range(1,MAX_STEPS+1) 语义)
     if prev_step >= max_steps:
@@ -428,8 +419,11 @@ def agent_node(state: AgentState, config) -> dict:
         return {"step": max_steps, "final_reason": "max_steps"}
 
     step = prev_step + 1
-    elapsed = time.time() - t0
-    if elapsed > max_total_seconds:
+    # 端到端硬预算:既看 tier 相对预算(started_at+max_total),也看 service 下发的
+    # 硬截止(跨升级/重做共享)。任一耗尽即停止推理、输出当前结果。
+    remaining = _remaining_budget(state)
+    if remaining is not None and remaining <= 0:
+        elapsed = time.time() - t0
         w({"type": "status",
            "message": f"响应超时({int(elapsed)}s),输出当前结果。",
            "trace_id": trace_id, "step": step})
@@ -440,18 +434,127 @@ def agent_node(state: AgentState, config) -> dict:
        "elapsed_ms": int((time.time() - t0) * 1000)})
     w({"type": "status", "message": "思考中…", "trace_id": trace_id, "step": step})
 
+    # ---- 工具健康度自适应 ----
+    # 合并"本轮故障类别(tool_status)"与"跨轮持久熔断(breaker open)":
+    # ① 把不可用工具从本轮 schema 摘掉(模型看不到、无法再碰壁调用);
+    # ② 注入 system 提示告知故障与替代策略(检索挂了基于通用知识谨慎作答,或如实告知用户)。
+    unavailable, down_cats = _unavailable_tools(state.get("tool_status") or {})
+    health_block = _tool_health_block(unavailable, down_cats)
+    if down_cats:
+        logger.info("工具故障自适应: 不可用工具=%s 故障类别=%s",
+                    sorted(unavailable), down_cats)
+        w({"type": "status",
+           "message": "部分工具暂时不可用,已切换备用策略…",
+           "trace_id": trace_id, "step": step})
+
     # ---- LLM 调用 ----
     # bind_tools=False(simple 直答路径)时不传 tools schema,模型只生成文本、不会发 tool_calls。
     bind_tools = bool(state.get("bind_tools", True))
+    openai_messages = _msgs_to_openai(state["messages"])
+
+    # ---- 投机检索预注入(仅首轮) ----
+    # 服务层在请求进入时已后台执行 search_text(原始问题)。react 首轮把它作为
+    # 一次"已完成的检索"注入上下文:模型可直接引用作答(省一步检索+解码),
+    # 也可继续补检。来源同步并入 collected_sources,保证 sources 事件照常发出。
+    pre_patch: dict[str, Any] = {}
+    pre_search = state.get("pre_search") if step == 1 else None
+    if bind_tools and pre_search and getattr(C, "REACT_PRE_SEARCH", True):
+        spec_pre = registry.get("search_text")
+        pre_srcs = {}
+        for _s in sources_from_result(pre_search, spec=spec_pre):
+            key = (_s.get("chunk_id") or _s.get("url")
+                   or (_s.get("source_stem", "") + _s.get("page", "")))
+            if key:
+                pre_srcs[key] = _s
+        if pre_srcs:
+            t_pre = time.time()
+            pre_doc = recorder.new_step(0)
+            recorder.record_tool(pre_doc, tool_call_id="pre-search-0",
+                                 name="search_text", args={"query": state.get("question", "")},
+                                 duration_ms=int((time.time() - t_pre) * 1000),
+                                 ok=True, category="retrieval")
+            recorder.finish_step(pre_doc, "tool_calls", new_sources_count=len(pre_srcs))
+            preview = json.dumps(pre_search, ensure_ascii=False, default=str)
+            w({"type": "tool_result", "trace_id": trace_id, "step": 0,
+               "tool_call_id": "pre-search-0", "name": "search_text", "ok": True,
+               "duration_ms": 0,
+               "result_size": len(preview),
+               "result_preview": preview[:RESULT_PREVIEW_LEN]
+                   + ("…" if len(preview) > RESULT_PREVIEW_LEN else ""),
+               "error": None, "error_type": None})
+            w({"type": "sources", "items": list(pre_srcs.values())[:6],
+               "trace_id": trace_id, "step": 0})
+            pre_patch = {
+                "collected_sources": pre_srcs,
+                "search_count": 1,
+                "retrieval_max_score": max(
+                    (float(s.get("score") or 0.0) for s in pre_srcs.values()),
+                    default=0.0),
+            }
+            pre_content = truncate_tool_result(
+                pre_search, C.CONTEXT_TOOL_RESULT_MAX_CHARS, spec=spec_pre)
+            openai_messages = openai_messages + [
+                {"role": "assistant",
+                 "content": "",
+                 "tool_calls": [{"id": "pre-search-0", "type": "function",
+                                 "function": {"name": "search_text",
+                                              "arguments": json.dumps(
+                                                  {"query": state.get("question", "")},
+                                                  ensure_ascii=False)}}]},
+                {"role": "tool", "tool_call_id": "pre-search-0",
+                 "content": ("[系统预检索结果 —— 已按用户原始问题自动检索,可直接引用,"
+                            "如不足再自行检索]\n" + pre_content)},
+            ]
+
+    if health_block:
+        # 紧邻本次调用追加 system 提示,优先级高于早先 system,确保模型读到最新健康度。
+        openai_messages = openai_messages + [{"role": "system", "content": health_block}]
+
+    # 最后一轮(已达最大推理步数):强制不带工具,要求模型基于已检索资料直接给出完整最终
+    # 答案。否则模型可能把全部轮次耗在工具调用上,触顶 final_reason=max_steps 时
+    # full_reply 只剩中间"我来检索…我继续…"叙述、没有可交付的答案(实测 TMA 题偶发)。
+    if step >= max_steps and bind_tools:
+        bind_tools = False
+        openai_messages = openai_messages + [{
+            "role": "system",
+            "content": ("【系统提示】已达到最大检索步数,请不要再调用任何工具。"
+                        "请立即基于上面已检索到的资料,直接给出简洁、带引用的最终答案;"
+                        "不要叙述检索过程,也不要说“我继续/我再查/接下来”之类的话。"
+                        "【忠实性红线】只陈述资料能直接支撑的内容:不得推测故障原因、"
+                        "不得虚构排查步骤或引用资料,不得附加资料外的安全提示或"
+                        "“联系技术支持”类建议;资料未覆盖的部分明确说明一句即可。"),
+        }]
+        w({"type": "status",
+           "message": "已达最大推理步数,正在整合已检索资料给出最终答案…",
+           "trace_id": trace_id, "step": step})
     llm_kwargs: dict[str, Any] = dict(
-        model=C.OPENAI_TEXT_MODEL,
-        messages=_msgs_to_openai(state["messages"]),
+        model=getattr(C, "TIER_MODEL_REACT", None) or C.OPENAI_TEXT_MODEL,  # tier 模型优先(网关别名 main;直连模式回退)
+        messages=openai_messages,
         stream=True, stream_options={"include_usage": True},
         temperature=0.3, timeout=STREAM_TIMEOUT,
     )
+    if not bind_tools:
+        # 终答调用(含末步强制摘工具)限制解码长度,防跑飞的长答案拖垮整体延迟;
+        # 工具调用步不设限——截断会破坏流式 tool-call JSON 的完整性。
+        llm_kwargs["max_tokens"] = int(getattr(C, "REACT_ANSWER_MAX_TOKENS", 600))
+        # 终答关思考省解码;忠实性由 grounding 后置校验兜底(见 support/grounding.py)
+        # —— 实测 run17 开思考自检对忠实度无增益(0.8737→0.8818,噪声级)。
+        llm_kwargs.update(no_think_extra())
     if bind_tools:
-        llm_kwargs["tools"] = _TOOL_SCHEMAS
-        llm_kwargs["tool_choice"] = "auto"
+        # recall_memory 已注册进 registry(与检索三件套同源,检索三件套经 MCP 桥注册);
+        # 匿名用户/记忆关闭时不下发(记忆按用户隔离),故障工具由 unavailable 摘除。
+        username = (config.get("configurable", {}).get("user_id")
+                    or state.get("user_id"))
+        hidden = set(unavailable)
+        if not (username and getattr(C, "LONG_MEM_ENABLED", True)):
+            hidden.add(MEMORY_TOOL_NAME)
+        available_schemas = [
+            sch for sch in registry.schemas()
+            if sch.get("function", {}).get("name") not in hidden]
+        # 全部工具都不可用时不传 tools(空列表会被 API 拒绝),让模型纯文本作答并告知用户。
+        if available_schemas:
+            llm_kwargs["tools"] = available_schemas
+            llm_kwargs["tool_choice"] = "auto"
     client = get_client()
     t_llm = time.time()
     stream, err = llm_create_with_retry(
@@ -467,7 +570,21 @@ def agent_node(state: AgentState, config) -> dict:
         return {"step": step, "final_reason": "error",
                 "error": {"phase": "llm_create", "message": str(err)[:300]}}
 
+    # 总时长看门狗:思考模型(GLM)流式 reasoning 持续到达会绕过 STREAM_TIMEOUT
+    # 空闲超时,单步思考实测可拖 5 分钟+。到点强制断流,按"思考超时截断"处理:
+    # 有部分正文 → 当正常流末走;空 → 后续按空回复自然降级(不得重试)。
+    _wd_deadline = float(getattr(C, "REACT_STREAM_DEADLINE_S", 45))
+    _wd_cancel, _wd_killed = arm_stream_watchdog(stream, _wd_deadline)
+
     # ---- 读流 ----
+    # Req4 流式缓冲:仅当本轮【确实绑定了工具】(模型可能先吐字再改口调工具)时,把 content
+    # 暂存不即时下发;流末确认无 tool_calls(终答落定)才回放放流,出现 tool_calls 则丢弃
+    # 缓冲正文。未绑工具(simple/末步强制摘工具)不会改口,保持即时流式。
+    stream_buffer = (bool(getattr(C, "REACT_STREAM_BUFFER_ENABLED", True))
+                     and bool(llm_kwargs.get("tools")))
+    # grounding 后置校验:终答必须整段到手才能逐句校验,强制缓冲(含末步强制摘工具)
+    if not stream_buffer and getattr(C, "GROUNDING_CHECK", False) and not bind_tools:
+        stream_buffer = True
     content_buf = ""
     full_reply = state.get("full_reply", "")
     tc_acc: dict[int, dict] = {}
@@ -488,8 +605,9 @@ def agent_node(state: AgentState, config) -> dict:
                         ttft_ms = int((t_first_delta - t_llm) * 1000)
                     content_buf += delta.content
                     full_reply += delta.content
-                    w({"type": "token", "delta": delta.content,
-                       "trace_id": trace_id, "step": step})
+                    if not stream_buffer:
+                        w({"type": "token", "delta": delta.content,
+                           "trace_id": trace_id, "step": step})
                 if getattr(delta, "tool_calls", None):
                     if t_first_delta is None:
                         t_first_delta = time.time()
@@ -510,16 +628,53 @@ def agent_node(state: AgentState, config) -> dict:
             if chunk_usage:
                 usage = chunk_usage
     except Exception as e:
-        err_doc = recorder.record_error(step, "llm_stream", e)
-        w({"type": "error_trace", "trace_id": trace_id, **err_doc})
-        w({"type": "error", "message": f"流读取中断: {str(e)[:160]}",
-           "trace_id": trace_id, "step": step})
-        recorder.finish_step(step_doc, "error")
-        recorder.final_reason = "error"
-        return {"step": step, "final_reason": "error", "full_reply": full_reply,
-                "error": {"phase": "llm_stream", "message": str(e)[:300]}}
+        if not _wd_killed.is_set():
+            err_doc = recorder.record_error(step, "llm_stream", e)
+            w({"type": "error_trace", "trace_id": trace_id, **err_doc})
+            w({"type": "error", "message": f"流读取中断: {str(e)[:160]}",
+               "trace_id": trace_id, "step": step})
+            recorder.finish_step(step_doc, "error")
+            recorder.final_reason = "error"
+            return {"step": step, "final_reason": "error", "full_reply": full_reply,
+                    "error": {"phase": "llm_stream", "message": str(e)[:300]}}
+        # 看门狗截断:落到底部统一处理(部分正文按正常流末走)
+    finally:
+        _wd_cancel()
 
     stream_duration_ms = int((time.time() - t_llm) * 1000)
+
+    # 看门狗触发但流是以"正常结束"形式落地的(close 不总抛异常):同样丢弃
+    # 半截 tool-call,并给出截断提示。空正文场景由下方救援兜底。
+    if _wd_killed.is_set():
+        if tc_acc:
+            tc_acc.clear()
+        w({"type": "status",
+           "message": "模型思考超时,已按当前进度截断处理…",
+           "trace_id": trace_id, "step": step})
+
+    # 终答救援:GLM 对抽象问题的思考可烧光全部 max_tokens(finish=length,
+    # 正文 0 token,流正常结束),或被看门狗截断到零正文。轻模型(doubao,
+    # thinking 已由 llm 层策略关闭)非流式直答一次,2-3s 必有产出;
+    # 走 GLM 重试只会再烧光一次(实测)。
+    if not bind_tools and not content_buf.strip() and not tc_acc \
+            and openai_messages:
+        w({"type": "status", "message": "正在重试生成答案…",
+           "trace_id": trace_id, "step": step})
+        try:
+            _resp, _rerr = llm_create_with_retry(
+                client, trace_id=trace_id, retries=1,
+                model=str(getattr(C, "MODEL_LIGHT", "")
+                          or "doubao-seed-2.0-lite"),
+                messages=openai_messages,
+                stream=False, temperature=0.3,
+                max_tokens=int(getattr(C, "REACT_ANSWER_MAX_TOKENS", 2000)),
+            )
+            if _rerr is None:
+                content_buf = (_resp.choices[0].message.content or "").strip()
+                if content_buf:
+                    full_reply += content_buf
+        except Exception:  # noqa: BLE001  救援失败按空答案走下游降级
+            content_buf = ""
 
     # ---- 组装 tool_calls ----
     # ---- 死循环检测:模型连续两轮回发相同工具调用 ----
@@ -586,6 +741,102 @@ def agent_node(state: AgentState, config) -> dict:
             "messages": [AIMessage(content=content_buf)],
         }
 
+    # Req4:缓冲回放——流末已落定。无 tool_calls(终答)→ 把本步缓冲正文以 token 事件一次性
+    # 回放放流;有 tool_calls(还要检索)→ 丢弃缓冲,正文不下发(避免"先上屏再改口")。
+    if stream_buffer and content_buf:
+        if not lc_tool_calls:
+            w({"type": "status", "message": "正在整理答案…",
+               "trace_id": trace_id, "step": step})
+            # 裸答熔断:全程没有任何检索来源时,模型自答零锚定(检索宕机/全空 miss),
+            # 不放行——整段替换为人工翻阅手册引导,并跳过 grounding(引导文本无需校验)。
+            _n_src = len(state.get("collected_sources") or {}) + \
+                len(((pre_patch or {}).get("collected_sources") or {}))
+            _naked_fused = False
+            if _n_src == 0 and getattr(C, "REACT_NAKED_ANSWER_FUSE", True):
+                # 上下文豁免:跨轮 checkpoint/摘要、recall_memory 工具、记忆指令型
+                # 问题("请记住…")——凭会话上下文或确认指令作答是正当的,不走熔断。
+                # 熔断只针对"全新单轮问题 + 全程零检索来源"的参数化自答(run22 场景)。
+                _humans, _mem_tool = 0, False
+                for _m in (state.get("messages") or []):
+                    _mt = type(_m).__name__
+                    if _mt == "HumanMessage":
+                        _humans += 1
+                    elif _mt == "ToolMessage" and \
+                            getattr(_m, "name", "") == MEMORY_TOOL_NAME:
+                        _mem_tool = True
+                _ctx_exempt = (
+                    bool(state.get("summary")) or _humans >= 2 or _mem_tool
+                    or bool(_MEMORY_INSTR_RE.search(str(state.get("question") or ""))))
+                if not _ctx_exempt:
+                    from ..support.grounding import _guidance_text
+                    w({"type": "status",
+                       "message": "未检索到任何可用资料,已转为人工核查指引",
+                       "trace_id": trace_id, "step": step})
+                    content_buf = _guidance_text([])
+                    _naked_fused = True
+            elif (step < max_steps
+                  and getattr(C, "REACT_NARRATION_SALVAGE", True)
+                  and _NARRATION_RE.search(content_buf or "")):
+                # 过程性叙述误当终答:不带工具重问一次(非流式,复用 Req4 一次性回放),
+                # 仍叙述则接受原文(有 max_steps 强制答兜底,不会无限重问)。
+                w({"type": "status",
+                   "message": "检测到过程性叙述,正在重新生成最终答案…",
+                   "trace_id": trace_id, "step": step})
+                try:
+                    _client = get_client()
+                    _r2 = _client.chat.completions.create(
+                        model=getattr(C, "TIER_MODEL_REACT", None) or C.OPENAI_TEXT_MODEL,
+                        messages=openai_messages + [
+                            {"role": "assistant", "content": content_buf},
+                            {"role": "system",
+                             "content": ("上一条回复是检索过程叙述,不是最终答案。"
+                                         "请不要再叙述过程,立即基于上面已检索到的资料"
+                                         "给出简洁、带引用的最终答案;资料未覆盖的部分"
+                                         "明确说明一句即可。")},
+                        ],
+                        stream=False, temperature=0.3,
+                        max_tokens=int(getattr(C, "REACT_ANSWER_MAX_TOKENS", 600)),
+                        timeout=STREAM_TIMEOUT,
+                    )
+                    _txt2 = ((_r2.choices[0].message.content
+                              if _r2.choices else "") or "").strip()
+                    if _txt2 and not _NARRATION_RE.search(_txt2):
+                        if full_reply.endswith(content_buf):
+                            full_reply = full_reply[:-len(content_buf)] + _txt2
+                        else:
+                            full_reply += _txt2
+                        content_buf = _txt2
+                except Exception as e:  # 重问失败静默,保留原文走 grounding
+                    logger.info("narration salvage retry failed: %s", str(e)[:120])
+            # grounding 后置校验:逐句判"能否被检索资料蕴含",删无支撑句再下发。
+            # 校验调用套熔断器:CLOSED 走超时+重试,连续失败→OPEN 降级放行原文,
+            # 冷却结束 HALF_OPEN 试探恢复(见 support/grounding.py)。
+            if not _naked_fused and getattr(C, "GROUNDING_CHECK", False):
+                from ..support.grounding import grounding_filter
+                filtered, ginfo = grounding_filter(
+                    content_buf,
+                    list((state.get("collected_sources") or {}).values()),
+                    trace_id=trace_id)
+                if ginfo.get("error") == "LLM调用失败":
+                    w({"type": "status",
+                       "message": "grounding 校验暂不可用(LLM调用失败),已降级放行原文",
+                       "trace_id": trace_id, "step": step})
+                elif ginfo.get("action") == "guidance":
+                    # 置信度不达标:模型答案不下发,替换为人工翻阅手册引导
+                    w({"type": "status",
+                       "message": f"答案置信度不足({ginfo.get('confidence')}),已替换为人工核查指引",
+                       "trace_id": trace_id, "step": step})
+                elif ginfo.get("removed"):
+                    w({"type": "status",
+                       "message": f"已按检索资料过滤 {ginfo['removed']} 句无支撑内容",
+                       "trace_id": trace_id, "step": step})
+                content_buf = filtered
+            w({"type": "token", "delta": content_buf,
+               "trace_id": trace_id, "step": step})
+        else:
+            logger.info("stream buffer discarded %d chars (tool_calls present)",
+                        len(content_buf))
+
     ai_msg = (AIMessage(content=content_buf, tool_calls=lc_tool_calls)
               if lc_tool_calls else AIMessage(content=content_buf))
     patch: dict[str, Any] = {
@@ -593,6 +844,9 @@ def agent_node(state: AgentState, config) -> dict:
         "messages": [ai_msg],
         "full_reply": full_reply,
     }
+    if pre_patch:
+        # 预检索来源/计数并入本步状态(sources 事件已在注入时发出)
+        patch.update(pre_patch)
     if usage:
         patch["usage"] = usage
     if lc_tool_calls:
@@ -607,80 +861,210 @@ def agent_node(state: AgentState, config) -> dict:
     return patch
 
 
-def tools_node(state: AgentState, config) -> dict:
-    """执行最后一条 AIMessage 上的 tool_calls,回写 ToolMessage 与 sources。"""
+def _is_empty_result(result) -> bool:
+    """判断工具结果是否为空(供 reflect 的空结果换词决策)。"""
+    if result is None:
+        return True
+    if isinstance(result, (list, tuple, dict, str)):
+        return len(result) == 0
+    return False
+
+
+def execute_tools_node(state: AgentState, config) -> dict:
+    """执行经 validate_generation/validate_runtime 校验放行的 pending_tool_calls。
+
+    本节点只做【编排】:发 tool_call 事件 → 全局 daemon 线程池 fan-out(每个调用经
+    韧性中间件 call_with_resilience,透明处理超时/熔断/限流/抖动/崩溃)→ 端到端硬预算
+    有界等待(单/多调用统一走 future.result,超时 budget_timeout 占位)→ 回主线程合并
+    来源、记 metrics/trace、构造 ToolMessage(成功截断 / 失败回灌纠错文案)、产出
+    tool_outcomes 供 reflect 决策。
+
+    「机械重试」在中间件;「是否摘工具/降级/换词」由 reflect 节点研判,本节点不做决策。
+    """
     w = get_stream_writer()
     recorder = _recorder(config)
     trace_id = state["trace_id"]
     step = state["step"]
     step_doc = recorder.steps[-1] if recorder.steps else recorder.new_step(step)
 
-    last = state["messages"][-1]
-    tool_calls = getattr(last, "tool_calls", None) or []
-    retrieval_down = bool(state.get("retrieval_down"))
-    parse_errors = state.get("tool_parse_errors") or {}
+    valid = state.get("pending_tool_calls") or []
     new_sources: dict[str, dict] = {}
     tool_msgs: list[BaseMessage] = []
+    outcomes: list[dict] = []
 
-    for tc in tool_calls:
-        name = tc["name"]
-        args = tc["args"] if isinstance(tc["args"], dict) else {}
-        tcid = tc["id"]
-
+    # 主线程先发 tool_call / "调用中"事件(仅对真正要执行的合法调用)。
+    for call in valid:
+        name = call["name"]
+        args = call.get("args") or {}
+        tcid = call["id"]
         w({"type": "tool_call", "trace_id": trace_id, "step": step,
            "tool_call_id": tcid, "name": name, "args": args,
-           "args_preview": _args_preview(args),
-           "args_parse_error": parse_errors.get(tcid)})
+           "args_preview": _args_preview(args)})
         w({"type": "status",
            "message": f"调用工具 {name}({_args_preview(args)})…",
            "trace_id": trace_id, "step": step})
 
-        t_tool = time.time()
-        parse_error = parse_errors.get(tcid)
-        if parse_error:
-            # 参数 JSON 解析失败的调用不真正执行:
-            # ① 避免 args={} 兜底触发模型从未意图的调用(全可选参的工具会真实执行,
-            #    假结果/假来源还会混入 collected_sources 影响 grounding)
-            # ② 把失败原因回传给 LLM,让其下一步自行修正重发
-            result = {"error": f"参数 JSON 解析失败({parse_error}),请修正后重新调用 {name}"}
-        else:
-            result = _dispatch_with_retry(name, args, recorder, trace_id, step, w)
-        duration_ms = int((time.time() - t_tool) * 1000)
+    hard_deadline = _hard_deadline(state)
 
-        tool_ok = not (isinstance(result, dict) and result.get("error"))
-        tool_error = result.get("error") if isinstance(result, dict) else None
-        # 参数解析失败不算检索服务故障(缺参导致的 dispatch 报错
-        # 曾把健康的检索服务误标为 retrieval_down)
-        if name in _SEARCH_TOOL_NAMES and not tool_ok and not parse_error:
-            retrieval_down = True
-        metrics.record_tool_call(name, success=tool_ok)
+    # 记忆工具的身份/预取 id 经 ContextVar 传给 handler;worker 线程不继承主线程
+    # contextvar,故在主线程取值、于每个 worker 内显式设置(Req2 去重 + 身份隔离)。
+    mem_username = (config.get("configurable", {}).get("user_id")
+                    or state.get("user_id"))
+    mem_thread_id = config.get("configurable", {}).get("thread_id")
+    mem_prefetch_ids: set = set()
+    try:
+        from tools.memory_tool import (
+            set_memory_ctx, set_prefetched_ids, get_prefetched_ids)
+        # 主线程(build_messages_node 预取时设置)读取预取 id,再下发到 worker 线程。
+        mem_prefetch_ids = get_prefetched_ids()
+    except Exception:  # noqa: BLE001
+        set_memory_ctx = set_prefetched_ids = None  # type: ignore
+
+    def _execute(call: dict) -> dict:
+        """worker 内执行单个调用(经韧性中间件)。不触碰 writer/recorder/metrics。"""
+        name = call["name"]
+        args = call.get("args") or {}
+        tcid = call["id"]
+        t_tool = time.time()
+        circuits: list[dict] = []
+        spec = registry.get(name)
+
+        # 记忆工具:在本 worker 线程注入身份与预取 id(handler 经 contextvar 读取)。
+        if name == MEMORY_TOOL_NAME and set_memory_ctx is not None:
+            set_memory_ctx(mem_username, mem_thread_id)
+            set_prefetched_ids(mem_prefetch_ids)
+
+        def _on_event(ev):
+            if ev.get("type") == "circuit":
+                circuits.append(ev)
+
+        cache_hit_var.set(False)  # 复位;handler 命中缓存时置 True(同线程可见)
+        try:
+            result, err = call_with_resilience(
+                name, args, spec, deadline=hard_deadline,
+                on_event=_on_event, invoke=dispatch)
+        except Exception as e:  # 兜底:中间件理论上不抛,防止 worker 异常扩散
+            result, err = None, ToolCallError(
+                Stage.EXECUTION, Kind.CRASH, f"{type(e).__name__}: {e}", tool=name)
+        cache_hit = bool(cache_hit_var.get())
+        return {"call": call, "name": name, "args": args, "tcid": tcid,
+                "spec": spec, "result": result, "err": err,
+                "cache_hit": cache_hit, "circuits": circuits,
+                "duration_ms": int((time.time() - t_tool) * 1000)}
+
+    def _timeout_record(call: dict) -> dict:
+        """硬预算耗尽仍未返回 -> budget_timeout 占位(保序,回灌 LLM)。"""
+        return {"call": call, "name": call["name"], "args": call.get("args") or {},
+                "tcid": call["id"], "spec": registry.get(call["name"]),
+                "result": None,
+                "err": ToolCallError(Stage.EXECUTION, Kind.BUDGET_TIMEOUT,
+                                     "等待超过端到端时限,已跳过", tool=call["name"]),
+                "cache_hit": False, "circuits": [], "duration_ms": 0}
+
+    # 单个调用 / TOOL_MAX_PARALLEL<=1:同步串行执行(零线程开销,兼容串行测试);
+    # 硬预算由韧性中间件内部按 deadline 钳制重试。多个调用且允许并发:走全局 daemon 池
+    # fan-out + future.result(剩余硬预算)有界等待;超时的以 budget_timeout 占位,
+    # 运行中的任务不 join(daemon 池,结果丢弃)。
+    parallel = getattr(C, "TOOL_MAX_PARALLEL", 4)
+    executed: list[dict] = []
+    if not valid:
+        executed = []
+    elif len(valid) <= 1 or parallel <= 1:
+        executed = [_execute(call) for call in valid]
+    else:
+        pool = get_pool()
+        futures = {pool.submit(_execute, call): call for call in valid}
+        for call in valid:  # 按 pending 原序对齐结果
+            fut = next(f for f, t in futures.items() if t is call)
+            wait_s = None
+            rem = _remaining_budget(state)
+            if rem is not None:
+                wait_s = max(0.0, rem)
+            try:
+                executed.append(fut.result(timeout=wait_s))
+            except FuturesTimeout:
+                w({"type": "status",
+                   "message": f"⚠️ 工具 {call['name']} 等待超过端到端时限,已跳过该调用",
+                   "trace_id": trace_id, "step": step})
+                logger.warning("tool %s 等待超过硬预算,跳过", call["name"])
+                executed.append(_timeout_record(call))
+                fut.cancel()  # 排队中的可取消;运行中的允许跑完(结果丢弃),不 join
+
+    # 结果回主线程:发 circuit/tool_result、记 metrics/trace、合并来源、构造 ToolMessage。
+    for r in executed:
+        name = r["name"]
+        args = r["args"]
+        tcid = r["tcid"]
+        spec = r["spec"]
+        err = r["err"]
+        result = r["result"]
+        duration_ms = r["duration_ms"]
+        cache_hit = r["cache_hit"]
+        produces_sources = bool(spec and spec.produces_sources)
+
+        for ev in r["circuits"]:
+            w({"type": "circuit", "trace_id": trace_id, "step": step,
+               "name": ev.get("name"), "state": ev.get("state")})
+
+        tool_ok = err is None
+        kind = err.kind if err else None
+        is_empty = tool_ok and _is_empty_result(result)
+        metrics.record_tool_call(
+            name, success=tool_ok, category=spec.category if spec else None,
+            duration_ms=duration_ms,
+            error_type=kind or ("empty" if is_empty else None),
+            cache_hit=cache_hit)
         recorder.record_tool(
             step_doc, tool_call_id=tcid, name=name, args=args,
-            ok=tool_ok, duration_ms=duration_ms, result=result, error=tool_error)
-        result_size = len(json.dumps(result, ensure_ascii=False, default=str))
+            ok=tool_ok, duration_ms=duration_ms,
+            result=result if tool_ok else (err.to_dict() if err else result),
+            error=err.message if err else None,
+            category=spec.category if spec else None,
+            error_type=kind, cache_hit=cache_hit)
+
+        if tool_ok:
+            result_size = len(json.dumps(result, ensure_ascii=False, default=str))
+            preview = json.dumps(result, ensure_ascii=False, default=str)
+        else:
+            result_size = len(err.message)
+            preview = err.message
         w({"type": "tool_result", "trace_id": trace_id, "step": step,
            "tool_call_id": tcid, "name": name, "ok": tool_ok,
            "duration_ms": duration_ms, "result_size": result_size,
-           "result_preview": json.dumps(result, ensure_ascii=False, default=str)[:RESULT_PREVIEW_LEN]
+           "result_preview": preview[:RESULT_PREVIEW_LEN]
                + ("…" if result_size > RESULT_PREVIEW_LEN else ""),
-           "error": tool_error})
+           "error": err.message if err else None, "error_type": kind})
 
-        if name in _SEARCH_TOOL_NAMES:
-            for _s in sources_from_result(result):
-                key = _s.get("chunk_id") or (_s["source_stem"] + _s["page"])
-                if key not in new_sources or _s["score"] > new_sources[key]["score"]:
+        if tool_ok and produces_sources:
+            for _s in sources_from_result(result, spec=spec):
+                # 来源主键:web 用 url,doc 用 chunk_id/source_stem+page
+                key = (_s.get("chunk_id")
+                       or _s.get("url")
+                       or (_s.get("source_stem", "") + _s.get("page", "")))
+                if not key:
+                    continue
+                if key not in new_sources or _s.get("score", 0) > new_sources[key].get("score", 0):
                     new_sources[key] = _s
 
-        tool_msgs.append(ToolMessage(
-            content=truncate_tool_result(result, C.CONTEXT_TOOL_RESULT_MAX_CHARS),
-            tool_call_id=tcid,
-        ))
+        # 回灌 LLM 的 ToolMessage:成功截断结果;失败用面向模型的纠错文案。
+        if tool_ok:
+            tool_msgs.append(ToolMessage(
+                content=truncate_tool_result(
+                    result, C.CONTEXT_TOOL_RESULT_MAX_CHARS, spec=spec),
+                tool_call_id=tcid))
+        else:
+            tool_msgs.append(error_tool_message(tcid, err))
+
+        outcomes.append({
+            "name": name, "tcid": tcid,
+            "category": spec.category if spec else None,
+            "ok": tool_ok, "kind": kind, "empty": is_empty,
+            "produces_sources": produces_sources,
+        })
 
     new_count = len(new_sources)
-    # 本轮已执行的检索工具调用次数(粗粒度计划进度信号)
-    searched = sum(
-        1 for tc in tool_calls
-        if tc.get("name") in _SEARCH_TOOL_NAMES and not parse_errors.get(tc.get("id")))
+    # 本轮真正执行成功的检索类调用次数(get_chunk 不计入新检索)。
+    searched = sum(1 for oc in outcomes if oc["produces_sources"] and oc["ok"])
     search_count = int(state.get("search_count") or 0) + searched
     recorder.finish_step(step_doc, "tool_calls", new_sources_count=new_count)
     w({"type": "step_end", "trace_id": trace_id, "step": step,
@@ -689,234 +1073,32 @@ def tools_node(state: AgentState, config) -> dict:
 
     collected = state.get("collected_sources") or {}
     total_sources = collected | new_sources
-    # 把新到达的检索来源喂给异步覆盖度追踪器(守护线程据此增量重建覆盖文档)
-    tracker = _tracker(config)
-    if tracker is not None and new_sources:
-        tracker.update_sources(new_sources)
+    max_score = max(
+        (float(s.get("score") or 0.0) for s in total_sources.values()),
+        default=0.0)
+
     if total_sources:
         metrics.record_search(hit=True)
         w({"type": "sources", "items": list(total_sources.values())[:6],
            "trace_id": trace_id, "step": step})
-        max_score = max(s["score"] for s in total_sources.values())
-        if max_score < LOW_CONFIDENCE_THRESHOLD:
-            w({"type": "status",
-               "message": "⚠️ 检索置信度较低，以下回答仅供参考，建议核实原始文档。",
-               "trace_id": trace_id, "step": step})
-        else:
-            w({"type": "status", "message": "已检索到资料,继续组织答案…",
-               "trace_id": trace_id, "step": step})
     else:
         metrics.record_search(hit=False)
-        if retrieval_down:
-            w({"type": "status",
-               "message": "⚠️ 检索服务暂时不可用，以下回答可能缺乏文献支持，请注意核实。",
-               "trace_id": trace_id, "step": step})
-        else:
-            w({"type": "status", "message": "未检索到相关资料,尝试基于通用知识回答…",
-               "trace_id": trace_id, "step": step})
 
     return {
         "messages": tool_msgs,
         "collected_sources": new_sources,
-        "retrieval_down": retrieval_down,
         "search_count": search_count,
+        "retrieval_max_score": max_score,
+        "tool_outcomes": outcomes,
     }
-
-
-def _maybe_coverage_rollback(state: AgentState, config) -> dict | None:
-    """计划步骤覆盖判定 + 回退。
-
-    调用异步 CoverageTracker 的 LLM 判定(基于其持续维护的覆盖文档):
-    若某计划步骤未被已检索资料覆盖且预算(回退次数/总时长/步数)未耗尽,
-    返回一个 state patch,把 agent 回退到未覆盖的步骤重新检索;
-    否则(全部覆盖 / 判定不可用 / 预算耗尽)返回 None,交由后续 grounding 处理。
-    """
-    w = get_stream_writer()
-    recorder = _recorder(config)
-    tracker = _tracker(config)
-    if tracker is None:
-        return None
-
-    trace_id = state["trace_id"]
-    step = state["step"]
-    full_reply = state.get("full_reply", "")
-    task_plan = state.get("task_plan") or {}
-    steps = [str(s).strip() for s in task_plan.get("steps") or [] if str(s).strip()]
-    if not steps:
-        return None
-
-    box = tracker.request_judgment(full_reply)
-    if box is None:
-        return None
-    verdict = box.result(timeout=_JUDGE_TIMEOUT)
-    if verdict is None:
-        # 判定超时/LLM 不可用/解析失败:fail-open,不阻断主流程,
-        # 但给前端一个可见提示;后续 grounding 仍会做忠实度校验兜底。
-        w({"type": "status",
-           "message": "计划忠实度检测因临时异常暂不可用,将直接进行来源忠实度校验…",
-           "trace_id": trace_id, "step": step})
-        return None
-
-    recorder.record_coverage(verdict)
-    uncovered = [i for i in verdict.get("uncovered_steps", [])
-                 if isinstance(i, int) and 1 <= i <= len(steps)]
-    if not uncovered:
-        return None  # 所有步骤均已覆盖
-
-    rollbacks = int(state.get("coverage_rollbacks") or 0)
-    budget_left = (time.time() - state["started_at"]
-                   < int(state.get("max_total_seconds") or MAX_TOTAL_SECONDS))
-    max_steps = int(state.get("max_steps") or MAX_STEPS)
-    if rollbacks >= MAX_COVERAGE_ROLLBACKS or not budget_left or step >= max_steps:
-        # 预算耗尽:不再回退,带覆盖警示进入 grounding/收尾
-        w({"type": "status",
-           "message": ("⚠️ 部分计划步骤资料不足,但已达回退上限/预算,"
-                       "将基于现有资料作答并提示核实。"),
-           "trace_id": trace_id, "step": step})
-        return None
-
-    first = uncovered[0]
-    target_step = steps[first - 1]
-    reason = verdict.get("reason") or "该步骤未被现有检索资料覆盖"
-    w({"type": "status",
-       "message": f"计划第 {first} 步资料不足,回退重新检索:{target_step}",
-       "trace_id": trace_id, "step": step})
-    w({"type": "coverage", "trace_id": trace_id, "step": step,
-       "uncovered_steps": uncovered, "reason": reason,
-       "rollback_count": rollbacks + 1})
-    instruction = (
-        f"计划的第 {first} 步【{target_step}】尚未被已检索资料覆盖({reason})。"
-        "请针对该步骤补充调用检索工具(search_text/search_image)查找相关资料,"
-        "拿到该步骤的资料后再综合全部计划步骤作答;不要重复已经检索过的内容。"
-    )
-    return {
-        "coverage_rollbacks": rollbacks + 1,
-        "final_reason": None,   # 回到 agent 重新检索
-        "full_reply": "",       # 旧回答作废,从重检索后重新累积
-        "reflect_feedback": f"回退到计划第{first}步: {reason}",
-        "messages": [HumanMessage(
-            content=instruction,
-            id=f"rollback-{trace_id}-{rollbacks}",
-        )],
-    }
-
-
-def coverage_check_node(state: AgentState, config) -> dict:
-    """计划步骤覆盖度判定 + 回退(原 reflect_node 的第①部分,1.2 拆出)。
-
-    由异步 CoverageTracker 维护的覆盖文档 + LLM 判定:若某计划步骤未被已检索
-    资料覆盖且预算未耗尽,回退到该步骤重新检索(rollback),回到 react 循环。
-    不适用(无计划/非 answer 终态/timeout/max_steps)或判定通过/不可用时返回
-    空 patch,交由后续 grounding_node 处理。
-    """
-    decision = state.get("final_reason") or "answer"
-    full_reply = state.get("full_reply", "")
-    # 仅对"正常作答完成且有计划"的情形判定;timeout/max_steps 无步可退,直接进 grounding。
-    if not (full_reply.strip() and decision == "answer"
-            and (state.get("task_plan") or {}).get("need_plan")):
-        return {}
-    return _maybe_coverage_rollback(state, config) or {}
-
-
-def grounding_node(state: AgentState, config) -> dict:
-    """引用校验 + 忠实度检测 + 反思重生成(原 reflect_node 的第②部分,1.2 拆出)。
-
-    grounding 失败且预算允许时,反思重生成:置 final_reason=None 并写入
-    reflect_feedback,回到 react 循环;否则把 grounding 结果写入 state 进入收尾。
-    """
-    w = get_stream_writer()
-    recorder = _recorder(config)
-    trace_id = state["trace_id"]
-    step = state["step"]
-    decision = state.get("final_reason") or "answer"
-    full_reply = state.get("full_reply", "")
-    collected_sources = state.get("collected_sources") or {}
-    reflect_count = int(state.get("reflect_count") or 0)
-
-    grounding = None
-    retrieval_down = bool(state.get("retrieval_down"))
-    if full_reply.strip() and decision in ("answer", "timeout", "max_steps"):
-        if collected_sources:
-            w({"type": "status", "message": "验证答案来源…", "trace_id": trace_id})
-            try:
-                grounding = grounding_check(full_reply, list(collected_sources.values()))
-                metrics.record_grounding(grounding["passed"])
-                recorder.record_grounding(grounding["passed"], grounding["warnings"])
-                if not grounding["passed"]:
-                    for warn in grounding["warnings"]:
-                        w({"type": "status", "message": f"⚠️ {warn}", "trace_id": trace_id})
-                w({"type": "grounding", "trace_id": trace_id, "step": step,
-                   "passed": grounding["passed"], "warnings": grounding["warnings"]})
-            except Exception:
-                # 校验服务异常:不伪造"通过",带上可见警示;不吞日志
-                logger.exception("grounding_check 执行异常,跳过本轮校验")
-                grounding = {"passed": True,
-                             "warnings": ["来源校验服务异常,本轮答案未完成验证"]}
-                w({"type": "status", "message": "⚠️ 来源校验服务异常,本轮答案未完成验证",
-                   "trace_id": trace_id})
-        elif not retrieval_down:
-            # 无任何检索来源且检索服务正常:模型未检索就作答,存在编造风险(缺口1)。
-            # 标记不通过,触发反思,引导其先检索再答;retrieval_down 时不反思
-            # (工具已警示用户,且反思也无法补检索)。
-            grounding = {"passed": False,
-                         "warnings": ["回答未基于任何检索资料,存在编造风险,请先检索再作答"]}
-            metrics.record_grounding(False)
-            recorder.record_grounding(False, grounding["warnings"])
-            w({"type": "status",
-               "message": "⚠️ 回答未基于检索资料,将重新检索后作答",
-               "trace_id": trace_id})
-            w({"type": "grounding", "trace_id": trace_id, "step": step,
-               "passed": False, "warnings": grounding["warnings"]})
-
-    # ---- 是否允许再生成一轮(有界:次数 + 总时长;步数由 react 的 max_steps 兜底)----
-    can_retry = (
-        decision == "answer"
-        and grounding is not None and not grounding["passed"]
-        and full_reply.strip()
-        and reflect_count < MAX_REFLECT
-        and time.time() - state["started_at"] < int(
-            state.get("max_total_seconds") or MAX_TOTAL_SECONDS)
-    )
-    if can_retry:
-        no_sources = not collected_sources and not retrieval_down
-        feedback = ";".join(grounding["warnings"]) or "回答与检索资料不符"
-        w({"type": "status",
-           "message": f"回答未通过来源校验,第 {reflect_count + 1} 次反思重生成…",
-           "trace_id": trace_id, "step": step})
-        # 通知前端重置正在流式输出的消息内容(旧回答作废,只展示重生成结果)
-        w({"type": "reflect", "trace_id": trace_id, "step": step,
-           "reflect_count": reflect_count + 1, "feedback": feedback})
-        if no_sources:
-            instruction = (
-                "你刚才未检索任何资料就直接作答,这不符合要求。"
-                "请先调用检索工具(search_text/search_image)查找相关资料,"
-                "再严格依据检索结果组织回答;若确实检索不到,请明确说明,"
-                "不要凭空编造。"
-            )
-        else:
-            instruction = (
-                "你刚才的回答未通过来源忠实度校验,不要原样重复。"
-                f"修正意见:{feedback}。"
-                "若现有资料不足以支撑某个结论,请补充检索后再作答;"
-                "确实检索不到时请明确说明,不要编造。"
-            )
-        return {
-            "reflect_count": reflect_count + 1,
-            "reflect_feedback": feedback,
-            "grounding": grounding,
-            "final_reason": None,   # 回到 react 再生成(可继续调工具补检索)
-            "full_reply": "",       # 重生成从零累积,避免新旧答案串联
-            "messages": [HumanMessage(
-                content=instruction,
-                id=f"reflect-{trace_id}-{reflect_count}",
-            )],
-        }
-
-    return {"grounding": grounding}
 
 
 def finalize_node(state: AgentState, config) -> dict:
-    """收尾:meta + done。grounding 已由 reflect_node 完成并写入 state。"""
+    """收尾:meta + assistant_message + 最终来源卡片。
+
+    【不发 done】:done 由 emit_done_node 统一发射;记忆维护已迁出主图
+    (后台记忆管道在流结束后处理),本节点不再承担任何记忆职责。
+    """
     w = get_stream_writer()
     recorder = _recorder(config)
     trace_id = state["trace_id"]
@@ -925,9 +1107,6 @@ def finalize_node(state: AgentState, config) -> dict:
     decision = state.get("final_reason") or "answer"
     full_reply = state.get("full_reply", "")
     collected_sources = state.get("collected_sources") or {}
-
-    grounding = state.get("grounding")
-    grounding_passed = grounding["passed"] if grounding else None
 
     step_doc = recorder.steps[-1] if recorder.steps else None
     if step_doc is not None:
@@ -943,28 +1122,66 @@ def finalize_node(state: AgentState, config) -> dict:
         trace_id, t0, step, collected_sources,
         tokens=recorder.total_tokens,
         tools_count=sum(len(s["tools"]) for s in recorder.steps),
-        grounding_passed=grounding_passed,
     ))
-    if full_reply.strip():
-        w({"type": "assistant_message", "trace_id": trace_id, "content": full_reply})
-    w({"type": "done", "trace_id": trace_id, "trace": recorder.to_dict()})
 
+    # Req5 终态分支:按 final_reason 决定发什么。
+    #   answer            :正常答案卡 + 最终引用;
+    #   max_steps/timeout :答案不完整,发 assistant_message 带 incomplete:true(含已完成部分);
+    #   error             :只发 error 事件,不发答案卡/来源(错误信息已由 agent 节点发出)。
+    is_error = decision == "error"
+    is_incomplete = decision in ("max_steps", "timeout")
+    if not is_error and full_reply.strip():
+        msg: dict[str, Any] = {"type": "assistant_message",
+                               "trace_id": trace_id, "content": full_reply}
+        if is_incomplete:
+            msg["incomplete"] = True
+            msg["incomplete_reason"] = decision
+            msg["note"] = ("已达推理步数/时间上限,以下为基于已检索资料的部分结果,"
+                           "可能不完整。")
+        w(msg)
+        # 定稿后补发"按书去重+引用优先"的最终来源卡片,与答案实际引用对齐。
+        try:
+            cards = final_citation_cards(
+                full_reply, list(collected_sources.values()), k=6)
+            if cards:
+                w({"type": "sources", "trace_id": trace_id, "step": step, "items": cards})
+        except Exception:
+            pass  # 卡片重排失败不影响收尾
     patch: dict[str, Any] = {
         "final_reason": decision,
-        "grounding": grounding,
         "full_reply": full_reply,
+        "retrieval_max_score": float(state.get("retrieval_max_score") or 0.0),
     }
     if state.get("error"):
         patch["error"] = state["error"]
-
-    # 临界前预生成:用"本轮结束后"的 messages(即下一轮所见 existing)计算下一轮
-    # 将被删除的最老轮次,后台线程提前算摘要,避免下一轮同步调 LLM 阻塞。
-    try:
-        thread_id = config.get("configurable", {}).get("thread_id")
-        schedule_pregeneration(
-            state.get("messages") or [], state.get("summary") or "",
-            thread_id, trace_id,
-        )
-    except Exception:
-        pass  # 预生成失败不影响本轮收尾
     return patch
+
+
+def emit_done_node(state: AgentState, config) -> dict:
+    """图流最后一帧:统一发射 done(finalize 之后、图即完即关)。
+
+    done 是最后一帧:图流到此结束,runner 随即把本轮记忆原料(快照)交给
+    后台记忆管道,不再占用请求流。内容与原 finalize 的 done 同源:trace +
+    本轮检索相关分/次数(service 层质检门据此扣留 done)。
+    """
+    w = get_stream_writer()
+    recorder = _recorder(config)
+    trace_id = state["trace_id"]
+    final_reason = state.get("final_reason") or "answer"
+    w({"type": "done", "trace_id": trace_id, "trace": recorder.to_dict(),
+       # Req5:done 强制带终态原因(answer/max_steps/timeout/error),前端/service 据此区分。
+       "final_reason": final_reason,
+       # 本轮最高检索相关分 + 检索次数:供 service 层质检门判低置信(simple 直答不产生)
+       "retrieval_max_score": float(state.get("retrieval_max_score") or 0.0),
+       "search_count": int(state.get("search_count") or 0)})
+    # 后台记忆管道原料快照(runner 经 configurable 注入 holder,流结束后取走提交);
+    # 无 holder(测试直调节点)则跳过。运行时对象走 configurable,不进 state。
+    try:
+        holder = ((config or {}).get("configurable") or {}).get("mem_snapshot")
+        if isinstance(holder, dict):
+            holder["messages"] = list(state.get("messages") or [])
+            holder["full_reply"] = state.get("full_reply") or ""
+            holder["final_reason"] = final_reason
+    except Exception:  # noqa: BLE001  快照失败不影响 done
+        pass
+    return {}

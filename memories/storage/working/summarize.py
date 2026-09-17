@@ -9,11 +9,12 @@
     (增量:旧摘要 + 新进入"旧区"的内容一起浓缩),并在随后每轮持续刷新——摘要实时更新。
   - 累积原文达到 COMPACT_TRIGGER_TOKENS 时,在发 LLM 之前把摘要带回、用
     RemoveMessage 删掉近期窗口之外的全部旧原文,只留摘要 + 近期原文。
-  - 压缩后原文从 KEEP_RECENT_TOKENS 重新增长,重复整个流程,保证不溢出 100k 上下文。
+  - 压缩后原文从 KEEP_RECENT_TOKENS 重新增长,重复整个流程,保证不溢出 40k 上下文。
 
-三个阈值基于 100k 上下文:输出预留 16k、固定输入开销 4k(system+tools+长期召回+当前
-问题),对话预算 80k。最坏情况(压缩前一轮)输入 ≈ 68k 原文 + 4k 摘要 + 4k 固定 = 76k,
-加 16k 输出 = 92k,留 8k 估错裕量;token 估算偏保守高估。
+三个阈值基于模型原生上限 40960(Qwen3-14B-AWQ max_position_embeddings;vLLM 以
+--max-model-len 40960 启动):输出预留 8k、固定输入开销 4k(system+tools+长期召回+
+当前问题),对话历史预算 ~28.7k。最坏情况(压缩前一轮)输入 ≈ 22k 原文 + 1.8k 摘要
++ 4k 固定 = 27.8k,加 8k 输出 = 35.8k,留 ~5k 估错裕量;token 估算偏保守高估。
 
 延迟优化:摘要在临界点前由 daemon 线程池预生成,调用方(react/finalize_node)用"本轮
 结束后"的 messages 算边界(=下一轮 build_messages 所见 existing),缓存键为待删消息
@@ -50,21 +51,24 @@ from .._llm import chat_completion_with_fallback  # noqa: E402
 
 logger = logging.getLogger("agent")
 
-# ---- 上下文预算(模型 100k) ----
-MODEL_CONTEXT_TOKENS = 100_000
-OUTPUT_RESERVE_TOKENS = 16_000       # 输出预留(长回答 + 工具循环)
-FIXED_OVERHEAD_TOKENS = 4_000        # system + tools + 长期召回 + 当前问题
-CONVERSATION_BUDGET = MODEL_CONTEXT_TOKENS - OUTPUT_RESERVE_TOKENS - FIXED_OVERHEAD_TOKENS  # 80k
+# ---- 上下文预算(模型原生上限 40960,取自 Qwen3-14B-AWQ config.max_position_embeddings;
+#      vLLM 须以 --max-model-len 40960 启动,二者对齐) ----
+MODEL_CONTEXT_TOKENS = 40_960
+OUTPUT_RESERVE_TOKENS = 8_192        # 输出预留(长回答 + 工具循环)
+FIXED_OVERHEAD_TOKENS = 4_096        # system + tools + 长期召回 + 当前问题
+CONVERSATION_BUDGET = MODEL_CONTEXT_TOKENS - OUTPUT_RESERVE_TOKENS - FIXED_OVERHEAD_TOKENS  # 28_672
 
-KEEP_RECENT_TOKENS = 20_000          # 始终保留的近期原文窗口(按整轮切)
-SUMMARY_START_TOKENS = 40_000        # 原文超此值开始/刷新后台摘要
-COMPACT_TRIGGER_TOKENS = 68_000      # 原文达此值则压缩(摘要替换旧原文)
-SUMMARY_MAX_TOKENS = 4_000           # 摘要目标上限
-SUMMARY_MAX_CHARS = 6_000            # 摘要硬截断(CJK ~1 token/字,兜底防失控)
+KEEP_RECENT_TOKENS = 6_000           # 始终保留的近期原文窗口(按整轮切)
+SUMMARY_START_TOKENS = 13_000        # 原文超此值开始/刷新后台摘要
+COMPACT_TRIGGER_TOKENS = 22_000      # 原文达此值则压缩(摘要替换旧原文)
+SUMMARY_MAX_TOKENS = 1_800           # 摘要目标上限
+SUMMARY_MAX_CHARS = 2_800            # 摘要硬截断(CJK ~1 token/字,兜底防失控)
 
 # 单次喂给摘要 LLM 的消息条数硬上限(防御性)。
 SUMMARIZE_BATCH = 80
 _LLM_RETRIES = 3
+# 主请求线程内同步摘要兜底的单次读超时(秒):刻意短,宁可降级不压缩也不长等。
+_SYNC_SUMMARIZE_TIMEOUT = 8.0
 
 _SUMMARY_PROMPT = """你是对话摘要器。下面是一段多轮对话(可能含工具调用与工具结果)。
 请渐进式地更新摘要:在已有摘要基础上,把新增对话内容浓缩进去,保留后续问答可能用到的
@@ -81,8 +85,15 @@ _SUMMARY_PROMPT = """你是对话摘要器。下面是一段多轮对话(可能�
 
 # ---------------------------------------------------------------- LLM
 def _llm_summarize(prev_summary: str, transcript: str,
-                   trace_id: str = "") -> Optional[str]:
-    """调 LLM 增量更新摘要;失败返回 None。自带重试,不依赖 chat.react。"""
+                   trace_id: str = "", *,
+                   retries: int = _LLM_RETRIES,
+                   timeout: Optional[float] = None) -> Optional[str]:
+    """调 LLM 增量更新摘要;失败返回 None。
+
+    :param retries: 主模型重试次数。后台预生成用默认(多次重试,延迟不敏感);
+                    主请求线程的同步兜底应传 1(单次,避免长等)。
+    :param timeout: 单次请求读超时(秒);None 用客户端默认 20s。同步兜底应传短超时。
+    """
     prompt = _SUMMARY_PROMPT.format(
         max_tokens=SUMMARY_MAX_TOKENS,
         prev_summary=prev_summary or "(无)",
@@ -93,9 +104,11 @@ def _llm_summarize(prev_summary: str, transcript: str,
     # 主模型重试耗尽后自动切备用模型(见 memories/storage/_llm.py)
     resp, err = chat_completion_with_fallback(
         trace_id=f"summarize-{trace_id}" if trace_id else "summarize",
-        retries=_LLM_RETRIES,
+        retries=retries,
+        model=C.MODEL_LIGHT,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
+        **({"timeout": timeout} if timeout else {}),
     )
     if err is not None:
         logger.info(json.dumps({
@@ -109,7 +122,7 @@ def _llm_summarize(prev_summary: str, transcript: str,
 
 # ---------------------------------------------------------------- token 估算
 def _estimate_tokens(text: str) -> int:
-    """粗估 token:CJK ~1 token,空白分词 ~1.3 token/词(与 recall_gateway 同策略,保守高估)。"""
+    """粗估 token:CJK ~1 token,空白分词 ~1.3 token/词(保守高估)。"""
     if not text:
         return 0
     cjk = sum(1 for c in text if "一" <= c <= "鿿")
@@ -258,9 +271,12 @@ def _submit_pregen(prev_summary: str, transcript: str, trace_id: str):
 
     def _run():
         try:
-            fut.set_result(_llm_summarize(prev_summary, transcript, trace_id))
+            result = _llm_summarize(prev_summary, transcript, trace_id)
+            if not fut.done():
+                fut.set_result(result)
         except Exception as e:  # noqa: BLE001
-            fut.set_exception(e)
+            if not fut.done():
+                fut.set_exception(e)
 
     threading.Thread(target=_run, daemon=True, name="summary-pregen").start()
     return fut
@@ -347,7 +363,12 @@ def maybe_summarize(state: dict[str, Any], trace_id: str = "",
     new_summary = _consume_pregen(thread_id, removed_ids, prev_summary)
     from_pregen = new_summary is not None
     if new_summary is None:
-        new_summary = _llm_summarize(prev_summary, _build_transcript(old), trace_id)
+        # 同步兜底运行在用户请求线程:只做单次、短超时(主+备各至多 1 次),
+        # 绝不在此多次重试长等(否则 LLM 故障时可把请求挂起 ~2 分钟)。
+        # 失败即降级返回 {}——不删除原文,下一轮后台预生成还有机会补上。
+        new_summary = _llm_summarize(
+            prev_summary, _build_transcript(old), trace_id,
+            retries=1, timeout=_SYNC_SUMMARIZE_TIMEOUT)
     if not new_summary:
         return {}  # 摘要失败:不删除,降级原样保留
 

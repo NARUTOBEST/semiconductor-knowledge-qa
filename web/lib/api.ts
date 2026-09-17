@@ -1,6 +1,6 @@
 ﻿// SSE 流式调用后端 /api/chat
 // 后端经 next.config.js rewrites 代理到 Python(8001),同源,免 CORS。
-// 协议:data: {"type":"status|sources|token|reflect|done|error", ...}\n\n
+// 协议:data: {"type":"tier|escalation|clarify|status|sources|token|done|error", ...}\n\n
 
 import type { Message, Source } from "./types";
 import { newId } from "./storage";
@@ -9,12 +9,12 @@ export interface StreamHandlers {
   onStatus?: (msg: string) => void;
   onSources?: (sources: Source[]) => void;
   onToken?: (delta: string) => void;
-  /** 反思重生成:旧回答作废,调用方应清空正在流式输出的消息内容 */
-  onReflect?: (feedback: string) => void;
-  /** 复杂度路由结果:每个流的第一个事件。tier=simple|medium|complex */
+  /** 复杂度路由结果:每个流的第一个事件。tier=simple|react */
   onTier?: (tier: string, confidence: number, source: string) => void;
-  /** 升级到更高 tier 重跑:同 onReflect,需清空当前输出并展示"深入分析" */
+  /** 升级到更高 tier 重跑:清空当前输出并展示"深入分析" */
   onEscalation?: (fromTier: string, toTier: string, reason: string) => void;
+  /** 澄清反问:信息不足,助手先提问;options 为可选候选 */
+  onClarify?: (question: string, options: string[]) => void;
   onError?: (msg: string) => void;
   onDone?: () => void;
 }
@@ -136,12 +136,15 @@ export async function streamChat(
               handlers.onTier?.(obj.tier, obj.confidence ?? 0, obj.source || "");
               break;
             case "escalation":
-              // 升级重跑:清空旧输出(复用 reflect 的重置语义)
+              // 升级重跑:清空旧输出
               handlers.onEscalation?.(
                 obj.from_tier || "",
                 obj.to_tier || "",
                 obj.reason || ""
               );
+              break;
+            case "clarify":
+              handlers.onClarify?.(obj.question || "", obj.options || []);
               break;
             case "status":
               handlers.onStatus?.(obj.message || "");
@@ -151,9 +154,6 @@ export async function streamChat(
               break;
             case "token":
               handlers.onToken?.(obj.delta || "");
-              break;
-            case "reflect":
-              handlers.onReflect?.(obj.feedback || "");
               break;
             case "error":
               handlers.onError?.(obj.message || "未知错误");

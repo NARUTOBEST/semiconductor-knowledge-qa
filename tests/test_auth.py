@@ -81,12 +81,28 @@ def _make_auth_client():
     return TestClient(app)
 
 class TestRegisterAPI:
-    def test_first_user_admin(self, tmp_auth_db):
+    def test_first_user_admin_with_token_on_fresh_db(self, tmp_auth_db, monkeypatch):
+        monkeypatch.setattr(C, "ADMIN_BOOTSTRAP_TOKEN", "secret-bootstrap")
         c = _make_auth_client()
-        r = c.post("/api/auth/register", json={"username": "admin", "password": "password123"})
+        r = c.post("/api/auth/register",
+                   json={"username": "admin", "password": "password123"},
+                   headers={"X-Bootstrap-Token": "secret-bootstrap"})
         assert r.status_code == 200
         d = r.json()
         assert d["username"] == "admin" and d["role"] == "admin" and "token" in d
+
+    def test_first_user_wrong_token_is_not_admin(self, tmp_auth_db, monkeypatch):
+        monkeypatch.setattr(C, "ADMIN_BOOTSTRAP_TOKEN", "secret-bootstrap")
+        c = _make_auth_client()
+        r = c.post("/api/auth/register",
+                   json={"username": "admin", "password": "password123"},
+                   headers={"X-Bootstrap-Token": "wrong"})
+        assert r.status_code == 200 and r.json()["role"] == "user"
+
+    def test_first_user_no_token_is_regular_by_default(self, tmp_auth_db):
+        c = _make_auth_client()
+        r = c.post("/api/auth/register", json={"username": "first", "password": "pw123456"})
+        assert r.status_code == 200 and r.json()["role"] == "user"
 
     def test_second_user_regular(self, tmp_auth_db):
         c = _make_auth_client()

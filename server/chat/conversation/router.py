@@ -58,7 +58,10 @@ def remove_conversation(conv_id: str, user=Depends(get_current_user)):
     if deleted:
         try:
             from memories.orchestration import delete_thread_artifacts
-            delete_thread_artifacts(conv_id)
+            from memories.storage.thread_scope import scoped_thread_id
+            # checkpoint/短期流水按"用户名|会话id"命名空间存储,删除须用同一派生键,
+            # 否则删不到(与 runner 写入侧的 scoping 对齐)。
+            delete_thread_artifacts(scoped_thread_id(conv_id, user["username"]))
         except Exception:
             logger.exception(f"cleanup artifacts failed for conversation {conv_id}")
         logger.info(f"deleted conversation {conv_id} for user={user['username']}")

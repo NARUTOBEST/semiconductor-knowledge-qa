@@ -3,7 +3,11 @@
 
 属于记忆编排层(memories/orchestration),被 react/runner 在消费层(节点之外)调用:
 一边 yield SSE 一边写库,避免 LangGraph 重放未完成节点导致节点内重复写库。
-只持久化有审计/升迁价值的事件白名单;逐 token 流不入库(量太大、无意义)。
+
+短期记忆【只存对话问答】(user_message / assistant_message),读回喂 LLM 做对话
+上下文;工具调用与故障/收尾事件(tool_call/tool_result/error/error_trace/done)
+已迁到独立追踪存储(顶层 `trace` 包,Redis `trace:*` 键),供测试/运维事后复查,
+不再混入短期记忆。逐 token 流不入库(量太大、无意义)。
 """
 from __future__ import annotations
 
@@ -14,16 +18,11 @@ from memories.storage.short import short_term
 
 logger = logging.getLogger("agent")
 
-# 写入短期流水的事件类型白名单(其余 token/status/step_* 等过程事件不入库)
+# 写入短期流水的事件类型白名单:短期记忆只记对话问答,喂模型做上下文。
+# 工作流/故障事件(tool_call/tool_result/error/error_trace/done)归 trace 包追踪存储。
 _PERSIST_TYPES = {
     "user_message",       # runner 在流开始前补写
     "assistant_message",  # finalize 发出的完整回复
-    "tool_call",
-    "tool_result",
-    "grounding",
-    "error",
-    "error_trace",
-    "done",
 }
 
 

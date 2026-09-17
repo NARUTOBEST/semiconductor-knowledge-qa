@@ -24,7 +24,7 @@ export default function Page() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [streaming, setStreaming] = useState(false);
   const [status, setStatus] = useState("");
-  // 本次请求所选推理范式(simple/medium/complex),用于展示对应 UI
+  // 本次请求所选推理范式(simple/react),用于展示对应 UI
   const [tier, setTier] = useState<string>("");
   const abortRef = useRef<AbortController | null>(null);
 
@@ -186,6 +186,19 @@ export default function Page() {
             setTier(to);
             setStatus("正在深入分析…");
           },
+          onClarify: (question, options) => {
+            // 信息不足:助手反问。正文写入反问句(既展示,也随下一轮 history 上送
+            // 保持上下文连贯),clarify 卡片提供可点候选;结束本次生成。
+            patchMessage(cid, aiMsg.id, (m) => ({
+              ...m,
+              content: question,
+              clarify: { question, options },
+              streaming: false,
+            }));
+            setStreaming(false);
+            setStatus("");
+            abortRef.current = null;
+          },
           onStatus: (m) => setStatus(m),
           onSources: (items) =>
             patchMessage(cid, aiMsg.id, (m) => ({ ...m, sources: items })),
@@ -196,12 +209,18 @@ export default function Page() {
               content: m.content + delta,
             }));
           },
-          onReflect: () => {
-            // 反思重生成:清空旧回答,后续 token 只拼接新回答
-            patchMessage(cid, aiMsg.id, (m) => ({ ...m, content: "" }));
+          onError: (m) => {
+            // 错误即收尾:done 是唯一可靠的终端事件,但连接关闭/代理缓冲等
+            // 场景下它可能不来;与 onDone 幂等(react 路径 error 后仍会跟 done)。
+            patchMessage(cid, aiMsg.id, (msg) => ({
+              ...msg,
+              error: m,
+              streaming: false,
+            }));
+            setStreaming(false);
+            setStatus("");
+            abortRef.current = null;
           },
-          onError: (m) =>
-            patchMessage(cid, aiMsg.id, (msg) => ({ ...msg, error: m })),
           onDone: () => {
             patchMessage(cid, aiMsg.id, (m) => ({ ...m, streaming: false }));
             setStreaming(false);

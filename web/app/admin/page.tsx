@@ -111,16 +111,17 @@ export default function AdminPage() {
           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6]">
             <Sparkles size={14} className="text-white" />
           </div>
-          <span className="text-[14px] font-medium text-t1">文档管理</span>
+          <span className="text-[14px] font-medium text-t1">设备文档管理</span>
         </div>
       </header>
 
       <div className="flex-1 overflow-y-auto">
         <div className="mx-auto max-w-[640px] px-6 py-8">
           <div className="mb-8">
-            <h2 className="mb-3 text-[16px] font-medium text-t1">上传新文档</h2>
+            <h2 className="mb-3 text-[16px] font-medium text-t1">上传设备文档</h2>
             <p className="mb-4 text-[13px] text-t2">
-              上传 PDF 后自动执行:MinerU 清洗 → 切块 → 嵌入 → 入库。处理完成后即可检索。
+              上传设备手册、维护规程(SOP)、规格书等 PDF,自动执行:MinerU 清洗 → 切块 → 嵌入 → 入库。
+              处理完成后即可检索;其他格式(Word/PPT/视频)可经离线清洗管线处理。
             </p>
             <label
               className={`flex cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-[#3a3a3e] bg-[#1f1f22] px-6 py-10 transition-colors hover:border-[#4a4a4e] hover:bg-[#27272a] ${uploading ? "opacity-50" : ""}`}

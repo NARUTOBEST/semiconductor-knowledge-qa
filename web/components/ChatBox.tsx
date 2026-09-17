@@ -1,31 +1,31 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Sparkles, BookOpen, FlaskConical, Cpu, AlertCircle } from "lucide-react";
+import { Sparkles, BookOpen, Cpu, AlertCircle } from "lucide-react";
 import { MessageItem } from "./MessageItem";
 import { Composer } from "./Composer";
 import type { Conversation } from "@/lib/types";
+import { BRAND_NAME, BRAND_SHORT } from "@/lib/brand";
 
 interface Props {
   conversation: Conversation | null;
   streaming: boolean;
   status: string;            // 检索/加载状态文案
-  tier?: string;             // 本次请求所选推理范式 simple|medium|complex
+  tier?: string;             // 本次请求所选推理范式 simple|react
   onSend: (text: string) => void;
   onStop: () => void;
 }
 
 const TIER_LABEL: Record<string, string> = {
   simple: "快速直答",
-  medium: "检索推理",
-  complex: "计划执行",
+  react: "知识问答",
 };
 
 const SUGGESTIONS = [
-  { icon: BookOpen, text: "ALD 原子层沉积的基本原理是什么?" },
-  { icon: FlaskConical, text: "TMA(三甲基铝)前驱体有哪些安全注意事项?" },
-  { icon: Cpu, text: "wafer chuck 的温度控制如何实现?" },
-  { icon: Sparkles, text: "ALD 与 CVD 的主要区别?" },
+  { icon: AlertCircle, text: "设备出现报警代码时,应按什么步骤排查处理?" },
+  { icon: BookOpen, text: "键合机/固晶机的日常保养与点检项目有哪些?" },
+  { icon: Cpu, text: "更换密封圈或滤芯的标准操作步骤(SOP)是什么?" },
+  { icon: Sparkles, text: "在哪里可以查到某款设备的技术规格参数与手册?" },
 ];
 
 export function ChatBox({ conversation, streaming, status, tier, onSend, onStop }: Props) {
@@ -66,9 +66,9 @@ export function ChatBox({ conversation, streaming, status, tier, onSend, onStop 
           <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] shadow-lg shadow-[#3b82f6]/20">
             <Sparkles size={30} className="text-white" />
           </div>
-          <h1 className="text-[26px] font-semibold text-t1">半导体知识助手</h1>
+          <h1 className="text-[26px] font-semibold text-t1">{BRAND_NAME}</h1>
           <p className="mt-2 text-[13px] text-t2">
-            半导体设备与工艺学习问答 · 基于 ALD 知识库检索增强
+            {BRAND_SHORT} · 基于公司内部设备手册与技术资料检索
           </p>
           <div className="mt-8 grid w-full max-w-[640px] grid-cols-1 gap-2.5 sm:grid-cols-2">
             {SUGGESTIONS.map((s) => (
@@ -95,7 +95,7 @@ export function ChatBox({ conversation, streaming, status, tier, onSend, onStop 
         <div className="mx-auto max-w-[820px] px-[80px] py-6">
           <div className="flex flex-col gap-6">
             {messages.map((m) => (
-              <MessageItem key={m.id} msg={m} />
+              <MessageItem key={m.id} msg={m} onClarifyPick={onSend} />
             ))}
             {/* 检索/加载状态(流式中且当前 assistant 还没吐字) */}
             {streaming && status && (

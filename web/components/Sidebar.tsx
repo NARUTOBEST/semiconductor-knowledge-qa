@@ -13,6 +13,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 import type { Conversation } from "@/lib/types";
+import { useAuth } from "@/lib/auth";
+import { BRAND_SHORT } from "@/lib/brand";
 
 interface Props {
   conversations: Conversation[];
@@ -33,6 +35,9 @@ export function Sidebar({
   onDelete,
   onRename,
 }: Props) {
+  const { user } = useAuth();
+  const displayName = user?.username || "使用者";
+  const avatarChar = displayName.slice(0, 1);
   const [query, setQuery] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
@@ -64,7 +69,7 @@ export function Sidebar({
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6]">
             <Sparkles size={15} className="text-white" />
           </div>
-          <span className="text-[14px] font-medium text-t1">半导体知识助手</span>
+          <span className="text-[14px] font-medium text-t1">{BRAND_SHORT}</span>
         </div>
         <button
           onClick={onNew}
@@ -197,9 +202,9 @@ export function Sidebar({
       {/* 底部:账号栏 */}
       <div className="flex h-12 items-center gap-2 border-t border-line px-3">
         <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#10b981] to-[#3b82f6] text-[12px] font-medium text-white">
-          学
+          {avatarChar}
         </div>
-        <span className="flex-1 text-[13px] text-t1">学习者</span>
+        <span className="flex-1 truncate text-[13px] text-t1">{displayName}</span>
         <ChevronDown size={16} className="text-t3" />
       </div>
     </aside>

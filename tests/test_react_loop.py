@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""react_loop 独立生成器的契约测试(1.1 抽取)。
+"""react_loop 独立生成器的契约测试。
 
 mock 掉 LLM 流/检索,验证:
   - 不依赖外层 LangGraph 图即可运行 agent↔tools 循环
   - yield SSE 事件 dict(token/tool_call/tool_result/llm_response 等)
   - 终态通过生成器 return 值(StopIteration.value)返回
-  - step_instruction 会作为新 HumanMessage 追加到初始 messages
   - max_steps 有界
+  - bind_tools=False 时不绑定工具
 """
 import os
 import sys
@@ -80,11 +80,9 @@ def _make_client(script):
     return types.SimpleNamespace(chat=_Chat())
 
 
-def _run(messages, client_script, monkeypatch, *, step_instruction=None,
+def _run(messages, client_script, monkeypatch, *,
         max_steps=6, max_total_seconds=60, dispatch_fn=None):
-    # 召回/改写 mock 为空,不产生外部调用;dispatch 在各用例按需覆盖。
-    monkeypatch.setattr(nodes, "recall_memories", lambda *a, **k: [])
-    monkeypatch.setattr(nodes, "rewrite_query", lambda m, h=None: [m])
+    # LLM 流打桩,不产生外部调用;dispatch 在各用例按需覆盖。
     fake = _make_client(client_script)
     # get_client 在节点内通过模块绑定调用,必须 patch nodes.get_client;
     # 用同一个 fake client 单例(每步都调 get_client),否则迭代器会从头开始。
@@ -95,7 +93,6 @@ def _run(messages, client_script, monkeypatch, *, step_instruction=None,
     cfg = {"thread_id": "t1", "user_id": "alice", "trace_recorder": recorder}
     gen = react_loop(
         messages,
-        step_instruction=step_instruction,
         max_steps=max_steps,
         max_total_seconds=max_total_seconds,
         configurable=cfg,
@@ -118,7 +115,10 @@ def test_answer_path_returns_final_state(monkeypatch):
     evs, final = _run(msgs, [_answer_stream("你好世界")], monkeypatch)
     types = [e["type"] for e in evs]
     assert "step_start" in types
-    assert types.count("token") == 4  # 你好世界
+    # Req4 流式缓冲:绑工具的终答在流末确认无 tool_call 后一次性回放,
+    # 故 token 事件为 1 个(携带完整正文),拼接 delta 仍等于完整答案。
+    assert types.count("token") >= 1
+    assert "".join(e.get("delta", "") for e in evs if e["type"] == "token") == "你好世界"
     assert "llm_response" in types
     assert final is not None
     assert final["final_reason"] == "answer"
@@ -146,16 +146,6 @@ def test_tool_then_answer(monkeypatch):
     assert "c1" in final["collected_sources"]
 
 
-def test_step_instruction_appends_human_message(monkeypatch):
-    msgs = [SystemMessage(content="sys", id="p")]
-    evs, final = _run(msgs, [_answer_stream("ok")], monkeypatch,
-                      step_instruction="请回答步骤一:检索 X")
-    # 进入子图的 messages 末尾应是步骤指令
-    last_human = [m for m in final["messages"] if isinstance(m, HumanMessage)][-1]
-    assert last_human.content == "请回答步骤一:检索 X"
-    assert final["full_reply"] == "ok"
-
-
 def test_max_steps_bounds_loop(monkeypatch):
     # 每轮都要工具,两轮参数不同避免重复检测
     msgs = [SystemMessage(content="sys", id="p"), HumanMessage(content="x")]
@@ -174,9 +164,6 @@ def test_max_steps_bounds_loop(monkeypatch):
 def test_bind_tools_false_omits_tools_kwarg(monkeypatch):
     # bind_tools=False(simple 直答):LLM 调用不得带 tools/tool_choice,
     # 且即便 mock 流里没有 tool_calls,也应正常作答、不进入工具节点。
-    monkeypatch.setattr(nodes, "recall_memories", lambda *a, **k: [])
-    monkeypatch.setattr(nodes, "rewrite_query", lambda m, h=None: [m])
-
     captured = {}
 
     def fake_create_with_retry(client, trace_id="", retries=1, **kwargs):
