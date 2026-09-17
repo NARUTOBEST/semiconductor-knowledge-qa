@@ -13,10 +13,17 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "..", "web", "public", "eval-qa.json")
-OUT_DIR = os.path.join(HERE, "qa_sets")
+ROOT = os.path.dirname(HERE)
+# 密钥不入库:优先已有环境变量,否则从本地 env/env.env 读取
+_ENV_FILE = os.path.join(ROOT, "env", "env.env")
+if os.path.exists(_ENV_FILE):
+    for _line in open(_ENV_FILE, encoding="utf-8"):
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _, _v = _line.partition("=")
+            os.environ.setdefault(_k.strip(), _v.strip())
 
-API_KEY = "REDACTED-API-KEY"
+API_KEY = os.getenv("OPENAI_API_KEY", "")
 BASE = "https://ark.cn-beijing.volces.com/api/coding/v1"
 MODEL = "deepseek-v4-flash"
 

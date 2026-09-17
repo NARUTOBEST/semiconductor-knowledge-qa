@@ -14,11 +14,19 @@ from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-ARK_KEY = "REDACTED-API-KEY"
+# 密钥不入库:优先已有环境变量,否则从本地 env/env.env 读取
+_ENV_FILE = os.path.join(ROOT, "env", "env.env")
+if os.path.exists(_ENV_FILE):
+    for _line in open(_ENV_FILE, encoding="utf-8"):
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _, _v = _line.partition("=")
+            os.environ.setdefault(_k.strip(), _v.strip())
+ARK_KEY = os.getenv("OPENAI_API_KEY", "")
 ARK_BASE = "https://ark.cn-beijing.volces.com/api/v3"
 JUDGE_MODEL = "ep-20260917012501-44sxb"          # 副模型(轻量)做裁判
 RET_BASE = "http://192.168.88.138:8002"
-RET_TOKEN = "REDACTED-TOKEN"
+RET_TOKEN = os.getenv("RETRIEVAL_INTERNAL_TOKEN", "")
 HALLUC_THRESHOLD = 0.75
 WORKERS = 8
 

@@ -18,13 +18,15 @@
 """
 import argparse
 import json
+import os
 import time
 import urllib.request
 
 BASE_Q = "http://127.0.0.1:6333"
 BASE_R = "http://127.0.0.1:8002"
 COLL = "ald_text"
-TOKEN = "REDACTED-TOKEN"  # 与 ssh_helper/ret.env 一致
+# 密钥不入库:从环境变量读取(VM 上可 export 或 source ssh_helper/ret.env)
+TOKEN = os.getenv("RETRIEVAL_INTERNAL_TOKEN", "")
 BATCH = 32
 
 

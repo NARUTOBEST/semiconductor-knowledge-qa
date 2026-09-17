@@ -66,14 +66,19 @@ if ! curl -s -m2 http://127.0.0.1:8001/health >/dev/null 2>&1; then
 else echo "vllm-light already up"; fi
 
 # ---- 3. LiteLLM :4000 ----
+# 密钥不入库:从同目录 gpu.env(被 .gitignore 排除)读取 LITELLM_MASTER_KEY/CLOUD_API_KEY
+_gpu_env="$(dirname "$0")/gpu.env"
+[ -f "$_gpu_env" ] && . "$_gpu_env"
+: "${LITELLM_MASTER_KEY:?请在 ssh_helper/gpu.env 中设置 LITELLM_MASTER_KEY}"
+: "${CLOUD_API_KEY:?请在 ssh_helper/gpu.env 中设置 CLOUD_API_KEY}"
 if ! curl -s -m2 http://127.0.0.1:4000/health/liveliness >/dev/null 2>&1; then
   cd /root/autodl-tmp/gw
-  export LITELLM_MASTER_KEY=REDACTED-KEY
+  export LITELLM_MASTER_KEY
   export VLLM_API_KEY=dummy
   export VLLM_MAIN_BASE_URL=http://127.0.0.1:8000/v1
   export VLLM_LIGHT_BASE_URL=http://127.0.0.1:8001/v1
   export CLOUD_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/v1
-  export CLOUD_API_KEY=REDACTED-API-KEY
+  export CLOUD_API_KEY="${CLOUD_API_KEY}"
   nohup $GW/litellm --config litellm_config.yaml --port 4000 > $LOG/litellm.log 2>&1 &
   echo "litellm starting pid=$!"
 else echo "litellm already up"; fi

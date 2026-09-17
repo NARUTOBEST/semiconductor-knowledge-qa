@@ -14,6 +14,15 @@
 set -e
 cd "$(dirname "$0")"
 
+# 密钥不入库:从本地 env/env.env 读取(该文件被 .gitignore 排除)
+_SECRETS_FILE="../env/env.env"
+if [ ! -f "$_SECRETS_FILE" ]; then
+  echo "缺少 $_SECRETS_FILE(需含 OPENAI_API_KEY / RETRIEVAL_INTERNAL_TOKEN),请先准备后再执行"; exit 1
+fi
+source <(grep -E '^(OPENAI_API_KEY|RETRIEVAL_INTERNAL_TOKEN)=' "$_SECRETS_FILE" | tr -d '')
+: "${OPENAI_API_KEY:?OPENAI_API_KEY 未设置}"
+: "${RETRIEVAL_INTERNAL_TOKEN:?RETRIEVAL_INTERNAL_TOKEN 未设置}"
+
 rand() { openssl rand -hex "$1" 2>/dev/null || head -c 64 /dev/urandom | od -An -tx1 | tr -d ' \n' | cut -c1-"$(( $1 * 2 ))"; }
 
 if [ -f .env ]; then
@@ -44,17 +53,17 @@ LONG_MEM_ENABLED=1
 #   副模型: ep-20260917012501-44sxb (Doubao-Seed-2.0-lite 260428)
 #   容器内访问宿主机隧道/外网统一走 host.docker.internal(compose 已配 host-gateway)
 LLM_GATEWAY_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
-LLM_GATEWAY_API_KEY=REDACTED-API-KEY
+LLM_GATEWAY_API_KEY=${OPENAI_API_KEY}
 GATEWAY_MODEL_MAIN=ep-20260917012203-8vvns
 GATEWAY_MODEL_LIGHT=ep-20260917012501-44sxb
 GROUNDING_MODEL=light
 
 # 检索微服务(GPU 机,经 SSH 反向隧道到宿主机 0.0.0.0:8002)
 RETRIEVAL_SERVICE_URL=http://host.docker.internal:8002
-RETRIEVAL_INTERNAL_TOKEN=REDACTED-TOKEN
+RETRIEVAL_INTERNAL_TOKEN=${RETRIEVAL_INTERNAL_TOKEN}
 
 # 云端兜底(与 gateway 同 key 同接入点;业务侧直连兜底备用)
-OPENAI_API_KEY=REDACTED-API-KEY
+OPENAI_API_KEY=${OPENAI_API_KEY}
 OPENAI_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 OPENAI_TEXT_MODEL=ep-20260917012203-8vvns
 OPENAI_FALLBACK_MODEL=ep-20260917012501-44sxb
