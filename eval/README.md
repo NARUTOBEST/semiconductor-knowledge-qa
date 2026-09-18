@@ -3,6 +3,29 @@
 **不进在线链路、不进镜像**(`.dockerignore` 已忽略 `eval/`)。仅在开发机/有服务时手动跑,
 用来量化 RAG 质量与改动前后对比(如自适应检索/低置信重进是否救回 bad case、p50/p95 延迟变化)。
 
+## 目录结构
+
+```
+eval/
+├── pipeline/                         # 同类型测试的全套流水线脚本(可复用,服务所有版本)
+│   ├── pipeline_full100/             # 全量 100 题白盒评估流水线(RAGAS 式)
+│   │   └── run_eval.py / metrics.py / report.py / make_groundtruth.py / judge.py
+│   └── pipeline_50x5/                # 50x5 并发回归流水线(SSE 真链路)
+│       ├── run_concurrent.py         #   ① 跑测(SSE 真链路,断点续跑)
+│       ├── judge_50x5.py             #   ② LLM 裁判(忠实度/幻觉率/召回/切题)
+│       ├── concurrent_metrics.py     #   ③ 检索硬指标(P@5/R@5/NDCG@5/MRR)
+│       ├── regression_50x5.py / .bat #   总指挥:串联①②③ + 基线对比
+│       └── regression_baseline.json  #   回归基线(勿随运行覆盖)
+├── tools/        # 通用调试探针(登录+SSE 冒烟、记忆链路测试),不属任何一次评测
+└── runs/         # 每次评测一个文件夹,放该次的题集/结果/日志/专用脚本
+    ├── 2026-09-18_regress20x50/  # 现行题集 qa_sets_20x50/(100 题库均衡拆成 20 用户 x 50 题,每题恰好被 10 名用户作答)
+    └── 50x5_20260918_190804/     # 最新一轮 20 并发 x 50 题公网压测产物(1000 条记录 + judge + metrics_report)
+```
+
+同类测试共用 `eval/pipeline/` 下的一套流水线脚本(服务该类型测试的所有版本);每次评测的
+产物/题集/专属脚本放 `runs/<名称或时间戳>/`(regression_50x5 默认自动建
+`runs/50x5_<时间戳>/`)。
+
 ## 指标
 
 - **RAGAS 式(LLM 裁判 + BGE-m3,离线跑)**:
@@ -32,13 +55,13 @@
 export NO_PROXY=127.0.0.1,localhost,.volces.com,.hf-mirror.com
 unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy   # Windows: set HTTP_PROXY=
 
-python -m eval.run_eval                # 全量 100 题 + 裁判
-python -m eval.run_eval --no-judge     # 只跑硬指标,最省(不调裁判 LLM/不依赖 :8002 嵌入)
-python -m eval.run_eval --limit 10     # 前 10 题(冒烟)
-python -m eval.run_eval --ids 1,27,60  # 指定 bad case
-python -m eval.run_eval --tier react   # 只跑 react 题
+python -m eval.pipeline.pipeline_full100.run_eval                # 全量 100 题 + 裁判
+python -m eval.pipeline.pipeline_full100.run_eval --no-judge     # 只跑硬指标,最省(不调裁判 LLM/不依赖 :8002 嵌入)
+python -m eval.pipeline.pipeline_full100.run_eval --limit 10     # 前 10 题(冒烟)
+python -m eval.pipeline.pipeline_full100.run_eval --ids 1,27,60  # 指定 bad case
+python -m eval.pipeline.pipeline_full100.run_eval --tier react   # 只跑 react 题
 
-python -m eval.make_groundtruth --limit 20   # 生成参考答案草稿供人工校对
+python -m eval.pipeline.pipeline_full100.make_groundtruth --limit 20   # 生成参考答案草稿供人工校对
 ```
 
 报告写到 `eval/results/`:`eval-detail-<ts>.json`(每题明细 + bad_tags)、
@@ -56,24 +79,38 @@ python -m eval.make_groundtruth --limit 20   # 生成参考答案草稿供人工
 faithfulness/context_precision/通过率不降或升、此前检索未命中类 bad case 被救回一部分;
 p50 基本不变(常见题 1 检索 + 1 答),仅低置信题 p95 略升且受 40s 预算封顶。
 
-## 50x5 并发回归测试(一键)
+## 20x50 并发回归测试(一键)
 
-真实 HTTP 链路 50 用户 x 5 题(报警码类事实题,`qa_sets_50x5/`)→ RAGAS 式 LLM 裁判 →
-确定性硬指标 → 与基线 `eval/regression_baseline.json` 对比,任一指标退化超过 ±0.05
+真实 HTTP(SSE)链路 20 并发用户 x 50 题(100 题库均衡拆分,`runs/2026-09-18_regress20x50/qa_sets_20x50/`,
+每题恰好被 10 名用户作答,共 1000 条记录)→ RAGAS 式 LLM 裁判 → 确定性硬指标 →
+与基线 `eval/pipeline/pipeline_50x5/regression_baseline.json` 对比,任一指标退化超过 ±0.05
 退出码 1(可挂 CI 或改动前后各跑一次)。
 
 ```bash
-eval\regression_50x5.bat                    # 全量(约 40 分钟,含裁判 LLM 调用)
-eval\regression_50x5.bat --users 5          # 冒烟
-eval\regression_50x5.bat --skip-run         # 只重判/重比对现有结果
-eval\regression_50x5.bat --update-baseline --skip-run --out eval/results_50x5  # 刷新基线
+eval\pipeline\pipeline_50x5\regression_50x5.bat                    # 全量(跑测+裁判约 2.5 小时)
+eval\pipeline\pipeline_50x5\regression_50x5.bat --users 5          # 冒烟
+eval\pipeline\pipeline_50x5\regression_50x5.bat --skip-run         # 只重判/重比对现有结果
+eval\pipeline\pipeline_50x5\regression_50x5.bat --update-baseline --skip-run # 刷新基线(写回 pipeline_50x5/)
 ```
 
-流程 = `run_concurrent.py`(SSE 真链路)→ `judge_50x5.py`(faithfulness/
+流程 = `run_concurrent.py`(SSE 真链路,429/断流自动退避重试)→ `judge_50x5.py`(faithfulness/
 context_precision/context_recall/answer_relevancy,幻觉率=faithfulness<0.75 占比)
 → `concurrent_metrics.py`(文档级 P@5/R@5/F1@5/NDCG@5/MRR/tier 准确率)。
 对比口径:judge 5 项 + run 3 项(完成率/来源命中率/错误率)+ hard 6 项,共 14 项。
 
-基线(2026-09-17,方舟按量 ep-8vvns 主 / ep-44sxb 副,AutoDL 3080Ti 检索):
+**最新一轮实测(2026-09-18 晚,20 并发 x 1000 题,公网 cloudflared 隧道 → VM Docker → AutoDL GPU 检索 + 方舟云端 LLM)**:
+
+| 类别 | 指标 | 数值 |
+|---|---|---|
+| 运行 | 完成率 / 错误率 | 99.4% / 2.5% |
+| 运行 | 延迟 p50 / p95 | 16.9s / 99.9s |
+| 运行 | 来源命中率 | 95.5% |
+| 检索 | MRR / P@5 / R@5 / NDCG@5 | 0.732 / 0.492 / 0.785 / 0.737 |
+| 路由 | tier 路由准确率 | 97.5% |
+
+(LLM 裁判 5 项质量指标因当晚方舟账户欠费未出,充值后 `--skip-run` 补判;晚高峰方舟限流下的
+错误为 per-user 在途锁级联,已由客户端退避重试吸收,链路本身——隧道/检索/GPU/DB——零错误。)
+
+基线(2026-09-17,方舟按量 ep-8vvns 主 / ep-44sxb 副,AutoDL 3080Ti 检索,50 用户 x 5 题口径):
 忠实度 0.872 / 检索精确率 0.538 / 召回率 0.882 / 切题 0.963 / 幻觉率 14.7% /
 完成率 100% / 来源命中 95.2% / 错误率 3.6% / R@5 0.775 / NDCG@5 0.729 / tier 准确 96.4%。

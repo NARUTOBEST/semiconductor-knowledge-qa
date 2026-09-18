@@ -1,0 +1,11 @@
+{
+  "total": 1000,
+  "judged": 0,
+  "chitchat_skipped": 0,
+  "avg_faithfulness": null,
+  "avg_context_precision": null,
+  "avg_context_recall": null,
+  "avg_answer_relevancy": null,
+  "hallucination_count": 0,
+  "hallucination_rate": null
+}

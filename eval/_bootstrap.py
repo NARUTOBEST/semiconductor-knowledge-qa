@@ -2,7 +2,7 @@
 """eval 包公共引导:sys.path 注入、代理旁路、运行模式(在任何项目 import 前调用)。
 
 用法:在 run_eval.py / make_groundtruth.py 顶部 `from eval import _bootstrap  # noqa`
-(eval 作为包从项目根 `python -m eval.run_eval` 运行;_bootstrap 先于业务 import 执行)。
+(eval 作为包从项目根 `python -m eval.pipeline.pipeline_full100.run_eval` 运行;_bootstrap 先于业务 import 执行)。
 """
 import os
 import sys
