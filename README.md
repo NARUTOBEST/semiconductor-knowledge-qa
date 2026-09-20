@@ -381,7 +381,7 @@ python sweep_retrieval.py
 - 大批量后台跑用 `python -u`(否则输出缓冲,日志看起来是空的);
 - 裁判进度观察:`grep -c 'POST /v1/chat' litellm.log` 增量(约 164 次/分,1000 题约 20 分钟)。
 
-### 附 A:踩坑清单(血泪浓缩)
+### 附 A:踩坑清单
 
 1. **litellm 入口脚本 shebang 指旧 conda 路径**(镜像复制的坑):新实例首启报 `No such file or directory`;start_gpu.sh 幂等 `sed` 修复。
 2. **LiteLLM 必须用真 master key** 测试:设置过 `LITELLM_MASTER_KEY` 时用别的 key 会报误导性的 `No connected db.`。
