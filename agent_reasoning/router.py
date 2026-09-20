@@ -64,10 +64,11 @@ _ROUTER_PROMPT = (
     '格式 {{"tier": "simple|raglite|react", "confidence": 0.0~1.0}}。\n'
     "分类标准:\n"
     "- simple:仅闲聊、寒暄、关于助手自身的元问题,明确不需要任何领域知识或检索;\n"
-    "- raglite:单一事实点问题——一个参数/术语/报警或故障代码含义/某型号的某项规格/"
-    "某个保养点等,一次检索即可作答;\n"
-    "- react:需要多步检索或综合分析的问题——两个对象的对比/区别、流程步骤、原因分析、"
-    "故障排查方案、汇总归纳等。\n"
+    "- raglite:单一事实点问题——一个参数/术语/一个报警或故障代码的含义与处理/"
+    "某型号的某项规格/某个保养点等,一次检索即可作答;"
+    "即使问法带\"是什么原因/怎么处理\",只要围绕单一报警码或单一对象,也算 raglite;\n"
+    "- react:需要多步检索或跨资料综合的问题——两个/多个对象的对比或区别、"
+    "多设备横向比较、跨章节的枚举汇总(如\"划片工艺涉及哪些工具\")等。\n"
     "只输出 JSON,不要解释。\n\n"
     "问题:{question}"
 )
@@ -89,28 +90,51 @@ _ROUTER_FUSED_PROMPT = (
     "- 有对话历史时,最近讨论的设备/机型能明确消解代词 -> need_clarify=false。\n"
     "路径判定标准:\n"
     "- simple:仅闲聊、寒暄、关于助手自身的元问题,明确不需要任何领域知识或检索;\n"
-    "- raglite:单一事实点问题——一个参数/术语/报警或故障代码含义/某型号的某项规格/"
-    "某个保养点等,一次检索即可作答;\n"
-    "- react:需要多步检索或综合分析的问题——对比/区别、流程步骤、原因分析、"
-    "故障排查方案、汇总归纳等。\n\n"
+    "- raglite:单一事实点问题——一个参数/术语/一个报警或故障代码的含义与处理/"
+    "某型号的某项规格/某个保养点等,一次检索即可作答;"
+    "即使问法带\"是什么原因/怎么处理\",只要围绕单一报警码或单一对象,也算 raglite;\n"
+    "- react:需要多步检索或跨资料综合的问题——两个/多个对象的对比或区别、"
+    "多设备横向比较、跨章节的枚举汇总(如\"划片工艺涉及哪些工具\")等。\n\n"
     "对话历史(最近几轮,可能为空):\n{history}\n\n"
     "当前问题:{question}"
 )
 
-# 复杂标记:命中即不走 raglite 规则快路(多步检索/综合分析类问题)
+# 复杂标记:命中即不走 raglite 规则快路。只保留"确实需要多步检索/跨资料综合"
+# 的信号——对比类、枚举汇总类、多步骤流程、组成构成枚举。注意:原因/排查/维修/
+# 调试等词常出现在单一事实点问法里(如"1416 报警是什么原因怎么处理"),
+# 不应单独触发 react(实测 10 题里 3 道单点题被误路由)。
 _RAGLITE_COMPLEX_RE = re.compile(
     r"对比|区别|差异|比较|优缺点|哪些|几种|几类|总结|汇总|归纳|全部|所有|"
-    r"流程|步骤|原因|为什么|为何|排查|方案|安装|维修|调试|怎么修|"
+    r"组成|构成|流程|步骤|"
     r"和.{0,12}(的?区别|相比)|与.{0,12}(的?区别|相比)"
+)
+
+# 跨条目聚合强标记:即使命中单点报警码,这类问法也要 react(对比/汇总多个条目)
+_RAGLITE_AGG_RE = re.compile(r"对比|区别|差异|比较|总结|汇总|归纳|全部|所有|哪些")
+
+# 单一事实点强信号:明确报警/错误代码类问题,即使带"为什么/怎么处理"的措辞,
+# 也是一次检索即可作答的单点问题(如"报 1416 是什么原因"、"报警代码 E0063")
+_SINGLE_FACT_RE = re.compile(
+    r"报\s*了?\s*[A-Za-z]?\d{2,5}"
+    r"|(?:报警|故障|错误|警示)(?:码|代码|信息|号)?\s*[:：]?\s*[A-Za-z]?\d{2,5}"
+    r"|[A-Za-z]?\d{2,5}\s*(?:报警|报错|警报|故障代码|错误代码)"
 )
 
 
 def _raglite_eligible(question: str) -> bool:
-    """单一事实点快路径的规则准入:领域信号命中 + 非复杂标记 + 长度不超限。"""
+    """单一事实点快路径的规则准入:领域信号命中 + 非复杂标记 + 长度不超限。
+
+    明确的报警/故障码单点问题强制准入(仅让位于跨条目聚合问法)。
+    """
     q = (question or "").strip()
     if not q or len(q) > C.RAGLITE_MAX_QUESTION_LEN:
         return False
-    return _has_domain_signal(q) and not _RAGLITE_COMPLEX_RE.search(q)
+    single = _SINGLE_FACT_RE.search(q)
+    if not _has_domain_signal(q) and not single:
+        return False  # 命中报警码本身即视为领域信号("报了1416"无领域词)
+    if single:
+        return not _RAGLITE_AGG_RE.search(q)
+    return not _RAGLITE_COMPLEX_RE.search(q)
 
 
 def _has_domain_signal(text: str) -> bool:
@@ -151,6 +175,14 @@ def _rule_prescreen(question: str) -> tuple[str | None, float]:
     # 领域关键词命中 + 非复杂标记 + 长度不超限 -> raglite 快路径(零 LLM)
     if _raglite_eligible(q):
         return "raglite", 0.85
+
+    # 复杂度强信号 + 领域词命中 -> react 快路径(零 LLM):对比/汇总/枚举类问法
+    # 按路由判定标准必属 react。省去每题一次串行 light 融合调用(20 并发下
+    # 摊薄后 TTFT+解码 ~1-2s)。误伤面:单点问题若含"区别/哪些"等词,落到
+    # react 也会被多步检索正常作答,质量不降只是路径更重。
+    if getattr(C, "ROUTER_REACT_FAST", True) and _has_domain_signal(q) \
+            and _RAGLITE_AGG_RE.search(q):
+        return "react", 0.85
 
     return None, 0.0
 

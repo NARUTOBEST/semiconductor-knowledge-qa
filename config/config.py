@@ -125,7 +125,7 @@ TIER_MODEL_SIMPLE     = os.getenv("TIER_MODEL_SIMPLE", "") or MODEL_LIGHT
 TIER_MODEL_REACT      = os.getenv("TIER_MODEL_REACT", "") or MODEL_MAIN
 
 # ---- 复杂度路由器(阶段 3)----
-ROUTER_TIMEOUT          = float(os.getenv("ROUTER_TIMEOUT", "8"))        # 分类 LLM 调用超时(s)
+ROUTER_TIMEOUT          = float(os.getenv("ROUTER_TIMEOUT", "12"))       # 分类 LLM 调用超时(s);8 时 20 并发下 light 队列 TTFT 超限致 react→simple 误分类(2026-09-19 压测 8 题),提至 12
 ROUTER_CONFIDENCE_MIN   = float(os.getenv("ROUTER_CONFIDENCE_MIN", "0.6"))  # 低于此置信度兜底 react
 ROUTER_SHORT_LEN        = int(os.getenv("ROUTER_SHORT_LEN", "6"))        # 不超过该长度且无领域术语/复杂特征 -> 规则预筛 simple
 
@@ -163,7 +163,9 @@ TIER_CONFIG = {
         # 2 = 1 次工具步 + 1 次强制作答步。复杂问题走 react 的占比已大幅下降,
         # 循环内 requery 由 reflect_node 在 step<max_steps-1 时触发(2 步时自然禁用)。
         "max_steps": _int("TIER_REACT_MAX_STEPS", 2),
-        "max_total_seconds": _int("TIER_REACT_MAX_TOTAL_SECONDS", 25),
+        # 25→60:20 并发下 32B 稠密 TTFT 排队,48-92s 才出首 token,25s 看门狗
+        # 掐流产生 4% 空答案(2026-09-19 压测 75 行);预算放宽由 vLLM 侧排队消化
+        "max_total_seconds": _int("TIER_REACT_MAX_TOTAL_SECONDS", 60),
     },
 }
 
@@ -197,6 +199,9 @@ LLM_REACT_NO_THINK          = _feature_on("LLM_REACT_NO_THINK", True)  # react �
 # 删掉无支撑句再下发。校验调用套熔断器(见 ReAct/support/grounding.py)。
 GROUNDING_CHECK             = _feature_on("GROUNDING_CHECK", True)
 GROUNDING_TIMEOUT           = float(os.getenv("GROUNDING_TIMEOUT", "8"))    # 单次校验 LLM 超时(秒)
+# 校验输出上限:quote 限 25 字后 300 足够(实测均值 259 token 超限截断会导致
+# 解析失败走熔断,故留余量;20 并发满批次少吐 1 个 token 就少等 1 个 ITL)。
+GROUNDING_MAX_TOKENS        = int(os.getenv("GROUNDING_MAX_TOKENS", "300"))
 GROUNDING_BREAKER_THRESHOLD = _int("GROUNDING_BREAKER_THRESHOLD", 3)        # 连续失败→熔断 OPEN
 GROUNDING_BREAKER_COOLDOWN  = float(os.getenv("GROUNDING_BREAKER_COOLDOWN", "60"))  # OPEN 冷却秒数,冷却后半开试探
 GROUNDING_REMOVAL_CAP       = float(os.getenv("GROUNDING_REMOVAL_CAP", "0.4"))  # 判 false 句占比超此值→置信度不足
@@ -209,6 +214,8 @@ RAGLITE_GROUNDING_CHECK     = _feature_on("RAGLITE_GROUNDING_CHECK", True)
 LLM_ENABLE_THINKING         = _feature_on("LLM_ENABLE_THINKING", False)  # Qwen3 思考模式;默认关(延迟),置 1 回退
 # 融合分类:1=clarify+router 合并为单次 light 调用;0=回退旧两段式
 ROUTER_FUSED                = _feature_on("ROUTER_FUSED", True)
+# react 规则快路径:对比/汇总/枚举强信号 + 领域词命中 -> 零 LLM 直判 react
+ROUTER_REACT_FAST           = _feature_on("ROUTER_REACT_FAST", True)
 # 质检低置信处理:1=整轮 redo(旧行为,+12s);0=passed+可见警告(循环内
 # reflect_node 已做自适应 requery,整轮 redo 与之重复,是 42s 均耗的主要放大器)
 QC_LOW_CONF_REDO            = _feature_on("QC_LOW_CONF_REDO", False)
@@ -216,7 +223,7 @@ QC_LOW_CONF_REDO            = _feature_on("QC_LOW_CONF_REDO", False)
 # ---- 自适应检索(agentic:低置信时在循环内换关键词再检索)----
 # rerank cross-encoder 相关分达到该值视为"命中对口资料";低于它则提示模型改写再查,
 # 且质检门判 react 答案为低置信(触发至多 1 次换 thread 重进)。阈值按经验给默认值,
-# 上线后用离线 eval(eval/run_eval.py)的分数分布校准。
+# 上线后用离线 eval(eval/pipeline_full100/run_eval.py)的分数分布校准。
 RETRIEVAL_CONFIDENT_SCORE = _float("RETRIEVAL_CONFIDENT_SCORE", 0.5)
 # 总开关:关闭后回到"只跑 max_steps、不注入低置信提示、质检只判空"的旧行为。
 REACT_ADAPTIVE_RETRIEVAL = os.getenv(
@@ -288,22 +295,61 @@ RATE_LIMIT_QUEUE_TIMEOUT = int(os.getenv("RATE_LIMIT_QUEUE_TIMEOUT", "30"))     
 # === 重排(Cross-Encoder)===
 RERANK_MODEL       = "BAAI/bge-reranker-v2-m3"
 RERANK_RECALL_K    = int(os.getenv("RERANK_RECALL_K", "48"))   # 送入重排的候选数(BGE-m3 多取;48 候选 GPU 重排 <20ms)
-RERANK_POOL_MIN    = int(os.getenv("RERANK_POOL_MIN", "8"))    # ratio 过滤后重排池保底(RRF 分 Top-Heavy,ratio 可能把 80 压到 1~2 个)
+RERANK_POOL_MIN    = int(os.getenv("RERANK_POOL_MIN", "32"))   # ratio 过滤后重排池保底(RRF 分 Top-Heavy,ratio 可能把 80 压到 1~2 个)。1000 题扫描 8→32:MRR +2.5pt/NDCG@5 +4.6pt/R@10 +5.8pt(eval/runs/sweep_retrieval_20260920*.json)
 RERANK_MAX_CONTENT = 800     # 重排时每条文档最大字符数(与 CHUNK_MAX=800 对齐,略留余量)
 # 动态截断:重排后按绝对分截断(而非固定 top-k)。rerank 分 0~1(normalize=True),
 # τ=0.5 为 5×100 评测扫描的均衡值(见 eval/results_concurrent/tau_sweep.jsonl)。
 RERANK_TAU    = float(os.getenv("RERANK_TAU", "0.3"))  # τ 复扫(250 题,GPU):0.4 时 R@3=上限 0.836;0.3 兼容表格块(重排低分高相关,run20 id10 探针)
 RERANK_MAX_K  = int(os.getenv("RERANK_MAX_K", "8"))    # 动态截断上限(4→8:run20 id10 探针显示目标表格块排在 4 名之外;P@3 分母不受影响,后端 prompt 自行截断)
 RERANK_MIN_K  = int(os.getenv("RERANK_MIN_K", "3"))    # 保底 3 块:P@k 分母固定 k,pool<3 直接压死精度
+RERANK_CLIFF_RATIO = float(os.getenv("RERANK_CLIFF_RATIO", "0.6"))  # 断崖截断:τ 过线块从头往后扫,相邻分 score[i] < ratio*score[i-1] 处截断(保底 top-1);0=关闭
+# 固定截断:>0 时重排后直接取 top-K(τ/断崖/sparse_rescue 全部旁路,返回恰为
+# min(K,池) 块);0=走动态截断(τ+断崖)。评测对照用——1000 题实测:动态(τ+断崖)
+# P_ret 0.608/R_pool 0.626/均 4.2 块,固定 top5 作为基线对照。
+RERANK_FIXED_K = int(os.getenv("RERANK_FIXED_K", "5"))
 # sparse 词面保底:重排后把 sparse top-N 词面命中块追加到结果尾部(去重,评分<τ)。
 # 救 cross-encoder 对表格/码表块的系统性低分(run20 id10 探针:答案表 dense 第10、重排<0.3)。
 RETRIEVAL_SPARSE_RESCUE    = os.getenv("RETRIEVAL_SPARSE_RESCUE", "1").strip().lower() not in ("0", "false", "no", "off")
 RETRIEVAL_SPARSE_RESCUE_K  = int(os.getenv("RETRIEVAL_SPARSE_RESCUE_K", "2"))
 
+# === 设备型号双路融合(机制3治理:邻题文档挤占 top-k)===
+# 入库侧 RAG/RAG_tools/backfill_devices.py 给每块 payload.devices 打"正文/标题
+# 出现过的型号 token"(不重嵌入,payload 热更新);查询侧 mcp_servers/retrieval/
+# devices.py 抽问题里的型号,有命中时在 RRF 前并列加一条 devices 过滤召回路:
+# 被同族设备手册淹没的块即使无过滤池排 100 名外也能进重排池,由 reranker 定夺。
+# 无过滤两路始终保留 -> 金标不丢(纯字母缩写 MBE/CSP 误杀工艺金标,故不做硬过滤,
+# 1000 题仿真见 eval/runs/50x5_20260919_065506 分桶)。DEVICE_FILTER=0 一键回退。
+DEVICE_FILTER     = _feature_on("DEVICE_FILTER", True)
+DEVICE_POOL_LIMIT = int(os.getenv("DEVICE_POOL_LIMIT", "40"))  # 过滤路每条 prefetch 召回数(无过滤路仍 _RECALL_POOL)
+
 # === 上下文管理(Context Management) ===
 # 控制发给 LLM 的 messages 体积。当前仅截断过长的工具结果。
 CONTEXT_TOOL_RESULT_MAX_CHARS = int(
     os.getenv("CONTEXT_TOOL_RESULT_MAX_CHARS", "800"))  # 工具结果回传 LLM 时的截断字符数
+
+# 轻量模型上下文压缩:召回 chunk 先经轻模型抽取与问题相关的关键句,再回灌 LLM,
+# 降 prompt 体积(react 多步回灌尤其明显)。轻模型调用自带熔断(closed/open/
+# half-open)+ 超时 + 降级:任何失败都回退原 truncate_tool_result 截断,
+# 绝不让压缩链路的故障阻断问答。CONTEXT_COMPRESS_ENABLED=0 一键关闭。
+CONTEXT_COMPRESS_ENABLED = _feature_on("CONTEXT_COMPRESS_ENABLED", True)
+CONTEXT_COMPRESS_MODEL = os.getenv("CONTEXT_COMPRESS_MODEL", "")  # 空=用 light 档(同 router)
+CONTEXT_COMPRESS_TIMEOUT = float(os.getenv("CONTEXT_COMPRESS_TIMEOUT", "12"))  # 单次调用超时秒(VM->ark 实测 p95 >8s,过紧会误超时烧熔断)
+CONTEXT_COMPRESS_MIN_CHARS = int(
+    os.getenv("CONTEXT_COMPRESS_MIN_CHARS", "1500"))  # 回灌总字数低于此不压缩(不值得一次调用)
+# raglite 单轮快路径更保守:轻模型一次调用 2-4s,对均值 ~10s 的 raglite 是
+# 明显回归,仅回灌体量显著大时才压缩;react 多步回灌积少成多,低门槛即可
+CONTEXT_COMPRESS_RAGLITE_MIN_CHARS = int(
+    os.getenv("CONTEXT_COMPRESS_RAGLITE_MIN_CHARS", "8000"))
+CONTEXT_COMPRESS_MAX_INPUT_CHARS = int(
+    os.getenv("CONTEXT_COMPRESS_MAX_INPUT_CHARS", "900"))  # 送入轻模型时单块截断(控输入延迟)
+CONTEXT_COMPRESS_KEEP_CHARS = int(
+    os.getenv("CONTEXT_COMPRESS_KEEP_CHARS", "500"))  # 未抽到句的块兜底保留的原文长度
+CONTEXT_COMPRESS_MAX_CHUNKS = int(
+    os.getenv("CONTEXT_COMPRESS_MAX_CHUNKS", "8"))  # 单次最多压缩块数
+CONTEXT_COMPRESS_BREAKER_THRESHOLD = _int(
+    "CONTEXT_COMPRESS_BREAKER_THRESHOLD", 3)  # 连续失败次数→熔断 OPEN
+CONTEXT_COMPRESS_BREAKER_COOLDOWN = float(
+    os.getenv("CONTEXT_COMPRESS_BREAKER_COOLDOWN", "60"))  # OPEN 冷却秒,冷却后半开试探
 
 # === 检索微服务 ===
 RETRIEVAL_SERVICE_URL = os.getenv("RETRIEVAL_SERVICE_URL", "http://127.0.0.1:8002")
