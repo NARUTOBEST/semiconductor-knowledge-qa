@@ -1,0 +1,12 @@
+{
+  "total": 1000,
+  "judged": 878,
+  "chitchat_skipped": 57,
+  "avg_faithfulness": 0.9821,
+  "avg_context_precision": 0.587,
+  "avg_context_recall": 0.9562,
+  "avg_answer_relevancy": 0.9028,
+  "avg_answer_accuracy": 0.7789,
+  "hallucination_count": 21,
+  "hallucination_rate": 0.0256
+}
