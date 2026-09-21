@@ -65,6 +65,10 @@ def get_s3():
                 region_name=C.TOS_REGION or None,
                 config=Config(
                     signature_version="s3v4",
+                    # boto3≥1.36 默认对 PUT 附带 STREAMING-UNSIGNED-PAYLOAD-TRAILER
+                    # (CRC32 尾块),OSS/MinIO 等非 AWS S3 不支持 → 未要求时不计算校验和
+                    request_checksum_calculation="when_required",
+                    response_checksum_validation="when_required",
                     # TOS 强制虚拟主机风格(bucket.endpoint),path 风格会报 InvalidPathAccess;
                     # 自建 MinIO 才用 path(TOS_USE_PATH_STYLE=1)
                     s3={"addressing_style": "path" if C.TOS_USE_PATH_STYLE else "virtual"},

@@ -44,14 +44,29 @@ class TestRulePrescreen:
         assert tier != "simple"
 
     def test_complex_questions_go_to_llm(self):
-        # 对比/流程/综合等复杂标记问题不被规则预判,交 LLM(多判 react)
-        for q in ["对比 ALD 和 CVD 的优缺点",
-                  "ALD 设备的日常维护流程是怎样的?请分步骤说明",
-                  "ALD、CVD 以及 PVD 三者的区别",
-                  "ALD 和 CVD 有什么区别?",
-                  "排查键合机断线的可能原因"]:
+        # 非对比/汇总类的多步复杂问题不被规则预判,交 LLM(多判 react)
+        for q in ["ALD 设备的日常维护流程是怎样的?请分步骤说明",
+                  "划片工艺涉及哪些工具",
+                  "请评估当前工艺参数下膜厚均匀性的表现并给出调整思路"]:
             tier, _ = _rule_prescreen(q)
             assert tier is None, q
+
+    def test_agg_questions_react_fast_rule(self):
+        # ROUTER_REACT_FAST:对比/区别类 + 领域词 = 规则直判 react(省一次串行 LLM)
+        for q in ["对比 ALD 和 CVD 的优缺点",
+                  "ALD、CVD 以及 PVD 三者的区别",
+                  "ALD 和 CVD 有什么区别?"]:
+            tier, conf = _rule_prescreen(q)
+            assert tier == "react" and conf >= 0.8, q
+
+    def test_single_object_cause_question_raglite_rule(self):
+        # 路由收紧:单一对象的原因/排查类问法不再因"原因/排查"字样上抛 LLM,
+        # 领域信号 + 非复杂标记即规则直判 raglite(实测 3/6 react 题属此类误路由)
+        for q in ["排查键合机断线的可能原因",
+                  "1416 报警是什么原因",
+                  "SIPLACE 贴片机 X 轴原点丢失怎么修"]:
+            tier, _ = _rule_prescreen(q)
+            assert tier == "raglite", q
 
     def test_single_fact_question_raglite_rule(self):
         # 三级范式:单一事实点(领域信号 + 非复杂标记 + 短问题)规则直判 raglite
@@ -122,7 +137,7 @@ class TestClassifyComplexity:
         with patch.object(router_mod, "get_client", return_value=MagicMock()), \
              patch.object(router_mod, "llm_create_with_retry",
                           return_value=_llm_return('{"tier":"react","confidence":0.9}')):
-            d = classify_complexity("对比 ALD 和 CVD 的优缺点")
+            d = classify_complexity("请评估当前工艺参数下膜厚均匀性的表现并给出调整思路")
         assert d["tier"] == "react"
         assert d["source"] == "llm"
         assert d["confidence"] == pytest.approx(0.9)
@@ -137,7 +152,7 @@ class TestClassifyComplexity:
 
         with patch.object(router_mod, "get_client", return_value=MagicMock()), \
              patch.object(router_mod, "llm_create_with_retry", side_effect=_fake):
-            classify_complexity("对比 ALD 和 CVD 的优缺点")
+            classify_complexity("请评估当前工艺参数下膜厚均匀性的表现并给出调整思路")
         import config as C
         assert captured.get("model") == C.TIER_MODEL_SIMPLE
         assert captured.get("temperature") == 0
@@ -205,7 +220,7 @@ class TestClassifyAndClarify:
                    ' "tier": "react", "confidence": 0.9}')
         with patch.object(router_mod, "get_client", return_value=MagicMock()),              patch.object(router_mod, "llm_create_with_retry",
                           return_value=_llm_return(content)):
-            d = router_mod.classify_and_clarify("对比 ALD 和 CVD 的优缺点", [])
+            d = router_mod.classify_and_clarify("请评估当前工艺参数下膜厚均匀性的表现并给出调整思路", [])
         assert d["tier"] == "react"
         assert d["source"] == "llm"
         assert d["confidence"] == pytest.approx(0.9)
@@ -222,7 +237,7 @@ class TestClassifyAndClarify:
     def test_llm_error_fallback_react_no_clarify(self):
         with patch.object(router_mod, "get_client", return_value=MagicMock()),              patch.object(router_mod, "llm_create_with_retry",
                           return_value=(None, RuntimeError("timeout"))):
-            d = router_mod.classify_and_clarify("对比 ALD 和 CVD 的优缺点", [])
+            d = router_mod.classify_and_clarify("请评估当前工艺参数下膜厚均匀性的表现并给出调整思路", [])
         assert d["need_clarify"] is False
         assert d["tier"] == "react"
         assert d["source"] == "fallback"

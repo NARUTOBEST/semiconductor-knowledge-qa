@@ -114,24 +114,30 @@ def _extract_doc_sources(result):
     """历史逻辑:从检索工具(search_text/search_image)返回里提取来源条目。
 
     兼容文本与图像块。每条截断 content 到 160 字。
+    实现已统一收敛到 tools.mcp_policies.extract_doc_sources(含多媒体透传
+    image_url/item_type/description/video_url),此处委托并兜底,避免双份漂移。
     """
-    out = []
-    if not isinstance(result, list):
+    try:
+        from tools.mcp_policies import extract_doc_sources
+        return extract_doc_sources(result)
+    except Exception:  # 兜底:仅基础字段,保证来源提取永不被策略层故障阻断
+        out = []
+        if not isinstance(result, list):
+            return out
+        for r in result:
+            if not isinstance(r, dict) or not r.get("source_stem"):
+                continue
+            page = r.get("page_num") or r.get("page_start")
+            heading = r.get("heading_path") or r.get("caption") or ""
+            out.append({
+                "chunk_id": r.get("chunk_id", ""),
+                "source_stem": r["source_stem"],
+                "page": f"p{page}" if page else "",
+                "heading": heading,
+                "score": round(float(r.get("score") or 0), 4),
+                "content": (r.get("content", "") or "")[:160],
+            })
         return out
-    for r in result:
-        if not isinstance(r, dict) or not r.get("source_stem"):
-            continue
-        page = r.get("page_num") or r.get("page_start")
-        heading = r.get("heading_path") or r.get("caption") or ""
-        out.append({
-            "chunk_id": r.get("chunk_id", ""),
-            "source_stem": r["source_stem"],
-            "page": f"p{page}" if page else "",
-            "heading": heading,
-            "score": round(float(r.get("score") or 0), 4),
-            "content": (r.get("content", "") or "")[:160],
-        })
-    return out
 
 
 def sources_from_result(result, *, spec=None):

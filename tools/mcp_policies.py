@@ -18,6 +18,9 @@ def extract_doc_sources(result):
     兼容文本与图像块。每条 content 截断到 160 字。
     返回字段与历史格式完全一致(不新增 source_type,缺省按本地文档处理):
       chunk_id / source_stem / page / heading / score / content
+    多媒体透传字段(前端缩略图/放大与视频入口用,缺失则不下发):
+      image_url(图像块签名链接,或文本块内嵌图取首张) / item_type /
+      description(图像描述,截 160 字) / video_url(视频块签名链接)
     """
     out = []
     if not isinstance(result, list):
@@ -27,14 +30,26 @@ def extract_doc_sources(result):
             continue
         page = r.get("page_num") or r.get("page_start")
         heading = r.get("heading_path") or r.get("caption") or ""
-        out.append({
+        item = {
             "chunk_id": r.get("chunk_id", ""),
             "source_stem": r["source_stem"],
             "page": f"p{page}" if page else "",
             "heading": heading,
             "score": round(float(r.get("score") or 0), 4),
             "content": (r.get("content", "") or "")[:160],
-        })
+        }
+        # 多媒体透传:仅在有值且是可访问 URL(http(s))时下发,本地残留路径不给前端
+        image_url = r.get("image_url") or next(
+            iter(r.get("image_urls") or []), None)
+        if image_url and str(image_url).startswith("http"):
+            item["image_url"] = image_url
+        if r.get("video_url") and str(r["video_url"]).startswith("http"):
+            item["video_url"] = r["video_url"]
+        if r.get("item_type"):
+            item["item_type"] = r["item_type"]
+        if r.get("description"):
+            item["description"] = (r.get("description") or "")[:160]
+        out.append(item)
     return out
 
 
@@ -46,7 +61,7 @@ _RETRIEVAL_TRUNCATE = TruncatePolicy(
         "page_num", "page_start", "page_end", "page",
         "score", "heading_path", "caption", "content_type", "image_path",
         "has_table", "heading", "char_count", "chunk_index", "item_type",
-        "parent_text_chunk_id",
+        "parent_text_chunk_id", "image_url", "video_url", "image_urls",
     },
     list_long_fields={"image_descriptions", "image_paths"},
 )

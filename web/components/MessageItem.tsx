@@ -12,6 +12,8 @@ import {
   User,
   AlertTriangle,
   FileText,
+  Film,
+  Play,
   HelpCircle,
 } from "lucide-react";
 import { Markdown } from "./Markdown";
@@ -34,23 +36,89 @@ function UserAvatar() {
   );
 }
 
-/** 来源引用条(命中知识库的文档+页码) */
+/** 图片放大浮层:点击遮罩或图片关闭 */
+function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-8 cursor-zoom-out"
+      onClick={onClose}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt="来源图片放大"
+        className="max-h-full max-w-full rounded-lg object-contain"
+        onClick={onClose}
+      />
+    </div>
+  );
+}
+
+/** 来源引用条(命中知识库的文档+页码;图像块渲染缩略图,视频块渲染入口) */
 function SourcesBar({ sources }: { sources: NonNullable<Message["sources"]> }) {
+  const [zoom, setZoom] = useState<string | null>(null);
   if (!sources.length) return null;
   return (
-    <div className="mb-2 flex flex-wrap gap-1.5">
-      {sources.slice(0, 6).map((s, i) => (
-        <span
-          key={i}
-          title={`${s.source_stem} ${s.page} · ${s.heading}`}
-          className="inline-flex items-center gap-1 rounded-md bg-[#1f1f22] border border-[#2f2f33] px-2 py-0.5 text-[11px] text-t2 hover:text-t1 hover:border-[#3a3a3e] transition-colors"
-        >
-          <FileText size={11} />
-          <span className="max-w-[160px] truncate">{s.source_stem}</span>
-          <span className="text-t3">{s.page}</span>
-        </span>
-      ))}
-    </div>
+    <>
+      <div className="mb-2 flex flex-wrap gap-1.5">
+        {sources.slice(0, 6).map((s, i) => {
+          const tip = `${s.source_stem} ${s.page} · ${s.heading}${s.description ? ` · ${s.description}` : ""}`;
+          // 图像块(TOS 签名链接):缩略图,点击放大
+          if (s.image_url && /^https?:/.test(s.image_url)) {
+            return (
+              <button
+                key={i}
+                title={tip}
+                onClick={() => setZoom(s.image_url!)}
+                className="group/img relative overflow-hidden rounded-md border border-[#2f2f33] transition-colors hover:border-[#5b67d6]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.image_url}
+                  alt={s.heading || s.source_stem}
+                  className="h-16 w-24 object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute inset-x-0 bottom-0 truncate bg-black/60 px-1 py-0.5 text-[10px] text-white/90">
+                  {s.source_stem}
+                </span>
+              </button>
+            );
+          }
+          // 视频块:播放入口(新标签页打开签名链接)
+          if (s.video_url && /^https?:/.test(s.video_url)) {
+            return (
+              <a
+                key={i}
+                href={s.video_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={tip}
+                className="inline-flex items-center gap-1 rounded-md bg-[#1f1f22] border border-[#2f2f33] px-2 py-0.5 text-[11px] text-t2 hover:text-t1 hover:border-[#5b67d6] transition-colors"
+              >
+                <Film size={11} className="text-[#8b9cf6]" />
+                <span className="max-w-[160px] truncate">{s.source_stem}</span>
+                <span className="text-t3">{s.page}</span>
+                <Play size={9} className="text-t3" />
+              </a>
+            );
+          }
+          // 普通文档块:原样式
+          return (
+            <span
+              key={i}
+              title={tip}
+              className="inline-flex items-center gap-1 rounded-md bg-[#1f1f22] border border-[#2f2f33] px-2 py-0.5 text-[11px] text-t2 hover:text-t1 hover:border-[#3a3a3e] transition-colors"
+            >
+              <FileText size={11} />
+              <span className="max-w-[160px] truncate">{s.source_stem}</span>
+              <span className="text-t3">{s.page}</span>
+            </span>
+          );
+        })}
+      </div>
+      {zoom && <Lightbox src={zoom} onClose={() => setZoom(null)} />}
+    </>
   );
 }
 

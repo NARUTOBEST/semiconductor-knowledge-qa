@@ -8,6 +8,11 @@ export interface Source {
   heading: string;
   score: number;
   content: string;       // 摘录前 160 字
+  // 多媒体透传(后端仅在有可访问 URL 时下发,均可选)
+  image_url?: string;    // 图像块/文本块内嵌图的签名链接 → 缩略图,点击放大
+  video_url?: string;    // 视频块签名链接 → 视频入口
+  item_type?: string;    // 图像块类型标签(如 portrait/figure)
+  description?: string;  // 图像描述(caption+description 前 160 字)
 }
 
 export interface Clarify {

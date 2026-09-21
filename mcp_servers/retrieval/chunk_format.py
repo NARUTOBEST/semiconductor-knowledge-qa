@@ -48,6 +48,10 @@ def _text_dict(payload, score=None):
         # 本地绝对路径签名为 TOS 时效 HTTPS 链接;未配置对象存储时原样返回本地路径
         "image_urls": [image_s3.image_url(p) for p in (payload.get("image_paths") or [])],
         "image_descriptions": payload.get("image_descriptions") or [],
+        "content_type": payload.get("content_type") or "",
+        # 视频块(mp4 入库):video_path 同样走 TOS 时效签名;未配置/签名失败原样返回
+        "video_url": image_s3.image_url(payload["video_path"])
+        if payload.get("video_path") else "",
         "score": score,
     }
 
