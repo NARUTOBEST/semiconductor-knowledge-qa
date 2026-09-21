@@ -49,8 +49,8 @@ def _text_dict(payload, score=None):
         "image_urls": [image_s3.image_url(p) for p in (payload.get("image_paths") or [])],
         "image_descriptions": payload.get("image_descriptions") or [],
         "content_type": payload.get("content_type") or "",
-        # 视频块(mp4 入库):video_path 同样走 TOS 时效签名;未配置/签名失败原样返回
-        "video_url": image_s3.image_url(payload["video_path"])
+        # 视频块(mp4 入库):video_path 走独立视频存储(VID_*,缺省回落 TOS)时效签名
+        "video_url": image_s3.video_url(payload["video_path"])
         if payload.get("video_path") else "",
         "score": score,
     }

@@ -261,6 +261,18 @@ TOS_USE_PATH_STYLE = os.getenv("TOS_USE_PATH_STYLE", "0") == "1"  # MinIO 设 1;
 TOS_KEY_PREFIX    = os.getenv("TOS_KEY_PREFIX", "qingxi").strip("/")  # 对象 key 前缀(桶内子目录)
 TOS_ENABLED       = bool(TOS_ENDPOINT and TOS_BUCKET and TOS_ACCESS_KEY and TOS_SECRET_KEY)
 
+# === 视频对象存储(独立 S3 兼容存储,如阿里云 OSS;未配置则视频与图片同走 TOS) ===
+# 2026-09-21 起图/视频分存:图片在火山 TOS(存量对象不动),视频在阿里云 OSS。
+# 四项(VID_ENDPOINT/VID_BUCKET/VID_ACCESS_KEY/VID_SECRET_KEY)配齐才启用独立视频存储。
+VID_ENDPOINT      = os.getenv("VID_ENDPOINT", "")        # 例:oss-cn-zhongwei.aliyuncs.com
+VID_REGION        = os.getenv("VID_REGION", "")          # 例:cn-zhongwei
+VID_BUCKET        = os.getenv("VID_BUCKET", "")          # 视频桶名
+VID_ACCESS_KEY    = os.getenv("VID_ACCESS_KEY", "")
+VID_SECRET_KEY    = os.getenv("VID_SECRET_KEY", "")
+VID_USE_PATH_STYLE = os.getenv("VID_USE_PATH_STYLE", "0") == "1"
+VID_KEY_PREFIX    = os.getenv("VID_KEY_PREFIX", "").strip("/")  # 缺省沿用 TOS_KEY_PREFIX
+VID_ENABLED       = bool(VID_ENDPOINT and VID_BUCKET and VID_ACCESS_KEY and VID_SECRET_KEY)
+
 # === 分块参数 ===
 # 数值据已清洗语料实测:段落 P95≈713 字,max=800 可让 ~96% 段落整块不拆;
 # target=500 为嵌入甜点(段落中位仅 45 字,需打包)。表行 P99≈259,不会被拆。

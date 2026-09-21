@@ -32,11 +32,45 @@ if _CONFIG not in sys.path:
 import config as C  # noqa: E402
 
 _client = None
+_video_client = None
 _lock = threading.Lock()
 
 
+def _make_client(endpoint, ak, sk, region, path_style):
+    """构造一个 S3 兼容客户端(共用签名/代理绕过/校验和适配策略)。"""
+    import boto3
+    from urllib.parse import urlparse
+    from botocore.client import Config
+    if not endpoint.startswith("http"):
+        endpoint = "https://" + endpoint
+    # 国内存储绕过本机 HTTP 代理(Clash 等),否则可能被绕到国外导致 403/超时
+    host = urlparse(endpoint).hostname
+    if host:
+        for var in ("NO_PROXY", "no_proxy"):
+            cur = os.environ.get(var, "")
+            if host not in cur:
+                os.environ[var] = (cur + "," if cur else "") + host
+    return boto3.client(
+        "s3",
+        endpoint_url=endpoint,
+        aws_access_key_id=ak,
+        aws_secret_access_key=sk,
+        region_name=region or None,
+        config=Config(
+            signature_version="s3v4",
+            # boto3≥1.36 默认对 PUT 附带 STREAMING-UNSIGNED-PAYLOAD-TRAILER
+            # (CRC32 尾块),OSS/MinIO 等非 AWS S3 不支持 → 未要求时不计算校验和
+            request_checksum_calculation="when_required",
+            response_checksum_validation="when_required",
+            # 火山 TOS 强制虚拟主机风格(bucket.endpoint),path 风格会报 InvalidPathAccess;
+            # 自建 MinIO 才用 path(对应 *_USE_PATH_STYLE=1)
+            s3={"addressing_style": "path" if path_style else "virtual"},
+        ),
+    )
+
+
 def get_s3():
-    """懒加载 S3 兼容客户端(TOS)。未配置返回 None。"""
+    """懒加载图片存储客户端(TOS)。未配置返回 None。"""
     global _client
     if _client is not None:
         return _client
@@ -44,37 +78,29 @@ def get_s3():
         return None
     with _lock:
         if _client is None:
-            import boto3
-            from urllib.parse import urlparse
-            from botocore.client import Config
-            endpoint = C.TOS_ENDPOINT
-            if not endpoint.startswith("http"):
-                endpoint = "https://" + endpoint
-            # TOS 为国内服务,绕过本机 HTTP 代理(Clash 等),否则可能被绕到国外导致 403/超时
-            host = urlparse(endpoint).hostname
-            if host:
-                for var in ("NO_PROXY", "no_proxy"):
-                    cur = os.environ.get(var, "")
-                    if host not in cur:
-                        os.environ[var] = (cur + "," if cur else "") + host
-            _client = boto3.client(
-                "s3",
-                endpoint_url=endpoint,
-                aws_access_key_id=C.TOS_ACCESS_KEY,
-                aws_secret_access_key=C.TOS_SECRET_KEY,
-                region_name=C.TOS_REGION or None,
-                config=Config(
-                    signature_version="s3v4",
-                    # boto3≥1.36 默认对 PUT 附带 STREAMING-UNSIGNED-PAYLOAD-TRAILER
-                    # (CRC32 尾块),OSS/MinIO 等非 AWS S3 不支持 → 未要求时不计算校验和
-                    request_checksum_calculation="when_required",
-                    response_checksum_validation="when_required",
-                    # TOS 强制虚拟主机风格(bucket.endpoint),path 风格会报 InvalidPathAccess;
-                    # 自建 MinIO 才用 path(TOS_USE_PATH_STYLE=1)
-                    s3={"addressing_style": "path" if C.TOS_USE_PATH_STYLE else "virtual"},
-                ),
-            )
+            _client = _make_client(C.TOS_ENDPOINT, C.TOS_ACCESS_KEY,
+                                   C.TOS_SECRET_KEY, C.TOS_REGION,
+                                   C.TOS_USE_PATH_STYLE)
     return _client
+
+
+def get_s3_video():
+    """懒加载视频存储客户端(独立 S3 兼容存储,如阿里云 OSS)。
+
+    图片与视频可分开存放:图片在 TOS(VID_* 未配置时视频也回落 TOS)。
+    未配置任何存储返回 None(与 get_s3 一致,调用方回退本地路径)。
+    """
+    global _video_client
+    if _video_client is not None:
+        return _video_client
+    if not getattr(C, "VID_ENABLED", False):
+        return get_s3()                     # 未配 VID_*:视频与图片同存储
+    with _lock:
+        if _video_client is None:
+            _video_client = _make_client(C.VID_ENDPOINT, C.VID_ACCESS_KEY,
+                                         C.VID_SECRET_KEY, C.VID_REGION,
+                                         C.VID_USE_PATH_STYLE)
+    return _video_client
 
 
 # 清洗目录下的模态子目录(磁盘重整后的层级)。CAD 为大写,其余小写。
@@ -102,19 +128,8 @@ def _split_root(path):
     return None
 
 
-def abs_to_key(abs_path):
-    """D:\\清洗文件\\<rel>  ->  <TOS_KEY_PREFIX>/<rel with '/'>。
-
-    不在 CLEAN_FILES_ROOT 下的路径返回 None(无法映射)。跨平台:retrieval 微服务在
-    Linux 容器内运行,而 Qdrant payload 里的 image_path 多为 Windows 入库时写入的
-    ``D:\\清洗文件\\...``,故用 :func:`_split_root` 统一按正斜杠换算,不依赖 os.path
-    (Linux 的 posixpath 不识别盘符/反斜杠,会把整串当文件名)。
-
-    历史遗留:清洗目录曾重整、加入 pdf/ 等模态子目录层;重整之前入库的旧 PDF 点,
-    payload 里的 image_path 仍是旧根路径(缺模态段,如 D:\\清洗文件\\0002 光刻资料\\...),
-    而文件与 TOS 对象实际在 pdf/ 下。这类路径首段不在模态目录内,补回 ``pdf/`` 段,
-    使签名 key 与实际上传 key(qingxi/pdf/...)对齐。
-    """
+def _abs_to_key_with_prefix(abs_path, prefix):
+    """abs_to_key 的参数化核心:按指定桶内前缀换算(图片 TOS / 视频 VID 各用各的前缀)。"""
     if not abs_path:
         return None
     p_parts = _split_root(abs_path)
@@ -137,7 +152,23 @@ def abs_to_key(abs_path):
     first = rel.split("/", 1)[0].lower()
     if first not in _MODALITY_DIRS:
         rel = "pdf/" + rel          # 旧 PDF payload 缺模态段,补回 pdf/
-    return (C.TOS_KEY_PREFIX + "/" + rel) if C.TOS_KEY_PREFIX else rel
+    return (prefix + "/" + rel) if prefix else rel
+
+
+def abs_to_key(abs_path):
+    """D:\\清洗文件\\<rel>  ->  <TOS_KEY_PREFIX>/<rel with '/'>。
+
+    不在 CLEAN_FILES_ROOT 下的路径返回 None(无法映射)。跨平台:retrieval 微服务在
+    Linux 容器内运行,而 Qdrant payload 里的 image_path 多为 Windows 入库时写入的
+    ``D:\\清洗文件\\...``,故用 :func:`_split_root` 统一按正斜杠换算,不依赖 os.path
+    (Linux 的 posixpath 不识别盘符/反斜杠,会把整串当文件名)。
+
+    历史遗留:清洗目录曾重整、加入 pdf/ 等模态子目录层;重整之前入库的旧 PDF 点,
+    payload 里的 image_path 仍是旧根路径(缺模态段,如 D:\\清洗文件\\0002 光刻资料\\...),
+    而文件与 TOS 对象实际在 pdf/ 下。这类路径首段不在模态目录内,补回 ``pdf/`` 段,
+    使签名 key 与实际上传 key(qingxi/pdf/...)对齐。
+    """
+    return _abs_to_key_with_prefix(abs_path, C.TOS_KEY_PREFIX)
 
 
 _basename_idx = None      # 图片文件名(hash.jpg) -> 对象 key;用于还原历史相对路径引用
@@ -181,16 +212,16 @@ def _ensure_basename_index():
     return _basename_idx
 
 
-def _sign_key(s3, key):
+def _sign_key(s3, key, bucket):
     return s3.generate_presigned_url(
         "get_object",
-        Params={"Bucket": C.TOS_BUCKET, "Key": key},
+        Params={"Bucket": bucket, "Key": key},
         ExpiresIn=C.TOS_URL_EXPIRES,
     )
 
 
 def image_url(path):
-    """图片路径 -> 预签名 HTTPS 链接;未配置 TOS 时原样返回本地路径。
+    """图片路径 -> 预签名 HTTPS 链接(图片存储 TOS);未配置 TOS 时原样返回本地路径。
 
     支持:
     - 绝对路径(``D:\\清洗文件\\...``):按 :func:`abs_to_key` 换算(含旧 PDF 补 pdf/ 段);
@@ -210,6 +241,30 @@ def image_url(path):
             key = _ensure_basename_index().get(bn)
         if not key:
             return path
-        return _sign_key(s3, key)
+        return _sign_key(s3, key, C.TOS_BUCKET)
     except Exception:
         return path                         # 签名失败不阻断检索
+
+
+def video_url(path):
+    """视频路径 -> 预签名 HTTPS 链接(视频存储,VID_* 配置的独立桶;未配置回落 TOS)。
+
+    图片与视频分开存储:视频(mpeg/mp4)走 :func:`get_s3_video` 的桶与前缀,
+    key 换算与 abs_to_key 同规则(前缀用 VID_KEY_PREFIX,缺省沿用 TOS_KEY_PREFIX)。
+    未配置任何存储时原样返回本地路径。
+    """
+    if not path:
+        return path
+    s3 = get_s3_video()
+    if s3 is None:
+        return path
+    try:
+        prefix = (getattr(C, "VID_KEY_PREFIX", "") or C.TOS_KEY_PREFIX) \
+            if getattr(C, "VID_ENABLED", False) else C.TOS_KEY_PREFIX
+        key = _abs_to_key_with_prefix(path, prefix) if _split_root(path) else None
+        if not key:
+            return path
+        bucket = C.VID_BUCKET if getattr(C, "VID_ENABLED", False) else C.TOS_BUCKET
+        return _sign_key(s3, key, bucket)
+    except Exception:
+        return path

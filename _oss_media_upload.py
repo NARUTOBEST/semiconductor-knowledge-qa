@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-"""一次性迁移脚本:把 Qdrant 引用的全部媒体文件(图片+视频)上传到阿里云 OSS。
+"""一次性迁移脚本:把 Qdrant 引用的视频(mp4)上传到阿里云 OSS(视频独立存储)。
 
-背景:原火山 TOS 欠费停用(读写全挂),桶内旧对象不可读;改用阿里云 OSS 后
-需要把知识库引用的媒体重新补齐。本脚本:
+背景:2026-09-21 起图/视频分存——图片走火山 TOS(存量对象不动),视频走
+阿里云 OSS(VID_* 配置)。此前视频从未上传过,本脚本只补视频:
 
-1. 读 _media_paths.json(Qdrant 两库 scroll 出的全部引用媒体路径,270,066 条);
+1. 读 _media_paths.json(Qdrant 两库 scroll 出的全部引用媒体路径),过滤 .mp4;
 2. 三级还原本地文件:
    a. 原路径直接命中;
    b. 根后补模态段(pdf/docx/pptx/xlsx/image/cad/mp4)命中(清洗目录重整遗留);
    c. 文件名为内容指纹(≥32 位 hex,同 hash=同内容)时,全盘 basename 反查;
-3. 每个文件经 image_s3.abs_to_key 映射对象 key(含旧 PDF 补 pdf/ 段逻辑),
-   与检索签名链路完全一致;
+3. 每个文件经 image_s3._abs_to_key_with_prefix 映射对象 key(VID_KEY_PREFIX),
+   与检索 video_url 签名链路完全一致;
 4. 并发上传到 OSS,checkpoint(_oss_uploaded.json)支持断点续跑。
 
 用法:
@@ -29,7 +29,7 @@ sys.path.insert(0, os.path.join(ROOT, "config"))
 sys.path.insert(1, os.path.join(ROOT, "mcp_servers", "retrieval"))
 
 import config as C  # noqa: E402
-from image_s3 import get_s3, abs_to_key  # noqa: E402
+from image_s3 import get_s3_video, _abs_to_key_with_prefix  # noqa: E402
 
 MODALS = ["pdf", "docx", "pptx", "xlsx", "image", "cad", "mp4"]
 HASH_RE = re.compile(r"^[0-9a-f]{32,64}$", re.I)  # 内容指纹文件名(去扩展名后)
@@ -110,11 +110,14 @@ def main():
     jobs = {}          # key -> local path(按对象 key 去重)
     miss = []
     for p in paths:
+        if not str(p).lower().endswith('.mp4'):
+            continue    # 图/视频分存:只有视频上 OSS(图片存量在 TOS)
         local = resolve(p, bn_idx)
         if not local:
             miss.append(p)
             continue
-        key = abs_to_key(local)
+        prefix = getattr(C, 'VID_KEY_PREFIX', '') or C.TOS_KEY_PREFIX
+        key = _abs_to_key_with_prefix(local, prefix)
         if not key:
             continue
         jobs.setdefault(key, local)
@@ -126,8 +129,8 @@ def main():
     if mode != "upload":
         return
 
-    s3 = get_s3()
-    bucket = C.TOS_BUCKET
+    s3 = get_s3_video()
+    bucket = C.VID_BUCKET if getattr(C, 'VID_ENABLED', False) else C.TOS_BUCKET
     done = set()
     if os.path.isfile(CKPT):
         done = set(json.load(open(CKPT, encoding="utf-8")))
