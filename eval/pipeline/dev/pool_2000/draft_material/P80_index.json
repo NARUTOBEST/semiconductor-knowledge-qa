@@ -1,0 +1,326 @@
+{
+ "doc": "晶圆减薄研磨机strasbaugh Model 7AA",
+ "chunks": 787,
+ "headings": [
+  [
+   "ENGINEERING DRAWINGS > 7AA MANUAL DRAWING CROSS REFERENCE INDEX",
+   342
+  ],
+  [
+   "SPINDLE PRETRAVEL ADJUSTMENT > ÀDANGER",
+   15
+  ],
+  [
+   "GRIND SPINDLE ALIGNMENT",
+   14
+  ],
+  [
+   "Operation and Maintenance Manual > Table of Contents",
+   10
+  ],
+  [
+   "CONTROL VARIABLES AND CONTACTS",
+   9
+  ],
+  [
+   "CASSETTE SLOT LOCATION > ÀDANGER",
+   9
+  ],
+  [
+   "MECHANICAL OVERVIEW > PNEUMATIC/FLUID SYSTEM OVERVIEW",
+   8
+  ],
+  [
+   "AIR BEARING SPINDLE MAINTENANCE > ÀDANGER",
+   7
+  ],
+  [
+   "MECHANICAL OVERVIEW > FOR RELIABLE ELEVATOR OPERATION, THE ELEVATORSAND CONVEYORS MUST BE STOPPED BEFORE THEOPERATOR DOORS ARE OPENED.",
+   7
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > GENERAL OPERATION",
+   6
+  ],
+  [
+   "ELEVATOR CALIBRATION > ÀDANGER",
+   6
+  ],
+  [
+   "AIR BEARING SPINDLE MAINTENANCE",
+   6
+  ],
+  [
+   "SPINDLE PRETRAVEL ADJUSTMENT > WHEEL WEAR COMPENSATION",
+   6
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > DUAL GRIND - COARSE PARAMETERS",
+   6
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Environmental Information",
+   6
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > When To Be Aware:",
+   5
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > SINGLE GRIND PARAMETERS",
+   5
+  ],
+  [
+   "WHEEL TRUING AND DRESSING",
+   5
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE: > Introduction",
+   5
+  ],
+  [
+   "MECHANICAL OVERVIEW > MACHINE CYCLE SEQUENCE WITHOUT WAFER TRANSPORT SYSTEM",
+   5
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > DANGER",
+   5
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > DUAL GRIND-FINISH PARAMETERS",
+   5
+  ],
+  [
+   "MACHINE SETUP > data entry [ +0]",
+   5
+  ],
+  [
+   "SERVO ERROR CODES",
+   4
+  ],
+  [
+   "WHEEL TRUING AND DRESSING > PROCEDURE",
+   4
+  ],
+  [
+   "SPEED CONTROLS",
+   4
+  ],
+  [
+   "MACHINE DESCRIPTION > POWER DISTRIBUTION",
+   4
+  ],
+  [
+   "WHEEL TRUING AND DRESSING > CHUCK GRIND MODE",
+   4
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > MANUAL CONTROL OF MACHINE",
+   4
+  ],
+  [
+   "DETERMINING WORK CHUCK POSITION > ÀDANGER",
+   4
+  ],
+  [
+   "MATERIAL SAFETY DATA SHEETS FOR PRODUCTS USED IN MACHINE MAINTENANCE > RECEIVING",
+   4
+  ],
+  [
+   "MECHANICAL OVERVIEW > GRIND SPINDLE FEED MECHANISM",
+   4
+  ],
+  [
+   "SOFTWARE CALIBRATION PROCEDURES > MACHINE DIAGNOSTICS",
+   4
+  ],
+  [
+   "MECHANICAL OVERVIEW > OVERVIEW - MACHINE CYCLE SEQUENCE WITH WAFER TRANSPORT SYSTEM",
+   4
+  ],
+  [
+   "MACHINE DESCRIPTION > SERVO CONTROL LOOP",
+   4
+  ],
+  [
+   "PNEUMATIC REGULATOR ADJUSTMENT",
+   4
+  ],
+  [
+   "MATERIAL SAFETY DATA SHEETS FOR PRODUCTS USED IN MACHINE MAINTENANCE > ÀDANGER",
+   3
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > INTERLOCKS - SAFETY INTERLOCKDOOR SWITCHES",
+   3
+  ],
+  [
+   "WEEKLY PREVENTIVE MAINTENANCE SCHEDULE",
+   3
+  ],
+  [
+   "CASSETTE SLOT LOCATION > LUBRICATION",
+   3
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > ÀDANGER",
+   3
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE: > Training",
+   3
+  ],
+  [
+   "MACHINE DESCRIPTION > 24 VDC INPUTS",
+   3
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > (Reproduce for shop copy. Fill-in data or check off as appropriate.)",
+   3
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > STEP 3 - GRIND PARAMETER ENTRY",
+   3
+  ],
+  [
+   "WHEEL TRUING AND DRESSING > ÀDANGER",
+   3
+  ],
+  [
+   "WHEEL TRUING AND DRESSING > WORK CHUCK REPLACEMENT",
+   3
+  ],
+  [
+   "MACHINE DESCRIPTION > 24 VDC OUTPUTS",
+   3
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > STEP 2 - MACHINE INITIALIZATION",
+   3
+  ],
+  [
+   "OFFLINE STORAGE SUPPORT UTILITIES > WAFER CAPTURING UTILITIES 'F8'",
+   3
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > Sequence of Lockout Procedure",
+   3
+  ],
+  [
+   "ERROR CONDITIONS AND MESSAGES > SEND WAFER ERROR",
+   3
+  ],
+  [
+   "REVISION RECORD > ABOUT THE MODEL 7AA WAFER GRINDER",
+   3
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Fire and Explosion Hazards",
+   2
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE: > Removal of Lockout/Tagout Devices",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Inhalation",
+   2
+  ],
+  [
+   "MONTHLY PREVENTIVE MAINTENANCE SCHEDULE",
+   2
+  ],
+  [
+   "REVISION RECORD > Introduction",
+   2
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE: > Written Program",
+   2
+  ],
+  [
+   "MACHINE SETUP > ADJUST R.P.M.'S",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > Procedure Involving More Than One Person",
+   2
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > SAFETY",
+   2
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > Alert Graphic:",
+   2
+  ],
+  [
+   "MACHINE SETUP > MACHINE PARAMETER ENTRY",
+   2
+  ],
+  [
+   "MECHANICAL OVERVIEW > CRT DISPLAY MENUS",
+   2
+  ],
+  [
+   "ELEVATOR CALIBRATION > DANGER",
+   2
+  ],
+  [
+   "STEP 1 - MACHINE POWER UP > initializing grind spindle axis",
+   2
+  ],
+  [
+   "MECHANICAL OVERVIEW > all modes:",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS",
+   2
+  ],
+  [
+   "OFFLINE STORAGE SUPPORT UTILITIES > EDIT/CREATE SINGLE GRINDPARAMETERS 'F3'",
+   2
+  ],
+  [
+   "REVISION RECORD > Strasbaugh, Inc.",
+   2
+  ],
+  [
+   "OFFLINE STORAGE SUPPORT UTILITIES > EDIT/CREATE DUAL GRIND PARAMETERS 'F4'",
+   2
+  ],
+  [
+   "MECHANICAL OVERVIEW > CONTROL PANEL",
+   2
+  ],
+  [
+   "FACILITIES REQUIREMENTS",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Reactivity Warnings",
+   2
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > THREE-PANEL ALERT GRAPHICS",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Special Protection",
+   2
+  ],
+  [
+   "MECHANICAL OVERVIEW > GRIND SPINDLE SUPPORT",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Health Warning",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > Ingestion",
+   2
+  ]
+ ]
+}

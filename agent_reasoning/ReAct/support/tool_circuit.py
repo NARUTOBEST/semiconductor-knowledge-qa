@@ -9,6 +9,12 @@
   OPEN    --冷却 cooldown_seconds 后-->      HALF_OPEN(放一个试探请求)
   HALF_OPEN --试探成功--> CLOSED;试探失败--> OPEN(重新计时)
 
+试探上限(half_open_probe_limit,LLM 熔断用):HALF_OPEN 连续试探失败 N 次(默认
+0=不限制,按上面的循环无限重试)后进入【放弃期】——exhausted_cooldown_seconds 内
+before_call 一律抛 CircuitOpenError(exhausted=True),调用方据此向用户明确报
+"该环节服务不可用"并终止本次作答,不再无限 open→halfopen 循环;放弃期过后
+清零试探计数,从 OPEN 冷却重新走一轮完整循环(服务恢复后可自愈)。
+
 FATAL 类错误(参数错误/4xx)不计入失败计数,只对 TIMEOUT/RETRYABLE 计数。
 线程安全;状态变化通过可选回调通知(用于发 SSE status 事件)。
 """
@@ -27,28 +33,41 @@ class CircuitState:
 
 
 class CircuitOpenError(Exception):
-    """熔断打开时由 before_call 抛出,中间件捕获转为 circuit_open 错误。"""
+    """熔断打开时由 before_call 抛出,中间件捕获转为 circuit_open 错误。
 
-    def __init__(self, name: str, retry_after: float = 0.0):
+    exhausted=True 表示已连续 2 次半开试探失败进入放弃期:上游应向用户
+    明确提示"服务不可用,请稍后作答"并认定本次作答无效,而非静默降级。
+    """
+
+    def __init__(self, name: str, retry_after: float = 0.0,
+                 exhausted: bool = False):
         super().__init__(f"工具 {name} 熔断中,暂不可用")
         self.name = name
         self.retry_after = retry_after
+        self.exhausted = exhausted
 
 
 class CircuitBreaker:
     def __init__(self, name: str,
                  failure_threshold: int = 5,
                  cooldown_seconds: float = 30.0,
+                 half_open_probe_limit: int = 0,
+                 exhausted_cooldown_seconds: float = 60.0,
                  on_state_change: Optional[Callable[[str, str, str], None]] = None):
         self.name = name
         self.failure_threshold = max(1, int(failure_threshold))
         self.cooldown_seconds = float(cooldown_seconds)
+        # 0=不限制(无限 open→halfopen 循环);>0=连续 N 次试探失败进入放弃期
+        self.half_open_probe_limit = max(0, int(half_open_probe_limit))
+        self.exhausted_cooldown_seconds = float(exhausted_cooldown_seconds)
         self._on_state_change = on_state_change
         self._lock = threading.Lock()
         self._state = CircuitState.CLOSED
         self._failure_count = 0
         self._opened_at = 0.0
         self._half_open_inflight = False
+        self._probe_failures = 0
+        self._exhausted_until = 0.0
 
     @property
     def state(self) -> str:
@@ -57,9 +76,15 @@ class CircuitBreaker:
             return self._state
 
     def _maybe_half_open_locked(self) -> None:
-        """OPEN 冷却到期 -> HALF_OPEN(调用方持锁)。"""
+        """OPEN 冷却到期 -> HALF_OPEN(调用方持锁);放弃期到期则重置试探计数。"""
+        now = _now()
+        if self._exhausted_until and now >= self._exhausted_until:
+            # 放弃期结束:给服务一个重新自愈的机会,从 OPEN 冷却重走完整循环
+            self._exhausted_until = 0.0
+            self._probe_failures = 0
         if (self._state == CircuitState.OPEN
-                and _now() - self._opened_at >= self.cooldown_seconds):
+                and not self._exhausted_until
+                and now - self._opened_at >= self.cooldown_seconds):
             self._set_state_locked(CircuitState.HALF_OPEN)
 
     def _set_state_locked(self, new_state: str) -> None:
@@ -71,6 +96,8 @@ class CircuitBreaker:
         elif new_state == CircuitState.CLOSED:
             self._failure_count = 0
             self._half_open_inflight = False
+            self._probe_failures = 0
+            self._exhausted_until = 0.0
         if old != new_state and self._on_state_change is not None:
             try:
                 self._on_state_change(self.name, old, new_state)
@@ -85,7 +112,8 @@ class CircuitBreaker:
                 retry_after = max(
                     0.0,
                     self.cooldown_seconds - (_now() - self._opened_at))
-                raise CircuitOpenError(self.name, retry_after=retry_after)
+                raise CircuitOpenError(self.name, retry_after=retry_after,
+                                       exhausted=bool(self._exhausted_until))
             if self._state == CircuitState.HALF_OPEN:
                 # 半开期间只放一个试探请求,其余直接当打开
                 if self._half_open_inflight:
@@ -109,6 +137,18 @@ class CircuitBreaker:
             if self._state == CircuitState.HALF_OPEN:
                 # 试探失败(含 fatal) -> 释放探测槽 + 重新打开
                 self._set_state_locked(CircuitState.OPEN)
+                # 试探上限:连续 N 次试探都没成功 -> 放弃期,期间 before_call
+                # 抛 exhausted=True,上游提示用户"服务不可用"并终止本次作答。
+                if self.half_open_probe_limit > 0:
+                    self._probe_failures += 1
+                    if self._probe_failures >= self.half_open_probe_limit:
+                        self._exhausted_until = (
+                            _now() + self.exhausted_cooldown_seconds)
+                        logger.critical(
+                            "breaker %s: %d consecutive half-open probes "
+                            "failed, exhausted for %.0fs",
+                            self.name, self._probe_failures,
+                            self.exhausted_cooldown_seconds)
                 return
             if error_type == "fatal":
                 return
@@ -134,9 +174,13 @@ class CircuitBreakerRegistry:
     """按工具名持有 CircuitBreaker 实例(进程内单例)。"""
 
     def __init__(self, failure_threshold: int = 5, cooldown_seconds: float = 30.0,
+                 half_open_probe_limit: int = 0,
+                 exhausted_cooldown_seconds: float = 60.0,
                  on_state_change: Optional[Callable] = None):
         self._threshold = failure_threshold
         self._cooldown = cooldown_seconds
+        self._probe_limit = half_open_probe_limit
+        self._exhausted_cooldown = exhausted_cooldown_seconds
         self._on_state_change = on_state_change
         self._breakers: dict[str, CircuitBreaker] = {}
         self._lock = threading.Lock()
@@ -149,6 +193,8 @@ class CircuitBreakerRegistry:
                     name,
                     failure_threshold=self._threshold,
                     cooldown_seconds=self._cooldown,
+                    half_open_probe_limit=self._probe_limit,
+                    exhausted_cooldown_seconds=self._exhausted_cooldown,
                     on_state_change=self._on_state_change)
                 self._breakers[name] = b
             return b
@@ -198,3 +244,28 @@ def get_breaker(name: str) -> Optional[CircuitBreaker]:
     if not C.CIRCUIT_BREAKER_ENABLED:
         return None
     return _breakers.get(name)
+
+
+# ---- LLM 调用专用熔断注册表(与工具熔断分池,参数独立)----
+# 规格(2026-10-10 用户拍板,所有 LLM 调用环节统一):CLOSED 下指数退避重试+
+# 超时限定(由 llm_create_with_retry 承担);连续 3 次失败(每次内部已重试/
+# failover 过)→ OPEN 冷却 10s → HALF_OPEN 试探;连续 2 次试探失败 → 放弃期,
+# 上游提示用户"该环节 LLM 服务不可用,请稍后作答,本次作答无效";放弃期 60s
+# 后重置计数,从 OPEN 冷却重走循环(服务恢复自愈)。按环节(site)独立计数,
+# 环节名见各 llm_create_with_retry 调用点的 site= 参数。
+_llm_breakers = CircuitBreakerRegistry(
+    failure_threshold=int(getattr(C, "LLM_BREAKER_FAILURE_THRESHOLD", 3)),
+    cooldown_seconds=float(getattr(C, "LLM_BREAKER_COOLDOWN_SECONDS", 10.0)),
+    half_open_probe_limit=2,
+    exhausted_cooldown_seconds=float(
+        getattr(C, "LLM_BREAKER_EXHAUSTED_COOLDOWN_SECONDS", 60.0)),
+    on_state_change=lambda name, old, new: logger.warning(
+        "llm site %s circuit breaker: %s -> %s", name, old, new),
+)
+
+
+def get_llm_breaker(site: str) -> Optional[CircuitBreaker]:
+    """取某 LLM 环节的熔断器;熔断特性关闭时返回 None(调用方跳过熔断)。"""
+    if not C.CIRCUIT_BREAKER_ENABLED:
+        return None
+    return _llm_breakers.get(site)

@@ -1,0 +1,326 @@
+{
+ "doc": "I12-RF-ERCDLST-251-E1",
+ "chunks": 955,
+ "headings": [
+  [
+   "NOTE",
+   62
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > NOTE",
+   59
+  ],
+  [
+   "Part IV ALIGNMENT",
+   19
+  ],
+  [
+   "ATTENTION : IMPORTANT NOTICE",
+   18
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > NOTE",
+   13
+  ],
+  [
+   "CONTENTS",
+   12
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > 5.2 WAFER SEARCH ALIGNMENT FUNCTIONS",
+   6
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (1) g-EGA Measurement",
+   6
+  ],
+  [
+   "I12-RF-ERCDLST-251-E1",
+   6
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > EGA Calculation Model (p)",
+   6
+  ],
+  [
+   "(2) Correction Function for the Shot Array and Shot Form",
+   5
+  ],
+  [
+   "6.3.1 Intershot Flatness Check",
+   5
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (2) Correcting the Shot Magnification in the Second Layer",
+   5
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > Measuring the Shift in the X Direction",
+   4
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > (2) Position and Configuration of Search Marks in s-shots",
+   4
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > (1) Mark Detection Algorithm with the LSA Sensor",
+   4
+  ],
+  [
+   "NSR/MCSV",
+   4
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > [4] LSA Signal Processing Algorithm (p)",
+   4
+  ],
+  [
+   "[4] Reticle Particle Check Judgment Mode (s)",
+   4
+  ],
+  [
+   "2.1.1 Exposure ID",
+   4
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > • Estimated position mode",
+   4
+  ],
+  [
+   "(1) SRA Sensor (Scanning Reticle Alignment Sensor)",
+   4
+  ],
+  [
+   "4.1 SHOT ROTATION CORRECTION BY RETICLE STAGE ROTATION",
+   4
+  ],
+  [
+   "2.2.2 Function and Processing Sequence of the Reticle Stage Set",
+   4
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > Situations Where Errors Are Unavoidable During EGA Execution",
+   4
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > 5.5.3 Measurement Range in Search Alignment",
+   4
+  ],
+  [
+   "3.5 AF SENSOR AND LEVELING SENSOR UNITS",
+   4
+  ],
+  [
+   "1.1 CONFIGURATION OF CARRIER PORT",
+   4
+  ],
+  [
+   "3.1 PURPOSE OF RETICLE CHECK",
+   4
+  ],
+  [
+   "(6) LIA Sensor (Laser Interferometer Alignment Sensor)",
+   4
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (3) EGA Around Search",
+   4
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (4) Automatic OF Retry",
+   4
+  ],
+  [
+   "Step 4 Wafer Is Exposed",
+   4
+  ],
+  [
+   "3.1.2 Substitute Reticle Assist",
+   3
+  ],
+  [
+   "2.2.1 Reticle Stage Coordinate System",
+   3
+  ],
+  [
+   "(3) ISS (Image Slit Sensor)",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > 6.4.1 Position of EGA Shots",
+   3
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > (3) Around Search (Wafer Search Alignment)",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (1) Correcting the Shot Magnification in the First Layer",
+   3
+  ],
+  [
+   "(1) Reticle ID Name Extraction and Comparison with Reticle Name",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (1) Correcting the Shot Rotation in the First Layer",
+   3
+  ],
+  [
+   "(2) VRA Sensor (Video Reticle Alignment Sensor)",
+   3
+  ],
+  [
+   "4.1 FUNCTION AND PROCESSING SEQUENCE OF THE BASELINE CHECK",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > 6.5.4 Measurement by LIA Sensor",
+   3
+  ],
+  [
+   "(4) Saving the Results of the Reticle Particle Check",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > • Average value mode",
+   3
+  ],
+  [
+   "• Reticle is set in the library in advance",
+   3
+  ],
+  [
+   "6.2.5 Alternative Method When Normal Leveling Is Unfeasible (Shift Leveling)",
+   3
+  ],
+  [
+   "2.1 ILLUMINATION SYSTEM",
+   3
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > (1) Manual Assist for Y Marks",
+   3
+  ],
+  [
+   "1.1 OVERVIEWS OF EXPOSURE BY NSR",
+   3
+  ],
+  [
+   "3.1.1 Function and Processing Sequence of the Reticle Alignment",
+   3
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > 5.5.2 Measurement by FIA Sensor",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (3) Combining the Correction Factors Derived in EGA",
+   3
+  ],
+  [
+   "Relevant Info: Processing Sequence of Reticle Stage Set",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > Shot Position Correction for the Second Layer",
+   3
+  ],
+  [
+   "Validity Judgment of Focus Calibration Results",
+   3
+  ],
+  [
+   "Wafer stage set is performed in the following sequence:",
+   3
+  ],
+  [
+   "(1) Shift Focusing Using Multipoint Focus",
+   3
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > Measuring the Shift in the Y Direction",
+   3
+  ],
+  [
+   "(5) FIA Sensor (Field Image Alignment Sensor)",
+   3
+  ],
+  [
+   "2.2 PROJECTION SYSTEM",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > 7.5 SHOT MAGNIFICATION CORRECTION",
+   3
+  ],
+  [
+   "(1) The Reticle that Can Undergo the Reticle Particle Check",
+   3
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > 5.7.1 Automatic Recovery Processing for an Error in Wafer Search Alignment",
+   3
+  ],
+  [
+   "\\~ Shot Criteria for Normal Leveling \\~",
+   3
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > (1) The Focusing Sensors Used in EGA Measurement and Execution Timing",
+   3
+  ],
+  [
+   "6.2.3 Whether or Not to Perform Leveling",
+   3
+  ],
+  [
+   "(3) Function for Preventing Excessive Reticle Rotation",
+   3
+  ],
+  [
+   "3.2.2 Adjusting the Results of Reticle Alignment Check",
+   3
+  ],
+  [
+   "6.1.1 Principle of Focusing",
+   3
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > Wafer Coordinates Adjustment (m)",
+   2
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > • Shot magnification correction",
+   2
+  ],
+  [
+   "6.1.5 Alternative Methods When Normal Focusing Is Unfeasible (Shift Focusing) \\~ Focusing for Shots on the Wafer Edge \\~",
+   2
+  ],
+  [
+   "• Best level when leveling is performed",
+   2
+  ],
+  [
+   "b. Focus Calibration on Wafer Exposure",
+   2
+  ],
+  [
+   "4.2 CONDITIONS FOR EXECUTING BASELINE CHECK > (1) Focusing in Search Alignment",
+   2
+  ],
+  [
+   "5.7 ERROR PROCESSING IN WAFER SEARCH ALIGNMENT > 6.1.2 EGA Calculation Model",
+   2
+  ],
+  [
+   "[2] Focus Calibration Offset Adjustment (m)",
+   2
+  ],
+  [
+   "4.2.2 Execution Timing",
+   2
+  ]
+ ]
+}

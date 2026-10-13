@@ -1,0 +1,48 @@
+{
+ "01_CMP_6DS-SP": {
+  "pass": 24,
+  "fail": 1,
+  "no_frag": 0
+ },
+ "02_DB800_固晶机": {
+  "pass": 25,
+  "fail": 0,
+  "no_frag": 0
+ },
+ "03_WAFER_HANDLER_Mi30": {
+  "pass": 24,
+  "fail": 1,
+  "no_frag": 0
+ },
+ "04_清洗技术_pv94": {
+  "pass": 24,
+  "fail": 1,
+  "no_frag": 0
+ },
+ "05_减薄_7AF": {
+  "pass": 25,
+  "fail": 0,
+  "no_frag": 0
+ },
+ "07_机器人_magnatran": {
+  "pass": 25,
+  "fail": 0,
+  "no_frag": 0
+ },
+ "08_清洗技术_VIII": {
+  "pass": 25,
+  "fail": 0,
+  "no_frag": 0
+ },
+ "09_MKS仪器手册": {
+  "pass": 22,
+  "fail": 3,
+  "no_frag": 0
+ },
+ "_SUMMARY": {
+  "total": 200,
+  "pass": 194,
+  "fail": 6,
+  "pass_rate": 0.97
+ }
+}

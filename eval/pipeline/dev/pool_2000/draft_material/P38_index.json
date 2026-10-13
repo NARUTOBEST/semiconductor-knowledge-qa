@@ -1,0 +1,326 @@
+{
+ "doc": "Nano-Lithography (Stefan Landis)",
+ "chunks": 1284,
+ "headings": [
+  [
+   "NanoImprint Lithography > 2.7. A few remarks on the mechanical behavior of molds and flow properties of the NanoImprint process",
+   39
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.3. X-ray absorption in a resist and physical mechanisms involved in its exposure",
+   36
+  ],
+  [
+   "Nano-Lithography > “An image is a pure creation of spirit.” (Pierre Reverdy)",
+   31
+  ],
+  [
+   "Introduction Implications of Lithography",
+   31
+  ],
+  [
+   "Patterning with Self-Assembling Block Copolymers > 5.3. Technological applications of block copolymer films",
+   29
+  ],
+  [
+   "NanoImprint Lithography > 2.4.4. Surface treatment of the mold",
+   26
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 2 Nano-Lithography",
+   26
+  ],
+  [
+   "NanoImprint Lithography > 2.5.3. How can the process impact the thickness of the residual layer?",
+   24
+  ],
+  [
+   "NanoImprint Lithography > 2.3. The fabrication of the mold",
+   24
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.2.6. The mask",
+   23
+  ],
+  [
+   "NanoImprint Lithography > 2.4.3. Adhesion and physico-chemical surface properties",
+   23
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.4. Physical model of electron energy loss in resists",
+   22
+  ],
+  [
+   "NanoImprint Lithography > 2.5.2. Is the thickness of the residual layer predictable?",
+   21
+  ],
+  [
+   "NanoImprint Lithography > 2.2. A few words about NanoImprint",
+   20
+  ],
+  [
+   "Patterning with Self-Assembling Block Copolymers > 5.2. Controlling self-assembled block copolymer films",
+   20
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.2. Diffraction effects on proximity lithography",
+   18
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.8. Rayleigh–Sommerfeld formulation of diffraction by a planar screen",
+   17
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.9. An example of diffraction effects: Poisson’s spot in X-ray lithography",
+   17
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.2. X-ray lithography as a shadow printing technique",
+   17
+  ],
+  [
+   "Introduction Implications of Lithography > Other alternative techniques offer interesting prospects for precise applications:",
+   16
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.7. Basic formulation of diffraction theory for a scalar field",
+   16
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.2.1. The irradiation system for XRL",
+   16
+  ],
+  [
+   "NanoImprint Lithography > 2.1. From printing to NanoImprint",
+   15
+  ],
+  [
+   "Nano-Lithography > Table of Contents",
+   15
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.2.4. Examples of X-ray lithography beamlines",
+   15
+  ],
+  [
+   "Patterning with Self-Assembling Block Copolymers > 5.1. Block copolymers: a nano-lithography technique for tomorrow?",
+   15
+  ],
+  [
+   "NanoImprint Lithography > 2.4.6. Characterization of the demolding process",
+   14
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.6. Coherence of synchrotron radiation from bending magnet devices",
+   13
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.2.2. Properties of synchrotron radiation",
+   13
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.5.1. Micro-mixer",
+   12
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.2.3.2. Plasmon resonance",
+   11
+  ],
+  [
+   "Metrology for Lithography > 6.4.2.3. CD tip characterization",
+   11
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.2.2.2. Dispersion equation",
+   11
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.3.2. Use of nanoparticle resonances",
+   11
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.3. High resolution 3D nano structuring",
+   11
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.1. How phase and intensity of X-rays are altered by interaction with matter",
+   11
+  ],
+  [
+   "NanoImprint Lithography > 2.6.2.3.2. Quantitative usage",
+   10
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.5.2. Micro-needle fabricated by LIGA and casting",
+   10
+  ],
+  [
+   "Metrology for Lithography > 6.3.3. From signal to quantified measurement",
+   10
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.4. 3D polymer structures by combination of NanoImprint (NIL) and X-ray lithography (XRL)",
+   10
+  ],
+  [
+   "Metrology for Lithography > 6.4.1. AFM principle",
+   10
+  ],
+  [
+   "Metrology for Lithography > 6.5.4.1. Electromagnetic modeling",
+   10
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.5. Conclusions, discussions and perspectives",
+   9
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.3.1.1. Polymer nanophotostructuring",
+   9
+  ],
+  [
+   "NanoImprint Lithography > 2.6.1. Macro-scale approach: coherence between film color and thickness",
+   9
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.6.2. Local anodization under the AFM tip",
+   9
+  ],
+  [
+   "NanoImprint Lithography > 2.6.2.3. Optical scatterometry characterization",
+   8
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.6.2.2. Application to ultra-thin metallic film oxidation",
+   8
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.2. The principle of X-ray lithography",
+   8
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.2. Presentation of local-probe microscopes",
+   8
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.5.3. Microturbine rotors for power generation in portable systems",
+   8
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.4.2. Comparison with competing advanced lithography techniques",
+   8
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.3.1.2. Structuring of inorganic layers",
+   7
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.3.5. Diffraction effects in X-ray lithography",
+   7
+  ],
+  [
+   "NanoImprint Lithography > 2.6.2.4. Characterization by X-ray specular reflectivity",
+   7
+  ],
+  [
+   "Metrology for Lithography > 6.5.4.5.2. Practical limits",
+   7
+  ],
+  [
+   "NanoImprint Lithography > 2.6. Residual layer thickness measurement",
+   7
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.1. Introduction",
+   7
+  ],
+  [
+   "NanoImprint Lithography > 2.4.1. The problem",
+   7
+  ],
+  [
+   "Metrology for Lithography > 6.5.4.5.1. Statistical limits",
+   7
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.9. Micro-optical element for distance measurement",
+   6
+  ],
+  [
+   "NanoImprint Lithography > 2.6.2.2. Atomic force microscopy (AFM)",
+   6
+  ],
+  [
+   "NanoImprint Lithography > 2.6.2.3.3. Using real-time tracking of the imprint",
+   6
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.5.3. Lithography using mechanical indentation",
+   6
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.6.2.1. Application to the fabrication of silicon nanostructures",
+   6
+  ],
+  [
+   "Metrology for Lithography > 6.5.5.4. Background effects",
+   6
+  ],
+  [
+   "NanoImprint Lithography > 2.6.2.1. Scanning electron microscopy (SEM)",
+   5
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.2.5. Scanner/stepper",
+   5
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.4.2. Surface plasmon launch and interferences",
+   5
+  ],
+  [
+   "Lithography Techniques Using Scanning Probe Microscopy > 3.4.3. Industrial development perspectives",
+   5
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.2.2.3. Attenuation distances",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.5. Grating optical diffractometry (or scatterometry)",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.2.1. CD measurement after a lithography stage: definitions",
+   5
+  ],
+  [
+   "X-ray Lithography: Fundamentals and Applications > 1.4.1. Optimal photon energy range for High resolution and Deep X-ray lithography",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.5.4.3. Parameters determination",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.5.2.1. Ellispsometry measurements",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.4.1.6.2. AC or non-contact modes",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.3.2. Matter–electron interaction",
+   5
+  ],
+  [
+   "Lithography and Manipulation Based on the Optical Properties of Metal Nanostructures > 4.4.1. Coupling between nanostructures and delocalized surface plasmons",
+   5
+  ],
+  [
+   "Metrology for Lithography > 6.3.2.2. Secondary electrons",
+   5
+  ]
+ ]
+}

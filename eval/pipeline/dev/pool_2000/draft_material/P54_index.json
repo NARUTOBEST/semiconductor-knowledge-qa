@@ -1,0 +1,326 @@
+{
+ "doc": "形状拟合在晶圆卡盘变形估计中的应用",
+ "chunks": 995,
+ "headings": [
+  [
+   "APPLICATION TO THE ESTIMATION OF WAFER CHUCK DEFORMATION",
+   34
+  ],
+  [
+   "Samenvatting",
+   33
+  ],
+  [
+   "Corrected plate finite element matrices > H.3 Matrix $A ^ { - 1 }$",
+   23
+  ],
+  [
+   "System properties of the wafer chuck > Position with respect to an internal reference",
+   19
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Results",
+   18
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.3.3 Estimator calculation using the complex snapshot matrix",
+   17
+  ],
+  [
+   "Parameters and variables",
+   16
+  ],
+  [
+   "Proper orthogonal decomposition",
+   16
+  ],
+  [
+   "System properties of the wafer chuck > Inverse Finite Element methods",
+   15
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > 4.4.5 Estimation results and discussion",
+   14
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.1.2 Split approach",
+   14
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 6.1.4 Selected shape-based algorithms",
+   14
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 6.2.1 Performance metrics",
+   13
+  ],
+  [
+   "System properties of the wafer chuck > 2.2.3 Modal coordinates",
+   13
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Procedure to obtain shape matrix $\\Phi _ { \\mathrm { m } }$",
+   13
+  ],
+  [
+   "Samenvatting > Contents",
+   13
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > 4.1.1 Method",
+   12
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > FrameSense (FS, 2014)",
+   12
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.4.2 Results and discussion",
+   12
+  ],
+  [
+   "Acknowledgements",
+   12
+  ],
+  [
+   "System properties of the wafer chuck > Double integration of acceleration",
+   12
+  ],
+  [
+   "System properties of the wafer chuck > Single mass-spring-damper system",
+   10
+  ],
+  [
+   "Experimental verification of shape fitting > 7.2.2 Noise performance",
+   10
+  ],
+  [
+   "Conclusions and outlook > Shape fitting in a system with a position controller",
+   10
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > 4.1.2 Comparison between proper orthogonal modes and dynamic modeshapes for shape fitting",
+   10
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.2.3 Shape fitting using the flexible residue",
+   10
+  ],
+  [
+   "Samenvatting > 1.5 Estimating deformation using shape fitting",
+   9
+  ],
+  [
+   "Experimental verification of shape fitting > Plate design",
+   9
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 6.5 Conclusions",
+   9
+  ],
+  [
+   "System properties of the wafer chuck > 2.3.2 Experimental validation",
+   9
+  ],
+  [
+   "Conclusions and outlook > Sensor placement",
+   9
+  ],
+  [
+   "Selection and assessment of the Minus-K vibration isolator > G.2 Experimental evaluation of the Minus-K vibration isolator",
+   9
+  ],
+  [
+   "Kalman filtering",
+   9
+  ],
+  [
+   "Conclusions and outlook > Wafer chuck scaling properties",
+   9
+  ],
+  [
+   "System properties of the wafer chuck > 3.5.4 Integration of the snapshot matrix into shape fitting",
+   9
+  ],
+  [
+   "Conclusions and outlook > 8.2 Final conclusion and future outlook",
+   9
+  ],
+  [
+   "Experimental verification of shape fitting > 7.5.2 Results",
+   8
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > 4.3.3 Error due to sensor noise",
+   8
+  ],
+  [
+   "System properties of the wafer chuck > 3.4.1 Procedure",
+   8
+  ],
+  [
+   "System properties of the wafer chuck > 2.1.4 Immersion layer",
+   8
+  ],
+  [
+   "Experimental verification of shape fitting > 7.1.3 Suspension concepts",
+   8
+  ],
+  [
+   "Experimental verification of shape fitting > 7.6 Conclusions",
+   8
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Example 5.3: 2-DoFs estimation with out-of-phase signals (2)",
+   8
+  ],
+  [
+   "System properties of the wafer chuck > 2.4.3 Sensor placement candidates",
+   7
+  ],
+  [
+   "System properties of the wafer chuck > 2.3.1 Plate finite element",
+   7
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > Example 4.4: Regularisation of the snapshot-based LS estimator",
+   7
+  ],
+  [
+   "Double integration of an acceleration signal",
+   7
+  ],
+  [
+   "Out-of-plane force due to immersion film dynamics > B.2 Force due to viscous damping",
+   7
+  ],
+  [
+   "Experimental verification of shape fitting > Method",
+   7
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Example 5.2: 2-DoFs estimation with out-of-phase signals",
+   7
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > 4.3.4 Least squares solution for least total error",
+   6
+  ],
+  [
+   "System properties of the wafer chuck > 2.1.2 The position and displacement of the wafer chuck",
+   6
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 6.4 Sensor placement applied to the numerical study of the wafer chuck",
+   6
+  ],
+  [
+   "Samenvatting > 1.2 Chip production using wafer scanners",
+   6
+  ],
+  [
+   "System properties of the wafer chuck > 3.1 Definition of the estimation problem",
+   6
+  ],
+  [
+   "Conclusions and outlook > 8.1 Conclusions",
+   6
+  ],
+  [
+   "Out-of-plane force due to immersion film dynamics > B.3 Comparison to literature",
+   6
+  ],
+  [
+   "Experimental verification of shape fitting > 7.2.3 Parasitic effects of the actuator forces and suspension",
+   6
+  ],
+  [
+   "System properties of the wafer chuck > Position with respect to an external reference",
+   6
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Example 5.1: Rigid-body decoupling",
+   6
+  ],
+  [
+   "Samenvatting > 1.7 Method and structure of this thesis",
+   6
+  ],
+  [
+   "Experimental verification of shape fitting > 7.5.1 Method",
+   6
+  ],
+  [
+   "System properties of the wafer chuck > 3.2 Quasi-static system response and estimation",
+   6
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.2.1 The rigid body estimate",
+   6
+  ],
+  [
+   "Comparison of commercial accelerometers > E.1 Accelerometers",
+   6
+  ],
+  [
+   "Samenvatting > 1.3 Smaller details and a higher throughput",
+   6
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.2.2 The flexible residue",
+   5
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Closeness to the global optimum",
+   5
+  ],
+  [
+   "Conclusions and outlook > Techniques for the calculation of the shape fitting estimator",
+   5
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting > 4.2 Estimation using the full snapshot matrix (LS technique)",
+   5
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.6 Conclusions",
+   5
+  ],
+  [
+   "System properties of the wafer chuck > 2.1.5 Foreknowledge on the disturbances",
+   5
+  ],
+  [
+   "Experimental verification of shape fitting > 7.3 Verification of the system model",
+   5
+  ],
+  [
+   "Out-of-plane force due to immersion film dynamics > B.2.1 Force due to inertia",
+   5
+  ],
+  [
+   "System properties of the wafer chuck > 3.6 Conclusions",
+   5
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 6.1.3 Placement algorithms in literature",
+   5
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > 5.1 Shape fitting in presence of position control",
+   5
+  ],
+  [
+   "Shape fitting in presence of rigid body dynamics > Example 6.1: FrameSense – optimisation objective and normalisation",
+   5
+  ],
+  [
+   "System properties of the wafer chuck > 3.5.1 Definition of the snapshot and its mathematical model",
+   5
+  ],
+  [
+   "Snapshot matrix based techniques for shape fitting",
+   5
+  ]
+ ]
+}

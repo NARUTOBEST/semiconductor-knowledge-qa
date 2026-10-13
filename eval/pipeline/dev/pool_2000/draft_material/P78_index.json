@@ -1,0 +1,326 @@
+{
+ "doc": "I12-RF-ERCDLST-231-E1",
+ "chunks": 810,
+ "headings": [
+  [
+   "NOTE",
+   186
+  ],
+  [
+   "3.1 SEQUENCE MODE PARAMETERS",
+   20
+  ],
+  [
+   "◆ 0 to 64 [Lines]",
+   16
+  ],
+  [
+   "• When “Common” is specified for Way of Check Area Specification $( p ) _ { 2 - a 3 }$",
+   14
+  ],
+  [
+   "◆ Continuous",
+   13
+  ],
+  [
+   "ATTENTION : IMPORTANT NOTICE",
+   12
+  ],
+  [
+   "7.1 SEQUENCE MODE (RETICLE CHECK) PARAMETERS",
+   12
+  ],
+  [
+   "4.1.2 Search Alignment Data",
+   11
+  ],
+  [
+   "• Test-4",
+   11
+  ],
+  [
+   "NOTE > 6.1 DESCRIPTION OF PARAMETERS",
+   11
+  ],
+  [
+   "7.6 SEQUENCE SWITCH PARAMETERS",
+   10
+  ],
+  [
+   "CONTENTS",
+   9
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > NOTE",
+   9
+  ],
+  [
+   "• Conditions to make calculating both wafer factors and shot factors possible",
+   8
+  ],
+  [
+   "Examples of Mark Selection for Each Search Mark Choice",
+   7
+  ],
+  [
+   "3.1 DESCRIPTION OF PARAMETERS",
+   7
+  ],
+  [
+   "6.3 TOLERANCE PARAMETERS",
+   7
+  ],
+  [
+   "6.2 TRY COUNT PARAMETERS",
+   6
+  ],
+  [
+   "● FIA",
+   6
+  ],
+  [
+   "4.3 SEQUENCE SWITCH PARAMETERS",
+   6
+  ],
+  [
+   "(s) 5-a7",
+   6
+  ],
+  [
+   "(1) s-shot",
+   6
+  ],
+  [
+   "7.3 SEQUENCE MODE (RETICLE IDENTIFICATION) PARAMETERS",
+   6
+  ],
+  [
+   "◆ 0.0 to 99999.999 [µm]",
+   6
+  ],
+  [
+   "7.2 SEQUENCE MODE (RETICLE LOADING) PARAMETERS",
+   6
+  ],
+  [
+   "5.1 SEQUENCE MODE PARAMETERS",
+   6
+  ],
+  [
+   "5.1.1 Exposure ID",
+   6
+  ],
+  [
+   "4.2 TOLERANCE PARAMETERS",
+   5
+  ],
+  [
+   "◆ No Pre-alignment Assist",
+   5
+  ],
+  [
+   "2.1 SEQUENCE MODE PARAMETERS",
+   5
+  ],
+  [
+   "◆ 0 to 99999 0 [Seconds]",
+   5
+  ],
+  [
+   "7.1.3 Extended EGA Data",
+   5
+  ],
+  [
+   "◆ PD5 series",
+   5
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > 2.3 BASELINE ADJUSTMENT VALUES",
+   5
+  ],
+  [
+   "2.1 DESCRIPTION OF PARAMETERS",
+   4
+  ],
+  [
+   "6.1 SEQUENCE MODE PARAMETERS",
+   4
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > • 2nd exposure",
+   4
+  ],
+  [
+   "◆ 0.0 to 999.999 [µm]",
+   4
+  ],
+  [
+   "5.2.2 Editing Shot Map Data",
+   4
+  ],
+  [
+   "b. Exposure Log Retention Period $( s ) _ { 3 - a 1 9 }$ > Exposure Log Compression Timing (s) 3-a18",
+   4
+  ],
+  [
+   "◆ 0 to 99 1",
+   4
+  ],
+  [
+   "◆ Focus Measurement (Head)",
+   4
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES",
+   4
+  ],
+  [
+   "I12-RF-ERCDLST-231-E1",
+   4
+  ],
+  [
+   "6.4 SEQUENCE SWITCH PARAMETERS",
+   4
+  ],
+  [
+   "6.1 DESCRIPTION OF PARAMETERS",
+   4
+  ],
+  [
+   "7.1.7 Extended Alignment Condition Data",
+   4
+  ],
+  [
+   "(s) 1-a4 Command Parameter Reset Control Mode Sequence Mode",
+   4
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > 2.4 WAFER FOCUS ADJUSTMENT VALUES",
+   3
+  ],
+  [
+   "◆ 1, 2 [Wafers]",
+   3
+  ],
+  [
+   "1. Click [Alignment] in the mode selection area.",
+   3
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > • 1st Exposure > 2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES",
+   3
+  ],
+  [
+   "4.1.1 Wafer Alignment Sensors",
+   3
+  ],
+  [
+   "3. Click [Auto.] in the operation area.",
+   3
+  ],
+  [
+   "CONVENTIONS USED IN THIS MANUAL",
+   3
+  ],
+  [
+   "NOTE > 4.1 SEQUENCE MODE PARAMETERS",
+   3
+  ],
+  [
+   "7.4 SEQUENCE MODE (ASSIGN RETICLE) PARAMETERS",
+   3
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > ◆ -9999.99 to 99999.99 [µrad]",
+   3
+  ],
+  [
+   "2.2.1 Editing Precautions",
+   3
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > 2.6 LENS MAGNIFICATION ADJUSTMENT",
+   3
+  ],
+  [
+   "2.1 WAFER PREALIGNMENT ADJUSTMENT VALUES > 2.2 WAFER COORDINATE ADJUSTMENT VALUES",
+   3
+  ],
+  [
+   "5.1.3 Offset ID",
+   2
+  ],
+  [
+   "(s) 1-a7 Automatic Start in GEM Ready State (PROCESS) Sequence Mode",
+   2
+  ],
+  [
+   "1. Click the reticle name field of the target blind ID in the reticle list, then enter Reticle Name (p) 2-a1 .",
+   2
+  ],
+  [
+   "(s) 3-a12 Magnification Control for Reticle Elasticity Sequence Mode 1/2",
+   2
+  ],
+  [
+   "7.1.1 Extended Exposure Data",
+   2
+  ],
+  [
+   "Setting EGA Shots Automatically",
+   2
+  ],
+  [
+   "4.1 SEQUENCE MODE PARAMETERS",
+   2
+  ],
+  [
+   "7.1.5 Extended Sequence Parameter",
+   2
+  ],
+  [
+   "(2) Specify Parameters",
+   2
+  ],
+  [
+   "(s) 1-a8 Automatic Start in GEM Ready State (DIAGNOSIS) Sequence Mode",
+   2
+  ],
+  [
+   "NOTE > 7.5 SEQUENCE MODE (SMIF) PARAMETERS",
+   2
+  ],
+  [
+   "◆ 0.0 to 9999.999 [µm]",
+   2
+  ],
+  [
+   "Alignment ID",
+   2
+  ],
+  [
+   "(s) 5-a13 Magnification Calibration Judgment Mode (CALIBRATE)Sequence Mode",
+   2
+  ],
+  [
+   "7.1.6 Wafer Edge Exposure Data",
+   2
+  ],
+  [
+   "7.6 SEQUENCE SWITCH PARAMETERS > 7.6 SEQUENCE SWITCH PARAMETERS",
+   2
+  ],
+  [
+   "(2) Specify the Alignment Data",
+   2
+  ],
+  [
+   "7.1.2 Multipoint Focus Data",
+   2
+  ],
+  [
+   "5.1.4 Blind ID",
+   2
+  ]
+ ]
+}

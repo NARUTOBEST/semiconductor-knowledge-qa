@@ -52,12 +52,25 @@ class TestRulePrescreen:
         assert clarify.check_clarify("q", [])["need_clarify"] is False
 
     def test_ambiguous_with_history_defers_to_llm(self):
-        # 有历史时代词可能可消解,规则不应下定论 -> _rule_prescreen 返回 None
+        # 最近两轮历史含具体型号 -> 指代可消解,规则直接定论不澄清(2026-10-04 新规)
         history = [{"role": "user", "content": "介绍一下 TMA 前驱体"},
                    {"role": "assistant", "content": "TMA 是三甲基铝..."}]
-        assert clarify._rule_prescreen("它怎么保养?", history) is None
-        # 但含型号的仍规则放行
+        ruled = clarify._rule_prescreen("它怎么保养?", history)
+        assert ruled is not None and ruled["need_clarify"] is False
+        # 含型号的仍规则放行
         assert clarify._rule_prescreen("TMA 温度", history) is not None
+        # 历史无型号/专名 -> 规则不下定论,交给 LLM 结合历史判断
+        bare = [{"role": "user", "content": "在吗"},
+                {"role": "assistant", "content": "在的,请问有什么可以帮您?"}]
+        assert clarify._rule_prescreen("它怎么保养?", bare) is None
+        # 型号只在两轮窗口之外 -> 不再消解当前指代,仍交给 LLM
+        stale = [{"role": "user", "content": "聊聊 TMA"},
+                 {"role": "assistant", "content": "TMA 是三甲基铝"},
+                 {"role": "user", "content": "换个话题"},
+                 {"role": "assistant", "content": "好的,请讲"},
+                 {"role": "user", "content": "帮我查个东西"},
+                 {"role": "assistant", "content": "好的,请问查什么?"}]
+        assert clarify._rule_prescreen("它怎么保养?", stale) is None
 
 
 class TestLlmClarify:

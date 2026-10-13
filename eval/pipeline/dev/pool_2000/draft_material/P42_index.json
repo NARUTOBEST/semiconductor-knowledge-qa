@@ -1,0 +1,326 @@
+{
+ "doc": "mx_series说明书-英文完整版",
+ "chunks": 1180,
+ "headings": [
+  [
+   "Timing Belt Tension check > Table of Contents",
+   106
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > Appendix",
+   46
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > Contents",
+   24
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Table of Contents",
+   20
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Nozzle Check",
+   16
+  ],
+  [
+   "Mx-Series Manual Configuration > • Features",
+   15
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > A. Mx-Series Specification Sheet-Mx400(S)/P(S)",
+   15
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > Figure List",
+   12
+  ],
+  [
+   "Mx-Series Manual Configuration > • Structure",
+   12
+  ],
+  [
+   "Mx-Series Manual Configuration > Table of Contents",
+   11
+  ],
+  [
+   "Mx-Series Manual Configuration > Nozzles Applicable by Component",
+   10
+  ],
+  [
+   "Mx-Series Manual Configuration > 1. Spare parts",
+   9
+  ],
+  [
+   "Mx-Series Manual Configuration > • Functions",
+   9
+  ],
+  [
+   "Mx-Series Manual Configuration > Safety Instructions",
+   8
+  ],
+  [
+   "Mx-Series Manual Configuration > High Reliability",
+   8
+  ],
+  [
+   "Trouble shooting guide during production",
+   8
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Revision History",
+   7
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > CIS 3 : Utility & Line Layout",
+   7
+  ],
+  [
+   "Mx-Series Manual Configuration > 2) Using the System Setup Program:",
+   7
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > Setting Tray X-Pitch and Y-Pitch",
+   7
+  ],
+  [
+   "Setup > \\* Measurement",
+   7
+  ],
+  [
+   "Mx-Series Manual Configuration > Grounding",
+   6
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > • Ref ID",
+   6
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Align Position Setting",
+   6
+  ],
+  [
+   "Mx-Series Manual Configuration > Features",
+   6
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > ⑤ Module: Gantry",
+   6
+  ],
+  [
+   "Mx-Series Manual Configuration > Structure The Mx-Series system consists of several assemblies as seen in <Figure 4-2> below. Each",
+   6
+  ],
+  [
+   "Mx-Series Manual Configuration > CIS 3 : Utility & Line Layout",
+   6
+  ],
+  [
+   "2-2 Trolley User Manual",
+   6
+  ],
+  [
+   "PREFACE",
+   6
+  ],
+  [
+   "Mx-Series Manual Configuration > Rear Side- Mx400",
+   5
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > G. Block Diagram",
+   5
+  ],
+  [
+   "Mx-Series Manual Configuration > Setup",
+   5
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > 4. VME RACK",
+   5
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > \\* Diagnosis Tab",
+   5
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Regular Checklist by Unit",
+   5
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Rear - Mx400",
+   5
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Check Procedure",
+   5
+  ],
+  [
+   "Mx-Series Manual Configuration > Introduction",
+   5
+  ],
+  [
+   "Mx-Series Manual Configuration > Appearance",
+   5
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > [Place Data Tab]",
+   5
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > Related Position Setting",
+   5
+  ],
+  [
+   "Mx-Series Manual Configuration > PWB position check",
+   5
+  ],
+  [
+   "Guidelines to using this Manual > Regular Maintenance Check",
+   5
+  ],
+  [
+   "Setup > Precautions in operation of C trolley (P45EX, P40EX, P45CX)",
+   5
+  ],
+  [
+   "Note",
+   5
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > Bar Code Printer Driver Installation",
+   5
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Guidelines to using this Operation Manual",
+   4
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > 3. Appendix",
+   4
+  ],
+  [
+   "Mx-Series Manual Configuration > SMEMA Connection",
+   4
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > A. Mx-Series Specification Sheet-Mx200/P/TP",
+   4
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Regular Checklist by Period",
+   4
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200)",
+   4
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > SAFETY INSTRUCTIONS",
+   4
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > [Tray type feeder]",
+   4
+  ],
+  [
+   "Mx-Series Manual Configuration > ↑Warning",
+   4
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > machine.",
+   4
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Warning",
+   4
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Appearance",
+   4
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Z-axis Rack & Pinion check",
+   4
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > Best Fitting",
+   4
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Y-axis Linear Slide checking and greasing",
+   4
+  ],
+  [
+   "mx_series说明书-英文完整版_p501-681",
+   4
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > Bar Code Reader (BCR) Setup",
+   4
+  ],
+  [
+   "Guidelines to using this Manual > 2.Z AXIS",
+   4
+  ],
+  [
+   "Setup > Contents",
+   4
+  ],
+  [
+   "Setup > Machine Setup",
+   4
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > List of Illustrations",
+   4
+  ],
+  [
+   "Setup > Safety Instructions",
+   4
+  ],
+  [
+   "Setup > SAFETY INSTRUCTIONS",
+   4
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > li-tray Supply Unit (MS1)",
+   4
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > Program Installation",
+   4
+  ],
+  [
+   "Setup > 3. Magazine",
+   4
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > Feeder Data Display Table",
+   4
+  ],
+  [
+   "SOFTWARE AND HARDWARE INSTALLATION > Safety Instructions",
+   4
+  ],
+  [
+   "Using HWIF -Setup (Mx100/200) > Using Comp DB Editor",
+   3
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > Setting Floating Sensors",
+   3
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > [Part Inspection]",
+   3
+  ],
+  [
+   "Mirae Optimizer Phoenix 1.0.0.8 > <Figure 6- Comp DB Edit >",
+   3
+  ],
+  [
+   "MACHINE NETWORKING (Mx-Series) > Mx100 Total Assy BOM",
+   3
+  ]
+ ]
+}

@@ -1,0 +1,326 @@
+{
+ "doc": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+ "chunks": 2212,
+ "headings": [
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 6.5.4 Antireflection coating (ARC) (by B.J. Lin and S.S. Yu)",
+   65
+  ],
+  [
+   "Optical Lithography > 4.4.2 The lumped parameters",
+   47
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.5.2.5 Simulation results with PDS",
+   30
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.5.1.1 Recombination of spatial frequency vectors in the resist",
+   29
+  ],
+  [
+   "Optical Lithography > Contents",
+   28
+  ],
+  [
+   "Optical Lithography > 2.2 Proximity Imaging",
+   27
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.1.5 Exposure tool throughput management",
+   25
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 6.5.1.2 Working principle",
+   24
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.1.4.2 Focus monitoring (by S.S. Yu)",
+   23
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 6.5.2.5 Multiple reflections",
+   23
+  ],
+  [
+   "9.2.1 Source power requirement",
+   23
+  ],
+  [
+   "Optical Lithography > 4.1.3 The effect of a finite numerical aperture on the spherical wavefront",
+   22
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.1.4.1 Components of DOF<sub>required</sub>",
+   22
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.6.1.2 Geometrical decomposition",
+   21
+  ],
+  [
+   "Optical Lithography > 4.1.5.1 Coherent imaging from a mask pattern",
+   19
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.7.3 Evaluation of interfield and intrafield overlay error components",
+   19
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.4.4 Edge correction by model-based OPC",
+   19
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.8.3 Monitoring the immersion hood and special routing",
+   19
+  ],
+  [
+   "Optical Lithography > 2.3 Region of Validity for Various Approximations of Diffraction",
+   19
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.6.4 Bubbles in the immersion medium",
+   18
+  ],
+  [
+   "Optical Lithography > 3.4 Step and Scan",
+   18
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.2 Overview of Immersion Lithography",
+   18
+  ],
+  [
+   "9.7.1 Resist sensitivity, throughput, and power at each technology node",
+   18
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 6.5.1.3 Imaging configurations",
+   17
+  ],
+  [
+   "Optical Lithography > 2.4 Proximity Images",
+   17
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.7.2 Poly layer",
+   16
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.6.2 The immersion medium",
+   16
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.1.1 AltPSM",
+   15
+  ],
+  [
+   "Optical Lithography > 3.1 Projection Printing and a Comparison to Proximity Printing",
+   15
+  ],
+  [
+   "Optical Lithography > 4.4 The Resist Image",
+   15
+  ],
+  [
+   "Optical Lithography > 4.1.6.2 Spatial frequencies of line–space pairs",
+   15
+  ],
+  [
+   "9.1 Introduction",
+   15
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.5.2.2 Stray light from recombination of spatial frequency vectors inside the resist",
+   14
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.1.2 AttPSM",
+   14
+  ],
+  [
+   "Optical Lithography > 3.2 Full-Wafer Field",
+   14
+  ],
+  [
+   "Optical Lithography > 2.1 Introduction",
+   14
+  ],
+  [
+   "Optical Lithography > 4.4.1 The A, B, C coefficients",
+   14
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.2.4 Simulation results",
+   14
+  ],
+  [
+   "Appendix A Methods to Evaluate the Region of Validity Based on Lithography Applications > A.2 Similarity of the Approximation Methods According to the Pearson Correlation Coefficient",
+   14
+  ],
+  [
+   "Optical Lithography > 2.5 E-G Diagram",
+   13
+  ],
+  [
+   "9.6.2 CAR EUV resists",
+   13
+  ],
+  [
+   "9.6.3 Non-CAR EUV resists",
+   13
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.7.2 Using measured data for alignment",
+   12
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.6.1.4 CDU summation",
+   12
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.6.2.2 Active compensation on tracks",
+   12
+  ],
+  [
+   "Optical Lithography > 4.1.2 Spherical wavefront",
+   12
+  ],
+  [
+   "Optical Lithography > 4.1.4.2 The Zernike polynomials",
+   12
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 6.3.4.3 PSM types and their mechanisms for imaging improvement",
+   12
+  ],
+  [
+   "Optical Lithography > Preface to the Second Edition",
+   12
+  ],
+  [
+   "9.3.2.2 Overlay and focusing errors from mask flatness",
+   12
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.2.2.1 Analysis of three-beam images",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.2.3 Resist developing",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.2.3 3D illumination on 2D geometry",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.5.1.3 Different effects of polarized illumination",
+   11
+  ],
+  [
+   "Optical Lithography > 3.5 Reduction and 1X Systems",
+   11
+  ],
+  [
+   "Optical Lithography > 4.2.2 Impact of multiple reflections on DOF",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.7.3 Contact layer",
+   11
+  ],
+  [
+   "Optical Lithography > 4.5 From Aerial Image to Resist Image",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.5.2.4 Incorporating polarization effects into E-D windows",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.4.1 Transmission and reflection in multilayered media",
+   11
+  ],
+  [
+   "Optical Lithography > 4.1.7 Imaging results",
+   11
+  ],
+  [
+   "Optical Lithography > 4.1.5.3 Partially coherent imaging from a mask pattern",
+   11
+  ],
+  [
+   "9.4.4.1 EUV AltPSM",
+   11
+  ],
+  [
+   "Appendix A Methods to Evaluate the Region of Validity Based on Lithography Applications > S",
+   11
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.2.1 Conceptual illustration",
+   10
+  ],
+  [
+   "Optical Lithography > 5.1 The Resolution and DOF Scaling Equations",
+   10
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.7.1 Simulation of immersion lithography",
+   10
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.2.1.5 Conserving resist material",
+   10
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.6.7 The photoresist",
+   10
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.1.1 Optimization of the NA",
+   10
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.1 Introduction",
+   10
+  ],
+  [
+   "9.3.3 EUV mask fabrication",
+   10
+  ],
+  [
+   "9.9 Outlook of Lithography",
+   10
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.3.2.6 Combination of OAI and AltPSM",
+   9
+  ],
+  [
+   "Optical Lithography > 3.3 Step and Repeat",
+   9
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.2.2.3 Post-exposure bake",
+   9
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 6.3 Masks",
+   9
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 8.5.1.2 Polarized refraction and reflection at the resist surface",
+   9
+  ],
+  [
+   "Chapter 6 Hardware Components in Optical Lithography > 7.5.1 Principle of the multiple-patterning technique (MPT)",
+   9
+  ],
+  [
+   "Optical Lithography > 5.5.6.6 Combination of resist-processing tolerances",
+   9
+  ]
+ ]
+}

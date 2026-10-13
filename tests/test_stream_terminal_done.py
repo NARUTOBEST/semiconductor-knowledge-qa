@@ -109,9 +109,9 @@ class TestRouterFallbackDone:
         def _leaky(message, history, **k):
             yield {"type": "error", "message": "boom"}
         with patch.object(cr, "react_stream", _leaky), \
-             patch.object(cr, "acquire_user_slot"), \
+             patch.object(cr, "acquire_session_slot"), \
              patch.object(cr, "acquire_global_slot"), \
-             patch.object(cr, "release_user_slot"), \
+             patch.object(cr, "release_session_slot"), \
              patch.object(cr, "release_all"):
             r = tc.post("/api/chat", json={
                 "message": "你好",
@@ -134,9 +134,9 @@ class TestRouterFallbackDone:
             yield {"type": "token", "delta": "你好"}
             yield {"type": "done", "trace": {}}
         with patch.object(cr, "react_stream", _ok), \
-             patch.object(cr, "acquire_user_slot"), \
+             patch.object(cr, "acquire_session_slot"), \
              patch.object(cr, "acquire_global_slot"), \
-             patch.object(cr, "release_user_slot"), \
+             patch.object(cr, "release_session_slot"), \
              patch.object(cr, "release_all"):
             r = tc.post("/api/chat", json={
                 "message": "你好",

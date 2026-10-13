@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "EUV-01",
+  "query": "EUV 光刻用的曝光波长到底是多少纳米？这个波长对应的光子能量大约是多少 eV?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "中心波长 13.5 nm(表 3A.1 光源要求:Wavelength 13.5 nm);对应光子能量约 92 eV——书中 10.4.2 指出二次电子能量可接近入射光子的全部 92 eV(可由 1240/13.5≈91.9 eV 验证,答 91.9~92 eV 均算对)。",
+  "success_criteria": "答出 13.5 nm 且光子能量为 92 eV(91.9~92 eV 区间均可)且单位正确。",
+  "evidence": "--[p148]-- Wavelength | 13.5 nm …… --[p208]-- Depending on binding energy, these secondary electrons can have energies approaching the full 92 eV of the incident photon."
+ },
+ {
+  "query_id": "EUV-02",
+  "query": "Mo/Si 多层膜反射镜在 13.5 nm 的理论峰值反射率极限是多少？为什么实际做产品时达不到这个理论值？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "理想 Mo/Si 多层膜 N=50、周期 d=6.91 nm 时峰值反射率饱和于约 75.2%(FWHM 0.6 nm);实际峰值反射率受界面扩散/粗糙度等限制,实践中约 70%。",
+  "success_criteria": "答出理论极限约 75.2%(约 75%)且实际约 70%,两个数值都要给出。",
+  "evidence": "--[p331]-- N = 50 d = 6.91 nm R_max = 75.2% FWHM = 0.6 nm …… --[p332]-- the peak reflectance increases with the number of periods, saturating with 50 periods at about 75%. …… --[p333]-- Therefore, in practice, the peak reflectance is limited to about 70%."
+ },
+ {
+  "query_id": "EUV-03",
+  "query": "EUV 光罩 pellicle 对单程 EUV 透过率的要求定在多少？反射式光罩下这个要求合理吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HVM 初步要求 pellicle 薄膜 EUV 单程透过率大于 90%(表 7.2:90% single pass / 81% double pass,空间不均匀性 &lt;0.2%);由于光罩是反射式,光要穿过 pellicle 两次。",
+  "success_criteria": "答出单程透过率要求 &gt;90%,并能提到反射式光罩导致双程透过 81%。",
+  "evidence": "--[p484]-- a top priority requirement for the EUV pellicle is to meet more than 90% single-pass transmittance, as shown in Table 7.2. …… --[p485]-- Pellicle film EUV transmission | 90% single pass (81% double pass); EUV transmission spatial nonuniformity | &lt;0.2%"
+ },
+ {
+  "query_id": "EUV-04",
+  "query": "下一代 0.55 NA 的 EUV 扫描机(ASML High-NA)规格表里,场尺寸、分辨率和产能分别写的多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "表 9.5(ASML High-NA):NA 0.55,场尺寸 26×16.5 mm²(半场),分辨率 8 nm,产能 185 wph,σ 约 0~1/高度可调。",
+  "success_criteria": "NA=0.55、场尺寸 26×16.5 mm²、分辨率 8 nm、产能 185 wph 四项全部答出。",
+  "evidence": "--[p148]-- Table 9.5 The projected high-NA half-field production. Tool | ASML High-NA; NA | 0.55; Field size | 26 × 16.5 mm2; Resolution | 8nm; Throughput | 185 wph …… --[p142]-- the NA of future-generation EUV tools (Table 9.5) will be 0.55. This allows for a resolution of 8-nm lines and spaces."
+ },
+ {
+  "query_id": "EUV-05",
+  "query": "NXE:3300B 实机曝光数据怎么样？能印多密的线条，曝光宽容度和焦深各做到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "NXE:3300B(SPIE AL 2013 数据):16 nm 密集线条具显著工艺余量;剂量容差(曝光宽容度)&gt;15%;焦深 DOF &gt;120 nm;此外 flare 降到 4%。",
+  "success_criteria": "答出 16 nm 密集线、曝光宽容度 &gt;15%、DOF &gt;120 nm 三项。",
+  "evidence": "--[p271]-- Dense lines of 16 nm were printed with significant process margins. Dose tolerance, or exposure latitude, was larger than 15%, proving that the increased contrast due to the reduced flare level of 4% indeed enables a robust imaging process. Depth of focus (DOF) was shown to be larger than 120 nm."
+ },
+ {
+  "query_id": "EUV-06",
+  "query": "收集镜上的锡污染是靠氢气清掉的吗？化学反应式是什么，生成的产物最后去哪了？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "是。Sn + 4·H → SnH₄(氢自由基由 H₂ 解离产生);生成的 SnH₄(stannane,锡烷)在源工作条件下是气体,可被泵抽走。",
+  "success_criteria": "给出反应式 Sn+4H→SnH₄ 并说明产物 SnH₄ 为气态可被泵抽走。",
+  "evidence": "--[p180]-- Sn etching with hydrogen is described by the following reaction: Sn + 4·H → SnH4. Hydrogen radicals ·H are produced in the source by dissociation of molecular hydrogen …… --[p181]-- Once SnH4 (stannane) is formed, it can be pumped away since it is gas under the source conditions."
+ },
+ {
+  "query_id": "EUV-07",
+  "query": "传统聚合物 EUV 胶的吸收系数大概在什么量级？金属氧化物胶能做到多高？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "典型聚合物胶吸收系数约 4 µm⁻¹;金属氧化物(metal oxide)胶最高可到约 20 µm⁻¹(但吸收过高会导致胶体厚度方向曝光不均、侧壁角问题)。",
+  "success_criteria": "答出聚合物约 4 µm⁻¹、金属氧化物最高约 20 µm⁻¹ 且单位正确。",
+  "evidence": "--[p212]-- A typical polymer resist will have an absorptivity of approximately 4 μm−1, whereas metal oxide resists have been shown to achieve values as high as 20 μm−1."
+ },
+ {
+  "query_id": "EUV-08",
+  "query": "EUV 掩膜基板对热膨胀系数 CTE 的标准要求是多少？测 CTE 的设备精度要达到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "SEMI P37-0613 标准:CTE 0±5 ppb/K(总空间变化 6 ppb/K)至 0±30 ppb/K(总空间变化 10 ppb/K);目前没有商用膨胀仪满足 EUVL 要求,测量分辨率需达 1 ppb/K。",
+  "success_criteria": "答出 0±5 ppb/K 与 0±30 ppb/K 两档要求,且测量分辨率 1 ppb/K。",
+  "evidence": "--[p446]-- The mask substrate standard SEMI P37-0613 requires a CTE in the range from 0 ± 5 ppb/K with a 6 ppb/K total spatial variation to 0 ± 30 ppb/K with a 10 ppb/K total spatial variation. Since there is no commercial dilatometer that meets EUVL requirements (measurement resolution of 1 ppb/K), a technique to measure the absolute CTE with high accuracy and reproducibility is required."
+ },
+ {
+  "query_id": "EUV-09",
+  "query": "LPP 光源里中间焦点(IF)处的 EUV 功率是怎么由激光功率算出来的？书里那个公式各项怎么定义，尤其 CE?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "式(3A.1):EUV power at IF (W) = laser power (W) × CE × [1 − overhead] × f。CE 为激光功率转化为 13.5 nm 中心波长 ±2% 带宽内、辐射到 2π sr 立体角的 EUV 功率的转换效率;overhead 为维持晶圆面剂量稳定所需预留的 EUV 功率比例;f 涵盖从等离子体主焦点到 IF 之间真空腔内影响 EUV 传输的物理因素。",
+  "success_criteria": "给出式 3A.1 完整形式,并正确解释 CE(2π sr、13.5 nm ±2% 带宽)、overhead、f 三项含义。",
+  "evidence": "--[p152]-- EUV power at IF (W) = laser power (W) * CE * [1 - overhead] * f …… CE is the conversion efficiency of the laser power into EUV power radiated into 2π sr within 2% bandwidth around the central wavelength of 13.5 nm, overhead is the amount of EUV power required to deliver the specified dose stability, and f includes all of the physical factors in the plasma-containing vessel that impact EUV transmission from the primary focus where plasma is generated to the IF."
+ },
+ {
+  "query_id": "EUV-10",
+  "query": "要把产能做到 100 wph,对 EUV 光源的功率、重复频率和稳定性都有哪些硬指标？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "60% 占空比下 100 wph 需晶圆面功率 &gt;约 550 mW,对应 IF 处光源功率 &gt;250 W(表 3A.1:inband EUV 功率 250 W @20 mJ/cm²,重复频率 &gt;50 kHz,积分能量稳定性 ±0.5%、3σ,经 2 mm 狭缝);此外 IF 到晶圆的总透过率不足 1%(光罩反射、背景气体吸收等)。",
+  "success_criteria": "答出晶圆面 &gt;550 mW、IF &gt;250 W(或 250 W @20 mJ/cm²)、重复频率 &gt;50 kHz、稳定性 ±0.5% 3σ,至少四项中的三项。",
+  "evidence": "--[p146]-- To achieve a throughput of 100 wafers per hour (wph) at a typical scanner duty cycle of 60%, the power at the wafer should be greater than about 550 mW, which means that the EUV source power provided to the exposure tool at IF should be greater than 250 W …… --[p148]-- Table 3A.1: Wavelength | 13.5 nm; EUV power (inband) | 250 W @ 20 mJ/cm²; Repetition frequency | &gt;50 kHz; Integrated energy stability | ±0.5%, 3σ through 2-mm slit."
+ },
+ {
+  "query_id": "EUV-11",
+  "query": "Starlith 3100 那套照明系统支持哪几种标准照明设置？每种能印多小的线条？flare 最终压到了多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Starlith 3100:NA 0.25、MAG 4、全场 26×33 mm 不变;大常规照明(s≈0.8)印 27 nm L/S,环形照明 25 nm,偶极照明 22 nm;ADT flare 16%、初设目标 &lt;8%,实际出货机型 flare &lt;6%(3300/3400 一代进一步到 &lt;4%),Mo/Si 界面粗糙度改善使整机透过率提高 50%。",
+  "success_criteria": "答出 27/25/22 nm 三种设置对应关系,且 flare &lt;6%(目标 &lt;8%)。",
+  "evidence": "--[p267]-- the NA of 0.25, the MAG of 4 and the full-field size remained unchanged …… --[p268]-- 27-nm lines and spaces can be printed with the large conventional setting, 25-nm lines and spaces with the annular setting, and 22-nm lines and spaces with the dipole setting. …… The ADT exhibited a flare level of 16% … a general target for flare of &lt;8% was set. …… The Starlith 3100 generation with flare values &lt;6%—clearly below the original flare target—was shipped …… increasing the transmission of the Starlith 3100 by 50%."
+ },
+ {
+  "query_id": "EUV-12",
+  "query": "EUV 投影物镜每面反射镜要吃掉多少入射光？波前误差从第一代机到现在压到什么水平，高 NA 还要求多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "曝光时每面镜子吸收 40% 的 EUV 光;波前 RMS:第一代 &lt;1 nm → 现行系统 &lt;0.3 nm → 高 NA 要求约 0.15 nm;晶圆台上内联波前传感器单个 Zernike 系数测量精度优于 0.1 nm。",
+  "success_criteria": "答出每面镜吸收 40%,波前 RMS 三档 &lt;1 nm / &lt;0.3 nm / ≈0.15 nm。",
+  "evidence": "--[p157]-- When wafers are exposed, 40% of EUV light is absorbed on every mirror. …… The first-generation EUV systems were characterized by a RMS value less than 1 nm, while current systems have a RMS value below 0.3 nm. The requirement for the high-NA systems should match the ultimate resolution requirement and will need to be around 0.15 nm."
+ },
+ {
+  "query_id": "EUV-13",
+  "query": "EUV 曝光产生的光电子在光刻胶里最远能跑多远？不同团队测的结果差别大吗？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "早期若干团队估计电子迁移距离约 2~4 nm;但 CNSE 与 LBNL CXRO 的实验表明低能电子(15~250 eV)在胶中可穿透达 10 nm,后续结果显示可达 20 nm,说明电子俘获与产酸位置不必邻近。",
+  "success_criteria": "给出 2~4 nm 的估计值和 10 nm(乃至 20 nm)的实验上限两个层次。",
+  "evidence": "--[p47]-- This distance has been estimated by a couple of groups to be on the order of 2–4 nm. …… experiments conducted at CNSE (Fig. 8.17) and at the Center for X-ray Optics (CXRO) of LBNL (Fig. 8.18), have shown that low-energy electrons (15–250 eV) can penetrate up to 10 nm in resists …… --[p48]-- The results by CNSE and CXRO show that electrons can travel up to 20 nm in EUV resists."
+ },
+ {
+  "query_id": "EUV-14",
+  "query": "pellicle 单程透过率 90% 的话，光罩是反射式的要穿两次，到达胶面的剂量还剩百分之多少？对产能影响大概几个点？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "双程透过率 = 0.9 × 0.9 = 0.81,即曝光剂量降为入射的 81%;对应约 20% 的产能损失,且这部分被吸收的能量还会加热 pellicle 薄膜。",
+  "success_criteria": "算出 81%(0.9²)且产能损失 20%,与书中结论一致。",
+  "evidence": "--[p482]-- If the EUV pellicle has 90% transmittance, the exposure dose will be reduced to 81% of incident. This means a productivity loss of 20%, and this lost energy will heat the pellicle membrane, potentially inducing thermo-mechanical challenges."
+ },
+ {
+  "query_id": "EUV-15",
+  "query": "按 k1=0.3 估算，13.5 nm 波长配 0.55 NA 单次曝光能到几纳米分辨率？帮我验算一下，跟书里的表能不能对上？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "R = k1·λ/NA = 0.3 × 13.5 nm / 0.55 ≈ 7.36 nm ≈ 7.4 nm,与书中分辨率表(NA 0.55 → 7.4 nm @k1=0.3)一致;同表中 0.33 NA 对应 12.3 nm(0.3×13.5/0.33≈12.27)。",
+  "success_criteria": "算式正确、结果 7.36~7.4 nm,并指出与书中表格数值吻合。",
+  "evidence": "--[p274]-- Figure 5.14 Resolution of an EUVL optical system depending on NA. NA | 0.25 | 0.33 | 0.45 | 0.50 | 0.55; Resolution @k1=0.3 single exposure / nm | 16.2 | 12.3 | 9.0 | 8.1 | 7.4"
+ },
+ {
+  "query_id": "EUV-16",
+  "query": "书里说光柱透过率加倍后，功率/剂量比 8.3 时能跑 125 wph；如果剂量用 60 mJ/cm²，那光源功率得给到多少瓦？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "功率/剂量 = 500 W ÷ 60 mJ/cm² = 8.33 ≈ 8.3,即需要约 500 W 光源功率(与书中 125 wph @ power/dose 8.3 的说法自洽;同一配置在 20 W/(mJ/cm²) 时产能饱和于约 180 wph)。",
+  "success_criteria": "算出 500/60=8.33≈8.3,结论为约 500 W。",
+  "evidence": "--[p146]-- the throughput of this system now saturates at 180 wph for a power/dose around 20 W/(mJ/cm²). And a still very workable throughput of 125 wph is reached at a power/dose of 8.3. In other words, with a dose of 60 mJ/cm², a source power of 500 W is needed."
+ },
+ {
+  "query_id": "EUV-17",
+  "query": "NA 从 0.33 往上提的时候，为什么光罩上入射和反射的光锥会撞在一起？后来业界是用什么 anamorphic 方案解决这个问题的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:NXE:3300B 中 NA_mask=NA/MAG=0.33/4=0.0825,入射/出射光锥靠 CRAO=6 deg 分开;NA 提到 0.4 以上光锥重叠,等效 pupil 边缘遮挡会降 NA。第二跳:解决方案是把 y 方向 MAG 从 4 增到 8(x 方向保持 4)形成 anamorphic(变形)投影,缩小 mask 面光锥角度;6 英寸光罩标准物场成像为 26×16.5 mm 半场,有望支持 ≥150 wph。",
+  "success_criteria": "先解释光锥重叠原因(CRAO 6 deg、NA_mask),再答出 anamorphic 4×/8×(仅 y 方向 8×)与 26×16.5 mm 半场,两跳都命中。",
+  "evidence": "--[p273]-- NA_mask = NA/MAG = 0.33/4x = 0.0825. The incoming and outgoing light cones are separated by a chief ray angle at object (CRAO) of 6 deg …… --[p274]-- The MAG only has to be increased from 4 to 8 in the y direction, while the MAG of 4 can be maintained in the x direction. The MAGs in x and y become different, and thus the MAG becomes direction dependent, a concept called anamorphic projection. …… a standard object field of a 6-inch mask can be imaged onto a half field of size 26 mm × 16.5 mm (after scanning) at the wafer …… has the potential to enable a high throughput of ≥150 wph"
+ },
+ {
+  "query_id": "EUV-18",
+  "query": "EUV 光源真空腔里为什么一定要充氢气做缓冲气体？它对收集镜上的锡到底起了什么作用，净刻蚀速率又是怎么定义的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:缓冲气体需同时完成冷却等离子区、阻挡快 Sn 离子、刻蚀收集镜上 Sn 三项功能,且 EUV 吸收不能超过功率预算的 20~30%,氢气三项均最优。第二跳:化学机制为 H₂ 解离成 ·H 后 Sn + 4·H → SnH₄(气态被抽走);净刻蚀速率 K_net = K_SnH4-formation × (1 − K_Sn-redep),即生成速率扣去 Sn 再沉积(光解/催化分解)的影响。",
+  "success_criteria": "答出三大功能(含 20~30% 吸收上限)、Sn+4H→SnH₄ 反应、K_net 定义式三项。",
+  "evidence": "--[p179]-- It must efficiently cool the region near the plasma and efficiently stop fast Sn ions, and it should be able to efficiently etch Sn from the collector surface … Typically, maximum EUV absorption by the buffer gas of 20–30% is acceptable in the EUV power budget. …… --[p180]-- Sn + 4·H → SnH4 …… --[p181]-- K_net = K_SnH4-formation · (1 − K_Sn-redep), where K_net is the net etch rate of Sn."
+ },
+ {
+  "query_id": "EUV-19",
+  "query": "我想评估上 EUV 的综合成本，这本书里有没有光刻成本(Cost of Ownership)方面的章节或数据？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明《EUV Lithography》第二版未收录 lithography cost of ownership 一章(该章因无新数据且偏历史性被移除,内容保留在第一版中),因此本书第二版不提供 CoO 分析数据;不应凭记忆编造成本数字。",
+  "success_criteria": "正确说明第二版不含成本章节、数据在第一版,且不编造任何成本数值。",
+  "evidence": "--[p23]-- Two earlier chapters, for which we did not have new data and were of historical nature, were not included: a chapter on high-resolution EUV tools for resist exposure and aerial image monitoring … and a chapter on lithography cost of ownership. However, these chapters are preserved for readers in the first edition."
+ },
+ {
+  "query_id": "EUV-20",
+  "query": "顺便问下，从这本书里能查到 EUV 光刻机的市场售价或者报价信息吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书是技术专著,未涉及 EUV 扫描仪的售价/报价信息,无法给出任何价格数字;书中建议需要最新、详细信息时查阅 SPIE 会议论文集及 JM3 期刊(论文库)等来源。",
+  "success_criteria": "明确拒答价格(书中无此信息)且不编造数字,并能给出 SPIE 论文集/JM3 的替代信息来源建议。",
+  "evidence": "--[p23]-- Readers also are encouraged to review the extensive database of SPIE's conference proceedings as well as refereed papers from the Journal of Micro/Nano Lithography, MEMS, and MOEMS (JM3) for detailed, current information about various aspects of EUVL. SPIE's Digital Library (www.spiedigitallibrary.org) remains the most extensive source of EUVL-related information."
+ },
+ {
+  "query_id": "EUV-21",
+  "query": "掩膜基板上有个高斯形状的凸起缺陷，高度 h0=2 nm、FWHM=20 nm，按书里的 SEVD 公式换算成等效球体积直径是多少纳米？这种缺陷能不能被多层膜沉积直接抚平？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索到式(7.2):(SEVD)_G = 2 × [3·h0·(FWHM)² / (16·ln2)]^(1/3);代入 h0=2 nm、FWHM=20 nm:3×2×400=2400,16·ln2≈11.09,2400/11.09≈216.4,立方根≈6.00,×2≈12.0 nm。再检索到 Abbas 等人的结论:深度 &lt;2 nm 且 FWHM &lt;20 nm(即约 12 nm SEVD)的基板缺陷会被其 ML 沉积工艺完全抚平——计算值与文献实例吻合。",
+  "success_criteria": "算式代入正确,结果 12 nm(±0.2 nm),并与书中 Abbas et al. 的 12 nm SEVD 实例相互印证。",
+  "evidence": "--[p449]-- (SEVD)_G = 2(3h0(FWHM)² / 16 ln2)^(1/3) (7.2) …… --[p450]-- Abbas et al. reported that defects &lt;2 nm deep with a FWHM &lt;20 nm (equivalent to 12 nm SEVD) on the substrate were completely smoothed by their ML deposition processes (Fig. 7.6)."
+ },
+ {
+  "query_id": "EUV-22",
+  "query": "10 nm 半间距的接触孔，书里随机模型预测的 CDU 是多少？相对 CDU 有没有超 10% 的要求？要把 QE 和 blur 调到多少才能在 10 nm 上做到 1 nm 的 CDU?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "表 10.4:半间距 10 nm 时 CDU=1.7 nm,相对 CDU = 1.7/10 = 17%,超过 10% 要求(书中也指出 CD 降到 14 nm 以下即无法满足 10% CDU)。优化:把量子效率 QE 从 2 提高到 4、化学 blur 从 7 nm 降到 4 nm,可在 10 nm 接触孔上实现 CDU=1 nm,相对值 1/10=10%,恰好达标(此配置剂量仍为 80 mJ/cm²)。",
+  "success_criteria": "算出 17%(超标)与 10%(达标)两个相对值,并给出 QE 2→4、blur 7→4 nm 的参数组合。",
+  "evidence": "--[p214]-- Table 10.4 MPPM-predicted contact CDU as a function of contact half-pitch. Half-pitch (nm) | CDU (nm): 16 | 1.2; 14 | 1.3; 12 | 1.5; 10 | 1.7. …… once the CD drops to below 14 nm, the 10% CDU requirement can no longer be met …… we consider increasing the QE from 2 to 4 and decreasing the blur from 7 nm to 4 nm. Doing so, we can achieve a CDU of 1 nm on 10-nm contacts."
+ },
+ {
+  "query_id": "EUV-23",
+  "query": "掩膜阴影效应会让 space 印小、line 印大，这个 CD 偏移量跟哪些参数有关？想压制这个效应的话 absorber 该选哪些材料，哪些材料反而更糟？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳(定量关系):Space CD(printed) = CD(designed) − (2d×tanθ)×M,Line CD(printed) = CD(designed) + (2d×tanθ)×M,其中 d 为 absorber 厚度、θ 为光罩面入射角、M 为扫描机缩放倍率——偏移随 absorber 厚度增大而放大。第二跳(材料选择):减薄 absorber 应选对 EUV 消光系数高的 Ni、Pd、Pt、Co;而 TaN 和 Cr 因 Δn(与真空实折射率之差)较大,阴影效应比 Al、Ge 更严重。",
+  "success_criteria": "给出含 2d·tanθ·M 的 CD 偏移公式,并答出推荐材料 Ni/Pd/Pt/Co 与应避开材料 TaN/Cr 两组。",
+  "evidence": "--[p491]-- Space CD (printed) = CD (designed) − (2d × tanθ) × M (7.7) …… Line CD (printed) = CD (designed) + (2d × tanθ) × M (7.8) …… Studies have been performed on reducing the shadowing effect by using thin absorber materials such as Ni, Pd, Pt, and Co, which have high extinction coefficients for the EUV wavelength …… the use of TaN and Cr, which have a larger Δn (the difference between the real part of the refractive index and that of vacuum), results in a larger shadowing effect compared to other materials such as Al and germanium (Ge)."
+ },
+ {
+  "query_id": "EUV-24",
+  "query": "帮我把 ASML LPP 光源这些年的 EUV 功率爬坡路线捋一遍：NOMO、MOPA、MOPA pre-pulse 各代架构分别做到多少瓦，CE 和打在锡滴上的激光功率各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节链式梳理 3A.3.1:①NOMO(NXE:3100):2011 年多家客户现场 10 W 受控 EUV,打滴激光约 8 kW,平均 CE 0.8%,剂量 overhead 近 45%;②MOPA(NXE:3100):30 W 受控 EUV,但无 pre-pulse 限 CE 约 1%;③MOPA+pre-pulse(NXE:3100 平台,2013 年开发中):50 W(30% overhead),打滴 12 kW,CE 2.5%;④NXE:3300B:2014 年中 &gt;40 W → 80 W → 100 W;HPSS/HPDL 后平均 CE &gt;5.5%,2015 底~2016 初 210 W 一小时;⑤2017 Q2 出货配置 250 W(300 W 开环)。",
+  "success_criteria": "至少覆盖 NOMO(10 W/0.8%/8 kW)、MOPA pre-pulse(50 W/2.5%/12 kW)、&gt;5.5% CE 与 210/250 W 里程碑,年份与数值对应正确。",
+  "evidence": "--[p153]-- These light sources produced up to 10 W of dose-controlled EUV power at multiple customer sites by 2011 … the lasers produced roughly 8 kW of power on-droplet … with an average CE of 0.8% and dose overhead near 45%. …… --[p155]-- By 2013, the NXE:3100 MOPA pre-pulse systems under development were capable of 50-W EUV power while meeting dose specifications with 30% overhead … the drive laser was capable of 12-kW on-droplet power with 2.5% CE. …… --[p159]-- … leading to a mean CE in excess of 5.5% … a modified NXE:3300B source with HPSS and HPDL had demonstrated one-hour dose-controlled EUV power at 210 W …… --[p160]-- In the second quarter of 2017, 250 W was achieved in the shipping configuration EUV source to be paired with the NXE:3400B scanner."
+ },
+ {
+  "query_id": "EUV-25",
+  "query": "对比一下 Starlith 3100 和 3300/3400 两代投影物镜：NA 提了多少、分辨率和 flare 指标各有什么变化？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节对比:3100 代 NA 0.25、MAG 4、26×33 mm 全场,常规/环形/偶极分别 27/25/22 nm L/S,flare &lt;6%(目标 &lt;8%);3300/3400 代 NA 提高逾 30% 至 0.33(保持 MAG 4 与 26×33 mm 全场),大常规照明 σ 至 0.9 即可达 22 nm,环形/偶极/四极支撑 18 nm,flare 目标 &lt;4%,NXE:3300B 实印 16 nm 密集线(曝光宽容度 &gt;15%,DOF &gt;120 nm)。",
+  "success_criteria": "NA 0.25→0.33(提高 &gt;30%)、分辨率 27~22 nm→18~16 nm、flare &lt;6%→&lt;4% 三条对比链均正确。",
+  "evidence": "--[p267]-- The NA of the projection optics has been increased by more than 30%—from 0.25 to 0.33—keeping the MAG of 4 and the full-field size of 26 mm × 33 mm (after scanning). …… --[p269]-- The basic illumination setting of the Starlith 3300 is a large conventional pupil filling up to σ 0.9, which is sufficient for 22-nm resolution. In order to enable 18-nm resolution, annular, dipole, and quadrupole base settings are provided …… --[p268]-- currently, a flare target of &lt;4% is required and was indeed achieved for the Starlith 3300/3400 family. …… --[p271]-- Dense lines of 16 nm were printed with significant process margins."
+ }
+]

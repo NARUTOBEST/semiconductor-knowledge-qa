@@ -1,0 +1,155 @@
+{
+ "k": 4,
+ "summary": {
+  "dual0": {
+   "recall@k": 0.0,
+   "hit_n": 0,
+   "n": 0,
+   "err": 16,
+   "rank_hist": {}
+  },
+  "dual1": {
+   "recall@k": 0.0,
+   "hit_n": 0,
+   "n": 16,
+   "err": 0,
+   "rank_hist": {}
+  }
+ },
+ "regression": [],
+ "gain": [],
+ "detail": {
+  "dual0": {
+   "dev_008": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_048": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_076": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_087": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_088": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_100": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_110": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_111": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_123": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_124": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_136": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_148": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_159": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_160": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_175": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   },
+   "dev_195": {
+    "rank": null,
+    "err": "500 Server Error: Internal Server Error for url: http://127.0.0.1:8002/search_te"
+   }
+  },
+  "dual1": {
+   "dev_008": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_048": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_076": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_087": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_088": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_100": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_110": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_111": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_123": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_124": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_136": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_148": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_159": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_160": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_175": {
+    "rank": 0,
+    "n_items": 4
+   },
+   "dev_195": {
+    "rank": 0,
+    "n_items": 4
+   }
+  }
+ }
+}

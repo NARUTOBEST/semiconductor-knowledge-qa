@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P12-01",
+  "query": "书里说软烘一般在什么温度和时间下做？我想确认我们 60 秒热板工艺算不算常规做法。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "典型软烘条件为在热板上 90–120 °C 烘烤 60 s,随后在冷板上冷却以保证晶圆温度一致。",
+  "success_criteria": "答出温度范围 90–120 °C 且时间为 60 s(热板),单位正确。",
+  "evidence": "--[p70]-- Typical soft-bake temperatures are 90–120 °C for 60 s on a hot plate, followed by a cooling step on a chill plate to achieve consistent wafer temperature control."
+ },
+ {
+  "query_id": "P12-02",
+  "query": "工业上正性胶水相显影用的 TMAH 当量浓度是多少？书里给的数值是多少 N?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "0.26 N TMAH。书中在讨论化学放大胶正性水相显影时明确使用 0.26 N TMAH 显影液。",
+  "success_criteria": "答出 0.26 N(允许表述为 0.26 当量浓度 TMAH)。",
+  "evidence": "--[p125]-- In the specific case of positive-tone aqueous development of a chemical amplification resist based on polar deprotected polymeric acid, the carboxylic acid functional group of the latter is quickly ionized in the 0.26 N TMAH developer into its carboxylate anion and proton, creating a polyelectrolyte that is easily dissolved."
+ },
+ {
+  "query_id": "P12-03",
+  "query": "水介质在 25 °C 下的 Bjerrum 长度是多少纳米？这个参数在显影溶解度讨论里起什么作用？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "水在 25 °C 中 Bjerrum 长度 λ_B = e²/(4πε₀εkT) = 0.72 nm;书中指出当离子中心最小间距 (a₊+a₋) &gt; λ_B 时溶解度较高。",
+  "success_criteria": "答出 0.72 nm 且条件为水/25 °C;能提到 λ_B 定义式或溶解度判据任一即可。",
+  "evidence": "--[p179]-- $$\\lambda _ { \\mathrm { B } } = { \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\varepsilon k T } }\\tag{3.96}$$ $( = 0 . 7 2$ nm in water at $2 5 ^ { \\circ } \\mathrm { C } ) . ^ { 5 1 }$"
+ },
+ {
+  "query_id": "P12-04",
+  "query": "热压印光刻(TIL)的压印温度一般比聚合物 Tg 高多少？压力和保压时间大概是什么量级？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "压印(压模)温度典型比聚合物 Tg 高 80–100 °C;压印力约 100–1000 kPa;保压时间为分钟量级；冷却到 Tg 以下后脱模。",
+  "success_criteria": "答出高于 Tg 80–100 °C、压力 100–1000 kPa、保压分钟量级,三项齐全。",
+  "evidence": "--[p467]-- The imprinting or embossing temperature is typically 80–100 °C higher than the $T _ { \\mathrm { g } }$ of the polymer. The imprint force is on the order of 100–1000 kPa, and hold time is on the order of minutes. Demolding or de-embossing takes place after cooling below the $T _ { \\mathrm { g } }$ of the polymer."
+ },
+ {
+  "query_id": "P12-05",
+  "query": "聚烯烃砜电子束胶骨架里那个弱键 C–S 键键能是多少 eV?跟平均 C–C 键差多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "C–S 键能为 2.7 eV,平均 C–C 键为 3.6 eV,弱约 0.9 eV;这一弱键是聚烯烃砜辐射解链灵敏度高的原因。",
+  "success_criteria": "答出 2.7 eV 与 3.6 eV 两个数值(单位 eV),并能说明 C–S 更弱。",
+  "evidence": "--[p374]-- Remarkably, the unique properties of poly(olefin sulfones) that make them suitable for this type of application, their weak C─S bond, was recognized in the 1930s by Marvel and coworkers. The C─S bond has an energy of 2.7 eV compared with 3.6 eV of the average C─C bond."
+ },
+ {
+  "query_id": "P12-06",
+  "query": "HMDS 蒸气增粘之后，用水滴接触角怎么判断片子 prime 得好不好？这本书给的合格范围是多少度？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "用停滴法(sessile drop)测水接触角监测增粘效果；适当增粘的晶圆表面水接触角典型值为 50° &lt; Θ &lt; 70°。",
+  "success_criteria": "答出接触角范围 50–70 度(水的接触角),并提到用接触角/停滴法监测。",
+  "evidence": "--[p57]-- A properly primed wafer surface typically has water contact angle values of 50 deg $&lt; \\Theta &lt; 7 0$ deg. --[p55]-- Placing a stationary droplet of water on a primed wafer and measuring the contact angle is the typical method used to monitor the progress of the adhesion promotion process. This is called the sessile drop technique"
+ },
+ {
+  "query_id": "P12-07",
+  "query": "化学放大胶里一个光酸分子平均能催化多少次放大反应？书里给的这个催化链长范围是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "催化链长定义为单个酸分子引发的放大化学反应平均次数，典型化学放大胶体系中为 10–100。",
+  "success_criteria": "答出范围 10–100,并正确表述催化链长定义。",
+  "evidence": "--[p101]-- Thus, one acid can catalyze multiple reactions in series, with the catalytic chain length (defined to be the average number of amplification chemical events caused by one acid molecule) being in the range of 10 to 100 in a typical chemical amplification resist system."
+ },
+ {
+  "query_id": "P12-08",
+  "query": "帮我从这本书里查一下 0.26 N TMAH 显影液的配制方法，比如要称多少克 TMAH 溶到多少升水里、用什么浓度的原液稀释。",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书仅将 0.26 N TMAH 作为标准显影液浓度引用(用于讨论显影溶解与双电层模型)，全书未给出任何配制步骤、原液浓度、试剂用量或质量/体积配比；系统应明确表示无法从本书获得该配制信息并建议查阅试剂工艺规范，而不是编造配方。",
+  "success_criteria": "正确拒答配制细节，同时准确引用书中存在的 0.26 N TMAH 浓度信息，不编造克数或体积。",
+  "evidence": "--[p174]-- 3.4.2.2 Case 2: Charged resist surface in TMAH electrolyte solutions For this case, let us consider a charged resist polymeric film surface in an aqueous 0.26 N TMAH electrolyte solution (Fig. 3.7)."
+ },
+ {
+  "query_id": "P12-09",
+  "query": "聚邻苯二甲醛(polyphthaldehyde)是怎么合成出来的？聚合温度、催化剂和封端基团分别是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Willson 等在干冰温度 −78 °C 下、以正丁基锂等试剂为催化剂经阴离子聚合制备了分子量 100,000–500,000 道尔顿的多种聚邻苯二甲醛样品，并用乙酰基封端，封端后聚合物稳定至约 198 °C。",
+  "success_criteria": "答出 −78 °C(干冰)、正丁基锂/阴离子聚合、乙酰基(acetyl)封端、分子量 10 万–50 万 dalton,至少三项正确。",
+  "evidence": "--[p381]-- Willson et al. have successfully prepared numerous samples of polyphthaldehyde ranging in molecular weights between 100,000 and 500,000 daltons by anionic polymerization in dry-ice conditions $( - 7 8 ^ { \\circ } \\mathrm { C } )$ , using n-butyl lithium and similar reagents as catalysts; acetyl groups were used to endcap the polymer (see Scheme 4.79), which is remarkably stable up to 198 °C."
+ },
+ {
+  "query_id": "P12-10",
+  "query": "溶剂退火时溶剂蒸发快慢对 PS-b-PB-b-PS 三嵌段共聚物里圆柱畴的取向有什么影响？书里给了哪几档蒸发速率？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Kim 和 Libera 的结果：很慢的蒸发速率 0.2 nL/s 诱导圆柱面内(in-plane)取向；中等蒸发速率 5 nL/s 诱导圆柱垂直取向；快蒸发 200 nL/s 得到长程有序差的垂直微相分离结构。",
+  "success_criteria": "三档速率 0.2、5、200 nL/s 与对应取向(面内/垂直/垂直但有序差)全部对应正确。",
+  "evidence": "--[p453]-- Very slow solvent evaporation rates (0.2 nL/s) induced inplane formation of cylinders, intermediate evaporation (5 nL/s) induced vertical orientation of cylinders, while fast evaporation (200 nL/s) induced vertical microphase separated structures with poor long-range order."
+ },
+ {
+  "query_id": "P12-11",
+  "query": "PS-b-PEO 这对嵌段对的 χ 值是多少？书里说它经苯加水气氛溶剂退火两天后能拿到多大尺寸的垂直取向单晶畴？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "PS-b-PEO 的 χ = 0.08;在苯与水气氛中溶剂退火两天后获得了 5 μm² 的垂直取向圆柱单晶畴。",
+  "success_criteria": "答出 χ = 0.08 和 5 μm²(退火气氛为苯+水、两天)。",
+  "evidence": "--[p452]-- strongly segregating block pairs such as poly(styrene-b-ethylene oxide) (PS-b-PEO, $\\chi \\ : = \\ : 0 . 0 8 )$ are capable of low defect densities after exposure to solvent vapor. --[p452]-- For instance, $5 \\ \\mathrm { \\textmu m } ^ { 2 }$ single grains of vertically oriented cylinders have been achieved with PS-b-PEO exposed to an atmosphere of benzene and water for two days."
+ },
+ {
+  "query_id": "P12-12",
+  "query": "NBHFA/二氧化硫/碳-叔丁氧基降冰片烯(CBN)三元共聚物胶在 193 nm 的光学密度是多少？这个体系最大的缺点是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "该砜类三元共聚物在 193 nm 高度透明，光学密度约 0.25/μm,已成功用于 193 nm 光刻；主要缺点是等离子刻蚀 resistance 差(poor plasma etch resistance)。",
+  "success_criteria": "答出光学密度约 0.25/μm(193 nm)与缺点为耐等离子刻蚀性差，两项齐全。",
+  "evidence": "--[p355]-- A terpolymer of norbornene hexafluoroisopropanol (NBHFA), sulfur dioxide, and carbo-t-butoxy norbornene (CBN) (see Scheme 4.62) has been reported to be highly transparent at 193 nm (optical density ${ \\sim } 0 . 2 5 / \\mu \\mathrm { m } )$ and successfully used in 193-nm resist applications. A major drawback of this sulfone terpolymer resist is its poor plasma etch resistance."
+ },
+ {
+  "query_id": "P12-13",
+  "query": "二芳基碘鎓盐和三芳基硫鎓盐的最大吸收大概在哪个波长？300 nm 以上还有吸收吗？可以用哪些染料给碘鎓盐做光谱增敏？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "两者的吸收峰约在 250 nm,300 nm 以上无显著吸收；可用吖啶黄(acridine yellow, λmax=411 nm)、benzoflavin(λmax=460 nm)、吖啶橙(acridine orange, λmax=539 nm)等染料对碘鎓盐进行光谱增敏。",
+  "success_criteria": "答出约 250 nm、300 nm 以上无吸收,并给出至少一种增感染料及其 λmax。",
+  "evidence": "--[p319]-- the absorption maxima of diaryliodonium and triarylsulfonium salts lie around 250 nm. These salts have no appreciable absorption above 300 nm. Dyes such as acridine yellow $( \\lambda _ { \\mathrm { m a x } } { = } 4 1 1 \\ \\mathrm { n m } )$ benzoflavin $( \\lambda _ { \\operatorname* { m a x } } = 4 6 0 \\ : \\mathrm { n m } )$ , acridine orange $( \\lambda _ { \\mathrm { m a x } } = 5 3 9 \\mathrm { n m } )$ , etc. --[p319]-- can be used to spectrally sensitize iodonium salts."
+ },
+ {
+  "query_id": "P12-14",
+  "query": "当光酸的固有扩散系数远大于其反离子时，双极(ambipolar)扩散系数趋近于什么值？决定曝光后线宽 CD 的是哪个扩散系数？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "当 D_H⁺ 远大于 D_X⁻ 时，有效(双极)扩散系数趋于 2D_X⁻;影响打印图形关键尺寸 CD 的是双极扩散系数 D_a,而与灵敏度/化学放大相关的是固有酸扩散系数 D_H⁺。",
+  "success_criteria": "答出极限值 2D_X⁻,并正确区分 D_a 决定 CD、D_H⁺ 决定灵敏度。",
+  "evidence": "--[p210]-- Given that the intrinsic diffusion coefficient of the acid $D _ { H ^ { + } }$ is much larger than that of its counter ion $D _ { X ^ { - } }$ the effective acid diffusion coefficient becomes equal to $2 D _ { X ^ { - } }$ --[p210]-- It is this ambipolar diffusion coefficient $D _ { \\mathrm { a } }$ that affects the printed feature critical dimension, while the diffusion coefficient that is related to the sensitivity or chemical amplification of the resist is the intrinsic acid diffusion coefficient $D _ { H ^ { + } }$"
+ },
+ {
+  "query_id": "P12-15",
+  "query": "书里把 van der Waals 力拆成哪三个分量？各叫什么名字、对分子间距是什么次幂依赖？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "三个分量为取向(Keesom)力、诱导(Debye)力和色散(London)力；三者对距离均为 −r⁶ 依赖，总相互作用 w_VDW = −(C_D+C_K+C_L)/r⁶(式 3.20)。",
+  "success_criteria": "三分量名称(Keesom/Debye/London 或取向/诱导/色散)齐全,且指出 r⁶ 依赖。",
+  "evidence": "--[p154]-- Three main components constitute the overall van der Waals forces: orientation, induction, and dispersion forces. --[p156]-- which is usually referred to as the orientation or Keesom interaction, named after its discoverer. --[p157]-- Because the value of $\\nu _ { i }$ is determined experimentally from the dispersion of the refractive index, London forces are also referred to as dispersion forces. --[p157]-- they can be written in a single equation that describes the total van der Waals contribution to the free energy of interaction"
+ },
+ {
+  "query_id": "P12-16",
+  "query": "软烘温度一般 90–120 °C,那大多数光刻胶溶剂的沸点是多少？为什么软烘阶段溶剂不会被大量蒸掉？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "大多数光刻胶溶剂的沸点约 140 °C,明显高于软烘温度(90–120 °C),因此软烘主要是使薄膜致密并驱除残余溶剂而非沸腾蒸发；若做后烘则温度可接近溶剂沸点以最大化除溶剂。",
+  "success_criteria": "答出溶剂沸点约 140 °C,并能解释其高于软烘温度 90–120 °C 这一点。",
+  "evidence": "--[p70]-- Typical soft-bake temperatures are 90–120 °C for 60 s on a hot plate... The boiling points of most resist solvents are on the order of 140 °C, far higher than the soft-bake temperatures of resists."
+ },
+ {
+  "query_id": "P12-17",
+  "query": "书里 25 °C 下有 γ = tanh[ψ0(mV)/103] 这个关系式，帮我算一下 ψ0 = 51.5 mV 时的 γ 值，再判断这个电位下能不能直接用 Debye–Hückel 近似。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "按式 (3.87):γ = tanh[ψ0(mV)/103] = tanh(51.5/103) = tanh(0.5) ≈ 0.4621。由于 Debye–Hückel 近似(式 3.88)仅在电位低于约 25 mV(室温热电位，z_i e ψ0 &lt; kT)时成立，而 51.5 mV &gt; 25 mV,故不能使用 Debye–Hückel 近似，需用完整双曲正切表达式。",
+  "success_criteria": "给出 tanh(0.5)≈0.462 的计算结果，并明确判断 51.5 mV 超过 25 mV 阈值、近似不适用。",
+  "evidence": "--[p177]-- $$\\gamma = \\operatorname { t a n h } \\left( \\frac { e \\psi _ { 0 } } { 4 k T } \\right) = \\operatorname { t a n h } \\left[ \\frac { \\psi _ { 0 } ( \\mathrm { { m V } } ) } { 1 0 3 } \\right] \\quad \\mathrm { a t ~ } 2 5 ^ { \\circ } \\mathrm { { C } } .\\tag{3.87}$$ For potentials less than 25 mV, Eq. (3.87) reduces to the well-known Debye– Hückel approximation"
+ },
+ {
+  "query_id": "P12-18",
+  "query": "按书里表 3.2,聚(4-羟基苯乙烯-co-苯乙烯)的均聚物和 80/20 无规共聚物在 0.26 N TMAH 里的溶解速率分别是多少？两者差几倍？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "查表 3.2(室温、0.26 N TMAH):100/0 均聚物 DR = 2050 Å/s;80/20 无规共聚物 DR = 34 Å/s;倍数 = 2050/34 ≈ 60.3 倍，说明增加惰性苯乙烯含量急剧降低溶解速率。",
+  "success_criteria": "两个速率数值 2050 与 34 Å/s 正确,倍数计算在 60 上下(允许 60.3±0.5)。",
+  "evidence": "--[p214 [表]]-- Table 3.2 Effect of copolymer architecture and composition on the dissolution rates of poly(4-hydroxystyrene-co-styrene) in 0.26 N TMAH at room temperature... 100 | 0 | homo | 9950 | 7958 | 1.20 | 2050 --[p214 [表]]-- 80 | 20 | random | 9908 | 8188 | 1.21 | 34"
+ },
+ {
+  "query_id": "P12-19",
+  "query": "我想先确认这本书里用作标准显影液的 TMAH 浓度，然后帮我查聚(4-羟基苯乙烯)均聚物在这个浓度的显影液里、室温下的溶解速率是多少。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：书中标准显影液为 0.26 N TMAH(水相)；第二跳：据此检索表 3.2,100/0 均聚 poly(4-hydroxystyrene-co-styrene) 在 0.26 N TMAH 室温下 DR = 2050 Å/s(Mw 9950, Mw/Mn 1.20)。",
+  "success_criteria": "先答出 0.26 N TMAH 再答出 2050 Å/s,两步检索顺序正确、数值与聚合度/分子量对应无误。",
+  "evidence": "--[p125]-- the carboxylic acid functional group of the latter is quickly ionized in the 0.26 N TMAH developer into its carboxylate anion and proton, creating a polyelectrolyte that is easily dissolved. --[p214 [表]]-- Table 3.2 Effect of copolymer architecture and composition on the dissolution rates of poly(4-hydroxystyrene-co-styrene) in 0.26 N TMAH at room temperature ... 100 | 0 | homo | 9950 | 7958 | 1.20 | 2050"
+ },
+ {
+  "query_id": "P12-20",
+  "query": "帮我查这本书里 PMMA(聚甲基丙烯酸甲酯)胶的 Dill 参数 A、B、C 的具体数值表。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明书中仅以符号形式给出 Dill 型曝光模型关系(如 α_exposed = B、α_unexposed = A + B、A = α_unexposed − α_exposed,以及有效剂量的符号表达式)，全书未提供 PMMA 或任何具体胶的 A、B、C 数值表；系统应如实告知数值缺失，只给出符号关系式，不得编造数值。",
+  "success_criteria": "明确说明无 A/B/C 数值，并正确复述至少一条符号关系式(如 A = α_unexposed − α_exposed)。",
+  "evidence": "--[p90]-- $$\\alpha _ { \\mathrm { e x p o s e d } } = B . \\end{array}\\tag{2.93}$$ $$\\alpha _ { \\mathrm { e x p o s e d } } = A + B .\\tag{2.94}$$ Substituting Eq. (2.93) into Eq. (2.94) yields A: $$A = \\alpha _ { \\mathrm { u n e x p o s e d } } - \\alpha _ { \\mathrm { e x p o s e d } } .\\tag{2.95}$$"
+ },
+ {
+  "query_id": "P12-21",
+  "query": "我想对比两种会自挥发的胶：先查一下聚(丁烯砜) PBS 的天花板温度，再查聚邻苯二甲醛的天花板温度，最后告诉我为什么书里说这两类聚合物都必须在低温甚至深冷条件下合成。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "三跳链式回答:(1) PBS 即聚(丁烯砜)的 Tc ≈ 64 °C,故其自由基共聚合反应温度须刻意保持低温;(2) 聚邻苯二甲醛的 Tc = −40 °C(端基封端后可稳定至约 180–198 °C);(3) 书中指出聚邻苯二甲醛类和某些聚砜因 Tc 低、高于 Tc 即自发解聚，因此必须在深冷条件下制备，Willson 等即在 −78 °C 干冰条件下以正丁基锂经阴离子聚合合成聚邻苯二甲醛。",
+  "success_criteria": "按顺序给出 64 °C、−40 °C 两个 Tc,并完整解释“Tc 低必须深冷合成”的因果链(含 −78 °C 合成实例)。",
+  "evidence": "--[p375]-- The use of poly(olefin sulfones) in resist applications was first demonstrated by Bowden and Thompson at Bell laboratories, who prepared them by radical copolymerization of (liquid) $\\mathrm { S O } _ { 2 }$ with a whole range of olefins, at reaction temperatures deliberately kept low because of the low ceiling temperatures of poly(alkene sulfones). [For poly(butene sulfone), $T _ { \\mathrm { c } } ~ \\sim ~ 6 4 ~ ^ { \\circ } \\mathrm { C }$ . --[p381]-- The $T _ { \\mathrm { c } }$ of poly (phthaldehyde) is $- 4 0 ^ { \\circ } \\mathrm { C }$ ... However, resist polymers such as polyphthaldehydes and some polysulfones, for example, have low $T _ c$ and must therefore be prepared under cryogenic conditions."
+ },
+ {
+  "query_id": "P12-22",
+  "query": "超薄膜失稳理论里，最小失稳时间常数 τ_min 正比于初始膜厚 h0 的 5 次方，临界波数 q_c 反比于 h0 的平方。如果我把初始平均膜厚减半，τ_min 会变成原来的几分之一？q_c 又变成原来的几倍？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "由式 (2.27) τ_min = 4²π²ηh0⁵γ/A²,h0 → h0/2 时 τ_min → (1/2)⁵ = 1/32,即变为原来的 1/32(约 0.031 倍)；由式 (2.26) q_c = (1/h0²)√(A/2πγ),h0 减半时 q_c → 2² = 4 倍。",
+  "success_criteria": "τ_min 比值 = 1/32、q_c 比值 = 4,两个结果均正确且给出对应公式。",
+  "evidence": "--[p65]-- $$q _ { \\mathrm { c } } = \\frac { 1 } { h _ { 0 } ^ { 2 } } \\sqrt { \\frac { A } { 2 \\pi \\gamma } } ,\\tag{2.26}$$ which defines the stable and unstable regions of spatial frequencies. --[p65]-- The minimum time constant $\\tau _ { \\mathrm { m i n } }$ for unstable growth is given by $$\\tau _ { \\mathrm { m i n } } = \\frac { 4 ^ { 2 } \\pi ^ { 2 } \\eta h _ { 0 } ^ { 5 } \\gamma } { A ^ { 2 } }\\tag{2.27}$$"
+ },
+ {
+  "query_id": "P12-23",
+  "query": "我有一颗 Tg = 150 °C 的热压印用热塑胶，按这本书的工艺参数帮我算出压印温度区间，并说明脱模应该满足什么温度条件。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "压印温度 = Tg + 80~100 °C = 150 + 80~100 → 230–250 °C;同时压印力约 100–1000 kPa、保压数分钟；脱模(de-embossing)必须在冷却至 Tg = 150 °C 以下后进行，以保证图形在脱模后保持形状。",
+  "success_criteria": "算出 230–250 °C 区间,并正确指出脱模条件为冷却至 Tg(150 °C)以下。",
+  "evidence": "--[p467]-- The imprinting or embossing temperature is typically 80–100 °C higher than the $T _ { \\mathrm { g } }$ of the polymer. The imprint force is on the order of 100–1000 kPa, and hold time is on the order of minutes. Demolding or de-embossing takes place after cooling below the $T _ { \\mathrm { g } }$ of the polymer. --[p468]-- The process begins with heating the wafer and master to $T _ { 2 } ,$ which is, for example, 80–100°C above the $T _ { \\mathrm { g } }$ of the imprint resist polymer"
+ },
+ {
+  "query_id": "P12-24",
+  "query": "按书里式 (3.177) D_a = 2D_H⁺D_X⁻/(D_H⁺ + D_X⁻):设某化学放大胶中 D_H⁺ = 5×10⁻⁷ cm²/s、D_X⁻ = 1×10⁻⁷ cm²/s,算出双极扩散系数 D_a,再说明它和酸的固有扩散系数谁大、影响曝光后图形 CD 的是哪一个。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "D_a = 2×(5×10⁻⁷)(1×10⁻⁷)/(5×10⁻⁷ + 1×10⁻⁷) = (10/6)×10⁻⁷ ≈ 1.67×10⁻⁷ cm²/s;D_a 远小于固有酸扩散系数 D_H⁺(5×10⁻⁷ cm²/s);按书中结论，影响打印图形关键尺寸 CD 的是双极扩散系数 D_a,而与灵敏度/化学放大相关的是 D_H⁺。",
+  "success_criteria": "算出 D_a ≈ 1.67×10⁻⁷ cm²/s(允许 1.6–1.7 区间)，并正确指出 D_a &lt;&lt; D_H⁺、CD 由 D_a 决定。",
+  "evidence": "--[p210]-- $$D _ { \\mathrm { a } } = 2 \\frac { D _ { H ^ { + } } D _ { X ^ { - } } } { ( D _ { H ^ { + } } + D _ { X ^ { - } } ) } .\\tag{3.177}$$ --[p210]-- It therefore follows that the long-range Coulomb interaction between charged particles greatly reduces the acid diffusion in chemical amplification resists. It is this ambipolar diffusion coefficient $D _ { \\mathrm { a } }$ that affects the printed feature critical dimension"
+ },
+ {
+  "query_id": "P12-25",
+  "query": "书里说 PEB 期间光刻胶的酸损失有哪几种机制？然后据此解释一下 TiN 衬底上光刻胶图形底部出现 footing 的原因，并给出衬底酸捕获的速率表达式和陷阱浓度的定义式。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "链式回答:(1) PEB 期间酸损失机制有三种——聚合物内部陷阱捕获(陷阱远多于酸时为一级动力学 ∂h/∂t′ = −K_loss·h)、从胶顶面蒸发(∂h/∂t′|_{z=0} = −K_evap[h(0,t) − h_air(0,t)])、衬底碱污染;(2) TiN 与 S_xN_y 衬底中的氮充当酸分子的捕获位点，消耗本应参与放大反应的酸，降低显影速率，从而在图形底部形成 footing;(3) 衬底捕获速率为 ∂h/∂t′|_{z=D} = −K_trap·h(D,t)·s(式 2.156),陷阱浓度定义为 s = S/G0(相对初始 PAG 浓度，式 2.155)。",
+  "success_criteria": "列出三种酸损失机制，正确解释 TiN 氮捕获位点→酸减少→显影速率降低→footing 的因果，并写出式 2.156 与 s = S/G0 两个表达式。",
+  "evidence": "--[p107]-- base contamination from the substrate, as has been reported on TiN and $\\mathbf { S } _ { x } \\mathbf { N } _ { y }$ substrates and exemplified by a foot at the bottom of the profile. The nitrogen in these substrates acts as trapping sites for acid molecules, effectively resulting in the reduction of the desired amplification reactions, the development rate, and, consequently, the resist footing. --[p108]-- $$s = \\frac { S } { G _ { 0 } } .\\tag{2.155}$$ The assumption is made that one trap site reacts with one acid molecule, such that the rate of acid trapping in the substrates is therefore expressed as $$\\left. \\frac { \\partial h } { \\partial t ^ { \\prime } } \\right| _ { z = D } = - K _ { \\mathrm { t r a p } } h ( D , t ) s .\\tag{2.156}$$"
+ }
+]

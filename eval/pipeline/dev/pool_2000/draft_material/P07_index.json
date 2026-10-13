@@ -1,0 +1,326 @@
+{
+ "doc": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+ "chunks": 3079,
+ "headings": [
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Device fabrication",
+   104
+  ],
+  [
+   "REFERENCES",
+   61
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Photoelectrochemical solar cells",
+   54
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Strained silicon thin-film transistor performance",
+   51
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > REFERENCES",
+   43
+  ],
+  [
+   "Flexible Chemical Sensors > REFERENCES",
+   43
+  ],
+  [
+   "Flexible Energy Storage Devices Using Nanomaterials > Nanocomposites",
+   42
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Single nanowire transistors",
+   42
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > Direct growth method",
+   41
+  ],
+  [
+   "Mechanics of Stiff Thin Films of Controlled Wavy Geometry on Compliant Substrates for Stretchable Electronics > Mechanics of stiff thin films on compliant wavy substrates",
+   40
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > Attachment method",
+   40
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > (Reprinted with permission from [12] © 2007 American Chemical Society.)",
+   40
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Performance boost by layout optimization",
+   40
+  ],
+  [
+   "Flexible Chemical Sensors > Carbon nanotubes",
+   40
+  ],
+  [
+   "Mechanics of stiff thin films on compliant wavy substrates",
+   39
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Synthesis of semiconductor nanowires",
+   37
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > Flexible single-crystal transistors",
+   36
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Summary",
+   36
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Arrays of aligned $\\operatorname { T i O } _ { 2 }$ nanotubes",
+   34
+  ],
+  [
+   "从光电池学和电子学到传感器和能量储存 > Contents",
+   34
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Nanoscale light-emitting diode and diode array",
+   34
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Arrays of aligned ZnO nanowires",
+   32
+  ],
+  [
+   "Flexible Energy Storage Devices Using Nanomaterials > REFERENCES",
+   32
+  ],
+  [
+   "Flexible Chemical Sensors > Assembly and alignment: nanowires and carbon nanotubes",
+   31
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Transfer printing, planarization and interconnect formation",
+   30
+  ],
+  [
+   "Zinc Oxide Nanowire Arrays on Flexible Substrates: Wet Chemical Growth and Applications in Energy Conversion > Patterned growth",
+   30
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > Field emission from carbon nanotubes",
+   29
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Fabrication of arrays of ultrathin monocrystalline silicon microsolar cells",
+   28
+  ],
+  [
+   "Mechanics of Stiff Thin Films of Controlled Wavy Geometry on Compliant Substrates for Stretchable Electronics > Fabrication of buckled nanoribbons",
+   28
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Arrays of aligned silicon nanowires",
+   28
+  ],
+  [
+   "Flexible Energy Storage Devices Using Nanomaterials > Carbon nanotubes",
+   26
+  ],
+  [
+   "Flexible Energy Storage Devices Using Nanomaterials > Hybrid nanostructures",
+   26
+  ],
+  [
+   "Flexible Chemical Sensors > Nanoscale materials: nanowires, nanotubes and nanoparticles",
+   26
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Photovoltaic characteristics of printed microcells",
+   26
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > FLEXIBLE FIELD EMITTERS BASED ON OTHER MATERIALS",
+   24
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > Substrate patterning and crystal growth",
+   24
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Radiofrequency switch performance",
+   24
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Fluidic flow-directed assembly",
+   24
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > REFERENCES",
+   24
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Properties of nanowires",
+   24
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > Fowler-Nordheim equation",
+   24
+  ],
+  [
+   "从光电池学和电子学到传感器和能量储存 > CHAPTER 10 Mechanics of Stiff Thin Films of Controlled Wavy Geometry on Compliant Substrates for Stretchable Electronics",
+   24
+  ],
+  [
+   "Flexible Chemical Sensors > Optical sensors",
+   23
+  ],
+  [
+   "Flexible Chemical Sensors > Chemiresistive sensors",
+   22
+  ],
+  [
+   "Flexible Chemical Sensors > Graphene",
+   22
+  ],
+  [
+   "Mechanics of Stiff Thin Films of Controlled Wavy Geometry on Compliant Substrates for Stretchable Electronics > Mechanics of controlled buckling of nanoribbons on elastomeric substrate",
+   22
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > CONTENTS",
+   22
+  ],
+  [
+   "Mechanics of controlled buckling of nanoribbons on elastomeric substrate",
+   22
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > CONTENTS",
+   20
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > Principles of field emission",
+   20
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > Integration of mechanically flexible modules and photovoltaic characteristics",
+   20
+  ],
+  [
+   "Flexible Field Emitters Based on Carbon Nanotubes and Other Materials > Composite/matrix method",
+   19
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Device performance",
+   18
+  ],
+  [
+   "Flexible Energy Storage Devices Using Nanomaterials > NANOMATERIALS FOR CATHODES",
+   18
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > CONTENTS",
+   18
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > REFERENCES",
+   18
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > Growth via physical vapor transport",
+   17
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > Results and discussion",
+   16
+  ],
+  [
+   "Thin Films of Single-Walled Carbon Nanotubes for Flexible Electronic Device Applications > HIGH-PERFORMANCE DEVICES BASED ON ALIGNED SINGLE-WALLED CARBON NANOTUBE ARRAYS SWNT thin-film transistors based on aligned arrays",
+   16
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Crossed nanowire devices",
+   16
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > CONCLUSION",
+   16
+  ],
+  [
+   "Thin Films of Single-Walled Carbon Nanotubes for Flexible Electronic Device Applications > SINGLE-WALLED CARBON NANOTUBE FILM AS A FLEXIBLE TRANSPARENT CONDUCTIVE COATING",
+   16
+  ],
+  [
+   "Thin Films of Single-Walled Carbon Nanotubes for Flexible Electronic Device Applications > REFERENCES",
+   16
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > p—n Junction solar cells",
+   15
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > Single nanowire waveguide, Fabry-Perot cavity and laser",
+   15
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > CONTENTS",
+   15
+  ],
+  [
+   "Flexible Solar Cells Made of Nanowires/Microwires > pn Junction solar cells",
+   15
+  ],
+  [
+   "Single nanowire waveguide, Fabry-Perot cavity and laser",
+   15
+  ],
+  [
+   "Flexible Energy Storage Devices Using Nanomaterials > Nanoparticles and non-carbon-based nanotubes",
+   14
+  ],
+  [
+   "Thin Films of Single-Walled Carbon Nanotubes for Flexible Electronic Device Applications > Integrated circuits based on flexible SWNT thin-film transistors",
+   14
+  ],
+  [
+   "Flexible Chemical Sensors > Chemical field-effect transistors",
+   14
+  ],
+  [
+   "Chemically Synthesized Semiconductor Nanowires for High-Performance Electronics and Optoelectronics > SEMICONDUCTOR NANOWIRE BUILDING BLOCKS",
+   14
+  ],
+  [
+   "Thin Films of Single-Walled Carbon Nanotubes for Flexible Electronic Device Applications > Stick-percolation modeling of SWNT films",
+   14
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > REFERENCES",
+   14
+  ],
+  [
+   "Flexible Organic Single-Crystal Field-Effect Transistors > MICROPATTERNED ORGANIC SINGLE CRYSTALS",
+   13
+  ],
+  [
+   "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版_p153-228",
+   13
+  ],
+  [
+   "Thin Films of Single-Walled Carbon Nanotubes for Flexible Electronic Device Applications > Frequency response of SWNT thin-film transistors",
+   12
+  ],
+  [
+   "Fast Flexible Electronics Made from Nanomembranes Derived from High-Quality Wafers > DOPING OF SILICON NANOMEMBRANES",
+   12
+  ],
+  [
+   "从光电池学和电子学到传感器和能量储存 > 目 录",
+   12
+  ],
+  [
+   "Flexible Chemical Sensors > Chemocapacitance sensors",
+   12
+  ]
+ ]
+}

@@ -110,25 +110,25 @@ class TestRatelimitRedis:
         from support import ratelimit
         from fastapi import HTTPException
 
-        tok = ratelimit.acquire_user_slot("u1")
+        tok = ratelimit.acquire_session_slot("u1")
         assert tok  # Redis 模式返回 token
         with pytest.raises(HTTPException) as e:
-            ratelimit.acquire_user_slot("u1")
+            ratelimit.acquire_session_slot("u1")
         assert e.value.status_code == 429
 
-        ratelimit.release_user_slot("u1", tok)
-        assert ratelimit.acquire_user_slot("u1")  # 释放后可再获取
+        ratelimit.release_session_slot("u1", tok)
+        assert ratelimit.acquire_session_slot("u1")  # 释放后可再获取
 
     def test_release_wrong_token_keeps_lock(self, fake_redis):
         from support import ratelimit as rl
         from fastapi import HTTPException
 
-        tok = rl.acquire_user_slot("u2")
+        tok = rl.acquire_session_slot("u2")
         # 用错误 token 释放:锁必须仍在(防误删他人新锁)
-        rl.release_user_slot("u2", "wrong-token")
+        rl.release_session_slot("u2", "wrong-token")
         with pytest.raises(HTTPException):
-            rl.acquire_user_slot("u2")
-        rl.release_user_slot("u2", tok)  # 正确 token 释放成功
+            rl.acquire_session_slot("u2")
+        rl.release_session_slot("u2", tok)  # 正确 token 释放成功
 
     def test_global_zset_slots(self, fake_redis, monkeypatch):
         import config as C
@@ -162,13 +162,13 @@ class TestRatelimitRedis:
         monkeypatch.setattr(state_store, "_client_fn", lambda: Boom())
         monkeypatch.setattr(C, "RATE_LIMIT_QUEUE_TIMEOUT", 0.1)
         monkeypatch.setattr(rl, "_global_sem", threading.Semaphore(2))
-        monkeypatch.setattr(rl, "_user_locks", {})
+        monkeypatch.setattr(rl, "_sess_locks", {})
 
-        assert rl.acquire_user_slot("u3") is None  # 内存模式:token 为 None
+        assert rl.acquire_session_slot("u3") is None  # 内存模式:token 为 None
         with pytest.raises(HTTPException):
-            rl.acquire_user_slot("u3")
-        rl.release_user_slot("u3", None)
-        assert rl.acquire_user_slot("u3") is None
+            rl.acquire_session_slot("u3")
+        rl.release_session_slot("u3", None)
+        assert rl.acquire_session_slot("u3") is None
 
 
 # ---------------- metrics ----------------

@@ -125,6 +125,10 @@ class SearchTextRequest(BaseModel):
     query: str
     k: int = 3
     score_ratio: float = 0.6
+    with_pool: bool = False   # 评测用:附带返回重排前候选池
+    with_ranked: bool = False  # 评测用:附带返回截断前全部候选的重排分(τ/K 扫描)
+    scope_stem: str = ""       # 轮次9:会话锁定的目标文档族(非空跳过词面推断)
+    with_scope_info: bool = False  # 轮次9:附带 scope 锁定/冲突信号
 
 class SearchImageRequest(BaseModel):
     query: str
@@ -140,7 +144,11 @@ class GetChunkRequest(BaseModel):
 @app.post("/search_text", dependencies=[Depends(_require_internal_token)])
 def search_text(req: SearchTextRequest):
     """文本库混合检索(dense+sparse RRF)+ 精确代码兜底召回 + Cross-Encoder 重排。"""
-    return engine_api.search_text(req.query, k=req.k, score_ratio=req.score_ratio)
+    return engine_api.search_text(req.query, k=req.k, score_ratio=req.score_ratio,
+                                  with_pool=req.with_pool,
+                                  with_ranked=req.with_ranked,
+                                  scope_stem=req.scope_stem,
+                                  with_scope_info=req.with_scope_info)
 
 
 @app.post("/search_image", dependencies=[Depends(_require_internal_token)])
@@ -155,6 +163,31 @@ def search_image(req: SearchImageRequest):
 def get_chunk(req: GetChunkRequest):
     """按 chunk_id 取完整块/图。"""
     return engine_api.get_chunk(req.chunk_id)
+
+
+# ---- 评测专用热调参端点(默认关闭):RETRIEVAL_DEBUG_CFG=1 时允许运行时改写
+# config 模块属性,免重启做参数扫描。仅改白名单内的 RERANK_*/RETRIEVAL_*/RAGLITE_* 键,
+# 有 X-Internal-Token 门禁;生产环境保持 RETRIEVAL_DEBUG_CFG 未设置即可。----
+class DebugCfgRequest(BaseModel):
+    cfg: dict
+
+
+@app.post("/debug_cfg", dependencies=[Depends(_require_internal_token)])
+def debug_cfg(req: DebugCfgRequest):
+    if os.getenv("RETRIEVAL_DEBUG_CFG", "") != "1":
+        raise HTTPException(status_code=404, detail="disabled")
+    applied = {}
+    for k, v in (req.cfg or {}).items():
+        if not k.startswith(("RERANK_", "RETRIEVAL_", "RAGLITE_SEARCH_")) \
+                or not hasattr(C, k):
+            continue
+        old = getattr(C, k)
+        try:
+            setattr(C, k, type(old)(v) if old is not None else v)
+            applied[k] = getattr(C, k)
+        except (TypeError, ValueError):
+            pass
+    return {"applied": applied}
 
 
 # ---- 模型服务端点(供主服务 embed_http 调用,模型只在本进程加载)----
@@ -226,10 +259,9 @@ def rerank(req: RerankRequest):
         with engine_api._model_lock:
             if _re is None:
                 _re = embed.get_reranker()
-    # rerank 不走攒批包装器,持自己的推理锁(与 encode/CLIP 并行:不同模型
-    # 各持一把锁,互不排队)
-    with embed.RERANK_LOCK:
-        scores = _re.rerank(req.query, req.documents)
+    # rerank 走攒批管线(get_rerank_pipeline):跨请求合并 + 副本锁内部自管
+    # (与 encode/CLIP 天然并行,不再持全局 RERANK_LOCK)
+    scores = _re.rerank(req.query, req.documents)
     return {"scores": [float(s) for s in scores]}
 
 
@@ -313,7 +345,7 @@ def ingest_status(task_id: str):
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "breakers": engine_api.breaker_states()}
 
 
 if __name__ == "__main__":

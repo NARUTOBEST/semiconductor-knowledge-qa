@@ -1,0 +1,1046 @@
+{
+ "doc": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+ "chunks": 2738,
+ "headings": [
+  [
+   "Resolution Enhancement Technologies > 10.4.5 Impact of Phase Errors",
+   37
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.5.3 Chemically Amplifi ed Resists – Reaction–Diffusion",
+   36
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.1.2 Exposure Kinetics",
+   35
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.2.2 Solvent Diffusion and Evaporation",
+   35
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.6 Acid-Catalyzed Reaction–Diffusion",
+   33
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.2 Aerial Image",
+   32
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.1 Diffraction",
+   31
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.5.1 The Focus–Exposure Matrix",
+   31
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.2 Moore’s Law and the Semiconductor Industry",
+   29
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.1.2 Standing Waves for Normally Incident Light in a Single Film",
+   28
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.4 Photon Absorption and Exposure",
+   28
+  ],
+  [
+   "Photoresist Development > 7.3.7 LPM Example – Gaussian Image",
+   28
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.5.5 Dose and Focus Control",
+   26
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.2.1 Impact of CD Control",
+   26
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.1.4 Oblique Incidence and the Vector Nature of Light",
+   25
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.2 Describing Aberrations: the Zernike Polynomial",
+   25
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.1.3 Phasors and Wave Propagation in an Absorbing Medium",
+   25
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.10 Pattern Collapse",
+   24
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.2.1 Sensitizer Decomposition",
+   24
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.2 Partially Coherent Illumination",
+   24
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.7.1 Image in Resist Contrast",
+   23
+  ],
+  [
+   "Photoresist Development > 7.1.1 A Simple Kinetic Development Model",
+   23
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.6 Develop",
+   22
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.5.2 Defi ning the Process Window and DOF",
+   22
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.3 Post-exposure Bake Diffusion",
+   22
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.4 Alignment and Exposure",
+   21
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.2.4 Swing Ratio",
+   21
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.2.1 Refl ectivity Swing Curve",
+   21
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.4 Detailed Bake Temperature Behavior",
+   21
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.1.1 Absorption",
+   20
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.6 Chromatic Aberrations",
+   20
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.3.1 BARC on an Absorbing Substrate",
+   19
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.4.4 Using Overlay Data",
+   19
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.3 Off-Axis Illumination (OAI)",
+   19
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.4.4 Attenuated PSM",
+   19
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.6.4 Polarization Aberrations and the Jones Pupil",
+   19
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.4.3 Improving Overlay Data Analysis",
+   19
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.1.1 Maxwell’s Equations and the Wave Equation",
+   19
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.7.1 The Optical Invariant and Hyper-NA Lithography",
+   19
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.8 Line Edge Roughness",
+   18
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.1 The Causes of Aberrations",
+   18
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.3.3 Characterizing and Separating Sources of CD Variations",
+   18
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.2.5 Effective Absorption",
+   18
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.7 Reaction–Diffusion and Polymer Deblocking",
+   18
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.8 Reduction Imaging",
+   18
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.2.2 Diffusion",
+   18
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.4 Exposure",
+   18
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.2 Photoresist Coating",
+   18
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.4.2 Analysis and Modeling of Overlay Data",
+   18
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.3 Defocus Example: Dense Lines and Spaces and Two-Beam Imaging",
+   17
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.7.2 Calculating the Image in Resist",
+   17
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.6 Vector Nature of Light",
+   16
+  ],
+  [
+   "Photoresist Development > 7.2.2 Comparing Defi nitions of Contrast",
+   16
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.7.3 Resist-Induced Spherical Aberrations",
+   16
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.8.2 Refraction into an Absorbing Material",
+   16
+  ],
+  [
+   "Photoresist Development > 7.2.1 Defi ning Photoresist Contrast",
+   16
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.2.1 Amplifi cation Reaction",
+   16
+  ],
+  [
+   "Photoresist Development > 7.1.2 Other Development Models",
+   15
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.2.3 Sources of Focus and Dose Errors",
+   15
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.5 Acid Diffusion, Conventional Resist",
+   15
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.1 Photon Shot Noise",
+   15
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.1 Defi ning Lithographic Quality",
+   15
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.5 Imaging with Scanners Versus Steppers",
+   14
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.6.1 Astigmatism and H–V Bias",
+   14
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.6.1 Describing Polarization",
+   14
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.4.1 Alternating PSM",
+   14
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.7.4 Standing Wave Amplitude Ratio",
+   14
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.7.2 Lumped Parameter Model",
+   14
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.4 Sum of Coherent Sources Approach",
+   14
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.2.3 Acid Loss",
+   14
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.3.4 BARC Performance",
+   14
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.1.5 Broadband Illumination",
+   14
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.8.3 Normalized Image Log-Slope (NILS)",
+   14
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.2.2 Proximity Correction – Rule Based",
+   13
+  ],
+  [
+   "Photoresist Development > 7.3.5 The Case of Constant Development Gradients",
+   13
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.1.2 Pitch Resolution",
+   13
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.2 Defocus Example: Dense Lines and Spaces and Three-Beam Imaging",
+   13
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.5.1 Diffusion in Conventional Resists",
+   13
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > Problems",
+   13
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.5 Imaging Example: Dense Array of Lines and Spaces",
+   13
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > Problems",
+   13
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.5.3 The Isofocal Point",
+   13
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.3 Some Mathematics of Binary Random Variables",
+   13
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.2.3 Swing Curves for Partially Coherent Illumination",
+   13
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.1 Defocus as an Aberration",
+   12
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.2.4 Base Quencher",
+   12
+  ],
+  [
+   "Pi<sup>t</sup>i<sup>)</sup> F > Problems",
+   12
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.1.3 Standing Waves in a Multiple-Layer Film Stack",
+   12
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.1.1 Defi ning Resolution",
+   12
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.2.2 Improving CD Control",
+   12
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.7 Köhler Illumination",
+   12
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.3.1 Spatial Variations",
+   12
+  ],
+  [
+   "Photoresist Development > 7.3.6 Segmented Development and the Lumped Parameter Model (LPM)",
+   12
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.3 Imaging Lens",
+   12
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.5 Measuring the ABC Parameters",
+   12
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.4 Top Antirefl ection Coatings",
+   12
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.1 Substrate Preparation",
+   12
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.2.3 Proximity Correction – Model Based",
+   12
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7.3 Aerial Image MEEF",
+   11
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.2.4 Subresolution Assist Features (SRAFs)",
+   11
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.5.4 Chemically Amplifi ed Resists – Reaction–Diffusion with Quencher",
+   11
+  ],
+  [
+   "Photoresist Development > 7.1.7 Developer Normality",
+   11
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.8 Incoherent Illumination",
+   11
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > Problems",
+   11
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.2 Fourier Transform Pairs",
+   11
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.2.4 Defi ning Critical Dimension",
+   11
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.8.1 Intensity at Oblique Incidence",
+   11
+  ],
+  [
+   "Photoresist Development > 7.1.4 Surface Inhibition",
+   11
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.6 Impact of the Phase of the Substrate Refl ectance",
+   11
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.2.1 Proximity Effects",
+   10
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.1.1 The Nature of Standing Waves",
+   10
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.8.2 Characterizing LES Process Effects",
+   10
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.5.1 Contact Holes and the Point Spread Function",
+   10
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.4 Forming an Image",
+   10
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.1.3 Ion Implantation",
+   10
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.1.4 Intensity and the Poynting Vector",
+   10
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.2.5 Reaction–Diffusion Systems",
+   10
+  ],
+  [
+   "Resolution Enhancement Technologies",
+   10
+  ],
+  [
+   "Photoresist Development > 7.3.1 The Euler–Lagrange Equation",
+   10
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7.5 Mask Errors as Effective Dose Errors",
+   10
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.7 The Point Spread Function",
+   10
+  ],
+  [
+   "Aerial Image Formation – The Details > Problems",
+   10
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.3.2 Modeling Flare",
+   10
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.3.3 BARC on a Transparent Substrate",
+   10
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.8.3 Intensity and Absorbed Energy",
+   10
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.4.1 Measuring and Expressing Overlay",
+   10
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.7.1 The Case of a Separable Development Rate Function",
+   10
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.5 Aberration Example – Coma",
+   9
+  ],
+  [
+   "Photoresist Development > Problems",
+   9
+  ],
+  [
+   "Photoresist Development > 7.2.4 Relationship Between g and $r _ { \\mathrm { m a x } } / r _ { \\mathrm { m i n } }$",
+   9
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.3 Hopkins Approach to Partial Coherence",
+   9
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.3 Post-Apply Bake",
+   9
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.3 Measuring Chemically Amplifi ed Resist Parameters",
+   9
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.3.2 BARCs at High Numerical Apertures",
+   9
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.3 Flare",
+   9
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.1.2 Etching",
+   9
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.6.1 Conventional Resist",
+   9
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.6.2 Source Shape Asymmetry",
+   9
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.4.3 Phase and Intensity Imbalance",
+   8
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.4.2 Phase Confl icts",
+   8
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.2.2 Dose-to-Clear and CD Swing Curves",
+   8
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7.1 Linearity",
+   8
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.1 Resolution",
+   8
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.3.1 Measuring Flare",
+   8
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.2 Chemical Concentration",
+   8
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.7 Rayleigh Depth of Focus",
+   8
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.8.1 Image CD",
+   8
+  ],
+  [
+   "Photoresist Development > 7.1.6 Developer Temperature",
+   7
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.6.2 Polarization Example: TE Versus TM Image of Lines and Spaces",
+   7
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.3 Image in Resist",
+   7
+  ],
+  [
+   "Photoresist Development > 7.3.3 The Case of a Separable Development Rate Function",
+   7
+  ],
+  [
+   "Resolution Enhancement Technologies > Problems",
+   7
+  ],
+  [
+   "Introduction to Semiconductor Lithography",
+   7
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.1 Oblique Illumination",
+   7
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.4 Image Isofocal Point",
+   7
+  ],
+  [
+   "Photoresist Development > 7.3.2 The Case of No z-Dependence",
+   7
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.1.4 Improving Resolution",
+   7
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.9 Critical Shape and Edge Placement Errors",
+   7
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.6 Reticle Defocus",
+   7
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.9 Summary",
+   7
+  ],
+  [
+   "Photoresist Development > 7.2.3 The Practical Contrast",
+   7
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.1 Lithography as Information Transfer",
+   7
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.6 Development",
+   7
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.3 Bottom Antirefl ection Coatings",
+   7
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.8.1 Measuring LES",
+   7
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.1 Exposure Reaction",
+   7
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7.4 Contact Hole MEEF",
+   7
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.5.2 Chemically Amplifi ed Resists – Reaction Only",
+   7
+  ],
+  [
+   "Photoresist Development > 7.3.4 Resist Sidewall Angle",
+   7
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > Problems",
+   6
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4.5 Focus Averaging",
+   6
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.4 Phase-Shifting Masks (PSM)",
+   6
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.5.2 The Coherent Line Spread Function (LSF)",
+   6
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.1.2 General Harmonic Fields and the Plane Wave in a Nonabsorbing Medium",
+   6
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.4 Aberration Example – Defocus, Spherical and Astigmatism",
+   6
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7.6 Resist Impact on MEEF",
+   6
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.8 Line-End Shortening",
+   6
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.2.3 Solvent Effects in Lithography",
+   6
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.5.3 The Isolated Phase Edge",
+   6
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.2 Pupil Filters and Lens Apodization",
+   6
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.1 Basics of IC Fabrication",
+   6
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > Problems",
+   6
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.4 Overlay Control",
+   5
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7.2 Defi ning MEEF",
+   5
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.9 Pattern Transfer",
+   5
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.1.5 Intensity and Absorbed Electromagnetic Energy",
+   5
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves",
+   5
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4 Stochastic Modeling of Resist Chemistry",
+   5
+  ],
+  [
+   "Photoresist Development > 7.3 The Development Path",
+   5
+  ],
+  [
+   "Photoresist Development",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.3 Aberration Example – Tilt",
+   4
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.5 Post-exposure bake",
+   4
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.3.2 Temporal Variations and Random Variations",
+   4
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry",
+   4
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.5 The Process Window",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2.6 Imaging Example: Isolated Space",
+   4
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.6.2 Chemically Amplifi ed Resist",
+   4
+  ],
+  [
+   "Photoresist Development > 7.1.3 Molecular Weight Distributions and the Critical Ionization Model",
+   4
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.1.4 Process Integration",
+   4
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.2 Swing Curves",
+   4
+  ],
+  [
+   "Photoresist Development > 7.4 Measuring Development Rates",
+   4
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3 Lithography Processing",
+   4
+  ],
+  [
+   "Introduction to Semiconductor Lithography > Problems",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.6 Imaging Example: Dense Array of Lines and Spaces Under Annular Illumination",
+   4
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.10 Strip",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1.7 Strehl Ratio",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.2 Basic Imaging Theory",
+   4
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.2 Post-Apply Bake",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3.5 Off-Axis Illumination",
+   4
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.5.4 Overlapping Process Windows",
+   4
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.1.1 Patterning",
+   4
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.4.5 Overlay Versus Pattern Placement Error",
+   4
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.8.2 Image Placement Error (Distortion)",
+   3
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.8 Measure and Inspect",
+   3
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.3 Partial Coherence",
+   3
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.4.8 Acid–Base Quenching",
+   3
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry",
+   3
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.5 Contrast Enhancement Layer",
+   3
+  ],
+  [
+   "Introduction to Semiconductor Lithography > 1.3.7 Postbake",
+   3
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > 6.2 Chemical Amplifi cation",
+   3
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.7 Immersion Lithography",
+   3
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.7 Resist Profi le Formation",
+   3
+  ],
+  [
+   "Photoresist Development > 7.1 Kinetics of Development",
+   3
+  ],
+  [
+   "Aerial Image Formation – The Basics",
+   3
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.7.2 Immersion Lithography and the Depth of Focus",
+   3
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope",
+   2
+  ],
+  [
+   "Photoresist Development > 7.2 The Development Contrast",
+   2
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.8 Defi ning Intensity",
+   2
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.8 Image Quality",
+   2
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.3 How to Characterize Critical Dimension Variations",
+   2
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.8.4 Focus Dependence of Image Quality",
+   2
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.1 Standing Waves",
+   2
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing",
+   2
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.2 Optical Proximity Correction (OPC)",
+   2
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > 4.7 Imaging in Resist",
+   2
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.1 Mathematical Description of Light",
+   2
+  ],
+  [
+   "Photoresist Development > 7.1.5 Extension to Negative Resists",
+   2
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.2 Critical Dimension Control",
+   2
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.4 Defocus",
+   1
+  ],
+  [
+   "Resolution Enhancement Technologies > References",
+   1
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > References",
+   1
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > References",
+   1
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.6.3 Polarization Example: The Vector PSF",
+   1
+  ],
+  [
+   "Aerial Image Formation – The Details > References",
+   1
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.6 H–V Bias",
+   1
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.5 Natural Resolutions",
+   1
+  ],
+  [
+   "Chemically Amplifi ed Resists: Exposure and Bake Chemistry > References",
+   1
+  ],
+  [
+   "Imaging in Resist: Standing Waves and Swing Curves > References",
+   1
+  ],
+  [
+   "Pi<sup>t</sup>i<sup>)</sup> F > References",
+   1
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > References",
+   1
+  ],
+  [
+   "Conventional Resists: Exposure and Bake Chemistry > 5.1 Exposure",
+   1
+  ],
+  [
+   "Aerial Image Formation – The Details",
+   1
+  ],
+  [
+   "Photoresist Development > References",
+   1
+  ],
+  [
+   "Lithographic Control in Semiconductor Manufacturing > 8.7 Mask Error Enhancement Factor (MEEF)",
+   1
+  ],
+  [
+   "Gradient-Based Lithographic Optimization: Using the Normalized Image Log-Slope > 9.5 Post-exposure Bake",
+   1
+  ],
+  [
+   "Resolution Enhancement Technologies > 10.1.3 Natural Resolutions",
+   1
+  ],
+  [
+   "Aerial Image Formation – The Details > 3.1 Aberrations",
+   1
+  ],
+  [
+   "Pi<sup>t</sup>i<sup>)</sup> F",
+   1
+  ],
+  [
+   "Introduction to Semiconductor Lithography > References",
+   1
+  ],
+  [
+   "Aerial Image Formation – The Basics > 2.4 Some Imaging Examples",
+   1
+  ]
+ ]
+}

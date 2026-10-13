@@ -173,9 +173,10 @@ TIER_CONFIG = {
 RAGLITE_ENABLED             = _feature_on("RAGLITE_ENABLED", True)
 RAGLITE_MAX_TOTAL_SECONDS   = _int("RAGLITE_MAX_TOTAL_SECONDS", 25)  # 单次执行时长预算
 RAGLITE_MAX_QUESTION_LEN    = _int("RAGLITE_MAX_QUESTION_LEN", 60)   # 超长问题走 react
-RAGLITE_SEARCH_K            = _int("RAGLITE_SEARCH_K", 5)            # 检索条数(sources 事件用)
+RAGLITE_SEARCH_K            = _int("RAGLITE_SEARCH_K", 5)            # 检索条数(sources 事件用;随 RERANK_FIXED_K 同步 8→5,方案A 双路补位)
 RAGLITE_SEARCH_SCORE_RATIO  = _float("RAGLITE_SEARCH_SCORE_RATIO", 0.4)
-RAGLITE_PROMPT_CHUNKS       = _int("RAGLITE_PROMPT_CHUNKS", 3)       # 喂给模型的前几块(控制 prefill)
+# 查询改写多路召回(2026-10-05):投机检索 top1 分低于阈值(或空结果)时,轻量 LLM
+RAGLITE_PROMPT_CHUNKS       = _int("RAGLITE_PROMPT_CHUNKS", 4)       # 喂给模型的前几块(控制 prefill;3→4 与扩容后的检索集匹配)
 RAGLITE_CHUNK_CHARS         = _int("RAGLITE_CHUNK_CHARS", 800)       # 每块截断字符
 # 答案解码上限:GLM 纯思考模型的 reasoning 计入 max_tokens(实测思考可烧
 # 300-1500 token),上限太低会被思考耗尽 → 正文 0 token 空答案(实测 512 恰好
@@ -223,7 +224,7 @@ QC_LOW_CONF_REDO            = _feature_on("QC_LOW_CONF_REDO", False)
 # ---- 自适应检索(agentic:低置信时在循环内换关键词再检索)----
 # rerank cross-encoder 相关分达到该值视为"命中对口资料";低于它则提示模型改写再查,
 # 且质检门判 react 答案为低置信(触发至多 1 次换 thread 重进)。阈值按经验给默认值,
-# 上线后用离线 eval(eval/pipeline_full100/run_eval.py)的分数分布校准。
+# 上线后用离线 eval(eval/pipeline/dev/pipeline_full100/run_eval.py)的分数分布校准。
 RETRIEVAL_CONFIDENT_SCORE = _float("RETRIEVAL_CONFIDENT_SCORE", 0.5)
 # 总开关:关闭后回到"只跑 max_steps、不注入低置信提示、质检只判空"的旧行为。
 REACT_ADAPTIVE_RETRIEVAL = os.getenv(
@@ -305,10 +306,30 @@ RATE_LIMIT_GLOBAL_CONCURRENT = int(os.getenv("RATE_LIMIT_GLOBAL_CONCURRENT", "8"
 RATE_LIMIT_QUEUE_TIMEOUT = int(os.getenv("RATE_LIMIT_QUEUE_TIMEOUT", "30"))      # 排队等待超时(秒)
 
 # === 重排(Cross-Encoder)===
-RERANK_MODEL       = "BAAI/bge-reranker-v2-m3"
+RERANK_MODEL       = os.getenv("RERANK_MODEL", "BAAI/bge-reranker-v2-m3")  # 可切 LLM 系(如 bge-reranker-v2-gemma,decoder-only)
+RERANK_API_BASE    = os.getenv("RERANK_API_BASE", "").strip()  # 非空时重排走 vLLM /score HTTP(2026-10-08 架构:重排器 vLLM 独立部署),空=进程内 transformers
+# 混合重排(2026-10-11):主路(语义系,如 Qwen3-Reranker-4B)+ 副路(词面系,
+# 如 bge-reranker-v2-m3)并行打分,各路 min-max 归一后加权平均(保持 0~1 标尺,
+# 兼容下游 RERANK_TAU/弱末位补录)。任一路熔断/失败自动退单路,双路皆败回退召回序。
+RERANK2_MODEL      = os.getenv("RERANK2_MODEL", "").strip()    # 副路模型;空=单路重排
+RERANK2_API_BASE   = os.getenv("RERANK2_API_BASE", "").strip() # 副路 vLLM /score 端点;空=副路也进程内
+RERANK_W1          = float(os.getenv("RERANK_W1", "0.6"))      # 主路(语义)权重,副路 = 1-w1
+# 级联重排(2026-10-13):副路(词面系,便宜)先对全量召回池粗筛,保留 top
+# RERANK_CASCADE_KEEP 进混合双路精排——主路 4B 算力按 KEEP/RECALL_K 比例下降
+# (96→24 即 ÷4),治 20u 并发下重排排队(vLLM score 方案已证伪回退,见 ret.env)。
+# 粗筛失败自动退全量(级联是增强层,fail-open)。
+RETRIEVAL_RERANK_CASCADE = os.getenv("RETRIEVAL_RERANK_CASCADE", "0") == "1"
+RERANK_CASCADE_KEEP = int(os.getenv("RERANK_CASCADE_KEEP", "24"))
+RERANK2_REPLICAS   = int(os.getenv("RERANK2_REPLICAS", "1"))   # 副路副本数(词面系模型小,1 足够)
 RERANK_RECALL_K    = int(os.getenv("RERANK_RECALL_K", "48"))   # 送入重排的候选数(BGE-m3 多取;48 候选 GPU 重排 <20ms)
-RERANK_POOL_MIN    = int(os.getenv("RERANK_POOL_MIN", "32"))   # ratio 过滤后重排池保底(RRF 分 Top-Heavy,ratio 可能把 80 压到 1~2 个)。1000 题扫描 8→32:MRR +2.5pt/NDCG@5 +4.6pt/R@10 +5.8pt(eval/runs/sweep_retrieval_20260920*.json)
+RERANK_POOL_MIN    = int(os.getenv("RERANK_POOL_MIN", "32"))   # ratio 过滤后重排池保底(RRF 分 Top-Heavy,ratio 可能把 80 压到 1~2 个)。1000 题扫描 8→32:MRR +2.5pt/NDCG@5 +4.6pt/R@10 +5.8pt(eval/runs/dev/sweep_retrieval_20260920*.json)
 RERANK_MAX_CONTENT = 800     # 重排时每条文档最大字符数(与 CHUNK_MAX=800 对齐,略留余量)
+# 重排吞吐(2026-10-09):跨请求攒批 + 多副本(单飞批 leader-follower 同款)。
+# 攒批把并发请求合并成一次 compute_score(治"请求间"串行);副本数 >1 时
+# 多个 leader 各占一个空闲副本并行(治算力单点)。
+RERANK_REPLICAS        = int(os.getenv("RERANK_REPLICAS", "1"))    # 副本数;vGPU-32G 建议 2(bge-reranker-v2-gemma bf16 ~5.2G/个,双副本+BGE+CLIP≈13G)
+RERANK_BATCH_WINDOW_S  = float(os.getenv("RERANK_BATCH_WINDOW_S", "0.05"))  # 攒批窗口:leader 收拢后来者的等待时长
+RERANK_BATCH_MAX_PAIRS = int(os.getenv("RERANK_BATCH_MAX_PAIRS", "96"))     # 单次合并调用对数上限(单请求超限则独自成批)
 # 动态截断:重排后按绝对分截断(而非固定 top-k)。rerank 分 0~1(normalize=True),
 # τ=0.5 为 5×100 评测扫描的均衡值(见 eval/results_concurrent/tau_sweep.jsonl)。
 RERANK_TAU    = float(os.getenv("RERANK_TAU", "0.3"))  # τ 复扫(250 题,GPU):0.4 时 R@3=上限 0.836;0.3 兼容表格块(重排低分高相关,run20 id10 探针)
@@ -316,13 +337,94 @@ RERANK_MAX_K  = int(os.getenv("RERANK_MAX_K", "8"))    # 动态截断上限(4→
 RERANK_MIN_K  = int(os.getenv("RERANK_MIN_K", "3"))    # 保底 3 块:P@k 分母固定 k,pool<3 直接压死精度
 RERANK_CLIFF_RATIO = float(os.getenv("RERANK_CLIFF_RATIO", "0.6"))  # 断崖截断:τ 过线块从头往后扫,相邻分 score[i] < ratio*score[i-1] 处截断(保底 top-1);0=关闭
 # 固定截断:>0 时重排后直接取 top-K(τ/断崖/sparse_rescue 全部旁路,返回恰为
-# min(K,池) 块);0=走动态截断(τ+断崖)。评测对照用——1000 题实测:动态(τ+断崖)
-# P_ret 0.608/R_pool 0.626/均 4.2 块,固定 top5 作为基线对照。
+# min(K,池) 块);0=走动态截断(τ+断崖)。1000 题实测:动态(τ+断崖)
+# P_ret 0.608/R_pool 0.626/均 4.2 块。dev-200 金标均在单一手册内,多跳题要的是
+# 同手册深排名块。2026-10-03 5→8 扩容量(+6.1pt);2026-10-04 方案A(术语表双路)
+# 上线把金块整体前移,8→5 回收座位(待 dev-200 回归验证,不达标即回 8)。
 RERANK_FIXED_K = int(os.getenv("RERANK_FIXED_K", "5"))
 # sparse 词面保底:重排后把 sparse top-N 词面命中块追加到结果尾部(去重,评分<τ)。
 # 救 cross-encoder 对表格/码表块的系统性低分(run20 id10 探针:答案表 dense 第10、重排<0.3)。
 RETRIEVAL_SPARSE_RESCUE    = os.getenv("RETRIEVAL_SPARSE_RESCUE", "1").strip().lower() not in ("0", "false", "no", "off")
 RETRIEVAL_SPARSE_RESCUE_K  = int(os.getenv("RETRIEVAL_SPARSE_RESCUE_K", "2"))
+# 固定 top-K 模式下的补录席位(2026-10-05,方案一):重排末位过弱(<RERANK_TAU)时
+# 让位给不在场的 sparse 强命中块——固定 K 收紧后表格行块更挤不进,固定模式下原
+# sparse_rescue 被整体旁路,这里保留一个"弱末位 + 稀疏强命中"矛盾信号触发的席位。
+RETRIEVAL_RESCUE_SEAT      = os.getenv("RETRIEVAL_RESCUE_SEAT", "0").strip().lower() not in ("0", "false", "no", "off")
+# 精确报警码兜底(2026-10-05 实验开关):query 含报警/故障码时经 broad sparse+正则
+# 显式捞回含码块。实验对照"主路修好后是否还需要它",0=关闭。
+RETRIEVAL_EXACT_CODE       = os.getenv("RETRIEVAL_EXACT_CODE", "1").strip().lower() not in ("0", "false", "no", "off")
+# 重排文本行上下文(2026-10-05,方案二A):短表格行块(≤200字)重排时前置同文档
+# 同标题路径的相邻行(含表头),让 cross-encoder 看到行所属的表结构,治"干瘪短行
+# 被看扁"。scroll 查邻居按 chunk_id 缓存;0=关闭。
+RERANK_ROW_CONTEXT         = os.getenv("RERANK_ROW_CONTEXT", "0").strip().lower() not in ("0", "false", "no", "off")
+# 检索域软收窄(2026-10-05 引入,2026-10-08 轮次12 删除查询时词面推断路):
+# 反问机制(RETRIEVAL_CONFLICT_CLARIFY)上线后歧义交由用户点选消解,词面自动
+# 推断属重复防线且有"确信地锁错"风险,engine_api 已不再读取本开关。
+# SOURCE_SCOPE_BOOST 仍生效——仅用于 scope_stem(用户反问选定的会话锁定)加权。
+RETRIEVAL_SOURCE_SCOPE     = False   # 已废弃:词面推断收窄路已删,占位防旧 env 报错
+SOURCE_SCOPE_BOOST         = float(os.getenv("SOURCE_SCOPE_BOOST", "1.35"))
+SOURCE_SCOPE_MIN_SCORE     = float(os.getenv("SOURCE_SCOPE_MIN_SCORE", "4"))
+SOURCE_SCOPE_MARGIN        = float(os.getenv("SOURCE_SCOPE_MARGIN", "1.5"))
+# 邻块扩展(2026-10-05):top-N 命中块尾部拼接同文档 chunk_index+1 的后接块内容
+# (截断)——金标信息常落在命中块的相邻页,块数不增不占 K 席位,直接扩大上下文
+# 覆盖面(治 recall)。查邻居失败/无后接块时原样返回,零伤害。
+RETRIEVAL_NEIGHBOR_EXPAND  = os.getenv("RETRIEVAL_NEIGHBOR_EXPAND", "0").strip().lower() not in ("0", "false", "no", "off")
+RETRIEVAL_NEIGHBOR_TOPN    = int(os.getenv("RETRIEVAL_NEIGHBOR_TOPN", "2"))
+RETRIEVAL_NEIGHBOR_CHARS   = int(os.getenv("RETRIEVAL_NEIGHBOR_CHARS", "500"))
+
+# === 来源多样性(单文档霸榜治理)===
+# 按基础文档名(页段后缀 _p1-500 归一)做软配额:每文档优先最多 N 席,挤出名额从
+# 其余候选(重排分 ≥ RERANK_TAU)按名次回填;跨文档候选不足时超配额原块按分
+# 保底回填,块数不减。**默认 0=关闭**:dev-200 金标核查发现每题 evidence 均在
+# 单一手册内("霸榜"手册即金标手册),打散会挤掉同手册金标块;多文档混排语料
+# (金标跨文档)场景再启用。
+RETRIEVAL_DOC_CAP = int(os.getenv("RETRIEVAL_DOC_CAP", "0"))
+
+# === 术语表双路检索(方案A)已于 2026-10-08 删除 ===
+# glossary.rewrite 字符串替换路(RETRIEVAL_GLOSSARY_DUAL/DUAL_RERANK/
+# GLOSSARY_RRF_WEIGHT)轮次10 起停用,全量对比无增益,代码连同 glossary.json
+# 一并移除;跨语言鸿沟由翻译双路(RETRIEVAL_QUERY_TRANSLATE)承担。
+
+# === 轮次19:术语表字符串替换(复活,与旧方案A不同) ===
+# 定位:翻译双路【之后】、召回【之前】的一个纯词典替换模块(非独立召回路):
+# 中文句 zh2en 替换(兆声清洗 -> megasonic cleaning),英文句 en2en 别名归一
+# (BOX -> buried oxide)。治"查询与金块词面/语义零重叠"的召回盲区
+# (dev_036/043 实证:整句翻译补不了术语对齐,这是与轮次10 弃用结论的差异)。
+# 词表来自全量 40 万 chunk 词频提取 + LLM 判定翻译(build_glossary2.py)。
+RETRIEVAL_GLOSSARY_REPLACE = _feature_on("RETRIEVAL_GLOSSARY_REPLACE", False)
+GLOSSARY_FILE = os.getenv("GLOSSARY_FILE", "")   # 空 = mcp_servers/retrieval/glossary.json
+
+# === 轮次9:召回翻译双路(跨语言盲区治理)+ 检索冲突反问 ===
+# 中文 query 整句译成英文第三路召回并入 RRF 池(只进召回不进重排——英文/分区
+# 重排已离线证伪,eval/optimization_log/20261007_inpool_rerank_test.md)。
+# fail-open:翻译失败即单路。翻译端点默认火山 coding plan(轻模型,实测可用)。
+RETRIEVAL_QUERY_TRANSLATE = _feature_on("RETRIEVAL_QUERY_TRANSLATE", False)
+TRANSLATE_BASE  = os.getenv("TRANSLATE_BASE", "https://ark.cn-beijing.volces.com/api/coding/v1")
+TRANSLATE_KEY   = os.getenv("TRANSLATE_KEY", "")   # 空 = 沿用 OPENAI_API_KEY
+TRANSLATE_MODEL = os.getenv("TRANSLATE_MODEL", "doubao-seed-2-0-lite-260428")
+TRANSLATE_RRF_WEIGHT = float(os.getenv("TRANSLATE_RRF_WEIGHT", "0.7"))
+TRANSLATE_TIMEOUT    = float(os.getenv("TRANSLATE_TIMEOUT", "8"))
+TRANSLATE_MAX_TOKENS = int(os.getenv("TRANSLATE_MAX_TOKENS", "120"))
+
+# === 检索服务外呼三状态熔断(translate / rerank HTTP;复用 tool_circuit 状态机)===
+# CLOSED:失败按指数退避重试(总尝试 RETRY_ATTEMPTS 发,含首发;
+#         退避 BACKOFF_BASE*2^n 封顶 BACKOFF_MAX),
+#         连续 THRESHOLD 次重试耗尽 -> OPEN
+# OPEN:外呼快速失败(CircuitOpenError),调用方静默降级(翻译单路/重排回召回序),
+#       冷却 COOLDOWN_S 后 -> HALF_OPEN
+# HALF_OPEN:放 1 个探测请求,成功回 CLOSED,失败回 OPEN 重新计时
+RETRIEVAL_BREAKER_THRESHOLD      = int(os.getenv("RETRIEVAL_BREAKER_THRESHOLD", "2"))
+RETRIEVAL_BREAKER_COOLDOWN_S     = float(os.getenv("RETRIEVAL_BREAKER_COOLDOWN_S", "30"))
+RETRIEVAL_BREAKER_RETRY_ATTEMPTS = int(os.getenv("RETRIEVAL_BREAKER_RETRY_ATTEMPTS", "2"))
+RETRIEVAL_BREAKER_BACKOFF_BASE_S = float(os.getenv("RETRIEVAL_BREAKER_BACKOFF_BASE_S", "0.5"))
+RETRIEVAL_BREAKER_BACKOFF_MAX_S  = float(os.getenv("RETRIEVAL_BREAKER_BACKOFF_MAX_S", "4"))
+# 检索冲突反问:top-4 跨多文档族且分差小且词面未确信命中榜首族时,chat 层反问
+# 用户选定文档族;选定后按会话锁定 scope_stem 强制加权。默认关(评测可控)。
+RETRIEVAL_CONFLICT_CLARIFY = _feature_on("RETRIEVAL_CONFLICT_CLARIFY", False)
+CONFLICT_SCORE_MARGIN = float(os.getenv("CONFLICT_SCORE_MARGIN", "1.0"))
+# 词面误锁护栏:infer_target_stem 只认含数字型号 token/全大写缩写,纯字母
+# 通用词(screw 等)不计分。SOURCE_SCOPE_STRICT_TOKENS=0 关闭(轮次8 前行为)。
+SOURCE_SCOPE_STRICT_TOKENS = _feature_on("SOURCE_SCOPE_STRICT_TOKENS", True)
 
 # === 设备型号双路融合(机制3治理:邻题文档挤占 top-k)===
 # 入库侧 RAG/RAG_tools/backfill_devices.py 给每块 payload.devices 打"正文/标题
@@ -330,7 +432,7 @@ RETRIEVAL_SPARSE_RESCUE_K  = int(os.getenv("RETRIEVAL_SPARSE_RESCUE_K", "2"))
 # devices.py 抽问题里的型号,有命中时在 RRF 前并列加一条 devices 过滤召回路:
 # 被同族设备手册淹没的块即使无过滤池排 100 名外也能进重排池,由 reranker 定夺。
 # 无过滤两路始终保留 -> 金标不丢(纯字母缩写 MBE/CSP 误杀工艺金标,故不做硬过滤,
-# 1000 题仿真见 eval/runs/50x5_20260919_065506 分桶)。DEVICE_FILTER=0 一键回退。
+# 1000 题仿真见 eval/runs/dev/50x5_20260919_065506 分桶)。DEVICE_FILTER=0 一键回退。
 DEVICE_FILTER     = _feature_on("DEVICE_FILTER", True)
 DEVICE_POOL_LIMIT = int(os.getenv("DEVICE_POOL_LIMIT", "40"))  # 过滤路每条 prefetch 召回数(无过滤路仍 _RECALL_POOL)
 
@@ -365,6 +467,14 @@ CONTEXT_COMPRESS_BREAKER_COOLDOWN = float(
 
 # === 检索微服务 ===
 RETRIEVAL_SERVICE_URL = os.getenv("RETRIEVAL_SERVICE_URL", "http://127.0.0.1:8002")
+# MCP 连接池地址(2026-10-09 多隧道×多会话):逗号分隔多个隧道端口,每个地址
+# 一条独立 SSH transport + MCP 会话,分摊流控窗口治队头阻塞(单隧道是 20 并发
+# 队尾超时单点)。MCP 桥按此展开连接;单地址时行为与旧版一致。
+# 对应隧道侧:start_tunnel.sh 按 GPU_TUNNEL_PORTS 起同数转发。
+_urls_raw = os.getenv("RETRIEVAL_SERVICE_URLS", "").strip()
+RETRIEVAL_SERVICE_URLS = ([u.strip().rstrip("/") for u in _urls_raw.split(",")
+                           if u.strip()]
+                          or [RETRIEVAL_SERVICE_URL.rstrip("/")])
 # 服务间鉴权:非空时,检索微服务(:8002)所有端点(除 /health)要求请求头
 # X-Internal-Token 与此值一致,否则 403(防内网任意主体投毒 Qdrant/打爆 CPU)。
 # 留空 = 鉴权关闭(本地开发默认);主服务/MCP桥/embed_http/长期记忆等调用方
@@ -388,6 +498,28 @@ CIRCUIT_BREAKER_FAILURE_THRESHOLD = int(
 # OPEN 持续(秒)后半开试探一次
 CIRCUIT_BREAKER_COOLDOWN_SECONDS = float(
     os.getenv("CIRCUIT_BREAKER_COOLDOWN_SECONDS", "30"))
+
+# === LLM 调用熔断(三状态机,按环节独立计数;参数对全部环节统一)===
+# CLOSED:指数退避重试+超时限定(由 llm_create_with_retry 承担);连续失败
+# 达阈值(每次调用内部已重试/failover 过)→ OPEN 冷却 10s → HALF_OPEN 试探;
+# 连续 2 次试探失败 → 放弃期,上游提示用户"该环节 LLM 服务不可用,请稍后
+# 作答,本次作答无效";放弃期过后重置计数重走循环。
+LLM_BREAKER_FAILURE_THRESHOLD = int(
+    os.getenv("LLM_BREAKER_FAILURE_THRESHOLD", "3"))
+LLM_BREAKER_COOLDOWN_SECONDS = float(
+    os.getenv("LLM_BREAKER_COOLDOWN_SECONDS", "10"))
+LLM_BREAKER_EXHAUSTED_COOLDOWN_SECONDS = float(
+    os.getenv("LLM_BREAKER_EXHAUSTED_COOLDOWN_SECONDS", "60"))
+
+# === LLM 出口波次并发闸(与熔断互补:熔断管真故障,闸管齐发过载)===
+# 同时最多 LLM_GATE_SIZE 个 LLM 调用在途;超出的排队,等当前波【全部结束】
+# 后一次性放下一波(≤size 个攒批齐发),直到队列穷尽;在途 < size 且无排队者
+# 时直通零等待(低负载不感知)。目的:把 20 并发齐发对 Ark 的秒级突发冲击削成
+# ≤size 的波次,避免首波集体流式挂死(轮次14 实测 600s 超时集中第一波)。
+LLM_GATE_ENABLED = _bool_env("LLM_GATE_ENABLED", True)
+LLM_GATE_SIZE = int(os.getenv("LLM_GATE_SIZE", "10"))
+LLM_GATE_WAIT_TIMEOUT = float(
+    os.getenv("LLM_GATE_WAIT_TIMEOUT", "300"))  # 排队等待上限(秒),超时报"稍后重试"
 
 # 同一轮 ReAct 内多个无依赖工具调用的并发上限(线程池 fan-out);1=串行
 TOOL_MAX_PARALLEL = int(os.getenv("TOOL_MAX_PARALLEL", "4"))

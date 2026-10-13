@@ -17,11 +17,12 @@ cd "$(dirname "$0")"
 # 密钥不入库:从本地 env/env.env 读取(该文件被 .gitignore 排除)
 _SECRETS_FILE="../env/env.env"
 if [ ! -f "$_SECRETS_FILE" ]; then
-  echo "缺少 $_SECRETS_FILE(需含 OPENAI_API_KEY / RETRIEVAL_INTERNAL_TOKEN),请先准备后再执行"; exit 1
+  echo "缺少 $_SECRETS_FILE(需含 OPENAI_API_KEY / RETRIEVAL_INTERNAL_TOKEN / LITELLM_MASTER_KEY),请先准备后再执行"; exit 1
 fi
-source <(grep -E '^(OPENAI_API_KEY|RETRIEVAL_INTERNAL_TOKEN)=' "$_SECRETS_FILE" | tr -d '')
+source <(grep -E '^(OPENAI_API_KEY|RETRIEVAL_INTERNAL_TOKEN|LITELLM_MASTER_KEY)=' "$_SECRETS_FILE" | tr -d '')
 : "${OPENAI_API_KEY:?OPENAI_API_KEY 未设置}"
 : "${RETRIEVAL_INTERNAL_TOKEN:?RETRIEVAL_INTERNAL_TOKEN 未设置}"
+: "${LITELLM_MASTER_KEY:?LITELLM_MASTER_KEY 未设置(与 ssh_helper/gpu.env 同一串)}"
 
 rand() { openssl rand -hex "$1" 2>/dev/null || head -c 64 /dev/urandom | od -An -tx1 | tr -d ' \n' | cut -c1-"$(( $1 * 2 ))"; }
 
@@ -48,14 +49,16 @@ REDIS_PASSWORD=${REDIS_PASSWORD}
 POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 LONG_MEM_ENABLED=1
 
-# LLM 接入(火山方舟按 Token 付费接入点,压测用;OpenAI 兼容,经 gateway 通道)
-#   主模型: ep-20260917012203-8vvns (DeepSeek-V4-Flash正式版 260731)
-#   副模型: ep-20260917012501-44sxb (Doubao-Seed-2.0-lite 260428)
-#   容器内访问宿主机隧道/外网统一走 host.docker.internal(compose 已配 host-gateway)
-LLM_GATEWAY_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
-LLM_GATEWAY_API_KEY=${OPENAI_API_KEY}
-GATEWAY_MODEL_MAIN=ep-20260917012203-8vvns
-GATEWAY_MODEL_LIGHT=ep-20260917012501-44sxb
+# LLM 接入:GPU 机 LiteLLM 网关(OpenAI 兼容,经 SSH 反向隧道映射到宿主机 0.0.0.0:4000)
+#   main  = GPU vLLM Qwen3-32B-FP8(稠密主模型:ReAct/raglite 作答、工具调用)
+#   light = GPU vLLM Qwen3-14B-FP8(轻量旁路:复杂度路由/查询改写/摘要/grounding/升迁门)
+#   LLM_GATEWAY_API_KEY 必须与 GPU 机 ssh_helper/gpu.env 的 LITELLM_MASTER_KEY 同一串;
+#   容器内访问宿主机隧道统一走 host.docker.internal(compose 已配 host-gateway)。
+#   云端兜底由 GPU 机 LiteLLM 配置(fallbacks → cloud-main/火山 ARK),业务侧无需感知。
+LLM_GATEWAY_BASE_URL=http://host.docker.internal:4000/v1
+LLM_GATEWAY_API_KEY=${LITELLM_MASTER_KEY}
+GATEWAY_MODEL_MAIN=main
+GATEWAY_MODEL_LIGHT=light
 GROUNDING_MODEL=light
 
 # 检索微服务(GPU 机,经 SSH 反向隧道到宿主机 0.0.0.0:8002)

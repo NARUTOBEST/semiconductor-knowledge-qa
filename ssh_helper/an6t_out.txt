@@ -1,0 +1,62 @@
+
+===== DUMP @ 2026-10-10T05:22:10  (385 threads) =====
+
+===== DUMP @ 2026-10-10T05:22:22  (385 threads) =====
+
+===== DUMP @ 2026-10-10T05:22:41  (385 threads) =====
+
+===== DUMP @ 2026-10-10T05:22:52  (385 threads) =====
+
+-- tid 00007f7fd47f2340
+   Current thread 0x00007f7fd47f2340 (most recent call first):
+   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 765 in call_later
+   File "/usr/local/lib/python3.12/asyncio/tasks.py", line 661 in sleep
+   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 236 in main_loop
+   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 95 in _serve
+   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 78 in serve
+   File "/usr/local/lib/python3.12/asyncio/events.py", line 88 in _run
+   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 1999 in _run_once
+   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 645 in run_forever
+   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 678 in run_until_complete
+   File "/usr/local/lib/python3.12/asyncio/runners.py", line 118 in run
+   File "/usr/local/lib/python3.12/asyncio/runners.py", line 195 in run
+   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 74 in run
+   File "/usr/local/lib/python3.12/site-packages/uvicorn/supervisors/multiprocess.py", line 77 in target
+   File "/usr/local/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 80 in subprocess_started
+   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+   File "/usr/local/lib/python3.12/multiprocessing/spawn.py", line 135 in _main
+   File "/usr/local/lib/python3.12/multiprocessing/spawn.py", line 122 in spawn_main
+   File "<string>", line 1 in <module>
+
+===== DUMP @ 2026-10-10T05:23:11  (385 threads) =====
+
+===== DUMP @ 2026-10-10T05:23:23  (385 threads) =====
+
+===== DUMP @ 2026-10-10T05:23:30  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:23:41  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:23:53  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:24:00  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:24:11  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:24:23  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:24:30  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:24:41  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:24:53  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:25:00  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:25:11  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:25:23  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:25:30  (422 threads) =====
+
+===== DUMP @ 2026-10-10T05:25:41  (422 threads) =====

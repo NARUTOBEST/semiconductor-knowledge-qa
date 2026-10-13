@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "SECS-01",
+  "query": "ASML 这台机器 host 接口的 SECS 连接默认监听的 TCP 端口号是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Host Interface 的 TCP port 默认值为 5000，即 Passive Entity 在该端口等待连接。",
+  "success_criteria": "答出默认端口 5000，且能说明是 Host Interface（SEMI E37 HSMS 连接）的 Passive Entity 监听端口。",
+  "evidence": "--[p162 [表]]-- TCP port | Any valid TCP port | 5000 | Specifies the TCP port number at which the Passive Entity waits for connection."
+ },
+ {
+  "query_id": "SECS-02",
+  "query": "和 track 对接的那路 SECS 接口（Track Interface）默认 TCP 端口是几？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Track Interface 的 TCP port 默认值为 4711。",
+  "success_criteria": "答出 4711，并能与 Host Interface 的 5000 端口区分开。",
+  "evidence": "--[p163 [表]]-- TCP port | 4711 | Specifies the TCP port number at which the Passive Entity waits for connection. Table 4.8 Track Interface Settings"
+ },
+ {
+  "query_id": "SECS-03",
+  "query": "S5F1 报文里的报警文本 ALTX 最多能放多少个字符？超长会被怎么处理？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "ALTX 最大长度 40 字符；若异常文本超过 40 字符，报文中的文本会在第 37 个字符处截断并追加 \"...\" 表示被截断。",
+  "success_criteria": "同时答出最大 40 字符与\"截断到 37 字符 + 追加 ...\"两个要点。",
+  "evidence": "--[p169]-- ALTX | Format: 20 | Description | Alarm text. Values | See &lt;ALID&gt;. The maximum length is 40 characters. Where Used | S5F1, F6, F8 | Note | Please note that ALTX has a maximum length of 40 characters. If the exception text is longer than 40 characters, the text in the SECS-message will be cut at character 37 and \"...\" will be added to indicate that the text has been cut off."
+ },
+ {
+  "query_id": "SECS-04",
+  "query": "S14F2/F4 对象服务应答里的 OBJACK 取值 0 和 1 分别代表什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "OBJACK（Format 51）：0 = Successful completion of requested data（请求的数据成功完成）；1 = Error（出错）；&gt;1 为保留值，用于 S14F2、S14F4。",
+  "success_criteria": "0 与 1 的含义都答对，最好提及 &gt;1 保留、用于 S14F2/F4。",
+  "evidence": "--[p185]-- OBJACK | Format: 51 Description | Acknowledge code. Values | 0 = Successful completion of requested data 1 = Error &gt;1 Reserved Where Used | S14F2, F4"
+ },
+ {
+  "query_id": "SECS-05",
+  "query": "S3F67 清洗 chuck spot 请求里的 CHUCK_ID 可以填哪些值？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "CHUCK_ID（Format 51）取值为 1 或 2，对应两个 chuck，用于 S3F67。",
+  "success_criteria": "答出\"1 或 2\"（两个值），并关联到 S3F67。",
+  "evidence": "--[p171]-- CHUCK_ID | Format: 51 Description | Chuck ID. Values | 1 or 2. Where Used | S3F67"
+ },
+ {
+  "query_id": "SECS-06",
+  "query": "host 通过 S2F41 发 \"STOP_QUEUE\" 这个 remote command 是让设备干什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "\"STOP_QUEUE\" 用于停止 process job 处理队列（Stop the process job processing queue），即 S2F41 Process job Queue Processing 服务，无 CPNAME/CPVAL 参数。",
+  "success_criteria": "答出\"停止 process job 队列处理\"，能说明该命令不带参数。",
+  "evidence": "--[p50]-- Table 6.3 Message Detail Process job Queue Processing: Process job Queue Processing message: Stop the process job processing queue RCMD | CPNAME | CPVAL | Format \"STOP_QUEUE\" | - | -"
+ },
+ {
+  "query_id": "SECS-07",
+  "query": "想知道设备里现在存了哪些 recipe/process program，host 该发哪对消息？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "发 S7F19（Current EPPD Request）请求系统上的全部 Process Program 目录，设备用 S7F20 返回目录中所有 Process Program 的列表（Current EPPD Data）。",
+  "success_criteria": "答出 S7F19 请求、S7F20 返回目录列表。",
+  "evidence": "--[p154]-- The Host requests a list of all Process Programs on the System | S7F19 → ← S7F20 | The system responds with a list of all Process Programs in the directory --[p153]-- Scenario 4.104 Process Program Directory Request: Current EPPD Request | S7F19 → ← S7F20 | Current EPPD Data"
+ },
+ {
+  "query_id": "SECS-08",
+  "query": "host 想读设备侧当前时间，用哪条 SECS 消息？设备怎么回？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "host 发 S2F17（Date and Time Request）请求时间，系统用 S2F18 回送 &lt;TIME&gt; 值（Scenario 4.95）。",
+  "success_criteria": "答出 S2F17 请求 / S2F18 带 &lt;TIME&gt; 应答。",
+  "evidence": "--[p151 [表]]-- Host requests time | S2F17 → ← S2F18 | System responds with &lt;TIME&gt; value"
+ },
+ {
+  "query_id": "SECS-09",
+  "query": "Host Interface 里 t3 这个定时器是干嘛的？默认值和允许范围各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "t3 是设备发出带 w-bit 置位的主消息后等待应答数据消息的最长秒数，超时则认为应答不会到来；允许范围 [10-120] 秒，默认 10 秒。",
+  "success_criteria": "语义、范围 [10-120]、默认 10 三个要素齐全。",
+  "evidence": "--[p162 [表]]-- t3 | [10 - 120] | 10 | The number of seconds the Equipment will wait after sending a primary message with w-bit set, before giving up and assuming that the expected reply data message will not arrive. Table 4.7 Host Interface Settings"
+ },
+ {
+  "query_id": "SECS-10",
+  "query": "S2F41 host command 的应答 S2F42 里 HCACK 各个码值都是什么含义？把 0 到 6 都列一下。",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HCACK（Format 10，1 字节）：0 = Acknowledge, command has been performed（已执行）；1 = Command does not exist（命令不存在）；2 = Cannot perform now（当前无法执行）；3 = At least one parameter is invalid（至少一个参数无效）；4 = Acknowledge, command will be performed with completion signaled later by an event（将执行，稍后用事件通知完成）；5 = Rejected, Already in Desired Condition（已处于期望状态被拒绝）；6 = No such object exists（对象不存在）；7-63 保留；用于 S2F42。",
+  "success_criteria": "0-6 七个码值含义全部答出（顺序不限），遗漏超过 1 个即不通过。",
+  "evidence": "--[p178]-- HCACK | Format: 10 Description | Host Command Parameter Acknowledge Code, 1 byte. Values | 0 = Acknowledge, command has been performed 1 = Command does not exist 2 = Cannot perform now 3 = At least one parameter is invalid 4 = Acknowledge, command will be performed with completion signaled later by an event 5 = Rejected, Already in Desired Condition 6 = No such object exists Where Used | 7-63 Reserved S2F42"
+ },
+ {
+  "query_id": "SECS-11",
+  "query": "S2F40（S16F2）里的 GRANT 应答码都有哪些取值？特别是收到 Duplicate DATAID 时会回几？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "GRANT（Format 10，1 字节）：0 = Permission Granted（允许发送）；1 = Busy, Try Again（忙，请重试）；2 = No Space Available（无可用空间）；3 = Duplicate DATAID（DATAID 重复）；&gt;3 = 设备自定义错误码；4-63 保留；用于 S2F40 与 S16F2。所以 Duplicate DATAID 回 3。",
+  "success_criteria": "0/1/2/3 四个标准码全答对，且明确 Duplicate DATAID 对应 3。",
+  "evidence": "--[p178]-- GRANT | Format: 10 Description | Grant code, 1 byte. Values | 0 = Permission Granted 1 = Busy, Try Again 2 = No Space Available 3 = Duplicate DATAID &gt;3 = Equipment Specific Error Code 4-63 Reserved Where Used | S2F40; S16F2"
+ },
+ {
+  "query_id": "SECS-12",
+  "query": "这套接口里 exception 分几种严重级别？当 Exception Reporting Method 配成 E41 时，error/warning/notification 各走哪组消息，alarm 又走哪组？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "exception 分 4 种严重级别：alarm、error、warning、notification。按 Table 6.9：alarm 级别在 E30/E41 两种方式下都用 S5F1...S5F8；error、warning、notification 在 E41 方式下用 S5F9...S5F12 和 S14F1...S14F4（E30 方式下仍用 S5F1...S5F8）。",
+  "success_criteria": "答出 4 种级别 + E41 下 error/warning/notification 用 S5F9-F12 与 S14F1-F4、alarm 仍用 S5F1-F8。",
+  "evidence": "--[p60]-- This stream contains messages regarding exceptions. Exceptions are classified in 4 severities: alarm, error, warning and notification (see data items ALCD and EXTYPE). --[p60 [表]]-- Table 6.9 Applicable messages depending on \"Exception Reporting Method\": Severity | Exception Reporting Method = \"E30\" | Exception Reporting Method = \"E41\" Alarm | S5F1...S5F8 | S5F1...S5F8 Error | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4 Warning | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4 Notification | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4"
+ },
+ {
+  "query_id": "SECS-13",
+  "query": "S9 流的系统错误消息，什么情况下发、什么情况下不发？Message Fault 和 Communications Fault 的区别是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Stream 9 用于告知 host 收到的消息块无法处理或事务（接收）定时器超时，只指示 Message Fault 或 Communications Fault，不指示 Communications Failure。Message Fault：收到因内容、上下文或长度问题而无法处理的消息；Communications Fault：未收到预期消息（事务定时器或会话定时器超时）；发生 Communications Failure 时不发送任何 Stream 9 消息。",
+  "success_criteria": "答出两类 Fault 的区别 + Communications Failure 时不发 S9。",
+  "evidence": "--[p74]-- This stream provides a method of informing the host that a received message block cannot be handled, or that a timeout on a transaction (receive) timer has occurred. The messages indicate either Message Faults or Communications Faults, but they do not indicate Communications Failures. Message Fault: A Message Fault occurs when the system receives a message which it cannot process because of a fault that arises from the content, context, or length of the message. Communications Fault: A Communications Fault occurs when the system does not receive an expected message (when a transaction timer or a conversation timer has expired). In the event of a Communications Failure, no Stream 9 message is sent."
+ },
+ {
+  "query_id": "SECS-14",
+  "query": "S6F1 追踪数据如果是多块传输，需不需要像 S6F9 那样先走 Inquire/Grant？它按什么配置发数据？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "不需要。手册明确：即使 S6F1 是多块报文，也不需要前置 Inquire/Grant 事务；S6F1（Trace Data Send）按照 S2F23 建立的 trace 设置向 host 发送采样数据。（对比：S6F9 若为多块则必须先走 S6F5/S6F6 Inquire/Grant。）",
+  "success_criteria": "答出\"S6F1 多块也无需 Inquire/Grant 前置\"且提到按 S2F23 的 trace 设置发送。",
+  "evidence": "--[p62]-- S6F1 | Trace Data Send (TDS) | M,H ← E [Reply] Description | Even if S6F1 is multi-block, it is not preceded by an Inquire/Grant transaction. | This function sends samples to the host according the trace setup done by S2F23."
+ },
+ {
+  "query_id": "SECS-15",
+  "query": "把 host 上线/下线这几个场景给我串一遍：Scenario 4.102 里当前是 HOST OFFLINE，host 发 S1F17 后系统回什么、ONLACK 是几、状态转到哪？再对比 Scenario 4.99，operator 请求 ONLINE 时如果 host 拒绝，host 要发什么消息？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "Scenario 4.102（Host sets ONLINE）：当前 control state 为 HOST OFFLINE 时，host 发 S1F17 请求 ONLINE，系统回 S1F18 且 ONLACK = 0，并转换到 ONLINE LOCAL 或 REMOTE。Scenario 4.99（Operator requests ONLINE）：operator 打开 ONLINE 开关后系统发 S1F1 请求上线；若 host 拒绝 ONLINE（[ELSE] 分支），host 发 S1F0（Abort Transaction 中止事务）作为响应。",
+  "success_criteria": "Scenario 4.102 的 ONLACK=0 与目标状态（ONLINE LOCAL or REMOTE）正确，Scenario 4.99 拒绝时为 S1F0，三要素齐全。",
+  "evidence": "--[p152]-- Scenario 4.100/4.102 ... Scenario 4.102 Host sets ONLINE: Host request oNLINE | S1F17 | → [IF] control state HOST OFFLINE [THEN] ← | S1F18 | System acknowledges request with ONLACK = 0 and transitions to ONLINE LOCAL Or REMOTE --[p152]-- Scenario 4.99 Operator requests ONLINE: Operator sets the oNLINE switch when system oFFLINE state is active | S1F1 | System requests oNLINE [IF] host grants oNLINE [THEN] Host sends grant | S1F2 | → ... Host denies ONLINE [END IF] | S1F0 | →"
+ },
+ {
+  "query_id": "SECS-16",
+  "query": "S3F67 里 WTC_SPOT_POSITION_X 和 WTC_SPOT_POSITION_Y 的取值范围都是 [-150.000, 150.000] mm，帮我算一下单个方向的全量程跨度是多少毫米。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "查得 WTC_SPOT_POSITION_X、WTC_SPOT_POSITION_Y 均为 Format 40，取值范围 [-150.000, 150.000] mm。跨度 = 150.000 - (-150.000) = 300.000 mm。",
+  "success_criteria": "给出算式 150-(-150)=300 并答出 300 mm。",
+  "evidence": "--[p204]-- WTC_SPOT POSITION_X | Format: 40 Description | X position of a chuck spot which has been or has to be cleaned. Values Where Used | [-150.000, 150.000] mm S3F67 --[p204]-- WTC_SPOT POSITION_Y | Format: 40 Description | Y position of a chuck spot which has been or has to be cleaned. Values | [-150.000, 150.000] mm Where Used | S3F67"
+ },
+ {
+  "query_id": "SECS-17",
+  "query": "我用 S2F23 建了个 trace：TOTSMP 设 120、REPGSZ 设 12，设备一共会给我发几份 trace 报告？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "手册规定 TOTSMP（完整 trace 周期内采样的总次数）与 REPGSZ 组合决定发送的 trace 报告份数 = TOTSMP/REPGSZ。代入：120 ÷ 12 = 10 份。",
+  "success_criteria": "先检索到 TOTSMP/REPGSZ 公式，再算出 10 份，给出算式。",
+  "evidence": "--[p204]-- Description | Total samples to be taken during a complete trace period. In combination with &lt;REPGSZ&gt;, the number of trace reports sent is determined by TOTSMP/REPGSZ. For format 20, a printed integer number is expected, with a maximum length of 10 characters. Where Used | S2F23"
+ },
+ {
+  "query_id": "SECS-18",
+  "query": "Table 6.2 里 ECID 14（ESTABLISHCOMMUNICATIONSTIMER）和 ECID 15（HEARTBEAT）这两个可改的 equipment constant，默认值加起来是多少秒？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "查 Table 6.2：ECID 14 ESTABLISHCOMMUNICATIONSTIMER 默认 30（MIN 0 / MAX 1800）；ECID 15 HEARTBEAT 默认 30（MIN 0 / MAX 1800）。两者默认值之和 = 30 + 30 = 60 秒。",
+  "success_criteria": "答出 30+30=60 秒，且两个 ECID 对应正确。",
+  "evidence": "--[p46]-- Table 6.2 Unprotected ECIDs that can be set via S2F15: ECID | ECNAME | MIN | MAX | DEFAULT | MACHINE CONSTANT ... 14 | ESTABLISHCOMMUNICATIONSTIMER | 0 | 1800 | 30 | Establish Communication Timer 15 | HEARTBEAT | 0 | 1800 | 30 | Heartbeat"
+ },
+ {
+  "query_id": "SECS-19",
+  "query": "SLOTSTATUS 这个数据项在 TWINSCAN_RELEASE_340 和 E109-0704 两种兼容模式下取值个数不一样，340 版比 0704 版多定义了几个值？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "TWINSCAN_RELEASE_340 版定义 6 个取值（0=Undefined, 1=Empty, 2=Not empty, 3=Correctly occupied, 4=Double slotted, 5=Cross slotted）；0704 版只定义 3 个（0=Undefined, 1=Empty, 2=Correctly occupied）。多出 6 - 3 = 3 个值（2=Not empty、4=Double slotted、5=Cross slotted）。",
+  "success_criteria": "答出 6 与 3 的对比，并给出 6-3=3。",
+  "evidence": "--[p165]-- Description | TWINSCAN_RELEASE_340 | 0704 Data Item SLOTSTATUS | 0 = Undefined 1 = Empty 2 = Not empty 3 = Correctly occupied 4 = Double slotted 5 = Cross slotted | 0 = Undefined 1 = Empty 2 = Correctly occupied"
+ },
+ {
+  "query_id": "SECS-20",
+  "query": "Table 6.2 里主机可设的 HEARTBEAT（ECID 15）最大能到 1800 秒，而 Track Interface 里对 track 的 Heartbeat 默认是 60 秒：1800 是 track 默认值的多少倍？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳：查 Table 6.2 得 ECID 15 HEARTBEAT 的 MIN=0、MAX=1800、DEFAULT=30，即主机可设的最大值为 1800 秒；第二跳：查 Table 4.8 Track Interface Settings 得 track 侧 Heartbeat 允许 [60,600]、默认 60 秒；计算：1800 ÷ 60 = 30 倍。",
+  "success_criteria": "两个来源（Table 6.2 的 MAX 1800、Table 4.8 的默认 60）都检索正确，并给出 1800/60=30 倍。",
+  "evidence": "--[p46]-- 15 | HEARTBEAT | 0 | 1800 | 30 | Heartbeat --[p164]-- Heartbeat | [60,600] | 60 | Specifies the interval in seconds between subsequent heartbeat messages (S1F1) that are being send to the track."
+ },
+ {
+  "query_id": "SECS-21",
+  "query": "S9F13 Conversation Timeout 对应的会话定时器，这台设备默认超时是多少秒？手册里能查到吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该标准/手册未给出 S9F13 所涉会话定时器的默认超时秒数：手册仅描述 S9F13 的含义——预期数据未在合理时间内收到、资源被清除，结构为 L,2（&lt;MEXP&gt;、&lt;EDID&gt;）——并未提供任何默认值或范围；具体定时器配置属于机器常数层面，建议查设备机器常数设置或与 ASML 确认，不得编造数值。",
+  "success_criteria": "明确指出素材中不存在该默认值，给出 S9F13 的实际定义并建议查机器常数，不虚构数字。",
+  "evidence": "--[p74]-- This stream provides a method of informing the host that a received message block cannot be handled, or that a timeout on a transaction (receive) timer has occurred. --[p75]-- S9F13 | Conversation Timeout (CTN) S,H← E Description Structure | Expected data was not received within a reasonable length of time. Resources are cleared. L,2 1. | &lt;MEXP&gt; 2. &lt;EDID&gt;"
+ },
+ {
+  "query_id": "SECS-22",
+  "query": "S10F9 广播消息（Broadcast）发到设备终端的文本 TEXT 有没有最大长度限制？是多少个字符？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该手册未规定 S10F9 的文本最大长度：S10F9 仅描述为\"generally the same as S10F3，但不需要指定 TID，文本发往系统上每个终端\"，结构只给出 &lt;TEXT&gt;，未给出任何字符数上限（手册中明确给出长度限制的是 ALTX 40 字符等其他数据项，S10F9 的 TEXT 无此说明），因此不能给出数字，需与设备侧确认。",
+  "success_criteria": "明确说素材未给出 S10F9 TEXT 的长度限制，引用 S10F9 的实际描述，不编造数字。",
+  "evidence": "--[p76]-- S10F9 | Broadcast (BCN) | S,H → E Reply Description | This function is generally the same as S10F3 with the exception that in each system a specific TID Structure | does not need to be specified. Instead, the text is directed to each terminal on the system when the function is received. &lt;TEXT&gt; S10F10 Description | Broadcast Acknowledge (BCA) | S,H← E Structure &lt;ACKC10&gt;"
+ },
+ {
+  "query_id": "SECS-23",
+  "query": "现场一个 warning 级别的 exception 被置位了，我们机器没改过 Exception Reporting Method（用默认值）。host 上应该等着收哪几组消息？另外这些异常消息里的 EXID 最长多少个字符？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "多跳链：第一步查 Compatibility Settings（Table 4.10），Exception ReportingMethod 默认值为 E41；第二步按 Table 6.9，warning 级别在 E41 方式下适用 S5F9...S5F12 和 S14F1...S14F4（exception set 报 S5F9 Exception Post Notify，clear 报 S5F11 Exception Clear Notify）；第三步查数据项 EXID：Format 20，最长 7 个字符。结论：默认配置下 host 应期待 S5F9-F12 及 S14F1-F4 这组消息，EXID 最长 7 字符。",
+  "success_criteria": "先答出默认 E41，再映射到 S5F9-F12+S14F1-F4，最后答出 EXID 最长 7 字符；三跳齐全才通过。",
+  "evidence": "--[p165]-- Exception ReportingMethod[a] | E30E41 | E41 | Switches the reporting style for exceptions with severities error, warning or notification between SEMI E41 and SEMI E30. --[p60 [表]]-- Warning | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4 --[p178]-- EXID | Format: 20 Description Values | Unique identifier for the exception. Maximum length 7 characters. Where Used | See Appendix A for list of values. S5F9, F11 As OBJID in S14F1, F2, F3, F4"
+ },
+ {
+  "query_id": "SECS-24",
+  "query": "我要让设备把某个 reticle pod 的内容盘点（inventory）一遍并上报：S2F41 里用哪个 RCMD？需要带什么参数？用之前有个 factory constant 前提条件是什么？设备用什么消息应答？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "多跳链：第一步查 Table 6.4 Reticle Handling，RCMD=\"INVENTORISE_POD\"，CPNAME=\"Pod ID\"（必填，Format 20，值如 \"POD2\"）；第二步查表注 [a]：使用 Inventory 功能的前提是 Reticle Handling Factory Constant 'Inventory Carrier' 设为 EXPLICIT；第三步查 S2F41 的应答：设备回 S2F42 Host Command Acknowledge（HCACK 确认）。即：确认 'Inventory Carrier'=EXPLICIT 后发 S2F41 [\"INVENTORISE_POD\", L,1(L,2(\"Pod ID\",\"POD2\"))]，收 S2F42。",
+  "success_criteria": "答出 RCMD=INVENTORISE_POD、参数 Pod ID（必填）、前提 Inventory Carrier=EXPLICIT、应答 S2F42 四个要点。",
+  "evidence": "--[p50]-- Table 6.4 Message Detail Reticle Handling: Reticle Handling message: Inventory[a] RCMD | CPNAME | CPVAL | Mandatory | Format \"INVENTORISE POD\" | \"Pod ID\" | &lt;PODID&gt; | Yes | 20 [a] To use the Inventory functionality please make sure that the Reticle Handling Factory Constant 'Inventory Carrier' is set to EXPLICIT. --[p51]-- Note Message for inventorising Pod 2: S2F41 ```csv L,2 1. \"INVENTORISE_POD\" 2. L,1 1. L,2 1. \"Pod ID\" 2. \"POD2\" ``` --[p52]-- S2F42 Host Command Acknowledge (HCA) S,H ← E Description The message acknowledges the host command or an error is reported."
+ },
+ {
+  "query_id": "SECS-25",
+  "query": "host 想把一片 reticle 从设备的一个库存位置挪到另一个位置：该用哪个 object service？对 OPID 有什么要求？服务执行后设备会先后上报哪两个 CEID、分别代表什么？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳链：第一步确定服务为 MoveReticle，通过 S14F19 下发（SVCNAME=\"MoveReticle\"），OPID 必须 &lt;&gt; 0（因为该服务耗时，需用 OPID 关联延迟完成信息），设备回 S14F20 应答；第二步查 Scenario 4.73：当 SVCACK=4 时 reticle 将被移动，随后设备先后发送两个事件——先 CEID=6901（Reticle moves off reticle location，离开原位置），带 S6F12 确认；再 CEID=6900（Reticle moves to reticle location，到达新位置），带 S6F12 确认。",
+  "success_criteria": "答出 S14F19+SVCNAME=MoveReticle、OPID 必须&lt;&gt;0、S14F20 应答、CEID 6901（离开）在先且 CEID 6900（到达）在后。",
+  "evidence": "--[p144]-- Scenario 4.73 Host requests to move reticle to another inventory location: SVCNAME = \"MoveReticle\", OPID must be &lt;&gt; 0 | S14F19 → ← S14F20 Acknowledge [IF] SVCACK= 4 [THEN] Reticle is going to be moved. ← S6F11 | CEID = 6901 Reticle moves off reticle location Acknowledge S6F12 | → ← S6F11 | CEID = 6900 Reticle moves to reticle location Acknowledge S6F12 | →"
+ }
+]

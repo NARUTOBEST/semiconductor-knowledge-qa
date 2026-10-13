@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "PKG-01",
+  "query": "SAC305 这款无铅焊料的熔化温度大概在多少度？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "SAC305 等常用 SnAgCu 合金（SAC359/SAC387/SAC396/SAC405）的熔化温度均在 217°C 左右。",
+  "success_criteria": "答出约 217°C，允许 ±3°C 误差",
+  "evidence": "--[p192]-- Sn96.5Ag3Cu0.5 (SAC305), Sn95.6Ag3.5Cu0.9 (SAC359, ternary eutectic SnAgCu), Sn95.5Ag3.8Ag0.7 (SAC387), Sn95.5Ag3.9Cu0.6 (SAC396), and Sn95.5Ag4.0Cu0.5 (SAC405) are all commonly used for reflow, wave, and hand soldering, and all exhibit a melting temperature around 217°C"
+ },
+ {
+  "query_id": "PKG-02",
+  "query": "Sn-Zn 共晶焊料熔点挺低的，书里为什么说它不太适合电子焊接？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "共晶 Sn91Zn9 熔点 199°C，但 Zn 表面张力高（0.768 N/m）且对助焊剂和氧反应性强，因此不适合电子焊接。",
+  "success_criteria": "答出熔点 199°C 且给出表面张力高/易与助焊剂和氧反应任一原因",
+  "evidence": "--[p194]-- Eutectic Sn91Zn9 exhibits a melting temperature 199°C. Although attractive in its low melting temperature, its high surface tension (0.768 N/m for Zn) and high reactivity toward flux and oxygen prohibit its use for electronic soldering."
+ },
+ {
+  "query_id": "PKG-03",
+  "query": "做球焊用的金丝对纯度有什么讲究？里面掺什么东西来稳定性能？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "球焊用金纯度极高（99.99%），总杂质通常低于 10 ppm；铍（Be）是用于稳定线材并控制机械性能的关键杂质元素。",
+  "success_criteria": "答出 99.99% 纯度、杂质 &lt;10 ppm、铍(Be) 三要素",
+  "evidence": "--[p140]-- The gold used is extremely pure (99.99%) …… with total impurities typically less than 10 ppm. …… Beryllium is the key impurity used to stabilize the wire and control some of its mechanical properties."
+ },
+ {
+  "query_id": "PKG-04",
+  "query": "EMC 传递模塑成型之后还要后固化，一般是什么条件？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "后固化条件一般为 170–180°C、2–8 小时。",
+  "success_criteria": "同时答出温度区间 170–180°C 与时间 2–8 h",
+  "evidence": "--[p355]-- The semiconductor package after molding is normally post-cured to fully cure the EMC and achieve optimal properties. The post-curing condition is generally at 170–180°C for 2–8 h."
+ },
+ {
+  "query_id": "PKG-05",
+  "query": "铜线球焊比起金线是不是更容易把芯片压伤？硬度差多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "是：铜剪切模量 48 GPa 高于金 26 GPa，铜球努氏硬度约 50 高于金球 35，因此键合过程易造成凹坑（cratering）损伤。",
+  "success_criteria": "答出 48 vs 26 GPa 或努氏硬度 50 vs 35，并提到 cratering 风险",
+  "evidence": "--[p142]-- Copper has a higher shear modulus than gold (48 GPa versus 26 GPa) and Cu balls are significantly harder than gold balls (e.g., 50 compared to 35 on the Knoop Hardness Scale), thus, creating the potential for damage to delicate chips and substrates in the bonding process. Copper ball bonding produces a significant increase in cratering [23]."
+ },
+ {
+  "query_id": "PKG-06",
+  "query": "E-glass 玻纤在 1GHz 下的介电常数大概落在一个什么范围？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "E-glass 在 1 GHz 的介电常数可在 5.9–6.4 范围内变化（因原料来源与等级不同）。",
+  "success_criteria": "答出 5.9–6.4 区间",
+  "evidence": "--[p288]-- As a result, the dielectric constant of E-Glass at 1 GHz can vary within a range of 5.9–6.4."
+ },
+ {
+  "query_id": "PKG-07",
+  "query": "大家常说的紫瘟（purple plague）指的是哪种金铝金属间化合物？它在多少度就会形成？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "AuAl2，形成温度 150°C，呈深紫色（purple plague），活化能 1.20 eV。",
+  "success_criteria": "答出 AuAl2 与 150°C",
+  "evidence": "--[p163]-- AuAl2 | 150 | 1.20 | 115.8 | 27.7 | Deep purple in color (purple plague-"
+ },
+ {
+  "query_id": "PKG-08",
+  "query": "掺 1% 硅的铝线主要用在什么场合？加硅图的是什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Al+1%Si 是标准 IC 键合线（主要用于楔形超声键合/wedge bonding）；1% 硅与半导体器件金属化常用合金匹配，并比纯铝提高强度与刚度。",
+  "success_criteria": "答出标准 IC 键合线（楔焊）且说明与器件金属化合金匹配/提高强度",
+  "evidence": "--[p141]-- Aluminum with 1% silicon matches the common alloy used for semiconductor device metallization and offers improved strength and stiffness over pure aluminum in small diameter applications. …… Aluminum + 1% Silicon …… Standard integrated circuit bonding wire (wedge bonding)."
+ },
+ {
+  "query_id": "PKG-09",
+  "query": "无铅回流如果走 linear-ramp 升温曲线，Motorola 和 Solectron 量产时实际用的峰值温度各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Motorola 采用峰值 235±5°C、液相线以上时间 70±10 s 的线性升温 profile，量产超过 1 亿部手机；Solectron 将 SAC387 峰值压到 225°C（仅高于液相线约 8°C），0–100°C 热循环可靠性超过 3500 次。",
+  "success_criteria": "分别答出 235±5°C 与 225°C，两处数据都来自本书",
+  "evidence": "--[p206]-- Motorola has adopted a linear-ramp profile with peak temperature 235°C +/- 5°C and time above liquidus 70 s +/-10 s for manufacturing of more than 100 millions cell phones with high yield and high quality [58]. …… Solectron pushed the peak temperature down to 225°C for reflowing SAC387 in air, and reported a reliability of greater than 3500 thermal cycles cycled between 0 and 100°C [59]. In the latter case, the peak temperature is less than 8°C above the liquidus temperature."
+ },
+ {
+  "query_id": "PKG-10",
+  "query": "DF-A 这款芯片粘接膜和传统银浆比，吸水率和剥离强度到底差多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "吸水率 0.2 vol% 对银浆 1.2 vol%（约 1/6）；剥离强度 8.1×10^5 Pa 对银浆 1.0×10^5 Pa（约 8 倍），因此抗爆米花/抗封装开裂性能优异。",
+  "success_criteria": "答出 0.2 vs 1.2 vol% 与 8.1 vs 1.0×10^5 Pa",
+  "evidence": "--[p431]-- Water absorption | vol% | 0.2 | 1.2 | RT for 24 h …… Peel strength | 245°C | ×10^5 Pa | 8.1 | 1.0 …… Water absorption of DF-A is 1/6 times as small as that of a current silver paste. Peel strength of DF-A is 8 times greater than that of the paste."
+ },
+ {
+  "query_id": "PKG-11",
+  "query": "晶圆减薄的研磨、甩蚀（spin-etch）、干法刻蚀和抛光这四种工艺，材料去除率分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "研磨约 300 μm/min；甩蚀 10–40 μm/min；干法刻蚀 3–30 μm/min；抛光 &lt;2 μm/min。",
+  "success_criteria": "四项数值齐全且单位为 μm/min",
+  "evidence": "--[p43]-- Process medium | Diamonds in ceramic wheel | HF + HNO3 + additives | SF6, NF3, XeF2 | Slurry: SiO2 grains in soft etchant …… Removal rate | 300 μm/min | 10...40 μm/min | 3...30 μm/min | &lt;2 μm/min"
+ },
+ {
+  "query_id": "PKG-12",
+  "query": "no-flow underfill 想掺二氧化硅提可靠性又怕颗粒卡在焊点里，书里给过哪几条解决路线？各自的填充量到多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "三条路线：(1) 双层 no-flow——不含填料的底层+含 silica 的上层，上层 65 wt% silica 可高良率；(2) TCR 类工艺（NAMICS），填料经表面处理前最高可到 60 wt% 仍能良好成焊；(3) 3M 纳米 silica 路线——123 nm 粒径、50 wt% 填充，CTE 42 ppm/°C。",
+  "success_criteria": "说出至少两条路线并给出对应填充量（65 wt%、60 wt%、50 wt% 任二）",
+  "evidence": "--[p331]-- It was demonstrated that high yield was achieved using the upper layer underfill with 65 wt% silica [56]. …… [p330]-- It was found that good solder connection can be made with underfill with up to 60 wt% filler loading without filler surface treatment. …… [p331]-- This high performance no-flow underfill developed by 3M used 123 nm silica filler. With filler loading of 50 wt%, the CTE of the material was 42 ppm/°C"
+ },
+ {
+  "query_id": "PKG-13",
+  "query": "ENEPIG 这个表面处理金层能做得多薄？和镍金比它省成本省在哪？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "ENEPIG 浸金层约 0.1 μm，钯层厚度相当但金属成本远低于金，总成本低于 NiAu；有用户已把最小金厚从 0.5 μm 降到 0.3 μm。它既可线键合又可焊接（universal finish），且无 ENIG 的'黑盘'缺陷风险。",
+  "success_criteria": "答出浸金约 0.1 μm 及 0.5→0.3 μm 任一，并说明无黑盘/universal 任一优势",
+  "evidence": "--[p269]-- The cost savings for ENEPIG is derived by the thinness of the immersion gold layer which is projected to be about 0.1 μm. …… some users have reduced the minimum gold thickness from 0.5 to 0.3 μm. …… ENEPIG is wirebondable and solderable and therefore considered a universal finish just like NiAu. …… ENEPIG is therefore expected to be competitive with ENIG (electroless nickel immersion gold) without the concern for 'black pad' defects"
+ },
+ {
+  "query_id": "PKG-14",
+  "query": "现在量产的细间距球焊 pitch 能做到多小？焊球直径和线径是什么比例关系？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "60–90 μm pitch 已量产、60 μm 及以下有限使用；现代球径标准约为线径的 1.4–1.5 倍（最小见 1.2D），钉头高约 5–15 μm，多数细间距球焊仍用 25 μm 金线。",
+  "success_criteria": "答出 60–90 μm 量产 pitch 与球径 1.4–1.5 倍线径",
+  "evidence": "--[p168]-- Pitches in the 60–90 μm range are in volume production, while pitches of 60 μm and below have been used on a limited scale. …… Most fine pitch ball bonds are still done with 25 μm diameter gold wire, although 15–20 μm wire is gaining popularity. …… [p166]-- Today ball bonds are small nail heads with sizes down to approximately 25 μm in diameter (for 15 μm diameter wire). Thus, the typical modern ball diameter standard requires the \"ball\" to be about 1.4–1.5 times the wire diameter (D)."
+ },
+ {
+  "query_id": "PKG-15",
+  "query": "铜对硅的干接触，把装配压力从 10 psi 加到 100 psi，接触热阻能降下来百分之多少？帮我算算。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "书给出 Cu/Si 界面 Rcs 在 P=10 psi(68 kPa) 时为 6.2°C·cm²/W，P=100 psi(680 kPa) 时为 0.7°C·cm²/W；(6.2−0.7)/6.2≈88.7%，即降低约 88.7%（5.5°C·cm²/W）。",
+  "success_criteria": "给出 6.2→0.7°C·cm²/W 且算出降幅约 88.7%（±1%）",
+  "evidence": "--[p444]-- Rcs is 6.2°C cm²/W for P = 10 psi (68 kPa) and 0.7°C cm²/W for P = 100 psi (680 kPa) for Cu/Si interface."
+ },
+ {
+  "query_id": "PKG-16",
+  "query": "金-金键合打在硅上，经 500°C 老化后拉力值比刚键合时掉了多少个百分比？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "表 4.14：Si 上 as-bonded 拉力 12.3 gf，500°C 老化后 10.2 gf；(12.3−10.2)/12.3≈17.1%，即下降约 17.1%（2.1 gf）。",
+  "success_criteria": "答出 12.3→10.2 gf 且降幅约 17%（±0.5%）",
+  "evidence": "--[p180 [表]]-- Table 4.14 Thermal aging wirebond test results. …… As Bonded | 12.3 (1.9) | 54.0 (2.7) | 12.5 (1.0) | 62.5 (3.5) …… --[p181]-- 500°C | 10.2 (1.1) | 57.5 (4.9)"
+ },
+ {
+  "query_id": "PKG-17",
+  "query": "DF-B 膜在聚酰亚胺基板和玻纤环氧基板上的剥离强度分别是现用粘贴剂的几倍？帮我按数据验证一下书里'4–5倍'的说法。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "表 12.11（120°C 剥离强度，×10^5 Pa）：聚酰亚胺基板 2.4/0.5=4.8 倍；玻纤环氧基板 7.2/2.0=3.6 倍；两者落在 3.6–4.8 倍，与书中'4–5 倍'的说法基本相符。",
+  "success_criteria": "算出 4.8 倍与 3.6 倍，并给出与'4–5倍'说法相符的判断",
+  "evidence": "--[p438]-- Peel strength (120°C) | Polyimide Substrate | ×10^5 Pa | 2.4 | 0.5 …… Glass epoxy substrate | 7.2 | 2.0 …… --[p439]-- Peel strength of DF-B was 4–5 times greater than that of a current die attach paste in both cases of a polyimide substrate and a glass-epoxy substrate"
+ },
+ {
+  "query_id": "PKG-18",
+  "query": "我想把芯片粘接温度降到 160°C。你先查查 PI-4 这个树脂的 Tg 是多少，再看基于它的膜在这个温度还粘不粘得住？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索出 PI-4 的 Tg=57°C（低于 PI-1 的 120°C）；再据 12.2.4.3：基于 PI-4 的膜在 160–250°C 间均为内聚破坏（Co）、剥离强度稳定，140°C 才出现界面破坏（Ad/Co），故 160°C 粘接可行；而基于 PI-1 的膜降温后剥离强度直线下降。",
+  "success_criteria": "先答 PI-4 Tg 57°C，再答 160–250°C 保持内聚破坏/剥离稳定",
+  "evidence": "--[p432]-- PI-4 | DBTA (100) | (50) BAPP (50) / DODE | 96.3 | 28900 | 88600 | 3.07 | 57 …… --[p437]-- Because the Tg of PI-4 (57°C) is lower than that of PI-1 (120°C), the film based on PI-4 can exert sufficient flow to wet the surface of the silicon chip even at lower attaching temperatures …… The film based on PI-4 can keep good adhesion between 160°C and 250°C, resulting in the stable peel strength. …… --[p438]-- Based on PI-1 | Ad | Ad | Ad | Ad | Ad/Co | Co ；Based on PI-4 | Ad/Co | Ad/Co | Co | Co | Co | Co"
+ },
+ {
+  "query_id": "PKG-19",
+  "query": "3M 和 Georgia Tech 合作的那个纳米 silica no-flow underfill，用的 silica 粒径多大、填充量多少？热循环寿命提升了多少倍？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "123 nm silica 填料、50 wt% 填充，材料 CTE 42 ppm/°C（用 PB10 芯片 5×5 mm、64 周边凸点验证良率）；AATC（空气对空气热循环）可靠性测试中特征寿命提升 1.5 倍。",
+  "success_criteria": "答出 123 nm、50 wt% 与 1.5 倍特征寿命",
+  "evidence": "--[p331]-- This high performance no-flow underfill developed by 3M used 123 nm silica filler. With filler loading of 50 wt%, the CTE of the material was 42 ppm/°C and the good interconnect yield was achieved using PB10 die (5 mm × 5 mm, 64 peripheral bumps). …… --[p332]-- A joint research study was conducted by 3M and Georgia Tech on the process and reliability evaluation of the nano-silica incorporated no-flow underfill [59]. …… A 1.5X increase of characteristics life was observed in the air-to-air thermal cycling (AATC) reliability test with the nano-silica fillers."
+ },
+ {
+  "query_id": "PKG-20",
+  "query": "你们这书里有没有讲石墨烯做热界面材料的数据？我想看看 k 值。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书第 13 章 TIM 部分只讨论聚合物 TIM、焊料合金 TIM 及 CNT/纳米颗粒等纳米 TIM，未涉及石墨烯基 TIM 及其热导率数据，无法提供，可建议参考 CNT 相关章节内容。",
+  "success_criteria": "明确说明书中未涉及石墨烯 TIM，不得编造 k 值",
+  "evidence": "--[p458]-- 13.5 Nanotechnology Based TIMs Ever since carbon nanotube (CNT) [23] was demonstrated to have very high thermal conductivity, various CNT based composites have been proposed and evaluated …… [p458]-- In addition to CNT, researchers also proposed nano particles as TIM fillers [36, 37].（全书检索无 graphene/石墨烯 相关内容）"
+ },
+ {
+  "query_id": "PKG-21",
+  "query": "SnZn 系焊料熔点最低但书里说只能做消费品。帮我捋一下：问题出在哪？加 Bi 的改良牌号成分和熔程是多少？这个体系在焊膏回流兼容性评分里排第几、得了多少分？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索 5.2.4：Zn 表面张力高（0.768 N/m）、对助焊剂和氧反应性强，且易在 Cu 表面 CuZn IMC 上方生成空洞，故限于消费品应用；改良牌号 Sn89Zn8Bi3 熔程 189–199°C（另有 Sn86.5Zn5.5Bi3.5In4.5 为 174–186°C）；再跨到 5.3 焊膏评价：Sn89Zn8Bi3 兼容性评分仅 2.2，在无铅合金回流兼容性排序中垫底（末位）。",
+  "success_criteria": "三跳齐全：原因（表面张力/反应性）、Sn89Zn8Bi3 189–199°C、评分 2.2 排最末",
+  "evidence": "--[p194]-- Eutectic Sn91Zn9 exhibits a melting temperature 199°C. …… its high surface tension (0.768 N/m for Zn) and high reactivity toward flux and oxygen prohibit its use for electronic soldering. Addition of Bi, such as Sn89Zn8Bi3 (189–199°C), effectively reduces the surface tension and reactivity …… the tendency to form voids on top of CuZn IMC layer on Cu surface further confines this alloy to consumer applications …… --[p198]-- Sn89Zn8Bi3, rated only 2.2 in compatibility, fell far short in every category when compared with all other alloy systems."
+ },
+ {
+  "query_id": "PKG-22",
+  "query": "ABF 积层介质从 SH9K 升级到 GX13，帮我算一下：CTE 降了百分之多少？杨氏模量升了多少？1GHz 下的 Df 降了多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "表 7.6：CTE 95→46 ppm/°C，降幅 (95−46)/95≈51.6%；杨氏模量 3.0→4.0 GPa，升幅 (4.0−3.0)/3.0≈33.3%；Df@1GHz 0.022→0.012，降幅 (0.022−0.012)/0.022≈45.5%（同时 Tg 165→156°C，SiO2 填料 12→38 份）。",
+  "success_criteria": "三个百分比 51.6%、33.3%、45.5% 各允许 ±1% 误差",
+  "evidence": "--[p273 [表]]-- Table 7.6 Properties of ABF materials：ABF Type | SH9K | GX3 | GX13；CTE (ppm/°C) | 95 | 60 | 46；Tg (°C) | 165 | 153 | 156；Young's modulus (GPa) | 3.0 | 3.5 | 4.0 …… --[p274]-- Df @ 1 GHz | 0.022 | 0.023 | 0.012 …… Filler (SiO2) | 12 | 18 | 38"
+ },
+ {
+  "query_id": "PKG-23",
+  "query": "按书里表 4.14 的数据，350°C 老化一周后，Si 和 SiO2 两种基材上的金-金键合拉力值各降了百分之几？哪个降幅更大？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "表 4.14：as-bonded Si 拉力 12.3 gf、SiO2 拉力 12.5 gf；350°C 后 Si 10.0 gf、SiO2 9.8 gf。降幅：Si (12.3−10.0)/12.3≈18.7%；SiO2 (12.5−9.8)/12.5≈21.6%；SiO2 基材降幅更大（约 21.6% 对 18.7%）。",
+  "success_criteria": "算出约 18.7% 与 21.6%（±1%），并判断 SiO2 降幅更大",
+  "evidence": "--[p180 [表]]-- As Bonded | 12.3 (1.9) | 54.0 (2.7) | 12.5 (1.0) | 62.5 (3.5) …… --[p183]-- 350°C | 10.0 (0.8) | 56.3 (3.7) | 9.8 (0.7) | 59.9 (5.7)"
+ },
+ {
+  "query_id": "PKG-24",
+  "query": "环氧塑封料（EMC）封装报废之后怎么回收再利用？书里有给具体的回收工艺流程吗？",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明：该书第 10 章 EMC 仅在引言提到环保（environment protection, recycle, and reuse）的需求背景，其'环保 EMC'指的无铅化与去除卤素/锑阻燃剂，并未给出 EMC 封装回收再利用的具体工艺流程或参数，故该书未涉及此信息，应正确拒答或说明缺口。",
+  "success_criteria": "明确说明书中未给出 EMC 回收工艺流程，不得编造工艺步骤",
+  "evidence": "--[p347]-- On the other hand, with the increasing attention onto measures to cope with environmental issues such as environment protection, recycle, and reuse, there is a strong need for environmentally friendly products. …… The major approaches, which have been pursued for achieving environmentally sound semiconductor packages, include the removal of lead from the solder …… and the removal of halogen and antimony-based flame retardants from the EMCs.（全书无 EMC 回收工艺流程内容）"
+ },
+ {
+  "query_id": "PKG-25",
+  "query": "金线打铝.pad 的体系在高温下到底行不行？上限多少度、机制是什么？书里建议高温场景换什么键合体系？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "金-铝体系因生成脆性金属间化合物与 Kirkendall 空洞，高温性能上限约 200°C（AuAl2 在 150°C 即形成、Au5Al2 23–100°C 形成，高温下 Al 向 Au 快速扩散留下空洞）；书建议高温环境采用单金属体系（金-金或铝-铝，或形成固溶体的金+贵金属体系），金-金界面强度随时间与温度升高而增大，金-金体系在 SiO2 上至少可稳定到 500°C；另注意 Al 熔点 660°C 低于 Au 的 1060°C，Al 体系使用上限更受限。",
+  "success_criteria": "答出上限约 200°C、脆性 IMC+Kirkendall 空洞机制、建议金-金/铝-铝单金属体系（含 Au-Au 稳定至 500°C 任一数据）",
+  "evidence": "--[p178]-- …… because of the formation of brittle intermetallics and Kirkendall voids [67] the high temperature performance is limited to about 200°C. …… --[p163]-- AuAl2 | 150 | 1.20 | 115.8 | 27.7 | Deep purple in color (purple plague- …… --[p180]-- Single metal systems, such as gold-gold or aluminum-aluminum, have been shown to be more reliable in high temperature applications and operate at higher temperatures. In fact, gold-gold interface strength has been shown to increase with both time and temperature [46]. …… --[p184]-- the gold-gold interface will remain strong and stable to at least 500°C temperatures. …… --[p181]-- Given aluminum's melting point of 660°C (compared to gold at 1060°C), it should be recognized that its upper temperature use limit would be more restricted than that of gold."
+ }
+]

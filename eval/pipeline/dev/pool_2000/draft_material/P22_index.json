@@ -1,0 +1,326 @@
+{
+ "doc": "Lithography (Stefan Landis)",
+ "chunks": 1625,
+ "headings": [
+  [
+   "Charged Particle Optics > 5.2. The two approaches: Newton and Fermat",
+   40
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.2.2. Scattering and absorption: the electromagnetic origin of the refractive index",
+   36
+  ],
+  [
+   "“An image is a pure creation of spirit.” (Pierre Reverdy)",
+   31
+  ],
+  [
+   "Introduction Implications of Lithography",
+   31
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.3.2.2.1. Focusing",
+   31
+  ],
+  [
+   "Charged Particle Optics > 5.6.1. Guns",
+   25
+  ],
+  [
+   "Introduction Implications of Lithography > Other alternative techniques offer interesting prospects for precise applications:",
+   17
+  ],
+  [
+   "Charged Particle Optics > Distortion (D and d)",
+   17
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.2.3. Light propagation and refractive index",
+   16
+  ],
+  [
+   "Table of Contents",
+   16
+  ],
+  [
+   "Photolithography > 1.7.2. Influence of contrast on roughness",
+   15
+  ],
+  [
+   "Photolithography > 1.7.1. Polarized light contrast",
+   15
+  ],
+  [
+   "Charged Particle Optics > 5.6.2. Aberration correctors",
+   15
+  ],
+  [
+   "Chapter 3 > 3.1. Introduction",
+   14
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.3.3. Calculation of the optical properties of an electrostatic system",
+   13
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.4.1.2. Phase shifting mask (PSM)",
+   13
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.5.2.2.2. The modal method by Fourier expansion (MMFE)",
+   13
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.3.2.2. The concept of electrostatic optics: electrostatic lenses",
+   12
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.2.4. Localized etching",
+   12
+  ],
+  [
+   "Lithography Resists > 6.2.3.2.1. 248 nm positive resists",
+   12
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.1.2. So why did it take so long to implement that suggestion?",
+   11
+  ],
+  [
+   "Photolithography > 1.4.6. Immersion specific constraints and issues",
+   11
+  ],
+  [
+   "Photolithography > 1.2.2. The mask or reticle",
+   11
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.1.2. Extreme ultraviolet lithography: the successor of optical lithography at 248 nm and 193 nm wavelengths",
+   11
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.3.1. The interferential mirror principle: Bragg structure",
+   11
+  ],
+  [
+   "Lithography Resists > 6.3.4.1. Mechanisms",
+   11
+  ],
+  [
+   "Chapter 3 > 3.8.4. Diameter of the crossover",
+   11
+  ],
+  [
+   "Chapter 3 > 3.8.2. Resist-related limitations",
+   11
+  ],
+  [
+   "Lithography Resists > 6.3.6.3. Decrease in capillary forces by use of surfactant solutions",
+   11
+  ],
+  [
+   "Chapter 3 > 3.10.3.2.1. Scattering model",
+   11
+  ],
+  [
+   "Lithography Resists > 6.1.2. Resist coating using centrifugation",
+   11
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.5.1. Simulation, a conceptional tool",
+   11
+  ],
+  [
+   "Photolithography > 1.5. Image formation",
+   11
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.5.2.2.1. The finite difference time domain (FDTD) method",
+   11
+  ],
+  [
+   "Lithography Resists > 6.2.3.1.1. Photo-active compounds: PAGs",
+   10
+  ],
+  [
+   "Photolithography > 1.3.2. Resists",
+   10
+  ],
+  [
+   "Lithography Resists > 6.1.6. Development step",
+   10
+  ],
+  [
+   "Lithography Resists > 6.3.7.1.2. At the resist–substrate interface",
+   10
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.2.5. Reactive gas and metal precursor injection",
+   10
+  ],
+  [
+   "Chapter 3 > 3.9.3.1. Continuous braking",
+   10
+  ],
+  [
+   "Charged Particle Optics > 5.1. The beginnings: optics or ballistics?",
+   10
+  ],
+  [
+   "Lithography Resists > 6.2.3.3.1. Methacrylic platform",
+   10
+  ],
+  [
+   "Charged Particle Optics > 5.5. Numerical calculation",
+   10
+  ],
+  [
+   "Lithography Resists > 6.3.8.3. Physical etching [LIE 94]",
+   9
+  ],
+  [
+   "Chapter 3 > 3.4. Alignment",
+   9
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.1.4. Choice of wavelength and resolution limit for EUV lithography",
+   9
+  ],
+  [
+   "Photolithography > 1.4.4. Immersion liquids",
+   9
+  ],
+  [
+   "Lithography Resists > 6.3.8.1. Etch step",
+   9
+  ],
+  [
+   "Lithography Resists > 6.2.3.2.2. Negative 248 nm resists [SHA 97]",
+   9
+  ],
+  [
+   "Photolithography > 1.4.2. Resolution improvement",
+   9
+  ],
+  [
+   "Chapter 3 > 3.9.2. Elastic scattering on the nuclei",
+   9
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.4.1. Thin membrane preparation for Transmission Electron Microscopy (TEM)",
+   9
+  ],
+  [
+   "Lithography Resists > 6.2.3.4. Extreme Ultra Violet (EUV) resist",
+   9
+  ],
+  [
+   "Chapter 3 > 3.9.1. The notion of cross-section",
+   9
+  ],
+  [
+   "Lithography Resists > 6.3.7.1.3. Ultra-thin films of chemically amplified resists",
+   9
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.6.2. Specifications for an EUV source",
+   8
+  ],
+  [
+   "Charged Particle Optics > 5.4. Types of defect: geometrical, chromatic and parasitic aberrations",
+   8
+  ],
+  [
+   "Chapter 3 > 3.8.7. Space charge aberration",
+   8
+  ],
+  [
+   "Chapter 3 > 3.2.2. Shaped electron beam",
+   8
+  ],
+  [
+   "Photolithography > 1.4.3. Relevance of immersion lithography",
+   8
+  ],
+  [
+   "Chapter 3 > 3.11.1.8. Writing time",
+   8
+  ],
+  [
+   "Chapter 3 > 3.10.1. Database preparation process",
+   8
+  ],
+  [
+   "Chapter 3 > 3.9.6. Monte Carlo simulation",
+   8
+  ],
+  [
+   "Photolithography > 1.2.3. Projection optics",
+   8
+  ],
+  [
+   "Chapter 3 > 3.12.7. Summary",
+   7
+  ],
+  [
+   "Chapter 3 > 3.10.3.1. Origin of proximity effects",
+   7
+  ],
+  [
+   "Lithography Resists > 6.3.4.3. Outgassing characterization methods",
+   7
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.2.4. Reflection and transmission of a monochromatic wave",
+   7
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.7. Conclusion",
+   7
+  ],
+  [
+   "Lithography Resists > 6.2.1. Resist tones",
+   7
+  ],
+  [
+   "Chapter 3 > 3.3.2.2.4. IMS PML2 project",
+   7
+  ],
+  [
+   "Photolithography > 1.4.1. Immersion lithography",
+   7
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > 2.1.1. Chapter introduction",
+   7
+  ],
+  [
+   "Chapter 4 Focused Ion Beam Direct-Writing > 4.3.4.1. Determination of the resolution by structure transfer",
+   7
+  ],
+  [
+   "Chapter 2 Extreme Ultraviolet Lithography > EXAMPLE: Reflection and transmission factors of a thin foil",
+   7
+  ],
+  [
+   "Lithography Resists > 6.2.2. PAC resist",
+   7
+  ],
+  [
+   "Chapter 3 > 3.9.3.2. Energy loss by fast secondary electron emission",
+   7
+  ],
+  [
+   "Lithography Resists > 6.1.4. Exposure",
+   7
+  ],
+  [
+   "Lithography Resists > 6.3.8.6. Etch rate modeling",
+   7
+  ],
+  [
+   "Charged Particle Optics > 5.6.3. Further reading",
+   6
+  ]
+ ]
+}

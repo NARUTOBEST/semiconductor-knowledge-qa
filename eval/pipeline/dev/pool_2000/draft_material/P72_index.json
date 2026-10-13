@@ -1,0 +1,326 @@
+{
+ "doc": "日立DB800 Level 1-2 中文操作手册",
+ "chunks": 861,
+ "headings": [
+  [
+   "DB800 Level 1-2 中文操作手册 > Others",
+   23
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Ending Motion",
+   14
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.2.1 Stage 画胶平台",
+   14
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Setup Motion",
+   13
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.7 Preform Conditions",
+   12
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.9 Bonding Conditions 贴片条件参数",
+   11
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.8.3 Paddle center",
+   11
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > End Motion",
+   10
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 2.4 机台规格说明书",
+   10
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (1) Preparation 准备",
+   10
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 3.8 补偿值Offset",
+   9
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.7.13 Pen-write Pattern",
+   8
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching – Auto Offset of WAF Attach Pos.",
+   8
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.6 Preform Recognition 画胶识别",
+   8
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (2) Input of 1<sup>st</sup> Die Pad Center Position in < Auto Mode>自动模式输入第一个画胶区域中心点",
+   7
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Main monitor",
+   7
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.8 Bonding Recognition 贴片识别",
+   6
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching – Die Pitch",
+   6
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4 .1.5 Wafer Conditions晶圆条件选项",
+   6
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (6) End of Teaching 结束数据创建",
+   6
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 5.1.6 Setup Data - Communication Setting 机台通讯设定",
+   6
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 5.1.1.1 Motion Mode 动作模式",
+   6
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (2) Input of 1<sup>st</sup> Die Pad Center Position in < Auto Mode>",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Paste Inspection",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (5) Data registration 注册保存位置/数据",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - P/U HGT Offset (On-dome mode)",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.4.3 Target Die 目标芯片",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - WAF Area Search",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.6.3 Paddle center",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (2)’ Input of 1<sup>st</sup> Die Pad Center Position in <Manual Teaching>手动模式输入第一个贴片区域的中心点坐标",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.3.2 Motion Setting 晶圆动作设定",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 2.3.1 机台概述和结构",
+   5
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching – WAF Area Search",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 3.3.11 传感器检查",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Temporary Manual Align.",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Die Pitch Motion",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching – Check Die Info",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - P/U HGT Offset (On-WAF mode)",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Align. Reference Point",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (2) Input of 1<sup>st</sup> Die Pad Center Position in < Auto Mode>自动模式输入第一个贴片中心点坐标",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Stage HGT",
+   4
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (5) End of Teaching 结束数据创建",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 3.10 数据记录文件",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 目录",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (1) Setting of recognition data. 识别参数设定",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Target Die Info.",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching – Die Size",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Target Die Search Setting",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > ＜Pattern 2 ＞",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > WAF map read",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.1 基板/框架传送参数",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 3.3.1 送料手动操作",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (4) Data registration 注册保存位置/数据",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Preform HGT",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > ＜Pattern 1＞",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Preform Pos. XY",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 点击[START]来确认位置",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.3 Wafer Material 晶圆材料参数",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 点击[START]按键来确认位置",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > [举例: Y方向多行基板]",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Target Die Map Setting",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Paste Inspection(Paste Form)",
+   3
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > ＜Pattern 1 ＞",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - RVS Frame Rec.",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > <Map data loading> <晶圆地图数据读取>",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.4.2 Die Recognition 芯片识别",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (4) Pattern registration 特征点图像注册",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > ※ 如需要可调整照明亮度",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > (3) Data registration 注册保存位置/数据",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.4.1 Recognition Mode 识别模式",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Return",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Data registration 注册保存位置/数据",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 4.1.1.4 传送模式参数",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > <Paddle corner >",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 6.1.2 Preform Recognition Register 画胶识别数据注册",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 3.3.4 画胶手动操作",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Paste Refresh Area HGT",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > Teaching - Die Pitch",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > DB-800 SERIES",
+   2
+  ],
+  [
+   "DB800 Level 1-2 中文操作手册 > 3.3.2 Loader/Unloader 上料机/下料机 手动操作",
+   2
+  ]
+ ]
+}

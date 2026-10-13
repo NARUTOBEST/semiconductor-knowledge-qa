@@ -108,7 +108,8 @@ def run_path(path_name: str,
 
 
 def _resolve_pre_search(search_future):
-    """把服务层投机检索 future 解析为可序列化的块列表;失败返回 None。"""
+    """把服务层投机检索 future 解析为可序列化的块列表;失败返回 None。
+    轮次9:结果可能为 dict(with_scope_info 附加 scope 信号),取 items 列表。"""
     if search_future is None:
         return None
     try:
@@ -120,6 +121,8 @@ def _resolve_pre_search(search_future):
             out = result
     except Exception:  # noqa: BLE001  投机结果不可用,react 正常自行检索
         return None
+    if isinstance(out, dict):
+        out = out.get("items") or []
     return out if isinstance(out, list) and out else None
 
 
@@ -134,7 +137,8 @@ def run_agent_graph(message: str,
                     hard_deadline: Optional[float] = None,
                     on_event: Optional[Callable[[dict], None]] = None,
                     qc_feedback: Optional[str] = None,
-                    search_future=None):
+                    search_future=None,
+                    scope_stem: str = ""):
     """生成器:yield SSE 事件 dict(react ReAct 路径)。
 
     thread_id: 会话/任务标识(对应 LangGraph checkpoint thread_id)。
@@ -156,6 +160,8 @@ def run_agent_graph(message: str,
             "user_id": username,
             "session_id": session_id,
             "trace_recorder": recorder,
+            # 轮次9:会话锁定的目标文档族(用户反问选定后),工具执行时注入 search_text
+            "scope_stem": scope_stem,
             # 后台记忆管道原料快照 holder:emit_done_node 写入,流结束后提交管道
             "mem_snapshot": {},
         }

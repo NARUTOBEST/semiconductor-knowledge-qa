@@ -1,0 +1,234 @@
+{
+ "doc": "SEMI E5—1104 半导体设备通信标准2报文内容（SECS-II）",
+ "chunks": 814,
+ "headings": [
+  [
+   "Csemr > CsemI",
+   155
+  ],
+  [
+   "CsemI > Csemr\"",
+   151
+  ],
+  [
+   "CsemI > CsemI",
+   129
+  ],
+  [
+   "Csemr > Csemr\"",
+   62
+  ],
+  [
+   "CsemI",
+   58
+  ],
+  [
+   "Csemr\"",
+   29
+  ],
+  [
+   "Csemr",
+   27
+  ],
+  [
+   "CsemI > S4,F42 Not Used",
+   21
+  ],
+  [
+   "Csemr\" > 10.16.3 General Rules",
+   14
+  ],
+  [
+   "Csemr > 9 Data Structures",
+   13
+  ],
+  [
+   "Csemr > R1-4.3 Equipment Process Capabilities Data",
+   13
+  ],
+  [
+   "Csemr > R1-4.2 Normal Sequence of Operations",
+   11
+  ],
+  [
+   "CsemI > R1-5.4 SECS-II Standard",
+   9
+  ],
+  [
+   "CsemI > 8 Transaction and Conversation Protocols",
+   8
+  ],
+  [
+   "CsemI > R1-2 Some Suggested Message Usage",
+   6
+  ],
+  [
+   "Csemr\" > 5.1 Definitions",
+   6
+  ],
+  [
+   "Csemr > 9.8.9 Requirements",
+   6
+  ],
+  [
+   "Csemr > 2. Contents of data reports are user programmable.",
+   6
+  ],
+  [
+   "CsemI > 11 Message Documentation",
+   6
+  ],
+  [
+   "Csemr\" > R1-3.3 Event Driven Data Reporting",
+   6
+  ],
+  [
+   "CsemI > 10 Message Detail",
+   5
+  ],
+  [
+   "CsemI > 7 Streams and Functions",
+   4
+  ],
+  [
+   "Csemr > R1-4.1 Introduction",
+   4
+  ],
+  [
+   "Figure 10 Wafer Map Received by Equipment",
+   4
+  ],
+  [
+   "SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II) > CONTENTS",
+   4
+  ],
+  [
+   "Csemr > 4.1 SEMI Standards",
+   3
+  ],
+  [
+   "Csemr\" > 6 The Message Transfer Protocol",
+   3
+  ],
+  [
+   "Csemr > 1 Purpose",
+   3
+  ],
+  [
+   "CsemI > S9,F4 Not Used",
+   3
+  ],
+  [
+   "SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II)",
+   3
+  ],
+  [
+   "Csemr\" > CsemI",
+   3
+  ],
+  [
+   "Csemr > R1-4.4 Equipment Capabilities Descriptor Availability",
+   3
+  ],
+  [
+   "Csemr > 2 Scope",
+   3
+  ],
+  [
+   "Csemr\" > Csemr\"",
+   3
+  ],
+  [
+   "CsemI > R1-3.2 Trace Data Collection and Reporting",
+   2
+  ],
+  [
+   "CsemI > RELATED INFORMATION 1 APPLICATION NOTES",
+   2
+  ],
+  [
+   "Csemr > R1-5.1 Purpose and Scope",
+   2
+  ],
+  [
+   "Csemr > R1-5.2 Introduction",
+   2
+  ],
+  [
+   "Csemr > 3 Limitations",
+   2
+  ],
+  [
+   "CsemI > S4,F34 Not Used",
+   2
+  ],
+  [
+   "CsemI > Exception",
+   2
+  ],
+  [
+   "Csemr > R1-5.3 SECS-I Standard",
+   1
+  ],
+  [
+   "CsemI > R1-1 The General Node Transaction Protocol",
+   1
+  ],
+  [
+   "Csemr > 4 Referenced Standards",
+   1
+  ],
+  [
+   "Csemr > R1-3.4 Event Reporting",
+   1
+  ],
+  [
+   "Csemr > c. An item contains three binary numbers in 2-byte signed integer form. C",
+   1
+  ],
+  [
+   "CsemI > S9,F2 Not Used",
+   1
+  ],
+  [
+   "SEMI E5—1104 半导体设备通信标准2报文内容（SECS-II）",
+   1
+  ],
+  [
+   "CsemI > S9,F14 Not Used",
+   1
+  ],
+  [
+   "CsemI > R1-3 Notes on SECS-II Data Transfers",
+   1
+  ],
+  [
+   "Csemr > R1-4 Process Programs",
+   1
+  ],
+  [
+   "Csemr > R1-5 Suggested Baseline SECS Equipment Implementation",
+   1
+  ],
+  [
+   "CsemI > S4,F30 Not Used",
+   1
+  ],
+  [
+   "CsemI > 12 Units of Measure",
+   1
+  ],
+  [
+   "CsemI > S4,F28 Not Used",
+   1
+  ],
+  [
+   "Csemr\" > 5 Terminology",
+   1
+  ],
+  [
+   "CsemI > R1-3.1 Introduction",
+   1
+  ]
+ ]
+}

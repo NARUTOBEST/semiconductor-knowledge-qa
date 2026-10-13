@@ -1,0 +1,326 @@
+{
+ "doc": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+ "chunks": 2680,
+ "headings": [
+  [
+   "Negative-tone organic molecular resists > 8.2 FULLERENE RESISTS",
+   48
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.5.5 MOLECULAR RESISTS AND INORGANIC RESISTS",
+   43
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.4 CHARACTERIZATION AND FIGURES OF MERIT FOR RESISTS",
+   41
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.6.4 PATTERN COLLAPSE",
+   39
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.5.4 PHOTOACID GENERATOR CHEMISTRY AND PHYSICS",
+   39
+  ],
+  [
+   "Negative-tone organic molecular resists > FIGURE 64",
+   38
+  ],
+  [
+   "SML electron beam resist: ultra-high aspect ratio nanolithography > 12.5 PUSHING THE RESOLUTION LIMITS",
+   28
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.6.2 PHOTOACID DIFFUSION",
+   27
+  ],
+  [
+   "Negative-tone organic molecular resists > 8.7.7 AQUEOUS BASE DEVELOPED EPOXIDE MOLECULAR RESISTS",
+   27
+  ],
+  [
+   "SML electron beam resist: ultra-high aspect ratio nanolithography > 12.4 SML2000 ELECTRON BEAM PERFORMANCE",
+   26
+  ],
+  [
+   "Negative-tone organic molecular resists > FI G U RE 27",
+   25
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.3.5 OTHER LITHOGRAPHY PROCESSESdION BEAM, SCANNING PROBE, AND NANOIMPRINT",
+   25
+  ],
+  [
+   "Theory: electron-induced chemistry > CHAPTER 3 Theory: electron-induced chemistry",
+   24
+  ],
+  [
+   "Alternative resist approaches > FIGURE 12",
+   23
+  ],
+  [
+   "Theory: electron-induced chemistry > FIGURE 5",
+   23
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.1 INTRODUCTION",
+   22
+  ],
+  [
+   "Tip-basednanolithography methodsand materials > 15.1.1 SCANNING PROBE MICROSCOPY AND SCANNING PROBELITHOGRAPHY SETUP",
+   22
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.3.2 DUV LITHOGRAPHYd248 nm AND 193 nm, IMMERSION, ANDMULTIPLE PATTERNING",
+   21
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.3.10 PATTERN COLLAPSE MITIGATION STRATEGIES",
+   21
+  ],
+  [
+   "Tip-basednanolithography methodsand materials > 15.3 Increasing the efficiency and throughput of scanning",
+   21
+  ],
+  [
+   "The chemistry and application of nonchemically amplified (non-CA) chain-scission resists > SCHEME 1",
+   20
+  ],
+  [
+   "Positive molecular resists > 9.3.1 STAR-SHAPED MOLECULES",
+   19
+  ],
+  [
+   "Next generation lithographydthe rise of unconventional methods? > 14.3 BEYOND SCALINGdPOST Si-MOSFET/CMOS TECHNOLOGY",
+   19
+  ],
+  [
+   "Negative-tone organic molecular resists > 8.6 POLYPHENOL RESISTS",
+   19
+  ],
+  [
+   "SML electron beam resist: ultra-high aspect ratio nanolithography > 12.3 ELECTRON BEAM RESIST OPTICAL PROPERTIES",
+   19
+  ],
+  [
+   "The chemistry and application of nonchemically amplified (non-CA) chain-scission resists > 6.1 INTRODUCTION",
+   18
+  ],
+  [
+   "Negative-tone organic molecular resists > 8.7.5 METHODS OF CONTROLLING CATIONIC POLYMERIZATION AND/OR CROSS-LINKING",
+   18
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.6.3 RESOLUTION, LINE EDGE ROUGHNESS, AND SENSITIVITY TRADE-OFF",
+   17
+  ],
+  [
+   "Negative-tone organic molecular resists > FIGURE 46",
+   17
+  ],
+  [
+   "Alternative resist approaches > 13.2.1 ABSORBANCE",
+   17
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.5.2 CHEMICALLY AMPLIFIED RESISTS",
+   17
+  ],
+  [
+   "Thermal scanning probe lithography > 16.2 ADVANTAGES OF THERMAL SCANNING PROBE LITHOGRAPHY",
+   17
+  ],
+  [
+   "Scanning helium ion beam lithography > 17.3.2.2 Proximity effect",
+   17
+  ],
+  [
+   "Frontiers of Nanoscience Materials and Processes for Next Generation Lithography > Dongxu Yang",
+   16
+  ],
+  [
+   "Theory: electron-induced chemistry > 3.3.2 SPATIAL RESOLUTION",
+   16
+  ],
+  [
+   "Mainstreaming inorganic metal-oxide resists for high-resolution lithography > 10.3.5 ADVANCES OF LITHOGRAPHIC RESOLUTION IN HIGH-Z METAL-OXIDE RESISTS",
+   16
+  ],
+  [
+   "Theory: electron-induced chemistry > 3.3.1 CROSS SECTION",
+   16
+  ],
+  [
+   "Scanning helium ion beam lithography > 17.1 INTRODUCTION",
+   16
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.5.3 RESIST PHYSICAL PROPERTIES AND ETCH RESISTANCE",
+   15
+  ],
+  [
+   "Negative-tone organic molecular resists > FIGURE 89",
+   15
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.3.4 E-BEAM LITHOGRAPHY",
+   15
+  ],
+  [
+   "Tip-basednanolithography methodsand materials > 15.2.4.3 Electrochemical material deposition",
+   15
+  ],
+  [
+   "Mainstreaming inorganic metal-oxide resists for high-resolution lithography > 10.2.3 HSQ DEVELOPMENT MECHANISM",
+   14
+  ],
+  [
+   "The chemistry and application of nonchemically amplified (non-CA) chain-scission resists > 6.3.2 POLYSULFONES",
+   14
+  ],
+  [
+   "Negative-tone organic molecular resists > FIGURE 18",
+   14
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.2.4 ACHROMATIC TALBOT LITHOGRAPHY",
+   14
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.3.3 RESIST ABSORPTION",
+   14
+  ],
+  [
+   "SML electron beam resist: ultra-high aspect ratio nanolithography > 12.1 INTRODUCTION",
+   13
+  ],
+  [
+   "Theory: electron-induced chemistry > 3.1 INTRODUCTION",
+   13
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.3.3 EXTREME ULTRAVIOLET LITHOGRAPHY",
+   13
+  ],
+  [
+   "Positive molecular resists > FIGURE 18",
+   13
+  ],
+  [
+   "Scanning helium ion beam lithography > 17.3.1 GENERAL PROCEDURE AND CONSIDERATIONS FOR HIBL",
+   13
+  ],
+  [
+   "Scanning helium ion beam lithography > P",
+   13
+  ],
+  [
+   "Mainstreaming inorganic metal-oxide resists for high-resolution lithography > 10.3.1 HafSOx SOLUTION CHEMISTRY",
+   12
+  ],
+  [
+   "Negative-tone organic molecular resists > 8.7.2 FTIR CHARACTERIZATION OF EPOXIDE FUNCTIONALIZED MOLECULAR RESISTS",
+   12
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.3.7 PEB AND DEVELOPMENT",
+   12
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.5.1 NONCHEMICALLY AMPLIFIED RESISTS",
+   12
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.6.1 EXPOSURE STATISTICS AND SHOT NOISE",
+   12
+  ],
+  [
+   "Molecular excitation and relaxation of extreme ultraviolet lithography photoresists > 2.2.1 ATOMIC PHOTOEMISSION",
+   12
+  ],
+  [
+   "Scanning helium ion beam lithography > 17.2.2.1 Interaction volume",
+   12
+  ],
+  [
+   "Thermal scanning probe lithography > 16.4.1 HIGH-RESOLUTION ETCH TRANSFER",
+   12
+  ],
+  [
+   "Scanning helium ion beam lithography > 17.2.1 WORKING PRINCIPLE OF THE GAS FIELD ION SOURCE",
+   12
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.3.6 ACID DIFFUSION",
+   11
+  ],
+  [
+   "Negative-tone organic molecular resists > FIGURE 32",
+   11
+  ],
+  [
+   "Molecular organometallic 11 resists for EUV (MORE) > 11.1 INTRODUCTION",
+   11
+  ],
+  [
+   "Positive molecular resists > 9.4 CURRENT STATUS, NEW CONCEPTS, AND CHALLENGES",
+   11
+  ],
+  [
+   "Mainstreaming inorganic metal-oxide resists for high-resolution lithography > FIGURE 5",
+   11
+  ],
+  [
+   "Alternative resist approaches > FIGURE 5",
+   11
+  ],
+  [
+   "Positive molecular resists > 9.1 INTRODUCTION",
+   11
+  ],
+  [
+   "Theory: electron-induced chemistry > 3.3.3 RATIONAL DESIGN OF NOVEL MATERIALS",
+   11
+  ],
+  [
+   "Positive molecular resists > 9.3.6 LADDER MOLECULESdNORIA",
+   11
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.1 INTRODUCTION",
+   11
+  ],
+  [
+   "Overview of materials and processes for lithography > 1.2 OVERVIEW OF LITHOGRAPHY PROCESS",
+   11
+  ],
+  [
+   "Molecular organometallic 11 resists for EUV (MORE) > 11.5.2.1 Anionic ligand decomposition",
+   11
+  ],
+  [
+   "Next generation lithographydthe rise of unconventional methods? > 14.2.3 MASKLESS LITHOGRAPHY (ML2)",
+   11
+  ],
+  [
+   "Negative-tone organic molecular resists > 8.7.6 UNDERLAYERS FOR EPOXIDE FUNCTIONALIZED MOLECULAR RESISTS",
+   11
+  ],
+  [
+   "Scanning helium ion beam lithography > 17.2.2.3 Ion-induced defects and sample damage",
+   11
+  ],
+  [
+   "Theory: electron-induced chemistry > 4.3.2 RLS TRADEOFF",
+   10
+  ],
+  [
+   "EUV lithography patterning challenges > 5<sub>.</sub>2 EXTREME ULTRAVIOLET RESIST STOCHASTICS 5<sub>.</sub>2<sub>.</sub>1 MULTIVARIATE POISSON PROPAGATION MODEL",
+   10
+  ],
+  [
+   "Alternative resist approaches > SCHEME 4",
+   10
+  ]
+ ]
+}

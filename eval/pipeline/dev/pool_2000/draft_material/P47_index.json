@@ -1,0 +1,326 @@
+{
+ "doc": "ASML System Course Introduction---ASML",
+ "chunks": 1125,
+ "headings": [
+  [
+   "FOR TRAINING PURPOSES ONLY > ASML CONFIDENTIAL",
+   34
+  ],
+  [
+   "TRANSMISSION IMAGE SENSOR (TIS) > Illumination & Projection FOR TRAINING PURPOSES ONLY",
+   25
+  ],
+  [
+   "LEVEL SENSOR (LS) FOR TRAINING PURPOSES ONLY > Level Sensor System Layout",
+   18
+  ],
+  [
+   "LEVEL SENSOR (LS) FOR TRAINING PURPOSES ONLY > Level Sensor (LS)",
+   17
+  ],
+  [
+   "The FOCAL Method > The FOCAL Method",
+   17
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Sequence:",
+   17
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Contents",
+   16
+  ],
+  [
+   "Introduction to semiconductor industry FOR TRAINING PURPOSES ONLY > Resist tone:",
+   15
+  ],
+  [
+   "Stage Movement Design > Coordinate Systems introduction",
+   14
+  ],
+  [
+   "ADVANCED RETICLE MANAGEMENT SYSTEM (ARMS) > Parameters and Offsets",
+   13
+  ],
+  [
+   "TRANSMISSION IMAGE SENSOR (TIS) > Hardware Configuration (TIS compared to RIS)",
+   13
+  ],
+  [
+   "Dose Control FOR TRAINING PURPOSES ONLY > Dose Repeatability and Accuracy [ % ] with Scanning Dose Acc. & Repeat. Test",
+   13
+  ],
+  [
+   "LEVEL SENSOR (LS) FOR TRAINING PURPOSES ONLY > Scanner Routing",
+   13
+  ],
+  [
+   "O > The beam dump",
+   12
+  ],
+  [
+   "LEVEL SENSOR (LS) FOR TRAINING PURPOSES ONLY > Note:",
+   12
+  ],
+  [
+   "TRANSMISSION IMAGE SENSOR (TIS) > How Does It Work",
+   11
+  ],
+  [
+   "REFLECTION IMAGE SENSOR (RIS) > Image Sensor Working Principle",
+   10
+  ],
+  [
+   "Use previous transparency > ASML",
+   10
+  ],
+  [
+   "Job definition > STATICSTATIC IMAGE QUALITYIMAGE QUALITY",
+   9
+  ],
+  [
+   "Wavelength vs. Depth of Focus (2) > ASML CONFIDENTIAL",
+   9
+  ],
+  [
+   "WAFER HANDLER (WH) > FOR TRAINING PURPOSES ONLY",
+   9
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY",
+   9
+  ],
+  [
+   "Job definition > Correction:",
+   9
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Me5IqFoc",
+   9
+  ],
+  [
+   "CONTAMINATION & TEMPERATURE CONTROL (C&T) > ASML CONFIDENTIAL",
+   8
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > \u0001 Purpose:",
+   8
+  ],
+  [
+   "Stage Movement Design > Dynamic Wafer Offsets",
+   8
+  ],
+  [
+   "Wavelength vs. Depth of Focus (2) > Wavelength vs. Depth of Focus (3)",
+   8
+  ],
+  [
+   "Step & Scan concepts > Note:",
+   8
+  ],
+  [
+   "Introduction to semiconductor industry FOR TRAINING PURPOSES ONLY > Electronic components",
+   8
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Me5OvlWsTlt",
+   8
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Me5XySetSkw",
+   8
+  ],
+  [
+   "Stage Movement Design > Linear motor (detail) (1 of 2)",
+   7
+  ],
+  [
+   "Stage Movement Design > Stage Motors (Vertical Movement)",
+   7
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Position Control",
+   7
+  ],
+  [
+   "Image Quality? > Rotation (reticle/reticle image)",
+   7
+  ],
+  [
+   "Stage Movement Design > – Zeroing the coordinate system.",
+   7
+  ],
+  [
+   "Introduction to semiconductor industry FOR TRAINING PURPOSES ONLY > Building a chip",
+   7
+  ],
+  [
+   "WAFER HANDLER (WH) > Wafer Pre-alignment System (WPS)",
+   7
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > \u0001 Read out mark positions",
+   7
+  ],
+  [
+   "Compute Machine Status Parameters > Compute Focal Plane Adjustment Parameters Report",
+   7
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Note:",
+   7
+  ],
+  [
+   "Dose Control FOR TRAINING PURPOSES ONLY > \u0001 Sloped slit intensity profile:",
+   6
+  ],
+  [
+   "Job definition > Note:",
+   6
+  ],
+  [
+   "Stage Movement Design > The HP Interferometer System (2/2)",
+   6
+  ],
+  [
+   "ADVANCED RETICLE MANAGEMENT SYSTEM (ARMS) > ASML CONFIDENTIAL",
+   6
+  ],
+  [
+   "Stage Movement Design > Right:",
+   6
+  ],
+  [
+   "Dose Control FOR TRAINING PURPOSES ONLY > Intensity [ mW/cm 2 ] with Uniformity Test",
+   6
+  ],
+  [
+   "Introduction to semiconductor industry FOR TRAINING PURPOSES ONLY > How are IC’s made?",
+   6
+  ],
+  [
+   "Hardware overview > Main changes",
+   6
+  ],
+  [
+   "Use previous transparency > FOCAL XY to Z Conversion Report",
+   6
+  ],
+  [
+   "WAFER HANDLER (WH) > Pre-alignment Sequence 2",
+   5
+  ],
+  [
+   "ADVANCED RETICLE MANAGEMENT SYSTEM (ARMS) > ARMS Schematic Overview",
+   5
+  ],
+  [
+   "CONTAMINATION & TEMPERATURE CONTROL (C&T) > C&T System Overview",
+   5
+  ],
+  [
+   "LEVEL SENSOR (LS) FOR TRAINING PURPOSES ONLY > Global level optimisation Y/N",
+   5
+  ],
+  [
+   "Image Quality? > Reticle Stage Wedge",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Objectives",
+   5
+  ],
+  [
+   "Alignment > 8.0 to 8.8 shift:",
+   5
+  ],
+  [
+   "O",
+   5
+  ],
+  [
+   "Job definition > 79 lens constants",
+   5
+  ],
+  [
+   "Scanning Wafer Stage (SWS) > Contents",
+   5
+  ],
+  [
+   "CONTAMINATION & TEMPERATURE CONTROL (C&T) > C&T Systems",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > System Connectivity",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Alignment Subsystem",
+   5
+  ],
+  [
+   "ADVANCED RETICLE MANAGEMENT SYSTEM (ARMS) > IRIS Parameters",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Some UNIX Commands",
+   5
+  ],
+  [
+   "Stage Movement Design > Solution for cogging:",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Hazard areas of step & scan systems",
+   5
+  ],
+  [
+   "TRANSMISSION IMAGE SENSOR (TIS)",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Me5WafMc",
+   5
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Me5StoMap",
+   5
+  ],
+  [
+   "An Introduction to the PAS 5500 Software FOR TRAINING PURPOSES ONLY > Contents",
+   4
+  ],
+  [
+   "Machine Access FOR TRAINING PURPOSES ONLY > Service: Swing Out Parts of Machine",
+   4
+  ],
+  [
+   "Stage Movement Design > Scanning Wafer Stage Motors",
+   4
+  ],
+  [
+   "Alignment > Alignment mark gratings:",
+   4
+  ],
+  [
+   "LEVEL SENSOR (LS) FOR TRAINING PURPOSES ONLY > Level Sensor Functionality",
+   4
+  ],
+  [
+   "FOR TRAINING PURPOSES ONLY > Frequency Response of a Weak Spring",
+   4
+  ],
+  [
+   "Introduction Overview",
+   4
+  ],
+  [
+   "ADVANCED RETICLE MANAGEMENT SYSTEM (ARMS) > Actions:",
+   4
+  ],
+  [
+   "Image Quality?",
+   4
+  ]
+ ]
+}

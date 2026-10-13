@@ -8,18 +8,23 @@ cd "$(dirname "$0")/.."
 # Git Bash(MSYS)会把 "/root/..." 形式的参数改写,禁用之
 export MSYS_NO_PATHCONV=1
 export MSYS2_ARG_CONV_EXCL="*"
-HOST=192.168.88.138
-PORT=22
-USER=lly
-PASS=123
+# 连接信息从本地 ssh_helper/vm_ssh.env 读取(不入库):HOST/PORT/USER/PASS
+source "$(dirname "$0")/vm_ssh.env"
 MODE=${1:-restart}
 
 # backend 运行面(与镜像 /app 一致的最小集;RAG 不需要,检索在 GPU 机)
-for d in agent_reasoning config "context management" env mcp_servers memories server tools; do
+for d in agent_reasoning config "context management" env mcp_servers memories server tools trace; do
   echo "== push $d"
   python ssh_helper/ssh_push.py --host $HOST --port $PORT --user $USER \
     --password "$PASS" --local "$d" --remote "projectdocker/backend_src/"
 done
+
+# VM -> GPU 隧道目标(deploy_gpu.sh 依 gpu_ssh.env 生成;start_tunnel.sh 在 VM 上读取)
+if [ -f ssh_helper/tunnel_target.env ]; then
+  echo "== push tunnel_target.env"
+  python ssh_helper/ssh_push.py --host $HOST --port $PORT --user $USER \
+    --password "$PASS" --local ssh_helper/tunnel_target.env --remote "tunnel_target.env"
+fi
 
 python ssh_helper/ssh_run.py --host $HOST --port $PORT --user $USER \
   --password "$PASS" --timeout 60 --cmd '

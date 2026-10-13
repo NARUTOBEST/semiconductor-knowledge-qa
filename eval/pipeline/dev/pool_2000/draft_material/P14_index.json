@@ -1,0 +1,326 @@
+{
+ "doc": "NSR-PR-PROT-R20-E1",
+ "chunks": 2027,
+ "headings": [
+  [
+   "NOTE",
+   191
+  ],
+  [
+   "SECTION 3 REMOTE AND HOST COMMANDS > NOTES",
+   146
+  ],
+  [
+   "APPENDIX C DISCRETE DATA AND CORRESPONDING ITEMS IN THE MCSV WINDOWS > 3.2 IRRECOVERABLE ERRORS, WARNING ABORT EQUIPMENT STATUS, ORRECOVERABLE ERRORS WAITING FOR OPERATOR ASSIST(ALCD=5, 6, 64\\~67, 70\\~72)",
+   103
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > NOTES",
+   81
+  ],
+  [
+   "SECTION 2 EQUIPMENT CONSTANTS > 2.2 EQUIPMENT CONSTANTS (SET SYSTEM PARAMETERS)",
+   56
+  ],
+  [
+   "NOTES",
+   54
+  ],
+  [
+   "SECTION 5 DISCRETE DATA > NOTE",
+   50
+  ],
+  [
+   "APPENDIX C DISCRETE DATA AND CORRESPONDING ITEMS IN THE MCSV WINDOWS > 3.1 ATTENTION FLAGS (ALCD=7)",
+   49
+  ],
+  [
+   "SECTION 3 REMOTE AND HOST COMMANDS > (1) For , specify a command name.",
+   47
+  ],
+  [
+   "TABLE OF CONTENTS",
+   47
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.17 Wafer Position Information (Wafer Loader Type 2) (SFCD = 17)",
+   42
+  ],
+  [
+   "Nikon > A.2 SYSTEM PARAMETERS",
+   41
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.21 Wafer Position Information (Wafer Loader Type 3) (SFCD = 22)",
+   27
+  ],
+  [
+   "TABLES",
+   23
+  ],
+  [
+   "SECTION 4 HOST-GENERATED PROCESS PROGRAM > Format",
+   20
+  ],
+  [
+   "SECTION 3 REMOTE AND HOST COMMANDS > NOTE",
+   17
+  ],
+  [
+   "SECTION 2 EQUIPMENT CONSTANTS > 2.1 EQUIPMENT CONSTANTS (MACHINE ADJUSTMENT PARAMETERS)",
+   16
+  ],
+  [
+   "INTRODUCTION",
+   15
+  ],
+  [
+   "FIGURES",
+   15
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > NOTE",
+   15
+  ],
+  [
+   "SECTION 6 EVENT REPORT > 6.3 CEID DETAILS",
+   13
+  ],
+  [
+   "SECTION 5 DETAILED DESCRIPTION OF INTERFACE FUNCTIONS > NOTES",
+   12
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS",
+   11
+  ],
+  [
+   "SECTION 3 NSR-INITIATED TRANSACTIONS > NOTES",
+   10
+  ],
+  [
+   "SECTION 6 NSR COMMUNICATION MODES > NOTES",
+   10
+  ],
+  [
+   "SECTION 5 DISCRETE DATA > NOTES",
+   10
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.26 Information on Parts Requiring Maintenance or Replacement (Komatsu Laser System) (SFCD = 28) (Note 5)",
+   10
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.25 Information on Parts Requiring Maintenance or Replacement (Cymer Laser System) (SFCD = 26)",
+   9
+  ],
+  [
+   "SECTION 6 NSR COMMUNICATION MODES > NOTE",
+   9
+  ],
+  [
+   "SECTION 10 RELATIONSHIP TO SECS-II > SECTION 14 HSMS PROTOCOL PARAMETER SETTINGS",
+   9
+  ],
+  [
+   "ATTENTION : IMPORTANT NOTICE",
+   9
+  ],
+  [
+   "SECTION 8 HSMS MESSAGE FORMAT > Message Header",
+   9
+  ],
+  [
+   "Nikon > A.1 EQUIPMENT ADJUSTMENT PARAMETERS",
+   9
+  ],
+  [
+   "(3) Particle Check Report: 4 face (r & d)",
+   9
+  ],
+  [
+   "SECTION 1 OVERVIEW",
+   8
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.1 NSR Processing Status (SFCD = 0)",
+   8
+  ],
+  [
+   "SECTION 5 DETAILED DESCRIPTION OF INTERFACE FUNCTIONS > (1) Description",
+   8
+  ],
+  [
+   "(2) Particle Check Report: 4 face (r)",
+   8
+  ],
+  [
+   "SECTION 8 HSMS MESSAGE FORMAT > Message Format",
+   7
+  ],
+  [
+   "NSR-PR-PROT-R20-E1_p1-500",
+   7
+  ],
+  [
+   "Nikon > APPENDIX B CEIDS REPORTED IN S6,F3“DATAID RALCMP” UNDER EXECUTE EXPOSURE COMMAND",
+   7
+  ],
+  [
+   "SECTION 6 EVENT REPORT > (13) Name: Assist Choice",
+   7
+  ],
+  [
+   "SECTION 1 STATUS DATA",
+   6
+  ],
+  [
+   "Conventions Table",
+   6
+  ],
+  [
+   "SECTION 5 DETAILED DESCRIPTION OF INTERFACE FUNCTIONS > NOTE",
+   6
+  ],
+  [
+   "NSR-PR-PROT-R20-E1_p501-847",
+   6
+  ],
+  [
+   "SECTION 6 EVENT REPORT > 6.5 V DETAILS",
+   6
+  ],
+  [
+   "(1) Particle Check Report: 2 face",
+   6
+  ],
+  [
+   "SECS-II Interface Specifications",
+   5
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.13 Currently Executing Command (SFCD = 12)",
+   5
+  ],
+  [
+   "SECTION 5 OVERVIEW OF HSMS STATES > 5.4 STATE TRANSITION TABLE FOR ACTIVE MODE CONNECTION",
+   5
+  ],
+  [
+   "SECTION 3 REMOTE AND HOST COMMANDS > Format",
+   5
+  ],
+  [
+   "APPENDIX C DISCRETE DATA AND CORRESPONDING ITEMS IN THE MCSV WINDOWS > INTRODUCTION",
+   5
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.10 Reticle Status in Reserved Process Program (SFCD = 9)",
+   4
+  ],
+  [
+   "SECTION 3 NSR-INITIATED TRANSACTIONS > 3.10 S6F3 DISCRETE VARIABLE DATA SEND (DVS)",
+   4
+  ],
+  [
+   "SECTION 3 NSR PROCESSING FUNCTIONS > 3.1 FUNCTIONS BY COMMAND",
+   4
+  ],
+  [
+   "SECTION 5 OVERVIEW OF HSMS STATES > 5.3 STATE TRANSITION TABLE FOR PASSIVE MODE CONNECTION",
+   4
+  ],
+  [
+   "The following table is the NSR-initiated transaction message list.",
+   4
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.9 Reticle Status in Current Process Program (SFCD = 8)",
+   4
+  ],
+  [
+   "SECTION 6 BLOCK TRANSFER PROTOCOL > 6.7.2 Line Control",
+   4
+  ],
+  [
+   "SECTION 3 NSR-INITIATED TRANSACTIONS > Text:",
+   4
+  ],
+  [
+   "APPENDIX C DISCRETE DATA AND CORRESPONDING ITEMS IN THE MCSV WINDOWS > (1) ALCD (Alarm code)",
+   4
+  ],
+  [
+   "APPENDIX C DISCRETE DATA AND CORRESPONDING ITEMS IN THE MCSV WINDOWS > C.1.1Wafer Flatness (CEID=1500H)/Local Flatness (CEID=1700H) Evaluation",
+   4
+  ],
+  [
+   "Nikon > FIGURES",
+   4
+  ],
+  [
+   "SECTION 6 EVENT REPORT > 6.4 RPTID DETAILS",
+   4
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.7 Reticle Case Status (SFCD = 6)",
+   3
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.27 Reticle Exchange Count (SFCD = 30)",
+   3
+  ],
+  [
+   "SECTION 2 EQUIPMENT CONSTANTS > NOTES",
+   3
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.33 S6F8 DATA TRANSFER DATA (DDD)",
+   3
+  ],
+  [
+   "SECTION 5 DETAILED DESCRIPTION OF INTERFACE FUNCTIONS > PPS Download",
+   3
+  ],
+  [
+   "SECTION 3 NSR PROCESSING FUNCTIONS > 3.2.1 Process Programs",
+   3
+  ],
+  [
+   "SECTION 4 HOST-GENERATED PROCESS PROGRAM > NOTES",
+   3
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.24 Laser Status (SFCD = 25)",
+   3
+  ],
+  [
+   "SECTION 2 SCOPE",
+   3
+  ],
+  [
+   "SECTION 8 HSMS MESSAGE FORMAT > 8.2 HSMS MESSAGE FORMATS (BY TYPE)",
+   3
+  ],
+  [
+   "CONVENTIONS USED IN THIS MANUAL",
+   3
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.56 S7F79 PROCESS PROGRAM SETTING REQUEST (PP ENTRY) (PLR)",
+   3
+  ],
+  [
+   "SECTION 5 DETAILED DESCRIPTION OF INTERFACE FUNCTIONS > (2) Processing Description",
+   3
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.15 Exposure Field Status (SFCD = 14)",
+   3
+  ],
+  [
+   "SECTION 2 HOST-INITIATED TRANSACTIONS > 2.7.2 Process Program Status (SFCD = 1)",
+   3
+  ]
+ ]
+}

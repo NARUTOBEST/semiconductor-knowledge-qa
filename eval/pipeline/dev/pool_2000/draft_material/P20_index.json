@@ -1,0 +1,326 @@
+{
+ "doc": "Multiphoton lithography  techniques, materials and applications (Liska, Robert Ovsianikov, Aleksandr Stampfl etc.)",
+ "chunks": 1718,
+ "headings": [
+  [
+   "Photoinitiators for Multiphoton Absorption Lithography > Centrosymmetric Photoinitiators",
+   58
+  ],
+  [
+   "Modeling of Polymerization Processes > Efect of Fluctuations on the Minimum Feature Size",
+   42
+  ],
+  [
+   "Fabrication of Waveguides and Other Optical Elements by Multiphoton Lithography > Acrylate Monomers for Multiphoton Lithography",
+   40
+  ],
+  [
+   "Modeling of Polymerization Processes > Phenomenological Polymerization Threshold and Spatial Resolution",
+   38
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > 3D Structures for Cells Studies",
+   33
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.3.2.1 Excitation…Probe Methods",
+   31
+  ],
+  [
+   "5 STED-Inspired Approaches to Resolution Enhancement > Stimulated Emission Depletion in Multiphoton Lithography",
+   30
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Overview",
+   29
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.3.1.2 Z-Scan",
+   29
+  ],
+  [
+   "Modeling of Polymerization Processes > Basic Laser Polymerization Chemistry and Kinetic Equations",
+   28
+  ],
+  [
+   "Light Sources and Systems for Multiphoton Lithography > Laser Light Sources",
+   28
+  ],
+  [
+   "Fabrication of Waveguides and Other Optical Elements by Multiphoton Lithography > Sol–Gel-Derived Resins",
+   26
+  ],
+  [
+   "5 STED-Inspired Approaches to Resolution Enhancement > Stimulated Emission Depletion Fluorescence Microscopy",
+   26
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Introduction",
+   25
+  ],
+  [
+   "Modeling of Polymerization Processes > Difusion of Inhibitor: Difusion-Assisted Direct Laser Writing",
+   23
+  ],
+  [
+   "Photoinitiators for Multiphoton Absorption Lithography > Application of Photoinitiators in Multiphoton Absorption Lithography",
+   23
+  ],
+  [
+   "Microfluidic Devices Produced by Two-Photon-Induced Polymerization > Optically Driven Micromachines",
+   22
+  ],
+  [
+   "Fabrication of Waveguides and Other Optical Elements by Multiphoton Lithography > Cationic Polymerization and Stereolithography",
+   22
+  ],
+  [
+   "Nanoreplication Printing and Nanosurface Processing > Nanosurface Structuring via Ablation",
+   21
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > Avalanche Versus Multiphoton Excitation",
+   20
+  ],
+  [
+   "5 STED-Inspired Approaches to Resolution Enhancement > Photoinhibition",
+   19
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > Biocompatible Materials",
+   19
+  ],
+  [
+   "Light Sources and Systems for Multiphoton Lithography > Further Processing Considerations",
+   18
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Electroless Metallization from Solution",
+   18
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.2.1",
+   17
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Photopolymerization",
+   17
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Multiphoton Lithography (MPL) for Photopolymerization",
+   14
+  ],
+  [
+   "Fabrication of Waveguides and Other Optical Elements by Multiphoton Lithography > Materials Based on Multiphoton Photochromism",
+   14
+  ],
+  [
+   "Fabricating Nano and Microstructures Made by Narrow Bandgap Semiconductors and Metals using Multiphoton Lithography > Photoresin Development",
+   14
+  ],
+  [
+   "5 STED-Inspired Approaches to Resolution Enhancement > 5.1 Introduction",
+   13
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.3.2.4 Two-Photon-Absorption-Induced Fluorescence Spectroscopy",
+   13
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > Scafolds for Bacterial Investigation",
+   13
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > Optical Properties at High Excitation: From Solid to Plasma",
+   12
+  ],
+  [
+   "Microfluidic Devices Produced by Two-Photon-Induced Polymerization > Microfluidic Devices Driven by a Focused Laser Beam",
+   12
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > Index",
+   12
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > Microstructures for Drug Delivery",
+   12
+  ],
+  [
+   "Modeling of Polymerization Processes > Difusion of the Growing Chains",
+   12
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Biomaterial Modulation",
+   12
+  ],
+  [
+   "Microfluidic Devices Produced by Two-Photon-Induced Polymerization > Microfluidic Devices Driven by a Scanning Laser Beam",
+   11
+  ],
+  [
+   "Microfluidic Devices Produced by Two-Photon-Induced Polymerization > Fabrication of Movable Micromachines",
+   11
+  ],
+  [
+   "Fabricating Nano and Microstructures Made by Narrow Bandgap Semiconductors and Metals using Multiphoton Lithography > Photosensitivity Enhancement by Tuning Laser Wavelength",
+   11
+  ],
+  [
+   "5 STED-Inspired Approaches to Resolution Enhancement > Challenges for Two-Color, Two-Photon Lithography",
+   10
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > 8.4.3.1 Macromer Chemistries",
+   10
+  ],
+  [
+   "Nanoreplication Printing and Nanosurface Processing > Micro-transfer Molding (�TM)",
+   10
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Structures Fabricated in ChG Film",
+   10
+  ],
+  [
+   "Nanoreplication Printing and Nanosurface Processing > Conclusion and Future Directions",
+   10
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Photoinitiator Selection",
+   10
+  ],
+  [
+   "Nanoreplication Printing and Nanosurface Processing > Nanosurface Metallization Processing",
+   10
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.3.2.3 Degenerate Four-Wave Mixing (DFWM)",
+   10
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > Introduction",
+   10
+  ],
+  [
+   "Photoinitiators for Multiphoton Absorption Lithography > Characterization of Two-Photon Initiators",
+   10
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.3.1.4 White-Light-Continuum Z-Scan (WLC Z-Scan)",
+   9
+  ],
+  [
+   "Photoinitiators for Multiphoton Absorption Lithography > 6.1.2.2 Property of Two-Photon Initiators",
+   9
+  ],
+  [
+   "Microfluidic Devices Produced by Two-Photon-Induced Polymerization > Introduction",
+   9
+  ],
+  [
+   "Photoinitiators for Multiphoton Absorption Lithography > Noncentrosymmetric Photoinitiators",
+   9
+  ],
+  [
+   "Nanoreplication Printing and Nanosurface Processing > Nano-replication of Other Materials",
+   9
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > Introduction",
+   9
+  ],
+  [
+   "Hybrid Materials for Multiphoton Polymerization > Introduction",
+   9
+  ],
+  [
+   "Fabricating Nano and Microstructures Made by Narrow Bandgap Semiconductors and Metals using Multiphoton Lithography > 11.1",
+   9
+  ],
+  [
+   "Three-Dimensional Microstructures for Biological Applications > t",
+   9
+  ],
+  [
+   "Fabrication of Waveguides and Other Optical Elements by Multiphoton Lithography > a) No data available.",
+   8
+  ],
+  [
+   "Hybrid Materials for Multiphoton Polymerization > Silicate Hybrid Materials",
+   8
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > 2.1",
+   8
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > Tight Light Focusing",
+   8
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > 3D (Nano)polymerization: Linear Properties",
+   8
+  ],
+  [
+   "Fabrication of Waveguides and Other Optical Elements by Multiphoton Lithography > Introduction",
+   8
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > Strongest Optical Nonlinearities",
+   8
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Structures Functionalized by Silicon Inversion",
+   8
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Biomaterial Fabrication",
+   8
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Outlook",
+   7
+  ],
+  [
+   "Photopolymers for Multiphoton Lithography in Biomaterials and Hydrogels > Biologic Questions",
+   7
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Organic Composites for Electrically Conductive Microstructures",
+   7
+  ],
+  [
+   "Fabricating Nano and Microstructures Made by Narrow Bandgap Semiconductors and Metals using Multiphoton Lithography > Two-Photon Lithography of PbSe Structures",
+   7
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Multiphoton Lithography of Nanoparticles Supported in a Polymer Matrix",
+   7
+  ],
+  [
+   "2 Characterization of 2PA Chromophores > Excited-State Absorption and Refraction",
+   7
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Fluorescent-Dye-Doped Organic Microstructures",
+   7
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Direct Writing of Continuous-Metal Microstructures",
+   6
+  ],
+  [
+   "Rapid Laser Optical Printing in 3D at a Nanoscale > Discussion",
+   6
+  ],
+  [
+   "Multiphoton Processing of Composite Materials and Functionalization of 3D Structures > Organic Composites for Lasing Microstructures",
+   6
+  ],
+  [
+   "Modeling of Polymerization Processes > Introduction",
+   6
+  ]
+ ]
+}

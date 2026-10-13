@@ -1,0 +1,326 @@
+{
+ "doc": "Laser Heat-Mode Lithography Principle and Methods (Jingsong Wei)",
+ "chunks": 958,
+ "headings": [
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.4.1 Bonding Model",
+   29
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.5.1.1 Laser-Induced Structural Change of AgInSbTe Thin Films",
+   28
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > 5.3.1 Photothermal Localization Analysis",
+   21
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.5.1.2 ZnS– $\\mathbf { \\ddot { S i O } } _ { 2 }$ Thin Films as Positive Resists",
+   20
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > 1.3.2 S/Se-Based Chalcogenide Thin Films",
+   19
+  ],
+  [
+   "Laser Heat-Mode Lithography > © Springer Nature Singapore Pte Ltd. 2019",
+   18
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.2.3 Grayscale Lithography Through Laser-Induced Micro/Nanostructures",
+   17
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.2.1 Micro/Nanopatterning Through Marangoni Effect [1]",
+   16
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.4.2 Theoretical Analysis of Focus-Seeking with a Pinhole Method",
+   14
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.4.1 Optical Astigmatic Method with a Single Cylindrical Lens",
+   14
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.3 Servo-Tracking Module",
+   14
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.3.1 Thermal Diffusion Coefficient",
+   13
+  ],
+  [
+   "Laser Heat-Mode Lithography > Contents",
+   13
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.3.5 Convertible Characteristics Between Positive and Negative Resists",
+   13
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.3 Patterning Through Direct Thermal Gasification",
+   13
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.6 Typical Arbitrary Pattern Structures",
+   13
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.2.1.3 Transferring the Patterns on $\\mathbf { G e } _ { 2 } \\mathbf { S b } _ { 1 . 5 } \\mathbf { B i } _ { 0 . 5 } \\mathbf { T e } _ { 5 }$ to Si Substrates",
+   12
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.4.1 Structural Evolution",
+   12
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.4.2 Upper Layer",
+   12
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.4.3 Both Lower and Upper Layers",
+   12
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.2 Thermal Diffusion in Laser Heat-Mode Lithography",
+   11
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.5.2 Ge as Light Absorption Layer",
+   11
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.2 Basic Layout",
+   11
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.2.2.2 Theoretical Model of Vaporization Expansion Effect",
+   11
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.2.4 Theoretical Analysis of Photothermal Localization Response",
+   10
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.3.5 Experimental Results of Servo-Tracking Module",
+   10
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.4.3.1 Establishment of Measurement System",
+   10
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.6 Direct Patterning Through $\\mathbf { A g 0 } _ { x }$ as Light Absorption Layer [19]",
+   10
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.5.1 High-Speed Writing",
+   9
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.4.2 Light-Mode Photoresist Transferring to Heat-Mode Lithography Through Increasing Exposure Laser Power",
+   9
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.3.1 Optical Reflectivity Change with Laser Irradiation Energy",
+   9
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.4.2 Multi-Ring Model",
+   9
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.4.1 Lower Layer",
+   9
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > 5.2.3 ${ \\pmb T e O } _ { \\bf x }$ Resists [16]",
+   8
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.2.2.2 Combination of Organic Films and Inorganic Heat-Mode Resists",
+   8
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.5 Arbitrary Pattern Generation in the $( r , \\theta )$ Polar Coordinate System",
+   8
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.2 Light-Mode Lithography",
+   8
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.1 Introduction",
+   8
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.2 Principle of Laser Heat-Mode Patterning of Transparent Thin Films",
+   8
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.2.1.2 Transferring the Patterns on $\\mathbf { G e _ { 1 . 5 } S n _ { 0 . 5 } S b _ { 2 } T e _ { 5 } }$ to $\\mathrm { \\bf S i O } _ { 2 }$ Substrates",
+   8
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.5.2 Short Laser Pulse",
+   8
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.4.2 Cladding Model",
+   8
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.3 Pattern Transfer to GaAs Substrates Through Wet Etching",
+   8
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > 5.2.2 Ge–Sb–Te Resists",
+   7
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.3 Thermo-Optical Properties of $\\mathbf { Z n S - S i O } _ { 2 }$ Thin Films [1]",
+   7
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.3.3 Trans-Scale Lithography",
+   7
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.3 Heat-Mode Lithography",
+   7
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > (4) Direct Laser Writing Through Focused Beam Spot",
+   7
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.2.5 Physical Picture of Patterning Process",
+   7
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.4.4 Sample Movement Fluctuation Error Measurement",
+   7
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.3.2 Non-diffraction-Limited Lithography",
+   7
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.2.1 Molecular Structure Analysis",
+   7
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.5.2 Grain Refinement",
+   7
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.2.1.1 Transferring the Patterns on $\\mathbf { Z n S }  – \\mathbf { S i O } _ { 2 }$ to $\\mathrm { { \\bf S i O } } _ { 2 }$ Substrates",
+   7
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 8.2.2.1 Bump Patterns",
+   7
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.4.1 Umbrella-Flip Model",
+   7
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 4.3.2 Thin-Film Thickness",
+   7
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > (2) Etching selectivity in alkaline solutions",
+   7
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.3.4.3 Servo-Tracking Control Unit",
+   6
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.3.4 Broadband Lithography",
+   6
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > 5.3 High-Speed Laser Heat-Mode Nanolithography",
+   6
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > 1.2.3 Probe-Based Lithography",
+   6
+  ],
+  [
+   "Chapter 6 Laser Heat-Mode Lithography Using Organic Thin Films > 6.4.1 Focused-Spot-Induced Local Post-exposure Baking",
+   6
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.2.2.1 A Single Organic Heat-Mode Resist Thin Film",
+   6
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > (1) Refraction-Mode Projection Lithography",
+   6
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > (3) Zone-Plate-Array Lithography",
+   6
+  ],
+  [
+   "Chapter 7 Laser Heat-Mode Lithography on Transparent Thin Films > 7.5.1.3 $\\mathbf { Z n S - S i O } _ { 2 }$ as Negative Resist",
+   6
+  ],
+  [
+   "Chapter 2 Principles of Laser Heat-Mode Lithography > 2.5 Comparison Between Laser Heat-Mode and Light-Mode Lithography",
+   6
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > 5.3.3 Laser Heat-Mode Nanolithography",
+   6
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > (1) DUV Light-Mode Resists",
+   5
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.4.1 Electroform Transferring",
+   5
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > 1.2.1.3 Chemical Self-Assembly",
+   5
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.1 Introduction",
+   5
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.3.2 Theoretical Analysis of Focusing Error Signals",
+   5
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > (2) EUV Light-Mode Resist",
+   5
+  ],
+  [
+   "Chapter 3 High-Speed Rotation-Type Laser Heat-Mode Lithography System > 3.3.1 Schematic of Optical Astigmatic Method with a Double Cylindrical Lens Group",
+   5
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > 5.3.2 Short Irradiation Time Through High-Speed Rotation Movement",
+   5
+  ],
+  [
+   "Chapter 1 Current Status of Lithography > 1.3.1 Organic Resist Thin Films",
+   5
+  ],
+  [
+   "Chapter 5 High-Speed Laser Heat-Mode Lithography on Chalcogenide Resists > (1) Laser-Induced Crystallization",
+   5
+  ],
+  [
+   "Chapter 8 Laser Heat-Mode Grayscale Lithography > 9.4.2 Direct Mastering of Stamper",
+   5
+  ]
+ ]
+}

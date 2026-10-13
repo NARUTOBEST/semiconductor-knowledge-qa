@@ -1,0 +1,326 @@
+{
+ "doc": "PI运动控制选型PI-CAT132E-Precision-Positioning-and-Motion-Control-Web",
+ "chunks": 960,
+ "headings": [
+  [
+   "A-322 PIglide HS Planar Scanner with Air Bearing > Applications",
+   26
+  ],
+  [
+   "COMPLETE SOLUTIONS FOR HIGH-THROUGHPUT AND HIGH-PRECISION MULTI-AXIS APPLICATIONS > Options",
+   19
+  ],
+  [
+   "L-511 High-Precision Linear Stage > Position measurement",
+   19
+  ],
+  [
+   "M-105 / M-106 Microtranslation Stage > L-509 Precision Linear Stage",
+   19
+  ],
+  [
+   "A-60x PIglide RT Rotary Air Bearing Module > Accessories and options",
+   16
+  ],
+  [
+   "A-322 PIglide HS Planar Scanner with Air Bearing > High Travel Accuracy",
+   14
+  ],
+  [
+   "Global Service and After-Sales > Extended Warranty",
+   12
+  ],
+  [
+   "UPL-120 Precision Z Stage > Drive types",
+   12
+  ],
+  [
+   "L-412 High-Load Linear Stage > Class leading design",
+   12
+  ],
+  [
+   "L-417 High-Load Linear Stage > Class leading design",
+   12
+  ],
+  [
+   "Technological Depth for Optimized Products",
+   12
+  ],
+  [
+   "L-505 Compact Linear Stage > Highly accurate position measuring with incremental linear encoder",
+   11
+  ],
+  [
+   "V-741 PIMag<sup>®</sup> High-Precision XY Stage > >> Incremental Encoder",
+   11
+  ],
+  [
+   "V-738 PIMag<sup>®</sup> High-Precision XY Stage > Applications",
+   11
+  ],
+  [
+   "UPL-120 Precision Z Stage > >> Incremental Encoder",
+   11
+  ],
+  [
+   "L-306 Compact Precision Z Stage > Applications",
+   10
+  ],
+  [
+   "A-123 PIglide AT3 Linear Stage with Air Bearings > Accessories and options",
+   10
+  ],
+  [
+   "V-408 PIMag<sup>®</sup> Linear Stage",
+   10
+  ],
+  [
+   "COMPLETE SOLUTIONS FOR HIGH-THROUGHPUT AND HIGH-PRECISION MULTI-AXIS APPLICATIONS > SMC Hydra Universal Motion Controller",
+   9
+  ],
+  [
+   "A-141 PIglide MB Miniature Linear Stage with Air Bearings > High Performance Small Footprint Nanopositioning Stage",
+   9
+  ],
+  [
+   "A-10x PIglide RB Linear Air Bearing Module",
+   9
+  ],
+  [
+   "LS-180 Linear Stage for Heavy Loads > Minimum incremental motion",
+   9
+  ],
+  [
+   "M-511 / M-521 / M-531 High-Precision Linear Stage > HPS-170 High-Precision Linear Stage for Heavy Loads",
+   9
+  ],
+  [
+   "A-62x PIglide RM Rotation Stage with Air Bearings",
+   9
+  ],
+  [
+   "V-275 PIMag<sup>®</sup> Voice Coil Linear Actuator > Suitable for a High Number of Cycles",
+   8
+  ],
+  [
+   "V-417 PIMag<sup>®</sup> High-Load Linear Stage > Class leading design",
+   8
+  ],
+  [
+   "A-62x PIglide RM Rotation Stage with Air Bearings > WT-85 Motorized Precision Goniometer",
+   8
+  ],
+  [
+   "UPL-120 Precision Z Stage > Applications",
+   8
+  ],
+  [
+   "V-412 PIMag<sup>®</sup> High-Load Linear Stage > Class leading design",
+   8
+  ],
+  [
+   "L-306 Compact Precision Z Stage > Position measurement",
+   8
+  ],
+  [
+   "WT-100 Motorized Precision Goniometer",
+   7
+  ],
+  [
+   "V-551 PIMag<sup>®</sup> Precision Linear Stage > PIMag<sup>®</sup> magnetic direct drive",
+   7
+  ],
+  [
+   "WT-100 Motorized Precision Goniometer > WT-90 Motorized Precision Goniometer",
+   7
+  ],
+  [
+   "A-110 PIglide LC Linear Stage with Air Bearings > Applications",
+   7
+  ],
+  [
+   "C-413 PIMag<sup>®</sup> Motion Controller > Interfaces",
+   7
+  ],
+  [
+   "A-41x PIglide FPC: Flat, Circular Air Bearing Modules",
+   6
+  ],
+  [
+   "C-863 Mercury Servo Controller",
+   6
+  ],
+  [
+   "V-741 PIMag<sup>®</sup> High-Precision XY Stage",
+   6
+  ],
+  [
+   "COMPLETE SOLUTIONS FOR HIGH-THROUGHPUT AND HIGH-PRECISION MULTI-AXIS APPLICATIONS > Overview",
+   6
+  ],
+  [
+   "A-322 PIglide HS Planar Scanner with Air Bearing",
+   6
+  ],
+  [
+   "V-275 PIMag<sup>®</sup> Voice Coil Linear Actuator > Highly accurate position measuring with incremental linear encoder",
+   6
+  ],
+  [
+   "L-239 High-Load Linear Actuator",
+   6
+  ],
+  [
+   "WT-120 Motorized Precision Goniometer",
+   6
+  ],
+  [
+   "M-403 Precision Translation Stage > Inexpensive and Flexible Thanks to Large Number of Drives and Travel Range Variants",
+   5
+  ],
+  [
+   "Mercury Step Stepper Motor Controller, 1 Axis",
+   5
+  ],
+  [
+   "WT-120 Motorized Precision Goniometer > PI",
+   5
+  ],
+  [
+   "C-884.4DC / C-884.6DC Motion Controller for DC Motors, 4 or 6 Axes > Extensive functions, software support",
+   5
+  ],
+  [
+   "V-522 / V-524 / V-528 High-Dynamics PIMag<sup>®</sup> Linear Stage > Applications",
+   5
+  ],
+  [
+   "L-402 Miniature Linear Stage > >> Incremental Encoder",
+   5
+  ],
+  [
+   "V-508 PIMag<sup>®</sup> Precision Linear Stage > Applications",
+   5
+  ],
+  [
+   "PHOTONICS PACKAGING AND OPTICAL ALIGNMENT",
+   5
+  ],
+  [
+   "M-511 / M-521 / M-531 High-Precision Linear Stage",
+   5
+  ],
+  [
+   "Terms and Technology Glossary > Voice coil drives",
+   5
+  ],
+  [
+   "A-110 PIglide LC Linear Stage with Air Bearings > A-131 PIglide VC Voice Coil Linear Stage with Air Bearings",
+   5
+  ],
+  [
+   "UPL-120 Precision Z Stage > V-731 PIMag<sup>®</sup> High-Precision XY Stage",
+   5
+  ],
+  [
+   "C-885 PIMotionMaster > Controller modules",
+   5
+  ],
+  [
+   "A-62x PIglide RM Rotation Stage with Air Bearings > Friction-Free, Motorized",
+   5
+  ],
+  [
+   "Markets and Applications > SEMICONDUCTOR PRODUCTION AND INSPECTION",
+   5
+  ],
+  [
+   "M-404 Precision Translation Stage",
+   5
+  ],
+  [
+   "L-406 Compact Linear Stage > Applications",
+   5
+  ],
+  [
+   "WT-120 Motorized Precision Goniometer > Applications",
+   5
+  ],
+  [
+   "L-408 Compact Linear Stage > Applications",
+   5
+  ],
+  [
+   "UPR-120 Ultraprecision Rotation Stage > Applications",
+   4
+  ],
+  [
+   "M-404 Precision Translation Stage > Inexpensive and Flexible Thanks to Large Number of Drives and Travel Range Variants for High Loads",
+   4
+  ],
+  [
+   "Terms and Technology Glossary",
+   4
+  ],
+  [
+   "UPR-120 Air Ultraprecision Rotation Stage with Air Bearing > Applications",
+   4
+  ],
+  [
+   "M-228 / M-229 High-Resolution Linear Actuator with Stepper Motor > Applications",
+   4
+  ],
+  [
+   "M-235 High-Resolution Linear Actuator with DC Motor",
+   4
+  ],
+  [
+   "M-122.2DD1 Micro Translation Stage",
+   4
+  ],
+  [
+   "M-404 Precision Translation Stage > M-414 High-Load Precision Stage",
+   4
+  ],
+  [
+   "Engineering Design Expertise and Customization > Core Technologies",
+   4
+  ],
+  [
+   "A-60x.MTT PIglide Manual X-Y-Tilt Platform > A-80x PIglide Filter and Air Preparation Kits",
+   4
+  ],
+  [
+   "A-141 PIglide MB Miniature Linear Stage with Air Bearings > Applications",
+   4
+  ],
+  [
+   "V-275 PIMag<sup>®</sup> Voice Coil Linear Actuator > PIMag<sup>®</sup> Voice Coil",
+   4
+  ],
+  [
+   "COMPLETE SOLUTIONS FOR HIGH-THROUGHPUT AND HIGH-PRECISION MULTI-AXIS APPLICATIONS > Digital motion controller for PIMag<sup>®</sup> linear motors",
+   4
+  ],
+  [
+   "V-275 PIMag<sup>®</sup> Voice Coil Linear Actuator > Applications",
+   4
+  ],
+  [
+   "Global Service and After-Sales > PI",
+   4
+  ],
+  [
+   "M-238 High-Load Linear Actuator with DC Motor > Applications",
+   3
+  ],
+  [
+   "A-60x.MTT PIglide Manual X-Y-Tilt Platform > Compatible with A-60x and A-62x",
+   3
+  ],
+  [
+   "L-505 Compact Linear Stage > PI",
+   3
+  ]
+ ]
+}

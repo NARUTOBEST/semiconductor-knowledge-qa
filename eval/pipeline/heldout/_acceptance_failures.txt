@@ -1,0 +1,32 @@
+0.00	10_EUV_Lithography	EUV-02	N = 50 d = 6.91 nm R_max = 75.2% FWHM = 0.6 nm
+0.00	10_EUV_Lithography	EUV-21	(SEVD)_G = 2(3h0(FWHM)² / 16 ln2)^(1/3) (7.2)
+0.00	10_EUV_Lithography	EUV-23	Space CD (printed) = CD (designed) − (2d × tanθ) × M (7.7)
+0.00	12_先进封装材料	PKG-11	30 μm/min | &lt;2 μm/min
+0.00	12_先进封装材料	PKG-16	500°C | 10.2 (1.1) | 57.5 (4.9)
+0.00	12_先进封装材料	PKG-18	Based on PI-1 | Ad | Ad | Ad | Ad | Ad/Co | Co ；Based on PI-4 | Ad/Co | Ad/Co | 
+0.00	12_先进封装材料	PKG-23	350°C | 10.0 (0.8) | 56.3 (3.7) | 9.8 (0.7) | 59.9 (5.7)
+0.00	13_Optical_Litho_Mack	MCK-16	Period = λ / 2 n_2\tag{4.20}；
+0.00	16_超洁净处理XIII	ULT-17	V_ex [ml/wafer] 行: Co = 0.74
+0.00	18_微纳加工_顾长志	MNF-04	对于硅而言，通常使用SF6作为刻蚀气体，C4F8作为钝化气体。
+0.06	15_印制电路上册	PCB-19	表1-8 不流动环氧半固化片： 104 半固化片厚度0.064mm 含胶量72±1% 流动度2% 凝胶时间无； 108 半固化片厚度0.088mm 含胶量62±
+0.10	15_印制电路上册	PCB-03	有的HDI挠性电路需要制作窗口直径小于200μm，位置精度要求小于100μm。--表1-9： 传统覆盖膜 低(800μm)；覆盖膜+激光钻孔 高(50μm)；网
+0.10	15_印制电路上册	PCB-22	表3-9 四种陶瓷封装材料的性能对比： 导热系数(W/(m·K)) BeO 285 | AlN 180 | Al2O3(96%) 21 | Al2O3(99.5
+0.12	15_印制电路上册	PCB-24	表3-19 厚铜箔及超厚铜箔的主要产品规格： 厚铜箔 105 | 915.0 | 3 | 102.9 | 4.05； 210 | 1830 | 6 | 205.
+0.13	15_印制电路上册	PCB-04	表2-2： 成孔原理 CO2激光钻孔-光热烧蚀 / UV激光钻孔-光化学烧蚀；材料的加工性 CO2-可直接加工树脂、玻纤，不可直接加工铜箔 / UV-可直接加工
+0.14	10_EUV_Lithography	EUV-09	EUV power at IF (W) = laser power (W) * CE * [1 - overhead] * f
+0.20	18_微纳加工_顾长志	MNF-11	低等离子体密度：10^9～10^10/cm³ | 高等离子体密度：&gt;10^11/cm³
+0.25	10_EUV_Lithography	EUV-18	K_net = K_SnH4-formation · (1 − K_Sn-redep), where K_net is the net etch rate of
+0.33	15_印制电路上册	PCB-11	即使当线宽和线距减少到30μm时，效果同样很好
+0.33	15_印制电路上册	PCB-25	表6-1： 德国宇航公司 | NiCr | 溅射 | 35~100；GOULD Electronics | NiCr、NiCrAlSi | 25~100。
+0.33	18_微纳加工_顾长志	MNF-16	通过沉积不同厚度的Al2O3分别把百纳米的孔径缩小至～10 nm，～20 nm的孔径缩小至4.8 nm，～7.8 nm的孔径缩小至～2nm。
+0.43	15_印制电路上册	PCB-08	表1-3 TLCP覆铜箔基材与其他基材的性能对比： 吸水率/% TLCP 0.04 | PI 2.9
+0.47	15_印制电路上册	PCB-16	R_th = (T1 - T2) / P 式中，P=Vce×IC；Vce为耗散功率源三极管集电极和发射极之间的电压(V)；IC为耗散功率源三极管集电极电流(A)
+0.47	18_微纳加工_顾长志	MNF-25	图1.13给出了直径为10μm和2μm的圆盘，障碍物与接收屏的距离均为10μm，曝光剂量为150 mJ/cm²时，绕过圆盘传播的菲涅耳衍射光强分布的理论模拟结果
+0.50	06_SECS500	SECS-15	Scenario 4.100/4.102
+0.50	12_先进封装材料	PKG-10	Peel strength | 245°C | ×10^5 Pa | 8.1 | 1.0
+0.50	12_先进封装材料	PKG-17	Peel strength (120°C) | Polyimide Substrate | ×10^5 Pa | 2.4 | 0.5
+0.50	12_先进封装材料	PKG-22	Df @ 1 GHz | 0.022 | 0.023 | 0.012
+0.50	13_Optical_Litho_Mack	MCK-18	ultimate pitch resolution = λ / 2 NA\tag{10.4}
+0.50	15_印制电路上册	PCB-06	介电特性(包括介电常数ε 和损耗因子 tan δ): PTFE&gt;CE&gt;PPO&gt;BT&gt;PI&gt;EP
+0.50	18_微纳加工_顾长志	MNF-19	Si3N4 | CF4/O2, CF4/H2, CHF3, CH3CHF2
+0.53	12_先进封装材料	PKG-15	Rcs is 6.2°C cm²/W for P = 10 psi (68 kPa) and 0.7°C cm²/W for P = 100 psi (680 

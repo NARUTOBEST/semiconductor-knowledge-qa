@@ -1,0 +1,358 @@
+[
+ {
+  "query_id": "P13-01",
+  "query": "书里那台深紫外步进机的硅片台性能极限是多少?我想知道它的最大速度、最大加速度和jerk分别多少",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最大速度 v=0.32 m/sec,最大加速度 a=4 m/sec²,jerk h=200 m/sec³(均针对图7.21的deep-UV stepper)。",
+  "success_criteria": "三个数值(0.32 m/sec、4 m/sec²、200 m/sec³)全部答出且单位正确。",
+  "evidence": "--[p299]-- Figure 7.21 shows the stage position, velocity, and acceleration of a deep-UV stepper. Its maximum stage velocity is v = 0.32 m/sec, maximum acceleration is a = 4 m/sec², and jerk h = 200 m/sec³."
+ },
+ {
+  "query_id": "P13-02",
+  "query": "193nm波长下水的折射率和吸收系数,书里给的精确值是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "水在193nm:折射率 n=1.43664,吸收系数 α=0.036 cm⁻¹(base 10),λ₁=134 nm(表8.6)。",
+  "success_criteria": "答出 n=1.43664 且 α=0.036 cm⁻¹,单位正确。",
+  "evidence": "--[p466 [表]]-- Water | H2O | 193 | 1.43664 | 0.036 | 134;--[p466]-- water appears to be the perfect medium for immersion at 193 nm. Not only is its absorption coefficient low, the refractive index 1.44 is surprisingly high at 193 nm."
+ },
+ {
+  "query_id": "P13-03",
+  "query": "BigMaC测试掩模那组E-D树是用什么工艺条件做的?胶厚、PAB、PEB温度和时间、显影时间这些中心参考条件报一下",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "resist thickness=910 nm,PAB=90°C,PEB=100°C,PEB time=100 sec,development time=60 sec。",
+  "success_criteria": "五个中心条件(910 nm、90°C、100°C、100 sec、60 sec)全部答出。",
+  "evidence": "--[p312]-- The processing conditions of the E-D trees are centered at: resist thickness = 910 nm; PAB = 90°C; --[p312]-- PEB = 100°C; PEB time = 100 sec; development time = 60 sec"
+ },
+ {
+  "query_id": "P13-04",
+  "query": "g线、i线、KrF、ArF、F2、EUV和X射线这些波长的光子能量分别等于多少eV?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "按表9.3:g-line(436nm)=2.8 eV,i-line(365nm)=3.4 eV,KrF(248nm)=5.0 eV,ArF(193nm)=6.4 eV,F2(157nm)=7.9 eV,EUV(13.5nm)=91.8 eV,X-ray(1nm)=1240 eV。",
+  "success_criteria": "至少答出 ArF=6.4 eV 和 EUV=91.8 eV,其余波长能量基本正确。",
+  "evidence": "--[p44 [表]]-- Table 9.3 Photon wavelengths and their equivalent energies in electronvolts (eV). g-line | i-line | KrF | ArF | F2 | EUV | X-ray; λ (nm) | 436 | 365 | 248 | 193 | 157 | 13.5 | 1; eV | 2.8 | 3.4 | 5.0 | 6.4 | 7.9 | 91.8 | 1240"
+ },
+ {
+  "query_id": "P13-05",
+  "query": "做显影实验时显影对比度γ的取值范围大概能到多宽?书里引用的那组实验数据最小最大各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Katnani等人的实验中,γ在其实验参数(软烘温度/时间、显影液浓度/时间)范围内的取值为2.39到68.6。",
+  "success_criteria": "答出范围2.39~68.6。",
+  "evidence": "--[p134]-- They demonstrated that g is a function of the soft-bake temperature and time as well as the developer concentration and time, and that the range of g within their experimental parameters is from 2.39 to 68.6, as shown in Fig. 4.43."
+ },
+ {
+  "query_id": "P13-06",
+  "query": "EUV掩模的pellicle透过率能做到多少?另外它在真空里没有接触式冷却,温度最高能烧到多少度?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "pellicle可达到的透过率约85%;由于真空环境只能辐射散热,pellicle温度最高可达944°C。",
+  "success_criteria": "答出85%和944°C两个数值。",
+  "evidence": "--[p32]-- The transmission achievable by a pellicle is about 85%.; --[p32]-- With no other way of cooling except by radiation, the temperature at the pellicle can reach as high as 944°C."
+ },
+ {
+  "query_id": "P13-07",
+  "query": "算CDU的时候不同来源的误差到底该直接相加还是均方根相加?书里给的通用规则是什么?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "通用规则:系统性误差用算术和,随机性误差用均方根(root-mean-square/RSS)和来评估标准偏差。",
+  "success_criteria": "答出\"系统误差→算术和、随机误差→RSS\"的对应关系。",
+  "evidence": "--[p401]-- The general rule is that if the errors are systematic, use an arithmetic sum, and if the errors are random, a root-mean-square sum should be applied to evaluate the standard deviation."
+ },
+ {
+  "query_id": "P13-08",
+  "query": "193nm浸没液用水的粘度具体数值是多少mPa·s?书上有没有给实测数据?",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书只定性提到浸没液粘度应当低以便自由流动、不拖慢晶圆扫描,并未给出水的粘度具体数值或实测数据,无法提供该数字。",
+  "success_criteria": "正确指出书中未给出粘度具体数值,仅提及\"粘度应低\"的定性要求;不得编造数字。",
+  "evidence": "--[p468]-- The viscosity should be low so that it can flow freely and does not slow down the wafer scanning."
+ },
+ {
+  "query_id": "P13-09",
+  "query": "65nm线条用BIM做仿真时,1:3、1:2、1:1三种线条间距的再组合PDS(recombination PDS)各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "1:3、1:2、1:1特征的recombination PDS分别为4.71%、8.74%、23.43%(间距越小PDS越大)。",
+  "success_criteria": "三个百分比(4.71%、8.74%、23.43%)与对应特征匹配正确。",
+  "evidence": "--[p454]-- In this particular situation, the recombination PDS values for the 1:3, 1:2, and 1:1 features are 4.71%, 8.74%, and 23.43%, respectively"
+ },
+ {
+  "query_id": "P13-10",
+  "query": "想把浸没式193nm的NA再往上推,流体折射率提到1.56和1.66时极限NA分别能到多少?1.66时遇到了什么限制?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "n_fluid=1.44(且sinθ_fluid=0.95)时NA=1.37;流体折射率升到1.56时NA=1.48;升到1.66会出现sinθ_lens=1.01的物理不可能问题,须把sinθ_fluid降到0.93以保持sinθ_lens&lt;1,此时NA限于1.54。",
+  "success_criteria": "答出NA=1.37/1.48/1.54的对应关系,并说明1.66时sinθ_lens超过1需回退sinθ_fluid=0.93。",
+  "evidence": "--[p467]-- Assuming that (1) the last element in the lens is a flat piece of fused silica whose refractive index is 1.56, (2) 1.75 is the refractive index of the resist layer, and (3) n_fluid = 1.44 and sinθ_fluid = 0.95, the attainable NA is 1.37. Raising the index of the fluid to 1.56 leads to NA = 1.48.; --[p467]-- Further increasing the fluid index to 1.66 runs into the problem of a physically impossible sinθ_lens of 1.01. The angle in the fluid has to be cut back to sinθ_fluid = 0.93 to keep sinθ_lens &lt; 1. ... The NA is now limited to 1.54."
+ },
+ {
+  "query_id": "P13-11",
+  "query": "为什么后来大家都不做1X曝光机了?从CD容差的RSS合成看1X比4X差多少,套刻误差又要差多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "CD误差的RSS:1X系统为15.75%,4X系统为12.9%,1X处于22%的劣势;要让两者CD控制持平,1X的晶圆胶图像误差须降到4.3%(很难实现);套刻方面1X系统可比同类4X系统差76%。",
+  "success_criteria": "答出15.75%对12.9%(或22%劣势)且答出套刻差76%。",
+  "evidence": "--[p75]-- The root-sum-square (RSS) of the CD error is 15.75% for 1X systems, compared to 12.9% for 4X systems—a 22% disadvantage. To make the CD control performance identical for both systems, the wafer resist image error of the 1X system must be reduced to 4.3%, which is quite impossible.; --[p76]-- The overlay error of a 1X system can be 76% more than that of a similar 4X system, as seen in columns 2 and 3 of Table 3.3."
+ },
+ {
+  "query_id": "P13-12",
+  "query": "步进扫描机的套刻误差分成晶圆内和晶圆间两组,书里这两组分量分别用什么符号表示的?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "interfield(场间)分量记为T_X、T_Y、M_X、M_Y、R_X、R_Y;intrafield(场内)分量记为t_x、t_y、m_x、m_y、r_x、r_y。",
+  "success_criteria": "两组符号(大写T/M/R对应interfield、小写t/m/r对应intrafield)区分正确。",
+  "evidence": "--[p409]-- The interfield overlay errors are denoted by T_X, T_Y, M_X, M_Y, R_X, and R_Y, while the intrafield overlay errors are denoted by t_x, t_y, m_x, m_y, r_x, and r_y."
+ },
+ {
+  "query_id": "P13-13",
+  "query": "EUV反射式掩模因为斜入射,对掩模基板的平整度、离焦量和局部倾角都提了多严的指标?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "掩模平整度须控制在10 nm以内;偏离远心的量把DOF限制到50 nm;掩模局部倾角须小于0.05 deg(表9.2参数:M=4, θ=6°, α=0.05°, δZ_M-tran=10 nm, δZ_w=50 nm)。",
+  "success_criteria": "答出平整度10 nm、DOF限制50 nm、倾角&lt;0.05 deg三项。",
+  "evidence": "--[p28 [表]]-- These parameters are summarized in Table 9.2 and indicate that the mask flatness must be held to within 10 nm and that the deviation from telecentricity limits the DOF to 50 nm and the local mask tilt to less than 0.05 deg."
+ },
+ {
+  "query_id": "P13-14",
+  "query": "同一片晶圆用11.4×18.3 mm²曝光场要走122×9步、总步进时间17.955秒,换成两倍面积场后能省多少秒?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "17.955 − 12.165 = 5.79 sec,即双面积场节省约5.79秒步进时间。",
+  "success_criteria": "算式正确且结果≈5.79秒。",
+  "evidence": "--[p302]-- The former area requires 122 steps of 11.4-mm distance and 9 steps of 18.3-mm distance. The total stepping time for this wafer is 17.955 sec. With the double-area field, the total stepping time is only 12.165 sec."
+ },
+ {
+  "query_id": "P13-15",
+  "query": "EUV pellicle单次透过率85%,可光在反射掩模上来回穿两次,帮我算一下成像光到底损失了百分之几?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "两次穿过:0.85²=0.7225,损失 1−0.7225=27.75%,与书中\"约28%成像光损失\"一致。",
+  "success_criteria": "给出0.85²的算式,结果≈27.75%(认可28%)。",
+  "evidence": "--[p32]-- The transmission achievable by a pellicle is about 85%. Light goes through the pellicle in two passes due to the reflective mask. Therefore, about 28% of the imaging light is lost to the pellicle."
+ },
+ {
+  "query_id": "P13-16",
+  "query": "两组CD测量数据样本数相同、均值也一样,一组3σ是3nm另一组是5nm,合成一组后总的标准差σ是多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "由式(7.73),等样本数且均值相同(M_k−M=0)时 σ²=(σ₁²+σ₂²)/2=(9+25)/2=17 nm²,故 σ=√17≈4.12 nm。",
+  "success_criteria": "使用组内方差平均公式,结果≈4.12 nm(接受4.1 nm)且单位正确。",
+  "evidence": "--[p402]-- If the number of CD samples for each group is the same, we obtain σ² = (1/K) Σ σ_k² + (1/K) Σ (M_k − M)², (7.73)"
+ },
+ {
+  "query_id": "P13-17",
+  "query": "帮我顺一下:书里193nm水浸没折射率测到的五位数精确值是多少,再据此说明仿真用的浸没波长是多少纳米?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索到水的折射率 n=1.43664(表8.6),再据此检索到浸没式仿真计算采用 134.6 nm 作为浸没波长、n=1.4366 作为耦合介质折射率(193.39 nm真空波长)。",
+  "success_criteria": "先答出1.43664,再答出134.6 nm,体现先查折射率后查波长的两跳顺序。",
+  "evidence": "--[p466 [表]]-- Water | H2O | 193 | 1.43664 | 0.036 | 134; --[p479]-- The immersion wavelength is based on a 193.39-nm vacuum wavelength and the five-digit refractive index.; --[p479]-- All of these calculations use 134.6 nm as the immersed wavelength and n = 1.4366 as the refractive index."
+ },
+ {
+  "query_id": "P13-18",
+  "query": "65/45/32nm三个节点曝光机预期要留多少DOF_avail?对应这三个节点的poly层胶厚分别定在多少纳米?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先查到DOF_avail期望:65nm节点250 nm,45/32nm节点分别为150和100 nm(历史值130nm节点400 nm、90nm节点350 nm);再查到poly层胶厚:65/45/32nm节点分别为200、150、100 nm(接触层与金属层为250、175、100 nm,以维持3:1高宽比)。",
+  "success_criteria": "两跳都命中:DOF_avail=250/150/100 nm 且 poly胶厚=200/150/100 nm。",
+  "evidence": "--[p481]-- We expect the exposure tools to support a DOF_avail of 250 nm for the 65-nm node, and 150 and 100 nm for the 45- and 32-nm nodes, respectively; --[p479]-- The resist thicknesses are 200, 150, and 100 nm for the poly layer of the 65-, 45-, and 32-nm nodes, respectively. These thicknesses become 250, 175, and 100 nm for the contact and metal layers. The resist has to thin down to maintain a 3:1 height:width ratio"
+ },
+ {
+  "query_id": "P13-19",
+  "query": "我想自己推EUV光源功率:先从书里找100 wph下每片晶圆花在曝光上的时间和300mm晶圆上的曝光面积,再推出灵敏度S mJ/cm²时所需的in-band EUV功率表达式",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:100 wph对应每片36 sec、300mm晶圆曝光面积700 cm²、扫描机65%的时间用于曝光;第二跳:所需in-band EUV功率=700 cm²/65%/36 sec × S mJ/cm² ≈ 30·S mW = 0.03S W(与书中\"to reach 0.03S W\"一致)。",
+  "success_criteria": "答出36 sec、700 cm²、65%三个前置数值,并给出0.03S W(或30S mW)表达式,700/36/0.65≈30。",
+  "evidence": "--[p17]-- Each wafer will spend 36 sec attaining a 100-wph throughput (where wph is wafers per hour); thus, 700 cm²/65%/36 sec S mJ/cm² 30 S mW cm² of in-band EUV power is needed per wafer.; --[p17]-- Let us assume that S mJ/cm² is needed to expose the resist... There is a 700-cm² area to expose on a 300-mm wafer, and 65% of the time each wafer spends in the scanner is for exposure.; --[p17]-- According to Table 9.1, to reach 0.03S W, the EUV in-band light generated at the source and spreading out to 2π steradian (sr) is 12.87S W."
+ },
+ {
+  "query_id": "P13-20",
+  "query": "能不能从这本书里查到EUV化学放大胶用的PAG具体是哪几种化学结构式、添加浓度一般配到百分之几?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书仅提到EUV CAR与DUV CAR一样由聚合物树脂(polymer resin)和PAG组成,曝光机制更复杂(见9.6.1节),但全书未给出PAG的具体化学结构式或添加浓度配比,应正确拒答而非编造。",
+  "success_criteria": "明确指出书中未提供PAG具体分子结构与浓度数据,只答出\"树脂+PAG\"的组成层面信息。",
+  "evidence": "--[p44 [表]]-- Like CARs for DUV applications, EUV CARs consist of the ... polymer resin and a PAG. However, the exposure mechanism is much more complicated, as discussed in Section 9.6.1."
+ },
+ {
+  "query_id": "P13-21",
+  "query": "把书里EUV CAR光刻胶的几个短板系统整理一下:10nm图形最多允许多厚胶、酸扩散blur多大、13nm线宽实例的灵敏度/LWR/DOF/EL是多少、还有EUV胶折射率对DOF预算的影响",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节综合:(1) 10nm特征最多只能用30 nm胶厚(毛细力致坍塌);(2) 化学放大与PEB质子扩散引入5~10 nm的resist blur;(3) 13nm L/S实例:平整化后工艺窗DOF=86 nm、EL=6.7%,所需曝光剂量58 mJ/cm²、LWR=4.4 nm、吸收系数α=4 µm⁻¹,灵敏度太低;(4) DOF预算中胶厚要除以折射率,DUV胶折射率约1.7而EUV胶接近1,故EUV系统胶消耗更多DOF。",
+  "success_criteria": "至少命中:30 nm胶厚上限、blur 5~10 nm、58 mJ/cm²与86 nm DOF、EUV胶折射率≈1这四点中的三点。",
+  "evidence": "--[p46]-- A 10-nm feature can only use up to 30 nm of resist thickness.; --[p46]-- Chemical amplification and proton diffusion from the post-exposure bake introduce resist blur that ranges from 5 to 10 nm; --[p46]-- The DOF is 86 nm and the EL is 6.7%. This repaired process window has a barely usable EL and DOF. The required exposure dosage is 58 mJ/cm² with LWR = 4.4 nm and a (the absorption coefficient) 4 mm⁻¹; --[p46]-- The refractive index of resists in the DUV regime is usually around 1.7, while it is usually close to 1 in the EUV regime."
+ },
+ {
+  "query_id": "P13-22",
+  "query": "157nm干法方案最后为什么没干过193浸没?从PFPE浸没液的吸收系数限制、以及134nm系统对157nm系统的DOF对比这两方面总结书里的结论",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节综合:(1) PFPE在157nm折射率1.37但吸收系数6~19 cm⁻¹(base 10)太高,要把穿过液体的光损限制在10%液厚须保持在75 µm以下(原文OCR作75 mm),193nm下吸收也高达0.1~0.6 cm⁻¹;(2) 与157nm干法系统相比,所有134nm系统(含193nm浸没)表现都明显更好;(3) 193nm浸没镜头复杂度与193nm干法相近,但DOF大2~3倍。",
+  "success_criteria": "命中PFPE吸收系数过高+液厚限制、134nm系统优于157nm干法、193i DOF大2~3倍三点中的两点以上。",
+  "evidence": "--[p466]-- The absorption coefficient of the perfluoropolyether (PFPE) material is too high. In order to limit light loss to 10% through the fluid, its thickness needs to be kept below 75 mm.; --[p466 [表]]-- Perfluoropolyether | PFPE | 157 | 1.37 | 6-19 | 115; --[p458]-- When compared with the 157-nm dry systems, all 134-nm systems, including the 193-nm immersion system, are substantially better.; --[p458]-- This means that the complexity of the 193-nm immersion lens is similar to that of the 193-nm dry system, but the DOF is 2 to 3 times larger."
+ },
+ {
+  "query_id": "P13-23",
+  "query": "帮我完整捋一遍书里EUV光源功率的推算链:从每片曝光能量需求到光源出光功率,再到灵敏度20/30/50/80 mJ/cm²时IF处的EUV功率和CO2激光器IR功率,最后到只供光源所需的墙电功率范围",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "链式综合:(1) 700 cm²/65%/36 sec×S ⇒ 到达resist需0.03S W;(2) 源出到2π sr的in-band光为12.87S W;(3) IF处EUV功率:20 mJ/cm²→257 W,30→386 W,50→643 W,80→1029 W;(4) 对应IR输出:30 mJ/cm²→39 kW(200 W EUV对应20 kW),50→65 kW,80→100 kW;(5) CO2激光器墙电约为IR输出的4倍,仅光源所需墙电为260~400 kW。",
+  "success_criteria": "至少命中:12.87S W、IF功率257/386/643/1029 W的对应关系、IR 39/65/100 kW、墙电260~400 kW中的三组。",
+  "evidence": "--[p17]-- to reach 0.03S W, the EUV in-band light generated at the source and spreading out to 2π steradian (sr) is 12.87S W; --[p18]-- Using an EUV resist sensitivity of 20 mJ/cm² leads to 257 W at the IF; --[p19]-- For a resist sensitivity of 30 mJ/cm², 386 W of EUV power is needed at the IF and a 39-kW IR output is required. For 50 and 80 mJ/cm², the EUV power is 643 W and 1029 W, and the IR power is 65 kW and 100 kW, respectively.; --[p19]-- Reference 11 states that 200 W of EUV power at IF requires a laser power of 20 kW.; --[p19]-- The wall power needed for the CO₂ lasers would be about four times the IR output. The power required to power only the source is 260~400 kW."
+ },
+ {
+  "query_id": "P13-24",
+  "query": "用书里那个吞吐率公式Q=A/(s·t_expo+t_c)验算一下表9.6:14nm节点灵敏度34 mJ/cm²时100 wph,那10nm节点灵敏度升到55 mJ/cm²后,Ic=0.3时吞吐率掉到多少?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "灵敏度比 s=55/34≈1.618;Q=100/(0.7×1.618+0.3)=100/(1.1326+0.3)=100/1.4326≈69.8 wph,与表9.6给出的69.7 wph吻合(取A=100、t_expo=0.7、t_c=0.3)。",
+  "success_criteria": "先算出s≈1.62,再代入公式得Q≈69.7~69.8 wph,算式完整。",
+  "evidence": "--[p52]-- Q = A/(s × t_expo + t_c), (9.12); --[p52]-- For the 10-nm node, let s = 1, t_c = 0.3, t_expo = 0.7, and A = 100 wph.; --[p52]-- Resist sensitivity at constant shot noise | 34 | 55 | 104 | 158 | 220; wph based on 437 W EUV power at IF (Ic = 0.3) | 100.0 | 69.7 | 40.9 | 28.2 | 20.7"
+ },
+ {
+  "query_id": "P13-25",
+  "query": "13.5nm的EUV光子和193nm的ArF光子,单位体积能打出的光子数差多少倍?由此带来的光子散粒噪声波动又是几倍?帮我按书里的算法算一遍",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先由表9.3查到EUV=91.8 eV、ArF=6.4 eV;光子数比=91.8/6.4=14.34≈14.3倍;散粒噪声变异性之比=√(91.8/6.4)=√14.34≈3.79≈3.8倍。",
+  "success_criteria": "给出91.8/6.4≈14.3与√(91.8/6.4)≈3.8两个结果,算式正确。",
+  "evidence": "--[p45]-- (No. of 13.5nm photons per volume)/(No. of 193nm photons per volume) = 91.8 eV / 6.4 eV = 14.3; (Variability of EUV photons)/(Variability of ArF photons) = √(91.8 eV / 6.4 eV) = 3.8"
+ }
+]

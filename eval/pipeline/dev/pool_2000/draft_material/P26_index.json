@@ -1,0 +1,326 @@
+{
+ "doc": "TCP9600 parts identify_4",
+ "chunks": 1490,
+ "headings": [
+  [
+   "TCP 9600SE > Harmonic Arm Drive Assembly (Cont’d) 853-012175-001 Rev. G",
+   36
+  ],
+  [
+   "TCP 9600SE > Inner Gate Drive Assembly (Cont’d) 853-012261-001 Rev. 5",
+   34
+  ],
+  [
+   "TCP 9600SE > Orbital Gas Panel, Piping Assembly part of 860-30766-602 Rev. 1",
+   30
+  ],
+  [
+   "TCP 9600SE > APM Control Enclosure Installation 860-010173-001 Rev. 4",
+   26
+  ],
+  [
+   "TCP 9600SE > Lifter Filter/Temperature Sense Box 853-017435-001 Rev. C",
+   26
+  ],
+  [
+   "TCP 9600SE > Tubing Harness, Fixed Gap part of 860-030763-601 Rev. 1",
+   22
+  ],
+  [
+   "TCP 9600SE > Wafer Transport Assembly (Cont’d) 853-012727-001 Rev. 7",
+   22
+  ],
+  [
+   "TCP 9600SE > Reaction Chamber, Upper Match Assembly part of 860-030040-621 Rev. 2",
+   22
+  ],
+  [
+   "TCP 9600SE > Lifter and Spinner Assembly (Cont’d) 853-012525-001 Rev. E",
+   20
+  ],
+  [
+   "TCP 9600SE > Main Frame",
+   20
+  ],
+  [
+   "TCP 9600SE > Inner Gate Assembly 853-012230-002 Rev. A",
+   20
+  ],
+  [
+   "TCP 9600SE > Upper Match 6“ Fixed Gap Assembly (Top View) part of 853-032190-006 Rev. 3",
+   20
+  ],
+  [
+   "TCP 9600SE > Loadlock Exit DSQ Hinge 853-025730-102 Rev. 2",
+   20
+  ],
+  [
+   "TCP 9600SE > AC/DC Distribution TCP Enclosure Assembly 853-017200-003 Rev. A",
+   20
+  ],
+  [
+   "TCP 9600SE > Vacuum/Facilities",
+   20
+  ],
+  [
+   "TCP 9600SE > Upper Match, Capacitor Drive 6:1 Assembly (Cont’d) 853-031684-001 Rev. 4",
+   20
+  ],
+  [
+   "TCP 9600SE > Autotune Match Stripper Assembly A (Cont’d) 853-025735-001 Rev. 5",
+   18
+  ],
+  [
+   "TCP 9600SE > Lower Match Box",
+   18
+  ],
+  [
+   "TCP 9600SE > Detached Operator Interface Unit 853-017750-001 Rev. E",
+   17
+  ],
+  [
+   "Detached Operator Interface Unit 853-017750-001 Rev. E",
+   17
+  ],
+  [
+   "TCP 9600SE > Inner Gate Drive Sensor Assembly 853-012875-001 Rev. A",
+   16
+  ],
+  [
+   "TCP 9600SE > AC/DC Distribution Enclosure TB2 Fuse Terminal Assembly 853-017206-003 Rev. 2",
+   16
+  ],
+  [
+   "TCP 9600SE > Upper Match 8“ Fixed Gap Assembly (Top View) part of 853-032190-008 Rev. 2",
+   16
+  ],
+  [
+   "TCP 9600SE > Inner Gate Drive Assembly 853-012261-001 Rev. 4",
+   14
+  ],
+  [
+   "TCP 9600SE > Entrance Loadlock Bottom View Assembly part of 852-011200-002 Rev. J",
+   14
+  ],
+  [
+   "TCP 9600SE > Wafer Transport Installation 860-012800-001 Rev. 6",
+   12
+  ],
+  [
+   "TCP 9600SE > Vertical Rack",
+   12
+  ],
+  [
+   "TCP 9600SE > Lower Chamber Turbo Pump Assembly part of 852-030038-601 Rev. 2",
+   12
+  ],
+  [
+   "TCP 9600SE > DSQ Hinge Assembly part of 853-347019-001 Rev. 2",
+   12
+  ],
+  [
+   "TCP 9600SE > Short Upper Match Box Assembly 853-032018-003 Rev. 1",
+   12
+  ],
+  [
+   "TCP 9600SE > Lower Chamber, Housing Assembly A part of 852-030038-601 Rev. 2",
+   12
+  ],
+  [
+   "TCP 9600SE > Manifold Capacitance Switch Assembly 853-031467-003 Rev. 2",
+   10
+  ],
+  [
+   "TCP 9600SE > Operator Interface Envisions Installation 860-010167-396 Rev. 1",
+   10
+  ],
+  [
+   "TCP 9600SE > Short Upper Match Box, Short 853-032018-003 Rev. 1",
+   10
+  ],
+  [
+   "TCP 9600SE > Outer Gate Assembly (Cont’d) 853-140013-001 Rev. 2",
+   10
+  ],
+  [
+   "TCP 9600SE > Reaction Chamber",
+   10
+  ],
+  [
+   "TCP 9600SE > Vacuum Manometer Assembly part of 860-032902-601 Rev. A",
+   10
+  ],
+  [
+   "TCP 9600SE > Entrance Loadlock Installation 860-010112-002 Rev. 4",
+   10
+  ],
+  [
+   "TCP 9600SE > Orbital Gas Panel",
+   10
+  ],
+  [
+   "TCP 9600SE > Housing, Middle Chamber, Fixed Gap 853-330148-600 Rev. 2",
+   10
+  ],
+  [
+   "TCP 9600SE > Auxiliary Power Box Wiring (Cont’d) 853-033754-001 Rev. 7",
+   10
+  ],
+  [
+   "TCP 9600SE > Lower Chamber, Cut-A-Way Side View part of 852-030038-601 Rev. 2",
+   10
+  ],
+  [
+   "Operator Interface Envisions Installation 860-010167-396 Rev. 1",
+   10
+  ],
+  [
+   "TCP 9600SE > Control Enclosure TCP Assembly 852-017234-304 Rev. 4",
+   9
+  ],
+  [
+   "TCP 9600SE > Atmospheric Passivation Module, Lifter/Spinner/Arm part of 860-010137-001 Rev. 21",
+   9
+  ],
+  [
+   "Control Enclosure TCP Assembly 852-017234-304 Rev. 4",
+   9
+  ],
+  [
+   "Atmospheric Passivation Module, Lifter/Spinner/Arm part of 860-010137-001 Rev. 21",
+   9
+  ],
+  [
+   "TCP 9600SE > AC/DC Distribution TCP Enclosure Assembly (Cont’d) 853-017200-003 Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > AC/DC Distribution TCP Enclosure Assembly Part of 853-017200-003 Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > CRT-Keypanel Detached Operator Interface Assembly 852-017751-002 Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > Upper Match 6“Fixed Gap Assembly (Cont’d) 853-032190-006 Rev. 3",
+   8
+  ],
+  [
+   "TCP 9600SE > Transformer RF Sense 50 Turn Assembly 853-033776-003 Rev. 1",
+   8
+  ],
+  [
+   "TCP 9600SE > Upper Match Capacitor Drive 8:1 Assembly 853-031703-001 Rev. 4",
+   8
+  ],
+  [
+   "TCP 9600SE > Stripper Module DSQ Hinge Assembly B part of 853-347019-001 Rev. 2",
+   8
+  ],
+  [
+   "TCP 9600SE > Vacuum, ISO Valves Installation part of 860-032902-601 Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > Housing, Upper Chamber, Fixed Gap 852-330143-001 Rev. 2",
+   8
+  ],
+  [
+   "TCP 9600SE > Autotune & Manual Coil Assembly part of 853-025735-001 Rev. 5",
+   8
+  ],
+  [
+   "TCP 9600SE > Auxiliary Power Box Wiring part of 853-033754-001 Rev. 7",
+   8
+  ],
+  [
+   "TCP 9600SE > Autotune Match Stripper Assembly A part of 853-025735-001 Rev. 5",
+   8
+  ],
+  [
+   "TCP 9600SE > Upper Match, Capacitor Drive 6:1 Assembly 853-031684-001 Rev. 4",
+   8
+  ],
+  [
+   "TCP 9600SE > Auxiliary Power Box Rear Panel part of 853-033754-001 Rev. 7",
+   8
+  ],
+  [
+   "TCP 9600SE > ESC Heated Endpoint Window B Part of 852-030038-611G Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > Lifter Stripper Assembly 853-032776-001 Rev. 4",
+   8
+  ],
+  [
+   "TCP 9600SE > ESC Lower Chamber, Cut-A-Way Assembly Part of 852-030038-611D Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > Upper Match",
+   8
+  ],
+  [
+   "TCP 9600SE > ESC Lower Chamber Housing B Assembly Part of 852-030038-611B Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > Lower Chamber, Cut-A-Way Side View (Cont’d) 852-030038-601 Rev. 2",
+   8
+  ],
+  [
+   "TCP 9600SE > Auxiliary Power Box Assembly 853-033754-001 Rev. 7",
+   8
+  ],
+  [
+   "TCP 9600SE > Clamping Bottom Actuator Assembly 853-330159-001 Rev. 1",
+   8
+  ],
+  [
+   "CRT-Keypanel Detached Operator Interface Assembly 852-017751-002 Rev. A",
+   8
+  ],
+  [
+   "TCP 9600SE > Water Vapor Delivery",
+   7
+  ],
+  [
+   "TCP 9600SE > Shuttle Installation 853-013800-002 Rev. 2",
+   7
+  ],
+  [
+   "Water Vapor Delivery",
+   7
+  ],
+  [
+   "Shuttle Installation 853-013800-002 Rev. 2",
+   7
+  ],
+  [
+   "TCP 9600SE > Spinner Assembly 853-013720-003 Rev. 3",
+   6
+  ],
+  [
+   "TCP 9600SE > Gear Driven RF Match Assembly (Cont’d) 853-015130-002 Rev. K",
+   6
+  ],
+  [
+   "TCP 9600SE > Electrostatic Chuck",
+   6
+  ],
+  [
+   "TCP 9600SE > Loadcoil Assembly 853-030028-001 Rev. 1",
+   6
+  ],
+  [
+   "TCP 9600SE > Isolation 180 Degree Valve 853-032907-001 Rev. 1",
+   6
+  ],
+  [
+   "TCP 9600SE > Pneumatics",
+   6
+  ]
+ ]
+}

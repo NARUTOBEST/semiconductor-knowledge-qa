@@ -17,6 +17,9 @@ from typing import Any, Optional, Tuple
 import httpx
 
 import config as C
+from agent_reasoning.ReAct.support.tool_circuit import (
+    CircuitOpenError, get_llm_breaker,
+)
 
 logger = logging.getLogger("agent")
 
@@ -98,6 +101,15 @@ def get_client():
     return _client
 
 
+def _mem_breaker():
+    """记忆链路熔断入口:OPEN/放弃期由 before_call 抛 CircuitOpenError。"""
+    brk = get_llm_breaker("memories")
+    if brk is None:
+        return None
+    brk.before_call()
+    return brk
+
+
 def chat_completion_with_fallback(
     *, trace_id: str = "", retries: int = LLM_RETRIES,
     deadline: Optional[float] = None, **kwargs
@@ -125,6 +137,13 @@ def chat_completion_with_fallback(
         return None if deadline is None else deadline - time.monotonic()
 
     client = get_client()
+    # 三状态熔断(2026-10-10 全链路统一):记忆后台链路记在 "memories" 环节,
+    # OPEN/放弃期直接拒绝(调用方按各自降级路径返回 None/空)。
+    try:
+        _brk = _mem_breaker()
+    except CircuitOpenError as e:
+        logger.info("memories llm breaker open [%s]: %s", trace_id, e)
+        return None, e
     last_err: Optional[Exception] = None
     # 数字型单次超时配置先取出(分段化是逐次重建的,不能回写 kwargs 后再读它)
     to_cfg = kwargs.get("timeout")
@@ -146,6 +165,8 @@ def chat_completion_with_fallback(
             try:
                 resp = client.chat.completions.create(**kwargs)
                 _record_internal_usage(resp)
+                if _brk is not None:
+                    _brk.on_success()
                 return resp, None
             except Exception as e:  # noqa: BLE001
                 last_err = e
@@ -158,6 +179,8 @@ def chat_completion_with_fallback(
                     logger.info(
                         "memories llm fail [%s] model=%s: %s: %s",
                         trace_id, m, type(e).__name__, str(e)[:120])
+                    if _brk is not None:
+                        _brk.on_failure("timeout")
                     return None, e
                 wait = 1.5 ** i
                 rem = _remaining()
@@ -166,4 +189,6 @@ def chat_completion_with_fallback(
                         return None, e
                     wait = min(wait, rem)
                 time.sleep(wait)
+    if _brk is not None and last_err is not None:
+        _brk.on_failure("timeout")
     return None, last_err

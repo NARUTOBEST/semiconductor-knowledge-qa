@@ -1,0 +1,1624 @@
+
+================ DUMP @ 2026-10-10T04:14:52  (307 threads) ================
+
+-- tid 00007f57c27cc6c0
+   Thread 0x00007f57c27cc6c0 (most recent call first):
+   File "/app/server/support/ratelimit.py", line 135 in acquire_global_slot
+   File "/app/server/chat/router.py", line 88 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57d4ff16c0
+   Thread 0x00007f57d4ff16c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f5857fff6c0
+   Thread 0x00007f5857fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57d8ff96c0
+   Thread 0x00007f57d8ff96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f5831ffb6c0
+   Thread 0x00007f5831ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57f0ff96c0
+   Thread 0x00007f57f0ff96c0 (most recent call first):
+   File "/app/server/support/ratelimit.py", line 135 in acquire_global_slot
+   File "/app/server/chat/router.py", line 88 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f5813fff6c0
+   Thread 0x00007f5813fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f5869ffe6c0
+   Thread 0x00007f5869ffe6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57c7fd76c0
+   Thread 0x00007f57c7fd76c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57a57926c0
+   Thread 0x00007f57a57926c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57acfa16c0
+   Thread 0x00007f57acfa16c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57b3faf6c0
+   Thread 0x00007f57b3faf6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57ba7bc6c0
+   Thread 0x00007f57ba7bc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57bd7c26c0
+   Thread 0x00007f57bd7c26c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57c6fd56c0
+   Thread 0x00007f57c6fd56c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57c97da6c0
+   Thread 0x00007f57c97da6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57c8fd96c0
+   Thread 0x00007f57c8fd96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57ca7dc6c0
+   Thread 0x00007f57ca7dc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f58327fc6c0
+   Thread 0x00007f58327fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49d3fff6c0
+   Thread 0x00007f49d3fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49a67e46c0
+   Thread 0x00007f49a67e46c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49b37fe6c0
+   Thread 0x00007f49b37fe6c0 (most recent call first):
+   File "/app/server/support/ratelimit.py", line 135 in acquire_global_slot
+   File "/app/server/chat/router.py", line 88 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49ab7ee6c0
+   Thread 0x00007f49ab7ee6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f4a10ff96c0
+   Thread 0x00007f4a10ff96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/raglite/stream.py", line 295 in raglite_answer_stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/raglite/runner.py", line 58 in run_raglite
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49b17fa6c0
+   Thread 0x00007f49b17fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49d1ffb6c0
+   Thread 0x00007f49d1ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f4a117fa6c0
+   Thread 0x00007f4a117fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49aeff56c0
+   Thread 0x00007f49aeff56c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f4a367fc6c0
+   Thread 0x00007f4a367fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/raglite/stream.py", line 295 in raglite_answer_stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/raglite/runner.py", line 58 in run_raglite
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49b1ffb6c0
+   Thread 0x00007f49b1ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49b3fff6c0
+   Thread 0x00007f49b3fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f4993fbf6c0
+   Thread 0x00007f4993fbf6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49b0ff96c0
+   Thread 0x00007f49b0ff96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+
+-- tid 00007f671d7fa6c0
+   Thread 0x00007f671d7fa6c0 (most recent call first):
+   File "/app/server/support/ratelimit.py", line 135 in acquire_global_slot
+   File "/app/server/chat/router.py", line 88 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f6706fed6c0
+   Thread 0x00007f6706fed6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f66fe7dc6c0
+   Thread 0x00007f66fe7dc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/typing.py", line 0 in get_origin
+   File Thread 0x00007ffa937de6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8bfcf6c0
+   Thread 0x00007ffa8bfcf6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/raglite/stream.py", line 295 in raglite_answer_stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/raglite/runner.py", line 58 in run_raglite
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8efd56c0
+   Thread 0x00007ffa8efd56c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa98fe96c0
+   Thread 0x00007ffa98fe96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa85fc36c0
+   Thread 0x00007ffa85fc36c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa97fe76c0
+   Thread 0x00007ffa97fe76c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffb27fff6c0
+   Thread 0x00007ffb27fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8ffd76c0
+   Thread 0x00007ffa8ffd76c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007fcd807b86c0
+   Thread 0x00007fcd807b86c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007fcd80fb96c0
+   Thread 0x00007fcd80fb96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007fcd81fbb6c0
+   Thread 0x00007fcd81fbb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/site-packages/redis/_parsers/socket.py", line 93 in _read_from_socket
+   File 2026-10-10 04:14:52,587 INFO chat: chat request from user=eval50, msg_len=76, history_len=0
+
+================ DUMP @ 2026-10-10T04:15:22  (376 threads) ================
+
+-- tid 00007f57a4f916c0
+   Thread 0x00007f57a4f916c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 244 in _llm_create_impl
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 220 in llm_create_with_retry
+   File "/app/agent_reasoning/router.py", line 325 in classify_and_clarify
+   File "/app/server/chat/service.py", line 334 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57d5ff36c0
+   Thread 0x00007f57d5ff36c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 244 in _llm_create_impl
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 220 in llm_create_with_retry
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 648 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57d97fa6c0
+   Thread 0x00007f57d97fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57b2fad6c0
+   Thread 0x00007f57b2fad6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57b27ac6c0
+   Thread 0x00007f57b27ac6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f57b5fb36c0
+   Thread 0x00007f57b5fb36c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f58127fc6c0
+   Thread 0x00007f58127fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f5879dfc6c0
+   Thread 0x00007f5879dfc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/app/memories/storage/_llm.py", line 166 in chat_completion_with_fallback
+   File "/app/memories/orchestration/long/extract.py", line 206 in _call_extract_llm
+   File "/app/memories/orchestration/long/extract.py", line 121 in consolidate_turn
+   File "/app/memories/orchestration/memory_loop/consolidate.py", line 168 in run_consolidation
+   File "/app/memories/orchestration/memory_loop/nodes.py", line 55 in consolidate_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913 in invoke
+   File "/app/memories/orchestration/memory_loop/pipeline.py", line 171 in _execute
+   File "/app/memories/orchestration/memory_loop/pipeline.py", line 149 in _loop
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f49baffd6c0
+   Thread 0x00007f49baffd6c0 (most recent call first):
+
+-- tid 00007ffa9f7f66c0
+   Thread 0x00007ffa9f7f66c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa867c46c0
+   Thread 0x00007ffa867c46c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 244 in _llm_create_impl
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 220 in llm_create_with_retry
+   File "/app/server/chat/service.py", line 176 in _conflict_objects
+   File "/app/server/chat/service.py", line 377 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8e7d46c0
+   Thread 0x00007ffa8e7d46c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 451 in result
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 1088 in execute_tools_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa98fe96c0
+   Thread 0x00007ffa98fe96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa9c7f06c0
+   Thread 0x00007ffa9c7f06c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffaa17fa6c0
+   Thread 0x00007ffaa17fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffaa27fc6c0
+   Thread 0x00007ffaa27fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8bfcf6c0
+   Thread 0x00007ffa8bfcf6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa93fdf6c0
+   Thread 0x00007ffa93fdf6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffb27fff6c0
+   Thread 0x00007ffb27fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8ffd76c0
+   Thread 0x00007ffa8ffd76c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa967e46c0
+   Thread 0x00007ffa967e46c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 451 in result
+   File "/app/tools/mcp_bridge.py", line 353 in _handler
+   File "/app/tools/dispatch.py", line 38 in dispatch
+   File "/app/agent_reasoning/ReAct/support/tool_resilience.py", line 97 in call_with_resilience
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 1047 in _execute
+   File "/app/agent_reasoning/ReAct/support/tool_pool.py", line 63 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffae0ff96c0
+   Thread 0x00007ffae0ff96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f309f96c0
+   Thread 0x00007f7f309f96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/dis.py", line 517 in _get_instructions_bytes
+   File "/usr/local/lib/python3.12/inspect.py", line 1642 in getclosurevars
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_utils.py", line 158 in get_function_nonlocals
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_utils.py", line 67 in find_subgraph_pregel
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_read.py", line 191 in __init__
+   File "/usr/local/lib/python3.12/site-packages/langgraph/graph/state.py", line 1531 in attach_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/graph/state.py", line 1375 in compile
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 94 in build_react_graph
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 107 in _run_react_stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 188 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f32ffd6c0
+   Thread 0x00007f7f32ffd6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f337fe6c0
+   Thread 0x00007f7f337fe6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f50ff96c0
+   Thread 0x00007f7f50ff96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 244 in _llm_create_impl
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 220 in llm_create_with_retry
+   File "/app/agent_reasoning/raglite/stream.py", line 257 in raglite_answer_stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/raglite/runner.py", line 58 in run_raglite
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f51ffb6c0
+   Thread 0x00007f7f51ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+================ DUMP @ 2026-10-10T04:15:52  (401 threads) ================
+
+-- tid 00007f5810ff96c0
+   Thread 0x00007f5810ff96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa98fe96c0
+   Thread 0x00007ffa98fe96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa9b7ee6c0
+   Thread 0x00007ffa9b7ee6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffaa27fc6c0
+   Thread 0x00007ffaa27fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8bfcf6c0
+   Thread 0x00007ffa8bfcf6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007ffa8ffd76c0
+   Thread 0x00007ffa8ffd76c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f9993fff6c0
+   Thread 0x00007f9993fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99b57fa6c0
+   Thread 0x00007f99b57fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/raglite/stream.py", line 295 in raglite_answer_stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/raglite/runner.py", line 58 in run_raglite
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99b5ffb6c0
+   Thread 0x00007f99b5ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99b67fc6c0
+   Thread 0x00007f99b67fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99b6ffd6c0
+   Thread 0x00007f99b6ffd6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 451 in result
+   File "/app/context management/compressor.py", line 170 in _compress
+   File "/app/context management/compressor.py", line 118 in compress_chunks
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 73 in _compressed_result_content
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 579 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99e0bf96c0
+   Thread 0x00007f99e0bf96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99f9ffb6c0
+   Thread 0x00007f99f9ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99faffd6c0
+   Thread 0x00007f99faffd6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f00bfa6c0
+   Thread 0x00007f7f00bfa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f023fd6c0
+   Thread 0x00007f7f023fd6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177 in _receive_response_headers
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 103 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250 in handle_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 1014 in _send_single_request
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 979 in _send_handling_redirects
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 942 in _send_handling_auth
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 914 in send
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 990 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 461 in _send_with_auth_retry
+   File "/usr/local/lib/python3.12/site-packages/openai/_client.py", line 483 in _send_request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1065 in request
+   File "/usr/local/lib/python3.12/site-packages/openai/_base_client.py", line 1360 in post
+   File "/usr/local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1284 in create
+   File "/usr/local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298 in wrapper
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 244 in _llm_create_impl
+   File "/app/agent_reasoning/ReAct/support/llm.py", line 220 in llm_create_with_retry
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 883 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f309f96c0
+   Thread 0x00007f7f309f96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f32ffd6c0
+   Thread 0x00007f7f32ffd6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f7f337fe6c0
+   Thread 0x00007f7f337fe6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+================ DUMP @ 2026-10-10T04:16:22  (400 threads) ================
+
+-- tid 00007f99927fc6c0
+   Thread 0x00007f99927fc6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99917fa6c0
+   Thread 0x00007f99917fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/ReAct/core/nodes.py", line 690 in agent_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f9993fff6c0
+   Thread 0x00007f9993fff6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 1431 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99b57fa6c0
+   Thread 0x00007f99b57fa6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/ssl.py", line 1105 in read
+   File "/usr/local/lib/python3.12/ssl.py", line 1232 in recv
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py", line 128 in read
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 217 in _receive_event
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 203 in _receive_response_body
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 334 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 403 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py", line 127 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_client.py", line 153 in __iter__
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 951 in iter_raw
+   File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 897 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 308 in _iter_chunks
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 297 in iter_bytes
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 53 in _iter_events
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 62 in __stream__
+   File "/usr/local/lib/python3.12/site-packages/openai/_streaming.py", line 49 in __iter__
+   File "/app/agent_reasoning/raglite/stream.py", line 295 in raglite_answer_stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/raglite/runner.py", line 58 in run_raglite
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99b5ffb6c0
+   Thread 0x00007f99b5ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99e0bf96c0
+   Thread 0x00007f99e0bf96c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 113 in events
+   File "/app/agent_reasoning/ReAct/core/loop.py", line 189 in react_node
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 447 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707 in invoke
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617 in run_with_retry
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 59 in run
+   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 93 in _worker
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99f9ffb6c0
+   Thread 0x00007f99f9ffb6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 355 in wait
+   File "/usr/local/lib/python3.12/threading.py", line 655 in wait
+   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 305 in wait
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 283 in tick
+   File "/usr/local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967 in stream
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 71 in run_path
+   File "/app/agent_reasoning/ReAct/support/runner.py", line 201 in run_agent_graph
+   File "/app/server/chat/service.py", line 450 in react_stream
+   File "/app/server/chat/router.py", line 105 in gen
+   File "/app/server/chat/router.py", line 164 in _produce
+   File "/usr/local/lib/python3.12/threading.py", line 1012 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+-- tid 00007f99faffd6c0
+   Thread 0x00007f99faffd6c0 (most recent call first):
+   File "/usr/local/lib/python3.12/threading.py", line 359 in wait
+   File "/usr/local/lib/python3.12/queue.py", line 180 in get
+   File "/app/server/chat/router.py", line 174 in _heartbeat_gen
+   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 44 in _next
+   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1033 in run
+   File "/usr/local/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+   File "/usr/local/lib/python3.12/threading.py", line 1032 in _bootstrap

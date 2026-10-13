@@ -1,0 +1,326 @@
+{
+ "doc": "芯片分选Laurier DS 9000 Die Sorter",
+ "chunks": 1383,
+ "headings": [
+  [
+   "WARRANTY INFORMATION > Note",
+   59
+  ],
+  [
+   "Note",
+   54
+  ],
+  [
+   "Tool Box Screen",
+   26
+  ],
+  [
+   "Caution",
+   18
+  ],
+  [
+   "WARRANTY INFORMATION > Fig. 5A-14",
+   15
+  ],
+  [
+   "6 <sub>.</sub> 3 C h e cki n <sub>g</sub> M I S I nfo rm at i o n Wh i l e R u n n i n <sub>g</sub>",
+   15
+  ],
+  [
+   "6 <sub>.</sub> 4 C l os i n <sub>g</sub> a Lot",
+   15
+  ],
+  [
+   "M I S Measu rement Screen",
+   14
+  ],
+  [
+   "WARRANTY INFORMATION > 5.18 JOB TRAINING",
+   13
+  ],
+  [
+   "9 3 TRO U B LESH O OTI N G CHARTS",
+   13
+  ],
+  [
+   "WARRANTY INFORMATION > 5.13 ABOUT DIE INSPECTION",
+   12
+  ],
+  [
+   "WARRANTY INFORMATION > Preparation for Picking or Top Inspection",
+   12
+  ],
+  [
+   "Warning",
+   12
+  ],
+  [
+   "WARRANTY INFORMATION > Training for Edge Inspection",
+   11
+  ],
+  [
+   "WARRANTY INFORMATION > Training for Bump Inspection",
+   11
+  ],
+  [
+   "Table of Contents",
+   11
+  ],
+  [
+   "6 <sub>.</sub> 1 I ntro d u ct i o n",
+   10
+  ],
+  [
+   "Pocket Row Pitch",
+   10
+  ],
+  [
+   "9 <sub>.</sub> 1 TRO U B LESH O OTI N G G U I D ELI N ES",
+   10
+  ],
+  [
+   "WARRANTY INFORMATION > Tune",
+   9
+  ],
+  [
+   "WARRANTY INFORMATION > Table 4-1 - Fields on Run Job Screen (continued)",
+   9
+  ],
+  [
+   "WARRANTY INFORMATION > 5A.5 THEORY OF OPERATION",
+   9
+  ],
+  [
+   "WARRANTY INFORMATION > 5.1 INTRODUCTION",
+   9
+  ],
+  [
+   "WARRANTY INFORMATION > Running Using Top Inspection",
+   9
+  ],
+  [
+   "Toolbox Screen",
+   9
+  ],
+  [
+   "E",
+   9
+  ],
+  [
+   "Setting Trip Points",
+   9
+  ],
+  [
+   "Search Ratio i n X",
+   9
+  ],
+  [
+   "WARRANTY INFORMATION > 5A.15 OUTPUT INK DOT MODEL SETUP",
+   8
+  ],
+  [
+   "WARRANTY INFORMATION > 5A.14 OUTPUT STREET MODEL SETUP",
+   8
+  ],
+  [
+   "1.7 CONTROLS AND FEATURES",
+   8
+  ],
+  [
+   "Search Ratio in X",
+   8
+  ],
+  [
+   "5C 1 1 O UTPUT STREET M O D EL SETU P",
+   8
+  ],
+  [
+   "WARRANTY INFORMATION > Training for Mark Inspection",
+   7
+  ],
+  [
+   "Adjusting Fine Adjustment Screw Gap",
+   7
+  ],
+  [
+   "WARRANTY INFORMATION > 4.4 TURNING ON THE MACHINE",
+   6
+  ],
+  [
+   "WARRANTY INFORMATION > 5.3 COPYING AND EDITING AN EXISTING WAFER FILE",
+   6
+  ],
+  [
+   "WARRANTY INFORMATION > 5.12 VISION TRAINING",
+   6
+  ],
+  [
+   "1.4 SOFTWARE ARRANGEMENT",
+   6
+  ],
+  [
+   "Vi si o n Al i<sub>g</sub> n m e nt Fai l <sub>u</sub> re -",
+   6
+  ],
+  [
+   "Position/Size Training",
+   6
+  ],
+  [
+   "M",
+   6
+  ],
+  [
+   "8.9 ADJUSTING NEEDLE OFFSET",
+   6
+  ],
+  [
+   "C",
+   6
+  ],
+  [
+   "Table 8-1 - Edit Motor Parameters",
+   6
+  ],
+  [
+   "5C <sub>.</sub> 9 O UTPUT VI S I O N M O D ELS",
+   6
+  ],
+  [
+   "5C 1 2 O UTPUT I N K D OT M O D EL SETU P",
+   6
+  ],
+  [
+   "9 <sub>.</sub> 2 ERRO R AN D STATUS M ESSAG ES",
+   6
+  ],
+  [
+   "6 <sub>.</sub> 6 Wh e n a S h o <sub>p</sub> O rd e r is I nte rru <sub>p</sub>te d",
+   6
+  ],
+  [
+   "LCAD S<sub>y</sub>m bols",
+   6
+  ],
+  [
+   "Initial Setup",
+   6
+  ],
+  [
+   "If you want the table to move as you check the placement order -",
+   6
+  ],
+  [
+   "WARRANTY INFORMATION > Checking the Inspection",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > Table 5 -7 Edge Damage Detection Parameters",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > Input Map File",
+   5
+  ],
+  [
+   "SECS connection -",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > Table 5 -10 Mark Detection Parameters",
+   5
+  ],
+  [
+   "Danger!",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > Tape reel:",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > Wafer/Waffle Parameters",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > Search Ratio in X",
+   5
+  ],
+  [
+   "8.11 ALIGNING COLLETS TO CAMERAS",
+   5
+  ],
+  [
+   "8.7 TRANSFER ARM COLLET HEIGHT ADJUSTMENT",
+   5
+  ],
+  [
+   "Out<sub>p</sub>ut Frame Parameters Screen",
+   5
+  ],
+  [
+   "5B.13 OUTPUT STREET MODEL SETUP",
+   5
+  ],
+  [
+   "Position/Size- Training",
+   5
+  ],
+  [
+   "1. When you select Output, and then Ink Dot Model, the system will present the screen shown in Fig. 5B-16 and Table 5B-8.",
+   5
+  ],
+  [
+   "WARRANTY INFORMATION > When running punched tape",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > Color",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > 4.12 EMERGENCY STOP - EXTERNAL U.P.S.",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > Configuring Input and Output",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > If the machine does not have an automatic input cassette elevator - You must mount the input wafer manually. The screen shown in Fig. 4-16 will appear.",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > 5. If the cover tape runs out -",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > If you are using PCM alignment -",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > 5.4 SETTING THE DIE PITCH",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > About PCM Alignment",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > Stop At Reference Die",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > 4. If the carrier tape runs out -",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > 2. Whenever a wafer is loaded for the first time, the machine will try to do an auto-alignment.",
+   4
+  ],
+  [
+   "WARRANTY INFORMATION > Y inspection",
+   4
+  ]
+ ]
+}

@@ -24,8 +24,27 @@ class ConversationItem(BaseModel):
 
 @router.get("")
 def list_conversations(user=Depends(get_current_user)):
-    """获取当前用户的全部会话(含消息)。"""
-    return get_conversations(user["username"])
+    """获取当前用户的全部会话(含消息)。
+
+    历史消息里的媒体 URL 是回答当时的预签名链接(有效期 1h),回看必然过期;
+    返回前按当前凭证对 doc_url/image_url/video_url 重签名,前端无感刷新。
+    """
+    convs = get_conversations(user["username"])
+    try:
+        from mcp_servers.retrieval.image_s3 import resign_url
+        for conv in convs:
+            for msg in conv.get("messages") or []:
+                if not isinstance(msg, dict):
+                    continue
+                for src in (msg.get("sources") or []):
+                    if isinstance(src, dict):
+                        for field in ("doc_url", "image_url", "video_url"):
+                            v = src.get(field)
+                            if isinstance(v, str):
+                                src[field] = resign_url(v)
+    except Exception:
+        logger.exception("resign source urls failed(降级返回原始链接)")
+    return convs
 
 
 @router.put("")

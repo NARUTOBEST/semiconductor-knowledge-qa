@@ -1,0 +1,1886 @@
+{
+ "doc": "半导体表面的超洁净处理 XIII",
+ "chunks": 2131,
+ "headings": [
+  [
+   "Silica Formation During Etching of Silicon Nitride in Phosphoric Acid > Method and Results",
+   40
+  ],
+  [
+   "A Mathematical Model Forecasting HF Adsorption onto Cu-Coated Wafers as a Function of the Airborne Concentration and Moisture > Results & discussion",
+   29
+  ],
+  [
+   "Comparison of the Chemical Passivation of GaAs, In<sub>0.53</sub>Ga<sub>0.47</sub>As, and InSb with 1-Eicosanethiol > Results and Discussion",
+   28
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Results and discussion",
+   27
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells > Results and Discussion",
+   25
+  ],
+  [
+   "Thin Layer Etching of Silicon Nitride: Comparison of Downstream Plasma, Liquid HF and Gaseous HF Processes for Selective Removal After Light Ion Implantation > Results and discussion",
+   23
+  ],
+  [
+   "Selective Etching of Silicon Oxide Versus Nitride with Low Oxide Etching Rate > Results and Discussions",
+   21
+  ],
+  [
+   "Post CMP Wet Cleaning Influence on Cu Hillocks > Results and discussion",
+   21
+  ],
+  [
+   "Ultra Clean Processing of Semiconductor Surfaces XIII > Chapter 3: FEOL: Etching",
+   21
+  ],
+  [
+   "Titanium Nitride Hard Mask Removal with Selectivity to Tungsten in FEOL > Results and Discussions",
+   20
+  ],
+  [
+   "Digital Etching of GaAs Materials: Comparison of Oxidation Treatments > Results and discussions",
+   20
+  ],
+  [
+   "Characterization and Development of High Dose Implanted Resist Stripping Processes > Experimental results",
+   19
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching > Results and Discussion",
+   19
+  ],
+  [
+   "Tris(Trimethylsilyl)Germane $( \\pmb { \\mathrm { M e } } _ { 3 } \\pmb { \\mathrm { S i } } ) _ { 3 } \\pmb { \\mathrm { G e } } \\mathsf { H } ;$ A Molecular Model for Sulfur Passivation of Ge(111) Surfaces > Results and Discussion",
+   19
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > 2. Preparation and experimental methods",
+   19
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Results and discussions",
+   18
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes > Results and discussion",
+   17
+  ],
+  [
+   "Electrolyzed Water for Efficient Metal Removal > Process Results",
+   17
+  ],
+  [
+   "Progress in Cleaning and Wet Processing for Kesterite Thin Film Solar Cells > Advances in cleaning and wet processing for kesterite solar cells",
+   16
+  ],
+  [
+   "High Throughput Wet Etch Solution For BEOL TiN Removal Chia-Jung Hsu<sup>1,</sup> <sup>a</sup>, Chieh-Ju Wang<sup>1</sup>, Sheng-Hung Tu<sup>1</sup>, Makonnen Payne<sup>2</sup>, Emanuel Cooper<sup>2</sup> and Steven Lippy<sup>2</sup> > Results",
+   16
+  ],
+  [
+   "Pattern Collapse of High-Aspect-Ratio Silicon Nanostructures – A Parametric Study > Experiments and discussion",
+   15
+  ],
+  [
+   "Extended-Nano Fluidic Devices and the Unique Liquid Properties Kazuma Mawatari and Takehiko Kitamori > Introduction",
+   15
+  ],
+  [
+   "Study of TiW Conditioning through Different Wet and Dry Treatments to Promote Ni Electroless Growth > Results and discussion",
+   15
+  ],
+  [
+   "‘Just-Clean-Enough’: Optimization of Wet Chemical Cleaning Processes for Crystalline Silicon Solar Cells > Estimation of the exchange volume and optimization of the cleaning process",
+   15
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > M",
+   15
+  ],
+  [
+   "Silica Formation During Etching of Silicon Nitride in Phosphoric Acid > Introduction",
+   14
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM > Results and discussion",
+   13
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes. > Introduction",
+   13
+  ],
+  [
+   "Towards Atomic-Layer-Scale Processing of High Mobility Channel Materials in Acidic Solutions for N5 and N7 Technology Nodes > Results and discussion",
+   13
+  ],
+  [
+   "Middle of Line (MoL) Cleaning Challenges in Sub-20nm Node Device Manufacturing > Methods & Results",
+   13
+  ],
+  [
+   "Progress in Cleaning and Wet Processing for Kesterite Thin Film Solar Cells > Kesterite solar cells, the new kid on the block",
+   13
+  ],
+  [
+   "Effect of Dilute Hydrogen Peroxide in Ultrapure Water on Sige Epitaxial Process > Results and discussion",
+   13
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes. > Pore Size Distribution for Microporous materials ( use of t-plot & MP Method ) :",
+   13
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal > Titanium nitride removal and bath life issues",
+   12
+  ],
+  [
+   "Watermark-Free and Efficient Spray Clean on Hydrophobic Surface with Single-Wafer Technology > Experiment: Physical clean on hydrophilic and hydrophobic surface.",
+   12
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas > Passivation Methods",
+   11
+  ],
+  [
+   "Metrology for High Selective Silicon Nitride Etch Chuannan Bai, Guang Liang, and Eugene Shalyt > Si Measurement",
+   11
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup> > Results",
+   11
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens > Results and discussion",
+   11
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces > Results and discussion",
+   11
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force > Results and discussion",
+   11
+  ],
+  [
+   "Progress in Cleaning and Wet Processing for Kesterite Thin Film Solar Cells > Experimental section",
+   10
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > Results",
+   10
+  ],
+  [
+   "Comparison of the Chemical Passivation of GaAs, In<sub>0.53</sub>Ga<sub>0.47</sub>As, and InSb with 1-Eicosanethiol > Experimental Procedure",
+   10
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > Introduction",
+   10
+  ],
+  [
+   "The Effect of Inhibitors on Co Corrosion in Alkaline Post Cu-CMP Cleaning Solutions > Result and Discussion",
+   10
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry > TSV Filling Kinetics: Dynamic Case",
+   10
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > 5. Evaluation of surface charge on wet-chemically oxidized Si surfaces",
+   10
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Introduction",
+   10
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure > Results",
+   10
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures > Experimental Results",
+   10
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > 3. Influence of substrate properties and preparation conditions on surface oxidation rate",
+   10
+  ],
+  [
+   "Impact of Dissolved Oxygen in Dilute HF Solution on Material Etch > Results",
+   10
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy > Results and discussion",
+   10
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > Description",
+   10
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Results and discussion",
+   10
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > Experimental Work",
+   9
+  ],
+  [
+   "Study on the Etching Selectivity of Oxide Films in Dry Cleaning Process with ${ \\mathsf { N F } } _ { 3 }$ and ${ \\sf H } _ { 2 } { \\sf O }$ > Results and discussions",
+   9
+  ],
+  [
+   "Atomic Resolution Quality Control for Fin Oxide Recess by Atomic Resolution Profiler > Results and Discussion",
+   9
+  ],
+  [
+   "TiN Metal Hardmask Etch Residues Removal with AlN Etch > Results and discussion",
+   9
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Introduction",
+   9
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment > Results and Discussion",
+   9
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > 172 nm excimer radiation to clean and activate surfaces of Si-layers, glass and polyamides to improve process quality",
+   9
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Materials and methods",
+   9
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry > Experimental Setup",
+   8
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes > Scope and approach",
+   8
+  ],
+  [
+   "Rapid Recovery Process of Plasma Damaged Porous Low-K Dielectrics by Wet Surface Modifying Treatment > Results and Discussion",
+   8
+  ],
+  [
+   "Tris(Trimethylsilyl)Germane $( \\pmb { \\mathrm { M e } } _ { 3 } \\pmb { \\mathrm { S i } } ) _ { 3 } \\pmb { \\mathrm { G e } } \\mathsf { H } ;$ A Molecular Model for Sulfur Passivation of Ge(111) Surfaces > Experimental",
+   8
+  ],
+  [
+   "Watermark-Free and Efficient Spray Clean on Hydrophobic Surface with Single-Wafer Technology > Adhesion of Particles onto surface: hydrophilic vs. hydrophobic cases.",
+   8
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes. > Experiments",
+   8
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals > Results",
+   8
+  ],
+  [
+   "Silicon Surface Passivation In HF Solutions for Improved Gate Oxide Reliability > Results and discussion",
+   8
+  ],
+  [
+   "Effect of Dilute Hydrogen Peroxide in Ultrapure Water on Sige Epitaxial Process > Experimental",
+   8
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Structures cleaning by wet chemicals",
+   8
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals > Discussion",
+   8
+  ],
+  [
+   "Specification of Trace Metal Contamination for Image Sensors Paul W. Mertens, Simone Lavizzari and Stefano Guerrieri > Basic model",
+   8
+  ],
+  [
+   "Ultra Clean Processing of Semiconductor Surfaces XIII > Preface",
+   8
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance > Results and Discussion",
+   8
+  ],
+  [
+   "‘Just-Clean-Enough’: Optimization of Wet Chemical Cleaning Processes for Crystalline Silicon Solar Cells > Experimental approach and results",
+   8
+  ],
+  [
+   "Removal of Bull’s Eye Signature by Optimizing Wet Cleans Recipe Dhiman Bhattacharyya<sup>\\*</sup>, Pranesh Muralidhar, Mark Conrad > Introduction",
+   8
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes > Experimental conditions",
+   7
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > TBR 19 test method in a manufacturing environment",
+   7
+  ],
+  [
+   "Specification of Trace Metal Contamination for Image Sensors Paul W. Mertens, Simone Lavizzari and Stefano Guerrieri > Introduction",
+   7
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM > Introduction",
+   7
+  ],
+  [
+   "A Mathematical Model Forecasting HF Adsorption onto Cu-Coated Wafers as a Function of the Airborne Concentration and Moisture > Conclusions and perspectives",
+   7
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures > Materials and methods",
+   7
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > Results",
+   7
+  ],
+  [
+   "Metrology for High Selective Silicon Nitride Etch Chuannan Bai, Guang Liang, and Eugene Shalyt > $\\mathbf { H _ { 3 } P O _ { 4 } }$ and ${ \\bf H } _ { 2 } { \\bf O }$ Measurement",
+   7
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance > Introduction",
+   7
+  ],
+  [
+   "Selective Etching of Silicon Oxide Versus Nitride with Low Oxide Etching Rate > Conclusions",
+   7
+  ],
+  [
+   "Study of TiW Conditioning through Different Wet and Dry Treatments to Promote Ni Electroless Growth > Experimental",
+   7
+  ],
+  [
+   "Removal of Bull’s Eye Signature by Optimizing Wet Cleans Recipe Dhiman Bhattacharyya<sup>\\*</sup>, Pranesh Muralidhar, Mark Conrad > Results and discussion",
+   7
+  ],
+  [
+   "Study of Oxygen Concentration in TMAH Solution for Improvement of Sigma-Shaped Wet Etching Process > Results and Discussion",
+   7
+  ],
+  [
+   "Electrical Characterization of As-Processed Semiconductor Surfaces Jerzy Ruzyllo <sup>1,</sup> <sup>a</sup> and Patrick J. Drummond <sup>2</sup> > Photoconductance Decay (PCD) based method",
+   6
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation. > Ge nanowire formation under semi-aqueous conditions",
+   6
+  ],
+  [
+   "Electrical Characterization of As-Processed Semiconductor Surfaces Jerzy Ruzyllo <sup>1,</sup> <sup>a</sup> and Patrick J. Drummond <sup>2</sup> > Surface Photovoltage (SPV) based method",
+   6
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells > Methods and experimental procedures",
+   6
+  ],
+  [
+   "Electrolyzed Water for Efficient Metal Removal > Red $\\mathbf { O } \\mathbf { x } ^ { \\textregistered }$ cell technology",
+   6
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > 6. Summary",
+   6
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > Application: 172 nm excimer radiation to improve the process of polymer microchip production",
+   6
+  ],
+  [
+   "Metrology for High Selective Silicon Nitride Etch Chuannan Bai, Guang Liang, and Eugene Shalyt > Introduction",
+   6
+  ],
+  [
+   "A Mathematical Model Forecasting HF Adsorption onto Cu-Coated Wafers as a Function of the Airborne Concentration and Moisture > Experimental",
+   6
+  ],
+  [
+   "Towards Atomic-Layer-Scale Processing of High Mobility Channel Materials in Acidic Solutions for N5 and N7 Technology Nodes > Introduction",
+   6
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > Application: adhesive-free coupling due to enhanced surface energy",
+   6
+  ],
+  [
+   "Electrical Characterization of As-Processed Semiconductor Surfaces Jerzy Ruzyllo <sup>1,</sup> <sup>a</sup> and Patrick J. Drummond <sup>2</sup> > Introduction",
+   6
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching",
+   6
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup> > Introduction",
+   6
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > 4. Evolution of interface state densities during silicon surface oxidation",
+   6
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > Approach",
+   6
+  ],
+  [
+   "Selective Etching of Silicon Oxide Versus Nitride with Low Oxide Etching Rate > Introduction",
+   6
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry > DTI Wetting States: Static Case",
+   6
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance > Experimental",
+   6
+  ],
+  [
+   "Titanium Nitride Hard Mask Removal with Selectivity to Tungsten in FEOL > Introduction",
+   6
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells",
+   6
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > References",
+   6
+  ],
+  [
+   "Digital Etching of GaAs Materials: Comparison of Oxidation Treatments > Experimental",
+   6
+  ],
+  [
+   "Middle of Line (MoL) Cleaning Challenges in Sub-20nm Node Device Manufacturing",
+   5
+  ],
+  [
+   "A Mathematical Model Forecasting HF Adsorption onto Cu-Coated Wafers as a Function of the Airborne Concentration and Moisture > Introduction",
+   5
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > Application of 172nm excimer radiation for photoresists removal",
+   5
+  ],
+  [
+   "Selective Etching of Silicon Oxide Versus Nitride with Low Oxide Etching Rate > Experimental details",
+   5
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > Experimental",
+   5
+  ],
+  [
+   "Characterization and Development of High Dose Implanted Resist Stripping Processes > Experimental set up",
+   5
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal > Post-etch and post-clean residue analyses and discussion",
+   5
+  ],
+  [
+   "Titanium Nitride Hard Mask Removal with Selectivity to Tungsten in FEOL > Conclusions",
+   5
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > Principle of VUV cleaning with 172nm excimer radiation",
+   5
+  ],
+  [
+   "Progress in Cleaning and Wet Processing for Kesterite Thin Film Solar Cells",
+   5
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density",
+   5
+  ],
+  [
+   "Effect of Dilute Hydrogen Peroxide in Ultrapure Water on Sige Epitaxial Process > Introduction",
+   5
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Fundamental study: charging study about 1V SiO<sub>2</sub>",
+   5
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > Cavitation Detection",
+   5
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > Introduction",
+   5
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > 1. Introduction",
+   5
+  ],
+  [
+   "Impact of Dissolved Oxygen in Dilute HF Solution on Material Etch > Introduction",
+   5
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > Discussion",
+   5
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Liquid simulation at vertical step region.",
+   5
+  ],
+  [
+   "Digital Etching of GaAs Materials: Comparison of Oxidation Treatments > Introduction",
+   5
+  ],
+  [
+   "Rapid Recovery Process of Plasma Damaged Porous Low-K Dielectrics by Wet Surface Modifying Treatment > Introduction",
+   5
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals > Introduction",
+   5
+  ],
+  [
+   "Effect of Dilute Hydrogen Peroxide in Ultrapure Water on Sige Epitaxial Process > Conclusion and future work",
+   5
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications",
+   5
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells > Introduction",
+   5
+  ],
+  [
+   "Ultra Clean Processing of Semiconductor Surfaces XIII > Table of Contents",
+   5
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Introduction",
+   5
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes. > Results",
+   5
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens > Summary",
+   4
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > H",
+   4
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > 172 nm excimer radiation to erase static electricity",
+   4
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation.",
+   4
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects",
+   4
+  ],
+  [
+   "The Effect of Inhibitors on Co Corrosion in Alkaline Post Cu-CMP Cleaning Solutions > Introduction",
+   4
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures",
+   4
+  ],
+  [
+   "A Mathematical Model Forecasting HF Adsorption onto Cu-Coated Wafers as a Function of the Airborne Concentration and Moisture",
+   4
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas > Membrane Technology",
+   4
+  ],
+  [
+   "‘Just-Clean-Enough’: Optimization of Wet Chemical Cleaning Processes for Crystalline Silicon Solar Cells",
+   4
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal > Experimental",
+   4
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Experimental",
+   4
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes > Summary",
+   4
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Introduction",
+   4
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Charging prevention approach (3): ionizer improvement",
+   4
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > Emission principle of dielectric barrier discharge excimer lamp",
+   4
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force > Introduction",
+   4
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > Conclusion",
+   4
+  ],
+  [
+   "Study on the Etching Selectivity of Oxide Films in Dry Cleaning Process with ${ \\mathsf { N F } } _ { 3 }$ and ${ \\sf H } _ { 2 } { \\sf O }$ > Conclusions",
+   4
+  ],
+  [
+   "High Throughput Wet Etch Solution For BEOL TiN Removal Chia-Jung Hsu<sup>1,</sup> <sup>a</sup>, Chieh-Ju Wang<sup>1</sup>, Sheng-Hung Tu<sup>1</sup>, Makonnen Payne<sup>2</sup>, Emanuel Cooper<sup>2</sup> and Steven Lippy<sup>2</sup>",
+   4
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals > Experimental setup, method, and conditions",
+   4
+  ],
+  [
+   "Digital Etching of GaAs Materials: Comparison of Oxidation Treatments > Conclusion",
+   4
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM > Materials and methods",
+   4
+  ],
+  [
+   "Characterization and Development of High Dose Implanted Resist Stripping Processes > Introduction",
+   4
+  ],
+  [
+   "Pattern Collapse of High-Aspect-Ratio Silicon Nanostructures – A Parametric Study > Summary",
+   4
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry > Introduction",
+   4
+  ],
+  [
+   "Post CMP Wet Cleaning Influence on Cu Hillocks > Experimental",
+   4
+  ],
+  [
+   "Removal of Bull’s Eye Signature by Optimizing Wet Cleans Recipe Dhiman Bhattacharyya<sup>\\*</sup>, Pranesh Muralidhar, Mark Conrad",
+   4
+  ],
+  [
+   "Comparison of the Chemical Passivation of GaAs, In<sub>0.53</sub>Ga<sub>0.47</sub>As, and InSb with 1-Eicosanethiol > Introduction",
+   4
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching > Introduction",
+   4
+  ],
+  [
+   "Pattern Collapse of High-Aspect-Ratio Silicon Nanostructures – A Parametric Study > Introduction",
+   4
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure",
+   4
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM",
+   4
+  ],
+  [
+   "Tris(Trimethylsilyl)Germane $( \\pmb { \\mathrm { M e } } _ { 3 } \\pmb { \\mathrm { S i } } ) _ { 3 } \\pmb { \\mathrm { G e } } \\mathsf { H } ;$ A Molecular Model for Sulfur Passivation of Ge(111) Surfaces > Introduction",
+   4
+  ],
+  [
+   "High Throughput Wet Etch Solution For BEOL TiN Removal Chia-Jung Hsu<sup>1,</sup> <sup>a</sup>, Chieh-Ju Wang<sup>1</sup>, Sheng-Hung Tu<sup>1</sup>, Makonnen Payne<sup>2</sup>, Emanuel Cooper<sup>2</sup> and Steven Lippy<sup>2</sup> > Introduction",
+   4
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes",
+   4
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures",
+   4
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > Measurements",
+   4
+  ],
+  [
+   "Digital Etching of GaAs Materials: Comparison of Oxidation Treatments",
+   4
+  ],
+  [
+   "Selective Etching of Silicon Oxide Versus Nitride with Low Oxide Etching Rate",
+   4
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Experimental",
+   4
+  ],
+  [
+   "Atomic Resolution Quality Control for Fin Oxide Recess by Atomic Resolution Profiler > Introduction",
+   4
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry",
+   4
+  ],
+  [
+   "Extended-Nano Fluidic Devices and the Unique Liquid Properties Kazuma Mawatari and Takehiko Kitamori",
+   4
+  ],
+  [
+   "TiN Metal Hardmask Etch Residues Removal with AlN Etch > Experiments",
+   4
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes.",
+   4
+  ],
+  [
+   "Characterization and Development of High Dose Implanted Resist Stripping Processes",
+   4
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment > Experimental",
+   4
+  ],
+  [
+   "Comparison of the Chemical Passivation of GaAs, In<sub>0.53</sub>Ga<sub>0.47</sub>As, and InSb with 1-Eicosanethiol",
+   4
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation",
+   4
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment > Introduction",
+   4
+  ],
+  [
+   "Study on the Etching Selectivity of Oxide Films in Dry Cleaning Process with ${ \\mathsf { N F } } _ { 3 }$ and ${ \\sf H } _ { 2 } { \\sf O }$ > Introduction",
+   4
+  ],
+  [
+   "Study of Oxygen Concentration in TMAH Solution for Improvement of Sigma-Shaped Wet Etching Process > Introduction",
+   3
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Structures wetting by wet chemicals",
+   3
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance",
+   3
+  ],
+  [
+   "Electrolyzed Water for Efficient Metal Removal > Conclusions",
+   3
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > 2.2 Defective Mechanism of SOH MASK Pattern",
+   3
+  ],
+  [
+   "‘Just-Clean-Enough’: Optimization of Wet Chemical Cleaning Processes for Crystalline Silicon Solar Cells > Introduction: The just-clean-enough concept",
+   3
+  ],
+  [
+   "Watermark-Free and Efficient Spray Clean on Hydrophobic Surface with Single-Wafer Technology > Introduction",
+   3
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Introduction",
+   3
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation. > Ge nanowire formation under alkaline conditions",
+   3
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Materials and methods",
+   3
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures",
+   3
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells > Conclusions",
+   3
+  ],
+  [
+   "Titanium Nitride Hard Mask Removal with Selectivity to Tungsten in FEOL",
+   3
+  ],
+  [
+   "Ultra Clean Processing of Semiconductor Surfaces XIII",
+   3
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal",
+   3
+  ],
+  [
+   "Middle of Line (MoL) Cleaning Challenges in Sub-20nm Node Device Manufacturing > Background",
+   3
+  ],
+  [
+   "Tris(Trimethylsilyl)Germane $( \\pmb { \\mathrm { M e } } _ { 3 } \\pmb { \\mathrm { S i } } ) _ { 3 } \\pmb { \\mathrm { G e } } \\mathsf { H } ;$ A Molecular Model for Sulfur Passivation of Ge(111) Surfaces",
+   3
+  ],
+  [
+   "Electrolyzed Water for Efficient Metal Removal",
+   3
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > Results and Discussion",
+   3
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > Summary",
+   3
+  ],
+  [
+   "Silica Formation During Etching of Silicon Nitride in Phosphoric Acid",
+   3
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching > CONCLUSION",
+   3
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > Experimental",
+   3
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal > Introduction",
+   3
+  ],
+  [
+   "Middle of Line (MoL) Cleaning Challenges in Sub-20nm Node Device Manufacturing > Summary",
+   3
+  ],
+  [
+   "The Effect of Inhibitors on Co Corrosion in Alkaline Post Cu-CMP Cleaning Solutions > Experimental",
+   3
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force",
+   3
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > Introduction",
+   3
+  ],
+  [
+   "Characterization and Development of High Dose Implanted Resist Stripping Processes > Conclusions",
+   3
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure > Experimental apparatus",
+   3
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals",
+   3
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment > Conclusion",
+   3
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup> > Experimental",
+   3
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces > Introduction",
+   3
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > References",
+   3
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry > Conclusion",
+   3
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures > Conclusion",
+   3
+  ],
+  [
+   "Rapid Recovery Process of Plasma Damaged Porous Low-K Dielectrics by Wet Surface Modifying Treatment",
+   3
+  ],
+  [
+   "Thin Layer Etching of Silicon Nitride: Comparison of Downstream Plasma, Liquid HF and Gaseous HF Processes for Selective Removal After Light Ion Implantation > Introduction",
+   3
+  ],
+  [
+   "Atomic Resolution Quality Control for Fin Oxide Recess by Atomic Resolution Profiler > Experimental",
+   3
+  ],
+  [
+   "Atomic Resolution Quality Control for Fin Oxide Recess by Atomic Resolution Profiler",
+   3
+  ],
+  [
+   "Study of TiW Conditioning through Different Wet and Dry Treatments to Promote Ni Electroless Growth > Introduction",
+   3
+  ],
+  [
+   "Pattern Collapse of High-Aspect-Ratio Silicon Nanostructures – A Parametric Study",
+   3
+  ],
+  [
+   "Post CMP Wet Cleaning Influence on Cu Hillocks > Introduction",
+   3
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes > Introduction",
+   3
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > Introduction",
+   3
+  ],
+  [
+   "Electrical Characterization of As-Processed Semiconductor Surfaces Jerzy Ruzyllo <sup>1,</sup> <sup>a</sup> and Patrick J. Drummond <sup>2</sup>",
+   3
+  ],
+  [
+   "Watermark-Free and Efficient Spray Clean on Hydrophobic Surface with Single-Wafer Technology > Conclusion",
+   3
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > Introduction",
+   3
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann",
+   3
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Summary",
+   3
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Conclusions",
+   3
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment",
+   3
+  ],
+  [
+   "Study on the Etching Selectivity of Oxide Films in Dry Cleaning Process with ${ \\mathsf { N F } } _ { 3 }$ and ${ \\sf H } _ { 2 } { \\sf O }$",
+   3
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force > Removal force measurement",
+   3
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation. > Introduction",
+   3
+  ],
+  [
+   "Effect of Dilute Hydrogen Peroxide in Ultrapure Water on Sige Epitaxial Process",
+   3
+  ],
+  [
+   "Specification of Trace Metal Contamination for Image Sensors Paul W. Mertens, Simone Lavizzari and Stefano Guerrieri > Discussion",
+   3
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Approach",
+   3
+  ],
+  [
+   "Silica Formation During Etching of Silicon Nitride in Phosphoric Acid > Conclusions",
+   3
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > Conclusions",
+   3
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > 3. RESULT & DISCUSSION",
+   3
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM > Summary",
+   3
+  ],
+  [
+   "Watermark-Free and Efficient Spray Clean on Hydrophobic Surface with Single-Wafer Technology",
+   3
+  ],
+  [
+   "Impact of Dissolved Oxygen in Dilute HF Solution on Material Etch",
+   3
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Relationship between fluid velocity and etching rate.",
+   3
+  ],
+  [
+   "Rapid Recovery Process of Plasma Damaged Porous Low-K Dielectrics by Wet Surface Modifying Treatment > Experimental",
+   3
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup>",
+   2
+  ],
+  [
+   "Titanium Nitride Hard Mask Removal with Selectivity to Tungsten in FEOL > Experimental details",
+   2
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas > Challenges",
+   2
+  ],
+  [
+   "Impact of Dissolved Oxygen in Dilute HF Solution on Material Etch > Summary",
+   2
+  ],
+  [
+   "Electrical Characterization of As-Processed Semiconductor Surfaces Jerzy Ruzyllo <sup>1,</sup> <sup>a</sup> and Patrick J. Drummond <sup>2</sup> > Summary",
+   2
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures > Introduction",
+   2
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > Background",
+   2
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool",
+   2
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Charging prevention approach (4): chuck pin improvement",
+   2
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > 4. CONCLUSION",
+   2
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens",
+   2
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > Application: enhanced encapsulation of organic solar cells",
+   2
+  ],
+  [
+   "High Throughput Wet Etch Solution For BEOL TiN Removal Chia-Jung Hsu<sup>1,</sup> <sup>a</sup>, Chieh-Ju Wang<sup>1</sup>, Sheng-Hung Tu<sup>1</sup>, Makonnen Payne<sup>2</sup>, Emanuel Cooper<sup>2</sup> and Steven Lippy<sup>2</sup> > Experimental",
+   2
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Charging prevention approach (1): process optimization – DIW dispense",
+   2
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > C",
+   2
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > Innovation",
+   2
+  ],
+  [
+   "Removal of Bull’s Eye Signature by Optimizing Wet Cleans Recipe Dhiman Bhattacharyya<sup>\\*</sup>, Pranesh Muralidhar, Mark Conrad > Experiments",
+   2
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance > Conclusions",
+   2
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure > Introduction",
+   2
+  ],
+  [
+   "Silicon Surface Passivation In HF Solutions for Improved Gate Oxide Reliability > Summary",
+   2
+  ],
+  [
+   "Study on the Etching Selectivity of Oxide Films in Dry Cleaning Process with ${ \\mathsf { N F } } _ { 3 }$ and ${ \\sf H } _ { 2 } { \\sf O }$ > Experimental setup",
+   2
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > Results",
+   2
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > Summary and outlook",
+   2
+  ],
+  [
+   "Study of Oxygen Concentration in TMAH Solution for Improvement of Sigma-Shaped Wet Etching Process > Conclusion",
+   2
+  ],
+  [
+   "Study of Oxygen Concentration in TMAH Solution for Improvement of Sigma-Shaped Wet Etching Process",
+   2
+  ],
+  [
+   "TiN Metal Hardmask Etch Residues Removal with AlN Etch > Introduction",
+   2
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching > Experimental",
+   2
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes. > Conclusion",
+   2
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Summary",
+   2
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation. > Experimental",
+   2
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas",
+   2
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal > Conclusions",
+   2
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces > Experimental",
+   2
+  ],
+  [
+   "Electrolyzed Water for Efficient Metal Removal > Introduction",
+   2
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > 1. INTRODUCTION",
+   2
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > Effect on photoresists",
+   2
+  ],
+  [
+   "Post CMP Wet Cleaning Influence on Cu Hillocks",
+   2
+  ],
+  [
+   "Silicon Surface Passivation In HF Solutions for Improved Gate Oxide Reliability",
+   2
+  ],
+  [
+   "Thin Layer Etching of Silicon Nitride: Comparison of Downstream Plasma, Liquid HF and Gaseous HF Processes for Selective Removal After Light Ion Implantation > Conclusions",
+   2
+  ],
+  [
+   "Metrology for High Selective Silicon Nitride Etch Chuannan Bai, Guang Liang, and Eugene Shalyt",
+   2
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Etching mechanism at vertical step region.",
+   2
+  ],
+  [
+   "Ultra Clean Processing of Semiconductor Surfaces XIII > Сommittees",
+   2
+  ],
+  [
+   "Impact of Dissolved Oxygen in Dilute HF Solution on Material Etch > Materials and methods",
+   2
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces",
+   2
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > T",
+   2
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > A A",
+   2
+  ],
+  [
+   "Tris(Trimethylsilyl)Germane $( \\pmb { \\mathrm { M e } } _ { 3 } \\pmb { \\mathrm { S i } } ) _ { 3 } \\pmb { \\mathrm { G e } } \\mathsf { H } ;$ A Molecular Model for Sulfur Passivation of Ge(111) Surfaces > Summary",
+   2
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > L",
+   2
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > Introduction",
+   2
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > Introduction",
+   2
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning",
+   2
+  ],
+  [
+   "Atomic Resolution Quality Control for Fin Oxide Recess by Atomic Resolution Profiler > Conclusions",
+   2
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup> > Acknowledgements",
+   2
+  ],
+  [
+   "Towards Atomic-Layer-Scale Processing of High Mobility Channel Materials in Acidic Solutions for N5 and N7 Technology Nodes > Experimental",
+   2
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Summary",
+   2
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Acknowledgements",
+   2
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > 2.1 Phenomenon of SOH Mask Pattern Defect",
+   2
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Drying by wet chemicals",
+   2
+  ],
+  [
+   "Comparison of the Chemical Passivation of GaAs, In<sub>0.53</sub>Ga<sub>0.47</sub>As, and InSb with 1-Eicosanethiol > Conclusions",
+   2
+  ],
+  [
+   "‘Just-Clean-Enough’: Optimization of Wet Chemical Cleaning Processes for Crystalline Silicon Solar Cells > Conclusion",
+   2
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto",
+   2
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching > ACKNOWLEDGEMENTS",
+   2
+  ],
+  [
+   "Specification of Trace Metal Contamination for Image Sensors Paul W. Mertens, Simone Lavizzari and Stefano Guerrieri",
+   2
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals > Conclusion",
+   2
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond",
+   2
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas > Introduction",
+   2
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens > Introduction",
+   2
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force > Cleaning sample",
+   2
+  ],
+  [
+   "The Effect of Inhibitors on Co Corrosion in Alkaline Post Cu-CMP Cleaning Solutions",
+   2
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy > Introduction",
+   2
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures",
+   2
+  ],
+  [
+   "Specification of Trace Metal Contamination for Image Sensors Paul W. Mertens, Simone Lavizzari and Stefano Guerrieri > Conclusion",
+   2
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > Scope",
+   2
+  ],
+  [
+   "Study of Oxygen Concentration in TMAH Solution for Improvement of Sigma-Shaped Wet Etching Process > Experimental",
+   2
+  ],
+  [
+   "Removal of Bull’s Eye Signature by Optimizing Wet Cleans Recipe Dhiman Bhattacharyya<sup>\\*</sup>, Pranesh Muralidhar, Mark Conrad > Summary",
+   2
+  ],
+  [
+   "Thin Layer Etching of Silicon Nitride: Comparison of Downstream Plasma, Liquid HF and Gaseous HF Processes for Selective Removal After Light Ion Implantation",
+   2
+  ],
+  [
+   "High Throughput Wet Etch Solution For BEOL TiN Removal Chia-Jung Hsu<sup>1,</sup> <sup>a</sup>, Chieh-Ju Wang<sup>1</sup>, Sheng-Hung Tu<sup>1</sup>, Makonnen Payne<sup>2</sup>, Emanuel Cooper<sup>2</sup> and Steven Lippy<sup>2</sup> > Conclusion",
+   2
+  ],
+  [
+   "Study of TiW Conditioning through Different Wet and Dry Treatments to Promote Ni Electroless Growth",
+   2
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Profile of the edge shape before and after Si etching.",
+   2
+  ],
+  [
+   "Influence of $\\mathbf { c o } _ { 2 }$ Gas Atmosphere on the Liquid Filling of Superhydrophobic Nanostructures > Conclusions",
+   2
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Summary",
+   2
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > Cleaning Application",
+   2
+  ],
+  [
+   "Rapid Recovery Process of Plasma Damaged Porous Low-K Dielectrics by Wet Surface Modifying Treatment > Conclusion",
+   2
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics",
+   2
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy > Summary",
+   2
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > Summary and outlook",
+   2
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy",
+   2
+  ],
+  [
+   "Study of TiW Conditioning through Different Wet and Dry Treatments to Promote Ni Electroless Growth > Conclusions",
+   2
+  ],
+  [
+   "Towards Atomic-Layer-Scale Processing of High Mobility Channel Materials in Acidic Solutions for N5 and N7 Technology Nodes",
+   2
+  ],
+  [
+   "Silicon Surface Passivation In HF Solutions for Improved Gate Oxide Reliability > Experimental",
+   2
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process",
+   2
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > CHAPTER 4:",
+   1
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures > Acknowledgement",
+   1
+  ],
+  [
+   "Towards Atomic-Layer-Scale Processing of High Mobility Channel Materials in Acidic Solutions for N5 and N7 Technology Nodes > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > F",
+   1
+  ],
+  [
+   "Characterization and Development of High Dose Implanted Resist Stripping Processes > References",
+   1
+  ],
+  [
+   "Effect of Dilute Hydrogen Peroxide in Ultrapure Water on Sige Epitaxial Process > References",
+   1
+  ],
+  [
+   "Extended-Nano Fluidic Devices and the Unique Liquid Properties Kazuma Mawatari and Takehiko Kitamori > CHAPTER 6:",
+   1
+  ],
+  [
+   "‘Just-Clean-Enough’: Optimization of Wet Chemical Cleaning Processes for Crystalline Silicon Solar Cells > References",
+   1
+  ],
+  [
+   "Characterization of Etch Residues Generated on Damascene Structures > References",
+   1
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells > References",
+   1
+  ],
+  [
+   "Progress in Cleaning and Wet Processing for Kesterite Thin Film Solar Cells > Acknowledgments",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > D",
+   1
+  ],
+  [
+   "Rapid Recovery Process of Plasma Damaged Porous Low-K Dielectrics by Wet Surface Modifying Treatment > References",
+   1
+  ],
+  [
+   "Atomic Resolution Quality Control for Fin Oxide Recess by Atomic Resolution Profiler > References",
+   1
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > References",
+   1
+  ],
+  [
+   "Tris(Trimethylsilyl)Germane $( \\pmb { \\mathrm { M e } } _ { 3 } \\pmb { \\mathrm { S i } } ) _ { 3 } \\pmb { \\mathrm { G e } } \\mathsf { H } ;$ A Molecular Model for Sulfur Passivation of Ge(111) Surfaces > References",
+   1
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > Literature References",
+   1
+  ],
+  [
+   "Progress in Cleaning and Wet Processing for Kesterite Thin Film Solar Cells > References",
+   1
+  ],
+  [
+   "Metrology for High Selective Silicon Nitride Etch Chuannan Bai, Guang Liang, and Eugene Shalyt > References",
+   1
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Results",
+   1
+  ],
+  [
+   "Applications for Surface Engineering using Atomic Layer Etching > References",
+   1
+  ],
+  [
+   "半导体表面的超洁净处理 XIII",
+   1
+  ],
+  [
+   "High Throughput Wet Etch Solution For BEOL TiN Removal Chia-Jung Hsu<sup>1,</sup> <sup>a</sup>, Chieh-Ju Wang<sup>1</sup>, Sheng-Hung Tu<sup>1</sup>, Makonnen Payne<sup>2</sup>, Emanuel Cooper<sup>2</sup> and Steven Lippy<sup>2</sup> > References",
+   1
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens > Acknowledgment",
+   1
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens > Experimental",
+   1
+  ],
+  [
+   "Chemical Infiltration through Deep UV Photoresist Philippe Garnier\\*, Marc Neyens > References",
+   1
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure > Acknowledgments",
+   1
+  ],
+  [
+   "Pattern Collapse of High-Aspect-Ratio Silicon Nanostructures – A Parametric Study > Acknowledgements",
+   1
+  ],
+  [
+   "Ultra Clean Processing of Semiconductor Surfaces XIII > Sponsors",
+   1
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force > References",
+   1
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy > References",
+   1
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > References",
+   1
+  ],
+  [
+   "Measurement of the Frictional Force Between PVA Roller Brushes and Semiconductor Wafers with Various Films Immersed In Chemicals > References",
+   1
+  ],
+  [
+   "TiN Metal Hardmask Etch Residues Removal with AlN Etch > References",
+   1
+  ],
+  [
+   "The Effect of Inhibitors on Co Corrosion in Alkaline Post Cu-CMP Cleaning Solutions > Summary",
+   1
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > Acknowledgement",
+   1
+  ],
+  [
+   "Silica Formation During Etching of Silicon Nitride in Phosphoric Acid > References",
+   1
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Experiment",
+   1
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > References",
+   1
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM > References",
+   1
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > References",
+   1
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces > Summary",
+   1
+  ],
+  [
+   "Post-CMP Cleaners for Tungsten at Advanced Nodes > References",
+   1
+  ],
+  [
+   "A Study on the Electrostatic Discharge (ESD) Defect in SOH Mask Pattern Cleaning > 2. EXPERIMENT",
+   1
+  ],
+  [
+   "Study of TiW Conditioning through Different Wet and Dry Treatments to Promote Ni Electroless Growth > References",
+   1
+  ],
+  [
+   "Specification of Trace Metal Contamination for Image Sensors Paul W. Mertens, Simone Lavizzari and Stefano Guerrieri > References",
+   1
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance > Acknowledgements",
+   1
+  ],
+  [
+   "Advanced Cryogenic Aerosol Cleaning: Small Particle Removal and Damage-Free Performance > References",
+   1
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Charging prevention approach (2): process optimization – DIW dispense",
+   1
+  ],
+  [
+   "Thin Layer Etching of Silicon Nitride: Comparison of Downstream Plasma, Liquid HF and Gaseous HF Processes for Selective Removal After Light Ion Implantation > Experimental",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > Keyword Index",
+   1
+  ],
+  [
+   "Electrical Characterization of As-Processed Semiconductor Surfaces Jerzy Ruzyllo <sup>1,</sup> <sup>a</sup> and Patrick J. Drummond <sup>2</sup> > References",
+   1
+  ],
+  [
+   "Minimizing Wafer Surface Charging for Single-Wafer Wet Cleaning for 10 nm and Beyond > Acknowledgements",
+   1
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > References",
+   1
+  ],
+  [
+   "Selective Etching of Silicon Oxide Versus Nitride with Low Oxide Etching Rate > References",
+   1
+  ],
+  [
+   "Comparison of the Chemical Passivation of GaAs, In<sub>0.53</sub>Ga<sub>0.47</sub>As, and InSb with 1-Eicosanethiol > References",
+   1
+  ],
+  [
+   "Silicon Surface Passivation In HF Solutions for Improved Gate Oxide Reliability > References",
+   1
+  ],
+  [
+   "TiN Metal Hardmask Etch Residues Removal with AlN Etch > Summary",
+   1
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > Author Index",
+   1
+  ],
+  [
+   "172 nm Excimer Radiation as a Technology Accelerator for Bio-Electronic Applications > Excimer lamp radiation",
+   1
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces > Acknowledgements",
+   1
+  ],
+  [
+   "Silicon Surface Passivation In HF Solutions for Improved Gate Oxide Reliability > Introduction",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > K",
+   1
+  ],
+  [
+   "Pattern Collapse of High-Aspect-Ratio Silicon Nanostructures – A Parametric Study > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > A",
+   1
+  ],
+  [
+   "Quantitative Analysis of Trace Metallic Contamination on III-V Compound Semiconductor Surfaces > References",
+   1
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup> > Conclusion",
+   1
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy > Acknowledgment",
+   1
+  ],
+  [
+   "Surface Preparation Quality before Epitaxy > Experimental",
+   1
+  ],
+  [
+   "The Effect of Inhibitors on Co Corrosion in Alkaline Post Cu-CMP Cleaning Solutions > References",
+   1
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure > Conclusion",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > Reference",
+   1
+  ],
+  [
+   "Optimization of EUV Reticle Cleaning by Evaluation of Chemistries on Wafer-Based Mimic Test Structures > Acknowledgement",
+   1
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation. > References",
+   1
+  ],
+  [
+   "Efficient Photoresist Residue Removal with 172nm Excimer Radiation Andreas Schäfert <sup>1,</sup> <sup>a,\\*</sup>, Hartwig Wiesmann > References",
+   1
+  ],
+  [
+   "Contamination Control for Wafer Container Used within 300 mm Manufacturing for Power Microelectronics > References",
+   1
+  ],
+  [
+   "Middle of Line (MoL) Cleaning Challenges in Sub-20nm Node Device Manufacturing > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > S",
+   1
+  ],
+  [
+   "Developments for Physical Cleaning Sample with High Adhesion Force Particles and Direct Measurement of its Removal Force > Conclusion",
+   1
+  ],
+  [
+   "Toward $\\mathbf { C O } _ { 2 }$ Beam Cleaning of 20-nm Particles in Atmospheric Pressure > References",
+   1
+  ],
+  [
+   "Analysis of Si Wet Etching Effect on Wafer Edge Suguru Saito<sup>a</sup>, Atsushi Okuyama, Kenji Takeo, Yoshiya Hagimoto, and Hayato Iwamoto > Discussion",
+   1
+  ],
+  [
+   "Watermark-Free and Efficient Spray Clean on Hydrophobic Surface with Single-Wafer Technology > References",
+   1
+  ],
+  [
+   "Titanium Nitride Hard Mask Removal with Selectivity to Tungsten in FEOL > References",
+   1
+  ],
+  [
+   "Low Undercut Ti Etch Chemistry for Cu Bump Pillar Under Bump Metallization Wet Etch Process > References",
+   1
+  ],
+  [
+   "Digital Etching of GaAs Materials: Comparison of Oxidation Treatments > References",
+   1
+  ],
+  [
+   "Oxidation of Si Surfaces: Effect of Ambient Air and Water Treatments on Surface Charge and Interface State Density > References",
+   1
+  ],
+  [
+   "Oxygen Control for Wet Clean Process on Single Wafer Platform Lucile Broussous<sup>1,</sup> <sup>a</sup>, Kevin Hoarau<sup>1</sup>, Come de Buttet<sup>2</sup> and Stephane Zoll<sup>1</sup> > References",
+   1
+  ],
+  [
+   "Study on the Etching Selectivity of Oxide Films in Dry Cleaning Process with ${ \\mathsf { N F } } _ { 3 }$ and ${ \\sf H } _ { 2 } { \\sf O }$ > References",
+   1
+  ],
+  [
+   "Extended-Nano Fluidic Devices and the Unique Liquid Properties Kazuma Mawatari and Takehiko Kitamori > References",
+   1
+  ],
+  [
+   "Deep Trench Isolation and Through Silicon Via Wetting Characterization by High-Frequency Acoustic Reflectometry > References",
+   1
+  ],
+  [
+   "Characterization of Cavitation in a Single Wafer or Photomask Cleaning Tool > Conclusions",
+   1
+  ],
+  [
+   "Removal of Bull’s Eye Signature by Optimizing Wet Cleans Recipe Dhiman Bhattacharyya<sup>\\*</sup>, Pranesh Muralidhar, Mark Conrad > References",
+   1
+  ],
+  [
+   "Thin Layer Etching of Silicon Nitride: Comparison of Downstream Plasma, Liquid HF and Gaseous HF Processes for Selective Removal After Light Ion Implantation > References",
+   1
+  ],
+  [
+   "Liquid Cell Platform to Directly Visualize Bottom-Up Assembly and Top-Down Etch Processes inside TEM > Acknowledgements",
+   1
+  ],
+  [
+   "Wet Selective SiGe Etch to Enable Ge Nanowire Formation. > Conclusion",
+   1
+  ],
+  [
+   "Evaluation of Post Etch Residue Cleaning Solutions for the Removal of Tin Hardmask after Dry Etch of Low-K Dielectric Materials on 45 nm Pitch Interconnects > References",
+   1
+  ],
+  [
+   "Metal Removal Efficiency in High Aspect Ratio Structures > Results and discussion",
+   1
+  ],
+  [
+   "TiN Metal Hardmask Etch Residues Removal with AlN Etch",
+   1
+  ],
+  [
+   "Impact of Dissolved Oxygen in Dilute HF Solution on Material Etch > References",
+   1
+  ],
+  [
+   "Metrology for High Selective Silicon Nitride Etch Chuannan Bai, Guang Liang, and Eugene Shalyt > Conclusions",
+   1
+  ],
+  [
+   "Post CMP Wet Cleaning Influence on Cu Hillocks > Conclusions",
+   1
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment > References",
+   1
+  ],
+  [
+   "Optimization of Cu/Low-k Dual Damascene Post-Etch Residue and TiN Hard Mask Removal > References",
+   1
+  ],
+  [
+   "Post CMP Wet Cleaning Influence on Cu Hillocks > References",
+   1
+  ],
+  [
+   "Electrolyzed Water for Efficient Metal Removal > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > B",
+   1
+  ],
+  [
+   "Surface Optimization of Random Pyramid Textured Silicon Substrates for Improving Heterojunction Solar Cells > Acknowledgements",
+   1
+  ],
+  [
+   "A Mathematical Model Forecasting HF Adsorption onto Cu-Coated Wafers as a Function of the Airborne Concentration and Moisture > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > G",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > I",
+   1
+  ],
+  [
+   "Molecular Simulation Contribution to Porous Low-K Pore Size Determination after Damage by Etch and Wet Clean Processes. > References",
+   1
+  ],
+  [
+   "Inline FOUP Cleaner - The New Type FOUP Cleaner for the Next Generation > E",
+   1
+  ],
+  [
+   "The Effect of Rinsing a Germanium Surface after Wet Chemical Treatment > Acknowledgements",
+   1
+  ],
+  [
+   "Study of Oxygen Concentration in TMAH Solution for Improvement of Sigma-Shaped Wet Etching Process > References",
+   1
+  ],
+  [
+   "Surface Passivation of New Channel Materials Utilizing Hydrogen Peroxide and Hydrazine Gas > Conclusion",
+   1
+  ]
+ ]
+}

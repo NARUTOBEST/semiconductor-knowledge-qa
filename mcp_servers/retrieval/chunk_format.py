@@ -28,6 +28,27 @@ def _pid(chunk_id):
     return str(uuid.uuid5(uuid.NAMESPACE_DNS, chunk_id))
 
 
+# 大 PDF 清洗拆分段 stem(如 SEMI 标准合集_p3501-4000):payload 页码是段内 0 基,
+# 在线打开要换算回原合集的全局物理页 = 段起始页 + 段内页码。
+_SPLIT_STEM_RE = re.compile(r"^(.*)_p(\d+)-(\d+)$")
+
+
+def _doc_page(source_stem, page_num):
+    """payload 页码 -> 原始 PDF 的 1 基物理页(前端 #page= 锚点用)。
+
+    - 拆分段 stem:_p<x>-<y> 的 x 即段起始全局页,全局页 = x + 段内 0 基页码;
+    - 普通文档:minerU page_idx 为 0 基,物理页 = page_idx + 1;
+    - 页码缺失/异常返回 None(前端不追加锚点)。
+    """
+    if not page_num or page_num < 0:
+        return None
+    m = _SPLIT_STEM_RE.match(str(source_stem or ""))
+    try:
+        return int(m.group(2)) + int(page_num) if m else int(page_num) + 1
+    except (ValueError, TypeError):
+        return None
+
+
 def _text_dict(payload, score=None):
     """文本块 payload -> 结构化 dict。"""
     payload = payload or {}
@@ -49,9 +70,17 @@ def _text_dict(payload, score=None):
         "image_urls": [image_s3.image_url(p) for p in (payload.get("image_paths") or [])],
         "image_descriptions": payload.get("image_descriptions") or [],
         "content_type": payload.get("content_type") or "",
-        # 视频块(mp4 入库):video_path 走独立视频存储(VID_*,缺省回落 TOS)时效签名
-        "video_url": image_s3.video_url(payload["video_path"])
-        if payload.get("video_path") else "",
+        # 视频块(mp4 入库):优先用入库关联的已验证 video_key(TOS)直签;
+        # 缺失再按 video_path 路径换算(统一 TOS,VID_* 已下线)
+        "video_url": (
+            image_s3.presigned(payload.get("video_key"))
+            or image_s3.video_url(payload["video_path"])
+        ) if (payload.get("video_path") or payload.get("video_key")) else "",
+        # 原文档在线打开(答案来源可点击):签名直链 + 原始 PDF 1 基物理页
+        # 优先用入库关联的已验证 doc_key(TOS),缺失再按 source_path 换算
+        "doc_url": (image_s3.presigned(payload.get("doc_key"), inline=True)
+                    or image_s3.doc_url(payload.get("source_path", ""))),
+        "doc_page": _doc_page(payload.get("source_stem"), payload.get("page_start")),
         "score": score,
     }
 
@@ -72,8 +101,13 @@ def _image_dict(payload, score=None):
         "caption": caption,
         "description": description,
         "image_path": payload.get("image_path", ""),
-        # 签名为 TOS 时效 HTTPS 链接;未配置对象存储时回退本地绝对路径
-        "image_url": image_s3.image_url(payload.get("image_path", "")),
+        # 优先用入库关联的已验证 image_key(TOS)直签;缺失再按路径换算
+        "image_url": (image_s3.presigned(payload.get("image_key"))
+                      or image_s3.image_url(payload.get("image_path", ""))),
+        # 原文档在线打开(同文本块)
+        "doc_url": (image_s3.presigned(payload.get("doc_key"), inline=True)
+                    or image_s3.doc_url(payload.get("source_path", ""))),
+        "doc_page": _doc_page(payload.get("source_stem"), payload.get("page_num")),
         "parent_text_chunk_id": payload.get("parent_text_chunk_id"),
         "chunk_index": payload.get("chunk_index"),
         "content_type": payload.get("content_type"),   # portrait 标签(若有)

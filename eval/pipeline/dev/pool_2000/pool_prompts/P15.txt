@@ -1,0 +1,23 @@
+你是工业级 RAG 知识库问答 Agent 评测集出题专家。从真实知识库 chunk 素材中出 25 道题。
+
+素材文件：C:\project3\eval\pipeline\dev\pool_2000\draft_material\P15.txt
+（《普通高等教育印刷工程本科专业教材 特种印刷技术 第二版 [唐正宁，李飞，安君 编著] 2011年版》文档的分段素材(可能是中文或英文技术文献,query 一律用中文)，格式：`===== [pN-M] 标题 (k块) =====` 分节，每块以 `--[pN]--` 或 `--[pN] [表]--` 开头）
+辅助索引：同目录 P15_index.json（按块数排序的标题列表，可先看它挑重点节）。
+
+文件约 1.2MB，禁止全读。读法：先读 index.json 挑 20~30 个含具体参数/配方/温度/浓度/数值的小节名，再用 Read 的 offset/limit 分段翻找对应行。
+
+【铁律】
+1. 每道题的 gold_standard 必须能在素材文件中找到原文依据；在 evidence 字段逐字摘录素材原句（含 --[pN]-- 页码标记），禁止编造、禁止用你自己的知识补充数字。
+2. query 用真实用户口吻的中文（用户是中文工艺工程师查技术专著），禁止模板化句式（如"请介绍…"连用）；同一小节最多出 2 题。
+3. success_criteria 必须可量化/可判定（如"答出 X 且单位正确"）。
+
+【25 题构成】
+- task_type 分布：信息查询 15、数据计算 5、工具编排 3、异常处理 2
+- difficulty 分布：easy 8、medium 12、hard 5（easy 基本是信息查询单跳；medium 可跨节综合或一次换算；hard 为跨多节链式推理/多参数组合计算，异常处理题=素材中没有该信息时系统应正确拒答/澄清，gold_standard 写明"应说明该书未涉及…"）
+- required_tools 从 ["检索知识库"] ["检索知识库","计算器"] 里选；expected_rounds：easy=1, medium=2~3, hard=4~5（异常处理题 1~2）
+- 数据计算题的答案必须能用素材中的数字算出，gold_standard 给出算式与结果。
+- 工具编排题 = 需要先检索 A 再据此检索 B 的多跳题。
+
+【输出】最终回复只给一个 JSON 数组（不要 markdown 代码块外的任何文字），每个元素：
+{"query_id":"P15-01".."P15-25","query":"...","task_type":"...","difficulty":"easy|medium|hard","source_id":"普通高等教育印刷工程本科专业教材 特种印刷技术 第二版 [唐正宁，李飞，安君 编著] 2011年版","required_tools":[...],"expected_rounds":N,"gold_standard":"...","success_criteria":"...","evidence":"--[pN]-- 原文摘录…"}
+按 easy→medium→hard 排序。

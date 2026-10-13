@@ -31,8 +31,6 @@ def main():
             timeout=args.timeout,
             banner_timeout=60,
             auth_timeout=60,
-            allow_agent=False,
-            look_for_keys=False,
         )
     except Exception as e:  # noqa
         print(f"[SSH CONNECT ERROR] {e}", file=sys.stderr)

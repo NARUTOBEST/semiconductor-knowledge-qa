@@ -1,0 +1,326 @@
+{
+ "doc": "製造装置オンライン機能要求仕様書 固定バッファ英語5.0版",
+ "chunks": 934,
+ "headings": [
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.2.2.2. Representative NPW Operation Models",
+   33
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.4.4. QTAT Processing (2)",
+   29
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Filler processing",
+   28
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Stabilizer processing",
+   28
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.4.3. QTAT Processing (1)",
+   26
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 3.7. Carrier Handoff Parallel I/O Interface",
+   25
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.1.2. State Models",
+   22
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.4.5. Multiple Product Processing in A Carrier",
+   21
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.1 Carrier state model",
+   18
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.7. General Services of High-speed SECS Message Services (HSMS)/Single Session Modes of High-speed SECS Message Services (HSMS-SS)",
+   18
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.2.1. Common Operation Models",
+   17
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.4.1. Lot Processing (1)",
+   16
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.4.2. Lot Processing (2)",
+   16
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.2.2. State Models",
+   16
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > CONTENTS",
+   15
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 1.5. Revision History",
+   14
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Job generation failure",
+   13
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.2.2.1. Definition of NPW",
+   13
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.8.1. A List of Stream Functions Used",
+   12
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.4.2. State models",
+   11
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.3.2. State Models",
+   11
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 1.2 Access mode state models",
+   11
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.3. State Transitions of STS, PJ, CJ, and Carrier Accessing Statuses",
+   11
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.5.2. State Models",
+   10
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.6. An Equipment Constant List",
+   10
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.3.4. Control Job Attributes",
+   10
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 3.8.1. Loading Operations",
+   9
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.13. Filler Processing",
+   9
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Slot map verification errors",
+   9
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.3.1. Scenarios in Putting the System in Operation",
+   9
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.5.3. Substrate Object Attributes",
+   9
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.5. QTAT Processing (2)",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.2.9. Relationships between Status Transitions of the State Models and Physical Operations",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Monitor processing",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 3.8.2. Unloading Operations",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.4. QTAT Processing (1)",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > E84 failure in automatic handoff operation",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.12. Stabilizer Processing",
+   8
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > LIST OF FIGURES",
+   7
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > LIST OF TABLES",
+   7
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.8.2.3. Process job (PJM)-related Items",
+   7
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.1.15. Equipment Constants",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Carrier ID verification failure",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.8.2.2. Control job (CJM)-related Items",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.8.2.1. Carrier Management Standard (CMS)-related Items",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.3.7. Relationships between Status Transitions of the State Models and Physical Operations",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.4.7. Relationships between Status Transitions of the State Models and Physical Operations",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.5.5. Job Generation Failure",
+   6
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.16. E84 Timer Lists",
+   5
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.1.1.24. Action to be Taken When Job Creation Has Failed",
+   5
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.1.1.22. Actions to be Taken When Slot Map Verification Has Failed",
+   5
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.2.4. Carrier Attributes",
+   5
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.5.2. Carrier Handoff (E84) Failure",
+   5
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.2.6. Equipment Constants",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.4.3. Services",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.1.1.20. QTAT Processing",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.3.3. Services",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.4.4. Process Job Attributes",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.4.1. Requirements",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.5. An Event (S6F11) List",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.3.2. Scenarios to Close the Operations",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.2.3. Services",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > (3) Explanation of abbreviations used",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.1.1. Requirements",
+   4
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.2.8. Alarms",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.7. Slot Map Verification Errors",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.5.6. Relationships between Status Transitions of the State Models and Physical Operations",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.5.1. An Error List",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > (2) Using another carrier",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.1.1.21. Action to be Taken When Automatic Handoff Has Failed",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.2.2. Lot Processing",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Clamping failure",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.7. A State Variable List",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.6.2. Stabilizer",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.8.2.4. Object Service Standard (OSS)-related Items",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Undocking failure",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 2.1.1.12. Loadport Reservation",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > Unclamping failure",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 4.1.4. Event Notification",
+   3
+  ],
+  [
+   "Equipment Online Functionality Requirement Document <Volume for Fixed Buffer/Single Wafer Processor> > 5.1.6.3. Filler",
+   3
+  ]
+ ]
+}

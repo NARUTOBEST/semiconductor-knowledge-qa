@@ -85,3 +85,39 @@ def test_error_branch_no_answer_card_or_sources(monkeypatch):
     assert [e for e in sink if e["type"] == "sources"] == []
     assert done["final_reason"] == "error"
     assert patch["error"] == {"phase": "llm_create", "message": "boom"}
+
+
+def test_zero_sources_fabricated_citation_gets_declaration(monkeypatch):
+    """轮次13:零检索来源 + 伪引用 → 前置"未经核实"声明(防静默幻觉)。"""
+    sink, patch, done = _run_node(monkeypatch, {
+        "final_reason": "answer",
+        "full_reply": "根据内部资料，Magnatran 7 可搬运 100-300mm 晶圆 [手册A p12]。",
+        "collected_sources": {},
+    })
+    msg = [e for e in sink if e["type"] == "assistant_message"][0]
+    assert msg["content"].startswith("⚠️ 说明:本轮知识库检索未返回可用资料")
+    assert "Magnatran" in msg["content"]          # 原文保留,不替换
+    assert "未经内部资料核实" in patch["full_reply"]
+
+
+def test_zero_sources_plain_answer_untouched(monkeypatch):
+    """零来源但无伪引用(如实说未找到):不加声明,不误伤 refusal。"""
+    reply = "内部资料中未找到该参数的定义。"
+    sink, patch, _ = _run_node(monkeypatch, {
+        "final_reason": "answer", "full_reply": reply, "collected_sources": {},
+    })
+    msg = [e for e in sink if e["type"] == "assistant_message"][0]
+    assert msg["content"] == reply
+    assert patch["full_reply"] == reply
+
+
+def test_with_sources_no_declaration(monkeypatch):
+    """有检索来源的正常答案:守门不触发。"""
+    reply = "ALD 沉积温度 [《ALD手册》 p33] 为 200C。"
+    sink, patch, _ = _run_node(monkeypatch, {
+        "final_reason": "answer", "full_reply": reply,
+        "collected_sources": {"c1": {"chunk_id": "c1", "score": 0.9,
+                                     "source_stem": "ALD手册"}},
+    })
+    msg = [e for e in sink if e["type"] == "assistant_message"][0]
+    assert msg["content"] == reply

@@ -1,0 +1,326 @@
+{
+ "doc": "SEMI E5-0301 SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT",
+ "chunks": 1295,
+ "headings": [
+  [
+   "CsemI\"",
+   182
+  ],
+  [
+   "CsemI\" > CsemI\"",
+   70
+  ],
+  [
+   "SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II) > CsemI\"",
+   31
+  ],
+  [
+   "CsemI\" > A4.3 Equipment Process Capabiliti es Data",
+   25
+  ],
+  [
+   "Cseml",
+   15
+  ],
+  [
+   "CsemI\" > Cseml",
+   13
+  ],
+  [
+   "CsemI\" > Structure: L,2",
+   13
+  ],
+  [
+   "CsemI\" > 6 Data Structures",
+   12
+  ],
+  [
+   "CsemI\" > Structure: L,4",
+   11
+  ],
+  [
+   "Cseml > S3,F26 Port Action Acknowledge",
+   10
+  ],
+  [
+   "CsemI\" > A4.2 Normal Sequence of Operation s",
+   9
+  ],
+  [
+   "CsemI\" > 9 Units of Measure",
+   9
+  ],
+  [
+   "CsemI\" > Structure:",
+   9
+  ],
+  [
+   "CsemI\" > A3.2 Trace Data Collection and Reporting",
+   9
+  ],
+  [
+   "CsemI\" > 7.16.3 General Rules",
+   8
+  ],
+  [
+   "CsemI\" > Structure: L,5",
+   8
+  ],
+  [
+   "CsemI\" > Carrier Attribute Definition",
+   8
+  ],
+  [
+   "CsemI\" > A3.3 Event Driven Data Reporting",
+   7
+  ],
+  [
+   "Cseml > CsemI\"",
+   7
+  ],
+  [
+   "CsemI\" > 5 Transaction and Conversa tion Protocols",
+   7
+  ],
+  [
+   "CsemI\" > Distributed Recipe Namespace Segment Attribute Definition",
+   7
+  ],
+  [
+   "SEMI E5-0301 SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II) > 1 Introduction",
+   7
+  ],
+  [
+   "CsemI\" > S14,F1 GetAttr Request (GAR)",
+   7
+  ],
+  [
+   "CsemI\" > 8 Message Documentation",
+   6
+  ],
+  [
+   "CsemI\" > A3.4 Event Reporting",
+   6
+  ],
+  [
+   "CsemI\" > 2 Selected Definitions",
+   6
+  ],
+  [
+   "CsemI\" > A2 Some Suggested Messag e Usage",
+   6
+  ],
+  [
+   "CsemI\" > S2,F23 Trace Initialize Send (TIS)",
+   4
+  ],
+  [
+   "Figure S12.5 Wafer Map Received by Equipment",
+   4
+  ],
+  [
+   "CsemI\" > ERACK",
+   4
+  ],
+  [
+   "CsemI\" > Unit — footlambert",
+   4
+  ],
+  [
+   "CsemI\" > Structure: L,3",
+   4
+  ],
+  [
+   "Cseml > Structure: L,2",
+   4
+  ],
+  [
+   "CsemI\" > A4.1 Introduction",
+   4
+  ],
+  [
+   "CsemI\" > S4,F41 Handoff Halt Acknowledge (HHA)",
+   4
+  ],
+  [
+   "CsemI\" > S6,F25 Notification Report Send",
+   3
+  ],
+  [
+   "CsemI\" > CsemI",
+   3
+  ],
+  [
+   "Cseml > STEMP",
+   3
+  ],
+  [
+   "CsemI\" > A4.4 Equipment Capabilities Descr iptor Availability",
+   3
+  ],
+  [
+   "SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II)",
+   3
+  ],
+  [
+   "CsemI\" > S8,F4 Executive Program Data (EPD)",
+   3
+  ],
+  [
+   "CsemI\" > S2,F44 Reset Spooling Acknowledge (RSA)",
+   3
+  ],
+  [
+   "CsemI\" > S2,F48 Variable Limit Attributes Send (VLAS)",
+   3
+  ],
+  [
+   "SEMI E5-0301 SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II)",
+   3
+  ],
+  [
+   "SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II) > 7 Message Detail",
+   3
+  ],
+  [
+   "SEMI EQUIPMENT COMMUNICATIONS STANDARD 2 MESSAGE CONTENT (SECS-II) > 7.15 Stream 11 Host File Services (Deleted)",
+   3
+  ],
+  [
+   "Cseml > S15,F18 Recipe Retrieve Data",
+   3
+  ],
+  [
+   "CsemI\" > DSNAME",
+   3
+  ],
+  [
+   "CsemI\" > S14,F26 Get Service Name Data (GSND)",
+   3
+  ],
+  [
+   "CsemI\" > S15,F1 Recipe Management Multi-block Inquire",
+   2
+  ],
+  [
+   "CsemI\" > Unit — Non-dimensional quantities (pure numbers)",
+   2
+  ],
+  [
+   "CsemI\" > Structure: L,4 L, 4",
+   2
+  ],
+  [
+   "CsemI\" > S6,F27 Trace Report Send (TRS)",
+   2
+  ],
+  [
+   "CsemI\" > S7,F27 Process Program Verification Send (PVS)",
+   2
+  ],
+  [
+   "CsemI\" > Structure: L,6",
+   2
+  ],
+  [
+   "CsemI\" > S1,F14 Establish Communications Request Acknowledge (CRA)",
+   2
+  ],
+  [
+   "CsemI\" > S14,F4 SetAttr Data (SAD)",
+   2
+  ],
+  [
+   "CsemI\" > A5.1 Purpose and Scope",
+   2
+  ],
+  [
+   "CsemI\" > Structure: L,3 L, 3",
+   2
+  ],
+  [
+   "CsemI\" > A5.2 Introduction",
+   2
+  ],
+  [
+   "Cseml\" > Structure: L,2",
+   2
+  ],
+  [
+   "CsemI\" > S4,F19 Transfer Job Create (TJ)",
+   2
+  ],
+  [
+   "CsemI\" > S6,F8 Data Transfer Data (DDD)",
+   2
+  ],
+  [
+   "CsemI\" > S10,F1 Terminal Request (TRN)",
+   2
+  ],
+  [
+   "Cseml > RCPSECCODE",
+   2
+  ],
+  [
+   "CsemI\" > EventLimit",
+   2
+  ],
+  [
+   "Cseml > Material format code 1 byte by Format 10",
+   2
+  ],
+  [
+   "CsemI\" > Unit — ton (short)",
+   2
+  ],
+  [
+   "CsemI\" > 7 Message Detail",
+   2
+  ],
+  [
+   "CsemI\" > Structure: L,2 L,2",
+   2
+  ],
+  [
+   "Cseml > Parameter Default Value",
+   2
+  ],
+  [
+   "CsemI\" > S17,F8 Trace Delete Acknowledge (TRDA)",
+   2
+  ],
+  [
+   "Cseml > RCPATTRID",
+   2
+  ],
+  [
+   "CsemI\" > S1,F19 Get Attribute (GA)",
+   2
+  ],
+  [
+   "CsemI\" > S5,F15 Exception Recovery Complete Notify (EXRCN)",
+   2
+  ],
+  [
+   "CsemI\" > S14,F20 Generic Service Acknowledge (GSA)",
+   2
+  ],
+  [
+   "Cseml > S17,F1 Data Report Create Request (DRC)",
+   2
+  ],
+  [
+   "Cseml > S4,F33 Handoff Verified (HV)",
+   2
+  ],
+  [
+   "CsemI\" > AlarmID",
+   2
+  ],
+  [
+   "CsemI\" > Micro Level Messages",
+   2
+  ]
+ ]
+}

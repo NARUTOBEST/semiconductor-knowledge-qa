@@ -1,0 +1,326 @@
+{
+ "doc": "佳能固晶机2769-M003",
+ "chunks": 878,
+ "headings": [
+  [
+   "Die BonderDie Bonder > 5.6.2 Error message help usage explanation",
+   84
+  ],
+  [
+   "Die BonderDie Bonder > Description:",
+   46
+  ],
+  [
+   "Die BonderDie Bonder > 6.4.3 Unit parameter",
+   45
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > 10.6.2 Error message help usage explanation",
+   42
+  ],
+  [
+   "Die BonderDie Bonder > 6.6.2 Error message help usage explanation",
+   42
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > 10.4.3 Unit parameter",
+   35
+  ],
+  [
+   "Die BonderDie Bonder > 3.6.2 Error message help usage explanation",
+   34
+  ],
+  [
+   "Die BonderDie Bonder > MAPPING Error Message",
+   32
+  ],
+  [
+   "Die BonderDie Bonder > 9.6.2 Error message help usage explanation",
+   26
+  ],
+  [
+   "Die BonderDie Bonder > 1.6.2 Error message help usage explanation",
+   22
+  ],
+  [
+   "Die BonderDie Bonder > 3.4.2 Unit parameter",
+   21
+  ],
+  [
+   "Die BonderDie Bonder > 2.6.2 Error message help usage explanation",
+   20
+  ],
+  [
+   "Die BonderDie Bonder > 4.6.2 Error message help usage explanation",
+   17
+  ],
+  [
+   "Die BonderDie Bonder > 8.4.3 Unit parameter",
+   17
+  ],
+  [
+   "Die BonderDie Bonder > 8.6.2 Error message help usage explanation",
+   17
+  ],
+  [
+   "Die BonderDie Bonder > 5.4.3 Unit parameter",
+   15
+  ],
+  [
+   "Die BonderDie Bonder > 7.6.2 Error message help usage explanation",
+   13
+  ],
+  [
+   "Die BonderDie Bonder > 5.2.4 Discharge feeder storage:",
+   12
+  ],
+  [
+   "Die BonderDie Bonder > 7.4.3 Unit parameter",
+   12
+  ],
+  [
+   "Die BonderDie Bonder > 6.3 Manual items",
+   10
+  ],
+  [
+   "Die BonderDie Bonder > 2.2.3 Removal of empty magazine:",
+   9
+  ],
+  [
+   "Die BonderDie Bonder > 3.3 Manual items",
+   8
+  ],
+  [
+   "Die BonderDie Bonder > 8.3 Manual items",
+   8
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > ②Mount operation：",
+   7
+  ],
+  [
+   "Die BonderDie Bonder > 4.3 Manual items",
+   7
+  ],
+  [
+   "Die BonderDie Bonder > ◇Search Order",
+   6
+  ],
+  [
+   "Die BonderDie Bonder > 5.5.2 Manual items",
+   6
+  ],
+  [
+   "Die BonderDie Bonder > 1.8.2 Input/Output detail specification",
+   5
+  ],
+  [
+   "Die BonderDie Bonder > 4.4.3 Parameter help usage explanation",
+   5
+  ],
+  [
+   "Die BonderDie Bonder > 5.1 Mechanical Structure",
+   5
+  ],
+  [
+   "Die BonderDie Bonder > 9.3 Manual items",
+   5
+  ],
+  [
+   "Die BonderDie Bonder > 7.3 Manual items",
+   5
+  ],
+  [
+   "Die BonderDie Bonder > 9.4.3 Unit parameter",
+   5
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > 10.8.2 Input/Output detail specification",
+   4
+  ],
+  [
+   "Die BonderDie Bonder > 1.3 Manual items",
+   4
+  ],
+  [
+   "Die BonderDie Bonder > 3.5.2 Manual Items",
+   4
+  ],
+  [
+   "Die BonderDie Bonder > 1.7 Warning message",
+   4
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > Description:",
+   4
+  ],
+  [
+   "Die BonderDie Bonder > 5.5.1 Teaching items",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 6.7 Warning message",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 1.5.2 Manual items",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 1.4.3 Unit parameter",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 3.2 Basic movements",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 2.5.2 Manual items",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > ◇Parameter Setting",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 2.8.2 Input/Output detail specification",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 5.2.1 1<sup>st</sup> gripper edge detection and pitch move:",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 6.5.2 Manual Items",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 3.8.2 Input/Output detail specification",
+   3
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > 10.5.2 Manual items",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 2.7 Warning message",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 3.4.3 Function SW",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 4.8.2 Input/Output detail specification",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > 4.5.2 Manual Items",
+   3
+  ],
+  [
+   "Die BonderDie Bonder > Method 2：",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 2.1 Mechanical Structure",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 7.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 3-5-3 Safety Manual Z Teaching Function",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 3.1 Mechanical Structure",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 6.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 2.9 Operation Precaution",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 1.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 3.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 9.7 Warning message",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 6.5.1 Teaching items",
+   2
+  ],
+  [
+   "Chapter 10 Bonding Head Unit > 10.1.1 Mount Head",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 4.9 Operation Precaution",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 1.5.1 Teaching items",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 8.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 2.4.3 Unit parameter",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 3.5.1 Teaching items",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 9.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > Unloader magazine discharge operation:",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 5.2.2 2<sup>nd</sup> gripper pitch transfer:",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 5.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 9.9 Operation Precaution",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 4.2 Basic movements",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 2.4.4 Magazine parameter（Work data ）",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 4.4.2 How to use unit parameter help",
+   2
+  ],
+  [
+   "Die BonderDie Bonder > 2.4.2 How to use unit parameter help",
+   2
+  ]
+ ]
+}

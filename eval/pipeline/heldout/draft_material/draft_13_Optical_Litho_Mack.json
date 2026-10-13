@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "MCK-01",
+  "query": "查一下这本书里 1978 年第一台 stepper 和 2006 年浸没式扫描机的规格对比：波长、NA、曝光场、缩小倍率、晶圆尺寸各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "按书中表 1.2：First Stepper (1978)：波长 436nm、NA 0.28、Field Size 10×10mm、Reduction Ratio 10、Wafer Size 4″(100mm)；Immersion Scanner (2006)：193nm、NA 1.2、Field Size 26×33mm、Reduction Ratio 4、Wafer Size 300mm。另 p21 补充：1978 年第一台 stepper 用 g-line 436nm、NA 0.28、场直径 14mm；现代机型用 ArF 193nm、干式 NA 0.93、水浸没最高 1.35。",
+  "success_criteria": "两组共 10 项参数全部答出且数值、单位正确（436nm/0.28/10×10mm/10/100mm 与 193nm/1.2/26×33mm/4/300mm）",
+  "evidence": "--[p20 [表]]-- Table 1.2 The change in projection tool specifications over time First Stepper (1978) | Immersion Scanner (2006) Wavelength | 436nm | 193 nm Numerical Aperture | 0.28 | 1.2 Field Size | 10 × 10mm | 26 × 33 mm Reduction Ratio | 10 | 4 Wafer Size | 4″(100mm) | 300mm；--[p21]-- The first stepper in 1978 employed an imaging wavelength of 436 nm (the g-line of the mercury spectrum), a lens numerical aperture of 0.28 and a field size of 14 mm in diameter. Today's tools use an ArF excimer laser at 193 nm, a lens with a numerical aperture of 0.93 dry, and up to 1.35 with water immersion, and a field size of 26 × 33 mm."
+ },
+ {
+  "query_id": "MCK-02",
+  "query": "驻波在光刻胶里沿深度方向的周期公式是啥？书里怎么写的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "驻波强度周期 Period = λ/2n₂（式 4.20），由式 (4.19) 中的余弦项得出；其中 λ 为曝光波长、n₂ 为光刻胶折射率。",
+  "success_criteria": "答出 Period = λ/(2n₂) 且说明来源是式 (4.19) 余弦项",
+  "evidence": "--[p133]-- The cosine term in Equation (4.19) shows that the period of the standing wave is given by Period = λ / 2 n_2 (4.20)"
+ },
+ {
+  "query_id": "MCK-03",
+  "query": "DNQ 胶曝光动力学里 Dill 参数 C 到底代表什么？控制感光剂相对浓度的速率方程长什么样？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "C 是标准曝光速率常数（standard exposure rate constant），是第三个 Dill 光刻胶参数，三个 Dill 参数合称 ABC 参数；C 可分解为 C = Φσ_M-abs(λ/hc) = Φa_M λ/(N_A hc)，即量子效率与感光剂吸收截面的乘积项。速率方程为 dm/dt = −CIm（式 5.27），m 为相对感光剂浓度（M/M₀）。",
+  "success_criteria": "答出 C=标准曝光速率常数、ABC 参数含义，且速率方程 dm/dt=−CIm 正确",
+  "evidence": "--[p196]-- where the relative sensitizer concentration m (= M/M_0) has been used and C is the standard exposure rate constant and the third Dill photoresist parameter (collectively, the three Dill parameters are also called the ABC parameters)；--[p196]-- \\frac { \\mathrm { d } m } { \\mathrm { d } t } { = } { - } C I m\\tag{5.27}；--[p196]-- C = \\Phi \\sigma _ { M \\mathrm { - } \\mathrm { a b s } } \\left( { \\frac { \\lambda } { h c } } \\right) = { \\frac { \\Phi B _ { \\mathrm { E } } } { \\nu } } = { \\frac { \\Phi a _ { M } \\lambda } { N _ { \\mathrm { A } } h c } }\\tag{5.28}"
+ },
+ {
+  "query_id": "MCK-04",
+  "query": "两光束成像时 pitch 分辨率的物理极限公式是什么？对应的 k_pitch 最小能到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "极限 pitch 分辨率 = λ/2NA（式 10.4，当 sinθ 达到最大值 NA 时）；两光束成像时 k_pitch 最小值为 0.5（对比三光束成像 k_pitch 最小为 1.0）。该极限可用交替相移掩模或优化的离轴照明实现。",
+  "success_criteria": "答出 λ/2NA 且 k_pitch 最小值 0.5",
+  "evidence": "--[p415]-- The ultimate pitch resolution of an imaging tool is obtained when sinq becomes its maximum value, the NA: ultimate pitch resolution = λ / 2 NA (10.4) for all duty cycles. Thus, for two-beam imaging, the minimum k_pitch is 0.5. This ultimate pitch resolution uses two-beam imaging that can be obtained from an alternating phaseshifting mask or an optimized off-axis illumination scheme"
+ },
+ {
+  "query_id": "MCK-05",
+  "query": "swing ratio 这个指标在书里是怎么定义的？给我定义式。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "swing ratio 定义为摆动曲线相邻最小值与最大值之差除以二者的平均值；对 E₀ swing curve：SR = (E₀max − E₀min)/[(E₀min + E₀max)/2]（式 4.56）。",
+  "success_criteria": "给出 SR 定义式 (4.56) 且分子分母形式正确",
+  "evidence": "--[p150]-- A simple metric for the magnitude of the swing is called the swing ratio, defi ned as the difference between adjacent min and max values of the swing curve divided by their average value. For example, for an E_0 swing curve, the swing ratio (SR) would be SR = \\frac { E _ { \\mathrm { 0 m a x } } - E _ { \\mathrm { 0 m i n } } } { ( E _ { \\mathrm { 0 m i n } } + E _ { \\mathrm { 0 m a x } } ) /  }\\tag{4.56}"
+ },
+ {
+  "query_id": "MCK-06",
+  "query": "Original Mack 显影模型里那个溶解选择性参数 n 是什么意思？完整速率方程给我。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Original Mack 模型速率方程：r = r_max·(a+1)(1−m)ⁿ / [a+(1−m)ⁿ] + r_min（式 7.10）；n 是溶解选择性参数（dissolution selectivity parameter），物理上表示需要多少次曝光/脱保护反应共同作用才能使一个树脂分子溶解；n→∞ 时胶变成理想阈值胶（阶跃函数）。a = k_D/k_R·M₀ⁿ 描述扩散速率常数相对表面反应速率常数之比；加 r_min 后真实最大速率实际是 r_max+r_min。",
+  "success_criteria": "给出式 (7.10) 完整形式且解释 n 的物理含义",
+  "evidence": "--[p259]-- r = r _ { \\mathrm { m a x } } \\frac { ( a + 1 ) ( 1 - m ) ^ { n } } { a + ( 1 - m ) ^ { n } } + r _ { \\mathrm { m i n } }\\tag{7.10}；--[p260]-- The key parameter in this development model that affects lithographic performance is the dissolution selectivity n. As n goes to infi nity, the behavior seen in Figure 7.1 reaches its extreme of a step function. In other words, for n = ∞ the resist becomes an ideal threshold resist. Physically, this parameter represents the number of exposure or deblocking reactions that work together to cause one resin molecule to go into solution."
+ },
+ {
+  "query_id": "MCK-07",
+  "query": "我们要采购 193nm 浸没式光刻机，这本书里有没有 ASML、Nikon、Canon 各家具体机型的产能和选型对比建议？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书是光学光刻原理专著，未提供任何设备厂商机型选型对比或产能推荐内容；书中对 ASML 仅有一处历史性提及（早期机型为透过透镜对准采用中心遮拦，p89）， nowhere 有 Nikon/Canon 机型对比。可补充书中仅有的相关数据：表 1.2 给出第一台 stepper(1978) 与浸没式扫描机(2006) 的技术规格演进、吞吐 20→120 wafers per hour。应建议用户查阅设备商规格书/选型资料。",
+  "success_criteria": "明确说明书中没有厂商机型选型对比内容（正确拒答该部分），不编造机型数据，且能指出书中仅有表 1.2 历史规格与吞吐数据可参考",
+  "evidence": "--[p20 [表]]-- Table 1.2 The change in projection tool specifications over time…Wafer Size | 4″(100mm) | 300mm；--[p21]-- Throughput | 20 wafers per hour (0.44 cm²/s) | 120 wafers per hour (24 cm²/s)；--[p89]-- 1× steppers made by Ultratech Stepper and early steppers made by ASML include such central obscurations for through-the-lens alignment purposes.（全书无 Nikon/Canon 机型选型对比内容）"
+ },
+ {
+  "query_id": "MCK-08",
+  "query": "做浸没式建模需要水在 193nm 的吸收系数（消光系数 κ），书里给的这个数值是多少？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书只给出水在 193nm 的（实）折射率约 1.44（p118，用于讨论浸没式 NA 上限 1.35），并未给出水在 193nm 波长的吸收系数/消光系数 κ，无法从本书获得该数值；不应编造 κ 值，建议查阅水在深紫外的光学常数文献。",
+  "success_criteria": "明确指出书中仅有水折射率 n≈1.44、无 193nm 吸收/消光系数数据（正确拒答数值），且不编造 κ 值",
+  "evidence": "--[p118]-- At a wavelength of 193 nm, resists have refractive indices of about 1.7 and water has a refractive index of about 1.44；--[p118]-- Practical numerical apertures for immersion systems are probably in the range of 93 % of the refractive index of the fl uid. For water, with n = 1.44 at 193 nm, this means a numerical aperture of up to 1.35.（全书未给出水在 193nm 的 κ/吸收系数）"
+ },
+ {
+  "query_id": "MCK-09",
+  "query": "书里说 aerial image 对正负离焦是对称的，那 Bossung 曲线为什么看起来不对称？原因是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "因为光刻胶有非零厚度：焦平面放置位置不同，胶顶和胶底经历不同程度的离焦（焦面在胶上方时顶部清晰底部弯曲/模糊，在胶下方时底部清晰顶部圆化），正负离焦方向得到不同的胶轮廓和 CD，不对称来自 aerial image 与光刻胶相互作用产生最终 CD 的方式，根源是光刻胶厚度；当胶厚成为该特征 DOF 的可观比例时不对称明显。",
+  "success_criteria": "答出根因是光刻胶厚度（胶内不同深度离焦量不同），而非 aerial image 本身",
+  "evidence": "--[p330]-- Since the aerial image responds to focus symmetrically, the cause of the observed asymmetry must involve the way that the aerial image interacts with the photoresist to produce the fi nal CD. In fact, it is the thickness of the photoresist that gives rise to this asymmetry；--[p331]-- The asymmetry becomes apparent whenever the thickness of the photoresist becomes an appreciable fraction of the depth of focus of that feature."
+ },
+ {
+  "query_id": "MCK-10",
+  "query": "图 8.22 那个工艺窗分析里，如果规定最小曝光宽容度 10%，矩形法和椭圆法给出的 DOF 分别是多少？另外最佳焦点设偏 Δf 后 DOF 会怎么变？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "DOF(矩形) = 0.40 mm，DOF(椭圆) = 0.52 mm（10% 最小曝光宽容度下）；矩形法（系统误差为主）偏悲观，椭圆法（随机误差为主）偏乐观。若焦点偏离最佳焦点 Δf，DOF 一般减少 2Δf。",
+  "success_criteria": "0.40mm 与 0.52mm 都答出且对应方法不搞反，且答出 DOF 减少 2Δf",
+  "evidence": "--[p334]-- For the example given in Figure 8.22, a minimum acceptable exposure latitude of 10 %, in addition to the other profi le specifi cations, would lead to the following depth of focus results: • DOF (rectangle) = 0.40 mm • DOF (ellipse) = 0.52 mm；--[p334]-- For example, if focus is set in error from best focus by an amount ∆f, the resulting DOF will generally be reduced by 2∆f."
+ },
+ {
+  "query_id": "MCK-11",
+  "query": "193nm 工艺的 LER 典型水平是多少？100nm 以下节点对 3σ LER 的规格一般定在什么量级？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "193nm 光刻中 LER ≥4nm 很常见；对于 100nm 以下制程节点，3σ LER 的典型规格约为标称 CD 的 5%；LER 常以线边缘偏离直线的 3σ 偏差表征，且在 65nm 以下量产节点 LER 可能成为 CD 控制的主要限制。",
+  "success_criteria": "答出 193nm 常见 LER≥4nm、3σ 规格≈标称 CD 的 5%",
+  "evidence": "--[p403]-- LER is usually characterized as the 3s deviation of a line edge from a straight line… For 193-nm lithography, LER values of 4 nm and larger are common. …For lithography generations below 100 nm, typical specifi cations for the 3s LER are about 5 % of the nominal CD；--[p403]-- It is possible that LER will become the main limiter of CD control below 65-nm production."
+ },
+ {
+  "query_id": "MCK-12",
+  "query": "ArF 胶防图形倒塌那节，书中用 60° 接触角、100nm 间距（空间深宽比 3）算出的极限线宽是多少？计算时水的表面张力取了多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "在无表面活性剂、ArF 胶 E/σ≈35 nm⁻¹、60° 水-胶接触角、100nm 间距且空间深宽比为 3 的算例中，线的最大深宽比为 4.3，对应约 70nm 线宽（再宽即倒塌）；水的表面张力取 0.072 N/m（72 dyne/cm，室温）。书中另举例：空间缩到 50nm 且空间深宽比保持 3 时，最大线深宽比降到 3.4（44nm 线宽）。",
+  "success_criteria": "答出最大线深宽比 4.3→约 70nm 线宽，且水的表面张力 0.072 N/m",
+  "evidence": "--[p364]-- Putting some numbers into the equation, ArF resists will have E/s in the range of about 35 nm⁻¹ assuming no surfactants in the water. Assuming a 60° water–resist contact angle, consider a 100-nm space with a space aspect ratio of 3. The maximum aspect ratio of the line will be 4.3 (a 70-nm linewidth before the line collapses)；--[p363]-- the surface tension of water, which at room temperature is about 0.072 N/m (72 dyne/cm)"
+ },
+ {
+  "query_id": "MCK-13",
+  "query": "浸没式光刻的 NA 天花板：用水做浸没液最高能到多少？书里提到高折射率液体能推到多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "实用 NA 约为浸没液折射率的 93%；水在 193nm 下 n=1.44，故水浸没 NA 最高约 1.35；高折射率液体（如 n=1.65）可把 NA 推到约 1.5，再往上则受光刻胶折射率限制（193nm 胶约 1.7），需要提高胶的折射率才能继续增加。",
+  "success_criteria": "答出 NA≤1.35（水）与高折射率液体约 1.5 两个数字",
+  "evidence": "--[p118]-- Practical numerical apertures for immersion systems are probably in the range of 93 % of the refractive index of the fl uid. For water, with n = 1.44 at 193 nm, this means a numerical aperture of up to 1.35；--[p118]-- High-index fl uids (n = 1.65, for example) could enable numerical apertures as high as 1.5. Beyond this level, the maximum angle is limited by the refractive index of the photoresist"
+ },
+ {
+  "query_id": "MCK-14",
+  "query": "光子散粒噪声这块，为什么说 EUV 比 193nm 严重得多？书里给的数量级对比是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "13.5nm 一个光子能量 1.47×10⁻¹⁷ J，约为 193nm（1.03×10⁻¹⁸ J）的 15 倍；加上 EUV 胶灵敏度目标是比 193nm 胶灵敏 2–4 倍，因此 EUV 像面单位区域接收的光子数比 193nm 少 30–60 倍，相对散粒噪声按 1/√⟨n⟩ 增大，故严重得多。193nm 例子：剂量 10 mJ/cm²、1×1nm 区域约 97 个光子（σ≈10%），10×10nm 区域约 200 个光子（σ≈7%，相对标准差约 1%）。",
+  "success_criteria": "答出光子能量约 15 倍、光子数少 30–60 倍的对比关系",
+  "evidence": "--[p238]-- At a wavelength of 13.5 nm, the energy of one photon will be 1.47 × 10⁻¹⁷ J, about 15 times greater than at 193 nm. Also, the goal for resist sensitivity will be to have EUV resists that are 2–4 times more sensitive than 193-nm resists…Thus, the number of photons will be 30–60 times less for EUV than for a 193-nm lithography；--[p237]-- \\frac { \\sigma _ { I } } { \\langle I \\rangle } = \\frac { \\sigma _ { n } } { \\langle n \\rangle } = \\frac { 1 } { \\sqrt { \\langle n \\rangle } }\\tag{6.36}"
+ },
+ {
+  "query_id": "MCK-15",
+  "query": "为什么 248/193nm 光刻不能像 i-line 那样光靠 PEB 扩散把驻波抹平、非得用 BARC？书里的理由是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "要消除驻波，扩散长度必须达到约半个驻波周期量级；i-line 驻波半周期约 70–80nm 量级而 i-line 极限特征约 300nm 以上，尚可行；但 248nm 下驻波半周期约 35–40nm，而特征尺寸小于 130nm，有效消除驻波所需扩散长度要接近特征尺寸的三分之一，这个比例太大、会明显劣化图像本身，因此 248/193nm 光刻改用底部抗反射涂层（BARC）而不是单靠 PEB 扩散来抑制驻波。",
+  "success_criteria": "答出'扩散长度需≈1/3 特征尺寸、过大导致图像劣化，故用 BARC'这一因果链",
+  "evidence": "--[p212]-- The standing wave half period is about 35–40 nm, but features smaller than 130 nm are regularly imaged；--[p212]-- Thus, to remove standing waves effectively, the diffusion length must approach one-third of the feature size, a fraction that is too large to avoid signifi cant image degradation. As a result, for 248- and 193-nm lithography, standing waves are reduced using bottom antirefl ection coatings rather than relying solely on diffusion during PEB"
+ },
+ {
+  "query_id": "MCK-16",
+  "query": "帮我按书里的驻波周期公式算一下：i-line 365nm、胶折射率取 1.7，驻波周期是多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Period = λ/2n₂ = 365nm/(2×1.7) ≈ 107.4nm（约 107nm）。依据式 (4.20)；365nm 为书所述 UV 波段，胶折射率 1.7 取自书中'光刻胶折射率约 1.6–1.7'的典型范围。",
+  "success_criteria": "算式 λ/(2n₂) 正确，结果约 107nm（104–111nm 区间内且单位 nm）",
+  "evidence": "--[p133]-- Period = λ / 2 n_2\\tag{4.20}；--[p20]-- Lithography systems have progressed from blue wavelengths (436 nm) to UV (365 nm) to deep-UV (248 nm) to today's mainstream high-resolution wavelength of 193 nm；--[p110]-- For typical photoresists (with refractive indices between 1.6 and 1.7)"
+ },
+ {
+  "query_id": "MCK-17",
+  "query": "用书里 193nm、dose-to-clear 10 mJ/cm² 那组数据，自己推一遍 1×1nm 区域的平均光子数和相对标准差，看跟书里给的对不对得上。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "平均曝光能量⟨I⟩T≈剂量 10 mJ/cm²=0.01 J/cm²；1nm×1nm 面积=10⁻¹⁴ cm²；光子能量 hc/λ≈1.03×10⁻¹⁸ J（193nm）。光子数 ⟨n⟩ = 0.01/1.03e-18 × 1e-14 ≈ 97 个；相对标准差 = 1/√97 ≈ 0.10 即约 10%（σ≈10 个光子）。与书中给的 97 和 10% 一致。",
+  "success_criteria": "给出换算过程，光子数≈97（90–105 区间），相对标准差≈10%",
+  "evidence": "--[p238]-- As an example, consider a 193-nm exposure of a resist with a dose-to-clear of 10 mJ/ cm2…At this wavelength, the energy of one photon, hc/l, is about 1.03 × 10⁻¹⁸ J. For an area of 1 × 1 nm, the mean number of photons during the exposure, from Equation (6.34), is about 97. The standard deviation is about 10, or about 10 % of the average；--[p237]-- \\frac { \\sigma _ { I } } { \\langle I \\rangle } = \\frac { 1 } { \\sqrt { \\langle n \\rangle } }\\tag{6.36}"
+ },
+ {
+  "query_id": "MCK-18",
+  "query": "2006 年那台浸没式机（NA 1.2、193nm），按书里双光束极限 pitch 公式算，理论最小可成像 pitch 是多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "ultimate pitch resolution = λ/2NA = 193nm/(2×1.2) ≈ 80.4nm（约 80nm，对应 k_pitch=0.5 的双光束极限，需交替相移掩模或优化 OAI 实现）。",
+  "success_criteria": "算式 λ/(2NA)，结果约 80nm（79–82nm 区间）且说明这是双光束极限",
+  "evidence": "--[p415]-- ultimate pitch resolution = λ / 2 NA\\tag{10.4}…Thus, for two-beam imaging, the minimum k_pitch is 0.5；--[p20 [表]]-- Table 1.2…Numerical Aperture | 0.28 | 1.2"
+ },
+ {
+  "query_id": "MCK-19",
+  "query": "驻波振幅受哪几个因素控制？顺着书里的思路，BARC 和 TARC 分别是通过压哪个因素来压驻波的？帮我串起来讲。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步（4.1.2/4.2.4）：驻波振幅取决于衬底反射率 |ρ₂₃|、空气-胶反射率 |ρ₁₂| 和胶体吸收 e^(−αD)，标准减振手段有三：(1) 用 BARC 降低衬底反射率 |ρ₂₃|；(2) 用 TARC 降低空气-胶反射率 |ρ₁₂|；(3) 提高吸收（加染料增大 α）减小 e^(−αD)。第二步（4.3/BARC 章节）：BARC 是衬底上的薄吸收层，可把衬底对胶所见的反射率压到远低于 1%。应按'先查驻波公式 → 再查减振措施 → 再查 BARC 原理'的多跳路径作答。",
+  "success_criteria": "答出三个反射率/吸收因素并正确对应 BARC→ρ₂₃、TARC→ρ₁₂ 的映射",
+  "evidence": "--[p151]-- (1) reduce substrate refl ectivity |ρ_23| by using a bottom antirefl ection coating; (2) reduce air–resist refl ectivity |ρ_12| by using a top antirefl ection coating; and (3) reduce e^−αD by increasing absorption；--[p133]-- The fi rst is to reduce the refl ectivity of the substrate (reduce ρ_23). The use of an antirefl ection coating on the substrate is one of the most common methods of reducing standing waves (see section 4.3). The second method…is to increase absorption in the resist (reduce the e^−αD term). This is accomplished by adding a dye to the photoresist (increasing α)；--[p21]-- coating the substrate with a thin absorbing layer called a bottom antirefl ective coating (BARC) that can reduce the refl ectivity of the substrate as seen by the photoresist to much less than 1 %"
+ },
+ {
+  "query_id": "MCK-20",
+  "query": "帮我从定义推到应用串一遍：NILS 是怎么定义的？等线/空间相干三光束的 image MEEF 用 NILS 怎么表示？掩模误差又是怎么按这个关系侵蚀有效曝光宽容度的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：NILS = w·dln(I)/dx（式 3.92），在标称线边处、以标称线宽归一化的对数斜率。第二跳：对等线/空间，∂lnI/∂lnw 在 x=CD/2 处为常数 2（式 8.78），故 image MEEF = 4/NILS（式 8.79）。第三跳：掩模 CD 误差等效为剂量误差，有效曝光宽容度 EL_eff ≈ EL(1 − MEEF·ΔCD_mask/ΔCD_spec)（式 8.81），ΔCD_spec 为定义曝光宽容度所用 CD 公差（如 0.2×标称 CD），即掩模误差按 MEEF 倍数缩减可用曝光宽容度。",
+  "success_criteria": "三个公式（3.92、8.79、8.81）全部正确且逻辑链完整",
+  "evidence": "--[p122]-- NILS = w \\frac { \\mathrm { d } \\ln ( I ) } { \\mathrm { d } x }\\tag{3.92}；--[p353]-- \\left. \\frac { \\partial \\ln { I } } { \\partial \\ln { w } } \\right| _ { x = C D / 2 } = 2\\tag{8.78} Thus, the coherent three-beam equal line/space image MEEF, including defocus, becomes image MEEF = \\frac { 4 } { N I L S }\\tag{8.79}；--[p354]-- If EL is the exposure latitude when no mask errors are present, then the effective exposure latitude in the presence of mask errors of range ∆CD_mask will be EL_eff ≈ EL(1 − MEEF·∆CD_mask/∆CD_spec)\\tag{8.81}"
+ },
+ {
+  "query_id": "MCK-21",
+  "query": "驻波周期这块我要两个数：193nm、NA 0.93、σ=0.7 的典型算例里，正入射的摆动周期是多少、部分相干下变成多少？300nm 厚胶的 swing ratio 又被压低百分之几？把书里的推导思路说一下。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "正入射时摆动（驻波）周期为 λ/2n₂，该算例下为 56nm；部分相干（扩展光源多角度）下周期按 Period = λ/(2n₂cosθ_eff)、θ_eff=θ₂max/√2 变为约 59nm；对 300nm 厚胶，swing ratio 按 sin(c)/c 压低，sin(c)/c = 0.77，即降低 23%。推导思路：对源内各角度的摆动曲线积分，余弦项生成摆动、sinc 项作振幅调制，c = πD(σNA)²/(λn₂)，s_max=σNA/n₂。",
+  "success_criteria": "56nm、59nm、sin(c)/c=0.77（23%）三个数全部正确",
+  "evidence": "--[p152]-- Consider a typical 193-nm imaging case where NA = 0.93 and σ = 0.7…--[p152]-- The swing curve period for normally incident light would be 56 nm, but for the partially coherent light it grows slightly to 59 nm. The real impact is in the reduction of the swing ratio, which for a 300-nm-thick resist would produce sin(c)/c = 0.77, meaning a 23% reduction in the swing ratio；--[p152]-- \\mathrm { P e r i o d } = \\frac { \\lambda } { 2 n _ { 2 } \\cos \\theta _ { \\mathrm { e f f } } } \\quad \\mathrm { w h e r e } \\quad \\theta _ { \\mathrm { e f f } } = \\frac { \\theta _ { 2 \\mathrm { m a x } } } { \\sqrt { 2 } }\\tag{4.70}；--[p152]-- c = \\frac { \\pi D ( \\sigma N A ) ^ { 2 } } { \\lambda n _ { 2 } }"
+ },
+ {
+  "query_id": "MCK-22",
+  "query": "等线/空间三光束成像下，CD-剂量对数斜率随离焦按平方变化：让这个斜率翻倍的离焦量 Δ 的近似公式是什么？这个离焦下 NILS 等于什么？两者书里分别是哪几个式子？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "dlnCD/dlnE 在最佳焦点处的值随离焦按 [1+((F−F₀)/Δ)²] 变化（式 8.37）；Δ 是使 log-CD-vs-log-dose 斜率翻倍的离焦量，Δ = λ/(√2·πn)·(1−√(1−(λ/p)²))⁻¹ ≈ √2·p²/(πnλ)（式 8.41）。同一模型下三光束纯相干成像的 NILS = 8cos(ΔΦ)（式 8.39），其中 ΔΦ = 2πn(F−F₀)(1−√(1−(λ/p)²))/λ。",
+  "success_criteria": "写出式 8.41 的 Δ 近似式与式 8.39 的 NILS=8cosΔΦ，且说明 Δ 的定义（斜率翻倍的离焦量）",
+  "evidence": "--[p328]-- \\frac { \\mathrm { d } \\ln C D } { \\mathrm { d } \\ln E } { = } \\frac { \\mathrm { d } \\ln C D } { \\mathrm { d } \\ln E } \\Bigg [ { _ { F = F _ { 0 } } } \\Bigg [ 1 { + } \\Bigg ( \\frac { F - F _ { 0 } } { \\Delta } \\Bigg ) ^ { 2 } \\Bigg ]\\tag{8.37} where…∆ is the focus error that causes the log-CD-versus-log-dose slope to double；--[p329]-- \\Delta = \\frac { \\lambda } { \\sqrt { 2 } \\pi n } \\Big ( 1 - \\sqrt { 1 - \\left( \\lambda / p \\right) ^ { 2 } } \\Big ) ^ { - 1 } \\approx \\frac { \\sqrt { 2 } p ^ { 2 } } { \\pi n \\lambda }\\tag{8.41}；--[p328]-- NILS = 8 \\cos ( \\Delta \\Phi )\\tag{8.39}"
+ },
+ {
+  "query_id": "MCK-23",
+  "query": "按书里 Tanaka 悬臂梁模型帮我定量估一下：193nm 胶 E 取 3 GPa、水表面张力 0.072 N/m、接触角 60°，线高 300nm、线宽 70nm、间距 100nm，干燥时的毛细力和线顶偏移量 δ 各是多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "毛细力（每单位线长）F = 2σH·cosθ/w_s（式 8.84）= 2×0.072 N/m×300nm×cos60°/100nm = 0.216 N/m；线顶偏移 δ = (3/2)(F/E)(H/w₁)³（式 8.85）= 1.5×(0.216/3e9)×(300/70)³ ≈ 1.5×7.2×10⁻¹¹×78.7 ≈ 8.5×10⁻¹⁰ m ≈ 0.85nm。所有输入（E 取 2–6 GPa 范围内、σ=0.072 N/m、式 8.84/8.85）均出自书中；且偏移随线深宽比三次方变化。",
+  "success_criteria": "F≈0.216 N/m 且 δ≈0.85nm（0.7–1.0nm 区间），两个公式来源正确",
+  "evidence": "--[p363]-- F = { \\frac { \\sigma H } { R } } { = } { \\frac { 2 \\sigma H \\cos { \\theta } } { w _ { \\mathrm { s } } } }\\tag{8.84}；--[p363]-- \\delta = { \\frac { 3 } { 2 } } \\biggl ( { \\frac { F } { E } } \\biggr ) \\biggl ( { \\frac { H } { w _ { 1 } } } \\biggr ) ^ { 3 }\\tag{8.85} Note that the amount of bending is proportional to the cube of the aspect ratio of the resist line；--[p363]-- Resists have been measured to have Young's modulus values in the range of 2–6 GPa…the surface tension of water, which at room temperature is about 0.072 N/m (72 dyne/cm)"
+ },
+ {
+  "query_id": "MCK-24",
+  "query": "掩模误差吃曝光宽容度：设某层曝光宽容度 10%、所用特征 MEEF=3、掩模 CD 误差范围 5nm、标称 CD 100nm（规格取 0.2×标称 CD）。按书里的公式算，有效曝光宽容度还剩多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "按式 (8.81)：EL_eff ≈ EL(1 − MEEF·ΔCD_mask/ΔCD_spec)。ΔCD_spec = 0.2×100nm = 20nm；EL_eff = 10%×(1 − 3×5/20) = 10%×0.25 = 2.5%。即掩模 CD 误差按 MEEF 倍数放大侵占 CD 公差后，10% 宽容度仅剩 2.5%；该式还可用来整体缩放曝光宽容度-DOF 曲线以评估掩模误差对可用 DOF 的影响。",
+  "success_criteria": "算式与结果 EL_eff=2.5% 正确（中间量 ΔCD_spec=20nm 明确）",
+  "evidence": "--[p354]-- EL_eff ≈ EL( 1 − MEEF \\frac { \\Delta C D _ { \\mathrm { m a s k } } } { \\Delta C D _ { \\mathrm { s p e c } } } )\\tag{8.81} where ∆CD_spec is the CD tolerance used to defi ne the exposure latitude (for example, 0.2 times the nominal CD). This expression can be used to scale an entire exposure latitude versus depth of focus plot, such as Figure 8.22, and thus can also be used to determine the effect of mask errors on the available depth of focus"
+ },
+ {
+  "query_id": "MCK-25",
+  "query": "我想优化 LER，帮我按书串一条链：先讲酸扩散长度怎么影响脱保护浓度涨落和潜像梯度，再讲扩散长度本身由哪些 PEB 参数决定，最后说清为什么存在一个最优扩散长度、偏离两侧分别受什么限制。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "链路 1（9.8 LER）：LER ∝ σ_m*/(dm*/dx)（式 9.94），要低 LER 须同时降低脱保护浓度的标准差 σ_m* 并增大其梯度；酸扩散增大可减小 σ_m* 但会减小潜像梯度（式 9.92 与 9.43 合并可见两者对扩散的依赖相反）。链路 2（6.2.2/5.3）：扩散长度 σ_D = √(2Dt)（D 为酸在胶中的扩散率），扩散率随温度服从 Arrhenius 形式 D₀(T)=A_r·e^(−Ea/RT)（式 6.13），故由 PEB 温度和时间决定。链路 3：存在最优扩散长度使 LER 最小——低于最优值时 LER 受 σ_m* 限制（增大扩散改善 LER），高于最优值时受梯度限制（再增大扩散劣化梯度、恶化 LER）；书中 45nm 特征算例对捕获范围 a=1/2/3nm 均存在最小化 LER 的扩散长度。",
+  "success_criteria": "三段链完整：LER∝σ_m*/梯度、σ_D=√(2Dt) 与 Arrhenius 温度依赖、'低于最优受 σ_m* 限制/高于最优受梯度限制'的结论全部答出",
+  "evidence": "--[p404]-- There is one interesting variable in common to both: acid diffusion. Increasing acid diffusion will reduce σ_m*, but will reduce the latent image gradient. One would expect, then, an optimum level of diffusion to minimize the LER；--[p404]-- LER \\propto \\frac { \\sigma _ { m ^ { * } } } { \\mathrm { d } m ^ { * } / \\mathrm { d } x }\\tag{9.94}；--[p405]-- Below the optimum diffusion length, LER is limited by σ_m* so that increasing the diffusion will improve LER. Above the optimum diffusion length the LER is gradient limited, so that increases in diffusion further degrade the gradient and worsen the LER；--[p228]-- The Gaussian diffusion kernel is affected by time integration through the diffusion length, σ_D = √(2Dt), where D is the acid diffusivity in resist；--[p226]-- D _ { 0 } ( T ) = A _ { \\mathrm { r } } { \\mathrm { e } } ^ { - E _ { \\mathrm { a } } / R T }\\tag{6.13}"
+ }
+]

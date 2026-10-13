@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P01-01",
+  "query": "书里电弧放电法制备的单壁碳纳米管,典型的外径大概是多少?管长是什么量级?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "SWNT 典型外径约 1.4 nm;长度为微米量级(micrometric)。",
+  "success_criteria": "答出外径约 1.4 nm 且答出长度为微米量级,单位正确",
+  "evidence": "--[p97]-- In these conditions, which give high SWNT yields, SWNT concentrations are highest in the collaret (50–70%), then in the web (≈ 50% or less) and then in the soot. On the other hand, c-MWNTs are found in the cathode deposit. SWNT lengths are micrometric and, typical outer diameters are around 1.4 nm."
+ },
+ {
+  "query_id": "P01-02",
+  "query": "3C、4H、6H 这三种 SiC 晶型的带隙各是多少电子伏特?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "3C-SiC 带隙 2.3 eV,4H-SiC 为 2.9 eV,6H-SiC 为 3.2 eV。",
+  "success_criteria": "三个数值 2.3/2.9/3.2 eV 全部答出且与晶型对应正确",
+  "evidence": "--[p378]-- Silicon carbide (SiC) has long been recognized as the leading semiconductor for use in high-temperature and high-power electronics... The cubic polytype, called 3C-SiC, has an electronic bandgap of 2.3 eV, which is over twice that of Si. --[p378]-- The electronic bandgaps of 4H- and 6H-SiC are even higher than 3C-SiC, being 2.9 and 3.2 eV, respectively."
+ },
+ {
+  "query_id": "P01-03",
+  "query": "做 MEMS 膜和谐振梁的话,单晶硅的杨氏模量书里给的是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "约 190 GPa。",
+  "success_criteria": "答出约 190 GPa,单位为 GPa",
+  "evidence": "--[p369]-- Singlecrystal Si has favorable mechanical properties (i. e., a Young's modulus of about 190 GPa), enabling its use as a material for membranes, resonant beams, and other such structures."
+ },
+ {
+  "query_id": "P01-04",
+  "query": "硅的热氧化制 SiO2 一般在什么温度区间做?能长到的最大实用厚度是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "热氧化温度 900–1200°C(氧气或水汽气氛);由于自限制,最大实用厚度约 2 µm,且只能用于硅表面。",
+  "success_criteria": "答出 900–1200°C 且答出最大约 2 µm,两个数值和单位均正确",
+  "evidence": "--[p374]-- Thermal oxidation ofSi is performed at temperatures of 900–1200°C in the presence of oxygen or steam. Since thermal oxidation is a self-limiting process, the maximum practical film thickness that can be obtained is about 2 µm, whichis sufficient for many sacrificial applications. As noted by its name, thermal oxidation of Si can only be performed on Si surfaces."
+ },
+ {
+  "query_id": "P01-05",
+  "query": "用 PMMA 做纳米压印胶,它的玻璃化转变温度和折射率分别是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Tg 为 105°C(表 9.3 中记为 100°C,压印温度 160–190°C);折射率 n = 1.49。",
+  "success_criteria": "答出 Tg≈105°C(100–105°C 均可接受)且 n=1.49",
+  "evidence": "--[p323]-- The glass-transition temperature Tg of PMMA (105°C) is low enough to enable molding at temperatures below 200°C, but high enough to ensure sufficient thermal stability in etching processes. --[p323 [表]]-- Poly(methyl methacrylate) (PMMA) | Chlorobenzene, safe solvents | 100 (at 160-190) | 3×10^4 | The classic NIL resist, refractive index n = 1.49"
+ },
+ {
+  "query_id": "P01-06",
+  "query": "KOH、EDP、TMAH 三种各向异性硅腐蚀液,从安全性角度该怎么选?哪个最温和、哪个最危险?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "TMAH 最温和(最良性);EDP 极具腐蚀性且致癌。选择时还应考虑安全性与 CMOS 兼容性。",
+  "success_criteria": "答出 TMAH 最温和且 EDP 腐蚀性强/致癌",
+  "evidence": "--[p277]-- Safety and CMOS compatibility are other important criteria for choosing a particular anisotropic etchant. Among the three mentioned etchants TMAH is the most benign, whereas EDP is extremely corrosive and carcinogenic."
+ },
+ {
+  "query_id": "P01-07",
+  "query": "电镀铜的时候电流密度一般控制在什么范围?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "推荐电流密度为 5–100 mA/cm² 量级(铜常在硫化铜基溶液中电镀,表面反应为 Cu²⁺+2e⁻→Cu)。",
+  "success_criteria": "答出 5–100 mA/cm²,单位正确",
+  "evidence": "--[p274]-- As an example, copper electrodeposition is frequently done in copper sulfide-based solutions. The reaction taking place at the surface is Cu²⁺ + 2e⁻ → Cu(s). Recommended current densities for electrodeposition processes are on the order of 5–100 mA/cm²"
+ },
+ {
+  "query_id": "P01-08",
+  "query": "书里说 ZnO 纳米线激光的阈值比三维块材低,帮我算一下低了多少倍?",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "ZnO 纳米线激射阈值 ≈40 kW/cm²,三维对应物 ≈300 kW/cm²;300 ÷ 40 = 7.5,即低约 7.5 倍。",
+  "success_criteria": "给出算式 300/40=7.5,结论为约 7.5 倍",
+  "evidence": "--[p193]-- Compared to conventional semiconductor lasers, the exciton laser action employed in zinc oxide nanowire lasers exhibits a lower lasing threshold (≈ 40 kW/cm²) than their 3-D counterparts (≈ 300 kW/cm²)."
+ },
+ {
+  "query_id": "P01-09",
+  "query": "美国能源部氢计划对车载可逆储氢定的商业化基准指标是多少?重量和体积两个数都要。",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "系统重量效率(氢气重量/系统重量)6.5 wt%,体积密度 63 kg H₂/m³。",
+  "success_criteria": "6.5 wt% 与 63 kg H2/m3 两个数值均答出且单位正确",
+  "evidence": "--[p129]-- The US Department of Energy Hydrogen Plan has provided a commercially significant benchmark for the amount of reversible hydrogen adsorption required. --[p129]-- This benchmark requires a system weight efficiency (the ratio of H2 weight to system weight) of 6.5 wt % hydrogen, and a volumetric density of 63 kg H2/m³"
+ },
+ {
+  "query_id": "P01-10",
+  "query": "想用多壁碳纳米管存氩气,书里 Gadd 等人的热等静压工艺参数是什么?管里氩气压力到室温能保持多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "对 20–150 nm 的催化生长 MWNT 在 1700 bar 氩压、650°C 下热等静压(HIPing)48 h;室温下管内氩压估计约 600 bar,说明 HIP 过程中管内已达到平衡压力。",
+  "success_criteria": "答出 48 h/650°C/1700 bar 三个工艺参数,并答出室温约 600 bar",
+  "evidence": "--[p130]-- Their experiments show that large amounts of argon can be trapped in catalytically grown MWNTs (20–150 nm) by hot isostatic pressing (HIPing) for 48 h at 650°C under an argon pressure of 1700 bar. --[p130]-- Further studies determined the argon pressure inside the tubes at room temperature. The authors estimated this to be around 600 bar, indicating that equilibrium pressure was attained in the tubes during the HIP-ing."
+ },
+ {
+  "query_id": "P01-11",
+  "query": "HiPCo 工艺是用什么做碳源、什么做催化剂前驱体的?书里怎么描述它的产物纯度?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HiPCo 工艺(Rice 大学开发)以 CO 为碳源、从 Fe(CO)5 得到催化颗粒生产 SWNT,产物声称基本不含副产物(relatively free of by-products),温度压力条件适用于工业化装置,纯度很高。",
+  "success_criteria": "答出碳源 CO 与前驱体 Fe(CO)5,并答出高纯/几乎无副产物",
+  "evidence": "--[p106]-- A significant breakthrough concerning this technique could be the HiPCo process developed at Rice University, which produces SWNTs of very high purity. --[p106]-- This gas phase catalytic reaction uses carbon monoxide to produce, from [Fe(CO)5], a SWNT material that is claimed to be relatively free of by-products. The temperature and pressure conditions required are applicable to industrial plants."
+ },
+ {
+  "query_id": "P01-12",
+  "query": "浮动催化剂法里二茂铁和苯的摩尔比怎么决定产物?我想分别拿到 SWNT、MWNT 和碳纳米纤维,比例各控制在多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "二茂铁/苯摩尔比高(典型 ≈15%)时得 SWNT;在 ≈4%–9% 之间时得 MWNT;低于 ≈4% 时得碳纳米纤维。",
+  "success_criteria": "三个区间 ≈15%、4–9%、&lt;4% 与产物对应全部正确",
+  "evidence": "--[p105]-- In an independent study [3.109], it was shown that the general tendency is: 1. To synthesize SWNTs when the ferrocene/benzene molar ratio is high, typically ≈15% 2. To produce MWNTs when the ferrocene/benzene molar ratio is between ≈ 4 and ≈ 9% 3. To synthesize carbon nanofibers when the ferrocene/benzene molar ratio is below ≈ 4%."
+ },
+ {
+  "query_id": "P01-13",
+  "query": "书里那台 FIB-CVD 用的什么离子源和前驱体气体?两个系统的束径分别是多少?坩埚加热到多少度?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Ga⁺ 离子束,加速 30 keV;前驱体为菲(phenanthrene, C14H10);SMI9200 束径约 7 nm、SMI2050 约 5 nm;源坩埚加热到 85°C。",
+  "success_criteria": "答出 30 keV Ga+、C14H10 前驱体、7 nm/5 nm 束径和 85°C,数值齐全",
+  "evidence": "--[p249]-- We used two commercially available FIB systems (SMI9200, SMI2050, SII Nanotechnology Inc., Tokyo, Japan) with a Ga⁺ ion beam operating at 30 keV. The FIB-CVD used a phenanthrene (C14H10) precursor as the source material. The beam diameter of the SMI9200 system was about 7 nm and that of the SMI2050 system was about 5 nm. --[p249]-- The crucible of the source was heated to 85°C."
+ },
+ {
+  "query_id": "P01-14",
+  "query": "碳纳米管的比表面积大概能到多少?MWNT 和 SWNT/DWNT 差多少,理论极限又是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "密堆 MWNT 从几十 m²/g 起,SWNT/DWNT 可接近 1000 m²/g;单个封闭 SWNT 的理论极限约 1300 m²/g。",
+  "success_criteria": "答出 SWNT/DWNT 接近 1000 m2/g 与理论极限约 1300 m2/g,并说明 MWNT 仅几十 m2/g",
+  "evidence": "--[p138]-- The specific surface area can range from a few tens of squared metres per gram in the case of densely packed MWNTs to just below 1000 m²/g in the case of SWNTs and DWNTs (the theoretical limit being ca. 1300 m²/g in the case of individual closed SWNTs)."
+ },
+ {
+  "query_id": "P01-15",
+  "query": "热氧化 SiO2 的介电强度是 1.1×10^6 V/cm,那 LTO 的介电强度按书里的说法算出来是多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "书中给出 LTO 介电强度约为热氧化硅的 80%:1.1×10^6 V/cm × 0.8 = 8.8×10^5 V/cm。",
+  "success_criteria": "给出算式 1.1×10^6×0.8=8.8×10^5 V/cm,结果与单位正确",
+  "evidence": "--[p374]-- Thermal SiO2 and LTO are electrical insulators used in numerous MEMS applications. The dielectric constants of thermal oxide and LTO are 3.9 and 4.3, respectively. The dielectric strength of thermal SiO2 is 1.1×10^6 V/cm, and for LTO it is about 80% of that value [11.21]."
+ },
+ {
+  "query_id": "P01-16",
+  "query": "热压印里初始胶厚 600 nm、压模浮雕深度 400 nm、填充分数 0.5,按体积守恒公式压透之后凸模下的残余胶层有多厚?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按式(9.1) hf = h0 − ν·hr = 600 nm − 0.5×400 nm = 600 − 200 = 400 nm。",
+  "success_criteria": "给出算式 600−0.5×400=400 nm,结果 400 nm 正确",
+  "evidence": "--[p316]-- In the case of viscous molding, where volume conservation can be anticipated, the residual layer thickness can be calculated from geometrical parameters such as the initial film thickness and the size and density of cavities --[p316]-- hf = h0 − ν hr with ν = Σi wi / Σi(si+wi). This formula only applies for rigid stamps with constant fill factor."
+ },
+ {
+  "query_id": "P01-17",
+  "query": "我要做 MWNT,书里说 Ivanov 他们比较下来哪组催化剂/载体组合最好?再用那组组合的话,碳源气用什么、配气怎么配?先查组合再查碳源。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索到 Ivanov 等在石墨或 SiO2 负载的 Fe/Co/Ni/Cu 过渡金属颗粒上分解碳源制备纳米管,最优组合为 Co–SiO2(其他组合多生成碳纤维);再据此检索到碳源为乙炔 C2H2(纯气或与 H2 混合)。",
+  "success_criteria": "先答出 Co-SiO2 最优,再答出碳源为 C2H2(纯或混 H2),两跳齐全",
+  "evidence": "--[p103]-- Ivanov et al. [3.89] prepared nanotubes through the decomposition of C2H2 (pure or mixed with H2) on well-dispersed transition metal particles (Fe, Co, Ni, Cu) supported on graphite or SiO2. Co–SiO2 was found to be the best catalyst/support combination for the preparation of MWNTs, but most of the other combinations led to carbon filaments, sometimes covered with amorphouslike carbon."
+ },
+ {
+  "query_id": "P01-18",
+  "query": "压印胶我想要折射率 1.415、比 PMMA 的 Tg 更低的低玻璃化温度材料,书里对应哪个牌号?再查一下它的 Tg、压印温度范围和典型压印温度下的粘度。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先按 n=1.415 检索到低 Tg 压印胶 mr-I 7000(及 E 型);再查得 Tg 为 60°C(压印温度范围 125–150°C),粘度 3×10³ Pa·s(E 型在 140°C)。",
+  "success_criteria": "答出 mr-I 7000、Tg 60°C(125–150°C)与 3×10^3 Pa·s,两跳齐全",
+  "evidence": "--[p323]-- mr-I 7000 [9.144] and E | Safe solvent | 60 (125-150) | 3×10³ (E grade at 140 °C) | Low Tg NIL resist, n = 1.415"
+ },
+ {
+  "query_id": "P01-19",
+  "query": "你这本书里有没有钙钛矿太阳能电池(spiro-OMeTAD 空穴传输层那种)的制备工艺和效率数据?帮我整理一下。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及钙钛矿太阳能电池,书中太阳能电池相关内容仅涉及纳米线/纳米棒混合有机-无机太阳能电池(如 CdSe 纳米棒+聚(3-乙基噻吩)体系,单色功率效率 6.9%、功率转换效率 1.7%),并据此澄清或拒答,不得编造钙钛矿数据。",
+  "success_criteria": "明确说明书中无钙钛矿太阳能电池内容并拒答/澄清,可正确引用书中实际仅有的 CdSe 纳米棒电池数据",
+  "evidence": "--[p195]-- A solar cell prepared from a composite of CdSe nanorods inside poly(3-ethylthiophene) [4.225] yielded monochromatic power efficiencies of 6.9% and power conversion efficiencies of 1.7% under A.M. 1.5 illumination (equal to solar irradiance through 1.5 times the air mass of the Earth at direct normal incidence)."
+ },
+ {
+  "query_id": "P01-20",
+  "query": "我们车间要用氢氟酸,这本书里有没有给出 HF 的职业暴露限值(比如 OSHA PEL)或者安全防护标准?有的话把数值列出来。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书仅把 HF/BHF 作为 SiO2、玻璃的刻蚀剂介绍(如 BHF 中 SiO2 刻蚀速率约 1000 Å/min),未提供任何职业暴露限值或安全防护标准数据,应明确告知书中无此信息并建议查阅安全规范,不得编造限值。",
+  "success_criteria": "明确说明书中未给出 HF 暴露限值/防护标准并拒答编造,可正确引用书中 HF 仅作为刻蚀剂的用法",
+  "evidence": "--[p276]-- Silicon dioxide is commonly etched in dilute (6 : 1, 10 : 1, or 20: 1 by volume) or buffered HF (BHF: HF + NH4F) solutions (etchrate of ≈ 1000 Å/min in BHF). --[p276]-- The etch mechanism for this combination has been elucidated and is as follows: HNO3 is used to oxidize the silicon, which is subsequently dissolved away in the HF."
+ },
+ {
+  "query_id": "P01-21",
+  "query": "电弧法做 SWNT:先查哪对催化剂组合的产率最高,再查该最优条件(表 3.1 第 4 列)下 SWNT 在哪些产物区浓度最高、具体浓度是多少,最后告诉我这种条件下 SWNT 的典型外径。把三步都串起来回答。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一步:单用稀土(如 Y)不能长 SWNT,稀土与过渡金属联用(Ni/Y)组合产率最高;换成 Ni/Co(表 3.1 第 3 列)则阻止 SWNT 形成。第二步:高 SWNT 产率条件下浓度排序为 collaret(50–70%)&gt; web(≈50% 或更低)&gt; soot,c-MWNT 在阴极沉积物中。第三步:该条件下 SWNT 长度为微米量级,典型外径约 1.4 nm。",
+  "success_criteria": "三跳齐全:Ni/Y 最优(且 Ni/Co 例外)、collaret 50–70%&gt;web≈50%&gt;soot 的排序、典型外径约 1.4 nm",
+  "evidence": "--[p99]-- It is clear that while the use of a rare earth element (such as Y) as a single catalyst does not provide the right conditions to grow SWNTs, associating it with a transition metal (Ni/Y for instance) seems to lead to the best combinations that give the highest SWNT yields [3.47] --[p97]-- For instance (Table 3.1, column 3), using Ni/Co instead of Ni/Y as catalysts prevents the formation of SWNTs. --[p97]-- In these conditions, which give high SWNT yields, SWNT concentrations are highest in the collaret (50–70%), then in the web (≈ 50% or less) and then in the soot. On the other hand, c-MWNTs are found in the cathode deposit. SWNT lengths are micrometric and, typical outer diameters are around 1.4 nm."
+ },
+ {
+  "query_id": "P01-22",
+  "query": "我用 KOH 在 85–115°C 范围内各向异性刻 (100) 硅,按书里的典型刻蚀速率要在 100 片上刻 30 µm 深的 V 形槽,需要刻多长时间?V 槽表面开口宽度按 (111) 侧壁 54.7° 算是多少?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "刻蚀速率取书中的典型值 ≈1 µm/min(85–115°C),刻 30 µm 需 30 µm ÷ 1 µm/min = 30 min;(100) 片上 (111) 慢面形成 54.7° 斜壁,V 槽开口宽度 = 2×30/tan(54.7°) ≈ 2×30/1.41 ≈ 42.4 µm(约 42–43 µm 均可)。",
+  "success_criteria": "给出 30 min(允许 85–115°C 内取 1 µm/min 典型值)和开口宽度约 42.4 µm(42–43 µm),算式完整",
+  "evidence": "--[p276]-- The etch rate depends on the concentration and temperature and is usually around 1 µm/min at temperatures of 85–115°C. --[p276]-- As can be seen, the (111) slow planes are exposed in both situations, one creating 54.7° sloped side-walls in the (100) wafer and the other creating vertical side-walls in the (110) wafer. Depending on the dimensions of the mask opening, a V-groove or a trapezoidal trench is formed in the (100) wafer."
+ },
+ {
+  "query_id": "P01-23",
+  "query": "DOE 的储氢基准是 6.5 wt%,而书里说对同一根 (10,10) SWNT 用量子力学分子动力学模型算出的储量只有 0.47%,帮我算算理论预测离达标还差多少倍。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节检索两个数据后计算:6.5 wt% ÷ 0.47 wt% ≈ 13.8,即 QM 分子动力学预测值与 DOE 商业化基准相差约 13.8 倍(约 14 倍)。",
+  "success_criteria": "给出算式 6.5/0.47≈13.8,结论为约 13.8 倍(13–14 倍可接受)",
+  "evidence": "--[p129]-- This benchmark requires a system weight efficiency (the ratio of H2 weight to system weight) of 6.5 wt % hydrogen, and a volumetric density of 63 kg H2/m³ --[p129]-- While considering the same (10,10) SWNT, calculations based on DFT predicted between 14.3 and 1 wt % storage [3.342,343], calculations based on a geometrical model predicted 3.3% [3.334], and calculations based on a quantum mechanical molecular dynamics model predicted 0.47% [3.344]."
+ },
+ {
+  "query_id": "P01-24",
+  "query": "项目要在 300°C 高温环境做 MEMS 传感器,书里推荐哪种半导体材料、理由是什么?这材料体硅湿法加工行不行、结构怎么释放?把材料选择、加工限制和释放方案串起来讲。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一步:SiC 被视为高温高功率电子的首选半导体,面向苛刻环境 MEMS(3C 带隙 2.3 eV,为 Si 的两倍多)。第二步:加工限制——SiC 不被任何湿法 Si 腐蚀液刻蚀,也不被常用干法释放刻蚀剂 XeF2 腐蚀,&gt;1800°C 直接升华不熔化,体微加工极难。第三步:结构释放/图形化——用含氟气体(CHF3、SF6 加 O2)的 RIE/ICP 刻蚀并用 Al/Ni/ITO 硬掩模,或利用微模铸(micromolding)借助多晶硅/SiO2 牺牲层成型。",
+  "success_criteria": "三段齐全:SiC 适合苛刻环境及带隙数据、不可湿法刻蚀/不耐 XeF2/&gt;1800°C 升华、用氟基 RIE+金属硬掩模或微模铸释放",
+  "evidence": "--[p378]-- Silicon carbide (SiC) has long been recognized as the leading semiconductor for use in high-temperature and high-power electronics and is currently being developed as a material for harsh-environment MEMS... SiC is not etched in any wet Si etchants and is not attacked by XeF2, a popular dry Si etchant used for releasing device structures [11.44]. SiC is a material that does not melt, but rather sublimes at temperatures in excess of 1800°C. --[p380]-- RIE processes using fluorinated compounds such as CHF3 and SF6 combined with O2 and sometimes with an inert gas or H2 are used to pattern thin films. The high oxygen content in these plasmas generally prohibits the use of photoresist as a masking material; therefore, hard masks made of Al, Ni, and ITO are often used."
+ },
+ {
+  "query_id": "P01-25",
+  "query": "LCoS 投显要在 450 nm 蓝光下把偏振分束器的消光比做到 2000 以上,书里说对光栅周期有什么硬性要求、为什么普通光学光刻做不出来?NIL 是怎么把周期做到 100 nm 的?商用的红外亚波长偏振器性能又到什么水平?",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一层:蓝光(≈450 nm)要消光比&gt;2000 需 pitch d≤100 nm,常规光学光刻做不到。第二层:Yu 等用 NIL 做出大面积 100×100 mm² 的 d=100 nm 光栅——先用 Ar 离子激光(λ=351.1 nm)干涉光刻在光刻胶中做出约 200 nm 周期并经 RIE 转移进 200 nm 厚 SiO2 层,再经 Si3N4 保形 CVD + CHF3/O2 各向异性 RIE 的空间频率倍增把周期减半到 100 nm,最后热 NIL 复制出 d=100 nm 的 Al 线栅;所得 50×50 mm² 器件在 450 nm 蓝光下消光比&gt;2000、透射率&gt;85%。第三层:商用红外(1.0–1.8 µm)纳米压印亚波长偏振器透射率&gt;97%、透射消光优于 40 dB。",
+  "success_criteria": "三层齐全:d≤100 nm 的要求及原因、干涉光刻 351.1 nm+频率倍增到 100 nm 的工艺链与 450 nm 下消光比&gt;2000/透射&gt;85%、红外商用品透射&gt;97% 且消光&gt;40 dB",
+  "evidence": "--[p333]-- For applications in liquid-crystal display (LCD) and LCoS projection devices, it is a key challenge to obtain a sufficiently high extinction ratio, larger than 2000, at the shorter wavelengths, i.e., for blue light (λ ≈ 450 nm). This requires a pitch d of 100 nm or smaller, which is not practical for producing with conventional optical lithography. Yu et al. [9.244], demonstrated a largearea (100×100 mm²) d = 100 nm by NIL. The stamp gratings were formed by interference lithography using an Ar-ion laser (λ = 351.1 nm) to achieve a pitch around 200 nm, which was transferred to a SiO2 film by RIE. --[p333]-- The pitch was subsequently halved by spatial frequency doubling [9.244]: conformal CVD deposition of Si3N4 and anisotropic trifluoromethane/oxygen (CHF3/O2) RIE. --[p333]-- The 50×50 mm² devices (Figs. 9.29 and 9.30) have an extinction ratio over 2000 and a transmittance above 85% in the blue, at λ = 450 nm. --[p333]-- Nanoimprinted subwavelength polarizers for the infrared (1.0 µm &lt; λ &lt; 1.8 µm) are also commercially available [9.246], with a transmittance above 97% and transmission extinction better than 40 dB."
+ }
+]

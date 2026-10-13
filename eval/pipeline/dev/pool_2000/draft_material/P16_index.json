@@ -1,0 +1,326 @@
+{
+ "doc": "Optical Lithography Here is Why (SPIE Press Monograph Vol. PM190) (Burn J. Lin)",
+ "chunks": 1907,
+ "headings": [
+  [
+   "Chapter 5 Components in Optical Lithography > 5.7 Antireflection Coatings",
+   72
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.4.2 The lumped parameters",
+   46
+  ],
+  [
+   "Processing and Optimization > Index",
+   35
+  ],
+  [
+   "Processing and Optimization > 6.1.4.2 Focus monitoring",
+   31
+  ],
+  [
+   "Processing and Optimization > 7.4.2.5 Simulation results with PDS",
+   30
+  ],
+  [
+   "Processing and Optimization > 7.4.1.1 Recombination of spatial frequency vectors in the resist",
+   26
+  ],
+  [
+   "Processing and Optimization > 6.1.5 Exposure tool throughput management",
+   23
+  ],
+  [
+   "Processing and Optimization > 6.4.1.2 Geometrical decomposition",
+   21
+  ],
+  [
+   "Processing and Optimization > 6.3.2.2 Simulation results",
+   20
+  ],
+  [
+   "Processing and Optimization > 8.3.3 Comparison of the different systems",
+   19
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.3 The effect of a finite numerical aperture on the spherical wavefront",
+   19
+  ],
+  [
+   "Processing and Optimization > 7.7.3 Monitoring the immersion hood and special routing",
+   19
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.4.2 The Zernike aberration coefficients",
+   19
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.6.2.5 Multiple reflections",
+   19
+  ],
+  [
+   "Processing and Optimization > 6.1.4.1 Components in DOF<sub>required</sub>",
+   18
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.5.1 Coherent imaging from a mask pattern",
+   18
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.6.1.3 Imaging configurations",
+   18
+  ],
+  [
+   "Processing and Optimization > 7.1 Introduction",
+   17
+  ],
+  [
+   "Optical Lithography Here Is Why > Contents",
+   17
+  ],
+  [
+   "Processing and Optimization > 8.2.2 EUV sources",
+   17
+  ],
+  [
+   "Processing and Optimization > 7.6.2 Polylayer",
+   16
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.6.1.2 Working principle",
+   16
+  ],
+  [
+   "Processing and Optimization > 7.5.2 The immersion medium",
+   16
+  ],
+  [
+   "Processing and Optimization > 7.5.4 Bubbles in the immersion medium",
+   16
+  ],
+  [
+   "Processing and Optimization > 6.3.4.2.2 Model-based OPC",
+   16
+  ],
+  [
+   "Processing and Optimization > 6.3.1.1 Alternating phase-shifting mask (AltPSM)",
+   15
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.6.2 Spatial frequencies of line-space pairs",
+   15
+  ],
+  [
+   "Processing and Optimization > 8.2.3.3.3 Overlay error from mask flatness",
+   15
+  ],
+  [
+   "Processing and Optimization > 8.1.1 Optical lithography galaxy for logic gates",
+   15
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.4 The Resist Image",
+   15
+  ],
+  [
+   "Processing and Optimization > 7.4.2.2 Stray light from recombination of spatial frequency vectors inside the resist",
+   14
+  ],
+  [
+   "Optical Lithography Here Is Why > 2.2 Projection Printing and a Comparison to Proximity Printing",
+   14
+  ],
+  [
+   "Optical Lithography Here Is Why > 2.5 Step and Scan",
+   14
+  ],
+  [
+   "Processing and Optimization > 6.4.1.4 CDU summation",
+   13
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.4.1 The A, B, C coefficients",
+   13
+  ],
+  [
+   "Processing and Optimization > 7.4.2.4 Incorporating polarization effects to E-D windows",
+   13
+  ],
+  [
+   "Processing and Optimization > 6.3.2.1.3 Analytic forms",
+   13
+  ],
+  [
+   "Processing and Optimization > 6.4.2.2 Active compensation on tracks",
+   12
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.3.4.4 PSM configurations",
+   11
+  ],
+  [
+   "Optical Lithography Here Is Why > 2.6 Reduction and 1X Systems",
+   11
+  ],
+  [
+   "Processing and Optimization > 6.2.3 Resist developing",
+   11
+  ],
+  [
+   "Optical Lithography Here Is Why > Preface",
+   11
+  ],
+  [
+   "Processing and Optimization > 6.3.1.2 Attenuated phase-shifting mask (AttPSM)",
+   10
+  ],
+  [
+   "Processing and Optimization > 6.2.1.5 Saving resist material",
+   10
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.5 From Aerial Image to Resist Image",
+   10
+  ],
+  [
+   "Processing and Optimization > 7.4.1.3 Different effects of polarized illumination",
+   10
+  ],
+  [
+   "Processing and Optimization > 7.3.1 Transmission and reflection in multilayered media",
+   10
+  ],
+  [
+   "The Metrics of Lithography > 4.3.3 Determination of $\\pmb { k } _ { 1 } , \\pmb { k } _ { 2 } ,$ and $\\pmb { k _ { 3 } }$ using E-D windows",
+   10
+  ],
+  [
+   "Processing and Optimization > 7.6.1 Simulation for an immersion system",
+   10
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.2.2 Impact of multiple reflections on DOF",
+   10
+  ],
+  [
+   "The Metrics of Lithography > 4.1 The Resolution and DOF Scaling Equations",
+   10
+  ],
+  [
+   "Processing and Optimization > 6.1.1 Optimization of NA",
+   10
+  ],
+  [
+   "Processing and Optimization > 8.3.1 Introduction to e-beam imaging",
+   10
+  ],
+  [
+   "Processing and Optimization > 7.8.3 Polarized illumination",
+   10
+  ],
+  [
+   "Processing and Optimization > 7.6.3 Contact layer",
+   10
+  ],
+  [
+   "Processing and Optimization > 7.4.1.2 Polarized refraction and reflection at the resist surface",
+   10
+  ],
+  [
+   "Processing and Optimization > 8.2.6 EUV resists",
+   9
+  ],
+  [
+   "The Metrics of Lithography > 4.5.8.5 Combination of resist processing tolerances",
+   9
+  ],
+  [
+   "Processing and Optimization > 7.6.4 Metal layer",
+   9
+  ],
+  [
+   "Processing and Optimization > 6.3.2.1.1 Conceptual illustration",
+   9
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.6.3 Profile of resist images",
+   9
+  ],
+  [
+   "The Metrics of Lithography > 4.5.8.6 Combination of image field positions",
+   9
+  ],
+  [
+   "Processing and Optimization > 7.8.4 Double exposures and pitch splitting",
+   9
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.3 Masks",
+   9
+  ],
+  [
+   "Processing and Optimization > 8.3.2.1 MAPPER MEB ML2 system",
+   9
+  ],
+  [
+   "Optical Lithography Here Is Why > 2.3 Full-Wafer Field",
+   9
+  ],
+  [
+   "Optical Lithography Here Is Why > 2.1 Proximity Printing",
+   9
+  ],
+  [
+   "Optical Lithography Here Is Why > Chapter 7 Immersion Lithography / 323",
+   9
+  ],
+  [
+   "Processing and Optimization > 6.3.2.1.2 3D illumination on 2D geometry",
+   9
+  ],
+  [
+   "Chapter 5 Components in Optical Lithography > 5.1.2.2 Bandwidth narrowing",
+   9
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.7 Imaging results",
+   9
+  ],
+  [
+   "Processing and Optimization > 7.3.3 Diffraction DOF",
+   8
+  ],
+  [
+   "Processing and Optimization > 7.3.2 Effects of wafer defocus movements",
+   8
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.4.1 The Seidel aberration coefficients",
+   8
+  ],
+  [
+   "Processing and Optimization > 8.2.1 Introduction",
+   8
+  ],
+  [
+   "Processing and Optimization > 6.2.2.3 Postexposure bake",
+   8
+  ],
+  [
+   "Processing and Optimization > 7.5.7 The photoresist",
+   8
+  ],
+  [
+   "Optical Lithography Here Is Why > 3.1.5.3 Partial coherent imaging from a mask pattern",
+   8
+  ],
+  [
+   "Processing and Optimization > 8.2.4 EUV projection optics",
+   8
+  ],
+  [
+   "Processing and Optimization > 7.3.7 Tradeoff between resolution and DOF<sub>diffrac</sub>",
+   8
+  ]
+ ]
+}

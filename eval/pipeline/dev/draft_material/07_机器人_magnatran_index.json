@@ -1,0 +1,3290 @@
+{
+ "doc": "双臂取晶圆机器人magnatran_71",
+ "chunks": 2205,
+ "headings": [
+  [
+   "CAUTION > Description",
+   138
+  ],
+  [
+   "CAUTION > Arguments",
+   97
+  ],
+  [
+   "CAUTION > Purpose",
+   90
+  ],
+  [
+   "CAUTION > Format",
+   88
+  ],
+  [
+   "CAUTION > Wiring Diagrams",
+   45
+  ],
+  [
+   "CAUTION > CAUTION",
+   40
+  ],
+  [
+   "CAUTION > Example",
+   36
+  ],
+  [
+   "CAUTION > Examples",
+   25
+  ],
+  [
+   "WARNING > CAUTION",
+   24
+  ],
+  [
+   "CAUTION > Troubleshooting Process:",
+   24
+  ],
+  [
+   "CAUTION",
+   22
+  ],
+  [
+   "CAUTION > Mount/CDM",
+   21
+  ],
+  [
+   "Alignment and Calibration > Command Quick Reference Tables",
+   18
+  ],
+  [
+   "CAUTION > Response",
+   18
+  ],
+  [
+   "CAUTION > Mount/Serial Communication",
+   17
+  ],
+  [
+   "CAUTION > CDM Related Errors",
+   17
+  ],
+  [
+   "CAUTION > PROCEDURE:",
+   17
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Operation ration",
+   16
+  ],
+  [
+   "WARNING > WARNING",
+   15
+  ],
+  [
+   "Changes > WARNING",
+   14
+  ],
+  [
+   "Changes > DANGER",
+   13
+  ],
+  [
+   "WARNING",
+   13
+  ],
+  [
+   "CAUTION > Symptoms:",
+   13
+  ],
+  [
+   "HEAVY LIFTING > CAUTION",
+   12
+  ],
+  [
+   "Alignment and Calibration > Adjustment Procedure",
+   12
+  ],
+  [
+   "CAUTION > Command Comparison",
+   12
+  ],
+  [
+   "CAUTION > Overview",
+   11
+  ],
+  [
+   "WARNING > Required Tools",
+   11
+  ],
+  [
+   "Alignment and Calibration > Description",
+   11
+  ],
+  [
+   "CAUTION > Configuration Compatibility Commands",
+   10
+  ],
+  [
+   "HEAVY LIFTING > WARNING",
+   9
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Tables",
+   9
+  ],
+  [
+   "CAUTION > Troubleshooting Overview",
+   9
+  ],
+  [
+   "CAUTION > The following commands use R\\_MT sensing:",
+   8
+  ],
+  [
+   "Alignment and Calibration > CAUTION",
+   8
+  ],
+  [
+   "CAUTION > Key Descriptions",
+   8
+  ],
+  [
+   "CAUTION > RS-422 Pin-outs",
+   8
+  ],
+  [
+   "Alignment and Calibration > Required Tools and Test Equipment",
+   7
+  ],
+  [
+   "Changes > CAUTION",
+   7
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Figures",
+   7
+  ],
+  [
+   "CAUTION > Identification",
+   7
+  ],
+  [
+   "CAUTION > WARNING",
+   7
+  ],
+  [
+   "CAUTION > TOOLS:",
+   7
+  ],
+  [
+   "CAUTION > Operational Interlocks",
+   6
+  ],
+  [
+   "CAUTION > Dual Arm Motion",
+   6
+  ],
+  [
+   "CAUTION > STATIONS",
+   6
+  ],
+  [
+   "CAUTION > Example:",
+   6
+  ],
+  [
+   "CAUTION > Control/Display Module",
+   6
+  ],
+  [
+   "CAUTION > Serial Communication SIO1",
+   6
+  ],
+  [
+   "CAUTION > Dispatcher/Communications Errors",
+   6
+  ],
+  [
+   "WARNING > DANGER",
+   6
+  ],
+  [
+   "CAUTION > Speed",
+   6
+  ],
+  [
+   "CAUTION > Robot Wafer Sensor Errors",
+   6
+  ],
+  [
+   "Maintenance and Repair > Required Tools",
+   6
+  ],
+  [
+   "Alignment and Calibration > Adjustment/Calibration Strategy",
+   6
+  ],
+  [
+   "WARNING > Removal Procedure",
+   6
+  ],
+  [
+   "Removal Procedure",
+   6
+  ],
+  [
+   "CAUTION > Illustrated Parts Catalog",
+   6
+  ],
+  [
+   "Alignment and Calibration > Format",
+   5
+  ],
+  [
+   "Changes > MagnaTran 7 Robot Overview",
+   5
+  ],
+  [
+   "CAUTION > Station Coordinate System",
+   5
+  ],
+  [
+   "Alignment and Calibration > Example :",
+   5
+  ],
+  [
+   "CAUTION > DANGER",
+   5
+  ],
+  [
+   "Changes > Overview",
+   5
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual",
+   5
+  ],
+  [
+   "CAUTION > Theory of Operation",
+   5
+  ],
+  [
+   "CAUTION > Robot Arms",
+   5
+  ],
+  [
+   "Alignment and Calibration > Purpose",
+   5
+  ],
+  [
+   "WARNING > Replacement Procedure",
+   5
+  ],
+  [
+   "CAUTION > Verifying “Arm State” of Magnatran 7",
+   5
+  ],
+  [
+   "CAUTION > Radial Motion Related Issues",
+   5
+  ],
+  [
+   "Required Tools",
+   5
+  ],
+  [
+   "DANGER",
+   5
+  ],
+  [
+   "CAUTION > Appendix E: User Setting Tables",
+   5
+  ],
+  [
+   "CAUTION > Z Axis Drive Assembly",
+   4
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Maintenance and Repair",
+   4
+  ],
+  [
+   "Changes > Isopropyl Alcohol Safety Information",
+   4
+  ],
+  [
+   "CAUTION > Marathon Express High Side Interface Board",
+   4
+  ],
+  [
+   "CAUTION > Configuration Errors",
+   4
+  ],
+  [
+   "CAUTION > Hardware Memory Structure",
+   4
+  ],
+  [
+   "CAUTION > T1/T2 Drive Assembly",
+   4
+  ],
+  [
+   "CAUTION > Marathon Express I/O",
+   4
+  ],
+  [
+   "CAUTION > Reserved Workspace Names",
+   4
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Example of Teaching a Station with the CDM:",
+   4
+  ],
+  [
+   "HEAVY LIFTING",
+   4
+  ],
+  [
+   "CAUTION > Arm Removal/Replacement Procedure",
+   4
+  ],
+  [
+   "Changes > Documentation Overview",
+   4
+  ],
+  [
+   "CAUTION > Command:",
+   4
+  ],
+  [
+   "CAUTION > The Workspace Overview",
+   4
+  ],
+  [
+   "CAUTION > BiSymmetrik™ Dual Pan Arm Set",
+   4
+  ],
+  [
+   "CAUTION > MagnaTran 7.1 Wafer Handling Robot Overview",
+   4
+  ],
+  [
+   "CAUTION > Leapfrog™ Same-Side Dual Arm Set",
+   4
+  ],
+  [
+   "CAUTION > I/O Mapping Errors",
+   4
+  ],
+  [
+   "Alignment and Calibration > Background Mode",
+   4
+  ],
+  [
+   "CAUTION > HOME ALL",
+   4
+  ],
+  [
+   "CAUTION > Station Setup Errors",
+   4
+  ],
+  [
+   "CAUTION > Successful Action Test",
+   4
+  ],
+  [
+   "CAUTION > Appendix C: Torque Settings",
+   4
+  ],
+  [
+   "CAUTION > S",
+   4
+  ],
+  [
+   "CAUTION > Robot Motion DIO Inhibition",
+   3
+  ],
+  [
+   "Changes > Personnel Safety Guidelines",
+   3
+  ],
+  [
+   "CAUTION > Flow",
+   3
+  ],
+  [
+   "Alignment and Calibration > Robot Alignment",
+   3
+  ],
+  [
+   "Alignment and Calibration > Alignment Procedure",
+   3
+  ],
+  [
+   "Alignment and Calibration > Command Reference",
+   3
+  ],
+  [
+   "CAUTION > LOCATE AXIS ?",
+   3
+  ],
+  [
+   "CAUTION > Real Time Clock Errors",
+   3
+  ],
+  [
+   "Alignment and Calibration > Alignment Strategy",
+   3
+  ],
+  [
+   "Changes > HEAVY LIFTING",
+   3
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Troubleshooting",
+   3
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Installation",
+   3
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Operation",
+   3
+  ],
+  [
+   "Changes > Electrical Hazard Classifications",
+   3
+  ],
+  [
+   "CAUTION > Special Notes on the PowerPak",
+   3
+  ],
+  [
+   "Alignment and Calibration > Command Types",
+   3
+  ],
+  [
+   "HEAVY LIFTING > Mount the Arm Set",
+   3
+  ],
+  [
+   "CAUTION > Motion Control",
+   3
+  ],
+  [
+   "CAUTION > (enter STN# <CR>)",
+   3
+  ],
+  [
+   "Alignment and Calibration > WARNING",
+   3
+  ],
+  [
+   "Changes > Material Safety Information",
+   3
+  ],
+  [
+   "HEAVY LIFTING > Required Tools",
+   3
+  ],
+  [
+   "Changes > Operation Overview",
+   3
+  ],
+  [
+   "Changes > Chapter Contents",
+   3
+  ],
+  [
+   "CAUTION > Chapter Contents",
+   3
+  ],
+  [
+   "CAUTION > Power Connections",
+   3
+  ],
+  [
+   "CAUTION > Data Reporting (VT5 format only)",
+   3
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Setting Up Stations",
+   3
+  ],
+  [
+   "CAUTION > Off Center PICK and PLACE Feature",
+   3
+  ],
+  [
+   "Alignment and Calibration > Verifying Flatness of Robot’s End Effector",
+   3
+  ],
+  [
+   "Alignment and Calibration > Arguments",
+   3
+  ],
+  [
+   "CAUTION > HOME Operation",
+   3
+  ],
+  [
+   "WARNING > Repair Philosophy",
+   3
+  ],
+  [
+   "HEAVY LIFTING > End Effector Pad Replacement",
+   3
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > A Sample Session",
+   3
+  ],
+  [
+   "WARNING > Repair Procedures",
+   3
+  ],
+  [
+   "HEAVY LIFTING > Replacement Procedure",
+   3
+  ],
+  [
+   "CAUTION > Manual Create",
+   3
+  ],
+  [
+   "CAUTION > Safety Interlock",
+   3
+  ],
+  [
+   "Alignment and Calibration > Overview",
+   3
+  ],
+  [
+   "CAUTION > Error Code Comparison",
+   3
+  ],
+  [
+   "WARNING > SET COMPATIBILTY HALT (MAG6 |VT5) SET COMPATIBILTY CPTR (MAG6 |VT5) SET COMPATIBILTY SPEED (MAG6 |VT5) STORE COMPATIBILTY ALL",
+   3
+  ],
+  [
+   "CAUTION > Contents",
+   3
+  ],
+  [
+   "WARNING > Resetting Brooks Automation Factory Parameters:",
+   3
+  ],
+  [
+   "CAUTION > R",
+   3
+  ],
+  [
+   "WARNING > Required Tools and Test Equipment",
+   3
+  ],
+  [
+   "WARNING > Restore the Home Position to the Factory Settings",
+   3
+  ],
+  [
+   "WARNING > File Lists",
+   3
+  ],
+  [
+   "Replacement Procedure",
+   3
+  ],
+  [
+   "Alignment and Calibration > Measurement Procedure",
+   2
+  ],
+  [
+   "Maintenance and Repair > Preventive Maintenance Schedule",
+   2
+  ],
+  [
+   "Changes > Business Profile",
+   2
+  ],
+  [
+   "CAUTION > HOME Workspace",
+   2
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > CAUTION",
+   2
+  ],
+  [
+   "Changes > Optional Entries",
+   2
+  ],
+  [
+   "CAUTION > INFO",
+   2
+  ],
+  [
+   "CAUTION > MISC I/O Communications",
+   2
+  ],
+  [
+   "HEAVY LIFTING > Replacement",
+   2
+  ],
+  [
+   "Changes > Installation Procedure",
+   2
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Keypad",
+   2
+  ],
+  [
+   "CAUTION > Optional CDM",
+   2
+  ],
+  [
+   "CAUTION > STATION NUMBER (0-4)",
+   2
+  ],
+  [
+   "Changes > Exposed Materials",
+   2
+  ],
+  [
+   "CAUTION > User I/O - Command Parser Errors",
+   2
+  ],
+  [
+   "Alignment and Calibration > Example",
+   2
+  ],
+  [
+   "Changes > Krytox ® (DuPont) Safety Information",
+   2
+  ],
+  [
+   "CAUTION > Single Pan Arm Set",
+   2
+  ],
+  [
+   "CAUTION > R\\_MT Wafer Sensing Technique",
+   2
+  ],
+  [
+   "CAUTION > Error Code Reference",
+   2
+  ],
+  [
+   "Changes > Special Features",
+   2
+  ],
+  [
+   "CAUTION > See Also: REMOVE IO, SET STN OPTION.",
+   2
+  ],
+  [
+   "Alignment and Calibration > Response Types",
+   2
+  ],
+  [
+   "CAUTION > DIO Start-up",
+   2
+  ],
+  [
+   "Changes > Laser Hazards",
+   2
+  ],
+  [
+   "Changes > Mechanical Hazards",
+   2
+  ],
+  [
+   "CAUTION > Subsystems",
+   2
+  ],
+  [
+   "CAUTION > Description:",
+   2
+  ],
+  [
+   "CAUTION > Low Side I/O",
+   2
+  ],
+  [
+   "CAUTION > MAP PRESSURE NUMERIC\\_IN TO DIGITAL\\_IN 0XF00",
+   2
+  ],
+  [
+   "CAUTION > Servo Position Recording",
+   2
+  ],
+  [
+   "CAUTION > CDM SPEED",
+   2
+  ],
+  [
+   "Alignment and Calibration > Command and Response Structure",
+   2
+  ],
+  [
+   "Changes > Supplementary and Related Documentation",
+   2
+  ],
+  [
+   "Changes > Prepare Surface for Mounting",
+   2
+  ],
+  [
+   "Changes > Unpacking Instructions",
+   2
+  ],
+  [
+   "CAUTION > ERROR NUMBER (0-2)",
+   2
+  ],
+  [
+   "CAUTION > Pre-Extend test",
+   2
+  ],
+  [
+   "CAUTION > Radial Motion Setup Procedure",
+   2
+  ],
+  [
+   "Changes > Matrix of Emergency and Corrective Response Actions",
+   2
+  ],
+  [
+   "Alignment and Calibration > Sequential Mode",
+   2
+  ],
+  [
+   "Changes > Helium Safety Information",
+   2
+  ],
+  [
+   "Alignment and Calibration > Adjusting the Robot’s End Effector",
+   2
+  ],
+  [
+   "Changes > Manual Usage",
+   2
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Using Learn mode",
+   2
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Using Assign mode",
+   2
+  ],
+  [
+   "CAUTION > Single Arm Motion",
+   2
+  ],
+  [
+   "CAUTION > Power Pak",
+   2
+  ],
+  [
+   "Changes > Entering Information",
+   2
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Operational Interlocks",
+   2
+  ],
+  [
+   "Changes > Electrical",
+   2
+  ],
+  [
+   "WARNING > Facilitated Field Repair",
+   2
+  ],
+  [
+   "CAUTION > Enable DIO Initialization Sequence",
+   2
+  ],
+  [
+   "Alignment and Calibration > Examples",
+   2
+  ],
+  [
+   "Changes > PINCH POINT",
+   2
+  ],
+  [
+   "CAUTION > High Side I/O",
+   2
+  ],
+  [
+   "Changes > Nitrogen Safety Information",
+   2
+  ],
+  [
+   "Alignment and Calibration > Background Plus Mode",
+   2
+  ],
+  [
+   "CAUTION > Wafer Presence Sensors- Radial Motion",
+   2
+  ],
+  [
+   "Alignment and Calibration > Chapter Contents",
+   2
+  ],
+  [
+   "Alignment and Calibration > STN 4 ARM A 270000",
+   2
+  ],
+  [
+   "CAUTION > R\\_MT Placement Criteria",
+   2
+  ],
+  [
+   "Alignment and Calibration > Teach Arm B Procedure I",
+   2
+  ],
+  [
+   "Changes > Lockout/Tagout",
+   2
+  ],
+  [
+   "Changes > Unpacking and Inspection",
+   2
+  ],
+  [
+   "CAUTION > Required Tools",
+   2
+  ],
+  [
+   "HEAVY LIFTING > Removal/Replacement Procedure",
+   2
+  ],
+  [
+   "CAUTION > Other Workspaces",
+   2
+  ],
+  [
+   "Alignment and Calibration > Limits and Tolerances",
+   2
+  ],
+  [
+   "Changes > Wafer Transfer Time",
+   2
+  ],
+  [
+   "HEAVY LIFTING > Communication Connections",
+   2
+  ],
+  [
+   "CAUTION > R\\_MT Commands",
+   2
+  ],
+  [
+   "Alignment and Calibration > Dip Adjustment",
+   2
+  ],
+  [
+   "WARNING > Depot Field Repair",
+   2
+  ],
+  [
+   "Alignment and Calibration > TOP VIEW:",
+   2
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Safety",
+   2
+  ],
+  [
+   "CAUTION > Bypassing the Safety Motor Enable Interlock Feature",
+   2
+  ],
+  [
+   "CAUTION > Station Errors",
+   2
+  ],
+  [
+   "CAUTION > Low Side Interface Board",
+   2
+  ],
+  [
+   "Alignment and Calibration > Command and Response Compatibility",
+   2
+  ],
+  [
+   "CAUTION > Low Side Logical Outputs",
+   2
+  ],
+  [
+   "Alignment and Calibration > Setting the Transfer and Process Modules’ T and R Coordinates",
+   2
+  ],
+  [
+   "CAUTION > MISC I/O Power",
+   2
+  ],
+  [
+   "CAUTION > Special Notes on RETRACT\\_PIN",
+   2
+  ],
+  [
+   "CAUTION > Alignment and Calibration",
+   2
+  ],
+  [
+   "CAUTION > Mapping the Interlocks",
+   2
+  ],
+  [
+   "CAUTION > MAP P\\_GAUGE\\_1 DISCRETE\\_IN HI TO DIGITAL\\_IN 0X8",
+   2
+  ],
+  [
+   "Alignment and Calibration > Response Types and Syntax",
+   2
+  ],
+  [
+   "Alignment and Calibration > Twist Adjustment",
+   2
+  ],
+  [
+   "CAUTION > DIO Signal Definitions",
+   2
+  ],
+  [
+   "CAUTION > Protective Covers",
+   2
+  ],
+  [
+   "CAUTION > Move:",
+   2
+  ],
+  [
+   "CAUTION > Assigning an Interlock to a Workspace",
+   2
+  ],
+  [
+   "Maintenance and Repair > Schedule",
+   2
+  ],
+  [
+   "CAUTION > Z POSITION STATUS",
+   2
+  ],
+  [
+   "Maintenance and Repair > Overview",
+   2
+  ],
+  [
+   "Changes > Environmental Requirements",
+   2
+  ],
+  [
+   "CAUTION > MAP STN\\_1\\_SLOT SBIT\\_SVLV\\_SEN TO DIGITAL\\_IN 0X3",
+   2
+  ],
+  [
+   "CAUTION > MAP STN\\_1\\_WFR WAF\\_SEN HI TO DIGITAL\\_IN 0X40",
+   2
+  ],
+  [
+   "CAUTION > M",
+   2
+  ],
+  [
+   "CAUTION > COPY RC:\\REMOTE.EXE REMOTE.EXE",
+   2
+  ],
+  [
+   "WARNING > SET COMM M/B MON",
+   2
+  ],
+  [
+   "CAUTION > Reader’s Comments",
+   2
+  ],
+  [
+   "WARNING > Setup Strategy",
+   2
+  ],
+  [
+   "WARNING > Initial Installation",
+   2
+  ],
+  [
+   "WARNING > Control/Display Module Resetting",
+   2
+  ],
+  [
+   "CAUTION > Initial booting of the robot with the new software.",
+   2
+  ],
+  [
+   "CAUTION > Appendix D: Robot Compatibility",
+   2
+  ],
+  [
+   "WARNING > Downloading Station Values Using a Computer:",
+   2
+  ],
+  [
+   "WARNING > Uploading Station Values Using a Computer:",
+   2
+  ],
+  [
+   "CAUTION > E",
+   2
+  ],
+  [
+   "WARNING > RECYCLE",
+   2
+  ],
+  [
+   "CAUTION > Main Power Grounding Scheme Requirements",
+   2
+  ],
+  [
+   "WARNING > Port Configuration RS-232or RS-422",
+   2
+  ],
+  [
+   "CAUTION > STORE R\\_MT SENSE LIMITS INNER OUTER",
+   1
+  ],
+  [
+   "CAUTION > MOVE",
+   1
+  ],
+  [
+   "Changes > Thermal Hazards",
+   1
+  ],
+  [
+   "WARNING > Connection Inspection",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Using Wafer Sensor Setup",
+   1
+  ],
+  [
+   "CAUTION > Store Load Mode",
+   1
+  ],
+  [
+   "Changes > System Responses",
+   1
+  ],
+  [
+   "CAUTION > Set Sync Zero",
+   1
+  ],
+  [
+   "CAUTION > RQ IO STATE STN\\_1\\_SLT IO STATE STN\\_1\\_SLT OPEN",
+   1
+  ],
+  [
+   "Changes > Mounting",
+   1
+  ],
+  [
+   "Changes > Robot Installation",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Setup Strategy",
+   1
+  ],
+  [
+   "CAUTION > PASIV™ Safety Feature Operation",
+   1
+  ],
+  [
+   "Changes > Temperature Range",
+   1
+  ],
+  [
+   "CAUTION > Move",
+   1
+  ],
+  [
+   "CAUTION > Set Station",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Entering Data Values",
+   1
+  ],
+  [
+   "Maintenance and Repair > Chapter Contents",
+   1
+  ],
+  [
+   "CAUTION > SET VLV SEN",
+   1
+  ],
+  [
+   "CAUTION > Store DIO Output",
+   1
+  ],
+  [
+   "CAUTION > GOTO Z UP",
+   1
+  ],
+  [
+   "CAUTION > Discrete I/O Control (DIO)",
+   1
+  ],
+  [
+   "HEAVY LIFTING > End Effector Pad Removal/Replacement",
+   1
+  ],
+  [
+   "CAUTION > Request Sync Zero",
+   1
+  ],
+  [
+   "CAUTION > Request Station Option",
+   1
+  ],
+  [
+   "CAUTION > High Side/Low Side Discrete I/O Assignments Table",
+   1
+  ],
+  [
+   "CAUTION > Set Workspace",
+   1
+  ],
+  [
+   "CAUTION > High Side Logical Outputs",
+   1
+  ],
+  [
+   "CAUTION > CDM Control Mode",
+   1
+  ],
+  [
+   "CAUTION > Arm Description",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Controls and Indicators",
+   1
+  ],
+  [
+   "Alignment and Calibration > Response Syntax",
+   1
+  ],
+  [
+   "CAUTION > ARM EXTEND ENABLE",
+   1
+  ],
+  [
+   "CAUTION > STORE STN 2 OPTION SBIT\\_SVLV\\_SEN STN\\_2\\_SLOT",
+   1
+  ],
+  [
+   "CAUTION > Request Capture",
+   1
+  ],
+  [
+   "WARNING > Top Mount",
+   1
+  ],
+  [
+   "CAUTION > Set the Station Values",
+   1
+  ],
+  [
+   "Alignment and Calibration > Verify Proper PICK and PLACE of Wafer",
+   1
+  ],
+  [
+   "CAUTION > Request Interlock",
+   1
+  ],
+  [
+   "CAUTION > Set Station Option",
+   1
+  ],
+  [
+   "Changes > XX-XXX-XXXX-XX",
+   1
+  ],
+  [
+   "Changes > Robot Drive",
+   1
+  ],
+  [
+   "CAUTION > Purpose:",
+   1
+  ],
+  [
+   "CAUTION > Motion Command Task Errors",
+   1
+  ],
+  [
+   "CAUTION > See Also: RQ IO STATE, MAP, SET STN OPTION",
+   1
+  ],
+  [
+   "Changes > Document and Drawing Numbering",
+   1
+  ],
+  [
+   "CAUTION > STORE STN 4 ARM A R T Z LOWER N SLOTS PITCH",
+   1
+  ],
+  [
+   "CAUTION > Set Station Sensor",
+   1
+  ],
+  [
+   "CAUTION > 4. Enter the following command:",
+   1
+  ],
+  [
+   "CAUTION > DIO Control",
+   1
+  ],
+  [
+   "Changes > Keystrokes",
+   1
+  ],
+  [
+   "Maintenance and Repair > Date and Time ofPM:",
+   1
+  ],
+  [
+   "CAUTION > REQ Request mode",
+   1
+  ],
+  [
+   "CAUTION > Example 2 MAP Command",
+   1
+  ],
+  [
+   "CAUTION > Example 4 MAP Command",
+   1
+  ],
+  [
+   "Changes > Weight",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Units:",
+   1
+  ],
+  [
+   "CAUTION > Request Position Absolute",
+   1
+  ],
+  [
+   "CAUTION > STORE COMM M/B",
+   1
+  ],
+  [
+   "CAUTION > Interface Overview",
+   1
+  ],
+  [
+   "CAUTION > Request Retract 2 Value",
+   1
+  ],
+  [
+   "CAUTION > Operational Interfaces",
+   1
+  ],
+  [
+   "Alignment and Calibration > DIO Stop",
+   1
+  ],
+  [
+   "CAUTION > Find Zero",
+   1
+  ],
+  [
+   "CAUTION > Set I/O Echo",
+   1
+  ],
+  [
+   "CAUTION > Request Workspace",
+   1
+  ],
+  [
+   "WARNING > Cleaning Procedure",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Removal Procedure",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Software Installation",
+   1
+  ],
+  [
+   "CAUTION > arm:",
+   1
+  ],
+  [
+   "CAUTION > Place with an Offset",
+   1
+  ],
+  [
+   "WARNING > End Effector Pad Cleaning Procedure",
+   1
+  ],
+  [
+   "WARNING > O-Ring Removal/Replacement/Cleaning",
+   1
+  ],
+  [
+   "CAUTION > Request Radial Motion Sense",
+   1
+  ],
+  [
+   "CAUTION > STORE STN 4 ARM A OPTION SAFETY",
+   1
+  ],
+  [
+   "CAUTION > MOVE TO STN 1",
+   1
+  ],
+  [
+   "CAUTION > ARM IN USE",
+   1
+  ],
+  [
+   "CAUTION > DIO Fault Conditions",
+   1
+  ],
+  [
+   "CAUTION > SET RADIAL MOTION SENSOR",
+   1
+  ],
+  [
+   "CAUTION > Set Warning CDM Status",
+   1
+  ],
+  [
+   "CAUTION > Wafer Xfer:",
+   1
+  ],
+  [
+   "Alignment and Calibration > Interaction of Adjustments",
+   1
+  ],
+  [
+   "CAUTION > 4",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Grommet Style Pad Replacement",
+   1
+  ],
+  [
+   "CAUTION > Map",
+   1
+  ],
+  [
+   "CAUTION > 5",
+   1
+  ],
+  [
+   "CAUTION > Success Codes",
+   1
+  ],
+  [
+   "CAUTION > Pick",
+   1
+  ],
+  [
+   "Maintenance and Repair > Ball Screw Inspection",
+   1
+  ],
+  [
+   "Alignment and Calibration > Request Response",
+   1
+  ],
+  [
+   "Alignment and Calibration > SET STN 4 T 270000",
+   1
+  ],
+  [
+   "CAUTION > Switch Settings",
+   1
+  ],
+  [
+   "CAUTION > Set Load",
+   1
+  ],
+  [
+   "Changes > Standard Arms",
+   1
+  ],
+  [
+   "CAUTION > MagnaTran 7.1 Application Number",
+   1
+  ],
+  [
+   "Changes > Disconnect Devices",
+   1
+  ],
+  [
+   "CAUTION > HOME R",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Calibration Procedure",
+   1
+  ],
+  [
+   "WARNING > Pads on End Effectors Inspection",
+   1
+  ],
+  [
+   "CAUTION > Station Definitions in Auto-Create",
+   1
+  ],
+  [
+   "CAUTION > XFER 1 6",
+   1
+  ],
+  [
+   "CAUTION > CPTR NOT TRIGGERED",
+   1
+  ],
+  [
+   "CAUTION > SET COMM FLOW BKG",
+   1
+  ],
+  [
+   "Alignment and Calibration > EEPROM Reset",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Control/Display Module",
+   1
+  ],
+  [
+   "Changes > Vision Statement",
+   1
+  ],
+  [
+   "CAUTION > Request Station Sensor",
+   1
+  ],
+  [
+   "CAUTION > RESET ERR",
+   1
+  ],
+  [
+   "HEAVY LIFTING > 8. Re-engage the servos.",
+   1
+  ],
+  [
+   "Changes > Software Notation",
+   1
+  ],
+  [
+   "CAUTION > Emergency Stop CDM",
+   1
+  ],
+  [
+   "Changes > Load Capacity (in addition to end effector mass)",
+   1
+  ],
+  [
+   "WARNING > Wrist Band Inspection",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > WARNING",
+   1
+  ],
+  [
+   "CAUTION > No Emergency Stop Button (optional)",
+   1
+  ],
+  [
+   "CAUTION > STORE STN 4 ARM A OPTION WAF\\_SEN EX STN\\_4\\_WAFR\\_SEN or STORE STN 4 A OPTION WAF\\_SEN EX STN\\_4\\_WAFR\\_SEN",
+   1
+  ],
+  [
+   "CAUTION > On/Off (CDM Mode)",
+   1
+  ],
+  [
+   "CAUTION > Setting the Station Option",
+   1
+  ],
+  [
+   "CAUTION > Request Position Target",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Issuing a STOP in CDM Mode",
+   1
+  ],
+  [
+   "CAUTION > Low Side Logical Inputs",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Peripheral Communication",
+   1
+  ],
+  [
+   "CAUTION > Store Station Sensor",
+   1
+  ],
+  [
+   "HEAVY LIFTING > TOOLS:",
+   1
+  ],
+  [
+   "CAUTION > Operation",
+   1
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Contents",
+   1
+  ],
+  [
+   "CAUTION > DIGITAL\\_IN",
+   1
+  ],
+  [
+   "CAUTION > Power Control",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > R",
+   1
+  ],
+  [
+   "CAUTION > Store Sync Phase",
+   1
+  ],
+  [
+   "CAUTION > Set Z-Brake",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Check-out",
+   1
+  ],
+  [
+   "CAUTION > Store Warning CDM Status",
+   1
+  ],
+  [
+   "CAUTION > Request Load",
+   1
+  ],
+  [
+   "CAUTION > Go To",
+   1
+  ],
+  [
+   "Changes > Extension Limit",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Personality Board Replacement",
+   1
+  ],
+  [
+   "Changes > Noise Emission",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Facilities Connections",
+   1
+  ],
+  [
+   "Changes > Installation",
+   1
+  ],
+  [
+   "CAUTION > Set Workspace Mode",
+   1
+  ],
+  [
+   "Maintenance and Repair > Data Log",
+   1
+  ],
+  [
+   "CAUTION > TRANSFER USING WHICH ARM (1) ARM A (2) ARM B",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Backspace",
+   1
+  ],
+  [
+   "CAUTION > I/O (Interface) Board",
+   1
+  ],
+  [
+   "CAUTION > AT STATION",
+   1
+  ],
+  [
+   "CAUTION > Example 1 MAP Command",
+   1
+  ],
+  [
+   "CAUTION > Request Who",
+   1
+  ],
+  [
+   "CAUTION > Set Load Mode",
+   1
+  ],
+  [
+   "CAUTION > Life Test",
+   1
+  ],
+  [
+   "CAUTION > Find Encoder",
+   1
+  ],
+  [
+   "CAUTION > Left Column Keys",
+   1
+  ],
+  [
+   "CAUTION > Set High Speed",
+   1
+  ],
+  [
+   "CAUTION > OFF - current state does not match configured state",
+   1
+  ],
+  [
+   "CAUTION > Sensor Configuration",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Axis Parameter Selection Keys",
+   1
+  ],
+  [
+   "Changes > Electrical Hazards",
+   1
+  ],
+  [
+   "CAUTION > Ex/Re Sensor Commands",
+   1
+  ],
+  [
+   "CAUTION > Store Workspace AutoCreate",
+   1
+  ],
+  [
+   "Maintenance and Repair",
+   1
+  ],
+  [
+   "CAUTION > Serial Communication SIO2",
+   1
+  ],
+  [
+   "WARNING > Robot Cleaning Procedure",
+   1
+  ],
+  [
+   "CAUTION > Software",
+   1
+  ],
+  [
+   "CAUTION > Store Radial Motion Sense",
+   1
+  ],
+  [
+   "CAUTION > Indicators",
+   1
+  ],
+  [
+   "CAUTION > Control Modes",
+   1
+  ],
+  [
+   "Alignment and Calibration > Check Load",
+   1
+  ],
+  [
+   "WARNING > Replacement/Cleaning Procedure",
+   1
+  ],
+  [
+   "CAUTION > Factory Set HOME Position",
+   1
+  ],
+  [
+   "CAUTION > SET RETRACT WAFER SENSOR",
+   1
+  ],
+  [
+   "CAUTION > Set Capture",
+   1
+  ],
+  [
+   "Changes > Rev. 2.2",
+   1
+  ],
+  [
+   "Changes > Environmental Hazards",
+   1
+  ],
+  [
+   "CAUTION > PC104 CPU (Supervisor) Board",
+   1
+  ],
+  [
+   "Alignment and Calibration > DIO Start",
+   1
+  ],
+  [
+   "CAUTION > Request Sync Phase",
+   1
+  ],
+  [
+   "Changes > Z (Vertical) Axis (3 Axis models only)",
+   1
+  ],
+  [
+   "CAUTION > Store Retract 2 Value",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED >",
+   1
+  ],
+  [
+   "CAUTION > RQ IO STATE P\\_GAUGE\\_1 IO STATE P\\_GAUGE\\_1 ACTIVE",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Pitch",
+   1
+  ],
+  [
+   "CAUTION > ENABLE DIO",
+   1
+  ],
+  [
+   "CAUTION > Halt",
+   1
+  ],
+  [
+   "CAUTION > Transfer",
+   1
+  ],
+  [
+   "CAUTION > POWERED",
+   1
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Operational Interfaces",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Lower",
+   1
+  ],
+  [
+   "CAUTION > High Side Interface Board",
+   1
+  ],
+  [
+   "WARNING > Brooks Factory Repair Services",
+   1
+  ],
+  [
+   "CAUTION > RQ IO STATE PRESSURE",
+   1
+  ],
+  [
+   "CAUTION > Go To Station with Offset",
+   1
+  ],
+  [
+   "CAUTION > Mount",
+   1
+  ],
+  [
+   "HEAVY LIFTING > DANGER",
+   1
+  ],
+  [
+   "CAUTION > Request History",
+   1
+  ],
+  [
+   "CAUTION > PASIV™ commands",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > LIFE TEST",
+   1
+  ],
+  [
+   "CAUTION > 5. Store the new interlock sensor with the following command:",
+   1
+  ],
+  [
+   "CAUTION > Request Background",
+   1
+  ],
+  [
+   "CAUTION > Retract Pin",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Robot Calibration Procedure",
+   1
+  ],
+  [
+   "HEAVY LIFTING > End Effector Replacement",
+   1
+  ],
+  [
+   "Changes > Chemical Hazards",
+   1
+  ],
+  [
+   "CAUTION > Set Mount",
+   1
+  ],
+  [
+   "Changes > Accessories",
+   1
+  ],
+  [
+   "Alignment and Calibration > Operating Modes",
+   1
+  ],
+  [
+   "Alignment and Calibration > 2. The list of error codes may be extended.",
+   1
+  ],
+  [
+   "Alignment and Calibration > Command Types and Syntax",
+   1
+  ],
+  [
+   "CAUTION > 1. Establish serial communication.",
+   1
+  ],
+  [
+   "CAUTION > OFF Checksum disabled",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Initial Power-up Sequence",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Z/BTO",
+   1
+  ],
+  [
+   "CAUTION > MAP STN\\_2\\_SLOT SBIT\\_SVLV\\_SEN LOW TO DIGITAL\\_IN 0X3",
+   1
+  ],
+  [
+   "CAUTION > SET WAFER SENSOR",
+   1
+  ],
+  [
+   "Alignment and Calibration > Teach Arm B Procedure II",
+   1
+  ],
+  [
+   "Alignment and Calibration > DIO STOP",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Required Tools and Test Equipment",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Z Associated Parameters",
+   1
+  ],
+  [
+   "CAUTION > Release",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > All",
+   1
+  ],
+  [
+   "CAUTION > Sensor Interface Specifications",
+   1
+  ],
+  [
+   "CAUTION > Set Station Option VIA Point",
+   1
+  ],
+  [
+   "CAUTION > DIO Output Signals",
+   1
+  ],
+  [
+   "CAUTION > REMOVE STN 11",
+   1
+  ],
+  [
+   "CAUTION > DIO Control Programming",
+   1
+  ],
+  [
+   "Changes > Hardware Notation",
+   1
+  ],
+  [
+   "Changes > Site Requirements",
+   1
+  ],
+  [
+   "CAUTION > SET COMM CHECKSUM offe6",
+   1
+  ],
+  [
+   "CAUTION > SET STNSENSOR TYPE NONE",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Adhesive Backed Pad Replacement",
+   1
+  ],
+  [
+   "Changes > Company Overview",
+   1
+  ],
+  [
+   "CAUTION > REFERENCED STATUS",
+   1
+  ],
+  [
+   "CAUTION > Functional Block Diagram",
+   1
+  ],
+  [
+   "CAUTION > R POSITION",
+   1
+  ],
+  [
+   "CAUTION > Request Reference",
+   1
+  ],
+  [
+   "CAUTION > enter STN#<CR>",
+   1
+  ],
+  [
+   "CAUTION > ACCELERATION AT ARM B",
+   1
+  ],
+  [
+   "Changes > Specifications",
+   1
+  ],
+  [
+   "Alignment and Calibration > Teaching Arm B of the Dual Arm Sets",
+   1
+  ],
+  [
+   "CAUTION > MOVE TYPE (0-1)",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Arm Removal/Replacement",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > T",
+   1
+  ],
+  [
+   "CAUTION > ERROR",
+   1
+  ],
+  [
+   "CAUTION > TO STATION:",
+   1
+  ],
+  [
+   "CAUTION > GET CONTROL FOR THE CDM",
+   1
+  ],
+  [
+   "CAUTION > Z AXIS STATE",
+   1
+  ],
+  [
+   "CAUTION > ARM RETRACT SEN",
+   1
+  ],
+  [
+   "CAUTION > Initial DIO Configuration Procedure",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Host Communication",
+   1
+  ],
+  [
+   "Maintenance and Repair > 5. Firmware Revision:",
+   1
+  ],
+  [
+   "Maintenance and Repair > Parts",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Wrist Band Adjustment",
+   1
+  ],
+  [
+   "Alignment and Calibration > 3. Repeat the procedure for arm ‘B’.",
+   1
+  ],
+  [
+   "WARNING > Priority Parts Service",
+   1
+  ],
+  [
+   "CAUTION > LEARN R, T, BTO",
+   1
+  ],
+  [
+   "Changes > Safety",
+   1
+  ],
+  [
+   "CAUTION > Hllo",
+   1
+  ],
+  [
+   "CAUTION > 6",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Moving in the Menu Tree",
+   1
+  ],
+  [
+   "Changes > Input Power",
+   1
+  ],
+  [
+   "Changes > 2",
+   1
+  ],
+  [
+   "CAUTION > See also: R MOUNT",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Issuing an EMER\\_STOP in DIO Mode",
+   1
+  ],
+  [
+   "Changes > Placement Repeatability",
+   1
+  ],
+  [
+   "CAUTION > Set Workspace AutoCreate",
+   1
+  ],
+  [
+   "CAUTION > Store I/O Echo",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Configuration Compatibility",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Discrete I/O Communication (DIO)",
+   1
+  ],
+  [
+   "Changes > Quality Policy",
+   1
+  ],
+  [
+   "CAUTION > Reset",
+   1
+  ],
+  [
+   "Maintenance and Repair > Cycle Counter:",
+   1
+  ],
+  [
+   "CAUTION > Linefeed",
+   1
+  ],
+  [
+   "CAUTION > Install End Effector",
+   1
+  ],
+  [
+   "Changes > 1.0 kg (2.2 lbs.) each end effector",
+   1
+  ],
+  [
+   "Alignment and Calibration > Command Flows",
+   1
+  ],
+  [
+   "Changes > BiSymmetrik™ Arms:",
+   1
+  ],
+  [
+   "CAUTION > Store Sync Zero",
+   1
+  ],
+  [
+   "CAUTION > Request Mount",
+   1
+  ],
+  [
+   "CAUTION > Creating the Operational Interlocks",
+   1
+  ],
+  [
+   "Alignment and Calibration > Monitor Mode",
+   1
+  ],
+  [
+   "CAUTION > Reference",
+   1
+  ],
+  [
+   "CAUTION > Request Communication",
+   1
+  ],
+  [
+   "CAUTION > Set Teach Speed",
+   1
+  ],
+  [
+   "CAUTION > Responses",
+   1
+  ],
+  [
+   "Alignment and Calibration > Configure Robot Application",
+   1
+  ],
+  [
+   "CAUTION > See also:",
+   1
+  ],
+  [
+   "CAUTION > Controls",
+   1
+  ],
+  [
+   "CAUTION > RQ IO STATE STN\\_1\\_WFR IO STATE STN\\_1\\_WFR BLOCKED",
+   1
+  ],
+  [
+   "Changes > Interlocks",
+   1
+  ],
+  [
+   "CAUTION > High Side/Low Side Interfaces",
+   1
+  ],
+  [
+   "Changes > Manual Notation",
+   1
+  ],
+  [
+   "CAUTION > TARGET STATION",
+   1
+  ],
+  [
+   "CAUTION > Power Supply",
+   1
+  ],
+  [
+   "CAUTION > Request Station",
+   1
+  ],
+  [
+   "CAUTION > Checksum",
+   1
+  ],
+  [
+   "Alignment and Calibration > BOTTOM VIEW shown in Figure 7-2",
+   1
+  ],
+  [
+   "Alignment and Calibration > CHECK LOAD INTLCK EX\\_ENABLE DIS",
+   1
+  ],
+  [
+   "CAUTION > Transfer with an Offset",
+   1
+  ],
+  [
+   "CAUTION > Setting the Station Sensor",
+   1
+  ],
+  [
+   "CAUTION > DISCRETE CONTROL",
+   1
+  ],
+  [
+   "CAUTION > Monitor Mode",
+   1
+  ],
+  [
+   "WARNING > Robot Removal/Replacement",
+   1
+  ],
+  [
+   "CAUTION > Z POSITION",
+   1
+  ],
+  [
+   "CAUTION > Error listings for the MagnaTran 7Robot",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > SELF TEST",
+   1
+  ],
+  [
+   "CAUTION > See Also: RQ IO ECHO, SET IO ECHO",
+   1
+  ],
+  [
+   "CAUTION > T: Theta axis",
+   1
+  ],
+  [
+   "CAUTION > Creating Workspaces",
+   1
+  ],
+  [
+   "CAUTION > Pass Through Feature",
+   1
+  ],
+  [
+   "Changes > Communications",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Emergency Conditions",
+   1
+  ],
+  [
+   "Changes > 3",
+   1
+  ],
+  [
+   "Changes > Disconnect Devices and Interlocks",
+   1
+  ],
+  [
+   "CAUTION > Frame Assembly",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Issuing a HALT Command in Background Mode",
+   1
+  ],
+  [
+   "CAUTION > T1/T2 Axis Driver Board and Z Axis Driver Board",
+   1
+  ],
+  [
+   "Changes > Gas Hazards",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Shut-down",
+   1
+  ],
+  [
+   "Alignment and Calibration > Adjustment Strategy",
+   1
+  ],
+  [
+   "CAUTION > Store Workspace",
+   1
+  ],
+  [
+   "CAUTION > BROOKS AUTOMATION",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Serial Communication",
+   1
+  ],
+  [
+   "CAUTION > Wafer Presence Sensors-Extend and Retract",
+   1
+  ],
+  [
+   "CAUTION > Control/Display Module (CDM) Operation",
+   1
+  ],
+  [
+   "CAUTION > See Also: RQ IO ECHO, STORE IO ECHO",
+   1
+  ],
+  [
+   "Changes > Rev. 2.1",
+   1
+  ],
+  [
+   "CAUTION > 10. Re-engage the servos.",
+   1
+  ],
+  [
+   "CAUTION > Request Revision",
+   1
+  ],
+  [
+   "CAUTION > SET IO STATE SLT\\_1\\_DRV CLOSE",
+   1
+  ],
+  [
+   "CAUTION > RQ IO STATE STN\\_2\\_SLOT",
+   1
+  ],
+  [
+   "CAUTION > COMMAND STATUS",
+   1
+  ],
+  [
+   "CAUTION > Store Communication",
+   1
+  ],
+  [
+   "WARNING > Removal/Replacement Procedure",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Removal",
+   1
+  ],
+  [
+   "CAUTION > Mechanical System",
+   1
+  ],
+  [
+   "CAUTION > Set Home Position Z-Axis",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Required Tools and Materials",
+   1
+  ],
+  [
+   "CAUTION > Set Radial Motion Sense",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Issuing an EMERGENCY STOP on the CDM Mode",
+   1
+  ],
+  [
+   "CAUTION > Request Load Mode",
+   1
+  ],
+  [
+   "CAUTION > R POSITION STATUS",
+   1
+  ],
+  [
+   "WARNING > Cover Inspection",
+   1
+  ],
+  [
+   "Alignment and Calibration > Only 1 variable",
+   1
+  ],
+  [
+   "CAUTION > Request Robot Application",
+   1
+  ],
+  [
+   "Changes > Wafer Sizes",
+   1
+  ],
+  [
+   "Maintenance and Repair > Birth Certificate Information:",
+   1
+  ],
+  [
+   "Alignment and Calibration > Standard form, standard order (both variables)",
+   1
+  ],
+  [
+   "CAUTION > SET STN 2 OPTION SBIT\\_SVLV\\_SEN STN\\_2\\_SLOT",
+   1
+  ],
+  [
+   "CAUTION > STOP Key",
+   1
+  ],
+  [
+   "CAUTION > Pick with an Offset",
+   1
+  ],
+  [
+   "Changes > Notes, Cautions, Warnings, and Pictograms",
+   1
+  ],
+  [
+   "Changes > Rev. 2.0",
+   1
+  ],
+  [
+   "CAUTION > The following is assumed:",
+   1
+  ],
+  [
+   "CAUTION > Set Sync Phase",
+   1
+  ],
+  [
+   "CAUTION > Request Home Position Z-Axis",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Mechanical Checks",
+   1
+  ],
+  [
+   "CAUTION > 2. Enter the following command:",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > LOCATION",
+   1
+  ],
+  [
+   "CAUTION > Emergency Stop (Standard)",
+   1
+  ],
+  [
+   "CAUTION > CHOOSE FUNCTION FROM LEFT COLUMN KEYS",
+   1
+  ],
+  [
+   "CAUTION > Set Arms",
+   1
+  ],
+  [
+   "Alignment and Calibration",
+   1
+  ],
+  [
+   "CAUTION > ASSIGN LOCATION",
+   1
+  ],
+  [
+   "CAUTION > Wafer PICK",
+   1
+  ],
+  [
+   "CAUTION > SET IO STATE PUMP\\_CTRL ACTIVE",
+   1
+  ],
+  [
+   "CAUTION > 11. Re-engage the servos.",
+   1
+  ],
+  [
+   "CAUTION > DRIVE ENABLE",
+   1
+  ],
+  [
+   "Changes > Naming Conventions",
+   1
+  ],
+  [
+   "CAUTION > Store Workspace Mode",
+   1
+  ],
+  [
+   "Changes > Equipment Safety Guidelines",
+   1
+  ],
+  [
+   "CAUTION > See Also: SET IO ECHO, STORE IO ECHO",
+   1
+  ],
+  [
+   "CAUTION > Remove Workspace",
+   1
+  ],
+  [
+   "Changes > Communications Specifications",
+   1
+  ],
+  [
+   "CAUTION > Personality (Motion Control Computer) Board",
+   1
+  ],
+  [
+   "Changes > Operating Specifications:",
+   1
+  ],
+  [
+   "CAUTION > Auto-Create",
+   1
+  ],
+  [
+   "CAUTION > Related Commands",
+   1
+  ],
+  [
+   "CAUTION > Request Version",
+   1
+  ],
+  [
+   "CAUTION > Example 3 MAP Command",
+   1
+  ],
+  [
+   "Alignment and Calibration > PICK 1 SLOT 4ARM A",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Start-up",
+   1
+  ],
+  [
+   "Changes > Fire and Explosion Hazards",
+   1
+  ],
+  [
+   "CAUTION > Map the command",
+   1
+  ],
+  [
+   "CAUTION > Mode",
+   1
+  ],
+  [
+   "CAUTION > Set Interlock",
+   1
+  ],
+  [
+   "Changes > Safety Considerations",
+   1
+  ],
+  [
+   "CAUTION > 3. Store the new interlock sensor with the following command:",
+   1
+  ],
+  [
+   "CAUTION > Find Phase",
+   1
+  ],
+  [
+   "Changes > Vacuum Hazards",
+   1
+  ],
+  [
+   "CAUTION > Home:",
+   1
+  ],
+  [
+   "CAUTION > Request I/O State",
+   1
+  ],
+  [
+   "CAUTION > Request I/O Map",
+   1
+  ],
+  [
+   "Changes > Rev. 1.0",
+   1
+  ],
+  [
+   "CAUTION > SET DIO OUTPUT Y",
+   1
+  ],
+  [
+   "CAUTION > Robot Internal Errors",
+   1
+  ],
+  [
+   "CAUTION > Place",
+   1
+  ],
+  [
+   "CAUTION > Request Workspace Mode",
+   1
+  ],
+  [
+   "Brooks Automation MagnaTran™ 7.1 User’s Manual > Reader’s Comments",
+   1
+  ],
+  [
+   "Alignment and Calibration > Request",
+   1
+  ],
+  [
+   "CAUTION > Defining Tmin and Tmax",
+   1
+  ],
+  [
+   "CAUTION > 8. Re-engage the servos.",
+   1
+  ],
+  [
+   "Changes > Dimensions",
+   1
+  ],
+  [
+   "Alignment and Calibration > Setting the Robot to the Wafer Transport Plane",
+   1
+  ],
+  [
+   "Alignment and Calibration > Robot Operation",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Slot",
+   1
+  ],
+  [
+   "CAUTION > SET COMM M/B MON FLOW BKG",
+   1
+  ],
+  [
+   "CAUTION > Request Position Station",
+   1
+  ],
+  [
+   "Alignment and Calibration > Error Response",
+   1
+  ],
+  [
+   "CAUTION > Monitor Errors",
+   1
+  ],
+  [
+   "Alignment and Calibration > Create Workspace",
+   1
+  ],
+  [
+   "CAUTION > (ALL) (R) (T) (Z)",
+   1
+  ],
+  [
+   "CAUTION > Remove Station",
+   1
+  ],
+  [
+   "CAUTION > Electrical System",
+   1
+  ],
+  [
+   "CAUTION > Request Position Destination",
+   1
+  ],
+  [
+   "Changes > Mechanical Specifications",
+   1
+  ],
+  [
+   "CAUTION > ACCELERATION ARM A",
+   1
+  ],
+  [
+   "CAUTION > ARM",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Normal Running",
+   1
+  ],
+  [
+   "CAUTION > Request Workspace AutoCreate",
+   1
+  ],
+  [
+   "CAUTION > HOME AXIS ?",
+   1
+  ],
+  [
+   "CAUTION > LEARN LOWER",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > PowerPak Power Fault Manager",
+   1
+  ],
+  [
+   "CAUTION > DIGITAL\\_OUT",
+   1
+  ],
+  [
+   "HEAVY LIFTING > PROCEDURE:",
+   1
+  ],
+  [
+   "CAUTION > Wafer PLACE",
+   1
+  ],
+  [
+   "Changes > T(θ) (Rotational) Axis",
+   1
+  ],
+  [
+   "CAUTION > SET SLOT VLV SEN",
+   1
+  ],
+  [
+   "CAUTION > TRANSFER WITH ARM \\_ STATION \\_",
+   1
+  ],
+  [
+   "CAUTION > Setup:",
+   1
+  ],
+  [
+   "CAUTION > Pre-Extend Test",
+   1
+  ],
+  [
+   "CAUTION > Controls and Indicators",
+   1
+  ],
+  [
+   "CAUTION > Set Communication",
+   1
+  ],
+  [
+   "Changes > Space",
+   1
+  ],
+  [
+   "CAUTION > Store Home Position Z-Axis",
+   1
+  ],
+  [
+   "CAUTION > SET STNSENSOR 1 A TYPE RE ACT LO SEN 2",
+   1
+  ],
+  [
+   "CAUTION > Store Station Option",
+   1
+  ],
+  [
+   "Alignment and Calibration > Command Syntax",
+   1
+  ],
+  [
+   "CAUTION > SET EXTEND WAFER SENSOR",
+   1
+  ],
+  [
+   "CAUTION > Set the VIA Values",
+   1
+  ],
+  [
+   "CAUTION > Store Station",
+   1
+  ],
+  [
+   "CAUTION > SET COMM ALL MON BKG",
+   1
+  ],
+  [
+   "CAUTION > Map Pass Through",
+   1
+  ],
+  [
+   "Changes > HIGH VOLTAGE",
+   1
+  ],
+  [
+   "CAUTION > DIO Control System",
+   1
+  ],
+  [
+   "Changes > Electrical Specifications",
+   1
+  ],
+  [
+   "Changes > Vibration",
+   1
+  ],
+  [
+   "CAUTION > High Side Logical Inputs",
+   1
+  ],
+  [
+   "CAUTION > Set I/O State",
+   1
+  ],
+  [
+   "CAUTION > Request DIO Output",
+   1
+  ],
+  [
+   "WARNING > Procedure Strategy",
+   1
+  ],
+  [
+   "WARNING > Encoder and Motor Coil Cables Inspection",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Electrical Connections",
+   1
+  ],
+  [
+   "HEAVY LIFTING > Facility Checks",
+   1
+  ],
+  [
+   "WARNING > End Effector Alignment",
+   1
+  ],
+  [
+   "CAUTION > DIO Monitoring",
+   1
+  ],
+  [
+   "CAUTION > Optional Parameters",
+   1
+  ],
+  [
+   "CAUTION > Set Retract 2 Value",
+   1
+  ],
+  [
+   "Changes",
+   1
+  ],
+  [
+   "CAUTION > Mount the MagnaTran 7 BiSymmetrik Arm Set/Cone Style",
+   1
+  ],
+  [
+   "RE SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > EX SENSOR ASSIGNED NOT PRESENT OBJECT NOT DETECTED > > Operational Check-out",
+   1
+  ],
+  [
+   "Alignment and Calibration > Final Checkout",
+   1
+  ],
+  [
+   "CAUTION > CONFIG ROBOT",
+   1
+  ],
+  [
+   "Alignment and Calibration > Ready Responses",
+   1
+  ],
+  [
+   "Alignment and Calibration > Packet Mode",
+   1
+  ],
+  [
+   "CAUTION > STORE STNSENSOR 1 ARM A TYPE ACT SEN",
+   1
+  ],
+  [
+   "Z Encoder Replacement",
+   1
+  ],
+  [
+   "CAUTION > X",
+   1
+  ],
+  [
+   "CAUTION > B",
+   1
+  ],
+  [
+   "CAUTION > Serial Communications Default Settings",
+   1
+  ],
+  [
+   "CAUTION > O",
+   1
+  ],
+  [
+   "I/O Board Replacement",
+   1
+  ],
+  [
+   "T1/T2 Axis Driver Board Replacement",
+   1
+  ],
+  [
+   "CAUTION > Home Z Axis Related Issues",
+   1
+  ],
+  [
+   "CAUTION > Upgrading to V2.2# from a previous (pre-V2.2) version",
+   1
+  ],
+  [
+   "WARNING > Cleaning the Memory:",
+   1
+  ],
+  [
+   "CAUTION > CONFIG ROBOT APPLIC [application number]",
+   1
+  ],
+  [
+   "CAUTION > Communication Related Issues",
+   1
+  ],
+  [
+   "CAUTION > I",
+   1
+  ],
+  [
+   "CAUTION > N",
+   1
+  ],
+  [
+   "WARNING > Procedure",
+   1
+  ],
+  [
+   "WARNING > Firmware Upgrade",
+   1
+  ],
+  [
+   "CAUTION > Appendix B: Tooling",
+   1
+  ],
+  [
+   "CAUTION > Additional Information:",
+   1
+  ],
+  [
+   "CAUTION > Downgrading from V2.2# to a previous (pre-V2.2) version",
+   1
+  ],
+  [
+   "CAUTION > Checking for FET Short Circuits on the Theta Driver Board",
+   1
+  ],
+  [
+   "CAUTION > Appendices",
+   1
+  ],
+  [
+   "WARNING > Lower microswitch:",
+   1
+  ],
+  [
+   "CAUTION > Q",
+   1
+  ],
+  [
+   "CAUTION > Z",
+   1
+  ],
+  [
+   "WARNING > FIND PHASE ALL",
+   1
+  ],
+  [
+   "WARNING > Downloading Station Values Using a CDM:",
+   1
+  ],
+  [
+   "CAUTION > Station Value/Orientation Related Issues",
+   1
+  ],
+  [
+   "WARNING > 3. Request the values by entering the following command:",
+   1
+  ],
+  [
+   "CAUTION > Additional comments",
+   1
+  ],
+  [
+   "WARNING > Upper hard stop:",
+   1
+  ],
+  [
+   "CAUTION > Index",
+   1
+  ],
+  [
+   "CAUTION > MOVE Z ABS 0",
+   1
+  ],
+  [
+   "CAUTION > Power Related Issues",
+   1
+  ],
+  [
+   "CAUTION > Troubleshooting",
+   1
+  ],
+  [
+   "WARNING > Encoder Setup",
+   1
+  ],
+  [
+   "WARNING > Upper microswitch",
+   1
+  ],
+  [
+   "CAUTION > Verifying Robot Calibration Parameters",
+   1
+  ],
+  [
+   "CAUTION > Appendix F: Relay I/O Option",
+   1
+  ],
+  [
+   "WARNING > Power Pak Replacement",
+   1
+  ],
+  [
+   "WARNING > Reset Stations When the Home Position is Reset",
+   1
+  ],
+  [
+   "CAUTION > START TRACE",
+   1
+  ],
+  [
+   "CAUTION > G",
+   1
+  ],
+  [
+   "WARNING > Uploading and Downloading Station Values",
+   1
+  ],
+  [
+   "WARNING > Motor Electrical Phase Calibration",
+   1
+  ],
+  [
+   "WARNING > Tools",
+   1
+  ],
+  [
+   "CAUTION > Z Binding Test Using the Trace Command",
+   1
+  ],
+  [
+   "CAUTION > Z Brake Binding Test",
+   1
+  ],
+  [
+   "CAUTION > Please specify by Page any errors you have found.",
+   1
+  ],
+  [
+   "CAUTION > Symptom:",
+   1
+  ],
+  [
+   "WARNING > PC 104 CPU Board Replacement",
+   1
+  ],
+  [
+   "CAUTION > P",
+   1
+  ],
+  [
+   "CAUTION > List of Attachments",
+   1
+  ],
+  [
+   "CAUTION > Find Phase Related Issues",
+   1
+  ],
+  [
+   "WARNING > Remove the shims.",
+   1
+  ],
+  [
+   "CAUTION > F",
+   1
+  ],
+  [
+   "CAUTION > D",
+   1
+  ],
+  [
+   "CAUTION > Default Robot Settings",
+   1
+  ],
+  [
+   "CAUTION > Checking for FET Short Circuits on the Z Driver Board",
+   1
+  ],
+  [
+   "WARNING > 6. Install power cables.",
+   1
+  ],
+  [
+   "CAUTION > Pin Assignments RS-422",
+   1
+  ],
+  [
+   "WARNING > 5. Request the Sync Zero values:",
+   1
+  ],
+  [
+   "WARNING > Fuse Replacement",
+   1
+  ],
+  [
+   "CAUTION > H",
+   1
+  ],
+  [
+   "CAUTION > L",
+   1
+  ],
+  [
+   "CAUTION > Symptoms",
+   1
+  ],
+  [
+   "CAUTION > DEL RC:\\R1.EXE",
+   1
+  ],
+  [
+   "WARNING > Lower hard stop:",
+   1
+  ],
+  [
+   "CAUTION > T",
+   1
+  ],
+  [
+   "WARNING > Resetting Mount Position",
+   1
+  ],
+  [
+   "Z-Driver Board Replacement",
+   1
+  ],
+  [
+   "CAUTION > V",
+   1
+  ],
+  [
+   "CAUTION > 11",
+   1
+  ],
+  [
+   "CAUTION > Z Motion Related Issues",
+   1
+  ],
+  [
+   "WARNING > Required Tooling:",
+   1
+  ],
+  [
+   "CAUTION > Power Pak Related Issues",
+   1
+  ],
+  [
+   "WARNING > Remote Software Update Procedure",
+   1
+  ],
+  [
+   "Z Home Flag Sensor Board Replacement Procedure",
+   1
+  ],
+  [
+   "WARNING > Find T1 Encoder Value",
+   1
+  ],
+  [
+   "CAUTION > Operational Interlock Related Issues",
+   1
+  ],
+  [
+   "CAUTION > A",
+   1
+  ],
+  [
+   "CAUTION > W",
+   1
+  ],
+  [
+   "CAUTION > U",
+   1
+  ],
+  [
+   "CAUTION > Repeatability Related Issues",
+   1
+  ],
+  [
+   "CAUTION > TRACE DNLD 200",
+   1
+  ],
+  [
+   "WARNING > RESET THE ROBOT:",
+   1
+  ],
+  [
+   "CAUTION > Appendix A: Factory Default Settings",
+   1
+  ],
+  [
+   "WARNING > Z Hard Stop and Overtravel Limit Switch Adjustment",
+   1
+  ],
+  [
+   "CAUTION > OR",
+   1
+  ],
+  [
+   "CAUTION > Theta Motion Related Issues",
+   1
+  ],
+  [
+   "CAUTION > Position Repeatability Test",
+   1
+  ],
+  [
+   "WARNING > Uploading Station Values using the CDM:",
+   1
+  ],
+  [
+   "WARNING > Reset the Home Position to the User Preference",
+   1
+  ],
+  [
+   "CAUTION > RS-232/422 Board Switch Settings",
+   1
+  ],
+  [
+   "CAUTION > Determine if the Z Axis is Configured Properly Via Software",
+   1
+  ],
+  [
+   "CAUTION > C",
+   1
+  ]
+ ]
+}

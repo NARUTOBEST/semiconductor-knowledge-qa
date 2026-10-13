@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "CL8-01",
+  "query": "现在量产里做 post-ash 清洗，每次清洗的热氧化硅损耗量要控制在多少才算达标？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "当前量产工艺要求每次清洗的热氧化硅损失小于 1 Å，且几年内将收紧到小于 0.5 Å。",
+  "success_criteria": "答出\"&lt;1 Å 且几年内 &lt;0.5 Å\"，单位为 Å，两个数值齐全即通过。",
+  "evidence": "--[p127]-- Current manufacturing processes are requiring less than 1Å of thermal oxide loss per cleaning cycle with less than 0.5Å being specified in just a few years."
+ },
+ {
+  "query_id": "CL8-02",
+  "query": "AFEOL 清洗里去原生氧化那步 HF 稀释比是多少？后面臭氧化漂洗的臭氧浓度要多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "用 1000:1 的稀 HF 去除原生氧化（及金属），随后进行一次过流式臭氧化漂洗，无泡臭氧浓度 &gt;8 ppm，以重新生长洁净氧化层。",
+  "success_criteria": "答出 HF 稀释比 1000:1 且臭氧浓度 &gt;8 ppm 两项。",
+  "evidence": "--[p135]-- A 1000:1 HF process was used to remove the native oxide (and metals) followed by a once through ozonated rinse at &gt;8 ppm bubble free ozone to regrow a very clean oxide."
+ },
+ {
+  "query_id": "CL8-03",
+  "query": "用 Barracuda 那个 moist O3 工艺去胶，I-line 光刻胶的剥离速率大概什么水平？DUV 胶呢？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "I-line 胶平均剥离速率约 600 nm/min（1.2 μm 胶厚对应总工艺时间 13–15 分钟）；DUV 胶正胶约 100 nm/min、负胶约 150 nm/min。",
+  "success_criteria": "答出 I-line ≈600 nm/min，DUV 正胶 ≈100 nm/min、负胶 ≈150 nm/min，数值误差 ±10% 内。",
+  "evidence": "--[p370]-- Typical average strip rates for I-line are in the 600 nm /min range, which result in total process times of 13 – 15 min. for typical resist thickness of 1.2 μ. Corresponding removal rates for DUV are around 100 nm/min for positive and 150 nm/min for negative resist types."
+ },
+ {
+  "query_id": "CL8-04",
+  "query": "氮气气溶胶清洗高深宽比的悬臂结构，喷嘴压力至少要多高才不会把结构打坏？长径比 200 的也能撑住吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "喷嘴压力 ≥600 kPa 的氮气气溶胶可获得优异的粒子去除效率（高达约 98%），且不破坏长径比高达 200 的悬臂结构。",
+  "success_criteria": "答出 600 kPa 阈值且确认长径比 200 可存活，最好同时给出去除效率 98%。",
+  "evidence": "--[p304]-- It has been found that nitrogen aerosols produced at the nozzle pressure of 600 kPa or higher gave excellent particle removal efficiency without destruction of the cantilevers whose aspect-ratio is as high as 200. --[p304]-- The particle removal efficiency both for nitrogen and argon aerosols reaches as high as 98%, regardless of the nozzle pressure."
+ },
+ {
+  "query_id": "CL8-05",
+  "query": "激光冲击清洗粒子的平均去除效率能到多少？冲击波传播速度是按多少算的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "相同条件下三片晶圆的平均去除效率在 99% 以上；理论计算基于 6000 m/s 的冲击波速度。",
+  "success_criteria": "答出平均去除效率 &gt;99% 且冲击波速度 6000 m/s。",
+  "evidence": "--[p202]-- Also theoretical calculation of removal ratio was performed based on the shockwave velocity of 6,000 m/s. --[p203]-- Three wafers were cleaned in the same experimental condition. The average removal efficiency by laser shock cleaning was above 99 %."
+ },
+ {
+  "query_id": "CL8-06",
+  "query": "铝膜在臭氧水里泡 30 分钟会长多厚的氧化层？25°C 下方阻变化大概多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "25°C 下经 30 分钟臭氧处理后测得氧化层厚度 16 nm，方阻变化 1.2%；另外 5°C 时 1 μm 掺硅铝层 30 分钟方阻增加不到 0.7%，对应氧化层约 5 nm。",
+  "success_criteria": "至少答出 25°C/30min 对应 16 nm 氧化层与 1.2% 方阻变化。",
+  "evidence": "--[p423]-- At $2 5 \\mathrm { { } ^ \\circ C}$ 16 nm oxide thickness and 1.2 % sheet resistance change were measured after 30-min ozone process."
+ },
+ {
+  "query_id": "CL8-07",
+  "query": "MHz 喷嘴声压监测实验里，DI 水的溶解氧浓度升高时，喷嘴 A 的声压会怎么变化？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "实验把 DI 水溶解氧浓度设为 1、35、50 ppm 三档；对喷嘴 A，声压随溶解氧浓度升高而明显下降（因气泡对声波的反射与吸收）。",
+  "success_criteria": "答出\"随溶解氧升高声压明显下降\"，并给出 1/35/50 ppm 三档中任意即认可。",
+  "evidence": "--[p181]-- the amount of discharge was set at 1.4 l/min, and the dissolved oxygen concentration in DI water was set at 1, 35 or 50 ppm. --[p184]-- For nozzle (A), sound pressure markedly decreased with increasing dissolved oxygen concentration."
+ },
+ {
+  "query_id": "CL8-08",
+  "query": "AFEOL 和 POR 对比表里 Furnace#3 的铁污染从 4.9E10 降到 1E8 atoms/cm²，帮我算算降了多少倍。",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "4.9E10 ÷ 1E8 = 490，即铁污染降低约 490 倍（超过两个数量级）。",
+  "success_criteria": "算式为 4.9E10/1E8，结果 490 倍（±1% 内）。",
+  "evidence": "--[p137]-- Furnace #3 20%, atoms/cm² | 4.9E10 | 1E8 | ↑↑↑"
+ },
+ {
+  "query_id": "CL8-09",
+  "query": "浸入式 SC1 加 megasonics 清洗时，稀释水退气退到什么程度粒子去除率反而会掉下来？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "随稀释水退气，粒子去除率先上升；但当溶解氧降到约 450 ppb 后，继续降低溶解气体水平会使去除率急剧下降（气体太少无法形成空化气泡，能量只是传到槽顶部）。",
+  "success_criteria": "答出约 450 ppb 溶解氧这一转折点，并说明之后继续退气去除率骤降。",
+  "evidence": "--[p130]-- However, at a certain point, corresponding to a dissolved oxygen level of about 450 ppb, the particle removal efficiency falls sharply with further decreases in dissolved gas level. --[p130]-- However, if the dissolved gas levels are reduced too much, cavitation bubbles will no longer form and the megasonics energy will be simply transmitted to the top of the tank without dislodging any particles."
+ },
+ {
+  "query_id": "CL8-10",
+  "query": "BTBAS 氮化硅炉管为什么比 DCS 炉管清洗得勤？各自多久要清一次？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "因为 BTBAS 氮化硅沉积温度约 550–575°C、热预算低，但本征膜应力显著高于 DCS 膜，高应力膜易剥落产生粒子，所以炉腔和晶圆舟必须更频繁清洗；BTBAS 炉管约每 2 天运行就要清洗，而 DCS 炉管可 60–90 天才清洗一次。",
+  "success_criteria": "答出\"高应力膜导致剥落粒子\"这一原因，且给出 BTBAS 每 2 天 / DCS 每 60–90 天。",
+  "evidence": "--[p216]-- While BTBAS nitride films have a lower thermal budget (the deposition temperature is approximately 550-575 °C), the intrinsic film stress is significantly higher than for DCS films. Higher stress films require more frequent cleaning of the LPCVD furnace chamber and wafer carrier to prevent particle generation due to film spalling. --[p217]-- The production schedule including cleaning the BTBAS nitride furnaces after every 2 days of operation would result in low system availability compared to a DCS nitride furnace that only requires cleaning after 60-90 days of production."
+ },
+ {
+  "query_id": "CL8-11",
+  "query": "氮化硅炉管原位清洗为什么最后选了 NF3？ClF3 和 F2 不是也能刻氮化硅吗？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "ClF3、F2 虽然在 550–600°C 下都能与硅基材料反应，但两者毒性极高（TLV=0.1 ppm，LC50 分别为 299 ppm 和 185 ppm），且对设备金属面有腐蚀性、供应困难（ClF3 只能用小容量钢瓶，DOT 限制 F2 运输压力 &lt;400 psig）；NF3 的 LC50 高达 6700 ppm（高出 20 倍以上），常温下不活泼、供应充足，且多数 FAB 已在冷壁 CVD 腔清洗中熟悉其供应与操作，故选 NF3。",
+  "success_criteria": "答出 ClF3/F2 的毒性数据（LC50 299/185 ppm）与储运限制，以及 NF3 LC50 6700 ppm、易得且 FAB 熟悉等理由中的大部分。",
+  "evidence": "--[p217]-- $\\mathrm { C l } \\mathrm { F } _ { 3 }$ and $\\mathrm { F } _ { 2 }$ are, however, highly toxic (TLV = 0.1 ppm) having LC50 values of 299 ppm and 185 ppm, respectively. --[p217]-- $\\mathrm { N F } _ { 3 } ,$ however, has an LC50 value more than 20 times higher (6,700 ppm). $\\mathrm { C l } \\mathrm { F } _ { 3 }$ is limited to low volume cylinders and DOT limits transportation of $\\mathrm { F } _ { 2 }$ to pressures &lt;400 psig. --[p217]-- Additionally, most semiconductor FABs already use $\\mathrm { N F } _ { 3 }$ for cold wall CVD chamber cleaning and are familiar with supply and handling of this material."
+ },
+ {
+  "query_id": "CL8-12",
+  "query": "那个短循环、常温、少化学品的两步单片清洗，SC-1 和 HF/HCl 的配比和时间各是多少？两步之间为什么还要插一道漂洗？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "两步工艺为 SC-1（1:1:100）10 秒（Nanospray™M 施加）+ HF/HCl（1:40:200）10 秒；为防止碱和酸组合生成盐，必须在 SC-1 与 HF/HCl 之间插入中间漂洗。",
+  "success_criteria": "答出两个配比 1:1:100 与 1:40:200、各 10 秒，以及\"防碱酸成盐\"的中间漂洗原因。",
+  "evidence": "--[p52]-- It consists of the two-step process, SC-1 (1:1:100) 10 sec with the Nanospray™M and HF/HCl (1:40:200) 10 sec. --[p52]-- In order to prevent salt formation from the combination of alkali and acid, it was necessary to insert the intermediate rinse between SC-1 and HF/HCl."
+ },
+ {
+  "query_id": "CL8-13",
+  "query": "megasonic 清洗去纳米粒子，凭什么判断是气体空化机制而不是声流？用退气溶液做实验时结果怎么样？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "清洗液中存在溶解气体是去除纳米粒子的必要条件，这说明机制不是 Eckart/Schlichting 声流或蒸汽空化，而是气体空化（微射流、气泡内爆）；在第 I 组实验（高功率、退气至 &lt;0.3 ppm O2 的单次流溶液）中，粒子去除率接近零而损伤却相对较高，用退气溶液出现损伤可能表明此时发生了蒸汽空化。",
+  "success_criteria": "答出\"溶解气体是必要条件→气体空化而非声流\"，并给出退气 &lt;0.3 ppm 时 PRE 接近零但损伤仍高的结果。",
+  "evidence": "--[p159]-- The presence of dissolved gas in the cleaning solution as a necessary condition to remove nano-particles indicates that the cleaning mechanism was not due to acoustic streaming (Eckart and Schlichting streaming) or vapor cavitation, but rather to gas cavitation phenomena (micro-streaming, bubble implosion). --[p159]-- Group I corresponds to cleans performed at high power in degassed solutions $( &lt; 0 . 3$ ppm $O _ { 2 } ,$ single-pass). PRE was close to zero while damage was relatively high."
+ },
+ {
+  "query_id": "CL8-14",
+  "query": "臭氧水里的 OH 自由基产生跟 pH 有什么关系？做酸性臭氧水时臭氧和乙酸浓度大概调到多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "OH 自由基只在酸性臭氧水中大量产生（由 Haber-Weiss 反应引起），在中性或碱性臭氧水中未发现 OH 自由基生成，pH 越低越有利；图 20 实验中臭氧水浓度为约 5~6 ppm、乙酸 16.3 ppm。",
+  "success_criteria": "答出\"仅酸性臭氧水产生 OH 自由基/中性碱性不产生\"，并给出臭氧约 5~6 ppm、乙酸 16.3 ppm。",
+  "evidence": "--[p19]-- So, it is assumed that the generation of OH radical is caused by Haber-Weiss reaction, which is mentioned before, in the ozonized acidic water. On the other hand, though it is not shown in the figure, the OH radical is not found to generate in neutrality or alkalinity of the ozonized water. --[p19]-- Figure 20 shows the metal dissolution properties to the ozonized water of which concentration of ozone and acetic acid is ${ \\mathfrak { I } } \\sim { \\mathfrak { 6 } }$ ppm and 16.3 ppm, respectively."
+ },
+ {
+  "query_id": "CL8-15",
+  "query": "HF 刻蚀模型 R=K[CF]-A 在 22°C 下 K=96.5、A=3.42，帮我算一下总氟浓度 0.2 M 时 SiO2 的刻蚀速率是多少 Å/min。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按一阶模型 R = K[CF] − A = 96.5×0.2 − 3.42 = 19.30 − 3.42 = 15.88 Å/min。",
+  "success_criteria": "算式正确（96.5×0.2−3.42），结果 15.88 Å/min（±0.1）。",
+  "evidence": "--[p62]-- Where [CF] is the total fluoride concentration, K and A are constants. At $2 2 { } ^ { \\circ } \\mathrm { C } ,$ K=96.5 Å/minute and A= 3.42 Å/minute."
+ },
+ {
+  "query_id": "CL8-16",
+  "query": "HF/HCl 那步 10 秒刻了 0.18 nm 热氧化硅，如果按线性把这一步拉长到 30 秒，刻蚀量会到多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HF/HCl 的刻蚀深度与时间成正比：0.18 nm ÷ 10 s × 30 s = 0.54 nm（即 5.4 Å）。",
+  "success_criteria": "按线性外推得 0.54 nm（±0.01 nm），需注明以\"HF/HCl 刻蚀与时间成正比\"为前提。",
+  "evidence": "--[p51]-- The etched depth by HF/HCl increased in proportion to process time and resulted in etching amount of 0.18 nm at HF/HCl for 10 sec."
+ },
+ {
+  "query_id": "CL8-17",
+  "query": "DCS 氮化硅炉管 60–90 天才清一次，BTBAS 的两天就得清一次，清洗频次上差多少倍？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "60÷2=30，90÷2=45，即 DCS 炉管的清洗周期是 BTBAS 的 30~45 倍（反过来说 BTBAS 的清洗频次是 DCS 的 30~45 倍）。",
+  "success_criteria": "给出 30~45 倍区间及算式 60/2 与 90/2。",
+  "evidence": "--[p217]-- The production schedule including cleaning the BTBAS nitride furnaces after every 2 days of operation would result in low system availability compared to a DCS nitride furnace that only requires cleaning after 60-90 days of production."
+ },
+ {
+  "query_id": "CL8-18",
+  "query": "为什么传统 megasonics 不能用在 100nm 以下的栅极清洗上？书里后来有没有验证过改进方案？效果怎么样？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：传统 megasonics 在此阶段不用于该工序，因为它会损伤宽度小于 100nm 的栅结构。第二跳：验证实验使用宽 60nm、高 220nm 的密集多晶硅线条阵列；改进型（modified）megasonics 配置在 1 Å 氧化物损失下实现对 90nm 氮化硅粒子 80% 的去除，且未观察到任何多晶硅线条损伤，而传统 megasonics 配置对这些线条造成了明显损伤。",
+  "success_criteria": "两个检索跳都命中：损伤原因（&lt;100nm 栅结构）+ 改型结果（60nm/220nm 线条、1 Å 损失下 80% 去除、无线条损伤）。",
+  "evidence": "--[p127]-- Traditional megasonics is not currently used at this stage in device manufacturing because it causes damage to gate structures narrower than 100nm. --[p132]-- Tests were carried out using dense arrays of polysilicon lines which were 60nm in width and 220nm in height. --[p132]-- While a traditional megasonics configuration caused significant damage to these lines, a modified megasonics configuration that was able to achieve 80% removal of 90nm silicon nitride particles with a 1Å oxide loss, did not cause any observable polysilicon line damage."
+ },
+ {
+  "query_id": "CL8-19",
+  "query": "以前的研究说要做掉多少氧化物才能达到 95% 以上的粒子去除效率？这跟现在量产 1 Å 以内的要求差多少？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索到当前量产要求每次清洗热氧化硅损失 &lt;1 Å（几年内 &lt;0.5 Å）；再检索历史研究：Meuris 等发现浸入稀 HF（无 megasonics）时要去除至少 20 Å 氧化物才能对 &gt;0.2 μm 粒子达到 &gt;95% 去除率，Christenson 等发现喷淋 SC1 要 15–20 Å 才达 99%（&gt;0.15 μm），Meuris/Vos 等近期还提出至少 30 Å。与现在 &lt;1 Å 的要求相比相差约 15~30 倍，明显不可接受。",
+  "success_criteria": "同时给出当前要求（&lt;1 Å）与历史研究数值（20 Å、15–20 Å、30 Å），并能做出量级对比。",
+  "evidence": "--[p127]-- Current manufacturing processes are requiring less than 1Å of thermal oxide loss per cleaning cycle... --[p127]-- Meuris and co-workers found that a minimum removal of 20Å of oxide was required to achieve more than 95% particle removal at &gt;0.2 microns while immersing wafers in dilute HF without megasonics energy [8]. --[p127]-- Christenson and co-workers found that removal of 15-20Å of oxide was required to achieve 99% particle removal at &gt;0.15 microns while spray wafers with SC1 solution in a spray acid tool [9-10]. More recent studies by Meuris et al. [11] and Vos et al. [12] have also proposed that a minimum removal of 30Å of oxide is required to achieve sufficient particle removal."
+ },
+ {
+  "query_id": "CL8-20",
+  "query": "brush scrubber 的毛刷用多久得换？书里有没有给更换周期或者刷子寿命数据？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "检索后应说明：该书（本素材）未涉及毛刷更换周期或刷子寿命数据；书中关于 brush scrubber 的内容只覆盖颗粒去除的 lifting/rolling 机理建模、刷/晶圆压力与清洗时间等工艺条件（如 0.6mm 刷距、pH10 NH4OH、120s 等）。系统应明确告知未找到该信息，不可编造更换周期数字。",
+  "success_criteria": "明确回答\"书中未提供毛刷更换周期/寿命数据\"，不给出任何编造的周期数值；能转述书中实际讨论的刷洗机理内容加分。",
+  "evidence": "--[p153]-- Figure 8: distribution of particle surface concentration after contamination (left) and after brushing (right); brush/wafer distance - 0.6mm (low pressure), pH10 NH4OH, 120s. --[p154]-- a higher brush/wafer pressure results in a bigger brush/particle adhesion, which makes the lifting criterion in Equ.1 more likely to satisfy.（全书未见毛刷更换周期/寿命相关内容）"
+ },
+ {
+  "query_id": "CL8-21",
+  "query": "想用超声或紫外来激发水产生 OH 自由基做清洗，哪些条件下能产生、哪些条件下不行？帮我梳理一下书里的结论。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "书里功能水结论：(1) 超声辐照下超纯水中会生成离子种与过氧化氢；(2) 超纯水退气到 10^4 ppb 后再超声辐照观察不到 OH 自由基生成；(3) 氟化氢溶液中超声辐照不产生自由基；(4) 臭氧水溶液中 pH 越低 OH 自由基产生越受促进；(5) 短于 185 nm 的紫外线对激活水非常有效；(6) 254 nm 紫外没有断开水 O-H 键的能量（需借助 TiO2 等光催化剂才能产生 OH 自由基）。",
+  "success_criteria": "至少覆盖：退气至 10^4 ppb 不产生、HF 溶液中超声不产生、&lt;185 nm 有效、254 nm 无效这四条。",
+  "evidence": "--[p23]-- (3) It is found that the generation of OH radical was not observed when the ultra pure water is degassed up to $1 0 ^ { 4 }$ ppb and irradiated by the ultrasonic wave. (4) OH radical generation in the hydrogen peroxide solution irradiated by the ultrasonic increases with increasing in the hydrogen peroxide concentration. (5) The generation of the radical by ultrasonic irradiation is not observed in the hydrogen fluoride solution. (6) OH radical generation is promoted in ozone aqueous solution of the lower value of pH. (8) The wavelength shorter than 185 nm is found to be very effective in order to activate the water by ultraviolet irradiation. (9) ... the ultraviolet of 254 nm did not have the energy of cutting off the combination of hydrogen and oxygen of water."
+ },
+ {
+  "query_id": "CL8-22",
+  "query": "HF 里加表面活性剂防粒子沾污，书里测的那几种效果怎么样？要是再把表面活性剂加进 SC-1 里管用吗？疏水面上为什么去除率反而不行？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "(1) 五种受试表面活性剂中有三种无法减少 HF/DIW 浸泡时的粒子沾污，只有最后两浴中的表面活性剂起作用；其中 A4 是最有希望的候选者（其效果随浓度下降而减弱）。(2) 把这些表面活性剂另外加进 SC-1 槽的单独实验表明：对真实粒子去除效率没有正面作用。(3) 对疏水性晶圆，无论粒子是 Si3N4 还是 SiO2，SC-1 中的粒子去除率都下降，zeta 电位不主导 SC-1 的去除机制，原因是缺少合适的 lift-off（剥离）机制；亲水面上两种粒子都能被有效去除。",
+  "success_criteria": "覆盖三点：5 种中 3 种无效/A4 最优、加入 SC-1 无正面效果、疏水面去除率下降且归因于缺少 lift-off 机制。",
+  "evidence": "--[p208]-- Three of the five tested surfactants were incapable of reducing particle contamination during the HF/DIW immersion. However, in the last two baths particle contamination is reduced due to the surfactants. --[p209]-- In this test only surfactant A4 was evaluated since it turned out to be the most promising candidate for contamination prevention. --[p210]-- For the hydrophobic wafers, particle removal efficiency drops regardless of the nature of the particles. In other words, the zeta-potential does not dominate particle removal mechanism in the SC-1. The reason for the low removal efficiency for the hydrophobic wafers is obviously the absence of a proper lift-off mechanism. --[p210]-- These surfactants had no positive effect on the true particle removal efficiency [7]."
+ },
+ {
+  "query_id": "CL8-23",
+  "query": "书里说 500:1 的稀 HF 对应总氟浓度约 0.05 M，按那个一阶刻蚀模型算，22°C 下刻掉 1 Å 的 SiO2 大概要多久？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索到 22°C 下模型 R = 96.5×[CF] − 3.42（K=96.5 Å/min，A=3.42 Å/min），且 500:1~50:1 (v/v) 对应约 0.05~0.6 M。取 [CF]=0.05 M：R = 96.5×0.05 − 3.42 = 4.825 − 3.42 = 1.405 Å/min；刻蚀 1 Å 需 t = 1 ÷ 1.405 ≈ 0.71 min ≈ 43 秒。",
+  "success_criteria": "算式为 96.5×0.05−3.42=1.405 Å/min，时间 ≈0.71 min（±5%，约 40~45 秒均可）。",
+  "evidence": "--[p61]-- the etch rate has a linear relationship with the total fluoride concentration in the range from about 0.05 M to about 0.6 M (500:1 to 50:1 v/v). --[p62]-- At $2 2 { } ^ { \\circ } \\mathrm { C } ,$ K=96.5 Å/minute and A= 3.42 Å/minute."
+ },
+ {
+  "query_id": "CL8-24",
+  "query": "改型 megasonics 在 1 Å 氧化物损失下做到了 80% 粒子去除而且不伤 60nm 多晶硅栅，那它能直接满足未来 0.5 Å 的要求吗？书里原文怎么说的？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "不能直接下结论。检索链：MINIMIZING OXIDE LOSS 篇的引言给出当前 &lt;1 Å、几年内 &lt;0.5 Å 的目标；其结果部分给出改型 megasonics 验证（60nm 宽/220nm 高多晶硅线阵列，1 Å 损失下 80% 去除 90nm 氮化硅粒子、无可见线条损伤）；原文最后明确说\"还需要更多工作（Additional work is required）才能在真实量产集成电路上演示 0.5 Å 氧化物去除下高效、无损伤的粒子去除\"，即 1 Å 条件的结果尚未覆盖 0.5 Å 场景。",
+  "success_criteria": "引用原文\"Additional work is required to demonstrate efficient, non-damaging particle removal on actual production integrated circuits with oxide removal of 0.5Å\"，结论为不能直接满足/尚待验证，而非简单回答能或不能。",
+  "evidence": "--[p132]-- While a traditional megasonics configuration caused significant damage to these lines, a modified megasonics configuration that was able to achieve 80% removal of 90nm silicon nitride particles with a 1Å oxide loss, did not cause any observable polysilicon line damage. Additional work is required to demonstrate efficient, non-damaging particle removal on actual production integrated circuits with oxide removal of 0.5Å."
+ },
+ {
+  "query_id": "CL8-25",
+  "query": "我要做 NF3 原位清洗的耗材成本测算，这本书里能查到 NF3 用量或者气价数据吗？",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "检索后应说明：该书未提供 NF3 用量、气价或成本数据。书中关于 NF3 的内容仅限于：候选氟源（NF3/ClF3/F2）的毒性（LC50）、储运与供应比较，NF3 是常温下不活泼、容易获得且 FAB 熟悉的氟源，以及原位清洗时间 30–32 分钟、清洗周期 2–3 小时等工艺参数。系统应明确告知查不到成本/用量数据，建议向气体供应商询价，不得编造任何价格或用量数字。",
+  "success_criteria": "明确回答\"书中无 NF3 用量/价格/成本数据\"，不编造数字；能转述书中实际提供的 NF3 毒性对比或 30–32 分钟清洗时间等参数加分。",
+  "evidence": "--[p217]-- $\\mathrm { N F } _ { 3 }$ is a convenient source of fluorine. It is unreactive under ambient conditions and readily available. --[p217]-- Prior to each furnace clean, four batches of 100 test wafers were deposited with 50 nm of silicon nitride material leaving a combined film thickness of 200 nm to be cleaned. Clean times were reproducibly 30-32 minutes.（全书未见 NF3 用量、气价或成本相关数据）"
+ }
+]

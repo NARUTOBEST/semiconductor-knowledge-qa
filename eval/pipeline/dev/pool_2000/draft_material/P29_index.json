@@ -1,0 +1,326 @@
+{
+ "doc": "Optical and EUV Lithography A Modeling Perspective (Andreas Erdmann)",
+ "chunks": 1456,
+ "headings": [
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.3.1 Strong phase shift masks: Alternating PSMs",
+   29
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > 1.5 Process Characteristics",
+   28
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.3.2 Employing optical nonlinearities",
+   27
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 2.3.1 Resolution limit and depth of focus",
+   26
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.3 General Remarks on Modeling Approaches and Compact Resist Models",
+   26
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.3.1 Near-field lithography",
+   25
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.5 Source and Mask Optimization",
+   24
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 2.2.1 Fourier optical description",
+   24
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.2.2 Laser direct write lithography (LDWL)",
+   24
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.2.2 Exposure",
+   24
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > Preface",
+   23
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 5.4 Directed Self-Assembly (DSA)",
+   22
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.3 Masks",
+   21
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.4 Negative- versus Positive-Tone Materials and Processes",
+   21
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > 1.3 Aerial Image Formation in Projection Scanners",
+   20
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.2.4 Chemical development",
+   19
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.2.3 Mask-induced imaging effects",
+   19
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 2.2.2 Oblique illumination and partially coherent imaging",
+   19
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.2.4 Mask topography effects in EUV lithography and mitigation strategies",
+   19
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.4 Exposure Tools and Image Formation",
+   19
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.1.1 Zernike representation of wave aberrations",
+   18
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.1.3 Advanced mask aligner lithography",
+   18
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 5.1 The Resolution Limit Revisited",
+   18
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.2 Optical Material Properties in the EUV and Multilayer Coatings",
+   18
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 2.3.2 Consequences",
+   18
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.2.1 Interference lithography",
+   17
+  ],
+  [
+   "Chapter 10 Stochastic Effects in Advanced Lithography > 10.1 Random Variables and Processes",
+   17
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.1.2 Waveguide method",
+   17
+  ],
+  [
+   "Chapter 10 Stochastic Effects in Advanced Lithography > 10.4 Dependencies and Consequences",
+   17
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.4.3 Stereolithography and 3D microprinting",
+   17
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.2.2 Modeling of flare with power spectral densities",
+   16
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.1.1 Classification of photoresists",
+   16
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.6 Mask Defects",
+   16
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.1.2 Technical realization",
+   15
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.3.2 Attenuated or weak PSMs",
+   15
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.7.2 Towards high-NA lithography",
+   15
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.4.1 Grayscale lithography",
+   15
+  ],
+  [
+   "Chapter 10 Stochastic Effects in Advanced Lithography > 10.2 Phenomena",
+   14
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.1.1 Finite-difference time-domain (FDTD) method",
+   14
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.2.3 From rule-based to model-based OPC and inverse lithography",
+   14
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.3.4 Polarization effects in the projector and the vector model for image formation",
+   13
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.6 Multiple-Exposure Techniques",
+   13
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.3.3 Polarization effects resulting from the resist and wafer stack interfaces",
+   13
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.1.4 Phenomenological model",
+   13
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography",
+   13
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > Chapter 3 Photoresists",
+   13
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > 1.1 From Miniaturization in Microelectronics Towards Nanotechnology",
+   13
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > Contents",
+   13
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.2.3.2 Chemically amplified resists (CARs)",
+   13
+  ],
+  [
+   "Chapter 10 Stochastic Effects in Advanced Lithography > 10.3 Modeling Approaches",
+   12
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.2.1 Mask diffraction analysis",
+   12
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 5.2.3 Reversible contrast-enhancement materials",
+   11
+  ],
+  [
+   "Chapter 7 Optical Lithography Beyond Projection Imaging > 7.1.1 Image formation and resolution limit",
+   11
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.1 Methods for Rigorous Electromagnetic Field Simulation",
+   11
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > 1.4 Photoresist Processing",
+   11
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.1.3 State-of-the-art positive-tone chemically amplified resists (CARs)",
+   10
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.1 Light Sources",
+   10
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.2.2 Oblique incidence effects",
+   10
+  ],
+  [
+   "Optical and EUV Lithography A Modeling Perspective > 1.2 Historical Development",
+   10
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.2.5 Variations of 3D mask models",
+   10
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.1.2 Off-axis illumination for arrays of contact holes",
+   9
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.1.3 From conventional and parametric source shapes to free-form illumination",
+   9
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > Chapter 6 Lithography with Extreme-Ultraviolet Light",
+   9
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.2.4 OPC models and process flows",
+   9
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.5 Resists",
+   9
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.4 Pupil Filters",
+   9
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.2.1 Compensation of the iso-dense bias",
+   8
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.3.5 Polarized illumination",
+   8
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 5.2.1 Two-photon absorption materials",
+   8
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.1 Off-Axis Illumination",
+   8
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 3.2.1 Selected technical aspects",
+   8
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 6.7.3 Towards smaller $\\pmb { k } _ { 1 }$ : Optical resolution enhancements for EUV lithography",
+   7
+  ],
+  [
+   "Chapter 5 Material-Driven Resolution Enhancements > 5.5 Thin-Film-Imaging Technologies",
+   7
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 2.2.3 Alternative image simulation methods",
+   7
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.1.8 Concluding remarks on Zernike-type wave aberrations",
+   7
+  ],
+  [
+   "Chapter 9 Mask and Wafer Topography Effects in Lithography > 9.3 Wafer Topography Effects",
+   7
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.1.5 Coma",
+   7
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 4.1.1 Optimum off-axis illumination for line-space patterns",
+   7
+  ],
+  [
+   "Chapter 8 Lithographic Projection Systems: Advanced Topics > 8.2 Flare",
+   7
+  ],
+  [
+   "Chapter 2 Image Formation in Projection Lithography > 2.1 Projection Scanners",
+   7
+  ]
+ ]
+}

@@ -1,0 +1,2879 @@
+[
+ {
+  "query_id": "dev_001",
+  "query": "我要给一台 6DS-SP 主机规划电柜供电，手册里主机（Planarizer）要求的电源电压/相数/频率是多少？随机配套的断路器要多大安培？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "主机电源为 208 V / 3 相 / 60 Hz，配套断路器为 60 A（可补充：主机尺寸 100×72×80 英寸、重量 8500 磅）",
+  "success_criteria": "答出 208V、3相、60Hz 三要素，且断路器答出 60 A（单位 A/Amps 正确）",
+  "evidence": "--[p93]-- GENERAL FACILITIES AND ELECTRICAL SERVICE DATA SHEET：Planarizer | 100 | 72 | 80 | 8500 | 208/3/60 | 60"
+ },
+ {
+  "query_id": "dev_002",
+  "query": "6DS-SP 主轴真空开关要整定到多少读数？开关是什么牌子的，左主轴那个装在机器什么位置？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "整定到 15 英寸汞柱（inches of Hg，中量程/midrange）；开关为 Barksdale 真空开关；左主轴开关安装在桥上部前方、左侧旋转接头（rotary joint）处",
+  "success_criteria": "答出 15 in Hg 且品牌 Barksdale，位置答出上桥前方/左侧旋转接头",
+  "evidence": "--[p132]-- Locate the Barksdale vacuum switch for the left spindle, mounted at the front of the upper bridge on the left side rotary joint. / 3. Set the vacuum switch to 15 inches of Hg (midrange): Rotate the white nylon thumb dial until the indicator line of the dial is aligned with the midrange mark on the switch housing."
+ },
+ {
+  "query_id": "dev_003",
+  "query": "厂房这边要给 6DS-SP 预留去离子水（D.I. water）管路，手册要求的 D.I. 水供给峰值流量、平均流量和压力各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "D.I. Water Supply：峰值流量 6 GPM、平均流量 3 GPM、压力 30-45 PSI（管路 1/2 英寸，接头 3/8 FNPT，回流无限制）",
+  "success_criteria": "三项数值齐全：6 GPM（峰值）、3 GPM（平均）、30-45 PSI，单位正确",
+  "evidence": "--[p93]-- Planarizer | D.I. Water Supply | 1/2\" | 3/8\" FNPT | 6 GPM | 3 GPM | 30-45 PSI"
+ },
+ {
+  "query_id": "dev_004",
+  "query": "手册里 Calibration Variable 85 填 25 个槽位时，自动抛光菜单里 No. of Wafers 最多能设到多少？这个上限是怎么算出来的？",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最多 50 片。算式：上限 = 两个发送盒槽位总数 = 2 × Calibration Variable 85 = 2 × 25 = 50（手册示例表中 25 slots 对应 50 wafers）",
+  "success_criteria": "答出 50，且说明计算方式为 2×25（两个发送盒）",
+  "evidence": "--[p428]-- The maximum \"No. of Wafers\" choice ... are now automatically calculated from the number of slots in a cassette entered in Calibration Variable 85 ... which is the total number of slots in two send cassettes (twice the value in Calibration Variable 85). Examples: Calibration Variable 85 Maximum number of wafers that can be polished ... 25 slots / 50 wafers"
+ },
+ {
+  "query_id": "dev_005",
+  "query": "我们车间要处理砷化镓晶圆，安全培训要用。手册里砷（Arsenic）和锗（Germanium）的 NFPA 健康等级分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "砷：NFPA Health 等级 2（0-4 量表），是神经毒素、疑似皮肤和肺癌致癌物；锗：NFPA Health 等级 0，毒性一般认为是低的",
+  "success_criteria": "砷=2、锗=0 都答对，且量表范围 0-4",
+  "evidence": "--[p47]-- HEALTH WARNING: Arsenic is a neurotoxin and a suspected skin and lung carcinogen. Poisoning may affect the heart, gastrointestinal system, kidneys, and liver. Its NFPA Rating for Health is 2 on a scale of 0 - 4. / --[p51]-- HEALTH WARNING: Germanium is generally considered to be low in toxicity. Its NFPA Rating for Health is 0 on a scale of 0 - 4."
+ },
+ {
+  "query_id": "dev_006",
+  "query": "6DS-SP 自动抛光循环里，哪些错误会真正让循环停下来？是不是所有报警都会中止循环？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "不是所有报警都会中止循环。手册明确：只有 \"WFR NOT ON SPINDLE\" 和 \"WFR FOUND ON SPINDLE\" 这两个错误条件会真正中止（halt）自动循环",
+  "success_criteria": "准确答出这两个错误信息名，并说明其余错误不会真正中止循环",
+  "evidence": "--[p309]-- Note: “WFR NOT ON SPINDLE” and “WFR FOUND ON SPINDLE” are the only error conditions that will actually halt an auto cycle."
+ },
+ {
+  "query_id": "dev_007",
+  "query": "状态屏下方那组 LIFE 寿命计里有主修整器（primary conditioner）的计时吗？最长能累计到多少小时，怎么清零？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "有。软件 4.28 起新增主修整器寿命计时（第 5 项 5-Primary Cond，只计时间），凡主修整器在抛光垫上扫掠（ex-situ、in-situ 或按需修整）时计时；最大 9999 小时，按 ALT-5 清零",
+  "success_criteria": "答出 9999 小时上限和 ALT-5 复位操作",
+  "evidence": "--[p325]-- Version 4.28 adds a primary conditioning cycle life timer. The life timer is active whenever the primary conditioner is sweeping (actually on the polish pad) for ex-situ, in-situ, or demand conditioning. ... The maximum time is 9999 hours. ALT-5 resets this time."
+ },
+ {
+  "query_id": "dev_008",
+  "query": "我们厂想直接上 300mm（12 英寸）晶圆在这台 6DS-SP 上抛，手册里有没有 12 英寸载具（carrier）的安装或调整说明？支持哪些尺寸？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及 300mm（12 英寸）晶圆或 12 英寸载具的支持，不应猜测或虚构。手册中载具相关调整只覆盖 3、4、5 英寸（晶圆安装板调整）和 6、8 英寸（载具组装）尺寸；同时提示：手册未涉及不代表设备一定不支持，需向 Strasbaugh 确认",
+  "success_criteria": "明确指出手册没有 12 英寸/300mm 的相关内容并拒答该未知项，同时能列出手册实际提到的 3/4/5/6/8 英寸尺寸",
+  "evidence": "--[p51]-- J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY / --[p40]-- ASSEMBLY AND DISASSEMBLY OF A CARRIER > For Both Six- and Eight-Inch Carriers:"
+ },
+ {
+  "query_id": "dev_009",
+  "query": "机器报 51000019，说 wafer expander 没降下去。这个报警是什么意思？要怎么处理？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "51000019 = Wafer expander is not lowered：晶圆扩展器未降下（晶圆胶膜未处于展开状态），导致当前所选操作无法执行。处理办法：降下 wafer expander 使 wafer tape 展开。",
+  "success_criteria": "答出报警含义为\"扩展器未降下/胶膜未展开\"且处理动作为\"降下 wafer expander 展开胶膜\"，两者齐全即判合格",
+  "evidence": "--[p184]-- 51000019 | Wafer expander is not lowered.Contents: Wafer expander is not lowered (wafer tape is not expanded state) sothat the operation selected cannot be done.Action: Lower the wafer expander (to expand wafer tape)"
+ },
+ {
+  "query_id": "dev_010",
+  "query": "DB800 报 11060001 前面罩打开了，报警内容是什么，按什么步骤排查？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "11060001 = Front Cover Open Error：前面罩（front cover）被打开。处理：(1) 确认前面罩已关好；(2) 检查罩门传感器是否正常工作。",
+  "success_criteria": "答出含义\"front cover 已打开\"且两步处理（确认关闭 + 检查 cover sensor）齐全",
+  "evidence": "--[p142]-- 11060001 | Front Cover Open ErrorContents: Front cover has been openedAction:(1) Check that the front cover is closed.(2) Check that the cover sensor functions properly."
+ },
+ {
+  "query_id": "dev_011",
+  "query": "信号塔（Signal Tower）的红灯、黄灯、绿灯和蜂鸣器分别可以设成哪些模式？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在 5.2.7.1 Signal Tower 中：Red lamp、Yellow lamp、Green lamp 均可设 Off、On 或 Blink；Buzzer 可设 Off、Tone 1 或 Tone 2。",
+  "success_criteria": "答出三色灯均为 Off/On/Blink 三种模式、蜂鸣器为 Off/Tone 1/Tone 2，四项齐全",
+  "evidence": "--[p356 [表]]-- 1. | Red lamp | Option to set Red lamp mode, Off, On or Blink 2. | Yellow lamp | Option to set Yellow lamp mode, Off, On or Blink 3. --[p357]-- | Green lamp | Option to set Green lamp mode, Off, On or Blink 4. | Buzzer | Option to set Buzzer mode, Off, Tone 1 or Tone 2"
+ },
+ {
+  "query_id": "dev_012",
+  "query": "预成形（Preform）头的 wait height 和 cycle height 这两个参数单位是什么？分别起什么作用？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "均为 μm：Preform-head wait height 设待机位置的 Z 高度；Preform-head cycle height 用于一个 die pad 上有多个预成形点时，设定第 2 点及之后点的头部下降起始高度。",
+  "success_criteria": "两个参数单位均答 μm，且分别答出\"待机高度\"与\"多点预成形时第 2 点起下降起始高度\"",
+  "evidence": "--[p230]-- | Window Display | Unit | Description 1. | Preform-head wait height | μm | Z (height) is set for stand-by position. 2. | Preform-head cycle height | μm | In case a plural number of points are preformed onone die pad, head descending start height is set forpoints from No. 2 and onward."
+ },
+ {
+  "query_id": "dev_013",
+  "query": "3C、4H、6H 这三种 SiC 晶型的带隙各是多少电子伏特?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "20221017F109E723E35215DE",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "3C-SiC 带隙 2.3 eV,4H-SiC 为 2.9 eV,6H-SiC 为 3.2 eV。",
+  "success_criteria": "三个数值 2.3/2.9/3.2 eV 全部答出且与晶型对应正确",
+  "evidence": "--[p378]-- Silicon carbide (SiC) has long been recognized as the leading semiconductor for use in high-temperature and high-power electronics... The cubic polytype, called 3C-SiC, has an electronic bandgap of 2.3 eV, which is over twice that of Si. --[p378]-- The electronic bandgaps of 4H- and 6H-SiC are even higher than 3C-SiC, being 2.9 and 3.2 eV, respectively.",
+  "replaced_from_pool": "P01-02"
+ },
+ {
+  "query_id": "dev_014",
+  "query": "识别设置里的 Recognition threshold 和 Recognition cutoff 单位是什么？管什么的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "两者单位均为 %（百分号），都是图案识别（pattern recognition）匹配率相关的判定值：Recognition threshold 是匹配率的阈值（threshold value for matching rate），Recognition cutoff 是匹配率的截止值（cutoff value for matching rate），并按 Pattern 1 / Pattern 2 / Block pattern 分别设定。",
+  "success_criteria": "答出单位 % 且说明一个为匹配率阈值、一个为匹配率截止值（可用于 Pattern/Block pattern 各自设定）",
+  "evidence": "--[p215]-- | Recognition threshold | % | Threshold valuefor matchingrate ofpatternrecognition (Pattern 1) 13. | Recognition cutoff | % | Cutoff value for matching rate of pattern recognition(Pattern 1) --[p215]-- | Recognition threshold | ％ | Thresholdvalue formatching rate of patternrecognition (Block pattern 1) 36."
+ },
+ {
+  "query_id": "dev_015",
+  "query": "一个 die pad 上最多能键合多少个点？这个参数叫什么名字、在哪组设置里？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最多 16 个点。参数为 5.1.9 Bonding Conditions 的 Bonding Sequence 中的 \"No. of point per paddle\"（No. of points to bond in one die pad, max. 16）。",
+  "success_criteria": "答出上限 16 且给出参数名 No. of point per paddle（属于 Bonding Conditions/Bonding Sequence）",
+  "evidence": "--[p264]-- 3. | No. of point per paddle | No. of points to bond in one die pad (max. 16)"
+ },
+ {
+  "query_id": "dev_016",
+  "query": "温度/真空设置窗口里，preform stage 和 bonding stage 的吸附压力传感器上下限用什么单位？层压（lamination）stage 的流量传感器又是什么单位？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "5.3.3.1 Temperature Vacuum Setting 中：PS Vac. Sens.（preform stage）与 BS Vac. Sens.（bonding stage）的上下限单位均为 kPa；LA H flow Sens.（lamination stage 流量传感器）上下限单位为 l/min。",
+  "success_criteria": "答出压力传感器单位 kPa、层压流量传感器单位 l/min（大小写可放宽为 L/min）",
+  "evidence": "--[p392 [表]]-- 1. | PS Vac. Sens. upper limit | kPa | The uppermost limit of suction pressure of sensorfor preform stage is set. 3. | BS Vac. Sens. upper limit | kPa | The uppermost limit of suction pressure of sensorfor bonding stage is set. --[p392]-- 15. | LA H flow Sens. upper limit | I/min | Settingof upper limit of lamination stage flowsensor 16. | LA H flow Sens. lower limit | I/min | Setting of lower limit of lamination stage flowsensor"
+ },
+ {
+  "query_id": "dev_017",
+  "query": "Mi30 这台机器对厂房供电有什么要求?电压、频率和整机功耗各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "电压 415/380/208 VAC(以机器铭牌为准)三相,频率 50/60 Hz,整机功耗 1.7 KW。",
+  "success_criteria": "答出电压 415/380/208 VAC 三相、频率 50/60 Hz、功耗 1.7 KW,且单位正确。",
+  "evidence": "--[p7]-- 1.2.2 Facilities Voltage : 415/380/208 VAC (refer machine tag), 3 Phase Frequency : 50/60 Hz Power : 1.7 KW"
+ },
+ {
+  "query_id": "dev_018",
+  "query": "EUVL 为什么最终选了 13.5 nm 这个波长?Mo/Si 多层膜反射镜的短波截止波长大概是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Mo/Si 多层膜反射镜在短波侧的截止波长约 12.5 nm,但没有任何光源能有效利用这一窗口;综合考虑制造与安全问题后(Mo/Be 光谱范围虽更宽),EUVL 最终选择 13.5 nm 作为工作波长。",
+  "success_criteria": "答出 Mo/Si 截止波长约 12.5 nm,且说明 13.5 nm 是 EUVL 当前选定波长,单位正确",
+  "evidence": "--[p64]-- The cutoff wavelength for Mo/Si mirrors is about 12.5 nm in the shortwave region. No source, though, has been found so far that can make effective use of this fact.\n--[p66]-- Currently, therefore, 13.5 nm is the wavelength of choice for EUVL.",
+  "replaced_from_pool": "P02-01"
+ },
+ {
+  "query_id": "dev_019",
+  "query": "用电子束诱导沉积（FEBID）做钴纳米线，想让钴含量达到90%以上，束流大概要开到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在所考察的参数范围内，束流高于2 nA时Co原子百分比约90%或更高（约95%）；低于2 nA时Co含量通常约80%或更低。束流是决定纳米沉积成分的主要参数。",
+  "success_criteria": "必须答出'束流高于2 nA时Co含量约90%以上'且给出nA单位；只答'加大电流'而无数值不通过。",
+  "evidence": "--[p42]-- At all beam energies, for beam currents above 2 nA, the Co content in atomic percentage is around 90% or more, whereas for lower currents the Co content is typically around 80% or less.",
+  "replaced_from_pool": "P03-02"
+ },
+ {
+  "query_id": "dev_020",
+  "query": "Mi30 开机上电整个流程走完大概要多久?前几步依次是什么?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "整个上电流程约 3~5 分钟。步骤:i. 打开机器左侧主开关;ii. 释放所有 EMO 急停按钮;iii. 按机器前面板 Power 按钮;iv. 给所有电脑(Industrial PC)的 UPS 上电;v. 进入 MiEquipment.exe;vi. 等待自动回零完成;vii. 登录系统;viii. 进入 Auto Mode。",
+  "success_criteria": "答出 3~5 分钟,且前 4 步顺序正确(主开关→释放 EMO→Power 按钮→UPS)。",
+  "evidence": "--[p56]-- 4.1.1 Power up Procedure i. Turn On main switch at the left-hand side of machine. ii. Release all EMO buttons. iii. Press Power button at front of machine. iv. Power ON UPS (Uninterrupted Power System) for all the computers (Industrial PC). The entire power-up sequence takes about 3 to 5 minutes to complete."
+ },
+ {
+  "query_id": "dev_021",
+  "query": "我们用 RAS 在线监测 GaAs 的 MOVPE 生长，单层振荡信号最高在多少度还能观察到？振荡幅度最大的温度大概是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "GaAs 的 RAS 振荡最高在 600 °C 仍可见并可用于测定生长速率；振荡最大幅度出现在约 505 °C。",
+  "success_criteria": "同时答出 600 °C 与 505 °C 两个温度且数值正确。",
+  "evidence": "--[p99]-- The RAS oscillations are visible up to $6 0 0 ^ { \\circ } \\mathrm { C }$ for GaAs and can be used to determine the growth rate (left side of Fig. 3.6). Their maximum amplitude is around $5 0 5 ^ { \\circ } \\mathrm { C }$ (Fig. 3.8).",
+  "replaced_from_pool": "P04-01"
+ },
+ {
+  "query_id": "dev_022",
+  "query": "Mi30 到底是一台什么用途的设备?一句话说清楚它把什么变成什么。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Mi30 Automatic Die Tape and Reel 平台,用于把满装晶圆(full capacity die wafer)上的半导体芯片转移成编带(Tape and Reel)形式;并集成视觉系统、自动物料搬运系统和开短路测试系统。",
+  "success_criteria": "答出\"晶圆→Tape and Reel/编带\"的用途即可判定通过。",
+  "evidence": "--[p8]-- 2.1.2 Scope The Mi30 Automatic Die Tape and Reel platform is designed to transfer semiconductor (ID) from a full capacity die wafer to tape and reel form. The machine also features an integrated vision system, automatic material handling systems, and open short test systems."
+ },
+ {
+  "query_id": "dev_023",
+  "query": "换 8mm、12mm、16mm 规格载带的时候,C curve 活动块分别要停在什么位置?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "8mm 载带:C curve 活动段完全关闭(fully closed);12mm:停在中间位置(center);16mm:完全打开(fully open)。",
+  "success_criteria": "三种规格对应位置全部正确(8mm 全关、12mm 居中、16mm 全开)。",
+  "evidence": "--[p223]-- Move the C curve movable section to the desired location when doing carrier tape size conversion (8mm, The movable section is fully closed for 8mm carrier tape, at center position for 12mm carrier tape and fully open for 16mm carrier tape."
+ },
+ {
+  "query_id": "dev_024",
+  "query": "vespel tip 用多久要换一次?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "vespel tip 的寿命是 1 个月,具体取决于工作环境和操作条件。",
+  "success_criteria": "答出 1 个月。",
+  "evidence": "--[p323]-- 6.4.1 Vespel Tip The life span for vespel tip is 1 month; depend on the working environment and operation condition."
+ },
+ {
+  "query_id": "dev_025",
+  "query": "FSI 离心喷雾机 MERCURY OC 上做颗粒测试的那个 B clean 流程，每一步用的化学品配比和处理时间分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "B clean 序列为：4:1 H2SO4:H2O2（Piranha）60 秒 → 热漂洗、冷漂洗 → 100:1 HF 90 秒 → 冷漂洗 → NH4OH:H2O2:H2O（APM）180 秒（配比随处理条件变化），最后热漂洗+甩干。",
+  "success_criteria": "按顺序答出 5 个化学步骤：4:1 硫酸/双氧水 60s、100:1 HF 90s、APM(NH4OH:H2O2:H2O) 180s，且时间与配比数值正确、顺序正确。",
+  "evidence": "--[p489]-- Particle test wafers were processed in the MERCURY OC using the B clean cleaning sequence: 4:1 H2SO4:H2O2, 60 seconds / Hot rinse, cold rinse / 100:1 HF, 90 seconds / Cold rinse / NH4OH:H2O2:H2O, 180 seconds, blend ratio varied by treatment"
+ },
+ {
+  "query_id": "dev_026",
+  "query": "Pyrochemical cleaning（高温热化学清洗）去金属污染时，炉内的气体氛围、温度和时间条件具体是怎么设的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "将晶圆在 650°C、3% HCl + 2% O2 + N2 氛围中加热 30 分钟；金属污染物与 HCl、O2 反应生成挥发性氯化物/氯氧化物蒸发去除。",
+  "success_criteria": "答出 650°C、3% HCl、2% O2、N2 氛围、30 分钟五项参数，缺一项或数值错误即不通过。",
+  "evidence": "--[p422]-- The removal of metallic contaminants on a wafer surface by a typical Pyrochemical cleaning is achieved by heating the wafer at 650C in 3% HCi, 2% O2 and N2 ambient for 30 minutes as illustrated in Figure 1. During the heating, the metallic contaminants react with HCl and O2, form volatile reaction products, metal chlorides and/or metal oxychlorides and are eliminated by evaporation."
+ },
+ {
+  "query_id": "dev_027",
+  "query": "氮气密闭旋转清洗里，去除 n+ 表面自然氧化层那一步 HF/H2O2 的浓度、流量、转速和时间是怎么设的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HF 0.5% + H2O2 10% 的溶液，流量 300 ml/min，转速 200 rpm，处理 2 分钟去除自然氧化层；随后在氮气密闭腔内用超纯水旋转漂洗 5 分钟。",
+  "success_criteria": "答出 HF 0.5%、H2O2 10%、300ml/min、200rpm、2min（以及后续 5min 超纯水漂洗），数值全部正确。",
+  "evidence": "--[p109]-- In this spinning cleaning tcst thc n+ surface wafer is spin cleancd with HF-H2O2 solution (HF:0.5%, H2O2:10%), the flow ratc is 300ml/min and the rotation spccd is 200 rpm for 2min to remove the native oxidc, followed by rinsing with ultra clcan water for 5 min by the spinning method in a nitrogen gas sealed process."
+ },
+ {
+  "query_id": "dev_028",
+  "query": "晶圆在 630 BHF 里泡完总出现微粗糙，表面活性剂要加到多大浓度才压得住？泡 48 小时还能保证不出现粗糙吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "添加 50ppm 以上（more than 50ppm）的烃类或全氟碳链阴离子表面活性剂即可同时防止微粗糙生成并抑制硅溶解；加 50ppm 时浸泡 48 小时后未观察到微粗糙（25ppm 时 24 小时内无、48 小时后出现）。",
+  "success_criteria": "答出临界浓度 50ppm 且限定为阴离子（烃类/全氟碳）表面活性剂，并答出 50ppm 下 48h 无微粗糙；答成阳离子或 IPA 有效则不通过。",
+  "evidence": "--[p229]-- Accordingly, an addition of more than 50ppm hydrocarbon or perfluorocarbon anionic surfactant is very effective for both the prevention of the microroughness generation on the Si wafer surface and the suppression of the Si dissolution in 630BHF from Si wafer. --[p228]-- In case of 25ppm addition of hydrocarbon anionic surfactant, the microroughness is not observed after immersed for 24 hours, but is observed after immersed for 48 hours. In case of 50ppm addition, the microroughness is not observed after immersed for 48 hours."
+ },
+ {
+  "query_id": "dev_029",
+  "query": "用普通AFM悬臂做蘸笔纳米光刻（DPN），线宽和空间分辨率能做到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "使用常规悬臂时，DPN可提供12 nm线宽和5 nm空间分辨率，可与电子束光刻相媲美。",
+  "success_criteria": "答出线宽12 nm且空间分辨率5 nm（单位正确）",
+  "evidence": "--[p332]-- With conventional cantilevers, DPN offers 12-nm linewidth and 5-nm spatial resolution and, therefore, rivals other techniques like e-beam lithography for patterning solid substrates.",
+  "replaced_from_pool": "P05-02"
+ },
+ {
+  "query_id": "dev_030",
+  "query": "超纯水漂洗里溶存臭氧对多晶硅接触电阻有多大影响？多少 ppb 就会出问题？溶氧本身呢？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "漂洗水中只要含 15ppb 溶存臭氧，接触电阻就升高一个数量级；30 和 45ppb 结果相近；而溶氧即使高达 3500ppb（3.5ppm，实验分 20/100/550/3000ppb 各档）对接触电阻也无统计学显著影响。",
+  "success_criteria": "答出 15ppb 臭氧即导致接触电阻升高一个数量级、3500ppb 溶氧无影响，两个数值均正确。",
+  "evidence": "--[p139]-- The data in Figure 6 shows that the contact resistance increases an order of magnitude for rinse water containing as little as 15ppb dissolved ozone! ... Therefore, dissolved oxygen levels as high as 3500ppb (3.5ppm) have no effect on the contact resistance of this integrated process."
+ },
+ {
+  "query_id": "dev_031",
+  "query": "汽相 HF 和水溶液 HF 做预栅氧清洗，GOI 测试得到的缺陷密度、击穿电压和 QBD 数据各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "（120Å 氧化电容）汽相 HF：缺陷密度 60.4±24 cm⁻²、VBD 7.41±3.7 V、QBD 50% 分位 8±2 与最佳 25±2 C/cm²；水溶液 HF：缺陷密度 73.3±41 cm⁻²、VBD 6.68±4.1 V、QBD 50% 分位 22±3、最佳 33±1 C/cm²。结论：两者 GOI 无显著差异。",
+  "success_criteria": "至少正确给出两种清洗的缺陷密度与 VBD 四个数值（60.4±24 / 73.3±41 / 7.41±3.7 / 6.68±4.1），QBD 数值可答出 8±2、22±3。",
+  "evidence": "--[p249]-- Clean | Def Density (cm^-2) | VBD (Volts) | QBD (C/cm2) 50% | Best / Vapor HF | 60.4±24 | 7.41±3.7 | 8+2 | 25±2 / Aqueous HF | 73.3±41 | 6.68±4.1 | 22±3 | 33±1 --[p248]-- Gate Oxide Integrity (GOI) testing showed little significant difference between vapor and aqueous HF."
+ },
+ {
+  "query_id": "dev_032",
+  "query": "热磷酸去氮化硅之后，氧化片表面残留的磷有多少、雾状缺陷（haze）一般在酸处理后多久出现？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "即使经过充分 DI 水漂洗，氧化硅表面仍可残留多达 0.5 原子重量百分比（0.5 atomic weight percent）的磷（ESCA 测得）；haze 在酸暴露后 8 至 24 小时、于洁净室室温环境中存放后出现，漂洗越充分出现越晚。",
+  "success_criteria": "答出残留磷上限 0.5 原子百分比、haze 出现时间 8~24 小时；需注明是 ESCA 测量的表面磷。",
+  "evidence": "--[p95]-- Even with extensive DI water rinsing, oxide wafer surfaces can retain as much as 0.5 atomicweight percent of phosphorous, as measured by electron spectroscopy for surface analysis (ESCA). ... the haze can be seen after 8 to 24 hours subsequent to acid exposure and when the wafers are stored in an ambient fabricator room air environment."
+ },
+ {
+  "query_id": "dev_033",
+  "query": "手册里对磨削冷却液(grinding coolant)有什么要求?进机的 D.I. 水流量和压力范围又是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "磨削冷却液:D.I. 水,6 GPM,压力 30 PSI(最小)~50 PSI(最大);D.I. Water In:6 GPM,30 PSI(最小)~60 PSI(最大)。均出自安装章节 STEP 4 - UTILITY REQUIREMENTS。",
+  "success_criteria": "答出磨削冷却液 6 GPM、30~50 PSI 且 D.I. 进水 6 GPM、30~60 PSI,单位正确;两档压力上限不得混淆。",
+  "evidence": "--[p57]-- • Grinding Coolant: D.I. water; 6 GPM at 30 PSI minimum, 50 PSI maximum …--[p57]-- • D.I. Water In: 6 GPM at 30 PSI minimum, 60 PSI maximum"
+ },
+ {
+  "query_id": "dev_034",
+  "query": "高压水气混合射流(M-jet)清洗时,液滴速度按330 m/s来算,它对一颗直径1μm的颗粒能施加多大的去除力?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "M-jet射流在液滴速度330 m/s、冲击角60°、衰减系数0.28、阻力系数0.47的假设条件下,对直径1μm颗粒的去除力约为2×10^-5 N(原文该数值单位为N)。",
+  "success_criteria": "答出2×10^-5 N且能给出330 m/s、60°、0.28、0.47等参数中的至少两个;单位正确。",
+  "evidence": "--[p70]-- Assuming that the velocity of droplets, impact angle measured from a wafer surface, the decay coefficient, and the drag coefficient are 330 m/s, 60°, 0.28, and 0.47, respectively, the removal force applied to a particle with a diameter of 1 μm is 2×10^-5 N",
+  "replaced_from_pool": "P06-01"
+ },
+ {
+  "query_id": "dev_035",
+  "query": "真空系统排水槽(drain tank)满了之后是怎么自动排水的?purge 模式的工作原理说一下。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "排水槽水位上升时,上浮子(upper float)触发 purge 循环,把真空槽与排水槽隔离并排空排水槽;水位下降后,下浮子(lower float)关闭 purge 循环,系统恢复正常模式。",
+  "success_criteria": "答出上浮子触发 purge、隔离真空槽并排水,下浮子关闭恢复,两个浮子的动作方向正确。",
+  "evidence": "--[p406]-- Overview of Purge Mode … When the drain tank fills with water, the upper float triggers a purge cycle, isolating the vacuum tank from the drain tank, and draining the drain tank. As the water level falls, the lower float turns the purge cycle off and the system is restored to normal mode."
+ },
+ {
+  "query_id": "dev_036",
+  "query": "书里 SOI 硅纳米膜转移前释放埋氧层(BOX)用的是哪种刻蚀液?要浸泡多久?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "使用浓氢氟酸水溶液(aqueous concentrated hydrofluoric acid, HF)选择性刻蚀 BOX 层,浸泡时间为 10–20 分钟;刻蚀过程中活性层靠范德华力贴回起始硅衬底。",
+  "success_criteria": "答出刻蚀液为 HF(氢氟酸)且时间为 10–20 min,两者都正确才算通过。",
+  "evidence": "--[p18]-- To release the strips of the active layer, photoresist on top of the strips is first stripped and then the sample is immersed in aqueous concentrated hydrofluoric acid (HF) for 10–20 min to etch away the BOX layer selectively. During the BOX removal process, the active layer falls down and attaches to the starting Si substrate [6] by van der Waals' forces.",
+  "replaced_from_pool": "P07-01"
+ },
+ {
+  "query_id": "dev_037",
+  "query": "探针抬到 UP 位置时,探针尖和充气密封圈(inflatable seal)上沿之间要留多少间隙?用什么量?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "3/8 英寸(0.375 in),用 6 英寸钢尺(six-in. scale)测量。",
+  "success_criteria": "答出 3/8 in 且测量工具为 6-in. scale。",
+  "evidence": "--[p391]-- GOAL: When the probe is in its UP position, the probe tip must be 3/8 in. above the top lip of the inflatable seal when measured with a 6-in. scale."
+ },
+ {
+  "query_id": "dev_038",
+  "query": "13.5 nm 的 EUV 光子能量大概是多少 eV?跟 248 nm 和 193 nm 的 DUV 光子能量比分别是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "13.5 nm EUV 单光子能量约 92 eV;248 nm DUV 光子能量为 5.0 eV,193 nm 为 6.4 eV。三个数值与单位均需答出。",
+  "success_criteria": "答出 92 eV、5.0 eV(248 nm)、6.4 eV(193 nm)三个数值且单位为 eV;EUV 与 248/193 nm 对应关系不混淆。",
+  "evidence": "--[p24]-- An incident 13.5-nm EUV photon has about 92 eV of energy compared to 5.0 and 6.4 eV for the DUV wavelengths of 248 and 193 nm, respectively.",
+  "replaced_from_pool": "P08-01"
+ },
+ {
+  "query_id": "dev_039",
+  "query": "咱们 track 上 193nm 用的显影液是不是还是沿用 248nm 那套、浓度没变?书里说 90nm 密集线显影前 10 秒图形就成形了,那继续延长 puddle 时间主要还会影响什么?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Advanced Processes for 193-nm Immersion Lithography (SPIE Press Monograph Vol. PM189) (Yayi Wei, Robert L. Brainard)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "是。193nm 光刻的显影工艺直接沿用 248nm 工艺,显影液浓度相同,为 2.38 wt% TMAH(四甲基氢氧化铵)。密集线图形在显影前 10 秒内即完全成形,但 Resist A 和 Resist B 的曝光宽容度(EL)和 DOF 对 puddle 时间仍然敏感(低 puddle-time latitude),而 Resist C 的 EL 和 DOF 对 puddle 时间相对不敏感。",
+  "success_criteria": "答出显影液为 2.38 wt% TMAH 且说明沿用自 248nm 工艺;答出前 10 秒图形已成形,并指出 Resists A/B 的 EL 与 DOF 对 puddle 时间敏感(Resist C 不敏感)。",
+  "evidence": "--[p50]-- Development time is a key process parameter. Because the development process of 193-nm lithography is simply adopted from the 248-nm process with the same concentration of developer (2.38 wt% tetramethylammonium hydroxide (TMAH)), the development time must be optimized in order to obtain the best performance for each 193-nm resist. …… --[p50]-- Although the dense-line patterns were completely formed during the first 10 seconds of development, the EL and DOF of Resists A and B were found to be relatively",
+  "replaced_from_pool": "P10-01"
+ },
+ {
+  "query_id": "dev_040",
+  "query": "我们产线显影用的是 TMAH,书里说行业标准的当量浓度是多少来着?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "显影液浓度用当量浓度表示,0.26 N 的 TMAH 溶液已成为行业事实标准;这种标准化主要是为了降低显影液成本,而不是因为 0.26 N 被证明具有最佳光刻能力。",
+  "success_criteria": "答出 0.26 N TMAH 且说明标准化主要源于成本考量;单位(N)正确。",
+  "evidence": "--[p100]-- The concentration of developers is usually measured in terms of normality. While resist processes can work in principle over wide ranges of developer normality, 0.26-N TMAH solutions appear to have become somewhat of an industry standard. --[p100]-- This standardization has been done primarily to reduce developer costs, rather than because 0.26-N developer normality has been found to provide the greatest lithography capability.",
+  "replaced_from_pool": "P11-01"
+ },
+ {
+  "query_id": "dev_041",
+  "query": "这台 magnatran 机器人能搬哪几种尺寸的晶圆？最大支持到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "支持的晶圆尺寸为 100mm、125mm、150mm、200mm、300mm，最大 300mm，且每种尺寸均有 SEMI 标准兼容的 end effector 可选。",
+  "success_criteria": "答出全部 5 种尺寸（100/125/150/200/300mm）且明确最大为 300mm。",
+  "evidence": "--[p38]-- Wafer Sizes 100mm, 125mm, 150mm, 200mm, 300mm (SEMI standard compatible end effectors are available for each size)"
+ },
+ {
+  "query_id": "dev_042",
+  "query": "工业上正性胶水相显影用的 TMAH 当量浓度是多少？书里给的数值是多少 N?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "0.26 N TMAH。书中在讨论化学放大胶正性水相显影时明确使用 0.26 N TMAH 显影液。",
+  "success_criteria": "答出 0.26 N(允许表述为 0.26 当量浓度 TMAH)。",
+  "evidence": "--[p125]-- In the specific case of positive-tone aqueous development of a chemical amplification resist based on polar deprotected polymeric acid, the carboxylic acid functional group of the latter is quickly ionized in the 0.26 N TMAH developer into its carboxylate anion and proton, creating a polyelectrolyte that is easily dissolved.",
+  "replaced_from_pool": "P12-02"
+ },
+ {
+  "query_id": "dev_043",
+  "query": "这台机器人的晶圆放置重复精度（placement repeatability）标称多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "放置重复精度为 0.1mm TIR（水平面内、在相应速度下）。",
+  "success_criteria": "答出 0.1mm 且带 TIR 口径。",
+  "evidence": "--[p35]-- Placement Repeatability 0.1mm TIR (in horizontal plane, at appropriate speeds)"
+ },
+ {
+  "query_id": "dev_044",
+  "query": "BigMaC测试掩模那组E-D树是用什么工艺条件做的?胶厚、PAB、PEB温度和时间、显影时间这些中心参考条件报一下",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why, Second Edition (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "resist thickness=910 nm,PAB=90°C,PEB=100°C,PEB time=100 sec,development time=60 sec。",
+  "success_criteria": "五个中心条件(910 nm、90°C、100°C、100 sec、60 sec)全部答出。",
+  "evidence": "--[p312]-- The processing conditions of the E-D trees are centered at: resist thickness = 910 nm; PAB = 90°C; --[p312]-- PEB = 100°C; PEB time = 100 sec; development time = 60 sec",
+  "replaced_from_pool": "P13-03"
+ },
+ {
+  "query_id": "dev_045",
+  "query": "我们产线要调 Nikon 主机的 HSMS 通讯，T3 回复超时出厂典型值设的多少秒？允许的设定范围是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "NSR-PR-PROT-R20-E1",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "T3（Reply Timeout，回复超时）典型值为 45 秒，设定范围为 1 到 120 秒，精度 1 秒。",
+  "success_criteria": "答出典型值 45 秒且范围为 1~120 秒，单位为秒，缺一不可。",
+  "evidence": "--[p66]-- T3 | Reply Timeout(o) | Reply Timeout. Specifies maximumamount of time the NSR expecting areply message from the host will waitfor that reply. | 45 seconds | 1 to 120 seconds | 1 second",
+  "replaced_from_pool": "P14-01"
+ },
+ {
+  "query_id": "dev_046",
+  "query": "KrF、ArF、F2三种准分子激光对应的曝光波长分别是哪三个？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Optical Lithography Here is Why (SPIE Press Monograph Vol. PM190) (Burn J. Lin)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "KrF对应248 nm，ArF对应193 nm，F2对应157 nm；书中以此说明准分子激光是深紫外及更短波长的必然选择。",
+  "success_criteria": "三种激光器与248/193/157 nm的对应关系全部正确，任何错配判失败。",
+  "evidence": "--[p150]-- The selection of wavelengths—such as 248 nm with KrF, 193 nm with ArF, and 157 nm with $\\mathrm { F } _ { 2 }$ —makes the excimer laser a clear choice for deep-UV and shorter wavelengths.",
+  "replaced_from_pool": "P16-04"
+ },
+ {
+  "query_id": "dev_047",
+  "query": "每个机械臂可以在 EEPROM 里存多少个站点？每个站点要存哪些参数？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "每臂可存储 16 个站点；每站有自己的 Extend 位置(R)、Theta 位置(T)、Base Transfer Offset(BTO)、Lower 位置、Slot 数量(Number of Slots)和 Pitch。",
+  "success_criteria": "答出 16 站/臂，且至少列出 R、T、BTO、Lower、Slots、Pitch 中的 4 项。",
+  "evidence": "--[p226]-- Enables the user to Store, in EEPROM, the parameters for 16 stations per arm. Each station has its own Extend position (R), Theta position (T), Base Transfer Offset (BTO), Lower position, Number ofSlots, and Pitch."
+ },
+ {
+  "query_id": "dev_048",
+  "query": "这台 magnatran 机器人整机的质保期是几年？保修条款在手册哪里写了？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该手册未涉及整机质保期/保修条款的信息，无法给出具体年限；手册仅在有异常时指引联系 Brooks Automation Customer Support，建议向厂家或销售渠道确认保修。不得编造任何年限。",
+  "success_criteria": "明确说明手册未包含保修期信息并拒答具体年限，不编造数字。",
+  "evidence": "--[p466]-- If any of the above inspection points report a discrepancy, call Brooks Automation Customer Support.（素材全文无 warranty/质保年限章节，此句为手册对异常处理的指引）"
+ },
+ {
+  "query_id": "dev_049",
+  "query": "现在量产里做 post-ash 清洗，每次清洗的热氧化硅损耗量要控制在多少才算达标？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "当前量产工艺要求每次清洗的热氧化硅损失小于 1 Å，且几年内将收紧到小于 0.5 Å。",
+  "success_criteria": "答出\"&lt;1 Å 且几年内 &lt;0.5 Å\"，单位为 Å，两个数值齐全即通过。",
+  "evidence": "--[p127]-- Current manufacturing processes are requiring less than 1Å of thermal oxide loss per cleaning cycle with less than 0.5Å being specified in just a few years."
+ },
+ {
+  "query_id": "dev_050",
+  "query": "AFEOL 清洗里去原生氧化那步 HF 稀释比是多少？后面臭氧化漂洗的臭氧浓度要多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "用 1000:1 的稀 HF 去除原生氧化（及金属），随后进行一次过流式臭氧化漂洗，无泡臭氧浓度 &gt;8 ppm，以重新生长洁净氧化层。",
+  "success_criteria": "答出 HF 稀释比 1000:1 且臭氧浓度 &gt;8 ppm 两项。",
+  "evidence": "--[p135]-- A 1000:1 HF process was used to remove the native oxide (and metals) followed by a once through ozonated rinse at &gt;8 ppm bubble free ozone to regrow a very clean oxide."
+ },
+ {
+  "query_id": "dev_051",
+  "query": "用 Barracuda 那个 moist O3 工艺去胶，I-line 光刻胶的剥离速率大概什么水平？DUV 胶呢？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "I-line 胶平均剥离速率约 600 nm/min（1.2 μm 胶厚对应总工艺时间 13–15 分钟）；DUV 胶正胶约 100 nm/min、负胶约 150 nm/min。",
+  "success_criteria": "答出 I-line ≈600 nm/min，DUV 正胶 ≈100 nm/min、负胶 ≈150 nm/min，数值误差 ±10% 内。",
+  "evidence": "--[p370]-- Typical average strip rates for I-line are in the 600 nm /min range, which result in total process times of 13 – 15 min. for typical resist thickness of 1.2 μ. Corresponding removal rates for DUV are around 100 nm/min for positive and 150 nm/min for negative resist types."
+ },
+ {
+  "query_id": "dev_052",
+  "query": "为什么无铅焊料的共熔点要尽量贴近以前锡铅焊料的183℃？现在主流SAC305的共熔点又是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 下册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "因为传统Sn-Pb焊料共熔点为183℃，元器件、组装件和印制电路基材板的耐热温度及焊接设备都是与其焊接条件相适应的，无铅焊料共熔点过高会破坏它们的基本特性、并要求设备耐热性能提高；目前可取代Sn-Pb的最佳无铅焊料SAC305（Sn-Ag3-Cu0.5）的低共熔点约为217℃。",
+  "success_criteria": "答出183℃与217℃两个数值，并能说明原因是元器件/基板耐热与设备适应性。",
+  "evidence": "--[p140]-- 无铅焊料组成的合金共熔点应尽量接近传统Sn-Pb焊料合金共熔点183℃，其原因是在焊接时，过高的无铅焊料合金低共熔点温度可能破坏电子产品中常用的元器件、组装件、印制电路基板等的基本特性。--[p141]-- 从目前看来，可以取代传统Sn-Pb焊料的最佳无铅焊料组成为Sn-Ag3-Cu0.5(SAC305)合金体系，其低共熔点约为217℃，比Sn-Pb焊料合金的低共熔点高出34℃",
+  "replaced_from_pool": "P17-02"
+ },
+ {
+  "query_id": "dev_053",
+  "query": "阿斯麦 1.35NA 的浸没式光刻机 NXT1970ci，书里给的产能、分辨率和套刻指标分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "衍射极限附近的光刻工艺 (伍强)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "NXT1970ci 可以每小时完成 250 片 300mm 直径硅片的曝光，分辨率为 38nm 线宽、76nm 周期，套刻精度为 2nm（3 倍标准偏差）。",
+  "success_criteria": "四个数值全部答对：1.35NA、250 片/小时、38nm 线宽/76nm 周期、套刻 2nm(3σ)。",
+  "evidence": "--[p27]-- 水浸没式光刻机以阿斯麦公司的1.35NA数值孔径光刻机为最好，它的最新型号NXT1970ci可以每小时完成250片300mm直径硅片的曝光，分辨率为38nm线宽、76nm周期，套刻精度为2nm(3倍标准偏差）。尼康公司也推出了类似的产品。",
+  "replaced_from_pool": "P18-03"
+ },
+ {
+  "query_id": "dev_054",
+  "query": "我要给喷墨印刷电路选导电墨,书里最常用的 PEDOT/PSS 导电聚合物电导率范围是多少?是哪家公司的产品?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "纳米制造手册 纳米科学进展系列 （导读版 英文版） [（美）维德雷希特 主编 ] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "水性油墨 PEDOT/PSS 是最常用的可印刷有机导电材料,电导率范围为 30–150 S/cm(例如 H. C. Starck GmbH 生产的 Clevios 系列导电聚合物)。",
+  "success_criteria": "答出电导率范围 30–150 S cm^-1 且单位正确,并提到 Clevios 或 H. C. Starck GmbH 至少其一。",
+  "evidence": "--[p203]-- The most widely used printable organic conducting material is a water-based ink PEDOT/ PSS, with a conductivity range of $3 0 { \\mathrm { - } } 1 5 0 \\operatorname { S } { \\mathrm { c m } } ^ { - 1 }$ (e.g., Clevios conductive polymers, produced by H. C. Starck GmbH) [18].",
+  "replaced_from_pool": "P19-01"
+ },
+ {
+  "query_id": "dev_055",
+  "query": "MHz 喷嘴声压监测实验里，DI 水的溶解氧浓度升高时，喷嘴 A 的声压会怎么变化？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "实验把 DI 水溶解氧浓度设为 1、35、50 ppm 三档；对喷嘴 A，声压随溶解氧浓度升高而明显下降（因气泡对声波的反射与吸收）。",
+  "success_criteria": "答出\"随溶解氧升高声压明显下降\"，并给出 1/35/50 ppm 三档中任意即认可。",
+  "evidence": "--[p181]-- the amount of discharge was set at 1.4 l/min, and the dissolved oxygen concentration in DI water was set at 1, 35 or 50 ppm. --[p184]-- For nozzle (A), sound pressure markedly decreased with increasing dissolved oxygen concentration."
+ },
+ {
+  "query_id": "dev_056",
+  "query": "AFEOL 和 POR 对比表里 Furnace#3 的铁污染从 4.9E10 降到 1E8 atoms/cm²，帮我算算降了多少倍。",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "4.9E10 ÷ 1E8 = 490，即铁污染降低约 490 倍（超过两个数量级）。",
+  "success_criteria": "算式为 4.9E10/1E8，结果 490 倍（±1% 内）。",
+  "evidence": "--[p137]-- Furnace #3 20%, atoms/cm² | 4.9E10 | 1E8 | ↑↑↑"
+ },
+ {
+  "query_id": "dev_057",
+  "query": "Irgacure 2959 在水里的溶解度上限大概多少？书里有换算成摩尔浓度吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Multiphoton lithography  techniques, materials and applications (Liska, Robert Ovsianikov, Aleksandr Stampfl etc.)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Irgacure 2959 [2-hydroxy-1-(4-(2-hydroxyethoxy)phenyl)-2-methylpropan-1-one] 水溶性差，约 1 wt%，约合 50 mM；在 365 nm 紫外光下分解产生丙酮基酮醇（acetone ketyl）和取代苯甲酰自由基。核心判定值为 ~1 wt% 与 ~50 mM。",
+  "success_criteria": "同时答出约 1 wt% 和约 50 mM 两个数值；只答其一算部分不通过。",
+  "evidence": "--[p176]-- Irgacure® 2959 [2-hydroxy-1-(4-(2-hydroxyethoxy)phenyl)- 2-methylpropan-1-one] has perhaps the most widespread use, and decomposes under UV light (λ = 365 nm) to form both an acetone ketyl and a substituted benzoyl radical. Though these active radicals initiate chain polymerization rapidly in aqueous systems, the parent PI sufers from poor water solubility (∼1 wt%, ∼50 mM).",
+  "replaced_from_pool": "P20-02"
+ },
+ {
+  "query_id": "dev_058",
+  "query": "Class 2 激光为什么短时间看一眼问题不大？它对功率和波长范围有什么限制？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Class 2 为低功率激光，辐射仅限可见光谱段400-700 nm，最大输出功率&lt;1 mW；由于人眼的眨眼反应，有限曝光（最长0.25 s）内对眼睛不危险。典型例子有对准用HeNe激光器、许多激光笔、超市扫描器。",
+  "success_criteria": "答出波长400-700 nm、最大功率&lt;1 mW、眨眼反应保护曝光不超过0.25 s三点。",
+  "evidence": "--[p44]-- 2 | (low power) Laser radiation limited to visible spectral range (400-700 nm) with maximumoutput power &lt; 1 mW. Due to the blink response, not dangerous for eye in case of limitedexposure (up to 0.25 s). | Alignment HeNe lasers,many laser pointers,supermarket scanners"
+ },
+ {
+  "query_id": "dev_059",
+  "query": "13.5 nm 的 EUV 光刻为什么整条光路都得抽真空，掩模也只能做成反射式的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "因为13.5 nm光被所有固体、液体和气体强烈吸收，所以整个光学系统必须维持高真空；由于没有任何光学材料对EUV透明（不存在13.5 nm下透明的光学材料），EUV扫描光刻机的掩模也必须是反射式的，系统内反射镜为Mo/Si多层膜Bragg反射镜，最多可反射70%的入射光。",
+  "success_criteria": "答出13.5 nm被所有固液气强烈吸收需高真空、无透明光学材料故掩模/光学件全为反射式两点。",
+  "evidence": "--[p178]-- The entire optical system is maintained under high vacuum since 13.5 nm light is strongly absorbed by all solids, liquids, and gases. The mirrors are also Bragg reflectors and can reflect up to 70% of the incident light. --[p178]-- Since the optics are all reflective, the masks used in EUV scanners must also be reflective, since no optical materials are transparent to EUV."
+ },
+ {
+  "query_id": "dev_060",
+  "query": "MKS 那款通用型热电堆探头 30A-BB-18，功率量程和能量量程分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "30A-BB-18为通用型、宽带吸收热电堆：功率模式量程10 mW-30 W（功率标尺30W/5W/0.5W，噪声0.5 mW）；能量模式量程6 mJ-30 J（能量标尺30J/3J/300mJ，最小能量6 mJ）。",
+  "success_criteria": "答出功率范围10mW-30W与能量范围6mJ-30J，单位正确。",
+  "evidence": "--[p74 [表]]-- Model 30A-BB-18Use General purpose / Absorber Type Broadband / Power Range 10mW-30W / Energy Range | 6mJ - 30J / Energy Scales | 30J/3J/300mJ"
+ },
+ {
+  "query_id": "dev_061",
+  "query": "给探测器选型的时候常看到 NEP 这个参数，它到底是什么含义？单位怎么标注？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "NEP（噪声等效功率）是使输出信号信噪比SNR等于1所需的输入功率，因此是传感器最小可探测信号的量度；单位通常为 W/Hz^(1/2)，且必须注明波长、调制频率、探测面积、温度和带宽等条件。可探测度D*与NEP互为倒数。",
+  "success_criteria": "答出NEP定义（SNR=1所需输入功率/最小可探测信号）及单位W/Hz^(1/2)。",
+  "evidence": "--[p65]-- The noise equivalent power (NEP) is the input power necessary to give an output signal that gives a SNR equal to one. Therefore, NEP is a measure of the minimum detectable signal for a sensor. --[p65]-- NEP values are typically given in units of W/Hz1/2 ... Detectivity is the reciprocal of NEP"
+ },
+ {
+  "query_id": "dev_062",
+  "query": "HeNe 激光和固体激光器的 M² 一般是多少？M²=1 到底代表什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "常见HeNe激光器M²&lt;1.1（近理想高斯束）；许多固体激光器M²在1.1-1.3；准直后发射基横模的激光二极管M²为1.1-1.7，高能多模激光器M²可达10-100。M²=1即理想高斯束，可聚焦到最小光斑直径；M²越大，聚焦光斑直径按M²比例增大。",
+  "success_criteria": "答出HeNe M²&lt;1.1、固体激光1.1-1.3，并说明M²=1时可聚焦到最小光斑。",
+  "evidence": "--[p83]-- A commonly-available helium-neon laser emits a near-ideal Gaussian beam with a value of M2 &lt; 1.1. For many solid-state lasers, M² is in the range of 1.1-1.3. --[p82]-- an ideal Gaussian beam (i.e., M2 = 1) can be focused to a minimum spot diameter, whereas beams of higher M² values focus to larger spot diameters in proportion to the M² value."
+ },
+ {
+  "query_id": "dev_063",
+  "query": "MultiGas 2030 这台 FTIR 气体分析仪一次能同时测多少种气体、多快出结果？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "MKS MultiGas 2030 是高速、高分辨率的FTIR气体分析仪，可在1秒内同时监测30种以上的排放气体。",
+  "success_criteria": "答出同时监测&gt;30种气体、用时不到1秒。",
+  "evidence": "--[p270]-- MKS' MultiGasTM 2030 system (Figure 271) is a high-speed, high-resolution FTIR-based gas analyzer designed to simultaneously monitor more than 30 emission gases in under a second."
+ },
+ {
+  "query_id": "dev_064",
+  "query": "我们这台 193 nm 浸没机台，用水做浸没液的话折射率按多少算？数值孔径最高能做到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Lithography (Stefan Landis)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "超纯水在 193 nm 的折射率为 1.44；用水浸没可把数值孔径提高到约 1.35。",
+  "success_criteria": "同时答出 n=1.44（193 nm）和 NA≈1.35 两个数值，缺一不可。",
+  "evidence": "--[p43]-- With immersion in water, with an index n = 1.44 at 193 nm, it is possible to design systems with an NA up to 1.35. To go past this, even higher index glass and fluids are necessary.",
+  "replaced_from_pool": "P22-01"
+ },
+ {
+  "query_id": "dev_065",
+  "query": "机器停在那报 “LEFT SPINDLE VACUUM SWITCH OFF”（#51），手册列了哪几种可能原因？对应怎么处理？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "三种原因：(1) 载具未安装；(2) Machine Parameters 菜单里的设置与实际安装的载具不匹配；(3) 真空开关故障。处理：(1a) 给相应主轴装上载具；(2a) 把 Machine Parameters 菜单的参数 2（Active Carriers）改成 Left/Right/Both 以匹配实际载具；(3a) 若仍存在，调整主轴真空开关（属 MAINTENANCE 职责）。#52 为右主轴同类错误",
+  "success_criteria": "三类原因与三条对应措施完整答出，且提到参数 2（Active Carriers）",
+  "evidence": "--[p297]-- “LEFT SPINDLE VACUUM SWITCH OFF” - # 51 “RIGHT SPINDLE VACUUM SWITCH OFF” - # 52 ... (1) Carrier not installed, or (2) Mismatch between the setting at Machine Parameters menu and carrier(s) installed. (3) Vacuum switch error. | (1a) Install carrier for affected spindle. (2a) Change parameter 2 (Active Carriers) at the Machine Parameters menu to match the carriers installed (Left, Right, or Both). (3a) If the problem still persists, adjust the spindle vacuum switch."
+ },
+ {
+  "query_id": "dev_066",
+  "query": "要调清洗站的 pad 压力，左右两侧的调压阀分别装在哪、在阀板上标号是多少？靠什么控制设定？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "左侧清洗垫压力阀：位于左前维修门（Left Front Service Door）内的阀板上，标号 Solenoid 2；右侧：同一阀板，标号 Solenoid 3；控制方式为 valve regulator + gauge，设定值按气缸压力/pad 力对照表选取",
+  "success_criteria": "答出 Solenoid 2（左）、Solenoid 3（右）、位置为左前维修门内阀板",
+  "evidence": "--[p199]-- Left Cleaning Pad Pressure Valve Location: on valve panel located inside Left Front Service Door. Label Number/Name: Solenoid 2. Right Cleaning Pad Pressure Valve Location: on valve panel located inside Left Front Service Door. Label Number/Name: Solenoid 3. Control: valve regulator, gauge. Setting: As desired, per table above."
+ },
+ {
+  "query_id": "dev_067",
+  "query": "载具组装手册里 jack screw 锁紧扭矩写的是 120 inch-pounds，我手头扭矩扳手只有英尺磅刻度，换算一下是多少 ft-lbs？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "120 ÷ 12 = 10 ft-lbs（英寸磅除以 12 即英尺磅）",
+  "success_criteria": "算式 120/12 与结果 10 ft-lbs 都正确",
+  "evidence": "--[p43]-- 22. Torque each jack screw to 120 inch-pounds using a torque wrench: a. Attach a 7/8-in. crowfoot to the torque wrench. b. Set the torque wrench at 120 inch-pounds. ... tighten the nut to 120 inch-pounds of torque (until the wrench clicks)."
+ },
+ {
+  "query_id": "dev_068",
+  "query": "6DS-SP 抛光台最大转速跟减速箱减速比是什么关系？手册里列的几种减速比分别对应多少 rpm 上限？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "额定转速随机器所装齿轮箱减速比不同而不同，减速比由校准变量 62（table reducer ratio）显示：7.5:1 → 最大 250 rpm；10:1 → 最大 160 rpm；15:1 → 最大 125 rpm",
+  "success_criteria": "三组对应关系全部答对（250/160/125 rpm）",
+  "evidence": "--[p88]-- Rated table speeds vary with the reducer ratio of the gear box installed in the machine. Calibration variable 62 displays the table reducer ratio. Note the ratios shown below: 7.5: 1 maximum 250 rpm / 10: 1 maximum 160 rpm / 15: 1 maximum 125 rpm"
+ },
+ {
+  "query_id": "dev_069",
+  "query": "上机检修前要做上锁挂牌（lockout），手册写的上锁程序头几步是怎么规定的？带储能的部件要注意什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "程序步骤：1) 通知所有受影响员工需要上锁及原因；2) 若设备在运行，按正常停机程序停机（按停止按钮、断开开关等）；3) 对每种能源，操作开关/阀门等能量隔离装置，使能源（电、机械、液压等）与设备断开或隔离；4) 用指定的个人锁对能量隔离装置上锁。储能方面：电容、弹簧、悬升部件、飞轮、液压系统及空气/气体/蒸汽/水压等储能必须通过接地、重新定位、加垫块、泄压等方式释放或约束",
+  "success_criteria": "步骤 1-4 顺序与内容完整，且答出储能须泄放/约束及其方式举例",
+  "evidence": "--[p42]-- Sequence of Lockout Procedure: 1. Notify all affected employees that a lockout is required and the reason therefore. 2. If the equipment is operating, shut it down by the normal stopping procedure ... 3. For each energy source, operate the switch, valve, or other energy-isolating device so that the energy source(s) ... is disconnected or isolated from the equipment. 4. Lockout the energy isolating devices with an assigned individual lock. / --[p43]-- Stored energy, such as that in capacitors, springs, elevated machine members, rotating flywheels, hydraulic systems, and air, gas, steam, or water pressure, etc., must also be dissipated or restrained by methods such as grounding, repositioning, blocking, bleeding-down, etc."
+ },
+ {
+  "query_id": "dev_070",
+  "query": "氦离子束光刻(HIBL)用 HSQ 胶最细做到多少 nm 半间距?这个结果跟目前电子束光刻的最高分辨率记录比怎么样?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson  (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HIBL 在 HSQ 上做出 5 nm 半间距清晰分辨线条(无残胶),以及 4 nm 半间距可分辨线条(有残胶),最优线剂量分别为 110 和 90 pC/cm;4 nm 半间距首次提供了 HIBL 超过迄今最高 EBL 分辨率记录(4.5 nm 半间距)的实验证据。",
+  "success_criteria": "答出 5 nm hp(110 pC/cm)与 4 nm hp(90 pC/cm),并指出超过 EBL 最高记录 4.5 nm hp。",
+  "evidence": "--[p91]-- This study also included fabrication of 5 nm clearly resolved half-pitch lines with no resist residuals between features and resolvable 4-nm half-pitch lines with clear contrast but resist residues (Fig. 16). The optimal line doses were 110 and 90 pC/cm, respectively. --[p91]-- the 4-nm half-pitch lines provided, for the first time, experimental evidence of HIBL exceeding the highest reported EBL resolution to date, which is a 4.5-nm half-pitch.",
+  "replaced_from_pool": "P08-13"
+ },
+ {
+  "query_id": "dev_071",
+  "query": "合成纸上做胶印水墨平衡不好控制，书里建议的润版液怎么配？pH、温度和供水量有什么讲究？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "普通高等教育印刷工程本科专业教材 特种印刷技术 第二版 [唐正宁，李飞，安君 编著] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "为保证水墨平衡，可使用11%~15%的酒精润版液；润版液pH值保持在5.5~6.0，温度保持在9~15℃；由于合成纸不具有纸张的吸收性能，印版上的供水量应减少10%~20%，否则会影响油墨干燥。",
+  "success_criteria": "四项参数全部答出：酒精浓度11%~15%、pH5.5~6.0、温度9~15℃、供水量减少10%~20%，答出其中三项判部分合格，四项全对为合格",
+  "evidence": "--[p151]-- 为保证水墨平衡，可以使用11%\\~15%的酒精润版液，或者在润版液中加入其他醇类溶剂，以利于提高印刷质量。建议润版液的pH值保持在5.5\\~6.0，温度保持在9\\~15℃。由于合成纸不具有纸张的吸收性能，印版上的供水量应减少10%\\~20%，否则会影响油墨干燥。",
+  "replaced_from_pool": "P15-09"
+ },
+ {
+  "query_id": "dev_072",
+  "query": "按抛光力校准的例子，左载具 25.0 磅、右载具 24.5 磅、Load Cell Carrier 8.0 磅。把 Load Cell Carrier 装到左主轴上做校准时，左主轴下方挂着的总重量是多少磅？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "25.0 + 8.0 = 33.0 磅（左载具 + Load Cell Carrier；右载具 24.5 磅不参与）",
+  "success_criteria": "算式 25.0+8.0=33.0 lbs 正确，不把右载具加进去",
+  "evidence": "--[p334]-- 1. Weigh the Strasbaugh Load Cell Carrier and the two carriers you removed earlier. Record the weights. Example: Left Carrier Weight: 25.0 lbs. Right Carrier Weight: 24.5 lbs. Load Cell Carrier Weight: 8.0 lbs. ... 5. Attach the Load Cell Carrier to the left spindle by hand."
+ },
+ {
+  "query_id": "dev_073",
+  "query": "接 AGV 自动上下料时，手册列了哪几个 AGV 相关报警？“NO AGV 'TRANSFER REQUEST'” 和 “NO AGV 'WAFER SET'” 分别给对方多长时间？超时后会怎样？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "共三个 AGV 相关报警：(1) NO AGV 'TRANSFER REQUEST'（abort clears）：6DS-SP 开始等待后 2 分钟内 AGV 未置位 transfer request 即报警；若随后置位，报警自动清除并继续传送循环。(2) NO AGV 'WAFER SET'（abort clears）：6DS-SP ready 后 30 秒内 AGV 未置位 wafer set 即报警；随后置位则自动清除并继续。(3) AGV RECIPE NOT FOUND（abort clears）：AGV 请求的配方在机内找不到（配方名须在 0~255 范围内），唯一恢复手段是 abort",
+  "success_criteria": "三个报警名称齐全，等待时间 2 分钟与 30 秒正确，且能区分超时自动恢复与 abort 恢复",
+  "evidence": "--[p340]-- Alarms: There are three AGV related alarms. \"NO AGV 'TRANSFER REQUEST' (abort clears)\" This alarm means the AGV did not turn on \"transfer request\" in time after the 6DS-SP started to expect it. This time is 2 minutes. If the AGV subsequently turns on \"transfer request\", the alarm will automatically clear and the transfer cycle will continue. \"NO AGV 'WAFER SET' (abort clears)\" ... This time is 30 seconds. ... \"AGV RECIPE NOT FOUND (abort clears)\" ... Recipe names must be in the range of \"0\" to \"255\". The only recovery from this alarm is an abort."
+ },
+ {
+  "query_id": "dev_074",
+  "query": "配方里的抛光力单位在 lbs 和 psi 之间切换时，已有的数值会自动换算吗？比如原来填 7 psi，改成 lbs 后变成多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "不会换算。切换 lbs/psi 时配方数值不变，只是单位变化：7 psi 改成 lbs 后就是 7 lbs。另外：用 lbs 时直径不参与；若用 psi 且直径填 0，屏幕会显示 \"Wfr Dia?\" 或 \"Dev Dia?\" 警告未输直径",
+  "success_criteria": "明确答出“数值不变”和 7 psi → 7 lbs 的例子；最好补充 psi 且直径为 0 时的警告显示",
+  "evidence": "--[p233]-- The diameter is not used if \"lbs\" is used for force. If \"psi\" is used and zero is entered for the diameter, displays will show \"Wfr Dia?\" or \"Dev Dia?\" to warn that no diameter is entered. Also, if changing between \"lbs\" and \"psi\", no recipe values will be changed. For example, 7 psi would become 7 lbs if the units were changed."
+ },
+ {
+  "query_id": "dev_075",
+  "query": "机器报主轴真空开关错误，排查步骤里说要“调整主轴真空开关”，那这个开关该调到什么读数？装在什么位置？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "先检索到 #51/#52 报警处理第 3a 步“adjust the spindle vacuum switch”，再据此检索主轴真空开关调整章节：用白尼龙拇指拨轮把开关整定到 15 英寸汞柱（中量程），读数时须正对拨轮避免斜视；左主轴开关位于上桥前方左侧旋转接头处，右主轴开关在右侧旋转接头处，调整后装回桥盖并关闭全部门",
+  "success_criteria": "体现两跳检索（报警处理→开关整定），答出 15 in Hg 与左右旋转接头位置",
+  "evidence": "--[p297]-- (3a) If the problem still persists, adjust the spindle vacuum switch. MAINTENANCE / --[p132]-- Locate the Barksdale vacuum switch for the left spindle, mounted at the front of the upper bridge on the left side rotary joint. (The right spindle vacuum switch is mounted on the right side rotary joint.) 3. Set the vacuum switch to 15 inches of Hg (midrange): Rotate the white nylon thumb dial until the indicator line of the dial is aligned with the midrange mark on the switch housing."
+ },
+ {
+  "query_id": "dev_076",
+  "query": "手册里 slurry（研磨液）推荐的配比或浓度是多少？想按厂家建议值调浆。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及研磨液配比/浓度的推荐值：手册的 slurry 章节只描述系统连接（每系统一台移动 slurry cart + 气动隔膜泵，三路快接头为 slurry supply、slurry main return、slurry filter return）及管路走向，并注明两种系统管路与操作相同，未给出任何调浆比例，不应编造数值；建议向研磨液供应商或工艺部门确认",
+  "success_criteria": "明确指出手册没有配比/浓度数据并拒答，同时能说明手册实际只覆盖管路连接内容",
+  "evidence": "--[p415]-- Each system consists of a mobile slurry cart and an air operated diaphragm pump. Each slurry cart has three connections via quick-disconnect couplings on the cart cover. ... All three slurry cart connections must be connected correctly for the slurry systems to operate as designed. The three connections are designated as slurry supply, slurry main return, and slurry filter return. ... The two slurry systems are identical in plumbing and operation."
+ },
+ {
+  "query_id": "dev_077",
+  "query": "报警 11030023 是 after heater 过热，手册给的排查动作有哪些？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "11030023 = After Heater - Overheat Detected：系统检测到 after heater 过热。处理：(1) 检查 after heater 温度设定是否正确；(2) 检查 after heater 的加热系统（heating system）。",
+  "success_criteria": "答出含义\"after heater 过热\"且处理包含检查温度设定与检查加热系统两点",
+  "evidence": "--[p142]-- 11030023 | After Heater - Overheat Detected Contents: The system detected that the after heater overheated. Action: (1) Check that the after heater temperature is set correctly. (2) Check the heating system for bond heater, Bond Heater - Wire Breaking Detected"
+ },
+ {
+  "query_id": "dev_078",
+  "query": "轨道上还留着 frame 的时候，想去改 Frame Map Setting 的 Enable/Disable，机器不让改并报 22400027。手册说该怎么按步骤处理？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "22400027 = Frame Map - Frame Map Setting (Enable/Disable) cannot be changed because a frame exists：轨道上有 frame 期间不能更改 Frame Map Setting 的 Enable/Disable。处理步骤：(1) 对轨道上的 frame 完成全部加工（complete all process）；(2) 用 F manual 卸载 frame；(3) 用 F manual 把该 frame 设为 disable 并用手动方式移除。",
+  "success_criteria": "答出\"track 上有 frame 时禁止修改\"及三步处理（完成加工、F manual 卸载、F manual 设 disable 并移除）",
+  "evidence": "--[p153]-- 22400027 | Frame Map - Frame Map Setting (Enable/Disable) cannot be changedbecause a frame exists.Contents: Frame Map Setting (Enable/Disable) cannot be changed while there isa frame on the track.Action: Execute the following action to change.(4) For the frame on track, complete all process.(5) Using F manual, unload the frame(1) Using F manual, make \"disable\" the frame and remove it by hand."
+ },
+ {
+  "query_id": "dev_079",
+  "query": "层压（Lamination）报 71300008 说 head wait position 数据错误，是哪个参数设小了？要求多大？去哪个菜单改？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "71300008 = Lamination Head - Data error - Head wait position error：[LM stage Z wait height] 被设成了 8mm 或更小的值。处理：检查 [Recipe] - [Lamination condition/Recognition] - [Lamination Sequence] - [Head] 中的 LM stage Z wait height 数据并改正（须大于 8mm）。",
+  "success_criteria": "答出参数 LM stage Z wait height、条件\"不得 ≤8mm（需大于 8mm）\"及菜单路径 Recipe - Lamination condition/Recognition - Lamination Sequence - Head",
+  "evidence": "--[p281]-- 71300008 | Lamination Head - Data error - Head wait position errorContents: [LM stage Z wait height] is set to 8mm or smaller value.Action: Check the data of [LM stage Z wait height], in [Recipe] - [Laminationcondition/Recognition] - [ Lamination Sequence] - [Head], is set correctly andrectify as necessary."
+ },
+ {
+  "query_id": "dev_080",
+  "query": "键合报 41100206，跟 suction release 前的延时有关。这条数据检查规则是什么？怎么改？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "41100206 = Timer before Suction Release > Bonding Time：吸附释放前的延时（timer before suction release）大于了键合时间（bonding time）。处理：把 timer before suction release 改小，使其小于 bonding time。",
+  "success_criteria": "答出关系式\"timer before suction release 必须 < bonding time\"及处理方向（把该 timer 改小）",
+  "evidence": "--[p266]-- 41100206 | Timer before Suction Release > Bonding TimeContents: Delay time (timer) before suction release is greater than bonding time.Action: Make data for timer before suction release smaller than bonding time."
+ },
+ {
+  "query_id": "dev_081",
+  "query": "5.3.3.1 温度真空设置里，哪些加热项目是只有 DB-800HL 机型才有的？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "标注 APPLICABLE FOR DB-800HL 的项目为：Lamination Stage heat、LAS heat temperature、LAS heat temperature limit、LAS heat over time、Lamination Head heat、LAH heat temperature、LAH heat temperature limit、LAH heat over time（即层压 stage/头部的加热功能及温度、温度上下限、温度偏移设定）。",
+  "success_criteria": "至少答出 LAS（层压 stage）与 LAH（层压头）两组加热相关项目，并指出仅适用 DB-800HL",
+  "evidence": "--[p392]-- 32 | Lamination Stage heat | Setting oflaminationstage heat function,enable/disableAPPLICABLE FOR DB-800HL 33 | LAS heat temperature | ℃ | Setting of lamination stage heat temperatureAPPLICABLE FOR DB-800HL 34 | LAS heat temperaturelimit | ℃ | Setting of lamination stage temperatureupper&lower limit.APPLICABLE FOR DB-800HL --[p392]-- 36 | Lamination Head heat | Setting of lamination head heatfunction,enable/disable 37 | LAH heat temperature | ℃ | Setting of lamination head heat temperatureAPPLICABLE FOR DB-800HL 38 | LAH heat temperaturelimit | ℃ | Setting of lamination head temperatureupper&amp;lower limit.APPLICABLE FOR DB-800HL 39 | LAH heat over time | ℃ | Setting of temperature offset., ttemperaturedifference between measured and displayedAPPLICABLE FOR DB-800HL"
+ },
+ {
+  "query_id": "dev_082",
+  "query": "点胶嘴防硬化的 Paste refresh 机制里，P nozzle hard time1/2 和 Paste refresh count1/2 是什么关系？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "5.1.7.8 Paste Refresh Motion 中：P nozzle hard time1 / P nozzle hard time2（单位 ms）分别为胶在点胶嘴内硬化的时间；Paste refresh count1 是在 P nozzle hard time1 计时到达后执行的 paste 刷新（排胶）次数；Paste refresh count2 是在 P nozzle hard time2 计时到达后执行的 paste 刷新次数。即 count1/2 分别挂在 hard time1/2 到期之后触发。",
+  "success_criteria": "答出 hard time1/2 为 ms 单位的胶硬化时间，且 count1 对应 hard time1 到期后、count2 对应 hard time2 到期后的刷新次数",
+  "evidence": "--[p233 [表]]-- 5.1.7.8 Paste Refresh Motion No. | Window Display | Unit | Description 1. | P nozzle hard time1 | ms | Time that paste hardens in nozzle 2. | P nozzle hard time2 | ms | Time that paste hardens in nozzle 3. | Paste refresh count1 | Number of Paste Regreshing actions to be done after[P nozzle hard time1] elapsed. --[p235]-- | Paste refresh count2 | Number of Paste Regreshing actions to be done after[P nozzle hard time 2] elapsed."
+ },
+ {
+  "query_id": "dev_083",
+  "query": "预成形的 Paddle position recognition 有哪几种模式？各种模式下识别出错时机器怎么动作？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "5.1.6.1 Recognition Setting 的 Paddle position recognition 有 4 种模式：Disable=不识别；Auto 1=识别出错时进行手动识别（manual recognition）；Auto 2=识别出错时进行自动识别（auto recognition）；Manual=以手动模式进行识别。",
+  "success_criteria": "四种模式名及其含义全部答对（Disable 不识别 / Auto1 出错转手动识别 / Auto2 出错转自动识别 / Manual 手动识别）",
+  "evidence": "--[p212 [表]]-- 5.1.6.1 Recognition Setting No. | Window Display | Unit | Description Recognition | Setting 1. | Paddle positionrecognition | Option to set Die pad recognition mode for preformDisable: No recognition is done.Auto 1: Manual recognition is done at recognition errorAuto 2: Auto recognition is done at recognition errorManual: Recognition is done in manual mode."
+ },
+ {
+  "query_id": "dev_084",
+  "query": "用 φ300mm 晶圆做银浆（silver-filled epoxy）DAF 键合，手册写的 index time 是 1 秒且含 0.65 秒工艺时间，那纯传送的 index 时间是多少秒？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "手册 2.4.1 规格表：φ300mm 银浆 DAF 键合 Index time = 1sec.（Include process time 0.65sec.）。纯 index 时间 = 1 − 0.65 = 0.35 秒。",
+  "success_criteria": "答出 0.35 秒（1 − 0.65 = 0.35），算式或结果正确",
+  "evidence": "--[p20]-- Bonding Method Index time | φ300mm Silver-filled epoxy paste bonding DAF: 1sec. (Include process time 0.65sec.)"
+ },
+ {
+  "query_id": "dev_085",
+  "query": "报 21600005 说 Loader Feeder Park Position 超过右限位。手册说 park position 正常是 preform position 减 50mm，我的 preform position 设在 320mm，park position 应该设成多少毫米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "手册 3. Frame Transfer 错误表 21600005 注明 Loader Feeder Park Position 通常由 Preform Position − 50mm 定义。计算：320 − 50 = 270mm，即 park position 应设为 270mm（且须落在左右限位之间）。",
+  "success_criteria": "答出 270mm（320 − 50 = 270），算式与单位正确",
+  "evidence": "--[p153]-- 21600005 | Loader Feeder - Data Abnormal (Loader Feeder Park Position > LoaderFeeder Right Limit)Contents: Loader Feeder Park Position is normally defined and comprised ofPreform Position – 50mm."
+ },
+ {
+  "query_id": "dev_086",
+  "query": "做晶圆 teaching 时弹了 <Wafer type setting error>，提示 wafer type 设置不对。手册里这个报错有哪几种情况？分别要把 wafer type 设成什么才能继续？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "手册中 <Wafer type setting error> 有两种情形：(1) wafer type 既不是 \"Normal\" 也不是 \"S-LSI\" 时报错，需把 wafer type 重新设为 Normal 或 S-LSI 才能继续 teaching；(2) 另一处 teaching（Area Search 相关）中，wafer type 未设为 \"Area Search\" 时报错，需设为 Area Search 才能继续。先检索到报错窗口，再分别定位两种 wafer type 要求。",
+  "success_criteria": "同时答出两种情形及对应设置（Normal/S-LSI 一组、Area Search 一组），缺一不可",
+  "evidence": "--[p425]-- ＜Wafer type setting error＞ If the wafer type is not set to \"Normal\" nor \"S-LSI\", the system gives error. Re-set the wafer type to \"Normal \" or \"S-LSI\" to proceed the teaching --[p439]-- ＜Wafer type setting error＞ If the Wafer type is not set to\"Area Search\", the system gives an error. Set the wafer thype to \"Area Seach\" to proceed teaching."
+ },
+ {
+  "query_id": "dev_087",
+  "query": "手册里有没有给 DB800 推荐的银浆/DAF 固化温度和固化时间？比如多少度固化多少秒这种具体数值？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及此类信息：DB800 手册只定义了 Bond heat temperature、paste cure time 等参数项及其单位（℃/ms），供用户自行设定，并没有给出任何银浆/DAF 的推荐固化温度与固化时间数值；应建议用户查所用胶水厂商的规格书，不得编造具体数字。",
+  "success_criteria": "明确说明\"手册未提供具体固化温度/时间推荐值\"且不给出编造数值，能指出手册仅有参数定义项（如 Bond heat temperature、paste cure time）",
+  "evidence": "--[p392]-- 22 | Bond heat temperature | ℃ | Bond heat temperature 23 | Bond heat temperature limit | ℃ | Upper/lower limit of bond heat temperature --[p266]-- 41100301 | Paste Cure ErrorContents: Time has passed beyond paste cure time before bonding.Action: Check paste cure time.（手册中仅有参数项定义，无任何推荐固化温度/时间数值）"
+ },
+ {
+  "query_id": "dev_088",
+  "query": "DB800 的真空泵保养周期是多少小时？泵油、滤芯这些耗材型号手册里有列吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及：DB800 手册只给出整机真空源规格要求（Vacuum source: -8.0x10^5 Pa or less）作为安装条件，没有真空泵的保养周期小时数，也没有泵油/滤芯等耗材型号清单；应建议查阅泵体厂商文档或联系 FSE，不得编造周期或型号。",
+  "success_criteria": "明确说明\"手册未涉及真空泵保养周期与耗材型号\"，可引用真空源规格 -8.0x10^5 Pa or less 作为手册中仅有的相关信息",
+  "evidence": "--[p21]-- Utility | (1) 7.5 kVA (2) | Power source: AC 200~240V,1-phase,50/60 Hz, Dry Air: 4.0x10⁵ Pa or more --[p21]-- Vacuum source: -8.0x10⁵ Pa or less（手册仅有真空源规格，无泵保养周期/耗材型号）"
+ },
+ {
+  "query_id": "dev_089",
+  "query": "Binning 信息里那些 bin 代码 0、1、2-8、99 分别代表什么状态?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "99 = Flipper Head/Pickup Head 上有 unit;0 = Flipper Head/Pickup Head 上无 unit;1 = pass,送往 Tape and Reel A / Tape & Reel B;2-8 = unit 在 Pickup Head 上,代表当前 test bin 信息。",
+  "success_criteria": "四个代码(99、0、1、2-8)的含义全部答对。",
+  "evidence": "--[p66]-- Binning Process 99 | Unit present at Flipper Head/Pickup Head. 0 | No unit at Flipper Head/Pickup Head. 1 | Pass unit, go to Tape and Reel A/Tape & Reel B 2-8 | Unit present at Pickup Head; unit will represent current test bin info."
+ },
+ {
+  "query_id": "dev_090",
+  "query": "跟测试仪对接的信号默认电平是怎么定义的?SOT 脉冲宽度最大能设到多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "SOT 信号默认 Active LOW,SOT Pulse Width 可设范围 1–500 ms;EOT 信号默认 Active LOW;Bin Info Signal(Tester Output Sort Signal)默认 Active HIGH。",
+  "success_criteria": "SOT/EOT 默认 Active LOW、Bin Info 默认 Active HIGH、SOT 脉宽范围 1–500 ms 全部正确。",
+  "evidence": "--[p125]-- SOT Pulse Width (1 – 500 ms) | Set the pulse width of the Start of Test (SOT) signal SOT Signal | Defines the state of the Start of Test (SOT) signal (Default: ActiveLOW) EOT Signal | Defines the state of the End of Test (EOT) Signal (Default: ActiveLOW) Bin Info Signal | Defines the state of Tester Output Signal (Sort Signal) (Default:Active HIGH)"
+ },
+ {
+  "query_id": "dev_091",
+  "query": "Tape & Reel B 的 Seal Time、Seal Block Up Delay 还有 Index 载带前的延时,可设范围和默认值分别是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Seal Time 默认 30 ms,范围 0–500 ms;Seal Block Up Delay 默认 2000 ms,范围 2000–10000 ms;Delay Before Index Carrier Tape 默认 10 ms,范围 0–500 ms。",
+  "success_criteria": "三个参数的范围和默认值全部正确(30/0–500 ms、2000/2000–10000 ms、10/0–500 ms)。",
+  "evidence": "--[p113]-- Seal Block Up Delay | 2000 (2000 - 10000) ms | Seal Time | 30 (0 -500) ms | Delay Before Index Carrier Tape | 10 (0 - 500) ms"
+ },
+ {
+  "query_id": "dev_092",
+  "query": "报警栏跳出 \"Vision Not Ready\" 该怎么处理才能恢复生产?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Reset alarm(复位报警),进入维护模式(maintenance mode)点击 Refresh Connection 按钮,等所有视觉系统重新连接上之后再恢复生产。",
+  "success_criteria": "答出复位报警 + 进 Maintenance Mode + 点 Refresh Connection 三个要点。",
+  "evidence": "--[p206]-- Vision Not Ready | Reset alarm, go to maintenance mode, click RefreshConnection button. Resume production when all visionsare reconnected."
+ },
+ {
+  "query_id": "dev_093",
+  "query": "Flipper 马达报警和 Flipper pusher 报警分别是哪个报警号?要检查哪个传感器信号?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "315 Flipper Motor Alarm:flipper 电机驱动 ready 信号 X106 未 on,需检查 X106 是否正常及 flipper 电机;316 Flipper Pusher Alarm:flipper pusher 驱动 ready(X119)为 off,需检查 X119 及 flipper pusher。",
+  "success_criteria": "答出报警号 315/316 及对应传感器 X106、X119。",
+  "evidence": "--[p431]-- 315 | Flipper Motor Alarm | Flipper motor driver ready signal (X106) noton | Check if X106 isworking properly 316 | Flipper Pusher Alarm | Flipper pusher motor driver ready (X119) isoff | Check if X119 is working properly"
+ },
+ {
+  "query_id": "dev_094",
+  "query": "做出来的载带剥离力(Peel Force)不合格,手册说受哪几个因素影响?应该怎么调?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "影响剥离力的因素共 3 个:1) Seal Time(密封时间);2) Temperature(温度);3) Seal Motor over compress(密封马达过压)。调整上述变量并反复执行 peel force 测试,直到剥离力进入规格范围。",
+  "success_criteria": "答出 3 个因素(Seal Time、Temperature、Seal Motor over compress)并给出\"调整后重复测试直至合格\"的处理方式。",
+  "evidence": "--[p220]-- Peel Force Verification 1. There are 3 factors which would affect the peel force, 1.5. Seal Time 1.6. Temperature 1.7. Seal Motor over compress 2. Adjust above variables and perform peel force testing until the peel force is within specification."
+ },
+ {
+  "query_id": "dev_095",
+  "query": "换完 ejector 针以后怎么确认针的高度是否合适?用什么量具检查?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "在 Teach Point 模式验证 Ejector Pin Standby Position:用 0.1mm 塞规(Fillet Gauge)检查针是否高出 Pepper Pot 上表面;待机位应略低于 Pepper Pot 顶面,若高出则重新 teach,缓慢下调直到塞规能平滑通过 Pepper Pot 顶面。",
+  "success_criteria": "答出 0.1mm Fillet Gauge 量具,并说明 standby 位置应低于(不高于)Pepper Pot 上表面。",
+  "evidence": "--[p212]-- Verify the Ejector Pin Standby Position in Teach Point mode by using Fillet Gauge 0.1mm(13) to check whether the pin height over the Pepper Pot top surface(14). Re-teach the ejector pin standby position if the pin is over the pepper pot surface. The Ejector Pin standby position should just lower than the Pepper Pot top surface."
+ },
+ {
+  "query_id": "dev_096",
+  "query": "车间地面承重按 2 吨/工位设计,放一台 Mi30 够不够?它一台占多大的地面面积?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "整机重量 2000 KG,换算为 2 吨(2000÷1000=2),恰好等于 2 吨/工位的承重设计,没有余量;占地面积 = 2850mm×2850mm = 2.85m×2.85m = 8.1225 m²(约 8.12 m²)。是否可行还需结合车间实际承重与安全余量判断,手册仅提供重量与外形数据。",
+  "success_criteria": "重量换算 2 吨正确,占地面积 8.1225 m²(允许 ±0.01)正确,并指出手册未给出承重安全余量结论。",
+  "evidence": "--[p7]-- Dimension L X W X H : 2850mm X 2850mm x 2300mm Weight : 2000KG"
+ },
+ {
+  "query_id": "dev_097",
+  "query": "rubber collet 官方规定的寿命是多久?按一年连续生产估算,一年大概要换多少次?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "rubber collet 寿命为 2 周(取决于工作环境和操作条件);按一年 52 周计算,52÷2 = 26 次/年。",
+  "success_criteria": "答出寿命 2 周,且年更换次数 = 26 次(按 52 周/年口径)。",
+  "evidence": "--[p323]-- 6.4.2 Rubber Collet The life span for rubber collet is 2weeks; depend on the working environment and operation condition."
+ },
+ {
+  "query_id": "dev_098",
+  "query": "Overspeed 这个报警的判定条件是什么?如果我们伺服电机最高转速是 3000rpm,转到多少就会触发?该怎么处理?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "判定条件:伺服电机转速超过最高转速的 1.1 倍即报 Overspeed;3000rpm × 1.1 = 3300rpm 时触发。处理:若转速过冲,用 PC Loader 检查加速过程速度波形,并增大 PA1_37(加速时间)、PA1_52(S 曲线时间常数)、PA1_56(速度环增益 1);同时检查 U/V/W 动力线接线是否正确。",
+  "success_criteria": "答出 1.1 倍判定条件、3300rpm 计算结果正确,并至少给出一个 PA 参数对策。",
+  "evidence": "--[p533]-- 2. Overspeed The rotation speed of the servomotor exceeds 1.1 times the maximum speed. Increase PA1_52 (S-curve time constant). Increase PA1_56 (speed loop gain 1). Increase PA1_37 (acceleration time)."
+ },
+ {
+  "query_id": "dev_099",
+  "query": "报警 227 Vision Connection Error 的处理建议里说刷新视觉连接,这个操作在软件的哪个界面里做?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步查报警表:227 = Vision Connection Error: Fail to Connect Tape && Reel-B Pocket Position Vision Application,原因是 Tape & Reel-B Pocket Position vision socket 连接问题,处理为检查 vision PC 与 handler PC 的连接并 refresh vision connection;第二步再到 4.6 Maintenance Mode 中执行 \"Refresh Vision Connection\" 功能(重启示意:重启了 handler 软件而未重启 vision 软件时必须点击该项)。",
+  "success_criteria": "说出报警 227 的含义,并指出刷新操作位于 Maintenance Mode 的 Refresh Vision Connection。",
+  "evidence": "--[p431]-- 227 | Vision ConnectionError: Fail to ConnectTape && Reel-BPocket Position VisionApplication | Tape & Reel-B Pocket Position visionsocket connection problem | Check connection atvision and handler PC,refresh visionconnection --[p205]-- Refresh Vision Connection | Refresh vision connection (always click this if restart handler software withoutrestarting vision software)"
+ },
+ {
+  "query_id": "dev_100",
+  "query": "Mi30 每小时能处理多少颗 die(UPH)?手册里哪一章写了产能指标?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及产能/UPH 指标,素材中只有 Facilities 章节(电压、气压、功耗、外形、重量)和各模块描述,没有给出每小时处理量数据;应如实告知无法从手册获得该数字,建议以实测产能或向设备厂商咨询为准,不得编造任何数值。",
+  "success_criteria": "明确表示手册未提供 UPH/产能数据,不编造数值,并给出合理的替代建议。",
+  "evidence": "--[p7]-- 1.2.2 Facilities Voltage : 415/380/208 VAC (refer machine tag), 3 Phase Frequency : 50/60 Hz Compressed Air : 6 bars Air Consumption : 500 LPM Power : 1.7 KW Dimension L X W X H : 2850mm X 2850mm x 2300mm Weight : 2000KG(素材中无任何 UPH/产能章节)"
+ },
+ {
+  "query_id": "dev_101",
+  "query": "HF-last 表面的铁污染用单步清洗能去掉多少？文中为什么说必须至少三步才有效？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "单步清洗效率极低：HF only 为 6、SC1 only 为 2、SC2 only 为 0（SC1+SC2 也仅 4）；文中明确发现要从 HF-last 表面有效去铁至少需要三个独立步骤，且在 HF-last 表面上 SC1 比 SC2 更有效；机理是 HF-last 表面的铁呈硅化物样键合，需要 HF 对硅的腐蚀配合。多步如 SC1+HF、HF+SC1、HF+SC1+SC2 均可达 >99。",
+  "success_criteria": "答出至少三个单步效率数值（HF 6 / SC1 2 / SC2 0）+「至少三步」结论+ SC1 优于 SC2（HF-last 表面）；机理（硅化物样键合）答出更佳。",
+  "evidence": "--[p64]-- we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. We also found that the SC1 was more effective in removing iron from HF-last surfaces than the hydrochloric acidhydrogen peroxide solution (SC2). --[p65]-- HF only | 6 / SC1 only | 2 / SC2 only | 0 --[p65]-- Our model is that iron on HF-last surfaces exhibits silicide-like bonding to Si; therefore, it is possible that the etching of silicon is necessary for iron removal from HF-last surfaces."
+ },
+ {
+  "query_id": "dev_102",
+  "query": "稀 HF 里掺 HCl，金属沾污在硅表面的吸附量随 HCl 浓度怎么变？加多少量合适，加得太少会怎样？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "在稀 HF(1%) 中加入 1% HCl 时，Cu、Zn、Ni、Fe 的表面吸附浓度反而上升；HCl 浓度超过 1% 后这些金属的吸附才开始急剧下降。机理上 Cl 终端会增强金属吸附，因此 HCl 浓度必须足够高（文中实验用至 3~5%）；HCl 的加入还能抑制颗粒再沉积、大幅提高 Cu/Zn 去除效率并使少子寿命提高约 10%。",
+  "success_criteria": "答出转折点 1% HCl（1% 时吸附增加、超过后急剧下降），并给出合理机理（Cl 终端增强金属吸附/需足量 HCl）。",
+  "evidence": "--[p220]-- The surface concentration of Cu, Zn, Ni and Fe increases when 1% HCl added, however, above this concentration of HCl, the adhesions of these impurity metals starts to decreasę,drastically. --[p220]-- This indicates that the Cl on Si surface enhances the adhesions of impurity metals, so that the adequate HCl concentration is important to reduce the Cl termination on Si surface."
+ },
+ {
+  "query_id": "dev_103",
+  "query": "热磷酸槽的补水 DI 注入停掉之后，氮化硅/氧化硅蚀刻速率多久会看出变化？用冷凝槽盖回收水汽能不能顶替补水？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "关闭补水注入后蚀刻速率不会立即变化，但短至 2 小时后即可测得蚀刻速率变化（缺水会使氮化硅蚀刻速率明显下降、氧化硅蚀刻速率上升）。冷凝槽盖不能替代补水：被冷凝收集的水汽大部分在返回酸液前又重新闪蒸为蒸汽，一般不足以把逃逸的水汽全部有效回收。",
+  "success_criteria": "答出 2 小时可测、冷凝盖不足以完全回收水汽（不能替代补水注入），以及缺水使 nitride 速率降、oxide 速率升的方向性结论。",
+  "evidence": "--[p93]-- A prolonged deficiency of DI water will significantly DECREASE the nitride etch rate and increase the oxide etch rate. ... However, when trapped in this manner, a large portion of the condensed water vapor again flashes to steam before it can be reabsorbed by the acid. Therefore, this technique is generally insufficient to capture all of the escaping water vapor ... However, in as little as two hours after turning off the water injection system, the change in etch rates is measurable."
+ },
+ {
+  "query_id": "dev_104",
+  "query": "加热 SC1 做最后一步对 MCLT 少子寿命有什么影响？后面接什么步骤能恢复？怀疑与哪种金属有关？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "高于室温的 SC1-last 处理会使 MCLT 值明显退化（50/60/80°C 均测试过）；若在热 SC1 之后加一道 HF-last 步骤，MCLT 恢复到与 O3/P、HF* 相当的最优水平；TXRF 分析怀疑是热 SC1-last 晶圆上检出的 Zn 导致 MCLT 退化；因此建议加热 SC1 只用于降缺陷密度，栅氧清洗前须接 HF last。",
+  "success_criteria": "答出：加热 SC1-last 使 MCLT 退化、后接 HF last 可恢复、怀疑金属为 Zn 三点。",
+  "evidence": "--[p131]-- It appears that while heated SC1 last processing may degrade MCLT values, if the heated SC1 process is followed by an HF last step, MCLT recovers to optimum levels. Considering the results of the TXRF analysis, it may be that the presence of Zn detected on heated SC1 last processed wafers aids in degradingMCLT. --[p130]-- SC15 | NONE | 50°C | 15 min / SC16 | NONE | 60°C | 15 min / SC18 | NONE | 80°C | 15 min"
+ },
+ {
+  "query_id": "dev_105",
+  "query": "IMEC 那套颗粒去除模型说刻掉多少热氧化层就足以去除颗粒？SC2+DHF 序列的去除效率为什么只有 0.25 左右？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "模型预测：凡能刻蚀约 2nm 热氧化层的清洗液都能实现充分的颗粒去除（SC1 0.25/1/5 于 70°C 10 分钟平均效率 0.86±0.06，对应约 2nm）。SC2+DHF 效率只有约 0.25±0.15 的原因是 SC2 混合液中只生长 0.6nm 厚的化学氧化层，远低于 2nm 门槛。",
+  "success_criteria": "答出约 2nm 热氧化层这一门槛，以及 SC2 化学氧化层仅 0.6nm 导致效率 0.25±0.15 的因果链。",
+  "evidence": "--[p32]-- Our particle removal model of silicon surfaces predicts that every cleaning mixture, which etches about 2 nm of thermal oxide will result in sufficient particle removal. --[p33]-- In this case we used (1/1/5) HCl/H2O2/H2O mixture at 70°C for 10 minutes ... The particle removal efficiency was only 0.25±0.15. This can be easily explained because since only a 0.6 nm thick chemical oxide is grown in the SC2 mixture [9]."
+ },
+ {
+  "query_id": "dev_106",
+  "query": "配合物骨架储氢那块，Zn4O(BDC)3在20bar室温下才吸1wt%，美国能源部给氢能机车定的目标是多少？离目标还差几个百分点？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "纳米化学纳米材料的化学途径原书 第二版 [杰弗里·厄津 著] 2014年",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "美国能源部设定的储氢目标为6.5wt%；差距=6.5wt%-1wt%=5.5个百分点。",
+  "success_criteria": "答出目标6.5wt%且给出算式6.5-1=5.5，差值为5.5个百分点。",
+  "evidence": "--[p34]-- 美国能源部设定的氢能机车的储氢目标为6.5wt%。……对于 BDC,78 K时氢的吸附量为 4.5wt%，而在 20 bar(1 bar=100 000Pa)及室温环境中仅为1wt%。",
+  "replaced_from_pool": "P21-17"
+ },
+ {
+  "query_id": "dev_107",
+  "query": "喷雾清洗机把 APM 总流量从 1650 提到 2400 cc/min，再叠加 95°C 在线加热器，晶圆上 APM 峰值温度和循环平均温度各自总共升高多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "峰值温度：1650→2400 cc/min 使 APM 峰值从 50°C 升到 56°C（+6°C），开加热器再升 10°C 至 66°C，故相对标准工况峰值总共升高 66−50=16°C。平均温度：提流量使循环平均温度升高约 8°C，开加热器再升 6°C，平均温度总共升高约 14°C。",
+  "success_criteria": "峰值总升高 16°C（50→66）、平均总升高 14°C（8+6）；只答单级变化（+6/+10 或 +8/+6）而未汇总者判不通过。",
+  "evidence": "--[p490]-- Increasing the total flow rate from 1650 cc/min to 2400 cc/min increased the peak APM temperature from 50° to 56°C. ... the average temperature during the cycle rose by approximately 8°C. --[p490]-- Combining the in-line chemical heater with the high flows further raised the peak temperature by 10° to 66°C and raised the average temperature by 6°C."
+ },
+ {
+  "query_id": "dev_108",
+  "query": "IMEC clean 的第 2 步 DHF 具体配方和处理时间是什么？为什么这一步之后只做 10 分钟漂洗、不甩干？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第 2 步为：室温下 0.5% HF / 0.1% IPA / H2O 混合液处理 2 分钟，随后 10 分钟漂洗，不甩干（No dry），晶圆以亲水状态转入干式花篮后再测量。原因：HF-last 后表面为疏水性，喷雾工具甩干疏水表面会大量加颗粒（文中的 SPM-DHF 实验特意在干燥前停止处理来验证这一点），保持亲水并转入干盒可避免颗粒添加。",
+  "success_criteria": "答出 0.5%HF/0.1%IPA、2min、室温、10min 漂洗不甩干，并给出疏水表面甩干加颗粒的因果解释；缺少配方或缺少原因之一判不通过。",
+  "evidence": "--[p33]-- Step 2 consisted of a 2 min 0.5%HF/0.1%IPA in H2O mixture at room temperature, followed by 10 min rinsing. No dry was used. The hydrophilic wafers were transferred into a dry cassette and measured. --[p34]-- However, the problem of the spray tool is to dry hydrophobic surfaces without particle addition."
+ },
+ {
+  "query_id": "dev_109",
+  "query": "离心喷雾机三种处理（标准 1650 cc/min、高流 2400 cc/min、高流+加热器但配比降到 0.25:0.25:5）对 HF-last 颗粒的去除率各是多少？处理 3 反而最高，作者是怎么解释的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "处理 1（1650 cc/min，0.6:1:5 APM / 1:1:5 HPM）去除率 92%，处理 2（2400 cc/min，同配比+95°C 加热器）95%，处理 3（2400 cc/min+加热器，APM/HPM 配比均降为 0.25:0.25:5）98%。作者解释：处理 3 降低 NH4OH 浓度会扩大静电双电层排斥力范围、抑制颗粒回吸附再沉积——NH4OH 浓度减半可使双电层厚度增加约 1.4 倍，从而减少流体中颗粒再沉积、提高净去除率。",
+  "success_criteria": "按处理 1→2→3 答出 92%→95%→98%，并答出双电层机理（NH4OH 降低→双电层增厚约 1.4 倍→抑制再沉积）；仅答温度升高不作解释者判不通过。",
+  "evidence": "--[p491]-- The improvement from 92% to 95% removal between treatments 1 and 2 is to be expected based on the increase in the on-wafer temperature. The improvement from 95% to 98% between treatments 2 and 3 is more difficult to explain. --[p492]-- In the absence of a change in H2O2 concentration, a 2x decrease in NH4OH concentration would yield a 1.4x increase in the thickness of the double layers. This increase in thickness would reduce the rate of re deposition from the fluid and hence improve the net particle removal efficiency."
+ },
+ {
+  "query_id": "dev_110",
+  "query": "DO25生色团掺进P(MMA/MSMA)/TiO2杂化薄膜后,它的二阶非线性系数d33具体是多少pm/V?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "先进材料合成与制备技术 [李爱东 编著] 2014年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出该杂化材料二阶非线性系数的具体数值,仅研究了热稳定性与抗弛豫等间接性能:杂化材料Tg接近140℃(比纯PMMA高近50℃)、4种含SiO2/TiO2杂化材料Tg约145℃;极化后在80℃保存2天取向度基本不变,而DO25/纯PMMA同期取向度只为原来的55%;不得编造d33数值。",
+  "success_criteria": "明确指出书中无d33数值(拒答),并能给出Tg与80℃/2天取向度保持等书中实际数据作为替代信息。",
+  "evidence": "--[p48]-- 可以看出，杂化材料P(MMA/MSMA)的玻璃化转变温度接近于140℃，比纯PM-MA的玻璃化温度高出近50℃……可以看出，P(MMA/MSMA)/0.5TiO2杂化薄膜极化后在80℃保存2天后，吸收峰没有明显升高，也就是说取向度基本不变……对比于图2.18的DO25/纯PMMA薄膜，极化后在80℃下保存2天后，吸收峰明显上升，取向度只为原来的55%。",
+  "replaced_from_pool": "P09-20"
+ },
+ {
+  "query_id": "dev_111",
+  "query": "书里兆声清洗的频率（MHz）标称值是多少？帮我查一下。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出兆声清洗的频率（MHz）数值；书中兆声工艺仅给出输入功率 0~300 瓦、浴温 25~65°C、链速 25~70 mm/min 等参数，频率信息未涉及，不应臆造频率值。",
+  "success_criteria": "明确声明书中无兆声频率数值，同时正确复述书中实际给出的参数范围（0-300W 功率、25-65°C 浴温）作为替代信息；给出任何编造的 MHz 数值即判不通过。",
+  "evidence": "--[p464]-- Megasonic input power ranged from 0 to 300 watts and bath temperature ranged from 25°C to 65°C The wafer immersion time was evaluated in terms of its constituent components, which were chain speed and number of passes over the transducer. The chain speed ... ranged from 25 to 70 mm/minute."
+ },
+ {
+  "query_id": "dev_112",
+  "query": "做氮化硅片颗粒吸附实验，要把 2 升 PTFE 槽里的 DI 水分别调到 5000 颗/cc 和 15000 颗/cc 两个浓度，用的 0.5μm PSL 原液浓度是 3×10⁷ 颗/cc，两个目标浓度各需要加多少原液？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按稀释公式 C1·V1 = C2·V2（槽内目标总量 = 目标浓度 × 2000 cc）：目标 5000 颗/cc 时 V1 = (5000 × 2000) / (3×10⁷) = 1×10⁷ / 3×10⁷ ≈ 0.33 cc（约 0.33 mL）；目标 15000 颗/cc 时 V1 = (15000 × 2000) / (3×10⁷) = 3×10⁷ / 3×10⁷ = 1.0 cc（1 mL）。即低浓度约加 0.33 mL、高浓度加 1.0 mL 原液。",
+  "success_criteria": "必须用 C1V1=C2V2 算出两个体积：5000 颗/cc 对应约 0.33 mL（0.30~0.34 区间）、15000 颗/cc 对应 1.0 mL；两值都对才算通过，漏算任一浓度或体积错误判不通过。",
+  "evidence": "--[p458]-- The DI water contained in a 2-liter PTFE tank was spiked with a small predetermined volume of 0.5 μm polystyrene particle dispersion (3 x 10^7 particles/cc) to yield a particle level of 5,000 or 15,000 particles /cc. The pH of the DI water to which PSL particles was added was first adjusted to 9.7 and the precleaned nitride wafers were dipped in the contaminated water for 5 minutes and then dried by spinning."
+ },
+ {
+  "query_id": "dev_113",
+  "query": "GRIND ABORT 报警里,\"Low air pressure\" 这一条的具体判定阈值是多少?卡盘和磨头的气压要求一样吗?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "不一样:左/右工件卡盘(work chuck)气源必须 > 80 PSI;粗磨/精磨砂轮主轴(coarse/fine grind spindle)气源必须 > 71 PSI。",
+  "success_criteria": "分别答出卡盘 >80 PSI、主轴 >71 PSI 两组阈值,不得混为一档。",
+  "evidence": "--[p33 [表]]-- GRIND ABORT: UNSAFE! Cause: Resolution: Low air pressure. | Check left work chuck air supply; it must be > 80 PSI. Check right work chuck air supply; it must be > 80 PSI. Check coarse grind spindle air supply; it must be > 71 PSI. Check fine grind spindle air supply; it must be > 71 PSI."
+ },
+ {
+  "query_id": "dev_114",
+  "query": "砂轮磨损量是怎么通过 GEM 上报给主机的?两个 VID 分别是多少?轮子没做参考(referenced)时上报什么值?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "通过 GEM 上报:VID 139 = 粗磨轮磨损(Coarse Wheel Wear),VID 140 = 精磨轮磨损(Fine Wheel Wear);数值可能未定义,未定义时上报 -1.0e6,通常是因为砂轮未做参考(unreferenced)。",
+  "success_criteria": "答出 VID 139/140 的对应关系及 -1.0e6 表示未定义、原因为轮未参考。",
+  "evidence": "--[p99]-- Also, Wheel Wear is now reported via GEM. Variable ID number 139 is used to report Coarse Wheel Wear and Variable ID number 140 is used to report Fine Wheel Wear. Because the numbers can be undefined, the value of -1.0e6 is the value signifying an undefined response. An undefined response is usually due to the wheel being unreferenced."
+ },
+ {
+  "query_id": "dev_115",
+  "query": "磨 AlTiC 时精磨配方的三个 step 是按力编程还是按目标厚度编程?Lift 那一步呢?另外 Polish Removal Limit 不设会出什么问题?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "AlTiC 模式(变量82 ATC Grinder)下,Edit Recipe 屏把精磨侧标注为 \"Force in LBS\",三个 step 按力而非目标厚度编程;Lift 步仍以微米编程(dwell 步后上抬的微米数)。Polish Removal Limit(变量73)默认 0.0,AlTiC 精磨前必须设置,否则近似 \"air grind\"——砂轮可能碰到晶片但几乎不去除材料;去除量超过变量73设定时直接跳到 dwell 步。",
+  "success_criteria": "答出三步按力编程、Lift 步按微米、变量73默认0.0必须设置否则近空磨三点。",
+  "evidence": "--[p94]-- For grinding AlTiC and alternative materials (Machine Variable 82, ATC Grinder), a new mode of operation has been implemented for the fine grind/polish step. If in AlTiC mode, the Edit Recipe Screen will label the Fine recipe side as \"Force in LBS.\" The three steps are now programmed for force, not target thickness! The Lift step is still programmed in the number of microns to lift after the dwell step. …--[p97]-- If the thickness is reduced by more than the Machine Variable Polish Removal Limit (variable 73), the grind will move immediately to the dwell step. Because the default value of Polish Removal Limit (variable 73) is 0.0, it must be set prior to fine grinding in AlTiC mode! Otherwise, a near \"air grind\" is implemented, meaning that the wafer may be touched, but little to no material will be removed."
+ },
+ {
+  "query_id": "dev_116",
+  "query": "机器变量28(Coarse Approach Params)那个 nnn.nn 格式的数怎么解读?默认的 50.40 具体是什么意思?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "十进制 nnn.nn:整数部分为中间高度(intermediate height,微米),小数部分为中间下降速度(intermediate speed,微米/秒);整数3位、小数2位。默认 50.40 = 高度 50 微米 + 速度 40 微米/秒,是粗磨的默认值;高度为零或无效按 50 处理,速度为零或无效按 40 处理。粗磨用变量28、精磨用变量29。",
+  "success_criteria": "答出整数=高度(µm)、小数=速度(µm/s)及 50.40 → 50 µm/40 µm·s⁻¹;能补充无效值回退规则为加分。",
+  "evidence": "--[p66]-- The value 50.40 represents height 50 and speed 40, which are the default values for coarse grind. Zero or invalid height is treated as 50. Zero or invalid speed is treated as 40. …--[p66]-- The form of these variables is the decimal value nnn.nn where the whole number part gives the intermediate height in microns and the fractional part gives the intermediate speed in microns per second. Note that three digits can be used for the height and two digits for the speed."
+ },
+ {
+  "query_id": "dev_117",
+  "query": "密码功能是用 Machine Variable 53 开的吗?设 1 和设 2 有什么区别?5.03 版之后这个变量的用法又变了吗?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "5.00–5.02:值 1 = 原始分级访问方案;值 2 = 所有已登录用户可访问所有画面所有按钮,但 Operator 不能按 Grind Data 屏上的 Reset Meter 按钮。5.03 起改为:#53 = 0 表示不用密码,非零表示启用密码。",
+  "success_criteria": "答出值1/值2的区别(含 Reset Meter 例外)及 5.03 后 0=无密码/非零=用密码的语义变化。",
+  "evidence": "--[p140]-- This was modified in software versions 5.00 – 5.02 so that the value 1 in Machine Variable #53 produces the access just described, while the value 2 allows all logged-in users access to all buttons of all screens, except that Operators are unable to press the Reset Meter button on the Grind Data screen. In software version 5.03, this changed once again. Machine Variable #53 is zero for no passwords or non-zero for using passwords."
+ },
+ {
+  "query_id": "dev_118",
+  "query": "按 12/6/96 的原始密码方案,Operator、Process Engineering、Maintenance 三级登录后各能进哪些画面?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Operator:Home Menu、Auto Grind Menu、Maintenance Menu 上用于清片的移桥按钮、Inputs/Outputs Menu(清片)和 GEM control screen。Process Engineering:在 Operator 基础上增加 Edit Recipe screens、Machine Setup screen、Grind Data screen。Maintenance:所有画面的全部部分(all parts of all screens)。",
+  "success_criteria": "三级菜单归属完整且累进关系正确;至少答全 Operator 四项和 PE 三项新增。",
+  "evidence": "--[p140]-- In the original password scheme of 12/6/96, Operator level allows access to the Home Menu, the Auto Grind Menu, buttons to move the bridge for wafer clearing on the Maintenance Menu, the Inputs / Outputs Menu to clear wafers and the GEM control screen. Process Engineering level adds access to the Edit Recipe screens, the Machine Setup screen and the Grind Data screen. Maintenance level adds access to all parts of all screens."
+ },
+ {
+  "query_id": "dev_119",
+  "query": "我们把老 SRD 换成了 TLC 无胶带清洗机,软件里要改哪些机器变量它才认得出?甩干转速一般设到多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "软件不会自动识别 SRD/TLC:装 TLC 后必须把变量45(Machine Variable 45)设为 100 或 200(若装有 SRD,变量45百位须为 0);下卡盘(相当于老 SRD spin chuck)最小真空用变量92设定;甩干转速用变量78(Spin Dry RPM),典型设高到 2500 RPM,Spin Dry 时间约 15 秒。",
+  "success_criteria": "答出变量45=100/200、变量92、变量78典型 2500 RPM;能提变量93/Spin Dry Secs 约15秒为加分。",
+  "evidence": "--[p130]-- The software does not automatically detect whether you have an SRD or a TLC. You must explicitly tell the software which unit is installed. When you install a TLC you must set machine variable 45 to 100 or 200. …--[p130]-- The lower chuck is treated the same as the old SRD spin chuck, so machine variable 92 is be used to set the minimum vacuum required to hold a wafer on the lower TLC chuck. …--[p130]-- In particular make sure the Spin Dry RPM (machine variable 78) is set high, typically 2500 RPM. The Spin Dry Secs (machine variable 93) should probably be about 15 seconds"
+ },
+ {
+  "query_id": "dev_120",
+  "query": "TMH/TMU 071 P 说明书标的运行电压是 24 VDC ±5%,帮我算一下实际允许的电压上下限各是多少伏?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "EVG501_sop结构图和电气图",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "下限 24×(1−5%)=24×0.95=22.8 V;上限 24×(1+5%)=24×1.05=25.2 V。允许范围 22.8~25.2 VDC。",
+  "success_criteria": "算出 22.8 V 和 25.2 V,数值与单位正确。",
+  "evidence": "--[p365]-- Operating voltage | VDC | 24 ± 5% | 24 ± 5% | 24 ± 5%",
+  "replaced_from_pool": "P23-14"
+ },
+ {
+  "query_id": "dev_121",
+  "query": "变量99(Chuck Coolant Timers)手册推荐设 3131,这四位数字分别对应什么?左卡盘在 approach 阶段和实际磨削阶段各允许多长的断水时间?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第1位=左卡盘 approach(接近晶片)允许断水秒数,第2位=左卡盘实际磨削阶段允许秒数,第3、4位=右卡盘对应两项;按位拆解 3131 → 左 approach 3 秒、左磨削 1 秒、右 approach 3 秒、右磨削 1 秒。任一位为 0 须四位全 0,全 0 解释为一律允许 5 秒;超时即 abort。",
+  "success_criteria": "正确按位拆出 3/1/3/1 秒,并明确左 approach=3 s、左 grind=1 s;能补充全0=5秒或超时 abort 为加分。",
+  "evidence": "--[p113]-- The first digit tells how many seconds to allow during the approach to the wafer on the left work chuck. The second digit tells how many seconds to allow during actual grinding on the left work chuck, beginning from the end of the approach until the grind wheel lifts up at the end of the grind. The third and fourth digits give the same information for the right work chuck. …--[p114]-- None of these four digits is allowed to be zero, unless all are zero. Zero will be interpreted to allow 5 seconds in all cases. … The recommended value is 3131, allowing three seconds of interruption during the approach but only one second during the grind."
+ },
+ {
+  "query_id": "dev_122",
+  "query": "屏幕上跳出 Left Grind Seal 故障,怎么判断是没装传感器却开了读取开关,还是真空真的出问题了?如果装了密封传感器,怎么让软件和硬件重新同步?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "两跳:①该故障与变量47(Grind Seal Sensors 0=No)有关——未装传感器却把变量47设为非零,就会报 \"Left Grind Seal\" 或 \"Right Grind Seal\" 故障;该故障与 Left/Right Grind Seal Vacuum 故障一样会停止桥运动并阻止磨削。②再同步方法:选 Machine Maintenance → Inputs/Outputs,按左工件卡盘图标,按 Grind Seal 键一次充气(inflate)再一次放气(deflate)循环一次;放气时 Input 30 应绿-黑-再绿,若一直绿说明真空未正常工作。",
+  "success_criteria": "答出变量47误设导致故障 + 通过 Machine Maintenance→Inputs/Outputs 循环 inflate/deflate 同步两步;能引用 Input 29/30 状态变化为加分。",
+  "evidence": "--[p106]-- If the sensors are installed, software can be told to read them by setting Machine Variable 47, Grind Seal Sensors 0=No, to a non-zero value. Setting this variable without the sensors installed will result in a \"Left Grind Seal\" or \"Right Grind Seal\" fault. Those faults and the \"Left Grind Seal Vacuum\" and \"Right Grind Seal Vacuum\" faults signal a problem with the seals and will stop bridge movement and prevent grinding. …--[p106]-- If Machine Variable 47 is turned on or off during 7AF operation, it may be necessary to cycle the inflate/deflate of each seal one time to bring software and hardware into sync. … To cycle the grind seals, select Machine Maintenance, then Inputs/Outputs. Press the icon for the Left Work Chuck and then press the Grind Seal box once to inflate and then again to deflate."
+ },
+ {
+  "query_id": "dev_123",
+  "query": "我们厂里 MES 打算用 SEMI E87 的 CMS(载具管理)来管 7AF 的花篮,这台机器的 GEM 接口支持 E87 吗?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及 E87/CMS:SECS/GEM Interface 章节仅声明 7AF 符合 GEM 文档 E30-0298,未提及任何 E87 载具管理支持;不应凭空回答支持或不支持的具体能力,建议向厂家确认。",
+  "success_criteria": "明确答出\"手册未涉及 E87\",同时正确引用唯一声明的符合项 E30-0298 (GEM);不得编造 E87 支持结论。",
+  "evidence": "--[p442]-- 3.4 GEM Standard … The 7AF complies to the following GEM document: 1. E30-0298 (GEM)"
+ },
+ {
+  "query_id": "dev_124",
+  "query": "手册里有没有蓝宝石(sapphire)衬底的减薄配方或者推荐工艺参数?我们下一批想磨 sapphire。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未提供蓝宝石专用配方或推荐参数:工艺说明只覆盖硅(silicon,默认状态)和 AlTiC 及替代材料(AlTiC and alternative materials,变量82 ATC Grinder 模式)两类;应建议按\"alternative materials/Force 模式\"路径并联系厂家确认,不得编造蓝宝石参数。",
+  "success_criteria": "明确答出\"手册未涉及蓝宝石配方\",并正确指出手册覆盖的材料范围为硅与 AlTiC/替代材料。",
+  "evidence": "--[p94]-- For grinding AlTiC and alternative materials (Machine Variable 82, ATC Grinder), a new mode of operation has been implemented for the fine grind/polish step. …--[p96]-- Wheel wear measurement and functionality has been expanded. The exact behavior is different if the machine is set for grinding AlTiC and alternative materials (Machine Variable 82, ATC Grinder) or its default state, silicon grinding."
+ },
+ {
+  "query_id": "dev_125",
+  "query": "分子泵开机后 TC 600 上一颗 LED 都不亮、泵也不启动,该按什么思路查供电?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "EVG 501 Uni Maryland-photo-06_sop_EVG_bonder",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按\"电源中断\"处理:检查电源单元内保险丝→检查电源单元市电插头接触→检查电源单元馈线;进一步若无工作电压,应确认 X2 处供给 24 VDC 工作电压、遥控插头 1-3 和 1-4 脚是否连接,仍不行则联系 PFEIFFER 维修(TC 600 可能损坏)。",
+  "success_criteria": "至少答出保险丝、插头接触、馈线三项排查动作;能补充 24 VDC@X2 或遥控 1-3/1-4 脚为加分。",
+  "evidence": "--[p362 [表]]-- Pump doesn&#x27;t start; None of the integrated LEDs glow on the TC 600 | • Power supply interrupted | • Check fuse in the power pack unit • Check plug contacts on the mains power pack unit • Check power pack unit feeder line\n--[p362]-- • Incorrect operations voltage supplied • Pins 1-3 and 1-4 on the remote plug not connected • No supply of operations voltage • Defect TC 600 • Inform PFEIFFER Service of need for repair | (24 VDC) at connection X2 • Supply correct operations voltage • Connect pins 1-3 and 1-4 on the remote plug • Check plug contacts on the power pack unit",
+  "replaced_from_pool": "P24-09"
+ },
+ {
+  "query_id": "dev_126",
+  "query": "机械芯片切割机的主轴转速、切割速度和单步步进精度大概是什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微电子IC制造技术与技能实训",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按表5.1机械芯片切割机主要技术指标：主轴转速3000~40000r/min；X轴切割速度0.1~400mm/s；单步步进精度0.003mm（重复定位精度0.003mm，全程最大误差0.005/165mm）。",
+  "success_criteria": "三项指标数值和单位齐全：3000~40000r/min、0.1~400mm/s、0.003mm。",
+  "evidence": "--[p119 [表]]-- 表 5.1 机械芯片切割机的主要技术指标……轴 | 转速 | 3000~40 000r/min……切割速度 | 0.1~400mm/s……单步步进精度 | 0.003mm",
+  "replaced_from_pool": "P25-12"
+ },
+ {
+  "query_id": "dev_127",
+  "query": "终点检测器(End Point Detector Assembly 853-001983)上配的光学滤光片有哪几个波长,各自的件号是什么?探测用的光电二极管又是哪个件号?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "TCP9600 parts identify_4",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "滤光片:405nm 为 795-002627-001(BOM 中 405nm 亦列有 795-006374-001),703nm 为 795-008762-001,261.8nm 为 715-001981-001;光电二极管为 613-002628-001(Diode, Photo (UDT-UV 35P))。均见 p106。",
+  "success_criteria": "至少正确列出 405nm、703nm、261.8nm 三个波长及对应件号(405nm 给出 795-002627-001 即可),并答出二极管 613-002628-001;波长单位 nm 正确。",
+  "evidence": "--[p106]-- 13 | 613-002628-001 | Diode, Photo (UDT-UV 35P)\n14 | 795-002627-001 | Filter, Optical, 405nm\n795-008762-001 | Filter, Optical, 703nm\n17 | 715-001981-001 | Filter, Optical, 261.8nm",
+  "replaced_from_pool": "P26-09"
+ },
+ {
+  "query_id": "dev_128",
+  "query": "手册里命令参数的单位是怎么约定的？Theta、R、Z 分别用什么单位？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Theta 用十进制毫度（decimal millidegrees）；R 和所有 Z 参数用微米（micrometers）；Slot 和站号 Stn# 为 1-99 的整数。",
+  "success_criteria": "答出 Theta=毫度、R/Z=微米、Slot/Stn#=1-99 整数。",
+  "evidence": "--[p233]-- Units: Theta in decimal millidegrees R and all Z parameters in micrometers Slot, Stn# are integers (1 - 99)"
+ },
+ {
+  "query_id": "dev_129",
+  "query": "MISC I/O 那个 50 针连接器上，输入、输出和电源引脚分别有多少个？分布在哪些针脚号上？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "22 个输入引脚（针脚 1-22，I/O 编号 0-21）、20 个输出引脚（针脚 31-50，I/O 编号 0-19）、6 个电源引脚（针脚 25-30 单独编号），这些输入输出均可由用户编程分配为操作联锁（Operational Interlocks）。",
+  "success_criteria": "答出 22 输入(pin1-22)、20 输出(pin31-50)、6 电源(pin25-30)。",
+  "evidence": "--[p146]-- Table 5-7 shows the MISC I/O 50 pin connector that contains 22 input pins (pins 1-22, I/O designation 0-21), 20 output pins (pins 31-50, I/O designation 0-19), and 6 power pins (pins 25-30 individually designated)."
+ },
+ {
+  "query_id": "dev_130",
+  "query": "用热激活封面带时，热封压力（Heat Seal Pressure）正常设多少 psi？Heat Seal Dwell 这个参数控制的是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "芯片分选Laurier DS 9000 Die Sorter",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "热封压力设定热封鞋的向下压力，正常值为 20 到 30 psi；Heat Seal Dwell 是每个热封循环中热封鞋接触封面带的时长，单位毫秒。",
+  "success_criteria": "答出 20–30 psi 且说明 dwell 为热封鞋接触封面带的时间（毫秒）。",
+  "evidence": "--[p435]-- Enter the setting on the pressure control for the heat seal pressure adjustment. See Fig. 5A-6. This sets the downward pressure on the heat seal shoes. --[p435]-- 5A-6. Normally this is 20 to 30 psi. --[p147]-- Heat seal dwell During each sealing cycle, this sets the length of time, in milliseconds, the heat seal shoes contact the cover tape.",
+  "replaced_from_pool": "P30-14"
+ },
+ {
+  "query_id": "dev_131",
+  "query": "AB-1硅丙乳液合成配方里，丙烯酸丁酯、甲基丙烯酸甲酯和(甲基)丙烯酸这三种单体加起来是多少质量份？再算上两种有机硅单体，单体总投料又是多少质量份？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "水性涂料配方精选 第3版 张玉龙，庄建兴 主编 2017年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "丙烯酸类单体合计：130+183+4=317质量份；加有机硅单体21+84后，单体总投料为130+183+4+21+84=422质量份。",
+  "success_criteria": "给出算式并答出317与422两个结果，单位为质量份。",
+  "evidence": "--[p33]-- 丙烯酸丁酯 | 工业级 | 130……甲基丙烯酸甲酯 | 工业级 | 183……(甲基)丙烯酸 | 工业级 | 4……有机硅乙烯基活性单体1 | 工业级 | 21……具有环状结构的有机硅氧烷单体2 | 工业级 | 84",
+  "replaced_from_pool": "P27-14"
+ },
+ {
+  "query_id": "dev_132",
+  "query": "Frogleg 单臂在 0.3g 和 0.1g 加速度限幅下，200mm 晶圆一次典型取放各要几秒？如果加速度限幅只能用 0.1g，连搬 100 片比 0.3g 多花多少时间？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "单 Frogleg 臂、735mm 伸距、180° 旋转、0.4s Z 动作、200mm 晶圆的典型 PICK and PLACE：0.3g 时 5.8 秒/片，0.1g 时 8.4 秒/片；每片多 8.4−5.8=2.6 秒，100 片共多花 2.6×100=260 秒（约 4 分 20 秒）。",
+  "success_criteria": "答出 5.8s 与 8.4s，且 100 片差额 260 秒（±1 秒内），算式正确。",
+  "evidence": "--[p38]-- Single Frogleg™ Arm with typical PICK and PLACE sequence, 735mm extension, 180° rotation, 0.4 second Z motion for 200mm wafer size: 5.8 seconds typical at 0.3g acceleration limit 8.4 seconds typical at 0.1g acceleration limit"
+ },
+ {
+  "query_id": "dev_133",
+  "query": "BiSymmetrik 双臂最重和 Frogleg 单臂最轻差多少？最重的是最轻的几倍？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按手册重量表：Single Frogleg™ Arm 3-7kg，BiSymmetrik™ Arm 4-9kg，Leapfrog™ Arm 4-9kg；最重 9kg（BiSymmetrik/Leapfrog），最轻 3kg（Frogleg），相差 9−3=6kg，9÷3=3 倍。",
+  "success_criteria": "答出最大 9kg、最小 3kg，相差 6kg 且为 3 倍。",
+  "evidence": "--[p39]-- Weight Single Frogleg™ Arm 3 - 7 kg (6 - 16 lbs.) BiSymmetrik™ Arm 4 - 9 kg (9 - 20 lbs.) Leapfrog™ Arm 4 - 9 kg (9 - 20 lbs.)"
+ },
+ {
+  "query_id": "dev_134",
+  "query": "帮我把第 3 章 AVIS 实验的信号配置串起来:它有几个输入、几个输出信号,幅值约束被设成多少?再看 3.6.3 里 MIMO 设计相对 SIMO 设计的成本值改进多少倍、约束满足情况有什么不同?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "光刻机Wafer Stage 运动控制Motion Control",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索 3.6.1:AVIS 有 6 个作动器输入和 6 个 geophone 输出信号,峰值幅值约束经缩放后全部等于 1(c_p=1);再据此检索 3.6.3:MIMO 设计对每个元素 p,e 都紧致满足 l∞-范数约束(SIMO 设计仅对角元素紧),成本值 T 比 SIMO 设计小 11 倍,尤其 120Hz 以下不确定性显著降低。",
+  "success_criteria": "答出 6 输入/6 输出、c_p=1、MIMO 逐元素紧致满足约束、成本值小 11 倍(因子 11)。",
+  "evidence": "--[p89]-- Due to electro-mechanical limitations, peak amplitude constraints are imposed onto all six input and six output signals. Appropriate scaling is applied such that all constraint values are equal to one, $c _ { p } = 1 , \\forall p$ | --[p91]-- The MIMO approach delivers signals that tightly satisfy the $l _ { \\infty } \\mathrm { - n o r m }$ constraints for each of the elements $p , e .$ | --[p91]-- A significant reduction of the uncertainty in observed when using the MIMO design, especially below 120Hz. The cost value $\\mathcal { T }$ is a factor 11 smaller for the MIMO design than for the SIMO design.",
+  "replaced_from_pool": "P28-19"
+ },
+ {
+  "query_id": "dev_135",
+  "query": "手册里说的 BTO 是个什么参数？我在 CDM 上改完 BTO 之后，用什么功能确认它已经存进去了？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索到 BTO（Base Transfer Offset）：它是决定各站晶圆搬运平面（WTP）高度的机器人控制器参数，等于从机器人 Home 位置到 UP（晶圆搬运）位置的垂直距离；调整后应先用 CDM 的 setup 功能 jog 到合适高度并存储 BTO 值，再用 CDM 的 INFO 功能确认 BTO 值已保存。",
+  "success_criteria": "答出 BTO 全称与定义（Home 到 UP 位置的垂直距离/决定 WTP 高度），并答出用 CDM INFO 功能验证。",
+  "evidence": "--[p258]-- A robot controller parameter, called the Base Transfer Offset (BTO), determines the height of the robot’s Wafer Transport Plane (WTP) for each station. The BTO is the vertical distance from the robot’s home position to its UP, or wafer transport, position. / --[p260]-- 6. Use the ‘INFO’ function on the CDM to verify that the BTO value has been saved."
+ },
+ {
+  "query_id": "dev_136",
+  "query": "我们产线这边想用 EtherCAT 总线控制这台 magnatran，手册里支持吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该手册未涉及 EtherCAT 或任何现场总线接口；手册中主机串行通信仅给出 RS-232/RS-422 协议（默认 9600、8、1、无校验），无法据此确认支持 EtherCAT，建议联系 Brooks 确认，不得编造支持能力。",
+  "success_criteria": "明确说明手册未提及 EtherCAT、仅见 RS-232/RS-422 串口通信，不编造支持结论。",
+  "evidence": "--[p85]-- Serial Communications Default Settings Table11-1: RS-232/RS-422Protocol（素材全文无 EtherCAT/现场总线相关内容）"
+ },
+ {
+  "query_id": "dev_137",
+  "query": "浸入式 SC1 加 megasonics 清洗时，稀释水退气退到什么程度粒子去除率反而会掉下来？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "随稀释水退气，粒子去除率先上升；但当溶解氧降到约 450 ppb 后，继续降低溶解气体水平会使去除率急剧下降（气体太少无法形成空化气泡，能量只是传到槽顶部）。",
+  "success_criteria": "答出约 450 ppb 溶解氧这一转折点，并说明之后继续退气去除率骤降。",
+  "evidence": "--[p130]-- However, at a certain point, corresponding to a dissolved oxygen level of about 450 ppb, the particle removal efficiency falls sharply with further decreases in dissolved gas level. --[p130]-- However, if the dissolved gas levels are reduced too much, cavitation bubbles will no longer form and the megasonics energy will be simply transmitted to the top of the tank without dislodging any particles."
+ },
+ {
+  "query_id": "dev_138",
+  "query": "BTBAS 氮化硅炉管为什么比 DCS 炉管清洗得勤？各自多久要清一次？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "因为 BTBAS 氮化硅沉积温度约 550–575°C、热预算低，但本征膜应力显著高于 DCS 膜，高应力膜易剥落产生粒子，所以炉腔和晶圆舟必须更频繁清洗；BTBAS 炉管约每 2 天运行就要清洗，而 DCS 炉管可 60–90 天才清洗一次。",
+  "success_criteria": "答出\"高应力膜导致剥落粒子\"这一原因，且给出 BTBAS 每 2 天 / DCS 每 60–90 天。",
+  "evidence": "--[p216]-- While BTBAS nitride films have a lower thermal budget (the deposition temperature is approximately 550-575 °C), the intrinsic film stress is significantly higher than for DCS films. Higher stress films require more frequent cleaning of the LPCVD furnace chamber and wafer carrier to prevent particle generation due to film spalling. --[p217]-- The production schedule including cleaning the BTBAS nitride furnaces after every 2 days of operation would result in low system availability compared to a DCS nitride furnace that only requires cleaning after 60-90 days of production."
+ },
+ {
+  "query_id": "dev_139",
+  "query": "光刻机里的flare（杂散光）按空间范围怎么分类？各类的来源和对工艺的影响是什么？为什么波长越短越麻烦？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Optical and EUV Lithography A Modeling Perspective (Andreas Erdmann)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "非镜面flare一般分为几档：短程flare主要由透镜表面精加工误差引起，扩展范围几微米，可能影响OPC；中程flare由镜片材料不均匀和镀膜缺陷引起，范围几十到几百微米，会产生与图形密度相关的CD变化；长程flare由透镜内部反射和表面污染产生，范围几百微米到几毫米，会影响最佳曝光剂量。高斯高度分布表面的散射光量随1/λ²增大，因此在193 nm尤其EUV波段flare更加严重。",
+  "success_criteria": "答出短/中/长程三档的范围量级（微米/几十至几百微米/几百微米至毫米）及其来源，并答出散射随1/λ²增大。",
+  "evidence": "--[p287]-- Short-range flare is mainly caused by lens-finishing errors and extends over several micrometers. Short-range flare may impact the OPC. Lens material inhomogeneities and coating defects cause mid-range flare that extends over tens to hundreds of microns. Mid-range flare can produce pattern-densitydependent CD variations over the image field. Long-range flare from hundreds of microns to several millimeters is typically generated by internal reflections and surface contamination of the lenses. Long-range flare can impact the optimum exposure dose. The amount of light scattering from a surface with a Gaussian height distribution increases with $1 / \\lambda ^ { 2 }$ . Flare becomes increasingly critical for shorter wavelengths, especially for 193 nm [17] and for the EUV spectral range [18,19].",
+  "replaced_from_pool": "P29-11"
+ },
+ {
+  "query_id": "dev_140",
+  "query": "那个短循环、常温、少化学品的两步单片清洗，SC-1 和 HF/HCl 的配比和时间各是多少？两步之间为什么还要插一道漂洗？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "两步工艺为 SC-1（1:1:100）10 秒（Nanospray™M 施加）+ HF/HCl（1:40:200）10 秒；为防止碱和酸组合生成盐，必须在 SC-1 与 HF/HCl 之间插入中间漂洗。",
+  "success_criteria": "答出两个配比 1:1:100 与 1:40:200、各 10 秒，以及\"防碱酸成盐\"的中间漂洗原因。",
+  "evidence": "--[p52]-- It consists of the two-step process, SC-1 (1:1:100) 10 sec with the Nanospray™M and HF/HCl (1:40:200) 10 sec. --[p52]-- In order to prevent salt formation from the combination of alkali and acid, it was necessary to insert the intermediate rinse between SC-1 and HF/HCl."
+ },
+ {
+  "query_id": "dev_141",
+  "query": "megasonic 清洗去纳米粒子，凭什么判断是气体空化机制而不是声流？用退气溶液做实验时结果怎么样？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "清洗液中存在溶解气体是去除纳米粒子的必要条件，这说明机制不是 Eckart/Schlichting 声流或蒸汽空化，而是气体空化（微射流、气泡内爆）；在第 I 组实验（高功率、退气至 &lt;0.3 ppm O2 的单次流溶液）中，粒子去除率接近零而损伤却相对较高，用退气溶液出现损伤可能表明此时发生了蒸汽空化。",
+  "success_criteria": "答出\"溶解气体是必要条件→气体空化而非声流\"，并给出退气 &lt;0.3 ppm 时 PRE 接近零但损伤仍高的结果。",
+  "evidence": "--[p159]-- The presence of dissolved gas in the cleaning solution as a necessary condition to remove nano-particles indicates that the cleaning mechanism was not due to acoustic streaming (Eckart and Schlichting streaming) or vapor cavitation, but rather to gas cavitation phenomena (micro-streaming, bubble implosion). --[p159]-- Group I corresponds to cleans performed at high power in degassed solutions $( &lt; 0 . 3$ ppm $O _ { 2 } ,$ single-pass). PRE was close to zero while damage was relatively high."
+ },
+ {
+  "query_id": "dev_142",
+  "query": "臭氧水里的 OH 自由基产生跟 pH 有什么关系？做酸性臭氧水时臭氧和乙酸浓度大概调到多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "OH 自由基只在酸性臭氧水中大量产生（由 Haber-Weiss 反应引起），在中性或碱性臭氧水中未发现 OH 自由基生成，pH 越低越有利；图 20 实验中臭氧水浓度为约 5~6 ppm、乙酸 16.3 ppm。",
+  "success_criteria": "答出\"仅酸性臭氧水产生 OH 自由基/中性碱性不产生\"，并给出臭氧约 5~6 ppm、乙酸 16.3 ppm。",
+  "evidence": "--[p19]-- So, it is assumed that the generation of OH radical is caused by Haber-Weiss reaction, which is mentioned before, in the ozonized acidic water. On the other hand, though it is not shown in the figure, the OH radical is not found to generate in neutrality or alkalinity of the ozonized water. --[p19]-- Figure 20 shows the metal dissolution properties to the ozonized water of which concentration of ozone and acetic acid is ${ \\mathfrak { I } } \\sim { \\mathfrak { 6 } }$ ppm and 16.3 ppm, respectively."
+ },
+ {
+  "query_id": "dev_143",
+  "query": "HF 刻蚀模型 R=K[CF]-A 在 22°C 下 K=96.5、A=3.42，帮我算一下总氟浓度 0.2 M 时 SiO2 的刻蚀速率是多少 Å/min。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按一阶模型 R = K[CF] − A = 96.5×0.2 − 3.42 = 19.30 − 3.42 = 15.88 Å/min。",
+  "success_criteria": "算式正确（96.5×0.2−3.42），结果 15.88 Å/min（±0.1）。",
+  "evidence": "--[p62]-- Where [CF] is the total fluoride concentration, K and A are constants. At $2 2 { } ^ { \\circ } \\mathrm { C } ,$ K=96.5 Å/minute and A= 3.42 Å/minute."
+ },
+ {
+  "query_id": "dev_144",
+  "query": "HF/HCl 那步 10 秒刻了 0.18 nm 热氧化硅，如果按线性把这一步拉长到 30 秒，刻蚀量会到多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HF/HCl 的刻蚀深度与时间成正比：0.18 nm ÷ 10 s × 30 s = 0.54 nm（即 5.4 Å）。",
+  "success_criteria": "按线性外推得 0.54 nm（±0.01 nm），需注明以\"HF/HCl 刻蚀与时间成正比\"为前提。",
+  "evidence": "--[p51]-- The etched depth by HF/HCl increased in proportion to process time and resulted in etching amount of 0.18 nm at HF/HCl for 10 sec."
+ },
+ {
+  "query_id": "dev_145",
+  "query": "DCS 氮化硅炉管 60–90 天才清一次，BTBAS 的两天就得清一次，清洗频次上差多少倍？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "60÷2=30，90÷2=45，即 DCS 炉管的清洗周期是 BTBAS 的 30~45 倍（反过来说 BTBAS 的清洗频次是 DCS 的 30~45 倍）。",
+  "success_criteria": "给出 30~45 倍区间及算式 60/2 与 90/2。",
+  "evidence": "--[p217]-- The production schedule including cleaning the BTBAS nitride furnaces after every 2 days of operation would result in low system availability compared to a DCS nitride furnace that only requires cleaning after 60-90 days of production."
+ },
+ {
+  "query_id": "dev_146",
+  "query": "为什么传统 megasonics 不能用在 100nm 以下的栅极清洗上？书里后来有没有验证过改进方案？效果怎么样？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：传统 megasonics 在此阶段不用于该工序，因为它会损伤宽度小于 100nm 的栅结构。第二跳：验证实验使用宽 60nm、高 220nm 的密集多晶硅线条阵列；改进型（modified）megasonics 配置在 1 Å 氧化物损失下实现对 90nm 氮化硅粒子 80% 的去除，且未观察到任何多晶硅线条损伤，而传统 megasonics 配置对这些线条造成了明显损伤。",
+  "success_criteria": "两个检索跳都命中：损伤原因（&lt;100nm 栅结构）+ 改型结果（60nm/220nm 线条、1 Å 损失下 80% 去除、无线条损伤）。",
+  "evidence": "--[p127]-- Traditional megasonics is not currently used at this stage in device manufacturing because it causes damage to gate structures narrower than 100nm. --[p132]-- Tests were carried out using dense arrays of polysilicon lines which were 60nm in width and 220nm in height. --[p132]-- While a traditional megasonics configuration caused significant damage to these lines, a modified megasonics configuration that was able to achieve 80% removal of 90nm silicon nitride particles with a 1Å oxide loss, did not cause any observable polysilicon line damage."
+ },
+ {
+  "query_id": "dev_147",
+  "query": "静电卡盘（ESC）有专门的清洁规程吗？清洁 ESC 表面时最容易把部件搞坏的是什么问题？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "TEL Vigus Maintenance Manual",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "有。手册在清洁章节中单列 \"5.3.1 Cleaning by Part (ESC: Electrostatic Chuck)\"（第 208 页起，另按部件还有 5.3.2 Lifter Pin）。清洁 ESC 表面时：如果擦拭后仍有异物残留会损伤 ESC 表面，必须清除所有异物；使用乙醇/酒精擦拭后要用无尘布未用过的面再擦一遍；不得用陶瓷刮刀或非 TEL 指定塑料刮刀，刮刀尖端不得用于 ESC 灰色与白色部分的交界。",
+  "success_criteria": "先检索到 5.3.1（ESC 专用清洁小节），再答出\"异物残留会损伤 ESC 表面/须清除全部异物\"这一要点。",
+  "evidence": "--[p209]-- 5.3.1 Cleaning by Part (ESC: Electrostatic Chuck) <sub>16199.20191202</sub>\n--[p214]-- The surface of the ESC can be damaged if foreign matter remains when wiping the ESC. Always remove all foreign matter while cleaning.\n--[p80]-- Electrostatic chuck (ESC) | 5.3.1 Cleaning by Part (ESC: Electrostatic Chuck) (see page 208)",
+  "replaced_from_pool": "P31-18"
+ },
+ {
+  "query_id": "dev_148",
+  "query": "brush scrubber 的毛刷用多久得换？书里有没有给更换周期或者刷子寿命数据？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "检索后应说明：该书（本素材）未涉及毛刷更换周期或刷子寿命数据；书中关于 brush scrubber 的内容只覆盖颗粒去除的 lifting/rolling 机理建模、刷/晶圆压力与清洗时间等工艺条件（如 0.6mm 刷距、pH10 NH4OH、120s 等）。系统应明确告知未找到该信息，不可编造更换周期数字。",
+  "success_criteria": "明确回答\"书中未提供毛刷更换周期/寿命数据\"，不给出任何编造的周期数值；能转述书中实际讨论的刷洗机理内容加分。",
+  "evidence": "--[p153]-- Figure 8: distribution of particle surface concentration after contamination (left) and after brushing (right); brush/wafer distance - 0.6mm (low pressure), pH10 NH4OH, 120s. --[p154]-- a higher brush/wafer pressure results in a bigger brush/particle adhesion, which makes the lifting criterion in Equ.1 more likely to satisfy.（全书未见毛刷更换周期/寿命相关内容）"
+ },
+ {
+  "query_id": "dev_149",
+  "query": "Besi 2020 年收入里美元和欧元各占多少?成本费用端各种货币的占比分布呢?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "besi_2020",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "2020 年以美元计的收入约占 73%(2019 年 68%),欧元计收入约占 27%;成本与费用中约 31% 以欧元计价、28% 马来西亚林吉特、11% 人民币、10% 美元,其余 20% 为其他货币。",
+  "success_criteria": "收入 73%/27% 与成本五档拆分(31/28/11/10/20)均正确,不与收入占比混淆。",
+  "evidence": "--[p150]-- The percentage of its consolidated net revenue which is presented by US dollar amounted to approximately 73% and 68% of total revenue in the years ended December 31, 2020 and 2019, respectively, whereas revenue denominated in euro amounted to approximately 27% in 2020. Approximately 31% of its costs and expenses were denominated in euro, 28% in Malaysian ringgit, 11% in Chinese yuan, 10% in US dollar and the remaining 20% in various currencies.",
+  "replaced_from_pool": "P32-10"
+ },
+ {
+  "query_id": "dev_150",
+  "query": "做超快放大想选增益带宽宽的介质：手册里 Ti:Sapphire 和 HeNe 的增益带宽各是什么量级？腔内纵模数 N 怎么估？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HeNe等气体激光因原子跃迁带宽很窄，约1 GHz量级；Ti:Al2O3（Ti:Sapphire）等固体激光带宽极宽，可超过100 THz。腔内可起振纵模数 N = B/Δν（增益带宽除以谐振腔频率间隔），若Ti:Al2O3的整个自发发射谱都可用于增益，N可超过200,000，这也是实现锁模产生短脉冲的基础。",
+  "success_criteria": "答出HeNe约1 GHz、Ti:Sapphire可超100 THz，并给出公式N=B/Δν及N可超200,000。",
+  "evidence": "--[p27]-- Gas lasers, like the HeNe laser, typically have very narrow bandwidths on the order of 1 GHz owing to their atomic transitions. --[p27]-- Conversely, solid-state lasers, such as the Ti:Al2O3 ... can have extremely wide bandwidths exceeding 100 THz. --[p27]-- The number of these lasing modes (N) is given by the gain bandwidth divided by the resonator frequency spacing given by Equation (5): N = B/Δv ... if the entire spontaneous emission spectrum for a Ti:Al2O3 laser shown in Figure 11 is available for gain, N can exceed 200,000."
+ },
+ {
+  "query_id": "dev_151",
+  "query": "机载 LiDAR 基本都用 1064 nm，这个波长有什么短板？对激光线宽和接收端滤光片提出了什么要求？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "1064 nm是机载LiDAR最常用波长（激光器/探测器易得、常见目标反射率高），主要短板是太阳光谱辐照造成的背景噪声。为提高该波段的SNR，接收端采用窄带通滤光片，因此激光线宽必须足够窄（如&lt;0.1 nm）；典型应用中要求激光在&lt;2 nm的指定带宽内递送90%以上的脉冲能量。",
+  "success_criteria": "答出太阳背景噪声问题、激光线宽需&lt;0.1 nm、90%脉冲能量落在&lt;2 nm带宽内三点。",
+  "evidence": "--[p225]-- As discussed above, 1064 nm is the most common wavelength for airborne LiDAR systems due to the laser/detector availability and high reflectance from common targets. One major limitation of this wavelength is the background noise created by the spectral irradiance of the sun. To improve the SNR in this wavelength regime, LiDAR receivers employ a narrow bandpass filter. It is therefore essential that the spectral width of the laser be sufficiently narrow (e.g., &lt; 0.1 nm). --[p225]-- In typical applications, the laser is required to deliver over 90% of its pulse energy within a specified bandwidth of &lt; 2 nm."
+ },
+ {
+  "query_id": "dev_152",
+  "query": "我有一台 100 mW 的连续激光要测功率，直接打到 MKS 光电二极管探头上会不会饱和？加可拆卸滤光片最多能测到多大功率？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "100 mW超过内置滤光片的30 mW上限，直接测量会饱和。MKS光电二极管内置衰减滤光片，可承受最高30 mW入射功率不饱和；许多型号另有可拆卸滤光片，根据型号不同可测量至300 mW到3 W。所以100 mW需装上附加滤光片（选支持300 mW-3 W的型号）。",
+  "success_criteria": "答出内置滤光下限上限30 mW、加可拆卸滤光片后可测300 mW至3 W，并据此判断100 mW需加滤光片。",
+  "evidence": "--[p75]-- MKS photodiodes are typically constructed with a built-in filter that reduces the power on the sensor so it can accommodate incident laser powers up to 30 mW without saturation. Furthermore, many photodiodes possess an additional removable filter that enables measurements up to 300 mW to 3 W, depending on the model."
+ },
+ {
+  "query_id": "dev_153",
+  "query": "单色仪和摄谱仪（spectrograph）都是光栅分光，我要测一条光谱该选哪个？两者在速度和分辨率上怎么取舍？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "单色仪用单个光电二极管窄带通检测、通过转动光栅组件逐点扫描拼出光谱——分辨率高但采集速度慢；摄谱仪（spectrograph）带通极宽，用光电二极管阵列（PDA）一次 essentially 探测整条光谱——采集快但光谱分辨率较差。两者共享光栅色散、成像光学与探测器等部件，差别主要在光谱的采集与探测方式。",
+  "success_criteria": "答出单色仪=窄带通单管扫描/高分辨慢速，摄谱仪=宽带PDA整谱采集/快速低分辨。",
+  "evidence": "--[p99]-- A monochromator typically detects light using a narrow bandpass on a single photodiode and builds up a spectrum by scanning the grating assembly. This results in a spectrum with high-resolution but slow acquisition speed. A spectrograph has a very wide bandpass and essentially detects a whole spectrum using a photodiode array (PDA). This gives rise to fast acquisition but poorer spectral resolution."
+ },
+ {
+  "query_id": "dev_154",
+  "query": "车间一台脉冲激光器：单脉冲能量 1 J、脉宽 10 ns、重复频率 10 Hz。它的平均功率和峰值功率各是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "平均功率=脉冲能量×重复频率=1 J×10 Hz=10 W；峰值功率≈脉冲能量/脉宽=1 J/10 ns=1×10^11 W=1,000,000 kW（100 MW）。与手册示例完全一致：10 ns、1 J、10 Hz 的激光平均功率 10 W，峰值功率 1,000,000 kW。",
+  "success_criteria": "平均功率10 W、峰值功率1,000,000 kW（即10^11 W/100 MW），单位正确。",
+  "evidence": "--[p29]-- For a pulsed laser, an average output power can also be defined as the product of the pulse energy and the repetition rate --[p29]-- peak output power or peak power is proportional to the pulse energy divided by the width of the pulse --[p29]-- For a 10 ns laser with a pulse energy of 1 Joule (J) operating at 10 Hz, an average power of 10 W is generated, but the laser's peak power is 1,000,000 kW."
+ },
+ {
+  "query_id": "dev_155",
+  "query": "一支 1064 nm 的光纤激光，光束质量 M²=1.3，按手册的定义它的光参积（BPP）等于多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "手册定义 BPP = M²λ/π = 2W_M·θ_M，另有光束传播因子 K=1/M²。代入：BPP = 1.3 × 1.064 µm / π ≈ 0.44 µm·rad，即约 0.44 mm·mrad。",
+  "success_criteria": "给出公式BPP=M²λ/π并算得约0.44 mm·mrad（±5%）。",
+  "evidence": "--[p83]-- Finally, additional beam quality metrics include the Beam Propagation Factor (K) where K = 1/M2 as well as the Beam Parameter Product (BPP), which is defined as BPP = M2λ/π = 2WMθM."
+ },
+ {
+  "query_id": "dev_156",
+  "query": "一只激光二极管，微分响应度 0.4 mW/mA、阈值电流 20 mA。注入电流加到 100 mA 时，稳态输出光功率是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按手册L-I关系 Po = ℜd(i − it)（其中 ℜd = ηd·1.24/λ0，单位W/A或mW/mA，it为L-I曲线与x轴交点处的阈值电流）：Po = 0.4 mW/mA × (100 − 20) mA = 0.4 × 80 = 32 mW。0.4 mW/mA 落在手册给出的激光二极管 ℜd 典型范围 0.2-1 mW/mA 内，结果合理。",
+  "success_criteria": "给出公式Po=ℜd(i−it)并算得32 mW。",
+  "evidence": "--[p50]-- Po = ℜd (i − it) where ℜd = ηd 1.24/λ0 --[p50]-- The current value at which the line intersects the x-axis and produces zero emission is the threshold current for lasing --[p54]-- The values of ℜd for a laser diode often fall in the range of 0.2 – 1 mW/mA (or W/A)."
+ },
+ {
+  "query_id": "dev_157",
+  "query": "我的 Q 开关激光器单脉冲几十 mJ，想逐个脉冲测能量。用 30A-BB-18 热电堆探头行不行？测的时候有什么限制？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "可行（需先检索Q开关输出特性，再检索热电堆能量测量能力做匹配）：Q开关脉冲为ns级、单脉冲能量mJ或更高，而30A-BB-18能量模式量程6 mJ-30 J，覆盖几十mJ单脉冲。限制：热电堆测单 shot 能量是对盘上流过的功率做时间积分，盘升降温典型需数秒，所以最多每几秒测一个脉冲，不能逐发连续记录；若脉宽&lt;10 µs 应用体吸收式热电堆替代表面吸收式以免表面被汽化。",
+  "success_criteria": "判断可行（能量范围6mJ-30J覆盖几十mJ），并指出每几秒最多测一个脉冲的限制。",
+  "evidence": "--[p38]-- Q-switching results in ns laser pulses with very large pulse energies of mJ or greater. --[p74]-- Although these thermal power sensors are used primarily to measure power, they can also measure single shot energies as well, where they integrate the power flowing through the disc over time and thus measure energy --[p74 [表]]-- Energy Range | 6mJ - 30J --[p74]-- The typical time it takes for the disc to heat up and cool down is several seconds, so these thermal sensors can only measure one pulse every several seconds at most."
+ },
+ {
+  "query_id": "dev_158",
+  "query": "手册里说机载 LiDAR 的 1064 nm 激光要足够窄的线宽。MKS 的 VGEN-SP-NL 激光器线宽指标是多少，达不达得到这个要求？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "需两跳检索：先查得1064 nm机载LiDAR为抑制太阳背景噪声要求激光线宽足够窄（如&lt;0.1 nm）；再查Table 15中VGEN-SP-NL光纤激光器规格：线宽FWHM&lt;0.1 nm、波长1064/532/1550 nm。结论：VGEN-SP-NL的FWHM&lt;0.1 nm恰好满足&lt;0.1 nm的要求，可配窄带通滤光片获得高SNR。",
+  "success_criteria": "先给出要求线宽&lt;0.1 nm，再给出VGEN-SP-NL线宽FWHM&lt;0.1 nm并判定满足。",
+  "evidence": "--[p225]-- It is therefore essential that the spectral width of the laser be sufficiently narrow (e.g., &lt; 0.1 nm). --[p226]-- Line Width (FWHM) | &lt; 0.1 nm | High SNR --[p226]-- Wavelength | 1064 nm532 nm1550 nm"
+ },
+ {
+  "query_id": "dev_159",
+  "query": "我们产线想上一台 MultiGas 2030，这台机器报价大概多少？交货周期和质保期是多久？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该手册未涉及价格、交货周期、质保期等商务信息：手册只给出MultiGas 2030的技术性能（高速高分辨率FTIR气体分析仪，1秒内同时监测30种以上排放气体）。正确做法是明确告知手册中不存在该信息，建议联系MKS或其代理商获取报价与商务条款，不得编造数字。",
+  "success_criteria": "明确说明手册未包含价格/交期/质保信息，不编造数字，并建议联系厂商。",
+  "evidence": "--[p270]-- MKS' MultiGasTM 2030 system (Figure 271) is a high-speed, high-resolution FTIR-based gas analyzer designed to simultaneously monitor more than 30 emission gases in under a second. （该节及全手册仅有技术描述，无价格、交期、质保内容）"
+ },
+ {
+  "query_id": "dev_160",
+  "query": "PD300-UV 光电二极管探头允许的工作温度范围是多少？我们车间夏天能到 45 °C，会不会超规格？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该手册未给出PD300-UV的工作温度范围（或存储温度）规格：其规格表只列出探测器类型（硅）、光敏面10x10mm、光谱范围200-1100 nm、功率范围20 pW-3 mW（滤光片取出）/2 µW-300 mW（滤光片装入）、损伤阈值、最大脉冲能量等项，不含温度指标。正确做法是告知手册未涉及该参数、无法据此判断45 °C是否超规格，建议向厂家确认，不得编造温度限值。",
+  "success_criteria": "明确说明手册规格表中无工作温度范围参数，不编造温度限值，建议向厂家确认。",
+  "evidence": "--[p76]-- Model PD300-UV/PD300-UV-193Use Lowest powers from 200-1100nm / Detector Type | silicon / Aperture | 10x10mm / Spectral Range nm | 200-1100 | 220-1100 / Power Range | 20pW to 3mW | 2μW to 300mW / Damage Threshold W/cm² | 10 | 50 （规格表未含工作温度范围项）"
+ },
+ {
+  "query_id": "dev_161",
+  "query": "做左右主轴背压一致性测试：要在 Diagnostics 菜单开哪两个输出？判定目标值是多少（psia 和 psig 两种单位下分别说）？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "在 Diagnostics 菜单选 Toggle Output，输入 8 打开 Output 8（Left Wafer Carrier Blow Off）启用左背压，输入 10 打开 Output 10（Right Wafer Carrier Blow Off）启用右背压；可先将 counter 55/56 清 0 再设为 2000 后读状态屏左右背压值。目标：psia 显示时两读数应在 45~55 psia 之间且相差不超过 ±3.0 psi；psig 显示时应在 30~40 psig 之间且相差不超过 ±3.0 psi（初次检查阶段目标为左右相差 ±0.3 psi 以内）",
+  "success_criteria": "Output 8/10 及其名称正确；psia 45-55±3.0 与 psig 30-40±3.0 两组判定都正确",
+  "evidence": "--[p323]-- 1. At the Diagnostics Menu, select Toggle Output and enter 8 to turn Output 8 (Left Wafer Carrier Blow Off) ON, enabling backpressure. 2. Select Toggle Output and enter 10 to turn Output 10 (Right Wafer Carrier Blow Off) ON, enabling backpressure. ... GOAL: The status screen readings for left and right spindle backpressure should be within +/- 0.3 psi of equal. / --[p324]-- GOAL FOR BACK PRESSURE SET IN PSIA: For back pressure in psia, the status screen readings should be between 45 and 55 psia and within +/- 3.0 psi of equal. GOAL FOR BACK PRESSURE SET IN PSIG: For back pressure in psig, the status screen readings should be between 30 and 40 psig and within +/- 3.0 psi of equal."
+ },
+ {
+  "query_id": "dev_162",
+  "query": "按 CYCLE START 后弹了 “AT LEAST ONE RECIPE POLISH FORCE IS HIGH”，循环也没启动。这个报警的触发条件是什么？另外为什么配方里用了 psi 单位屏幕还一直提示 \"Wfr Dia?\"？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳：按下启动按钮时，若任何一个抛光步的力会超过 500 磅，就显示该报警且循环不启动，需把配方抛光力降到 500 lbs 以下。第二跳：因为 force 单位用 psi 时直径才参与计算，若直径输入为 0（在 Machine Parameters / Conditioning/Cleaning Parameters 菜单中），显示会给出 \"Wfr Dia?\" 或 \"Dev Dia?\" 警告，提示未输入直径；把单位换成 lbs 也可消除该警告（换单位时数值不变）",
+  "success_criteria": "答出 500 lbs 阈值+循环不启动两要素；正确解释 \"Wfr Dia?\" 与 psi 单位+直径为 0 的因果关系",
+  "evidence": "--[p429]-- Cycle Start Alarm Test for High Recipe Polish Force: When the start button is pressed, if any polish step's force would result in over 500 lbs the alarm \"AT LEAST ONE RECIPE POLISH FORCE IS HIGH\" will show. Also, the cycle will not start. / --[p233]-- If \"psi\" is used and zero is entered for the diameter, displays will show \"Wfr Dia?\" or \"Dev Dia?\" to warn that no diameter is entered."
+ },
+ {
+  "query_id": "dev_163",
+  "query": "主轴下压到载台/清洗站的几个校准变量（38、39、48）的默认值各是多少？这些值要怎么实验确定？调的时候对左右主轴都要做一遍吗？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "变量 38 Spindles down soft value 标称 1300（下压到抛光台或单表机清洗站）；变量 39 Spindles down hard value 标称 1600（下压到单表机载站）；变量 48 Spindles down extra soft value 标称 1100（仅双表机选项，下压到双表机载站）。确定方法：在 Diagnostics 菜单向 counter 12 和 13 输入数值并观察产生的主轴力，实验确定（对双表机变量 48 须让主轴位于载站上方）。力的量级：soft 值约 10 磅即可（自定心载站可能需更大），hard 值须可靠压下主轴且不过载，清洗站用 extra soft 值须克服载具卡盘上顶力、通常需 75~100 磅。只需对左主轴做，无需对右主轴重复",
+  "success_criteria": "三个变量默认值 1300/1600/1100 正确；指出用 Diagnostics 菜单 counter 12/13 实验；指出只需做左主轴",
+  "evidence": "--[p344]-- 38 Spindles down soft value Nominal value: 1300 ... This value is determined experimentally by entering values into counters 12 and 13 in the Diagnostics Menu and observing the resulting spindle forces. ... 39 Spindles down hard value Nominal value: 1600 ... / --[p345]-- 48 Spindles down extra soft value Second table option Nominal value: 1100 ... A force in the range of 75 to 100 lbs is typically required. ... Note: The procedures shown below for calibration variables 38, 39, and 48 need be performed only for the LEFT spindle. It is not necessary to repeat the procedures for the right spindle. / --[p344]-- A small force of 10 lbs should be sufficient."
+ },
+ {
+  "query_id": "dev_164",
+  "query": "工艺要求清洗站 pad 压力对应约 12 磅的 pad force，但手册对照表只有 5 psi 步进的整数档。用线性内插估算一下气缸压力该设多少 psi？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "查表：30 psi → 10.8 lbs，35 psi → 15.3 lbs。线性内插：30 + (12 − 10.8)/(15.3 − 10.8) × 5 = 30 + 1.2/4.5 × 5 ≈ 30 + 1.33 ≈ 31.3 psi（答约 31~31.5 psi 均可，须给出内插算式）",
+  "success_criteria": "引用表中 30/35 psi 两档数据，内插结果约 31.3 psi 且算式完整",
+  "evidence": "--[p199]-- CYLINDER PRESSURE / PAD FORCE TABLE ... Cylinder Pressure(psi) | Pad Force(lbs) | Pad psi(Ibs-in*2) ... 30 | 10.8 | 0.68 / 35 | 15.3 | 0.96 ... Note: The table below includes an offset to compensate for the moving weight."
+ },
+ {
+  "query_id": "dev_165",
+  "query": "地面承重评估：主机（Planarizer）、可选真空泵、真空分离器、温控单元这四台设备按手册数据总重多少磅？各自单重报一下。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "按 p93 设备数据表：Planarizer 8500 lbs + Vacuum Pump 150 lbs + Vacuum Separator 75 lbs + Temp. Control Unit 350 lbs = 9075 lbs（算式：8500+150+75+350=9075）",
+  "success_criteria": "四项单重（8500/150/75/350 lbs）逐一正确且总和 9075 lbs",
+  "evidence": "--[p93]-- GENERAL FACILITIES AND ELECTRICAL SERVICE DATA SHEET: Component | Width(ln) | Depth(ln) | Height(in) | Weight(lbs) ... Planarizer | 100 | 72 | 80 | 8500 | 208/3/60 | 60 / Vacuum Pump | 30 | 21 | 60 | 150 | 110/1/60 / Vacuum Separator | 15 | 10 | 28 | 75 | 110/1/60 / Temp. Control Unit | 26 | 21 | 40 | 350 | 208/1/60 | 30"
+ },
+ {
+  "query_id": "dev_166",
+  "query": "开机后报 31300024 Dispenser Save Data Error，说保存的参数坏了。完整说一下怎么初始化 MD-R-01？有哪些前提条件和注意事项？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需串联两处信息：错误表 31300024 给出总路径，再据其跳到 Initializing MD-R-01 小节。完整步骤：(1) 先在 [Recipe]-[Setup] 把 Preform motion 设为 Enable 或 Paste；(2) 在 [Setup] - [Device Setting] - [Detection/Equipment setting] 把 Dispenser setting 设为 MD-R-01；(3) 在 \"Preform Machine – Preform\" 画面触摸 [MD-R-01 Initialize] 键开始初始化（通常无需初始化）；(4) 注意：开机后须等待 30 分钟以上才能开始初始化；(5) 若初始化后错误仍不复位，联系 FSE。",
+  "success_criteria": "五个要点齐全：Preform motion 设 Enable/Paste、Dispenser setting 设 MD-R-01、在 Preform Machine–Preform 按 MD-R-01 Initialize、开机后等 30 分钟以上、不复位联系 FSE",
+  "evidence": "--[p250]-- 31300024 | Dispenser Save Data Error Contents: The machine detected the collapse of saved parameter during start-up procedure. Action: (1) Initialize MD-R-01 in [Setup]-[Preform machine]-[Preform]. (2) In such case that error is not reset after initializationm, please contact FSE. --[p334]-- ○Initializing MD-R-01 Prior to initializing, set [Preform motion] in [Recipe]-[Setup] to [Enable or Paste]. And then set the [Dispenser setting] in [Setup] – [Device Setting] – [Detection/Equipment setting] to MD-R-01. Touch [MD-R-01 Initialize] key on \"Preform Machine – Preform\" screen to start initializing. (Normally, initializing is not necessary) *Wait more than 30 minutes before starting initializing, after power ON"
+ },
+ {
+  "query_id": "dev_167",
+  "query": "预成形报 31002039，说 X mode 的 Number in Block 超过 32。为什么上限偏偏是 32？这个 32 跟设备哪项整机规格是对应的？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索 31002039：Number in Block Data Error，Preform – Fail Mark Recognition 设为 X mode 时 Block 内编号超过 32，处理是把 block 内编号设在 32 以内。再据此跳到整机规格：Epoxy dispenser 具备 Matrix lead frame capability (up to 32 rows)，即矩阵引线框架最多 32 行——block 编号上限 32 与该 32 行矩阵框架规格对应（机器最多按 32 行矩阵框架处理）。",
+  "success_criteria": "答出错误内容与\"block 编号须 ≤32\"，并关联到整机规格 \"Matrix lead frame capability (up to 32 rows)\"",
+  "evidence": "--[p250]-- 31002039 | Number in Block Data Error Contents: Number in Block is beyond 32 when Preform – Fail Mark Recognition mode is set to X mode. Action: Set the number in block within 32. --[p21]-- Epoxy dispenser | (1) (2) (3) (4) (a) (b) (c) (5) (6) | Syringe height is programmable Dispensing time is programmable Three dispensing mode Single point spotting Multi-point spotting Draw-a-line (write) spotting Matrix lead frame capability (up to 32 rows) Optical Recognition for detecting work position --[p21]-- (5) Matrix lead frame function is possible(up to 32 rows)"
+ },
+ {
+  "query_id": "dev_168",
+  "query": "报 51310015 说 wafer motion radius 设小了。我用的晶圆是 φ300mm，Attach Offset Y 设了 5000μm，Die Pitch Y 是 8000μm，按手册公式 motion radius 最小要设到多少微米？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "手册 51310015 给出判定式：motion radius 数据不得小于 (Wafer Radius + Attach Offset Y) − Die Pitch Y / 2。φ300mm 晶圆半径 Wafer Radius = 150000μm，故最小 motion radius = (150000 + 5000) − 8000/2 = 155000 − 4000 = 151000μm（即 151mm）。",
+  "success_criteria": "算式 (150000+5000)−4000=151000μm 正确（含 φ300→半径 150000μm 的换算与 Die Pitch Y 除 2），单位正确",
+  "evidence": "--[p184]-- 51310015 | Data Error (Wafer Motion Radius)Contents: Datum for wafer motion radius is smaller than the datum (= (WaferRadius + Attach Offset Y) – Die Pitch Y / 2)Action: Check data for Motion Radius, Wafer Radius, Attach Offset Y and DiePitch Y respectively. --[p20]-- (2) Wafer Ring: φ300mm,φ200mm*3"
+ },
+ {
+  "query_id": "dev_169",
+  "query": "层压报 71400013，说 Height teaching tool offset Y 与 Height teaching sensor position Y 之和必须在 -130mm 到 -83mm 之间。我把 tool offset Y 设成了 -100mm，那 sensor position Y 允许设在什么范围？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "按 71400013 的约束：tool offset Y + sensor position Y ∈ [-130mm, -83mm]。设 sensor position Y = x，则 -100 + x ∈ [-130, -83]，解得 x ∈ [-130+100, -83+100] = [-30mm, +17mm]。即 sensor position Y 可在 -30mm 到 +17mm 之间设定。",
+  "success_criteria": "答出 sensor position Y ∈ [-30mm, +17mm]（由 [-130−(-100), -83−(-100)] 解出），区间两个端点均正确",
+  "evidence": "--[p281]-- 71400013 | Lamination Stage - Data error - Height teaching sensor position Y + Heightteaching tool offset YContents: The data of [Height teaching sensor position Y] and/or [Height teachingtool offset Y] is not set correctlyAction:Check followings and rectify as necessary;(1)The data of [Height teaching tool offset Y], in [Recipe] -[Laminationcondition/Recognition] -[ Production tool Data] - [Tool], is set correctly(2)The data of [Height teaching sensor position Y], in [Setup data] - [Laminationmachine] - [Height teaching], is set correctly(3)The sum of [Height teaching tool offset Y] and [Height teaching sensor positionY] is in between -130mm and -83mm"
+ },
+ {
+  "query_id": "dev_170",
+  "query": "手册规格写设备电源是 7.5 kVA、AC200~240V 单相。按 200V 供电算，设备至少要留多大电流容量的空开？如果供到 240V 又是多少安？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "手册 2.4.1 规格：Utility (1) 7.5 kVA，Power source: AC 200~240V, 1-phase, 50/60 Hz。单相电流 I = P / U：200V 时 I = 7500VA / 200V = 37.5A；240V 时 I = 7500VA / 240V = 31.25A。即 200V 供电至少需约 37.5A 电流容量（实际选型还应留余量），240V 时约 31.25A。",
+  "success_criteria": "两组结果均正确：7500/200=37.5A 与 7500/240=31.25A，算式为单相 I=P/U",
+  "evidence": "--[p21]-- Utility | (1) 7.5 kVA (2) | Power source: AC 200~240V,1-phase,50/60 Hz, Dry Air: 4.0x10⁵ Pa or more"
+ },
+ {
+  "query_id": "dev_171",
+  "query": "Binning Process 界面里 Flipper Head 3 显示 passed 10126、failed 2,帮我算一下它的良率,和界面上显示的数字对不对得上?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "总数 = 10126 + 2 = 10128;良率 = 10126 ÷ 10128 × 100% ≈ 99.98%;失败率 = 2 ÷ 10128 × 100% ≈ 0.02%。与界面显示的 passed 99.98、failed 0.02 一致,对得上。",
+  "success_criteria": "算出良率 99.98%(允许 99.98±0.01)、失败率 0.02%,并判断与界面显示一致。",
+  "evidence": "--[p78]-- ON | Flipper Head 3 | 10126 | 99.98 | 2 | 0.02 | 10128 | 99.00"
+ },
+ {
+  "query_id": "dev_172",
+  "query": "我们用的是内径 1.5mm 的 laser mark rubber tip,按手册要求换完 tip 后,tip 中心和 vision 十字中心的最大允许偏移是多少毫米?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "手册规定:Laser Mark tip 中心与 Laser Mark vision Crosshair 中心的偏移不应超过 rubber tip 内径的 10%。计算:1.5mm × 10% = 0.15mm,即最大允许偏移 0.15mm;安装后用 Laser Mark Vision 验证新 tip 位置。",
+  "success_criteria": "引用 10% 规则并算出 0.15mm,单位正确。",
+  "evidence": "--[p238]-- Note: The offset of Laser Mark tip center and Laser Mark vision Crosshair center SHOULD NOT more than 10% of the rubber tip’s inner diameter."
+ },
+ {
+  "query_id": "dev_173",
+  "query": "带 wafer map 跑新批次时自动 teaching 失败了,机器弹窗让我选,接下来该怎么手动教?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "3.1.3 生产(带 wafer map)注明:若 auto-teaching 失败需手动 teaching,见 3.1.11。按 3.1.11:1) 弹窗点 NO 进入手动 teaching;2) 用用户名密码登录;3) 用箭头按钮把台 jog 到第一颗 die 位置,基于 input vision 让十字线对准第一颗 die 中心;4) 点 LOCAL ANGLE CORRECTION,再点 GET UNIT PITCH;5) 点 \"First Die on Map\" 并点 TEACH UNIT;6) YES 确认当前 unit 为 teach unit,再 YES 设为第一颗拾取单元(若非第一颗,可在 wafer map 上点选要拾取的 die,机器自动移动到该位置)。",
+  "success_criteria": "指出依据 3.1.3→3.1.11,并完整给出点 NO、LOCAL ANGLE CORRECTION、GET UNIT PITCH、First Die on Map + TEACH UNIT 等关键步骤。",
+  "evidence": "--[p44]-- *If auto-teaching fails and requires manual teaching, see Section 3.1.11 for Manual Teaching. --[p54]-- 3.1.11 Manual Teaching with Wafer Map In the case where auto-teaching fails, user will be able to choose to retry auto-teaching procedure, or to manually teach the wafer based on the map. 1. Click NO to perform manual teaching. 3. Use the arrow button to jog the table to first die location. 4. Click on LOCAL ANGLE CORRECTION, then click GET UNIT PITCH. Click on the “First Die on Map” and click TEACH UNIT."
+ },
+ {
+  "query_id": "dev_174",
+  "query": "End lot 的时候提示 tape quantity 不为零要做 partial reel,这个 partial reel 具体怎么操作?做完带子会不会自动切?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "3.1.3(带 wafer map 生产)第 2 步注明:end lot 后若 tape quantity 不为零,需执行 partial reel。操作(3.1.10 Partial Reel A) Auto Partial Reel):1) 按 PARTIAL REEL B 按钮;2) 点 YES 确认 partial reel 操作;3) 若 4.4.4(Tape & Reel Setting)中启用了 Auto Cut Tape 功能,partial reel 完成后机器会自动切带——即是否自动切带取决于 Auto Cut Tape 选项是否勾选。",
+  "success_criteria": "给出 PARTIAL REEL B + YES 的操作步骤,并正确说明自动切带取决于 4.4.4 的 Auto Cut Tape 功能。",
+  "evidence": "--[p43]-- 2. Upon end lot, if the tape quantity is not zero, user will need to perform partial reel (See Section 3.1.9 for Partial Reel Operation). --[p52]-- 3.1.10 Partial Reel A) Auto Partial Reel 2. Press PARTIAL REEL B button. 3. Click YES to confirm partial reel operation. 4. If the Auto Cut Tape function is enabled (See Section 4.4.4), machine will automatically cut tape when partial reel is completed."
+ },
+ {
+  "query_id": "dev_175",
+  "query": "Mi30 整机质保是几年?过保之后的维修报价和返修流程在手册哪一章能查到?",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "WAFER  HANDLER Mi30 User Manual V5",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明手册未涉及质保年限、过保维修报价及返修流程,无法从手册获得该信息;手册仅提供 EMERGENCY CONTACT(紧急联系方式)用于联系厂商,建议直接联系设备厂商或服务商确认质保与维修条款,不得编造年限、价格或流程。",
+  "success_criteria": "明确表示手册未涵盖质保年限/返修流程,不编造数字,并指出可参考 EMERGENCY CONTACT 联系厂商。",
+  "evidence": "--[p7]-- EMERGENCY CONTACT(素材中仅有紧急联系方式章节,无质保/返修条款)"
+ },
+ {
+  "query_id": "dev_176",
+  "query": "热磷酸蚀氮化硅这套工艺帮我查三个数：氮化硅对氧化硅的选择比能到多少？补水系统停掉后多久蚀刻速率就会漂？还有残磷造成的 haze 一般几小时后显现？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三组数字：(1) 稳态运行下热磷酸对氮化硅/二氧化硅的选择比典型值 >20:1，且氮化硅蚀刻速率随槽寿命和通量都很稳定，而氧化硅速率不稳定（随通片量增加而下降但不降至零）；(2) 关闭补水 DI 注入后，短至 2 小时蚀刻速率变化即可测得（缺水使氮化硅速率显著下降、氧化硅速率上升）；(3) haze 在酸暴露后 8~24 小时于洁净室室温存放时出现，漂洗越充分出现越晚，表面残磷可达 0.5 原子重量百分比。",
+  "success_criteria": "三个数字全部答对：选择比 >20:1、补水关闭后 2 小时可测、haze 8~24 小时出现；缺任一数字或数值错误判不通过。",
+  "evidence": "--[p92]-- Although phosphoric acid etch-rate selectivity of nitride to silicon dioxide is typically very good (e.g., > 20:1), the oxide etch rate itself is not very stable. --[p93]-- However, in as little as two hours after turning off the water injection system, the change in etch rates is measurable. --[p95]-- the haze can be seen after 8 to 24 hours subsequent to acid exposure and when the wafers are stored in an ambient fabricator room air environment."
+ },
+ {
+  "query_id": "dev_177",
+  "query": "硅片键合前用 HF 预处理，HF 浓度从 1% 加到 50% 表面粗糙度怎么变？HF 刻完再泡水，对粗糙度和颗粒吸附各有什么影响？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "AFM RMS 结果：提高水溶液 HF 浓度会增大表面粗糙度，且 10%~50% 区间的增幅大于 1%~10% 区间；10% HF 刻蚀后再经水洗不会增加表面粗糙度，BHF 处理后的表面粗糙度与 10% HF 相当。颗粒方面：疏水的 HF 刻蚀表面，若再次浸入 HF 液或水中，颗粒数量会增加（重复浸泡会损害键合性）。实验条件为 3 英寸 [100] 晶圆在 1%~50% HF 或 pH≈5 的 BHF 中刻 1 分钟。",
+  "success_criteria": "答出：浓度越高越粗糙、10-50% 区间增幅大于 1-10%、10%HF 后水洗不增加粗糙度、疏水 HF 表面再浸水/HF 会增颗粒四点；缺两点以上判不通过。",
+  "evidence": "--[p237]-- It is obvious that increasing the concentration of the aqueous HF-solution will increase the resultant surface roughness. Between 10 and 50% this increase is larger than between 1 and 10%. A water rinse after the 10% HF-etch does not increase the surface roughness. The BHF-surface is also comparable to the one treated in 10% HF. --[p236]-- It has been shown [9] that the amount of particles on a hydrophobic, HF-etched, silicon surface increases if the wafer is immersed in either the HF-solution again, or in water. --[p236]-- Prior to bonding, the wafers were etched for 1 minute in aqueous HF-solutions, having concentrations bētween 1 and 50%, or a HFsolution buffered with NH4F to pH≈5 (BHF)."
+ },
+ {
+  "query_id": "dev_178",
+  "query": "溢流漂洗的盐去除速率是 0.25 LRV/min，要把晶圆表面钠污染降 3000 倍需要漂多久？对照实验里 ramped rinsing 30 秒就降了 3000 倍，折算成 LRV/min 是多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "降 3000 倍需 log10(3000)≈3.48 个对数单位。溢流漂洗：3.48 ÷ 0.25 ≈ 13.9 分钟（约 14 分钟）。ramped rinsing：30 秒（0.5 分钟）降 3000 倍，折算 3.48 ÷ 0.5 ≈ 6.95 LRV/min，与文中『over 6 LRV/min』的表述一致；即溢流方式慢约 14 倍（0.25 vs 约 6.95）。",
+  "success_criteria": "算出溢流约 13.9 分钟（≥13 或 ≤15 均可）、ramped 折算约 6.95 LRV/min（6~7 区间），并正确使用 log10(3000)≈3.48；只答倍数不做对数换算判不通过。",
+  "evidence": "--[p168]-- In the first 30 seconds the sodium levels dropped by a factor of 3000 to near background levels. This experimental rinsing rate for ramped rinsing of over 6 LRV/min (Log Reduction Value) is above the 2.25 predicted by the theory. --[p169]-- Overflow rinsing provided a 0.25 LRV/min in the surface concentration of the salt."
+ },
+ {
+  "query_id": "dev_179",
+  "query": "兆声槽实验：链速 44 mm/min、晶圆走过换能器 2 遍时总浸没时间 10 分钟。据此推算换能器的有效长度，再算链速降到 25 mm/min、走 6 遍时的总浸没时间，并对照文中给出的实验浸没时间范围验证。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一步：2 遍共 10 分钟 → 单遍 5 分钟 → 换能器有效长度 = 44 mm/min × 5 min = 220 mm。第二步：链速 25 mm/min 时单遍 = 220 ÷ 25 = 8.8 分钟，6 遍总浸没 = 6 × 8.8 = 52.8 分钟，与文中给出的实验范围上限『总浸没时间 6 到 52 分钟』（2~6 遍、链速 25~70 mm/min）吻合。",
+  "success_criteria": "算出换能器长度 220 mm、总浸没时间约 52.8 分钟（52~53 分钟区间），并明确与文中 6~52 分钟范围对照验证；缺少中间推理（单遍 5 分钟）直接给结果者判不通过。",
+  "evidence": "--[p464]-- The number of passes over the transducer ranged from 2 to 6. The resulting total immersion time ranged from 6 to 52 minutes. --[p464]-- The chain speed refers to the speed at which the wafer cassette is physically transported over the transducer, and ranged from 25 to 70 mm/minute. --[p465]-- All subsequent experiments were performed with a constant chain speed (44 mm/min) and two passes over the transducer, for a total immersion time of 10 minutes."
+ },
+ {
+  "query_id": "dev_180",
+  "query": "我们要把栅氧前的最后一步从 SC1 换成 HF-last。帮我查清楚：HF-last 表面的铁为什么比有自然氧化层表面的难去除、单步清洗效率各多少、哪些多步序列能做到 99% 以上？这些序列对氧化前少子寿命有什么影响？另外 SC1 收尾本身有什么再污染风险？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "链式回答：(1) 机理——HF-last 表面的铁呈硅化物样键合于硅，需要 HF 对硅的腐蚀（刻蚀硅）才能去除，而有自然氧化层的 SC1-last 表面单步即可去铁；(2) 单步效率（Fe on HF-last）：HF only 6、SC1 only 2、SC2 only 0、SC1+SC2 仅 4，至少需三个独立步骤；(3) ≥99% 的多步序列：SC1+HF、HF+SC1+HF、HF+SC1+SC2、SC1+HF+SC2 等；(4) 寿命（Table II）：SC1+HF+SC2+HF 序列 20-30 μs；HF+SC1+SC2+HF 未污染片 400-500 μs、污染片 5-10 μs，HF+SC1+SC2 为 180-250 μs，SC1-last 氧化前寿命很低，HF-last 氧化前寿命高；(5) 风险——SC1 溶液存在铝、铁等金属从溶液再污染硅表面的争议，故 SC1 收尾后寿命偏低。",
+  "success_criteria": "五个环节齐全：硅化物样键合机理、单步效率数值（6/2/0）、至少三步结论、≥99% 序列举例、寿命对比（含 400-500 μs）及 SC1 再污染风险；缺两个以上环节判不通过。",
+  "evidence": "--[p65]-- Our model is that iron on HF-last surfaces exhibits silicide-like bonding to Si; therefore, it is possible that the etching of silicon is necessary for iron removal from HF-last surfaces. --[p65]-- SC1 + HF | 99 ... HF + SCl + HF | >99 --[p64]-- we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. --[p66]-- HF + SC1 + SC2 | 180 - 250 | 4- 6 --[p66]-- HF + SC1 + SC2 + HF | 400 - 500 | 5 - 10 --[p66]-- The use of the SC1 solution has been controversial due to the possible recontamination of metallic impurities like aluminum and iron from the solution to the silicon surfaces during cleaning."
+ },
+ {
+  "query_id": "dev_181",
+  "query": "变量20(Coarse Z Home u)是 -500,变量21(Left Coarse Z ref u)是 -8800:在粗磨轮还没在左卡盘上做过参考的情况下,从 home 脉冲位置到左工件卡盘表面默认距离是多少微米?折合多少毫米?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式计算:变量20 → Z home 位置在 home 脉冲位置下方 500 µm(负值=向下);变量21 → 左卡盘在 Z home 位置下方 8800 µm。故 home 脉冲到左卡盘表面 = 500 + 8800 = 9300 µm = 9.3 mm。",
+  "success_criteria": "给出 500+8800=9300 µm 及换算 9.3 mm,两个数值来源(变量20/21)和叠加关系正确。",
+  "evidence": "--[p64]-- Number: 20 Value: -500.0 Label: Coarse Z Home u … When the coarse wheel is homed, it will stop this many microns down from the home pulse position. A negative number means \"down\" …--[p64]-- Number: 21 Value: -8800.0 Label: Left Coarse Z ref u … This is a default value for the distance from the coarse Z home position to the left work chuck in microns. That distance is also called the reference. The reference is used to calculate absolute wheel position when the bridge is moved. Until the coarse wheel is referenced over the left work chuck, the value in this variable is used as the reference in microns."
+ },
+ {
+  "query_id": "dev_182",
+  "query": "按书里的设计要求帮我核一下账:15寸1024×768 8bits产品,最大像素电压±5V(源漏压差最大10V)时,TFT的Ion、Ioff各是多大,Ion/Ioff能做到多少,够不够书里要求的10^6数量级?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "TFT-LCD原理与设计 [马群刚著] 2011年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "检索得到Ron≈1.16×10^7Ω、Roff与Rlc并联要求≥5.54×10^13Ω,再计算:Ion=10/(1.16×10^7)=8.62×10^-7A;Ioff=10/(5.54×10^13)=1.81×10^-13A;Ion/Ioff=(8.62×10^-7)/(1.81×10^-13)=4.76×10^6,为10^6数量级,满足要求。并可补充:实际使用中Ioff会有10^2数量级的提升,因此要求Ion在10^-6数量级以上、Ioff在10^-14数量级以下。",
+  "success_criteria": "给出Ion=8.62×10^-7A、Ioff=1.81×10^-13A、Ion/Ioff=4.76×10^6,并判断满足10^6数量级要求;三个数值与算式缺一不可。",
+  "evidence": "--[p48]-- Ion =10/(1.16×10^7)=8.62×10^-7(式2-23) …… Ioff =10/(5.54×10^13)=1.81×10^-13(式2-24) …… Ion/Ioff =(8.62×10^-7)/(1.81×10^-13)=4.76×10^6(式2-25) …… 式(2-25)得出的Ion/Ioff比值是10^6数量级，是TFT-LCD像素在各个灰阶电压下都能正常显示所必需保证的TFT开关特性要求。",
+  "replaced_from_pool": "P33-21"
+ },
+ {
+  "query_id": "dev_183",
+  "query": "要用气相工艺刻掉 200 埃热氧化层：按那个 4.7 埃每秒的配法得跑多久？要是换成共沸 HF、按书上给的速率范围算又是多久？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先用 2.5L/min HF 源 + 12.5L/min H2O 源对应的气相刻蚀速率 4.7 Å/s：t = 200Å ÷ 4.7 Å/s ≈ 42.6 s（约 0.71 分钟）；再按表 7.1 中共沸 HF 的刻蚀速率范围 30~70 Å/s：t = 200/70 ≈ 2.9 s 至 t = 200/30 ≈ 6.7 s。即共沸 HF 工艺比 4.7 Å/s 的 HF·H2O 配法快约 6~15 倍。",
+  "success_criteria": "三个时间结果正确（约 42.6s、2.9~6.7s，允许 ±5% 舍入误差），且速率取值与书中来源对应。",
+  "evidence": "--[p187]-- 通过2.5升/分钟恒组分 HF源和 12.5升/分钟 $\\mathbf { H } _ { 2 } \\mathbf { O }$ 源混合，获得的气相刻蚀速率为 4.7 Å/s，其与约 5 wt%的HF水溶液的刻蚀速率对应。……--[p188]-- 共沸 HF | 30~70 A/s",
+  "replaced_from_pool": "P34-21"
+ },
+ {
+  "query_id": "dev_184",
+  "query": "同样是砂轮磨损超限,磨硅片时报 \"Coarse wheel wear limit\" 和磨 AlTiC 时报同样消息,机器的处理方式有什么不同?这个超限状态怎么清除?另外磨损量是在哪个卡盘上测的?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三跳:①硅片模式(默认)下只呈现警告,提示通知维护但继续磨削(Notify Maintenance. Continue Grinding);AlTiC/替代材料模式下出现强制性换轮消息,send cassettes 被禁用、turrets 被锁定,防止再上料。②两种情况的清除方法都是更换出问题的砂轮(change the offending wheel)。③磨损在每次右工件卡盘磨削材料时检查,只使用右探针及其参考数据(right probe and reference data)。",
+  "success_criteria": "答出硅=警告继续/AlTiC=锁卡盘停上料、清除=换轮、测量=仅右卡盘右探针三点;能区分总磨损限(变量25/35)与单片磨损限(变量26/36,默认0.0关闭)为加分。",
+  "evidence": "--[p94]-- The conditions that are detected will be identical, but in the case of silicon grinding, the operator information is presented as a warning, asking that maintenance be notified, but to continue grinding When the conditions are detected while grinding alternative materials, a strong message is presented to change the wheel, the send cassettes are disabled and the turrets are locked to prevent additional material being presented to the machine. …--[p96]-- The condition is cleared in both cases by changing the offending wheel. Wheel wear is now checked every time material is ground on the right work chuck. Wheel wear measurements only use the right probe and reference data. …--[p96]-- A new optional check is made, wheel wear per wafer. This is set with Machine Variables Coarse Max Whl/Wafer (variable 26) and Fine Max Whl/Wafer (variable 36), with the default, 0.0, turning off the check."
+ },
+ {
+  "query_id": "dev_185",
+  "query": "开机后一直报 Rotational Home fault,我们这台机器没装 home index 硬件,是不是哪里设错了?故障怎么清?另外如果以后装了硬件,把变量10设成 0.5 是什么含义?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "晶圆减薄strasbaugh Model 7AF",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "三跳:①无 home index 硬件时,变量10(LT Chuck Home Offset)和变量11(RT Chuck Home Offset)必须设为默认 0.0;未装硬件却设非零值会触发 \"Rotational Home\" Fault(检测不到传感器却请求偏移即报此故障)。②清除:排除问题后执行一次 \"Home All\",且 spin station 必须完成 indexing 和 homing 才能清障(工作卡盘可在断开传感器、变量10/11置0.0后正常工作)。③装硬件后,变量10取 0~1 之间表示左卡盘停在距 home 位置该转角分数处、沿逆时针方向量取,故 0.5 = 停在 home 位置逆时针半圈处。",
+  "success_criteria": "答出变量10/11应设0.0、故障原因、用 Home All 清除且 spin station 需正确 index/home、0.5=逆时针半圈四点;能补充偏置方向为逆时针为加分。",
+  "evidence": "--[p98]-- If the hardware for home indexing is not installed, Machine Variables in LT Chuck Home Offset (variable 10) and RT Chuck Home Offset (variable 11) should be set to 0.0, which is the default value. Setting these variables without the indexing hardware installed will result in a \"Rotational Home\" Fault. …--[p98]-- A \"Rotational Home\" fault can be caused if the sensor is not detected and any offset is requested (indicating that hardware is installed) or if there was a problem positioning the servo to a requested position. Correct the problem and do another \"Home All\" to clear the fault. The spin station must index and home correctly to clear the fault. The work chucks, however can operate without the hardware by disconnecting the sensor and setting the Machine Variables 10 and 11 to 0.0 …--[p61]-- With rotational homing hardware installed a value between 0 and 1 will cause the left chuck to stop at this fraction of a complete revolution away from its home position, measured in the counter-clockwise direction."
+ },
+ {
+  "query_id": "dev_186",
+  "query": "end effector 的 TIR 允许值跟晶圆直径是什么关系？我们要搬 300mm 晶圆，TIR 上限是多少英寸？这个 TIR 又是由什么组成的？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "规则：TIR 上限为每英寸晶圆直径 0.001 英寸（手册示例：8 英寸晶圆 TIR 上限 0.008 英寸）；TIR = dip 与 twist 之和。300mm 晶圆换算：300÷25.4≈11.81 英寸，故 TIR 上限 ≈ 11.81×0.001=0.0118 英寸（约 0.3mm）。",
+  "success_criteria": "答出 0.001\"/英寸规则、TIR=dip+twist，300mm 换算后 TIR≈0.0118\"（接受 0.0118±0.0003\"）。",
+  "evidence": "--[p252]-- The Total Indicator Runout (TIR) ofthe end effector is to be 0.001” maximum for each inch ofwafer diameter. Therefore, for an end effector that is transporting an eight inch diameter wafer, the end effector’s TIR is 0.008” maximum. The end effector’s TIR is the sum of it’s dip and twist."
+ },
+ {
+  "query_id": "dev_187",
+  "query": "我用 RQ ARMS ALL 查到 Miscellaneous arm data 里 total z travel 显示 0.035000，这个数单位是什么？换算成微米后，用 MOVE Z ABS 命令把 Z 走到最大行程该填多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "total z travel 显示值 0.035000 单位是米（手册明确 Dimensions are given in meters）；换算 0.035m×10^6=35000 微米；MOVE Z ABS 的 position value 以 microns（米×10^-6）为单位，故应填 MOVE Z ABS 35000（手册同章示例即用 MOVE Z ABS 35000；25mm 行程机型用 MOVE Z ABS 25000）。",
+  "success_criteria": "答出单位为米、换算 35000 微米、命令写作 MOVE Z ABS 35000。",
+  "evidence": "--[p11]-- MOVE Z ABS [position value], where [position value] is in microns (meters x 10-6). ... The maximum Z travel for the robot will be provided in the miscellaneous arm data in the following example format: “total z travel........0.035000”. Dimensions are given in meters."
+ },
+ {
+  "query_id": "dev_188",
+  "query": "Z 轴 Home 位重新调过之后，上部微开关和硬 stop 的间隙要保证多少？如果量出来不对，该按手册哪个程序去调整？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需分块检索：Z 上部——Z 上微开关与微开关 flag 之间 0.024 英寸（0.6mm），Z 上硬 stop（2 件）与 T1/T2 电机组件顶部之间 0.040 英寸（1.0mm）；Z 下部对应同样数值（下微开关-flag 0.024\"/0.6mm，下硬 stop-电机组件底部 0.040\"/1.0mm）；如不符合，按 Z Hard Stop and Overtravel Limit Switch Adjustment（手册 9-53 页）程序调整。",
+  "success_criteria": "答出 0.024\"(0.6mm) 微开关间隙、0.040\"(1.0mm) 硬 stop 间隙，并给出调整程序名/页码 9-53。",
+  "evidence": "--[p11]-- With the robot in the maximum Z position, use either shims or gap feeler gauges to verify the following dimensions have been maintained: 0.024” (0.6mm) between the Z upper microswitch and the z upper microswitch flag. 0.040” (1.0 mm) between the Z upper hard stops (qty 2) and the top of the robot T1/T2 motor assembly. If these dimensions are not correct, see Z Hard Stop and Overtravel Limit Switch Adjustment on page 9-53. / --[p11]-- 0.024” (0.6mm) between the Z lower microswitch and the z lower microswitch flag. 0.040” (1.0 mm) between the Z lower hard stops (qty 2) and the bottom of the robot T1/T2 motor assembly."
+ },
+ {
+  "query_id": "dev_189",
+  "query": "PowerPak 掉电保护这块：主电源完全掉电时它能撑多久、供多大电流？+24V 主电掉到多少伏它会切入？电池电压低到多少伏机器人会受控停机、给主机发什么信号？电池标称电压和寿命是多少？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需跨块综合：主电源丢失时 PowerPak 最大以 20A 供电 2 秒并启动机器人受控停机，2 秒后切除电池电源；当 +24VDC 主电低于 +22VDC 时 Power Pack 切入（低于 +22VDC 持续 2 秒则断电并置位 AC_FAIL_UPS）；电池电压低于 23.5VDC 时执行受控停机并向主机发 BATT_LO 信号；电池标称 +24V，寿命 2.5 年。",
+  "success_criteria": "答出 20A/2 秒、+22VDC 切入阈值、23.5VDC 低电压阈值、BATT_LO 信号、+24V 标称/2.5 年寿命，至少命中 4 项。",
+  "evidence": "--[p237]-- Upon loss of primary power, the PowerPak will supply a maximum of 20A for 2 seconds and signal the robot to start a controlled shutdown. After two seconds, the PowerPak removes battery power from the robot. / When +24VDC power is less than +22VDC, the Power Pack is switched on. When +24VDC power is less than +22VDC and lasts more that 2 seconds, the Power Pack is switched on and AC\\_FAIL\\_UPS is asserted and at the end of 2 seconds, power is removed from the robot. / --[p238]-- Battery voltage is less than 23.5VDC: controlled shutdown ofthe robot is executed and BATT\\_LO signal is sent to the host. / The battery voltage is +24V nominal. Battery life is 2.5 years."
+ },
+ {
+  "query_id": "dev_190",
+  "query": "Station 2 我想设成槽阀（slot valve）关闭时机械臂不许伸进去，命令行下用什么命令设？真触发的时候机器人会报什么错误码？这个错误码属于哪一类，去手册哪里查完整列表？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳链：先设映射（MAP STN_2_SLOT SBIT_SVLV_SEN …）后执行 STORE STN 2 OPTION SBIT_SVLV_SEN STN_2_SLOT（或 SET STN 2 OPTION SBIT_SVLV_SEN STN_2_SLOT），把映射名 STN_2_SLOT 指派给 Station 2；之后若传感器报告槽阀关闭，机器人将不在 Station 2 伸出并报错误码 710；错误码 710 属于 Interlock Error Codes 中的 I/O Mapping Errors 类，完整列表见 Error Code Reference I/O Mapping Errors（手册 8-185 页）。",
+  "success_criteria": "答出命令 STORE/SET STN 2 OPTION SBIT_SVLV_SEN STN_2_SLOT、错误码 710、类别 I/O Mapping Errors（页 8-185）。",
+  "evidence": "--[p183]-- SET STN 2 OPTION SBIT\\_SVLV\\_SEN STN\\_2\\_SLOT This will assign the created mapped name ofSTN\\_2\\_SLOT to Station 2. Now the robot will not extend at Station 2 if the sensors report that the slot valve is closed and error 710will be reported. See Error Code ReferenceI/O Mapping Errors on page 8-185 for a list of Interlock Error Codes."
+ },
+ {
+  "query_id": "dev_191",
+  "query": "想用超声或紫外来激发水产生 OH 自由基做清洗，哪些条件下能产生、哪些条件下不行？帮我梳理一下书里的结论。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "书里功能水结论：(1) 超声辐照下超纯水中会生成离子种与过氧化氢；(2) 超纯水退气到 10^4 ppb 后再超声辐照观察不到 OH 自由基生成；(3) 氟化氢溶液中超声辐照不产生自由基；(4) 臭氧水溶液中 pH 越低 OH 自由基产生越受促进；(5) 短于 185 nm 的紫外线对激活水非常有效；(6) 254 nm 紫外没有断开水 O-H 键的能量（需借助 TiO2 等光催化剂才能产生 OH 自由基）。",
+  "success_criteria": "至少覆盖：退气至 10^4 ppb 不产生、HF 溶液中超声不产生、&lt;185 nm 有效、254 nm 无效这四条。",
+  "evidence": "--[p23]-- (3) It is found that the generation of OH radical was not observed when the ultra pure water is degassed up to $1 0 ^ { 4 }$ ppb and irradiated by the ultrasonic wave. (4) OH radical generation in the hydrogen peroxide solution irradiated by the ultrasonic increases with increasing in the hydrogen peroxide concentration. (5) The generation of the radical by ultrasonic irradiation is not observed in the hydrogen fluoride solution. (6) OH radical generation is promoted in ozone aqueous solution of the lower value of pH. (8) The wavelength shorter than 185 nm is found to be very effective in order to activate the water by ultraviolet irradiation. (9) ... the ultraviolet of 254 nm did not have the energy of cutting off the combination of hydrogen and oxygen of water."
+ },
+ {
+  "query_id": "dev_192",
+  "query": "HF 里加表面活性剂防粒子沾污，书里测的那几种效果怎么样？要是再把表面活性剂加进 SC-1 里管用吗？疏水面上为什么去除率反而不行？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "(1) 五种受试表面活性剂中有三种无法减少 HF/DIW 浸泡时的粒子沾污，只有最后两浴中的表面活性剂起作用；其中 A4 是最有希望的候选者（其效果随浓度下降而减弱）。(2) 把这些表面活性剂另外加进 SC-1 槽的单独实验表明：对真实粒子去除效率没有正面作用。(3) 对疏水性晶圆，无论粒子是 Si3N4 还是 SiO2，SC-1 中的粒子去除率都下降，zeta 电位不主导 SC-1 的去除机制，原因是缺少合适的 lift-off（剥离）机制；亲水面上两种粒子都能被有效去除。",
+  "success_criteria": "覆盖三点：5 种中 3 种无效/A4 最优、加入 SC-1 无正面效果、疏水面去除率下降且归因于缺少 lift-off 机制。",
+  "evidence": "--[p208]-- Three of the five tested surfactants were incapable of reducing particle contamination during the HF/DIW immersion. However, in the last two baths particle contamination is reduced due to the surfactants. --[p209]-- In this test only surfactant A4 was evaluated since it turned out to be the most promising candidate for contamination prevention. --[p210]-- For the hydrophobic wafers, particle removal efficiency drops regardless of the nature of the particles. In other words, the zeta-potential does not dominate particle removal mechanism in the SC-1. The reason for the low removal efficiency for the hydrophobic wafers is obviously the absence of a proper lift-off mechanism. --[p210]-- These surfactants had no positive effect on the true particle removal efficiency [7]."
+ },
+ {
+  "query_id": "dev_193",
+  "query": "书里说 500:1 的稀 HF 对应总氟浓度约 0.05 M，按那个一阶刻蚀模型算，22°C 下刻掉 1 Å 的 SiO2 大概要多久？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索到 22°C 下模型 R = 96.5×[CF] − 3.42（K=96.5 Å/min，A=3.42 Å/min），且 500:1~50:1 (v/v) 对应约 0.05~0.6 M。取 [CF]=0.05 M：R = 96.5×0.05 − 3.42 = 4.825 − 3.42 = 1.405 Å/min；刻蚀 1 Å 需 t = 1 ÷ 1.405 ≈ 0.71 min ≈ 43 秒。",
+  "success_criteria": "算式为 96.5×0.05−3.42=1.405 Å/min，时间 ≈0.71 min（±5%，约 40~45 秒均可）。",
+  "evidence": "--[p61]-- the etch rate has a linear relationship with the total fluoride concentration in the range from about 0.05 M to about 0.6 M (500:1 to 50:1 v/v). --[p62]-- At $2 2 { } ^ { \\circ } \\mathrm { C } ,$ K=96.5 Å/minute and A= 3.42 Å/minute."
+ },
+ {
+  "query_id": "dev_194",
+  "query": "改型 megasonics 在 1 Å 氧化物损失下做到了 80% 粒子去除而且不伤 60nm 多晶硅栅，那它能直接满足未来 0.5 Å 的要求吗？书里原文怎么说的？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术 VIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "不能直接下结论。检索链：MINIMIZING OXIDE LOSS 篇的引言给出当前 &lt;1 Å、几年内 &lt;0.5 Å 的目标；其结果部分给出改型 megasonics 验证（60nm 宽/220nm 高多晶硅线阵列，1 Å 损失下 80% 去除 90nm 氮化硅粒子、无可见线条损伤）；原文最后明确说\"还需要更多工作（Additional work is required）才能在真实量产集成电路上演示 0.5 Å 氧化物去除下高效、无损伤的粒子去除\"，即 1 Å 条件的结果尚未覆盖 0.5 Å 场景。",
+  "success_criteria": "引用原文\"Additional work is required to demonstrate efficient, non-damaging particle removal on actual production integrated circuits with oxide removal of 0.5Å\"，结论为不能直接满足/尚待验证，而非简单回答能或不能。",
+  "evidence": "--[p132]-- While a traditional megasonics configuration caused significant damage to these lines, a modified megasonics configuration that was able to achieve 80% removal of 90nm silicon nitride particles with a 1Å oxide loss, did not cause any observable polysilicon line damage. Additional work is required to demonstrate efficient, non-damaging particle removal on actual production integrated circuits with oxide removal of 0.5Å."
+ },
+ {
+  "query_id": "dev_195",
+  "query": "下一道工序是回流焊，说明书里 Mx 设备配套的回流焊炉温曲线（各温区设定温度和链速）是怎么给的？",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "mx_series说明书-英文完整版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及回流焊炉温曲线或任何温区温度/链速设定；书中仅在 SMEMA 连接部分提到 Mx 系列通过 SMEMA 协议与后段设备（如点胶机、印刷机、回流焊炉、测试机）联机传送板，回流焊工艺参数不在本说明书范围内，应向回流焊设备厂商或相应工艺文件获取，不应编造温度数值。",
+  "success_criteria": "明确说明书中未涉及炉温曲线/温区温度/链速（拒答不编造），并能指出 reflow oven 仅作为 SMEMA 后段连接设备被提及；若给出任何编造温度判不合格。",
+  "evidence": "--[p52]-- Mx-Series SMD placement system is connected to the post-process equipment (e.g. dispenser, screen printer, reflow oven, tester). In these cases, the SMEMA protocol is used for l/O interface to transfer boards",
+  "replaced_from_pool": "P42-25"
+ },
+ {
+  "query_id": "dev_196",
+  "query": "我拿一片聚焦透镜处理准直高斯光束，心里没底：聚焦后束腰落在哪、有多大？光路上探测器前开多大孔径才不会把功率削掉？还有瑞利范围（Rayleigh range）是怎么定义的？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三处综合：1) 准直高斯束（2·zR&gt;&gt;f）经薄透镜后，新束腰位于透镜焦点处，其大小=焦距f与原发散角的乘积（束腰=f×θ）；2) 孔径：以半径1.5×W的圆对辐照度积分可得99%的总功率，故孔径半径取1.5倍光束半径即可保留99%功率；3) 瑞利范围 zR = πW0²/λ，定义为从束腰到光束半径增大√2倍处的距离（也是辐照度降至束腰峰值一半处），两倍瑞利范围称为共焦参数（焦深）。",
+  "success_criteria": "三个要点齐全：束腰在焦点且=f×原发散角、孔径半径1.5×W保99%功率、zR=πW0²/λ（半径增大√2倍）。",
+  "evidence": "--[p82]-- When a collimated beam ... encounters a lens, the resulting beam waist is simply the product of the focal length and original divergence ... with the waist positioned at the focal point of the lens. --[p80]-- integrating the irradiance within a circle of radius 1.5×W results in 99% of the total power. --[p81]-- zR is known as the Rayleigh range and represents the distance from the waist where the radius increases by a factor of √2 ... zR = πW0²/λ --[p81]-- Twice the Rayleigh range is called the confocal parameter (or depth-of-focus)"
+ },
+ {
+  "query_id": "dev_197",
+  "query": "车间那台 4 类激光器要做安全规程评审。为什么激光对眼睛的危害最突出？MPE 是什么、怎么规定的？工程控制、程序控制和个人防护装备各要落实哪些？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节综合：1) 眼睛最易受辐射伤害，因为眼晶状体能把准直激光聚焦到视网膜上极小光斑，产生远高于瞳孔处的强度，眼损伤后果也更严重（如部分失明）且可在更低功率下发生；4类激光连漫反射光都可能伤眼，辐射还可能引起火灾或爆炸。2) MPE（最大允许曝光量）按给定强度下的允许曝光时间制表，取决于激光波长、功率、光束尺寸、重复频率及人眼自身的光谱透射。3) 控制措施分三类：工程控制（防护外壳、光束衰减器/快门、钥匙开关、光束封闭、受控光路、光闸、联锁、警告灯等）、程序控制（激光安全员、标准操作规程、访客限制、培训、维护手册、警告标识等）、PPE（护目镜/激光防护眼镜最重要，其衰减系数须保证不超过MPE）。",
+  "success_criteria": "答出晶状体聚焦致视网膜高强度、MPE按允许曝光时间制表、三类控制措施各举至少两例且指出护目镜是最重要的PPE。",
+  "evidence": "--[p44]-- Eye injuries generally have more dire consequences, e.g., partial loss of vision, and can occur at lower laser powers. These low thresholds exist because the lens of the eye can focus collimated laser light to a tiny spot on the retina --[p44]-- maximum permissible exposure (MPE) limits are tabulated in terms of the allowable exposure time for a given intensity --[p44 [表]]-- Table 4. Control measures for Class 3b and Class 4 lasers [43]. Engineering Procedural Personal ProtectiveControls Controls Equipment ... Protective housing and service panel | Laser safety officer | Eyewear --[p45]-- protective eyewear or laser safety glasses or goggles are the most important type of PPE --[p45]-- Laser goggles should have the appropriate attenuation factor, e.g., transmission reduction, to ensure that the MPE is never exceeded"
+ },
+ {
+  "query_id": "dev_198",
+  "query": "一片刻线密度 600 grooves/mm 的光栅，500 nm 的光垂直入射（α=0°），取一级衍射（m=1），衍射角是多少度？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索得光栅方程 mλ = dG(sinα + sinβm)，各角自光栅法线量起。dG = 1/600 mm ≈ 1.667 µm；m=1、α=0° 时 sinβ = λ/dG = 500 nm / 1667 nm = 0.3，故 β = arcsin(0.3) ≈ 17.5°（约17.46°）。",
+  "success_criteria": "写出光栅方程mλ=dG(sinα+sinβm)，算得β≈17.5°（±0.5°）。",
+  "evidence": "--[p97]-- mλ = dG(sinα + sinβm). (15) --[p97]-- Light of wavelength λ is incident at an angle α and diffracted by the grating (with a groove spacing dG) along a set of angles βm. These angles are measured from the grating normal ... In Equation (15), m is the order of diffraction, which is an integer."
+ },
+ {
+  "query_id": "dev_199",
+  "query": "EUV 光刻里，光源发出的 13.5 nm 光穿过 ASML 的 50 nm 厚 pellicle 膜层后，又要经过 11 次镜面反射才到硅片。假设每面反射镜都做到上限反射率，最终到达硅片的能量还剩百分之几？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索两个参数：50 nm 厚 pellicle 膜可透射85%的EUV光；EUV系统反射镜为Bragg反射镜，上限反射70%入射光，且由于反射不到100%，光源与硅片之间反射镜数量对到达硅片的束流能量影响显著。计算：0.85 × 0.70^11 = 0.85 × 0.01977 ≈ 0.0168，即约1.7%（若不计pellicle，仅11次反射约为0.70^11≈2.0%）。",
+  "success_criteria": "算式0.85×0.70^11，结果约1.7%（±0.2%），并说明反射镜上限反射率70%、pellicle透射85%的出处。",
+  "evidence": "--[p179]-- 50 nm thick pellicle membranes supplied by ASML can transmit 85% of the EUV light (useful for lower power EUV) [269]. --[p178]-- The mirrors are also Bragg reflectors and can reflect up to 70% of the incident light. --[p178]-- Since reflection is not 100%, the number of reflectors between the source and the substrate has a significant impact on the energy of the EUV beam at the substrate surface."
+ },
+ {
+  "query_id": "dev_200",
+  "query": "我在评估机载 LiDAR 方案，要求垂直（距离）分辨率优于 50 cm。请先查一下手册里距离分辨率跟激光脉宽是什么关系、现役传感器脉宽什么水平，再查 VGEN-SP-NL 的脉宽指标，算出它对应的分辨率，看能不能达标。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "三跳链式：1) 检索得距离分辨率公式 δR = cτ/2（c为真空光速，τ为脉宽），现役LiDAR传感器脉宽2-5 ns（主要受接收机带宽限制），对应δR=30-75 cm；2) 再检索Table 15：VGEN-SP-NL脉宽&lt;3 ns；3) 计算δR = 3×10^8 m/s × 3×10^-9 s / 2 = 0.45 m = 45 cm &lt; 50 cm，结论：按上限3 ns算仍满足优于50 cm的要求（脉宽越短分辨率越好）。",
+  "success_criteria": "给出δR=cτ/2公式、引用现役2-5 ns与VGEN&lt;3 ns两处规格、算得45 cm并判定满足&lt;50 cm。",
+  "evidence": "--[p224]-- The laser pulse width ... determines the range or vertical target resolution. This resolution (δR) can be determined by δR = cτ/2, where c is the speed of light in vacuum and τ is the pulse width (duration). --[p224]-- For example, when τ = 2 ns, δR = 30 cm ... Current LiDAR sensors use laser pulse widths in the 2-5 ns range, mainly limited by the bandwidth of the receiver. --[p226]-- Pulse Width | &lt; 3 ns | High resolution"
+ }
+]

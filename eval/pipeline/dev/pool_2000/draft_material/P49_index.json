@@ -1,0 +1,326 @@
+{
+ "doc": "精密运动控制设计与实现",
+ "chunks": 1100,
+ "headings": [
+  [
+   "Precision Tracking Motion Control > Proof.",
+   50
+  ],
+  [
+   "Precision Tracking Motion Control > Preliminaries and Problem Formulation",
+   32
+  ],
+  [
+   "Preface",
+   23
+  ],
+  [
+   "Precision Tracking Motion Control > Acceleration Sensor",
+   20
+  ],
+  [
+   "Precision Tracking Motion Control > Partially-Rotating PA System",
+   18
+  ],
+  [
+   "Electronic Interpolation Errors > 6.1 Heydemann Interpolation Method",
+   16
+  ],
+  [
+   "Vibration Monitoring and Control > 7.3.2 Monitoring Mode",
+   16
+  ],
+  [
+   "Precision Tracking Motion Control > Overall System Model (PWM+PMLM)",
+   16
+  ],
+  [
+   "Precision Tracking Motion Control > Control Design",
+   16
+  ],
+  [
+   "Vibration Monitoring and Control > 7.1.2 Two-dimensional Structures",
+   15
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems > 4.4.1 Dynamic Modelling of Gantry Stage",
+   15
+  ],
+  [
+   "Vibration Monitoring and Control > 7.2 Adaptive Notch Filter",
+   15
+  ],
+  [
+   "Geometrical Error Compensation > 5.9.4 Error Modelling with Multi-layer Neural Networks",
+   14
+  ],
+  [
+   "Precision Tracking Motion Control > 2.1.3 Adaptive Control",
+   13
+  ],
+  [
+   "Electronic Interpolation Errors > 6.3.2 Precompensation Stage",
+   13
+  ],
+  [
+   "Series Editors’ Foreword",
+   13
+  ],
+  [
+   "Precision Tracking Motion Control > Experiments",
+   12
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems",
+   11
+  ],
+  [
+   "Automatic Tuning of Control Parameters > 3.2.1 Friction Identification Method",
+   11
+  ],
+  [
+   "Preface > Contents",
+   11
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems > 4.4.2 Model-based Adaptive Control Design",
+   11
+  ],
+  [
+   "Electronic Interpolation Errors > Look-up Table Based on Both $\\tilde { u } _ { 1 }$ and $\\tilde { \\mathbf { u } } _ { 2 }$",
+   10
+  ],
+  [
+   "Geometrical Error Compensation > 5.10.1 Probabilistic Methodology",
+   10
+  ],
+  [
+   "Electronic Interpolation Errors > 6.3.3 Interpolation Stage",
+   10
+  ],
+  [
+   "Other Engineering Aspects > Ethernet",
+   10
+  ],
+  [
+   "Other Engineering Aspects > Assumption 8.2.",
+   10
+  ],
+  [
+   "Geometrical Error Compensation > 5.8 Look-up Table for Geometrical Errors",
+   10
+  ],
+  [
+   "Precision Tracking Motion Control > Design of the Disturbance Observer",
+   10
+  ],
+  [
+   "Vibration Monitoring and Control > 7.3 Real-time Vibration Analyser",
+   9
+  ],
+  [
+   "Vibration Monitoring and Control > 7.1.3 Three-dimensional Structures",
+   9
+  ],
+  [
+   "Other Engineering Aspects > 8.4.1 Hardware Architecture",
+   9
+  ],
+  [
+   "Geometrical Error Compensation > 5.7 Overall Error Model",
+   9
+  ],
+  [
+   "Geometrical Error Compensation > 5.10 Compensation of Machines with Random Errors",
+   9
+  ],
+  [
+   "Preface > 1.1.4 Nanotechnology",
+   9
+  ],
+  [
+   "Precision Tracking Motion Control > Tubular Linear Motors",
+   9
+  ],
+  [
+   "Geometrical Error Compensation",
+   9
+  ],
+  [
+   "Automatic Tuning of Control Parameters > 3.1 Relay Auto-tuning",
+   9
+  ],
+  [
+   "Electronic Interpolation Errors > Look-up Table Based on $\\tilde { \\mathbf { u } } _ { 1 }$ Only",
+   8
+  ],
+  [
+   "Precision Tracking Motion Control > Experimental Results",
+   8
+  ],
+  [
+   "Precision Tracking Motion Control > Uniform Modeling of the Piezoelectric Actuator",
+   8
+  ],
+  [
+   "Electronic Interpolation Errors > 6.3.1 Principles of Interpolation Approach",
+   8
+  ],
+  [
+   "Precision Tracking Motion Control > PID Feedback Control",
+   7
+  ],
+  [
+   "Other Engineering Aspects > CANopen",
+   7
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.6 Control Enhancement with Accelerometers",
+   7
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.7 Ripple Compensation",
+   7
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.3 Force Ripples",
+   7
+  ],
+  [
+   "Geometrical Error Compensation > 5.1 Overview of the Laser Measurement System",
+   7
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems > 4.4.4 Software Simulation",
+   7
+  ],
+  [
+   "Geometrical Error Compensation > 5.10.2 Experiments",
+   7
+  ],
+  [
+   "Vibration Monitoring and Control > 7.1.1 Stability and Static Determinacy of Machine Structures",
+   6
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.10 Iterative Learning Control",
+   6
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.5 Composite Control",
+   6
+  ],
+  [
+   "Geometrical Error Compensation > Linear Errors",
+   6
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2 Permanent Magnet Linear Motors (PMLM)",
+   6
+  ],
+  [
+   "Preface > Precision Metrology and Test",
+   6
+  ],
+  [
+   "Vibration Monitoring and Control > Operating Principles",
+   6
+  ],
+  [
+   "Precision Tracking Motion Control > Parameter Estimation of Nominal System",
+   6
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems > 4.1.3 Fully Co-ordinated Control",
+   6
+  ],
+  [
+   "Preface > Lithography",
+   6
+  ],
+  [
+   "Other Engineering Aspects > 8.4.2 Software Development Platform",
+   6
+  ],
+  [
+   "Geometrical Error Compensation > 5.9.1 Error Modelling with Radial Basis Functions",
+   6
+  ],
+  [
+   "Precision Tracking Motion Control > Adaptive Feedforward Component",
+   6
+  ],
+  [
+   "Vibration Monitoring and Control",
+   6
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems > 4.4.3 Stability Analysis",
+   5
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.8 Disturbance Observation and Cancellation",
+   5
+  ],
+  [
+   "Geometrical Error Compensation > Assessment of Error Compensation",
+   5
+  ],
+  [
+   "Other Engineering Aspects > Profibus",
+   5
+  ],
+  [
+   "Other Engineering Aspects > A",
+   5
+  ],
+  [
+   "Co-ordinated Motion Control of Gantry Systems > 4.4.5 Implementation Results",
+   5
+  ],
+  [
+   "Other Engineering Aspects > 8.4.3 User Interface",
+   5
+  ],
+  [
+   "Vibration Monitoring and Control > 7.1 Mechanical Design to Minimise Vibration",
+   5
+  ],
+  [
+   "Precision Motion Control Design and Implementation",
+   5
+  ],
+  [
+   "Vibration Monitoring and Control > Input Variables - The Evaluation Criteria",
+   5
+  ],
+  [
+   "Electronic Interpolation Errors",
+   5
+  ],
+  [
+   "Electronic Interpolation Errors > 6.2.1 Principle of Enhanced Interpolation Method",
+   5
+  ],
+  [
+   "Precision Tracking Motion Control > 2.2.4 Friction",
+   5
+  ],
+  [
+   "Geometrical Error Compensation > 5.6.4 Environmental Conditions",
+   5
+  ],
+  [
+   "Precision Tracking Motion Control > Forcer-platen Linear Motors",
+   5
+  ],
+  [
+   "Electronic Interpolation Errors > 6.2 Enhanced Interpolation Method",
+   5
+  ],
+  [
+   "Precision Tracking Motion Control > Theorem 2.4.",
+   5
+  ]
+ ]
+}

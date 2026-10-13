@@ -6,32 +6,32 @@ from fastapi import HTTPException
 class TestPerUserLimit:
     def test_acquire_and_release(self, isolated_ratelimit):
         rl = isolated_ratelimit
-        rl.acquire_user_slot("u1")
-        rl.release_user_slot("u1")
-        rl.acquire_user_slot("u1")
-        rl.release_user_slot("u1")
+        rl.acquire_session_slot("u1")
+        rl.release_session_slot("u1")
+        rl.acquire_session_slot("u1")
+        rl.release_session_slot("u1")
 
     def test_concurrent_same_user_blocked(self, isolated_ratelimit):
         rl = isolated_ratelimit
-        rl.acquire_user_slot("u1")
+        rl.acquire_session_slot("u1")
         with pytest.raises(HTTPException) as exc:
-            rl.acquire_user_slot("u1")
+            rl.acquire_session_slot("u1")
         assert exc.value.status_code == 429
-        rl.release_user_slot("u1")
+        rl.release_session_slot("u1")
 
     def test_different_users_independent(self, isolated_ratelimit):
         rl = isolated_ratelimit
-        rl.acquire_user_slot("u1")
-        rl.acquire_user_slot("u2")
-        rl.release_user_slot("u1")
-        rl.release_user_slot("u2")
+        rl.acquire_session_slot("u1")
+        rl.acquire_session_slot("u2")
+        rl.release_session_slot("u1")
+        rl.release_session_slot("u2")
 
     def test_release_then_reacquire(self, isolated_ratelimit):
         rl = isolated_ratelimit
-        rl.acquire_user_slot("u1")
-        rl.release_user_slot("u1")
-        rl.acquire_user_slot("u1")
-        rl.release_user_slot("u1")
+        rl.acquire_session_slot("u1")
+        rl.release_session_slot("u1")
+        rl.acquire_session_slot("u1")
+        rl.release_session_slot("u1")
 
 class TestGlobalLimit:
     def test_within_limit(self, isolated_ratelimit):
@@ -65,10 +65,10 @@ class TestGlobalLimit:
 
     def test_release_all(self, isolated_ratelimit):
         rl = isolated_ratelimit
-        rl.acquire_user_slot("u1")
+        rl.acquire_session_slot("u1")
         rl.acquire_global_slot("u1")
         rl.release_all("u1")
-        rl.acquire_user_slot("u1")
+        rl.acquire_session_slot("u1")
         rl.acquire_global_slot("u1")
         rl.release_all("u1")
 
@@ -94,7 +94,7 @@ class TestConcurrencySimulation:
         results = []
         def worker(name):
             try:
-                rl.acquire_user_slot(name)
+                rl.acquire_session_slot(name)
                 rl.acquire_global_slot(name)
                 results.append("ok")
                 time.sleep(0.05)

@@ -1,0 +1,326 @@
+{
+ "doc": "软件手册KIGEM-901-01B_Sep_2019",
+ "chunks": 989,
+ "headings": [
+  [
+   "Reference Manual > The following variables are used for Carrier Management.",
+   33
+  ],
+  [
+   "Reference Manual > Process Variables",
+   30
+  ],
+  [
+   "Reference Manual > E39 Global Object",
+   28
+  ],
+  [
+   "Reference Manual > Carrier State Transition Events",
+   25
+  ],
+  [
+   "Reference Manual > E30 GEM Variables",
+   24
+  ],
+  [
+   "Reference Manual > Error codes",
+   22
+  ],
+  [
+   "Reference Manual > Keithley Process Events",
+   19
+  ],
+  [
+   "Reference Manual > KEITHLEY",
+   18
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Description:",
+   14
+  ],
+  [
+   "Reference Manual > ATTRRELN values",
+   14
+  ],
+  [
+   "Reference Manual > Control Job State Transition Events",
+   14
+  ],
+  [
+   "Reference Manual > Process Job State Transition Events",
+   14
+  ],
+  [
+   "Reference Manual > Current Substrate Data Variables",
+   14
+  ],
+  [
+   "Reference Manual > NOTE",
+   13
+  ],
+  [
+   "Reference Manual > Global GEM variables",
+   11
+  ],
+  [
+   "Reference Manual > In this section:",
+   11
+  ],
+  [
+   "Reference Manual > Current Carrier Data Variables",
+   11
+  ],
+  [
+   "Reference Manual > Current Control Job Data Variables",
+   11
+  ],
+  [
+   "Reference Manual > Control State Transitions",
+   10
+  ],
+  [
+   "Reference Manual > E39 Carrier Object",
+   10
+  ],
+  [
+   "Reference Manual > E39 Control Job Object",
+   10
+  ],
+  [
+   "Reference Manual > Substrate Transfer State Model Transition Events",
+   10
+  ],
+  [
+   "Reference Manual > Current Process Job Data Variables",
+   9
+  ],
+  [
+   "Reference Manual > The following table shows the attributes and descriptions for the E39 Equipment Performance Tracking (EPT) Object.",
+   9
+  ],
+  [
+   "Reference Manual > The following variables are used for Process Job Management.",
+   9
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > No Material",
+   9
+  ],
+  [
+   "Reference Manual > Introduction",
+   8
+  ],
+  [
+   "Reference Manual > Current EPT object definition",
+   8
+  ],
+  [
+   "Reference Manual > EPT Object (0, 1, 2, ...) variables",
+   8
+  ],
+  [
+   "Reference Manual > E39 Substrate Object",
+   8
+  ],
+  [
+   "Reference Manual > Spooling State Transitions",
+   7
+  ],
+  [
+   "Reference Manual > E39 Process Job Object",
+   7
+  ],
+  [
+   "Reference Manual > Load Port Transfer State Model Transition Events",
+   7
+  ],
+  [
+   "Reference Manual > The following variables are used for Control Job Management.",
+   6
+  ],
+  [
+   "Reference Manual > S14F1 Get Attribute Request",
+   6
+  ],
+  [
+   "Reference Manual > Load Port 1",
+   5
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > NOTE",
+   5
+  ],
+  [
+   "Reference Manual > Carrier Management Alarms",
+   5
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Structure:",
+   5
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S14F19 Generic Service Request (UpdateSubstrateObject)",
+   5
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Spooling",
+   5
+  ],
+  [
+   "Reference Manual > Host to Equipment Transactions",
+   5
+  ],
+  [
+   "Reference Manual > Substrate Tracking Variables",
+   5
+  ],
+  [
+   "Reference Manual > S3F17 CarrierReCreate",
+   4
+  ],
+  [
+   "Reference Manual > S14F9 Create Object Request (Create Control Job)",
+   4
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S16F23 Process Job Set Recipe Variables Request",
+   4
+  ],
+  [
+   "Reference Manual > Note about source materials and other reference documents",
+   4
+  ],
+  [
+   "Reference Manual > ON-LINE substates",
+   4
+  ],
+  [
+   "Reference Manual > E30-style Process Job Collection Events",
+   4
+  ],
+  [
+   "Reference Manual > S14F9 Create Object Request (Create Substrate)",
+   4
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S16F27 Control Job Command Request",
+   4
+  ],
+  [
+   "Reference Manual > OFF-LINE substates",
+   4
+  ],
+  [
+   "Reference Manual > The following Status Variables are used with their Substrate Location.",
+   4
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S16F25 Process Job Set Start Method Request",
+   4
+  ],
+  [
+   "Reference Manual > • OR substates",
+   4
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Host to Equipment messages",
+   3
+  ],
+  [
+   "Reference Manual > S3F17 CancelCarrier",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S16F11 Enhanced Process Job Create",
+   3
+  ],
+  [
+   "Reference Manual > S3F17 Bind",
+   3
+  ],
+  [
+   "Reference Manual > Communications State Transition Events",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Trace data collection",
+   3
+  ],
+  [
+   "Reference Manual > Spool load",
+   3
+  ],
+  [
+   "Reference Manual > The following table shows SEMI E40 Process Management Compliance.",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S16F15 Multiple Process Job Create",
+   3
+  ],
+  [
+   "Reference Manual > SEMI E30 GEM Compliance",
+   3
+  ],
+  [
+   "Reference Manual > Processing State definitions",
+   3
+  ],
+  [
+   "Reference Manual > Communications State definitions",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Material in Carriers and Slots",
+   3
+  ],
+  [
+   "Reference Manual > S14F3 Set Attribute Request",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Dynamic event configuration",
+   3
+  ],
+  [
+   "Reference Manual > Alarm State Transition Events",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Event data collection",
+   3
+  ],
+  [
+   "Reference Manual > S3F17 Carrier Action Request",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Material in Substrates",
+   3
+  ],
+  [
+   "Reference Manual > Current Load Port Variables",
+   3
+  ],
+  [
+   "Reference Manual > E39 Port Object",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > S16F13 Duplicate Process Job Create",
+   3
+  ],
+  [
+   "S14F12 Delete Object Acknowledge (partial implementation) > Process program directory request",
+   3
+  ],
+  [
+   "Reference Manual > SEMI E90 Substrate Tracking Standard Compliance",
+   3
+  ],
+  [
+   "Reference Manual > Current Substrate Location Data Variables",
+   3
+  ]
+ ]
+}

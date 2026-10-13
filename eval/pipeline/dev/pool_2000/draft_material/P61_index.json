@@ -1,0 +1,326 @@
+{
+ "doc": "I12-RF-CMDMCS-241-E1",
+ "chunks": 942,
+ "headings": [
+  [
+   "NOTE",
+   133
+  ],
+  [
+   "ATTENTION : IMPORTANT NOTICE",
+   40
+  ],
+  [
+   "(1) Basic Condition Parameters",
+   18
+  ],
+  [
+   "[15] Assist Protection",
+   14
+  ],
+  [
+   "CAUTION",
+   13
+  ],
+  [
+   "A.2.6 Basic Operation Summary",
+   12
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > NOTE",
+   9
+  ],
+  [
+   "I12-RF-CMDMCS-241-E1",
+   9
+  ],
+  [
+   "(2) Alignment Correction Parameters",
+   9
+  ],
+  [
+   "1. Specify the parameters as needed.",
+   9
+  ],
+  [
+   "CONTENTS",
+   9
+  ],
+  [
+   "(4) Extended Exposure Data",
+   7
+  ],
+  [
+   "3. Click .",
+   7
+  ],
+  [
+   "1. Click in the process program selection window.",
+   7
+  ],
+  [
+   "[13] Function Protection",
+   7
+  ],
+  [
+   "1. Click in the unload designation window.",
+   6
+  ],
+  [
+   "Chapter 2 CONTINUE COMMAND \\~ Continues Exposure \\~",
+   6
+  ],
+  [
+   "2. Specify the parameters as needed.",
+   6
+  ],
+  [
+   "1. Click .",
+   6
+  ],
+  [
+   "[12] Command Protection",
+   5
+  ],
+  [
+   "NSR/MCSV",
+   5
+  ],
+  [
+   "b. Selecting the Name from a List",
+   5
+  ],
+  [
+   "a. Directly Entering the Name",
+   5
+  ],
+  [
+   "(2) Sequence Switches",
+   4
+  ],
+  [
+   "(c) 2 Reticle Slot",
+   4
+  ],
+  [
+   "(c) 25 /(s) Search Alignment Switch",
+   4
+  ],
+  [
+   "Using the Mouse",
+   4
+  ],
+  [
+   "b. Using Keys",
+   4
+  ],
+  [
+   "B. Process Program Lift-up",
+   4
+  ],
+  [
+   "(c) 32 (s) Shift Focusing Switch",
+   4
+  ],
+  [
+   "1. Click in the basic condition parameter specification window.",
+   3
+  ],
+  [
+   "1.4.1.2 Values Used in Extended Exposure",
+   3
+  ],
+  [
+   "RESERVE reticle",
+   3
+  ],
+  [
+   "Using the Keys",
+   3
+  ],
+  [
+   "◆ 1 to 30, T1 to T9",
+   3
+  ],
+  [
+   "1.4.2.2 Values Used in Alignment",
+   3
+  ],
+  [
+   "a. Using the Mouse",
+   3
+  ],
+  [
+   "3. Click in the process program selection window.",
+   3
+  ],
+  [
+   "(2) Specify the Command Parameters",
+   3
+  ],
+  [
+   "(1) Select the Copy Function",
+   3
+  ],
+  [
+   "b. Selecting the Process Program from a List",
+   3
+  ],
+  [
+   "The terms listed in the following table are used to describe basic MCSV operation.",
+   3
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > (c) 3 /(s) With Pellicle Switch",
+   3
+  ],
+  [
+   "(3) Combination",
+   3
+  ],
+  [
+   "A. Specifying the Currently-selected Process Program",
+   3
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > 8.3.1 Parameters for Each Reticle",
+   3
+  ],
+  [
+   "(3) Change the Reticle Name",
+   3
+  ],
+  [
+   "CONVENTIONS USED IN THIS MANUAL",
+   3
+  ],
+  [
+   "C. Specifying a New Process Program",
+   3
+  ],
+  [
+   "Part I PROCESS Group",
+   3
+  ],
+  [
+   "b. RLAT Reference Method",
+   2
+  ],
+  [
+   "2. Click .",
+   2
+  ],
+  [
+   "1. Click in the wafer designation window.",
+   2
+  ],
+  [
+   "3. After specifying the parameter, click .",
+   2
+  ],
+  [
+   "2. Specify Reticle Name (c)/(p).",
+   2
+  ],
+  [
+   "Using the Keys (Method 1)",
+   2
+  ],
+  [
+   "(6) Register the PP Entry Name",
+   2
+  ],
+  [
+   "(2) Select the Load Function",
+   2
+  ],
+  [
+   "1. Click in the reticle designation window.",
+   2
+  ],
+  [
+   "a. Direct Specification Method",
+   2
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > 1. Click in the reticle name list window.",
+   2
+  ],
+  [
+   "A.2.3 Specifying Data",
+   2
+  ],
+  [
+   "1. Click from the reticle specification method selection buttons.",
+   2
+  ],
+  [
+   "(2) Specify the Entry Name of the PP Entry to Be Edited",
+   2
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > 9.1 RLAT",
+   2
+  ],
+  [
+   "(3) Instruct the System to Start the Processing",
+   2
+  ],
+  [
+   "(3) Sequence Switches",
+   2
+  ],
+  [
+   "22.1.3 Setting Entry Restrictions for Each Operator",
+   2
+  ],
+  [
+   "● Initialization of controllers",
+   2
+  ],
+  [
+   "(5) Specify the Sequence Switches",
+   2
+  ],
+  [
+   "8.1.1 Reticle Particle Check",
+   2
+  ],
+  [
+   "1.1 THE ROLE OF THE EXECUTE COMMAND IN EXPOSURE PRO-CESSING",
+   2
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > (1) Rough Map Window",
+   2
+  ],
+  [
+   "Window Menu Operation",
+   2
+  ],
+  [
+   "b. Combination",
+   2
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PROCESSING > CAUTION",
+   2
+  ],
+  [
+   "8.1 THE ROLE OF THE EXAMINE COMMAND IN EXPOSURE PRO-CESSING",
+   2
+  ],
+  [
+   "(5) Copy the PP Entry",
+   2
+  ],
+  [
+   "• Permanent registration",
+   2
+  ],
+  [
+   "1. Click in the PP entry specification window.",
+   2
+  ]
+ ]
+}

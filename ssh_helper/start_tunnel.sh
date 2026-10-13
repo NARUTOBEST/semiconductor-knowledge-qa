@@ -1,0 +1,35 @@
+#!/bin/bash
+# VM -> GPU 隧道(LLM 已走火山接入点,不再转发 4000)
+# -L 0.0.0.0:8002+i -> GPU 检索服务(backend 容器经 host.docker.internal 访问)
+# 纯正向单向(2026-10-10 定稿):qdrant 副本常驻 GPU 本机,检索不跨隧道查库;
+# VM 上 qdrant 仅作写入主库与 judge 读源,不需要任何 -R 反向通道。
+# 连接参数从同目录 tunnel_target.env 读取(HOST/PORT;由 deploy_gpu.sh 依 gpu_ssh.env
+# 自动生成并同步到 VM,换 GPU 实例后重跑 deploy_gpu.sh 即可,无需手改本文件)。
+# 先读 $HOME 副本(deploy_vm.sh 推送目标),再读脚本同目录副本覆盖之——
+# 两处并存时同目录优先,避免旧 HOME 值悄悄生效(踩坑实录)
+[ -f "$HOME/tunnel_target.env" ] && . "$HOME/tunnel_target.env"
+_dir="$(cd "$(dirname "$0")" && pwd)"
+[ -f "$_dir/tunnel_target.env" ] && . "$_dir/tunnel_target.env"
+: "${GPU_SSH_HOST:=connect.westd.seetacloud.com}"
+: "${GPU_SSH_PORT:=22}"
+# 多隧道(2026-10-09):GPU 侧只有 8002 一个服务,VM 侧开 K 个本地端口各自转发
+# 到它——backend 的 MCP 连接池按 RETRIEVAL_SERVICE_URLS 一一绑定,分摊 SSH
+# transport 流控窗口,治单隧道的队头阻塞(20 并发队尾超时单点)。
+# 回退单隧道:GPU_TUNNEL_PORTS 只留 8002 即可。
+: "${GPU_TUNNEL_PORTS:=8002 8003 8004 8005 8006 8007 8008 8009 8010 8011}"
+_ssh_opts=(-N -o ServerAliveInterval=30 -o ExitOnForwardFailure=yes
+           -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null)
+_watch() {  # 单端口 watchdog 子 shell:该隧道挂了只重建自己,不拖累其他端口
+  local port="$1"
+  while true; do
+    ssh "${_ssh_opts[@]}" -p "$GPU_SSH_PORT" "root@$GPU_SSH_HOST" \
+        -L "0.0.0.0:${port}:127.0.0.1:8002"
+    sleep 5
+  done
+}
+_i=0
+for _p in $GPU_TUNNEL_PORTS; do
+  _watch "$_p" "$_i" &
+  _i=$((_i + 1))
+done
+wait

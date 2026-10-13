@@ -27,26 +27,60 @@ _LOGIN_WINDOW_SECONDS = 60
 
 
 def _check_login_rate_limit(request: Request):
-    """同一 IP 1 分钟内最多 5 次登录/注册尝试,超出返回 429。
+    """同一 IP 1 分钟内 >= 5 次认证**失败**则 429;成功登录不计数。
 
+    只计失败(_record_login_failure 在登录 401 时调用),正常多用户并发登录
+    不受限——2026-10-10 实测:20 个评测账号同 IP 顺序登录,旧的"所有尝试
+    都计数"口径被 5 次/分阈值卡住,auth 阶段空烧 15 分钟。防爆破强度不变:
+    字典爆破必然产生连续失败,5 次错密/分即触发。
     主路径走 Redis ZSET 滑动窗口(键 rl:login:{ip},多 worker 部署下全局
-    一致,防爆破强度不因多进程打折);Redis 不可用回退进程内存(=单 worker
-    时代行为,多 worker 下各算各的——降级可用但不精确,见 state_store)。
+    一致);Redis 不可用回退进程内存(=单 worker 时代行为,多 worker 下各算
+    各的——降级可用但不精确,见 state_store)。
     """
     ip = request.client.host if request.client else "unknown"
-    if _redis_record_attempt(ip):
-        return
     now = time.time()
-    # 清理过期记录
+    redis_count = _redis_failure_count(ip, now)
+    if redis_count is not None and redis_count >= _LOGIN_MAX_ATTEMPTS:
+        raise HTTPException(status_code=429, detail="尝试过于频繁,请 1 分钟后再试")
+    if redis_count is not None:
+        return
+    # Redis 不可用,内存回退
     recent = [t for t in _login_attempts[ip] if now - t < _LOGIN_WINDOW_SECONDS]
+    _login_attempts[ip] = recent
     if len(recent) >= _LOGIN_MAX_ATTEMPTS:
         raise HTTPException(status_code=429, detail="尝试过于频繁,请 1 分钟后再试")
+
+
+def _record_login_failure(request: Request):
+    """登录失败(401)记账:内存或 Redis ZSET 各记一条,供 _check_login_rate_limit 判定。"""
+    ip = request.client.host if request.client else "unknown"
+    now = time.time()
+    if _redis_record_failure(ip, now):
+        return
+    recent = [t for t in _login_attempts[ip] if now - t < _LOGIN_WINDOW_SECONDS]
     recent.append(now)
     _login_attempts[ip] = recent
 
 
-def _redis_record_attempt(ip: str) -> bool:
-    """Redis 侧记账。True=已记账(或已 429);False=Redis 不可用,走内存回退。"""
+def _redis_failure_count(ip: str, now: float) -> int | None:
+    """Redis 侧读取失败计数;Redis 不可用返回 None(调用方走内存回退)。"""
+    try:
+        from support import state_store
+    except ImportError:
+        return None
+    r = state_store.get_state_redis()
+    if r is None:
+        return None
+    key = f"rl:login:{ip}"
+    try:
+        r.zremrangebyscore(key, "-inf", now - _LOGIN_WINDOW_SECONDS)
+        return int(r.zcard(key))
+    except Exception:
+        return None
+
+
+def _redis_record_failure(ip: str, now: float) -> bool:
+    """Redis 侧记一条失败。True=已记账;False=Redis 不可用(调用方走内存回退)。"""
     try:
         from support import state_store
     except ImportError:
@@ -55,15 +89,7 @@ def _redis_record_attempt(ip: str) -> bool:
     if r is None:
         return False
     key = f"rl:login:{ip}"
-    now = time.time()
     try:
-        with r.pipeline() as p:
-            p.zremrangebyscore(key, "-inf", now - _LOGIN_WINDOW_SECONDS)
-            p.zcard(key)
-            count = int(p.execute()[1])
-        if count >= _LOGIN_MAX_ATTEMPTS:
-            # 与内存版语义一致:被拒的尝试不记账
-            raise HTTPException(status_code=429, detail="尝试过于频繁,请 1 分钟后再试")
         member = f"{now}:{uuid.uuid4().hex}"   # member 唯一,避免 zadd 覆盖同分成员
         r.zadd(key, {member: now})
         r.expire(key, _LOGIN_WINDOW_SECONDS)   # 整键 TTL 兜底,防长期不活跃 IP 残留
@@ -144,6 +170,7 @@ def login(req: LoginRequest, request: Request):
 
     # 用户名或密码错误统一返回相同提示,不泄露用户名是否存在
     if not user or not verify_password(req.password, user["password_hash"]):
+        _record_login_failure(request)   # 仅失败记账;成功登录不占限流额度
         raise HTTPException(status_code=401, detail="用户名或密码错误")
 
     token = create_token(user["username"], user["role"])

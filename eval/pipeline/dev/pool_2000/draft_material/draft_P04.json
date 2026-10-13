@@ -1,0 +1,358 @@
+[
+ {
+  "query_id": "P04-01",
+  "query": "我们用 RAS 在线监测 GaAs 的 MOVPE 生长，单层振荡信号最高在多少度还能观察到？振荡幅度最大的温度大概是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "GaAs 的 RAS 振荡最高在 600 °C 仍可见并可用于测定生长速率；振荡最大幅度出现在约 505 °C。",
+  "success_criteria": "同时答出 600 °C 与 505 °C 两个温度且数值正确。",
+  "evidence": "--[p99]-- The RAS oscillations are visible up to $6 0 0 ^ { \\circ } \\mathrm { C }$ for GaAs and can be used to determine the growth rate (left side of Fig. 3.6). Their maximum amplitude is around $5 0 5 ^ { \\circ } \\mathrm { C }$ (Fig. 3.8)."
+ },
+ {
+  "query_id": "P04-02",
+  "query": "CdSe 外延到 ZnSe(001) 上晶格失配有多大？跟 InAs/GaAs 体系比是什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "CdSe 在 ZnSe(001) 上的晶格失配为 7.2%，与 InAs/GaAs 异质体系非常接近（InAs/GaAs 是率先确立 Stranski-Krastanow 生长的体系）。",
+  "success_criteria": "答出 7.2% 且指出与 InAs/GaAs 相近。",
+  "evidence": "--[p58]-- The lattice mismatch of CdSe on ZnSe(001) is 7.2% and thus very similar to the InAs/GaAs heterosystem for which Stranski-Krastanow (SK) growth was earlier established."
+ },
+ {
+  "query_id": "P04-03",
+  "query": "MOVPE 生长 GaAs 基器件不想用砷烷（毒性太大），书里推荐的替代砷前驱体是什么？它完全分解的温度是多少度？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "替代前驱体为叔丁基胂（TBAs），450 °C 即完全分解；其毒性远低于砷烷，安全防护要求更低，并可实现砷分压与生长温度的独立优化。",
+  "success_criteria": "答出 TBAs 与 450 °C，缺一不可。",
+  "evidence": "--[p68]-- The alternative precursor, tertiarybutylarsine (TBAs), is fully decomposed at $4 5 0 ^ { \\circ } \\mathrm { C }$ Moreover, it is much less toxic than arsine, thus requiring less serious safety precautions. Using TBAs, it is possible to realize an independent optimization of the influence of the arsenic partial pressure and the growth temperature."
+ },
+ {
+  "query_id": "P04-04",
+  "query": "做电泵浦单光子 LED 时怎么保证电流只打进一个量子点？书里那个器件的量子点面密度做到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "量子点密度低至 10^8 cm^-2（在 SK 模式下沉积 1.8 ML InAs 获得），再用微米尺寸氧化铝电流孔径把电流限制到单个量子点。",
+  "success_criteria": "答出 10^8 cm^-2（或 1.8 ML InAs 沉积）及氧化铝孔径限流，数值与单位正确。",
+  "evidence": "--[p362]-- The low quantum dot density of $1 0 ^ { 8 } \\mathrm { c m } ^ { - 2 }$ was obtained in the Stranski-Krastanow mode by deposition of 1.8 ML of InAs. / --[p362]-- This promising approach for single-photon generation based on electrical pumping uses a micron-size aluminum oxide aperture to restrict the current flow to a single dot"
+ },
+ {
+  "query_id": "P04-05",
+  "query": "书里说的'理想存储单元'要同时满足哪几项指标？我想拿它对照 DRAM 和 Flash 各自的短板。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "存储时间 &gt;10 年、擦写耐力 &gt;10^15 次、读写访问时间优于 DRAM（&lt;10 ns），并且最好由单个电荷载体（电子或空穴）存储 1 bit 信息。",
+  "success_criteria": "三项数值（&gt;10 年、&gt;10^15 次、&lt;10 ns）全部答出。",
+  "evidence": "--[p44]-- Such an optimized memory cell should provide long storage times (&gt;10 years) and good endurance $( &gt; 1 0 ^ { 1 5 }$ write/erase cycles) in combination with even better read/write access time than a DRAM $( &lt; 1 0 \\mathrm { n s } )$ . In addition, an ultimate memory cell should store one information bit by means of a single charge carrier, either electron or hole."
+ },
+ {
+  "query_id": "P04-06",
+  "query": "最早用单层自组织 In0.5Ga0.5As 量子点做的量子点激光器，阈值电流密度和特征温度 T0 做到了什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "低温（液氮温区）下阈值电流密度低至 120 A/cm²，特征温度 T0 高达 350 K，同时具有很高的增益和微分增益。",
+  "success_criteria": "答出 120 A/cm² 与 T0 = 350 K 两个数值。",
+  "evidence": "--[p82]-- The first QD lasers with a single layer of self-organized $\\mathrm { I n } _ { 0 . 5 } \\mathrm { G a } _ { 0 . 5 } \\mathrm { A s }$ QDs demonstrated the potential of active zero-dimensional nanostructures at cryogenic temperatures, particularly a low lasing threshold of $1 2 0 \\mathrm { A } / \\mathrm { c m } ^ { 2 }$ with a low temperature sensitivity expressed by a characteristic temperature $T _ { 0 }$ as high as 350 K, and a very high gain and differential gain [61, 62]."
+ },
+ {
+  "query_id": "P04-07",
+  "query": "判断一个光源是不是真正的单光子源，g 二阶关联函数在零延迟的判据是什么？经典光源在这个点上能取到什么范围？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "单光子源可以 g²(0) &lt; 1（反聚束）；理想单光子态（Fock 态 |n=1⟩）g²(0) = 0；所有经典场满足 g²(0) ≥ 1 且 g²(0) ≥ g²(τ)，其中 g²(0) &gt; 1 为热光的聚束特征。",
+  "success_criteria": "答出单光子 g²(0)&lt;1（理想为 0）与经典场 g²(0)≥1 两条判据。",
+  "evidence": "--[p353]-- For single-photon sources, however, $g ^ { ( 2 ) } ( 0 ) &lt; 1$ is possible / --[p353]-- It can further be shown [43] that $g ^ { ( 2 ) } ( 0 ) \\geq 1$ and $g ^ { ( 2 ) } ( 0 ) \\ge g ^ { ( 2 ) } ( \\tau )$ for all classical fields which prohibits values smaller than unity. / --[p354]-- in the special case of a single-photon state $( n = 1 )$ , this yields $g ^ { ( 2 ) } ( 0 ) = 0$"
+ },
+ {
+  "query_id": "P04-08",
+  "query": "钙钛矿量子点的合成路线和配体钝化工艺，这本手册里是怎么写的？我们想拿它跟外延量子点做个对照。",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及钙钛矿（perovskite）量子点，全书内容为 III-V、II-VI 及 SiGe 等体系的外延自组织量子点，无法从本书给出钙钛矿合成与配体钝化的任何工艺参数，建议另行查阅胶体化学/钙钛矿专门文献，不得编造。",
+  "success_criteria": "明确指出书中未涉及钙钛矿量子点并拒答，不编造任何合成温度、配体等参数。",
+  "evidence": "全书素材经检索无 perovskite/钙钛矿相关内容（关键词命中 0 次）；书中量子点体系仅涉及 In(Ga)As/GaAs、CdSe/ZnSe、InGaN/GaN、SiGe/Si、GaSb 等，如 --[p109]-- quantum dot growth has been successfully demonstrated for various semiconductor systems, e.g., Ge/Si(001) [1], SiGe/Si(001) [7], InAs/GaAs(001) [8], PbSe/PbEuTe[9], CdSe/ZnSe [10]"
+ },
+ {
+  "query_id": "P04-09",
+  "query": "为什么用 RAS 监测 InP 的 MOVPE 生长看不到单层振荡？砷化物像 GaAs 就能看到，差别出在哪？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "因为磷化物在台阶边缘缺乏不同的表面重构，所以即使 InP 在低温下以 2D 岛模式生长（GIXS 实验证实）也观察不到 RAS 振荡；这是 RAS 方法的一个缺点，而对所有砷化物半导体 RAS 都工作良好。",
+  "success_criteria": "答出'磷化物在台阶边缘缺乏（重构）差异'这一原因，而非仅答生长模式不同。",
+  "evidence": "--[p99]-- There are material systems which apparently lack a different reconstruction near the step-edges, like the phosphides. Therefore, no RAS oscillations are visible for InP, even when the growth proceeds in2D-island growth mode at low temperatures as found in GIXS experiments [43]. This is, of course, a disadvantage of the RAS method. / --[p101]-- But for all arsenide-based semiconductors RAS works quite well."
+ },
+ {
+  "query_id": "P04-10",
+  "query": "CdSe/ZnSe 量子点单点 PL 谱里的双线结构，零场分裂的三个分量 Δ0、Δ1、Δ2 平均各是多大？书里认为这个双线的主要起源是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "外推到 B=0：Δ2 低于 20 μeV 的谱分辨率，Δ0 平均 1.9 meV，Δ1 平均 200 μeV；该结果确认 D2d → C2v 对称性降低是 SK 量子点激子 PL 双线的主要起源。",
+  "success_criteria": "三个数值（&lt;20 μeV、1.9 meV、200 μeV）与 D2d→C2v 对称性降低均答出。",
+  "evidence": "--[p264]-- Interpolating the fan charts in Fig. 12.4(b) down to $B = 0$ provides the zero-field splitting. It turns out that $\\varDelta _ { 2 }$ is below the spectral resolution of $2 0 \\mu \\mathrm { e V} ,$ while the averages of $\\varDelta _ { 0 }$ and $\\varDelta _ { 1 }$ are 1.9 meV and 200 μeV, respectively. This finding clearly identifies the $D _ { 2 \\mathrm { d } ^ { - } } C _ { 2 \\mathrm { v } }$ symmetry reduction as the major origin of the exciton PL doublet in SK QDs."
+ },
+ {
+  "query_id": "P04-11",
+  "query": "单个量子点细结构劈裂太大就没法出纠缠光子对，书里退火能把 FSS 压到多少？两步退火的温度和时间是怎么安排的？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "FSS 从初始约 170 μeV 降到小于 20 μeV（已达装置分辨率极限），使退火诱导调谐产生偏振纠缠光子对成为可能；同一量子点经历两步退火，各 5 分钟，温度分别为 710 °C 和 720 °C。",
+  "success_criteria": "答出 170 μeV→&lt;20 μeV 及 710 °C/720 °C 各 5 min。",
+  "evidence": "--[p6]-- Figure 14.19 displays such a trace for the as grown QD and two annealing steps of 5 minutes at $7 1 0 ^ { \\circ } \\mathrm { C }$ and $7 2 0 ^ { \\circ } \\mathrm { C} ,$ respectively. / --[p7]-- An initial value of about $1 7 0 \\mu \\mathrm { e V }$ decreases to less than $2 0 \\mu \\mathrm { e V }$ which represents the resolution limit of the setup. The generation of polarization-entangled photon pairs by annealinginduced tuning should hence be feasible"
+ },
+ {
+  "query_id": "P04-12",
+  "query": "InAs 量子点上盖不同 In 组分的 InGaAs 阱做应变工程，发光最多能红移多少？书里认为主导机制是点变大还是应变降低？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "五个 MBE 样品、阱 In 组分从 0 到 25%，QD 基态发射峰随 In 组分增加向低能红移 120 meV；8 带 k·p 理论（含应变与压电，4 nm 厚 InGaAs 阱模型）与实验吻合表明红移主因是量子点静水应变的降低，QD 尺寸变化是次要因素。",
+  "success_criteria": "答出 120 meV、In 组分 0–25% 范围，以及'应变降低为主、尺寸变化次要'的结论。",
+  "evidence": "--[p96]-- Combined PL and PLE spectra for five MBE-grown samples with In contents in the well ranging from 0 to 25% are given in Fig. 14.8. As the In content increases, the maximum of the QD ground state emission shifts by 120 meV to lower energy. / --[p97]-- It can hence be concluded that the reduction of strain is the main reason for the red shift of the quantum dot ground state and that a possible change of QD size is of minor importance."
+ },
+ {
+  "query_id": "P04-13",
+  "query": "用 RAS 在生长过程中原位测掺杂浓度，这个方法有哪些局限？标定曲线给出的 GaAs 表面钉扎位置在带隙什么位置？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "两个缺点：一是需要完整的谱信息，二是需要一个未掺杂参考表面（若对准和窗口修正做得好，参考也可取自数据库）；用式(3.3)拟合 GaAs 载流子浓度变化曲线得到表面钉扎位于 midgap（0.66 V），据此可直接读出载流子浓度。",
+  "success_criteria": "答出'需全谱信息'与'需未掺杂参考面'两点，并给出 0.66 V midgap。",
+  "evidence": "--[p1]-- The solid lines are fits with(3.3) and resultedin a pinning position in midgap position (0.66 V). From such a calibration the carrier concentration can be directly evaluated [46]. However, this method has some disadvantages. / --[p1]-- First, the full spectral information is needed; second, an undopedreference surface isneeded."
+ },
+ {
+  "query_id": "P04-14",
+  "query": "SiGe 在 Si(001) 上生长，把硅组分提上去之后生长模式会怎么变？还走不走 Stranski-Krastanow 那条路？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "900 K 沉积时，Si 浓度 14% 的 SiGe 膜与纯 Ge 膜一样呈典型 SK 生长（浸润层阶段应力大、3D 岛成核后应力骤降）；Si 浓度超过 20% 后应力演化反转，即使平均厚度仅 1 nm 薄膜也以 3D 岛模式生长、不形成浸润层。",
+  "success_criteria": "答出 14% 时为 SK 生长、Si&gt;20% 时无浸润层的 3D 岛模式（900 K）。evidence：",
+  "evidence": "--[p9]-- The force curves of the pure Ge film and the SiGe alloy film with a silicon concentration of 14% are characteristic of SK growth. The slope, and thus the stress, is large during growth of the wetting layer (stress regime I), and decreases drastically when the 3D islands nucleate and grow (stress regime II). At Si concentrations above 20%, the stress evolution is reversed with low stress in regime I and larger stress in regime II. / --[p110]-- Obviously, at higher Si contents the film growth changes to a 3D island mode without formation of a wetting layer."
+ },
+ {
+  "query_id": "P04-15",
+  "query": "InGaN/GaN 量子点里沿生长方向的内置压电场有多强？跟 GaAs 基量子点比差几个量级，对发光会造成什么后果？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "氮化物中沿 (0001) 的压电场达 MV/cm 量级，比 GaAs 基量子点大若干个数量级；该场已不能按微扰处理，导致跃迁能量向低能 Stark 移动、辐射复合时间常数可长达毫秒（ms）量级。",
+  "success_criteria": "答出 MV/cm 量级、比 GaAs 基大几个数量级、复合时间可达 ms。",
+  "evidence": "--[p8]-- Experiments and theoretical calculations demonstrate that these piezoelectric fields in nitrides are in the range of MV/cm. This is some orders of magnitude larger than in GaAs-based QDs [38, 39]. Such an electric field can no longer be treated as a perturbation of the confined electrons and holes in the QD. In fact, it leads to a Stark shift of the transition energy to smaller energies and to large time constants of the radiative recombination of up to ms [40, 41]."
+ },
+ {
+  "query_id": "P04-16",
+  "query": "CdSe/ZnSe 量子点里双激子和激子的辐射寿命分别是多少？双激子比激子衰变快多少倍？书上怎么解释这个差别？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "τ_XX = 120 ps，τ_X = 200 ps；倍率 200/120 ≈ 1.67，即双激子辐射寿命约为激子的 1/1.67（短 80 ps）。书中的解释：双激子有两个复合通道，且激子与激子-双激子跃迁的偶极矩几乎相同。",
+  "success_criteria": "两个寿命数值正确，且给出 200/120≈1.67（或短 80 ps）的计算，并答出'双激子有两个复合通道'。",
+  "evidence": "--[p264]-- The radiative lifetime of the biexciton $( \\tau _ { \\mathrm { X X } } = 1 2 0 \\mathrm { p s } )$ is about two times shorter than for the exciton $( \\tau _ { \\mathrm { { X } } } = 2 0 0 \\mathrm { p s } )$ . This finding is consistent with the fact that the biexciton has two recombination channels and that the exciton and exciton-biexciton transition possess almost the same dipole moment."
+ },
+ {
+  "query_id": "P04-17",
+  "query": "书里空穴从 InGaAs/GaAs 量子点逃逸的热激活能测的是 120 meV 左右，可整个局域化能量是 210 meV，低估了多少？为什么会低估？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "低估 210 − 120 = 90 meV，相对比例 90/210 ≈ 43%。原因：测得的 (120±10) meV 只是声子辅助隧穿过程中的热激活部分（热激发到激发态后再穿过剩余三角形势垒隧穿），因此低估了局域化能量 (210±20) meV。",
+  "success_criteria": "给出 210−120=90 meV 的算式（约 43%），并说明激活能只是隧穿过程的热激活分量。",
+  "evidence": "--[p250]-- E _ { \\mathrm { A } } ^ { \\mathrm { H 1 } } = ( 1 2 0 + / - 1 0 ) \\mathrm { m e V }；E _ { \\mathrm { l o c } } ^ { \\mathrm { H 1 } } = ( 2 1 0 + / - 2 0 ) \\mathrm { m e V } / --[p250]-- The observed hole ground state activation energy $E _ { \\mathrm { A } } ^ { \\mathrm { H 1 } } = ( 1 2 0 \\pm 1 0 ) $ meV, hence, underestimates the localization energy. It is the thermal activation part in a phonon-assisted tunneling process: Thermal activation into an excited state and subsequent tunneling through the remaining triangular barrier"
+ },
+ {
+  "query_id": "P04-18",
+  "query": "CdSe/ZnSe 量子点平均面密度是 1.1×10^11 每平方厘米，算一下平均每个点摊到多大面积？按方格排布估算点间距大概多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "平均每点面积 = 1/(1.1×10^11 cm^-2) ≈ 9.1×10^-12 cm²；按正方格估算平均点间距 = √(9.1×10^-12 cm²) ≈ 3.0×10^-6 cm ≈ 30 nm。",
+  "success_criteria": "给出算式并得到约 30 nm（接受 30±5 nm 的合理四舍五入），单位正确。",
+  "evidence": "--[p59]-- The average QD density is $( 1 . 1 \\overset { \\cdot } { \\pm } 0 . 3 ) \\cdot 1 0 ^ { 1 1 } \\mathrm { c m } ^ { - 2 }$ . From these data, it follows that only a 15–20% fraction of a ML reorganizes in QDs."
+ },
+ {
+  "query_id": "P04-19",
+  "query": "书里那个电泵浦单光子 LED 测出来的 g² 凹坑深度只有 65%，理想单光子源不是应该凹到 0 吗？他们的关联测量是怎么搭的、这个 65% 是怎么来的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "需先检索该 LED 的测量装置再检索数据处理：采用 Hanbury Brown-Twiss 装置（50:50 分束器 + 两个雪崩光电二极管），无需空间/光谱滤波（仅在一个 APD 前加中心 953 nm、10 nm FWHM 带通片）；理想函数 g²(Δt)=1−exp(−Δt/τ) 与 FWHM 为 800 ps 的高斯卷积后得到约 65% 的凹坑深度，800 ps 时间分辨率由超短脉冲自相关独立测定；结合单光子态理想判据 g²(0)=0 可知凹坑未到 0 是探测器时间分辨率受限，而非光源不理想——该书据此证明其为理想电泵浦单光子源。",
+  "success_criteria": "答出 HBT 装置构成、800 ps 时间分辨率与'理想函数卷积高斯→65% 凹坑'的来源，并关联 g²(0)=0 的理想判据。",
+  "evidence": "--[p364]-- Nonclassical photon statistics is characterized by the second-order intensity correlation function via a Hanbury Brown and Twiss setup (HBT) [28] consisting of a 50:50 beam splitter and two avalanche photo diodes (APDs). / --[p364]-- Thus, the ideal function $g ^ { ( 2 ) } ( \\Delta t ) = 1 - \\exp ( - \\Delta t / \\tau )$ was convoluted with a Gaussian (FWHM: 800 ps) and yields a dip depth of around65%. The time resolution of 800 ps was independently determined by an autocorrelation measurement of ultra-short laser pulses."
+ },
+ {
+  "query_id": "P04-20",
+  "query": "QLED 显示用的红绿蓝三色量子点的合成和封装工艺，这本书里是哪一章讲的？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及量子点显示（QLED）的合成与封装工艺；全书围绕外延生长的自组织半导体量子点（生长、表征、光学/输运性质及激光器、单光子源、存储器等应用）展开，应正确拒答并建议查询显示技术或胶体量子点专门文献，不得虚构章节或工艺内容。",
+  "success_criteria": "明确说明书中未涉及 QLED 显示工艺并拒答，不编造章节号或工艺步骤。",
+  "evidence": "全书素材检索 QLED/量子点显示/colloidal 胶体合成工艺均无对应内容；书中应用章节仅涉及激光器与单光子源、存储器，如 --[p82]-- 2.5.1 Edge-Emitting Lasers、--[p44]-- 11.2.3 A QD-based Memory Cell、--[p361]-- Single-Photon Generation from Single Quantum Dots"
+ },
+ {
+  "query_id": "P04-21",
+  "query": "书里 2D 岛每原子能量极小值对应的最优原子数 N0 是什么表达式？在最优尺寸处，每原子能量比完全熟化成一个大岛时低多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "由 E(N) = −WN + C₁√N − C₂√N·ln(√N) 对每原子能量 ε(N)=E(N)/N 求极小，得最优尺寸 N₀ = exp[2(C₁/C₂) + 1]；在该尺寸处每原子能量比完全熟化岛（N→∞）低 ε₀ = C₂·N₀^(−1/2)，这证明亚单层 2D 岛存在平衡体积。",
+  "success_criteria": "N₀=exp[2(C₁/C₂)+1] 与 ε₀=C₂N₀^(−1/2) 两个表达式均正确，并能说明其物理含义为 2D 岛存在平衡体积。",
+  "evidence": "--[p41]-- If the amount of deposited material is below 1 monolayer, an array of monolayer-high, two-dimensional islands forms. For a dilute array of islands, the energy of formation of a single island consisting of N atoms is given by E(N) = - W N + C_1 \\sqrt{N} - C_2 \\sqrt{N} \\ln(\\sqrt{N}). / --[p41]-- It always has a minimum at the optimum size $N _ { 0 } = \\exp [ 2 ( C _ { 1 } / C _ { 2 } ) + 1 ]$ at which the energy per atom is lower than in a fully ripened island $( N \\to \\infty )$ by the quantity $\\varepsilon _ { 0 } = C _ { 2 } N _ { 0 } ^ { - 1 / 2 }$ which demonstrates the existence of an equilibrium volume of a 2D island."
+ },
+ {
+  "query_id": "P04-22",
+  "query": "XRD 倒空间图上晶体截断杆的卫星峰间距是 0.0327 Å⁻¹，换算成量子点层间周期是多少纳米？和名义设计的 20 nm 差百分之几？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "层间周期 = 2π/Δq = 2π/0.0327 Å⁻¹ ≈ 192 Å ≈ 19.2 nm（与书中由卫星峰间距给出的周期一致）；与名义值 20 nm 相差 0.8 nm，相对偏差 0.8/20 = 4%。",
+  "success_criteria": "给出 2π/Δq 算式并得 19.2 nm，相对偏差约 4%（0.8 nm）。",
+  "evidence": "--[p126]-- The sample consists of a five-fold stack of self-organised $\\mathrm { I n } _ { 0 . 6 0 } \\mathrm { G a } _ { 0 . 4 0 } \\mathrm { A s }$ quantum dots, separated by nominally 20 nm GaAs spacer layers. / --[p125]-- Their vertical spacing of $0 . 0 3 2 7 \\mathring { \\mathrm { A } } ^ { - 1 }$ reveals a QD layer-to-layer period of 19.2 nm, in good agreement with the nominal value of 20 nm."
+ },
+ {
+  "query_id": "P04-23",
+  "query": "XRD 模拟说五层堆垛样品里浸润层的 In 组分只有 37% 左右，可名义生长的是 In0.6Ga0.4As，少掉的 In 去哪了？能不能结合 2.2.1 节讲的组分变化把链条说通？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "XRD 模拟（GaAs 隔层 18.1 nm、浸润层两个晶胞厚 a=5.6532 Å）给出 WL In 组分约 37%，明显低于名义 60%；书将其归因于岛形成期间 In 从浸润层向量子点迁移。与 2.2.1 节呼应：QD 形成前反射谱可用唯一值 x_In=0.55 完美模拟，而一旦形成量子点，应变弛豫驱动下 WL 的 In 组分下降 20% 至 x_In=0.44，多余 In 原子被转移到三维量子点中。",
+  "success_criteria": "答出 37% vs 名义 60%、'In 从 WL 迁移向 QD（应变弛豫驱动）'机制，并给出 0.55→0.44（下降 20%）的组分变化链条。",
+  "evidence": "--[p127]-- For given thicknesses of the GaAs spacer (18.1 nm) and the WL (two GaAs lattice constants $a = 5 . 6 5 3 2 \\mathring { \\mathrm { A } } )$ the In content of the WL can be deduced to about 37%. / --[p127]-- The In concentration of 37% is considerably smaller than the nominal value of 60%. This difference can be explained by In migration from the WL towards the QDs during island formation [30, 31] / --[p66]-- Before QD formation starts, the reflection spectrum as caused by the WL's chemical composition and the thickness can be perfectly simulated using a unique value $x _ { \\mathrm { { I n } } } = 0 . 5 5$ . / --[p67]-- However, once QDs are formed the In concentration of the WL decreases by 20% to $x _ { \\mathrm { { I n } } } = 0 . 4 4$ as evidenced by the simulations shown in Fig. 2.4 [9]. Strain relaxation is the driving force behind this effect."
+ },
+ {
+  "query_id": "P04-24",
+  "query": "想评估量子点存储器靠不靠谱：书里 InGaAs/GaAs 量子点实测的电子和空穴室温存储时间各是多少？对照'理想存储单元'的存储时间要求差了几个数量级？书里的 p-n 二极管存储方案又是怎么把写速度做上去的？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索载流子存储实验：室温电子平均存储约 200 ns、空穴约 0.5 ns，书中结论是 InAs/GaAs 量子点存储时间不足以充当未来存储单元。再检索理想指标（&gt;10 年 ≈ 3.2×10^8 s）：电子 3.2×10^8 s / 200 ns ≈ 1.6×10^15，差约 15 个数量级。p-n 二极管方案通过外偏压调控俘获势垒：写入时缩小耗尽区宽度、消除俘获势垒，载流子直接弛豫入 QD 态，写操作达到载流子弛豫时间量级（室温皮秒级）；读出利用 QD 层下方 10–50 nm 处二维电子气（2DEG）因存储电荷导致迁移率下降、源漏电阻升高；擦除通过展宽耗尽区在高电场下隧穿。",
+  "success_criteria": "答出 200 ns/0.5 ns、与 10 年要求对比的数量级计算（≥10 个数量级），以及 ps 级写入机制与 2DEG 读出机制。",
+  "evidence": "--[p251]-- An average storage time for electrons of about 200 ns and for holes of about 0.5 ns is obtained. This means InAs QDs embedded in a GaAs matrix do not have a sufficiently long storage time to act as a storage unit in future memories. / --[p45]-- Therefore, during the write process, Fig. 11.3(b), the capture barrier can be eliminated by reducing the width of the depletion region and the charge carriers can directly relax into the QD states. Fast write operations on the order of the charge carrier relaxation time into the QD states (picoseconds at room temperature [3, 4]) are possible. / --[p45]-- The read-out of the stored information is done by a two-dimensional electron gas (2DEG) below the QD layer. Stored charge carriers inside the QDs reduce the mobility of the 2DEG, hence, a higher resistance is measured between the source/drain contacts. The 2DEG is situated 10-50 nm below the QD layer"
+ },
+ {
+  "query_id": "P04-25",
+  "query": "要把 GaAs 基量子点激光器的发射推到 1.3 μm 电信波段，直接把 InAs 沉得更厚行不行？书里实际给出了哪几条技术路线，各自的红移机制和代表指标是什么？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "直接增厚 InAs 不可行：InAs/GaAs 发射波长通常低于 1.2 μm，沉积更厚的 InAs 层一般会在 InAs 内形成 In 富集团簇和缺陷。书中路线至少答出两条：(1) 用较低 In 组分的 InGaAs 层过生长单层高密度 QD，机制为过生长层部分弛豫 QD 应变降低基态跃迁能量，加上'激活合金相分离'使 In 优先富集在 QD 处、增大有效体积而红移，可推向 1.3 μm 及以上；(2) dot-in-a-well（DWELL）结构（InGaAs 阱作为应变减小层包埋 QD），逐层精细调节生长参数避免缺陷，实现 1250 nm 激射、阈值电流密度低至 66 A/cm²、内量子效率 94%；(3) 精细应变工程：在 QD 密度 &gt;1×10^10 cm^-2 条件下实现 1.3 μm 长波长发射（书中称仅靠精密应变工程达成）。",
+  "success_criteria": "明确'直接增厚不可行'并给出 In 富集团簇/缺陷原因，且给出至少两条路线（InGaAs 过生长 / DWELL / 应变工程）及其机制或关键参数（1250 nm、66 A/cm²、94% 等）。",
+  "evidence": "--[p96]-- The emission wavelength of InAs QDs in GaAs matrix is typically below 1.2 μm. Deposition of thicker InAs layers to obtain longer wavelengths generally results in the formation of In-rich clusters and defects within the InAs. / --[p69]-- Overgrowth of single, high-density QD layers by InGaAs has been proven to extend the emission wavelength towards 1.3 μm and beyond, still keeping a high material quality. Two effects are identified for this red shift. On one side, the overgrown InGaAs layer partially relaxes the strain of the QDs / --[p69]-- a process called activated alloy phase separation leads to preferential accumulation of In at the locations of QDs, thereby increasing the effective QD volume and shifting the emission towards longer wavelength / --[p82]-- Using the DWELL approach and carefully adjusting the growth parameters for each individual QD layer in the stack to avoid defect formation, lasing at 1250 nm with a verylowthreshold current density of $6 6 \\mathrm { A } / \\mathrm { c m } ^ { 2 }$ and 94% internal quantum efficiency was recently obtained / --[p68]-- Long-wavelength emission at 1.3 μm along with a QD density above $1 \\times 1 0 ^ { 1 0 } \\mathrm { c m } ^ { - 2 }$ has been achieved only by sophisticated strain engineering techniques."
+ }
+]

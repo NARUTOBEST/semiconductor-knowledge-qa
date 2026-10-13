@@ -21,6 +21,10 @@ from qdrant_client import QdrantClient, models
 
 import config as C
 import embed
+try:                                   # 包内走相对导入;质检脚本裸 import query 时退化为同目录直导
+    from . import devices
+except ImportError:
+    import devices
 
 _client = None
 _te = None
@@ -113,21 +117,41 @@ def sparse_rescue(q, limit=2):
 
 
 def query_text(q, k=5):
-    """文本库混合检索:dense + sparse,RRF 融合(召回池 _RECALL_POOL)。"""
+    """文本库混合检索:dense + sparse,RRF 融合(召回池 _RECALL_POOL)。
+
+    设备型号双路融合(DEVICE_FILTER):问题抽到型号 token 时,并列加一条
+    devices 过滤的 dense/sparse prefetch(池 DEVICE_POOL_LIMIT)——被同族设备
+    手册淹没的块从过滤路以高 RRF 名次进入融合池,交给下游 reranker 定夺;
+    无过滤两路始终保留,金标不丢(不做硬过滤,见 devices.py 模块注释)。"""
     global _te
     _te = _te or embed.get_text_encoder()
     dense, sparse = _te.encode([q])
     sp = sparse[0]
     idx = [int(x) for x in sp.keys()]
     val = [float(x) for x in sp.values()]
+    prefetch = [
+        models.Prefetch(query=dense[0].tolist(), using="dense",
+                        limit=_RECALL_POOL),
+        models.Prefetch(query=models.SparseVector(indices=idx, values=val),
+                        using="sparse", limit=_RECALL_POOL),
+    ]
+    if getattr(C, "DEVICE_FILTER", False):
+        toks = devices.extract_device_tokens(q)
+        if toks:
+            dev_flt = models.Filter(must=[models.FieldCondition(
+                key="devices", match=models.MatchAny(any=toks))])
+            prefetch += [
+                models.Prefetch(query=dense[0].tolist(), using="dense",
+                                limit=max(k, int(getattr(C, "DEVICE_POOL_LIMIT", 40))),
+                                filter=dev_flt),
+                models.Prefetch(query=models.SparseVector(indices=idx, values=val),
+                                using="sparse",
+                                limit=max(k, int(getattr(C, "DEVICE_POOL_LIMIT", 40))),
+                                filter=dev_flt),
+            ]
     res = get_client().query_points(
         collection_name=C.TEXT_COLLECTION,
-        prefetch=[
-            models.Prefetch(query=dense[0].tolist(), using="dense",
-                            limit=_RECALL_POOL),
-            models.Prefetch(query=models.SparseVector(indices=idx, values=val),
-                            using="sparse", limit=_RECALL_POOL),
-        ],
+        prefetch=prefetch,
         query=models.FusionQuery(fusion=models.Fusion.RRF),
         limit=max(k, _RECALL_POOL), with_payload=True,
     )

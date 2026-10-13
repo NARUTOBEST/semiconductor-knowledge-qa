@@ -1,0 +1,357 @@
+[
+  {
+    "query_id": "P51-01",
+    "query": "Datacon 8800 FC Quantum 这台机器现在一小时能贴多少颗元件、精度做到什么水平?书里打算给它的新对准系统定什么精度目标?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "现有性能约 3600~8000 件/小时,对应精度 10~25 μm(3σ);新对准系统的目标是在可接受的吞吐损失下实现 3 μm 精度。",
+    "success_criteria": "同时答出吞吐区间 3600~8000 件/小时、精度区间 10~25 μm(3σ)、新系统目标 3 μm,单位正确。",
+    "evidence": "--[p34]-- The current performance is about 3600 to 8000 components per hour at an accuracy of 10 to 25 [μm] (3σ) respectively. The aim of the new alignment system is to realize an accuracy of 3 μm at acceptable loss of throughput (lower target marker in Fig. 3‐2 and Fig. 3‐3)."
+  },
+  {
+    "query_id": "P51-02",
+    "query": "给静电夹头选绝缘膜,Kapton 100 HN(25 μm)的介电强度、介电常数和损耗因子各是多少?除了参数合适,书里选 Kapton 还有什么工艺上的理由?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "Kapton 100 HN(25 μm):介电强度 303 V/μm,介电常数 3.4,损耗因子 0.0018;工艺理由:可用物理气相沉积(PVD)在膜上制作导电层,且该工艺是 TNO 的内部工艺。",
+    "success_criteria": "答出 303 V/μm、3.4、0.0018 三个参数且单位正确,并提到 PVD 导电层为 TNO 内部工艺。",
+    "evidence": "--[p79 [表]]-- Kapton 100 HN (25 μm) | 303 | 3.4 | 0.0018 --[p79]-- Another benefit of Kapton film is that it is possible to create a conductive layer on this film by means of physical vapor deposition (PVD), which is an in‐house process at TNO."
+  },
+  {
+    "query_id": "P51-03",
+    "query": "柔性载带方案对它能带的 die 尺寸、厚度和间距定了多大的边界范围?方便真空吸嘴吸附的那条要求写的是多少?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "die 尺寸 0.25~250 mm²,厚度 20~200 μm,间距(pitch)1.3~30 mm;便于真空吸嘴吸附的要求为 die 面积的 10%。",
+    "success_criteria": "答出 0.25~250 mm²、20~200 μm、1.3~30 mm 三个范围及吸嘴要求 10% die 面积。",
+    "evidence": "--[p63 [表]]-- Die size | 0.25 -250 [mm2] / Die thickness | 20-200 [μm] / Pitch of dies | 1.3 -30 [mm] --[p63 [表]]-- Easy attach to vacuum nozzle | 10 % of die area"
+  },
+  {
+    "query_id": "P51-04",
+    "query": "电容式静电夹那组典型算例(d_air=1 μm、d_ins=25 μm、R_wire=1 kΩ)算出来的等效电容和时间常数是多少?多久能充到 95% 的夹持电压,那时压力到了多少?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "C_eq≈2.1×10⁻⁹ F=2.1 nF,τ_RC=R_wire·C_eq=2.1 μs;约 3 倍时间常数即 6.3 μs 时达到 95% 夹持电压;由于静电压力与电压平方成正比,此时压力已达最终值的 90%。",
+    "success_criteria": "答出 C_eq=2.1 nF、τ_RC=2.1 μs、95% 电压需 6.3 μs、对应压力 90%,四个数值齐全。",
+    "evidence": "--[p195]-- This results in 95% of the clamping voltage being obtained in about 3 times the time constant, being 6.3 [μs] (Fig. 9‐104). Since the electrostatic pressure is quadratic with the voltage, 90% of the final pressure is obtained at this time instance. --[p195]-- 算例参数: ε_r=3.4, R_wire=1 kΩ, d_air=1.0·10⁻⁶ [m], d_ins=25·10⁻⁶ [m], τ_RC=R_wire·C_eq=2.1·10⁻⁶ [s]=2.1 [μs], C_eq=2.1·10⁻⁹ [F]=2.1 [nF]"
+  },
+  {
+    "query_id": "P51-05",
+    "query": "5×5 mm、200 μm 厚的 die 放在载带上要抵抗哪些扰动?惯性、气流拖拽/升力和剥离各需要多大夹持压力?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "按基准 die(A=25 mm²、t=200 μm):惯性 160 Pa(对应 4 mN);气流拖拽(drag)0.13 Pa;气流升力(lift)2.5 Pa;剥离(r=100 mm)200 Pa。",
+    "success_criteria": "答出惯性 160 Pa/4 mN、drag 0.13 Pa、lift 2.5 Pa、peeling 200 Pa 四项数值。",
+    "evidence": "--[p76]-- the benchmark 25 [mm2] square die is assumed with a maximum thickness of 200 microns. --[p76 [表]]-- Table 7‐1 Indication of required clamping pressure / Inertia | 160 | 4 / Air interactions, drag | 0.13 / Air interactions, lift | 2.5 / Peeling (r=100 [mm]) | 200"
+  },
+  {
+    "query_id": "P51-06",
+    "query": "静电胶带试验里样品电极和夹头之间的气隙最后是用什么办法测出来的?平均气隙多大,比最初想做的目标差多少?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "因表面反射率不足无法用干涉仪测量,改用电容测量换算;平均气隙为 4.6±0.3 μm;用 200 nm 高质量平面电极测得夹头本身的气隙为 3.4 μm,高于最初 1 μm 的目标,但对实验仍足够。",
+    "success_criteria": "答出测量方法为电容法(干涉仪不可用)、平均气隙 4.6±0.3 μm、平面电极气隙 3.4 μm 对比目标 1 μm。",
+    "evidence": "--[p81]-- The first solution was to measure the surface topography of both with an interferometer. However, the surfaces were found not reflective enough to get good measurements. --[p81]-- It was found that the air gap between flat electrode and clamp was 3.4 [μm], the full area of the clamp was covered. This was slightly more than aimed for (which was 1[μm]) but still good enough for the experiments. --[p81]-- The capacitance measurements as discussed in app. L.5 resulted in an average air gap between sample and clamp of 4.6±0.3 [μm], depending on the location of the sample on the clamp."
+  },
+  {
+    "query_id": "P51-07",
+    "query": "Datacon 机器 gantry 上用的 Etel 标准 XY 平台,重复精度能到多少?现有 gantry 实测最小能走多小的步进?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "Etel(Datacon 机器 gantry 系统供应商)的标准 XY 平台重复精度为每轴 0.6 μm;现有 gantry 系统已被证明可实现 200 nm 步进。",
+    "success_criteria": "答出 Etel 平台 0.6 μm/轴与 200 nm 步进两个数值。",
+    "evidence": "--[p163]-- Etel, the supplier of the gantry system in the Datacon machine, already has standard XY stages with a repeatability of 0.6 [μm] per axis. --[p163]-- Moreover, the current gantry system proved capable of 200 [nm] steps [37] and is therefore potentially suitable for the 1 [μm] die placement accuracy requirement."
+  },
+  {
+    "query_id": "P51-08",
+    "query": "静电夹夹 bare die 时,氧化层上的电压压到多少以下 IC 就不会损坏?这个阈值是根据什么定的?",
+    "task_type": "信息查询",
+    "difficulty": "easy",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 1,
+    "gold_standard": "只要夹持机制在氧化层上引起的电压不超过 1.8~5 V 即可避免 IC 损伤;该阈值依据是当前芯片中晶体管的开关电压范围(1.8~5 V)。",
+    "success_criteria": "答出阈值 1.8~5 V 且说明依据为晶体管开关电压范围。",
+    "evidence": "--[p74]-- Transistors in current chips switch with voltages of 1.8 to 5 [V]. So, if the voltage over the oxide layer due to the clamping mechanism does not exceed this, damage to the IC is avoidedo."
+  },
+  {
+    "query_id": "P51-09",
+    "query": "把整个夹头串联起来测电容时,研磨、粗加工和抛光三种对电极测出的电容各是多少?由此算出的气隙分别是多少?",
+    "task_type": "信息查询",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "串联(Series)测量:研磨 lapped 立方体 18.2 pF → 气隙 4.6 μm;粗加工 rough 立方体 14.5 pF → 气隙 7.5 μm;抛光 polished 电极 51.2 pF → 气隙 3.4 μm(面积均 97 mm²,覆盖率 97%)。",
+    "success_criteria": "答出三组电容-气隙对应值:18.2 pF/4.6 μm、14.5 pF/7.5 μm、51.2 pF/3.4 μm。",
+    "evidence": "--[p214 [表]]-- Side | Counter electrode | C_clamp [pF] | Area [mm2] | d_air [μm] / Series | Lapped cube | 18.2 | 97 | 4.6 / Series | Rough cube | 14.5·2 | 97 | 7.5 / Series | Polished | 51.2 | 97 | 3.4 --[p213 [表]]-- For the measurements of the full clamp the area separating both electrodes was limiting (97% coverage)."
+  },
+  {
+    "query_id": "P51-10",
+    "query": "在电容式静电夹里混进 Johnson-Rahbek 效应会带来什么麻烦?出现这两种情况的条件分别怎么判断?",
+    "task_type": "信息查询",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "两个问题:(1) 电荷再分配导致夹持力损失;(2) 电荷再分配导致难释放(气隙中残留电荷)。条件:当电阻造成的分压比与电容造成的分压比差异很大时出现;V_air_JR < V_air_CC → 夹持力劣化,V_air_JR > V_air_CC → 难释放。",
+    "success_criteria": "答出两个问题(夹持力损失、难释放)及两条判据(V_air_JR 与 V_air_CC 的大小关系)。",
+    "evidence": "--[p205]-- V_air_JR < V_air_CC → Deterioration of clamping force / V_air_JR > V_air_CC → Difficult release --[p205]-- The buildup of JR forces can have negative effects for the capacitive clamp. Two identified problems are: Charge redistribution causes loss of clamping force; Charge redistribution leads to difficult release (residual charges in air gap). These effects are present if the voltage divider ratio caused by the resistances is very different from the voltage divider ratio caused by the capacitors."
+  },
+  {
+    "query_id": "P51-11",
+    "query": "双极纯电容夹的 RC 时间常数是多少,95% 的夹持力多快能建立和撤掉?JR 力建立的时间常数量级到了什么程度?",
+    "task_type": "信息查询",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "τ_CC=0.5 μs;95% 的夹持力在约 1.5 μs 内建立和撤除;JR 力时间常数:τ_JR_air=150 min、τ_JR_ins=16.5 天(典型参数:R_die=36×10³ Ω、C_air×2=220 pF、绝缘层 25 μm、电阻率 1×10¹⁷ Ω·cm)。",
+    "success_criteria": "答出 τ_CC=0.5 μs、95% 需 1.5 μs、τ_JR_air=150 min、τ_JR_ins=16.5 day。",
+    "evidence": "--[p77]-- With the typical values as stated in Table 7‐2, a RC time constant of 0.5[μs] is obtained. --[p77 [表]]-- Insulator resistivity | 1·10^17 [Ω·cm] | C_air (x2) | 220 [pF] / Insulator thickness | 25 [μm] | τ_CC | 0.5 [μs] / τ_JR_air | 150 [min] / τ_JR_ins | 16.5 [day] --[p77 [表]]-- This means that 95% of the clamping force is obtained and removed in about 1.5 [μs]."
+  },
+  {
+    "query_id": "P51-12",
+    "query": "TSV 对接要保证 70% 的接触覆盖,5 μm 直径的 TSV 最多允许多大位置误差?书里的经验法则是怎么说的?",
+    "task_type": "信息查询",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "经验法则:位置误差应小于接触直径的 25%;要求 70% 覆盖对应最大比例 0.24,因此对 5 μm 直径的 TSV,最大允许位置误差为 1.2 μm。",
+    "success_criteria": "答出经验法则 25%、70% 覆盖对应比例 0.24、5 μm TSV 允许误差 1.2 μm。",
+    "evidence": "--[p98]-- A rule of thumb is that the position error should be less than 25% of the contact diameter. --[p98]-- A required coverage of 70% results in a maximal ratio of 0.24. Therefore, the maximal allowable position error is 1.2 [μm] for a 5 [μm] diameter TSV."
+  },
+  {
+    "query_id": "P51-13",
+    "query": "CoO 表里机器购置价 100 万美元、按 4 年折旧、uptime 80%,帮我核一下每小时机器成本 36 美元这个数是怎么算出来的。",
+    "task_type": "数据计算",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库",
+      "计算器"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "机器成本/年 = 1,000,000 美元 ÷ 4 年 = 250,000 美元/年;年运转小时 = 8760 h × 80% = 7008 h;250,000 ÷ 7008 ≈ 35.7 ≈ 36 美元/小时,与表中 36 [$/hr] 一致。",
+    "success_criteria": "给出算式 250000÷(8760×0.8)≈35.7≈36 美元/小时,结果与表中 36 一致。",
+    "evidence": "--[p100 [表]]-- Table 9‐1 CoO analysis / Purchase cost | [$] | 1,00E+06 / Depreciation term | [yr] | 4 / Machine cost / yr | [$/yr] | 2,50E+05 / Uptime | % | 80% * / Machine cost / hr | [$/hr] | 36"
+  },
+  {
+    "query_id": "P51-14",
+    "query": "按 CoO 表的设定,每小时要过多少片晶圆、贴装速度要达到多少 UPH(每秒几颗)?允许的堆叠层成本和运行成本各是多少?",
+    "task_type": "信息查询",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "所需晶圆 5.1 片/小时;所需贴装 12×10³ UPH,即约 4 颗/秒;允许堆叠层成本 14 美元/晶圆,运行成本 7 美元/晶圆,允许机器成本 7 美元/晶圆。",
+    "success_criteria": "答出 5.1 wafer/hr、12E+03 UPH、4 dies/sec、14 $/wafer、7 $/wafer 全部数值。",
+    "evidence": "--[p100 [表]]-- Allowed cost of stacking layer | [$/wafer] | 14 / Operation cost | [$/wafer] | 7 / Allowed machine cost | [$/wafer] | 7 / Required wafer per hour | [wafer/hour] | 5,1 / Required dies per hour | [UPH] | 12E+03 / Required dies per second | [dies/sec] | 4"
+  },
+  {
+    "query_id": "P51-15",
+    "query": "表 7-1 里惯性那项写的是 160 Pa,拿 25 mm² 的基准 die 算一下,对应的夹持力是多少毫牛?",
+    "task_type": "数据计算",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库",
+      "计算器"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "F = f·A = 160 Pa × 25×10⁻⁶ m² = 4×10⁻³ N = 4 mN,与表 7-1 中给出的 4 mN 一致。",
+    "success_criteria": "给出算式 160 Pa × 25 mm² = 4 mN,与表中数值一致,单位换算正确。",
+    "evidence": "--[p76]-- Since the forces discussed here are dependent on the die size and thickness, the benchmark 25 [mm2] square die is assumed with a maximum thickness of 200 microns. --[p76 [表]]-- Inertia | 160 | 4"
+  },
+  {
+    "query_id": "P51-16",
+    "query": "验算一下 K.3.3 那个算例:1 kΩ 线电阻配 2.1 nF 等效电容,时间常数是多少?充到 95% 电压要多久,那时压力到了百分之多少?",
+    "task_type": "数据计算",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库",
+      "计算器"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "τ = R·C = 1×10³ Ω × 2.1×10⁻⁹ F = 2.1×10⁻⁶ s = 2.1 μs;充到 95% 电压约需 3τ = 6.3 μs;由于静电压力与电压平方成正比,此时压力约为最终值的 90%。",
+    "success_criteria": "给出 τ=1e3×2.1e-9=2.1 μs、3τ=6.3 μs、压力 90%,三个结果均与原文一致。",
+    "evidence": "--[p195]-- 算例参数含 τ_RC = R_wire·C_eq = 2.1·10⁻⁶ [s] = 2.1 [μs] --[p195]-- This results in 95% of the clamping voltage being obtained in about 3 times the time constant, being 6.3 [μs] (Fig. 9‐104). Since the electrostatic pressure is quadratic with the voltage, 90% of the final pressure is obtained at this time instance."
+  },
+  {
+    "query_id": "P51-17",
+    "query": "静电胶带第三组测力实验是在多大工作气隙下做的?先查这个气隙,再告诉我 ±100 V 时的期望压力和修正后的最大实测压力各是多少。",
+    "task_type": "工具编排",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 3,
+    "gold_standard": "先查 L.5.2:力测量用研磨(lapped)对电极,由表 9-32 得气隙约 4.6 μm(不确定度 0.3 μm);再据此查表 9-36(修正后数据):±100 V 档期望压力 310 Pa,最大实测压力 320 Pa。",
+    "success_criteria": "先答出气隙 4.6±0.3 μm,再答出 ±100 V 对应期望 310 Pa、最大 320 Pa,检索顺序正确。",
+    "evidence": "--[p215]-- The force measurements are performed with the lapped counter electrode. From Table 9‐32 it follows that the air gap is about 4.6 [μm], with an uncertainty of 0.3 [μm]. --[p219 [表]]-- Table 9‐36 Corrected measurement results / Potential [V] | 20 | 40 | 60 | 80 | 100 | 120 | 150 | 180 | 200 | 250 | 275 / Expected [Pa] | 12 | 50 | 112 | 198 | 310 | 446 | 697 | 1004 | 1239 | 1937 | 2343 / Max [Pa] | - | 41 | 103 | 201 | 320 | 438 | 701 | 933 | 1242 | 835 | 887"
+  },
+  {
+    "query_id": "P51-18",
+    "query": "新概念要满足的放置精度要求是多少?为了达到它,晶圆台最后选了哪家哪个型号,重复精度和行程是多少?",
+    "task_type": "工具编排",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 3,
+    "gold_standard": "先查需求:新对准系统要满足 1 μm 放置精度与 5 dies/sec 吞吐;据此选型:Aerotech AGS1500-300-300 平台,重复精度 ±0.4 μm,总行程 300 mm × 300 mm(该机型还有 ±1.25 μm 精度、0.001~1.0 μm 分辨率等规格)。",
+    "success_criteria": "先答出 1 μm(5 dies/sec)要求,再答出 Aerotech AGS1500-300-300、±0.4 μm、300×300 mm,检索顺序正确。",
+    "evidence": "--[p36]-- To make the newly developed alignment system work for the new requirements (1 [μm] placement accuracy and 5 dies/sec. throughput), the reaction forces or their effect should be reduced. --[p163]-- For now the Aerotech AGS1500‐300‐300 stage is chosen: --[p164 [表]]-- Total Travel | 300 mm x 300 mm (12 in x 12 in) / Repeatability Orthogonality | ±0.4 μm (±16 μin)"
+  },
+  {
+    "query_id": "P51-19",
+    "query": "Kapton 膜的介电参数书里有,但它的采购价格或者每平米成本书里给了吗?做成本核算能不能直接引用?",
+    "task_type": "异常处理",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "应说明该书未涉及 Kapton 薄膜的价格/成本数据,不能用于成本核算;书中只给出介电强度(303 V/μm)、介电常数(3.4)、损耗因子(0.0018)等介电性能参数,以及 PVD 制作导电层是 TNO 内部工艺的定性信息。",
+    "success_criteria": "明确回答书中未提供 Kapton 价格/成本信息(正确拒答),并说明书中仅给出介电性能参数,不得编造价格。",
+    "evidence": "--[p79 [表]]-- Table 7‐3 Dielectric properties of several films / Kapton 100 HN (25 μm) | 303 | 3.4 | 0.0018 --[p79]-- The dielectric insulating layer between the electrodes and the object to be clamped prevents current from flowing to this object, whilst enabling an electric field. Even though the choice of this material is relatively free of boundary conditions for the test setup, it is preferred to have a cheap insulator material which is mechanically flexible as well."
+  },
+  {
+    "query_id": "P51-20",
+    "query": "这本书里有没有给出 8800 FC 固晶用焊膏或助焊剂的具体型号和回流焊温度曲线?我要编工艺文件能不能直接引用?",
+    "task_type": "异常处理",
+    "difficulty": "medium",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 2,
+    "gold_standard": "应说明该书未涉及焊膏/助焊剂型号与回流焊温度曲线,不能直接引用;书中仅提到 dip unit 内装有一定量助焊剂,放置前由 gantry 将 die 底面浸入助焊剂(通过 Phi-Z 执行器下移),未给出任何材料型号或温度参数。",
+    "success_criteria": "明确回答书中未给出助焊剂型号与回流焊温度曲线(正确拒答),并仅转述 dip unit 浸助焊剂的定性描述。",
+    "evidence": "--[p110]-- The dip unit contains some flux which is applied to the die before placement. The gantry system moves the chip above the dip unit and dips the underside of the die in flux by moving the Phi Z actuator down."
+  },
+  {
+    "query_id": "P51-21",
+    "query": "静态误差树里,随机振动和反作用力两项传播后的贡献各是多少?现在机器的总精度大概多少,新对准概念把这两项分别压到了多少?",
+    "task_type": "信息查询",
+    "difficulty": "hard",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 4,
+    "gold_standard": "随机振动(静止)传播后贡献 3.8 μm,反作用力传播后贡献 4.0 μm(初始幅值 5-60 μm);现有 Datacon 机器总放置误差约 10 μm;新对准概念(TNO 模块)把随机振动压到 0.3 μm、反作用力压到 2.0 μm,且新概念下反作用力成为误差树中贡献最大的项。",
+    "success_criteria": "答出 3.8/0.3 μm、4.0/2.0 μm、总误差 10 μm,并指出新概念中反作用力贡献最大。",
+    "evidence": "--[p35]-- This is much smaller than the total placement error of 10 [μm] --[p35]-- This shows that with the new alignment concept, the reaction forces have the highest contribution to the error tree. --[p36 [表]]-- Random vibrations (idle) | 1.8 | 0.6 [μm] @ 1σ | 3.8 | 0.3 / Reaction forces | 5-60 | Initial amplitudes | 4.0 | 2.0 / Thermal effects | 2.5 | Estimated | 2.5"
+  },
+  {
+    "query_id": "P51-22",
+    "query": "书里说 JR 夹用 40 V 供电时气隙上能分到 10~20 V,1 μm 气隙能得到 450–1800 Pa。用 f=½εV²/d² 帮我验一下这两个端点值对不对。",
+    "task_type": "数据计算",
+    "difficulty": "hard",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库",
+      "计算器"
+    ],
+    "expected_rounds": 4,
+    "gold_standard": "V=10 V:f = ½×8.854×10⁻¹²×10²/(1×10⁻⁶)² ≈ 442.7 Pa ≈ 450 Pa;V=20 V:压力与电压平方成正比,×4 ≈ 1770.8 Pa ≈ 1800 Pa。两个端点均与书中给出的 450–1800 Pa 一致。",
+    "success_criteria": "给出 10 V → 约443~450 Pa、20 V → 约1771~1800 Pa 的算式与结果,并判断与原文一致。",
+    "evidence": "--[p198]-- For a supply voltage of 40 V the voltage over the air gap is likely to reach 10 ‐ 20 [V] if the resistances in Fig. 9‐106 are of equal magnitude. The obtained pressure is now in the range of 450 – 1800 [Pa], for an air gap of 1 μm. --[p198]-- 原文公式: f = (1/2)·ε·V²/d²"
+  },
+  {
+    "query_id": "P51-23",
+    "query": "5×5 mm、200 μm 厚的 die 跟着夹头绕 100 mm 半径弯的时候:先按书里 wt³/12 算出截面惯性矩,再用表 9-22 里 200 μm 对应的防剥离压力,算出这个 die 需要多大的夹持力。",
+    "task_type": "数据计算",
+    "difficulty": "hard",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库",
+      "计算器"
+    ],
+    "expected_rounds": 4,
+    "gold_standard": "惯性矩 I = w·t³/12 = 5×10⁻³ × (200×10⁻⁶)³ ÷ 12 = 3.33×10⁻¹⁵ m⁴,与书中结果一致;表 9-22 中 200 μm 厚度对应的防剥离压力为 200 Pa;5×5 mm die 面积 25 mm²,所需夹持力 F = 200 Pa × 25×10⁻⁶ m² = 5×10⁻³ N = 5 mN。",
+    "success_criteria": "答出 I=3.33×10⁻¹⁵ m⁴、200 μm 对应 200 Pa、F=5 mN,三步计算齐全且单位正确。",
+    "evidence": "--[p186]-- 原文公式: I = wt³/12 = 5·10⁻³·(200·10⁻⁶)³/12 = 3.3·10⁻¹⁵ [m⁴] --[p186 [表]]-- Table 9‐22 Calculated pressure to avoid peeling for a 100 [mm] radius / Thickness [μm] | 20 | 50 | 100 | 150 | 200 / Pressure [Pa] | 0.20 | 3.1 | 25 | 84 | 200 --[p186]-- For a radius of 100 [mm], the 5x5 [mm] die is bend 0.25 [mm]."
+  },
+  {
+    "query_id": "P51-24",
+    "query": "书里说 JR 夹 40 V 供电、1 μm 气隙就能到 450–1800 Pa,听着比电容式夹强多了,那为什么电容式夹还要防着 JR 效应?先查 JR 在电容夹里引起的两个问题,再查材料上怎么避免。",
+    "task_type": "工具编排",
+    "difficulty": "hard",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 5,
+    "gold_standard": "第一跳:JR 夹性能(K.4.2.1):40 V 供电时气隙分压 10~20 V,1 μm 气隙可得 450–1800 Pa,比同等电压下的电容式夹大得多。第二跳:JR 力建立在电容夹中有两个负面效应(K.8.4):电荷再分配使夹持力损失、电荷再分配导致难释放(气隙残留电荷);出现条件是电阻分压比与电容分压比差异很大(V_air_JR<V_air_CC→劣化,>→难释放)。第三跳:避免方法(K.8.4.2):为实现快速释压,最好不建立 JR 力,采用高电阻率绝缘体(电容式夹优选 >1×10¹⁶ Ω·cm)。",
+    "success_criteria": "按 JR 压力优势→两个负面效应及判据→高电阻率绝缘体避免 三层作答,引用 450–1800 Pa、10¹⁶ Ω·cm 等数值,检索跨越多节。",
+    "evidence": "--[p198]-- The obtained pressure is now in the range of 450 – 1800 [Pa], for an air gap of 1 μm. Comparing this to Fig. 7‐2 it is obvious that much larger clamping forces can be obtained using a JR clamp as compared to a capacitive clamp for similar clamping voltages. --[p198]-- For the capacitive clamp a very high resistivity is preferred (>1·10^16 [Ω∙cm]). --[p205]-- Charge redistribution causes loss of clamping force; Charge redistribution leads to difficult release (residual charges in air gap). --[p207]-- Therefore, for fast declamping, it is preferred not to build up JR forces. This can be accomplished by using an insulator with a high resistivity."
+  },
+  {
+    "query_id": "P51-25",
+    "query": "新方案同时卡 1 μm 精度和 5 颗/秒两条指标,误差树里哪一项贡献最大?为什么吞吐要求提上去以后这个问题会更糟,书里给的出路是什么?",
+    "task_type": "信息查询",
+    "difficulty": "hard",
+    "source_id": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+    "required_tools": [
+      "检索知识库"
+    ],
+    "expected_rounds": 4,
+    "gold_standard": "需求侧:2016 目标需要 1 μm 放置精度(TSV 变小所致)和 5 dies/sec 的贴装率,市场尚无满足该性能的设备;误差树中反作用力(reaction forces)贡献最大,现有机器传播后 4.0 μm(初始幅值 5-60 μm);为了满足 1 μm 精度和 5 dies/sec 需要更高的 jerk、加速度和速度,振动贡献只会进一步增加、精度继续恶化;出路是降低反作用力或其影响。",
+    "success_criteria": "答出 1 μm/5 dies/sec 需求、反作用力贡献最大(传播后 4.0 μm)、吞吐提高使振动恶化、出路为降低反作用力或其影响,链条完整。",
+    "evidence": "--[p26]-- Placement accuracies of down to 1 [μm] are needed for the 2016 target as a result of smaller TSV dimensions. And a placement rate of 5 dies/sec are required to make this a cost effective solution. A market analysis has shown that equipment which is capable of this performance does not yet exist --[p36]-- With the increased jerk, accelerations and velocity required to fulfill the throughput requirement, the vibrations contribution will only increase, thereby deteriorating accuracy further. To make the newly developed alignment system work for the new requirements (1 [μm] placement accuracy and 5 dies/sec. throughput), the reaction forces or their effect should be reduced. --[p36 [表]]-- Reaction forces | 5-60 | Initial amplitudes | 4.0 | 2.0"
+  }
+]

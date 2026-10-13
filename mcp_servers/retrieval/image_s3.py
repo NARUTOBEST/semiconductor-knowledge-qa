@@ -24,7 +24,7 @@ import sys
 import threading
 
 _HERE = os.path.dirname(os.path.abspath(__file__))                 # mcp_servers/retrieval
-_PROJECT = os.path.dirname(_HERE)                                  # project root
+_PROJECT = os.path.dirname(os.path.dirname(_HERE))                 # project root(上溯 2 级)
 _CONFIG = os.path.join(_PROJECT, "config")
 if _CONFIG not in sys.path:
     sys.path.insert(0, _CONFIG)
@@ -33,6 +33,7 @@ import config as C  # noqa: E402
 
 _client = None
 _video_client = None
+_cfg_resolved = None
 _lock = threading.Lock()
 
 
@@ -69,18 +70,42 @@ def _make_client(endpoint, ak, sk, region, path_style):
     )
 
 
+def _storage_config():
+    """返回真正带 TOS_*/VID_* 配置的 config 模块。
+
+    顶部 ``import config as C`` 在某些 import 顺序下会被项目根的 config/
+    目录(namespace 包)抢占(后端容器内 server 先于检索模块加载时就会),
+    此时 C 上没有存储配置——按文件路径显式加载兜底;C 正常时原样返回,
+    行为与原来完全一致。
+    """
+    global _cfg_resolved
+    if _cfg_resolved is not None:
+        return _cfg_resolved
+    if hasattr(C, "TOS_BUCKET") and hasattr(C, "TOS_URL_EXPIRES"):
+        _cfg_resolved = C
+        return C
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "_retrieval_storage_config", os.path.join(_CONFIG, "config.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    _cfg_resolved = mod
+    return mod
+
+
 def get_s3():
     """懒加载图片存储客户端(TOS)。未配置返回 None。"""
     global _client
     if _client is not None:
         return _client
-    if not C.TOS_ENABLED:
+    cfg = _storage_config()
+    if not cfg.TOS_ENABLED:
         return None
     with _lock:
         if _client is None:
-            _client = _make_client(C.TOS_ENDPOINT, C.TOS_ACCESS_KEY,
-                                   C.TOS_SECRET_KEY, C.TOS_REGION,
-                                   C.TOS_USE_PATH_STYLE)
+            _client = _make_client(cfg.TOS_ENDPOINT, cfg.TOS_ACCESS_KEY,
+                                   cfg.TOS_SECRET_KEY, cfg.TOS_REGION,
+                                   cfg.TOS_USE_PATH_STYLE)
     return _client
 
 
@@ -93,13 +118,14 @@ def get_s3_video():
     global _video_client
     if _video_client is not None:
         return _video_client
-    if not getattr(C, "VID_ENABLED", False):
+    cfg = _storage_config()
+    if not getattr(cfg, "VID_ENABLED", False):
         return get_s3()                     # 未配 VID_*:视频与图片同存储
     with _lock:
         if _video_client is None:
-            _video_client = _make_client(C.VID_ENDPOINT, C.VID_ACCESS_KEY,
-                                         C.VID_SECRET_KEY, C.VID_REGION,
-                                         C.VID_USE_PATH_STYLE)
+            _video_client = _make_client(cfg.VID_ENDPOINT, cfg.VID_ACCESS_KEY,
+                                         cfg.VID_SECRET_KEY, cfg.VID_REGION,
+                                         cfg.VID_USE_PATH_STYLE)
     return _video_client
 
 
@@ -152,6 +178,10 @@ def _abs_to_key_with_prefix(abs_path, prefix):
     first = rel.split("/", 1)[0].lower()
     if first not in _MODALITY_DIRS:
         rel = "pdf/" + rel          # 旧 PDF payload 缺模态段,补回 pdf/
+    if first == "cad":
+        # CAD 渲染图只存桶根(根级 CAD/ 对 qingxi/CAD 100% 同名同大小覆盖,
+        # qingxi/CAD 已删除);页图等其余模态仍走 qingxi/ 前缀。
+        return rel
     return (prefix + "/" + rel) if prefix else rel
 
 
@@ -212,12 +242,160 @@ def _ensure_basename_index():
     return _basename_idx
 
 
-def _sign_key(s3, key, bucket):
+def _sign_key(s3, key, bucket, inline=False, content_type=None):
+    params = {"Bucket": bucket, "Key": key}
+    if inline:
+        # 显式内联:覆盖桶/对象上的强制下载元数据,浏览器直接预览
+        params["ResponseContentDisposition"] = "inline"
+    if content_type:
+        # 覆盖对象存储的 Content-Type(存量对象多为 binary/octet-stream,
+        # 浏览器不认会变下载;按扩展名补正确类型才能在线预览)
+        params["ResponseContentType"] = content_type
     return s3.generate_presigned_url(
         "get_object",
-        Params={"Bucket": bucket, "Key": key},
+        Params=params,
         ExpiresIn=C.TOS_URL_EXPIRES,
     )
+
+
+# 按扩展名判用途:文档(inline 预览)/视频(独立桶)/浏览器 Content-Type
+_DOC_EXTS = {".pdf", ".docx", ".doc", ".pptx", ".ppt", ".xlsx", ".xls"}
+_VIDEO_EXTS = {".mp4", ".mov", ".avi", ".mkv", ".webm", ".mpeg", ".mpg",
+               ".m4v", ".wmv", ".flv", ".ts"}
+_CONTENT_TYPES = {
+    ".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg", ".gif": "image/gif", ".webp": "image/webp",
+    ".bmp": "image/bmp", ".mp4": "video/mp4", ".webm": "video/webm",
+}
+
+
+def doc_proxy_url(key):
+    """文档对象 key -> 后端在线预览代理 URL(相对路径,HMAC 签名 + 时效)。
+
+    TOS 桶开启强制下载,预签名里的 response-content-disposition=inline 会被
+    无视(attachment;filename 能盖,inline 不能),直链点了只会落盘下载;
+    代理端点由后端强制 inline 返回,浏览器才能在线预览。
+    未配置 JWT_SECRET 的进程(如 GPU 上的检索微服务)返回 None,调用方回落
+    预签名直链(1h 内仍可下载打开)。
+    """
+    secret = os.getenv("JWT_SECRET", "")
+    if not secret or not key:
+        return None
+    try:
+        import hmac
+        import hashlib
+        import time as _t
+        from urllib.parse import quote as _q
+        cfg = _storage_config()
+        exp = int(_t.time()) + int(cfg.TOS_URL_EXPIRES)
+        sig = hmac.new(secret.encode(), f"doc|{key}|{exp}".encode(),
+                       hashlib.sha256).hexdigest()
+        return f"/api/media/doc?key={_q(str(key), safe='')}&exp={exp}&sig={sig}"
+    except Exception:
+        return None
+
+
+def verify_doc_proxy(key, exp, sig):
+    """校验 doc_proxy_url 生成的签名;过期/篡改/未配置密钥一律 False。"""
+    secret = os.getenv("JWT_SECRET", "")
+    if not secret or not key or not sig:
+        return False
+    try:
+        import hmac
+        import hashlib
+        want = hmac.new(secret.encode(), f"doc|{key}|{int(exp)}".encode(),
+                        hashlib.sha256).hexdigest()
+        return hmac.compare_digest(want, str(sig))
+    except Exception:
+        return False
+
+
+def resign_url(url):
+    """历史消息里的预签名 URL 用当前凭证重签,过期会话回看仍可打开。
+
+    仅处理本存储体系(TOS/VID 端点主机,虚拟主机或 path 风格都识别)的 URL:
+    从 URL path 反解对象 key,按扩展名选图片/视频桶并补 inline/Content-Type。
+    外链(旧 OSS 时代、第三方站点)与无法签名时原样返回,绝不抛错。
+    """
+    if not url or not isinstance(url, str) or not (
+            url.startswith(("http://", "https://")) or url.startswith("/api/media/doc")):
+        return url
+    try:
+        from urllib.parse import urlsplit, unquote, parse_qs
+        cfg = _storage_config()
+        sp = urlsplit(url)
+        # 已是本代理链接(前端同步回存过):只需按当前密钥重签,别当外链放走
+        if sp.path == "/api/media/doc":
+            k = (parse_qs(sp.query).get("key") or [""])[0]
+            return doc_proxy_url(k) or url
+        host = (sp.hostname or "").lower()
+        eps = set()
+        for ep in (getattr(cfg, "TOS_ENDPOINT", ""), getattr(cfg, "VID_ENDPOINT", "")):
+            if ep:
+                h = urlsplit(ep if "://" in ep else "https://" + ep).hostname
+                if h:
+                    eps.add(h.lower())
+        # 虚拟主机风格 bucket.tos-s3-xx.volces.com / bucket.oss-xx.aliyuncs.com
+        if not any(host == ep or host.endswith("." + ep) for ep in eps):
+            # 旧媒体存储(my-image-bucket-lly.oss-*.aliyuncs.com)对象已迁往 TOS:
+            # 文档 qingxi/docs/<rel> -> <extdir>/<rel>(与 docs_key 同规则),
+            # 视频 qingxi/mp4/<rel> -> 原 key(视频在 TOS 同路径)。其余外链不处理。
+            if not host.endswith(".aliyuncs.com"):
+                return url
+            key = unquote(sp.path).lstrip("/")
+            if key.startswith("qingxi/docs/"):
+                rel = key[len("qingxi/docs/"):]
+                d = _DOCS_EXT_DIR.get(os.path.splitext(rel)[1].lower())
+                if not d:
+                    return url
+                key = d + "/" + rel
+            elif not key.startswith("qingxi/mp4/"):
+                return url
+        else:
+            key = unquote(sp.path).lstrip("/")
+        if not key:
+            return url
+        if key.lower().startswith("qingxi/cad/"):
+            # 历史消息缓存过 qingxi/CAD 的签名 URL;该前缀已删除,重签时剥前缀
+            # 指向桶根 CAD/(内容 100% 一致,见 abs_to_key 的 CAD 注释)。
+            key = key[len("qingxi/"):]
+        ext = os.path.splitext(key)[1].lower()
+        # 文档优先走后端代理(桶强制下载,直链无法 inline 预览);
+        # 无 JWT_SECRET 时返回 None,继续走下面的预签名直链
+        if ext in _DOC_EXTS:
+            p = doc_proxy_url(key)
+            if p:
+                return p
+        is_video = ext in _VIDEO_EXTS
+        s3 = get_s3_video() if is_video else get_s3()
+        if s3 is None:
+            return url
+        bucket = (cfg.VID_BUCKET if getattr(cfg, "VID_ENABLED", False) else cfg.TOS_BUCKET) \
+            if is_video else cfg.TOS_BUCKET
+        params = {"Bucket": bucket, "Key": key}
+        if ext in _DOC_EXTS:
+            params["ResponseContentDisposition"] = "inline"
+        ctype = _CONTENT_TYPES.get(ext)
+        if ctype:
+            params["ResponseContentType"] = ctype
+        return s3.generate_presigned_url("get_object", Params=params,
+                                         ExpiresIn=int(cfg.TOS_URL_EXPIRES))
+    except Exception:
+        return url
+
+
+def presigned(key, inline=False):
+    """已验证存在的 TOS 对象 key(如入库时写入的 doc_key/video_key/image_key)
+    -> 预签名 HTTPS 链接;跳过路径换算。不可签名返回 None(调用方回落路径换算)。"""
+    if not key:
+        return None
+    s3 = get_s3()
+    if s3 is None:
+        return None
+    try:
+        return _sign_key(s3, str(key), C.TOS_BUCKET, inline=inline)
+    except Exception:
+        return None
 
 
 def image_url(path):
@@ -268,3 +446,64 @@ def video_url(path):
         return _sign_key(s3, key, bucket)
     except Exception:
         return path
+
+
+# ---- 原始文档(答案来源在线打开)----
+# 文档本体在资料根目录(D:\\180-半导体设备相关资料！),已按扩展名分存 TOS:
+# pdf/ docx/ pptx/ xlsx/ + <资料根相对路径>(上传脚本按 D:\\oss 镜像层级入桶)。
+# source_path 里带着资料根目录名,据此换算;不再依赖 VID_* 独立视频桶
+# (该桶已废弃,视频/文档统一回落 TOS)。
+_DOCS_MARKER = "180-半导体设备相关资料！"
+_SPLIT_STEM_RE = re.compile(r"^(.*)_p(\d+)-(\d+)$")   # 大 PDF 清洗拆分段 <stem>_p<x>-<y>
+_DOCS_EXT_DIR = {".pdf": "pdf", ".doc": "docx", ".docx": "docx",
+                 ".ppt": "pptx", ".pptx": "pptx", ".xls": "xlsx", ".xlsx": "xlsx"}
+
+
+def docs_key(source_path):
+    """payload source_path -> 文档对象 key;不可映射返回 None。
+
+    - 取资料根目录名之后的相对路径,按扩展名补模态目录段:
+      <rel> -> pdf/<rel> / docx/<rel> / pptx/<rel> / xlsx/<rel>(TOS);
+    - 清洗期大 PDF 的拆分段文件(<stem>_p<x>-<y>.pdf)是临时产物已删,
+      重映射回同目录原合集 <stem>.pdf(SEMI 标准合集等 171 个分段由此还原)。
+    """
+    if not source_path:
+        return None
+    s = str(source_path).replace("\\", "/")
+    i = s.rfind(_DOCS_MARKER)
+    if i < 0:
+        return None
+    rel = s[i + len(_DOCS_MARKER):].lstrip("/")
+    if not rel:
+        return None
+    dirn, base = (rel.rsplit("/", 1) + [""])[:2] if "/" in rel else ("", rel)
+    stem, ext = os.path.splitext(base)
+    m = _SPLIT_STEM_RE.match(stem)
+    if m and ext.lower() in (".pdf", ".ppt", ".pptx", ".doc", ".docx"):
+        base = m.group(1) + ext
+        rel = (dirn + "/" + base) if dirn else base
+    d = _DOCS_EXT_DIR.get(ext.lower())
+    if not d:
+        return None
+    return d + "/" + rel
+
+
+def doc_url(source_path):
+    """文档 source_path -> 预签名 HTTPS 链接(浏览器内联打开,不落下载)。
+
+    ResponseContentDisposition=inline 显式覆盖:即便对象/桶带强制下载元数据,
+    签名参数也把浏览器行为掰回内联预览(PDF 直接看,PPT/DOC 走下载或预览)。
+    文档统一在 TOS。不可映射/未配置存储返回 ""(前端按无链接渲染)。
+    """
+    if not source_path:
+        return ""
+    s3 = get_s3()
+    if s3 is None:
+        return ""
+    try:
+        key = docs_key(source_path)
+        if not key:
+            return ""
+        return _sign_key(s3, key, C.TOS_BUCKET, inline=True)
+    except Exception:
+        return ""

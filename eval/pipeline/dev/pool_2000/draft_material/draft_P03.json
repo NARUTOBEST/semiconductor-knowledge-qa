@@ -1,0 +1,358 @@
+[
+ {
+  "query_id": "P03-01",
+  "query": "我们新到一台带气体注入系统的双束设备，前驱体清单里有瓶氙二氟化物（XeF2），在这本书里它登记的主要用途是刻蚀什么材料？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "商用GIS前驱体表中，Xenon difluoride（XeF2）的功能为 silicon etching，即用于硅刻蚀。",
+  "success_criteria": "答出'XeF2 用于硅（silicon）刻蚀'即通过；答成金属沉积或其他材料刻蚀不通过。",
+  "evidence": "--[p187]-- Xenon difluoride | XeF2 | silicon etching"
+ },
+ {
+  "query_id": "P03-02",
+  "query": "用电子束诱导沉积（FEBID）做钴纳米线，想让钴含量达到90%以上，束流大概要开到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在所考察的参数范围内，束流高于2 nA时Co原子百分比约90%或更高（约95%）；低于2 nA时Co含量通常约80%或更低。束流是决定纳米沉积成分的主要参数。",
+  "success_criteria": "必须答出'束流高于2 nA时Co含量约90%以上'且给出nA单位；只答'加大电流'而无数值不通过。",
+  "evidence": "--[p42]-- At all beam energies, for beam currents above 2 nA, the Co content in atomic percentage is around 90% or more, whereas for lower currents the Co content is typically around 80% or less."
+ },
+ {
+  "query_id": "P03-03",
+  "query": "听说用FIB诱导沉积钨基纳米结构能得到超导，这本书里报道的超导转变温度大概是多少K？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "FIBID用W(CO)6作前驱体可得到较高Tc约5.4 K的超导纳米沉积；所研究的两类纳米/微米线Tc均在4.6–5.4 K范围，典型纳米线在Tc约5 K处呈现陡峭超导转变。",
+  "success_criteria": "答出Tc约5~5.4 K（允许给出4.6–5.4 K范围）即通过；单位必须为K。",
+  "evidence": "--[p195]-- It has been recently found that FIBID is able to produce superconducting nanodeposits with relatively high Tc ~ 5.4 K using W(CO)6 as the precursor gas [28]."
+ },
+ {
+  "query_id": "P03-04",
+  "query": "InP晶片在空气中放久了表面会生成一层天然氧化物，书里用微椭偏仪实测的这层氧化物有多厚？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "用微椭偏仪（microellipsometry）测得InP天然氧化物厚度为1.5 nm，与已发表结果吻合；这层天然氧化物起刻蚀掩模作用，会抑制碘与InP的自发反应。",
+  "success_criteria": "答出1.5 nm且单位为nm即通过。",
+  "evidence": "--[p102]-- The thickness of the native oxide was measured by microellipsometry to be 1.5 nm, agreeing well with previously published results [12; 13]."
+ },
+ {
+  "query_id": "P03-05",
+  "query": "我要用FIBID给碳纳米管做金属接触，铂碳纳米线至少要沉积多厚、线宽取多少才接触可靠？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "为可靠接触纳米结构，Pt-C纳米线厚度至少约50 nm，宽度取w=2~3t（即约100–150 nm）。",
+  "success_criteria": "答出'厚度≥50 nm'且答出'宽度为厚度的2~3倍'两个要点即通过。",
+  "evidence": "--[p58]-- To sum up, for reliable contacting of nanostructures using FIBID, Pt-C nanowires with thickness at least t 50 nm (and width w = 2 ÷ 3 t) should be used."
+ },
+ {
+  "query_id": "P03-06",
+  "query": "打算采购四甲基锡做电子束诱导沉积的锡源，走安全审批需要闪点和半数致死量数据，书里的表格给的是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Sn(CH3)4（四甲基锡）：闪点-12°C（9°F），毒性LD50为195 mg/kg，备注可用于SnO2的CVD。",
+  "success_criteria": "答出闪点-12°C和LD50=195 mg/kg两个数值即通过，单位/条件需正确。",
+  "evidence": "--[p130]-- Sn(CH3)4 | -'For CVD of SnO2' -flashpoint: -12°C (9°F) -toxicity, LD50: 195 mg/kg -Pvap (20°)=19 mm Hg"
+ },
+ {
+  "query_id": "P03-07",
+  "query": "做电子束光刻时曝光的step grid该怎么定？我们的FEG枪束径约2 nm，最大步距能设到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "均匀曝光时合适的step grid取电子束束径的一半；束径约2 nm的FEG最大step grid为1 nm（作为对比，束径30 nm的常规SEM最大为15 nm）。",
+  "success_criteria": "答出'step grid=束径一半'且给出FEG 2 nm束径对应最大1 nm即通过。",
+  "evidence": "--[p253]-- For a homogenous exposure an appropriate value for the step grid is half of the electron beam diameter. For a FEG (field emission gun) that has a beam diameter around 2 nm, the maximum step grid must be 1 nm"
+ },
+ {
+  "query_id": "P03-08",
+  "query": "书里比较Pt和W细纳米线时给了沉积态电阻率300和600微欧·厘米，又说W线经过电迁移处理后骤降到50微欧·厘米，降幅是几倍？帮我算一下。",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "沉积态W线电阻率300 μΩ·cm，施加0~2.5 V斜坡电压（焦耳效应）处理后骤降至50 μΩ·cm，降幅为300/50=6倍。",
+  "success_criteria": "算式300÷50=6（倍）即通过；需同时给出300与50 μΩ·cm两个原始数值。",
+  "evidence": "--[p62]-- Resistivities of 300 μΩ cm and 600 μΩ cm for as-deposited tungsten and platinum wires, respectively, were measured. …… Above a threshold of 2.5 V, the W wire resistivity decreased drastically to 50 μΩ cm (only an order of magnitude higher than that for bulk)."
+ },
+ {
+  "query_id": "P03-09",
+  "query": "想用聚焦束做锡的刻蚀，同事推荐XeF2，这本书里对XeF2作为刻蚀气体的挥发性和分解特性是怎么描述的？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "XeF2是挥发性晶体化合物，升华点114°C；每个分子提供2个F原子和1个惰性气体Xe原子，在表面不留下可能成为刻蚀终止'外壳'的固体残留物；XeF2还可用于刻蚀许多其他元素。",
+  "success_criteria": "答出升华点114°C、每分子2个F原子、无固体残留三个要点中至少两个即通过。",
+  "evidence": "--[p134]-- XeF2 is a volatile crystalline compound (sublimation point 114°C), which yields 2 F atoms per molecule and 1 atom of the inert gas Xe, leaving no solid residue (which could act as an etch-stopping \"crust\") on the surface."
+ },
+ {
+  "query_id": "P03-10",
+  "query": "FIBID沉积的超导钨纳米沉积物里除了钨还有什么？各组分的原子占比大概是多少，为什么Tc反而比晶态钨高？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "纳米沉积主要由W约43%、C约40%、Ga约10%、O约7%组成；TEM研究表明沉积物为非晶态，这正是其Tc比晶态钨高的原因。",
+  "success_criteria": "答出W≈43%、C≈40%、Ga≈10%、O≈7%且指出非晶结构解释高Tc即通过。",
+  "evidence": "--[p195]-- the nanodeposit composition is mainly formed by W (~43%), C (~40%), Ga (~10%) and O (~7%). TEM studies indicate that the nature of the deposit is amorphous [30], which explains the high Tc in comparison with crystalline W."
+ },
+ {
+  "query_id": "P03-11",
+  "query": "电子束诱导沉积二氧化硅用TMOS不加氧化剂时沉积物成分是什么？另外加氧气后能不能做到接近化学计量比？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "由TMOS沉积的硅氧化物经俄歇电子能谱测定为42% Si、40% O、18% C；额外加入O2过量时，TMOS、TEOS、TMCTS、PMCPS四种前驱体都能沉积出接近化学计量比（33% Si、67% O）的硅氧化物，碳污染几乎消除。",
+  "success_criteria": "答出TMOS无O2时42%Si/40%O/18%C，且答出加O2后33%Si/67%O即通过。",
+  "evidence": "--[p154]-- For silicon oxide deposited from TMOS the chemical composition of the deposited silicon oxide was determined as 42% silicon, 40% oxygen, and 18% carbon by Auger electron spectroscopy [16]. …… with an excess of O2 added to the process, all four of these Si-precursors allowed the deposition of silicon oxide with an almost stoichiometric composition of 33% Si and 67% O"
+ },
+ {
+  "query_id": "P03-12",
+  "query": "气路系统选材：常规真空件用316L不锈钢，它的合金成分范围是？如果前驱体是卤化物这类高反应性气体，书里推荐换什么材料？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "常用316L含钼奥氏体不锈钢，成分为：&lt;0.03% C、16–18.5% Cr、10–14% Ni、2–3% Mo、&lt;2% Mn、&lt;1% Si、&lt;0.045% P、&lt;0.03% S，钼使其在含氯环境耐蚀；对高反应性卤化物前驱体（遇残余水汽生成氢氟/氢氯/氢溴酸），推荐Monel、Inconel、Hastelloy等镍基高温合金，其机械强度高于纯镍且极耐蚀、非铁磁。",
+  "success_criteria": "答出316L的Cr 16–18.5%、Ni 10–14%、Mo 2–3%关键区间，并答出Monel/Inconel/Hastelloy镍基合金即通过。",
+  "evidence": "--[p170]-- Especially 316L molybdenum-bearing-grade steel is used. This austenitic steel contains additions of &lt;0.03% C, 16–18.5% Cr, 10–14% Ni, 2–3% Mo, &lt;2% Mn, &lt;1% Si, &lt;0.045% P, &lt;0.03% S. …… For highly reactive precursors, e.g., halogenides, which react with residual moisture forming hydrofluoric, hydrochloric, or hydrobromic acid, special Ni-based superalloys such as Monel™, Inconel™, and Hastelloy™ can be used [60]."
+ },
+ {
+  "query_id": "P03-13",
+  "query": "FIBID做并联铂电极时halo效应会引起极间漏电，间隙从1微米拉大到3微米漏电流能降多少？换成钨焊盘漏电情况如何？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Pt焊盘间隙从1 μm增大到3 μm时漏电流下降一个数量级（1 μm间隙、0.2 mV偏压下为0.25 μA）；W接触焊盘漏电流显著更低：1 μm间隙检测不到电流，0.5 μm间隙为0.25 μA。另外O2等离子体处理可显著降低薄halo沉积的漏电流。",
+  "success_criteria": "答出'间隙1→3 μm漏电降一个数量级（1 μm时0.25 μA@0.2 mV）'并答出W焊盘漏电显著更低（1 μm不可检）即通过。",
+  "evidence": "--[p63]-- For Pt pads, leakage current was found to decrease an order of magnitude with gap increasing from 1 to 3 μm (for 1 μm gap, 0.25 μA at 0.2 mV bias). Significantly lower leak currents were detected for W contact pads where gaps varied from 0.5 to 1 μm (no detectable currents for gaps 1 μm, 0.25 μA for 0.5 μm gap)."
+ },
+ {
+  "query_id": "P03-14",
+  "query": "FEBID钴纳米线的饱和磁化强度做到什么水平、相当于体材料百分之多少？它的各向异性磁电阻AMR在室温下有多大？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "由普通霍尔效应与反常霍尔效应线性区交点（300 K下1.42 T）并计入几何退磁因子，得饱和磁化强度Ms=1329±20 emu/cm³，相当于体Co值的97%；300 K时AMR为正、约0.65–0.7%，降温到25 K时升至约0.8%。",
+  "success_criteria": "答出Ms=1329±20 emu/cm³（约97%体Co值）与AMR约0.65–0.7%@300 K即通过。",
+  "evidence": "--[p44]-- we find a saturation magnetization Ms = 1329 ± 20 emu/cm³, corresponding to 97% of the bulk Co value. …… The value at 300 K is positive, around 0.65–0.7%, as previously found in Co NWs [42] and thin films [52]."
+ },
+ {
+  "query_id": "P03-15",
+  "query": "书里说FIBID铂纳米线厚膜电阻率饱和在约700微欧·厘米、约为体铂的65倍，倒推一下体铂电阻率应该是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "700 μΩ·cm ÷ 65 ≈ 10.8 μΩ·cm ≈ 1.1×10⁻⁵ Ω·cm，与书中另处给出的体铂值1.06×10⁻⁵ Ω·cm一致（允许约1.0–1.1×10⁻⁵ Ω·cm）。",
+  "success_criteria": "算式700÷65≈10.8 μΩ·cm（约1.1×10⁻⁵ Ω·cm）即通过；若答出与1.06×10⁻⁵ Ω·cm相符更佳。",
+  "evidence": "--[p193]-- From that moment on, ρ decreases slightly, saturating to a constant value of ~700 μΩ cm (around 65 times higher than the value for bulk Pt) for t&gt;150 nm. …… [p56] These values are about two orders of magnitude higher compared with that for bulk Pt, 1.06×10⁻⁵ Ω cm."
+ },
+ {
+  "query_id": "P03-16",
+  "query": "碘辅助刻蚀InP在200°C台阶温度下最大刻蚀速率83.2 μm³/nC，据说是溅射速率的66倍，帮我反推一下InP的物理溅射速率是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "溅射速率 = 83.2 μm³/nC ÷ 66 ≈ 1.26 μm³/nC，与书中表19.1实测的溅射速率1.27 μm³/nC相符（23°C）。",
+  "success_criteria": "算式83.2÷66≈1.26 μm³/nC即通过；结果落在1.2–1.3 μm³/nC且指出与表19.1的1.27一致为佳。",
+  "evidence": "--[p104]-- InI3 starts to desorb above ~80°C [6] and a maximum etching rate of 83.2 μm³/nC occurs at 200°C stage temperature, a 66-fold increase over the sputter rate. …… [p106] Sputtering | 23 | 20 | 1.27"
+ },
+ {
+  "query_id": "P03-17",
+  "query": "电子束沉积氧化硅对比了TEOS、TMOS、TMCTS、PMCPS四种硅前驱体（都加O2），PMCPS的沉积速率比TEOS高多少倍？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "表21.7中沉积速率：TEOS 0.039 μm³/nC，TMOS 0.078，TMCTS 0.183，PMCPS 0.278；PMCPS/TEOS = 0.278/0.039 ≈ 7.1倍（约7倍）。",
+  "success_criteria": "算式0.278÷0.039≈7.1（倍）即通过；答'约7倍'可接受。",
+  "evidence": "--[p151]-- Table 21.7 Comparison of deposition rates with different Si-precursors. …… deposition rate [μm³/nC] | 0.039 | 0.078 | 0.183 | 0.278 …… [p152] Up to a 7-fold increase of silicon oxide deposition rate was observed due to the addition of O2."
+ },
+ {
+  "query_id": "P03-18",
+  "query": "我们做FIBID铂纳米线用的那种甲基环戊二烯三甲基铂，想确认它在商用气体注入系统的前驱体表里登记的用途是什么，你先查一下这本书里Pt-C纳米线沉积用的前驱体化学式，再去前驱体功能表里核对这个分子。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步检索得FIBID铂纳米线沉积用前驱体为(CH3)3Pt(CpCH3)（methylcyclopentadienyl-trimethyl platinum，甲基环戊二烯三甲基铂，前驱体温度35°C）；第二步检索商用GIS前驱体表确认该分子登记为'Methyl-cyclopentadienyl-(trimethyl) platinum | (CH3)(CH3C5H4)Pt | platinum deposition'，即用于铂沉积。",
+  "success_criteria": "两跳齐全：先答出前驱体(CH3)3Pt(CpCH3)，再答出商用GIS表中功能为platinum deposition（铂沉积）即通过。",
+  "evidence": "--[p192]-- In our case we use the following deposition parameters: (CH3)3Pt(CpCH3) precursor gas, (TG) = 35°C precursor temperature …… [p187]-- Methyl-cyclopentadienyl-(trimethyl) platinum | (CH3)3(CH3C5H4)Pt | platinum deposition"
+ },
+ {
+  "query_id": "P03-19",
+  "query": "FIBID做超导钨纳米结构用的前驱体是哪个分子？查到之后，再看看书里还有哪个章节用同一个分子做过沉积过程的原位电阻测量。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "第一跳：FIBID超导钨纳米沉积用前驱体为W(CO)6（六羰基钨，Tc约5.4 K）；第二跳：原位电阻测量章节报道W(CO)6（文献20–23）是FEB/FIB沉积原位电阻测量的分子之一。两处为同一分子。",
+  "success_criteria": "先答出W(CO)6，再答出该分子也被用于沉积过程原位电阻测量（in situ resistance measurements）即通过。",
+  "evidence": "--[p195]-- It has been recently found that FIBID is able to produce superconducting nanodeposits with relatively high Tc ~ 5.4 K using W(CO)6 as the precursor gas [28]. …… [p462]-- In situ resistance measurements during FEB/FIB deposition were reported for the molecules W(CO)6 [20–23], (CH3)3PtCpCH3 [24–27], Pd(F6acac)2 [23] and acrylic acid [1]."
+ },
+ {
+  "query_id": "P03-20",
+  "query": "我想把深反应离子刻蚀（DRIE）博世工艺的刻蚀/钝化循环参数和侧壁粗糙度数据也整理进调研报告，这本书里有没有这部分内容？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及DRIE博世工艺的刻蚀/钝化循环参数，也没有相应的侧壁粗糙度数据；书中仅在讨论FIB刻蚀InP光子晶体空气孔粗糙度时提到，作为对比，ICP-RIE对InP/InGaAsP可达到约3 nm rms的先进水平。系统应正确说明未收录该信息，不得编造循环参数。",
+  "success_criteria": "明确答'书中未涉及DRIE博世工艺循环参数'并建议/说明仅有ICP-RIE约3 nm rms的对比数据即通过；给出任何编造的循环参数判不通过。",
+  "evidence": "--[p107]-- As a comparison, for PhC air holes, 5 nm rms roughness is close to the state-of-the-art 3 nm rms obtained by ICP-RIE for InP/InGaAsP [21] and SOI PhC slab waveguides [22]."
+ },
+ {
+  "query_id": "P03-21",
+  "query": "碘辅助FIB刻蚀InP从室温升到350°C，刻蚀速率一路怎么变？为什么温度升到350°C速率反而掉下来、表面还变光滑了？把几个温度点的倍数关系给我捋一遍。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "①室温（23°C）：FIB-GAE速率较物理溅射增强15倍，达19 μm³/nC；②150°C：刻蚀速率为溅射的51倍（64.8 μm³/nC），被选为兼顾速率与粗糙度的折中工艺点；③200°C：出现最大刻蚀速率83.2 μm³/nC，为溅射的66倍（归因于InI3自发热脱附）；④200°C以上速率下降（I2在热表面停留时间过短）；⑤330°C以上InI3分解为非挥发的InI和InI2及挥发性I2，InIx(x=1,2)形成钝化层，导致350°C刻蚀速率降低、表面重新变光滑。",
+  "success_criteria": "须覆盖：室温15倍/19 μm³/nC、150°C 51倍、200°C最大83.2 μm³/nC（66倍）、330°C以上InI3分解生成钝化层致350°C速率下降。四项全中为通过，缺200°C最大值或330°C机理判不通过。",
+  "evidence": "--[p102]-- FIB-GAE etching rate was enhanced 15-fold (to 19 μm³/nC) compared to physical sputtering …… [p106]-- At this temperature, the etch rate of InP is 51-fold larger than the sputter rate. …… [p104]-- InI3 starts to desorb above ~80°C [6] and a maximum etching rate of 83.2 μm³/nC occurs at 200°C stage temperature, a 66-fold increase over the sputter rate. …… [p106]-- Above 330°C, InI3 decomposes into non-volatile InI and InI2 and volatile I2 [6]. InIx (x = 1, 2) forms a passivating layer, which leads to a decreased etching rate at 350°C"
+ },
+ {
+  "query_id": "P03-22",
+  "query": "FIBID铂碳薄膜的成分和电阻率都随厚度变：从薄到厚组分怎么变、电阻率分哪两个变化区间、临界厚度是多少，书里是怎么解释这种梯度成因的？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "①组分随厚度变化：EDX显示由25–50 nm厚的Pt:C:Ga=18:68:14 at.%变为250 nm厚的Pt:C:Ga=35:40:25 at.%（薄膜富碳，随厚度增大Pt和Ga含量升高）；②电阻率两个区间：随厚度增加先从极高值骤降到约(2–3)×10⁻³ Ω·cm，随后缓慢变化，在100–200 nm厚膜达到(0.7–1.0)×10⁻³ Ω·cm；③临界厚度tcrit约50 nm（另有报道15–20 nm）；④成因解释：沉积初期衬底是SiO2、约50 nm沉积后变为Pt-C-Ga膜，束与衬底相互作用条件改变（SiO2在keV离子辐照下二次电子产额大幅下降），界面层富碳，因此薄膜越厚金属含量越高。",
+  "success_criteria": "须答出：组分18:68:14→35:40:25、电阻率先骤降至(2–3)×10⁻³后缓降至(0.7–1.0)×10⁻³ Ω·cm、tcrit≈50 nm、SiO2→Pt-C-Ga衬底演变机理。四项全中通过，缺机理项不通过。",
+  "evidence": "--[p57]-- detailed analysis of atomic composition in the films by EDX has shown that it is thickness dependent, and changes from Pt:C:Ga = 18:68:14 at.% to Pt:C:Ga = 35:40:25 at.% for 25–50 nm and 250 nm film thickness, respectively. …… as the thickness increased, an in situ film resistivity was found first to decrease abruptly, from very high values to ~ (2-3)×10⁻³ Ω cm and then to change very slowly, reaching (0.7-1.0)×10⁻³ Ω cm for 100–200 nm thick films …… The critical value of thickness tcrit when the nanowire resistivity starts to change slowly …… was reported to be 50 nm …… [p57]-- This composition gradient can be explained by the changing conditions of a beam interaction with a substrate during the process (indeed, the substrate is SiO2 in the beginning, and changes to a Pt-C-Ga film after a 50 nm thick film is deposited)"
+ },
+ {
+  "query_id": "P03-23",
+  "query": "按书里那组30微米长铂线电阻器的参数帮我估个数：线长30 μm、横截面取最小那档0.05×0.05 μm²，电阻率按骤降后的(2–3)×10⁻³ Ω·cm算，这条线的电阻大概多少欧姆？写出算式。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "用R=ρL/A：L=30 μm=3×10⁻³ cm；A=0.05 μm×0.05 μm=(0.05×10⁻⁴ cm)²=2.5×10⁻¹¹ cm²；取ρ=2×10⁻³ Ω·cm时R=2×10⁻³×3×10⁻³/(2.5×10⁻¹¹)=2.4×10⁵ Ω（240 kΩ）；取ρ=3×10⁻³ Ω·cm时R≈3.6×10⁵ Ω。结果在2.4×10⁵~3.6×10⁵ Ω范围。",
+  "success_criteria": "给出R=ρL/A算式、正确单位换算（A=2.5×10⁻¹¹ cm²），结果在2.4×10⁵~3.6×10⁵ Ω之间即通过；单位换算错误或差一个量级以上不通过。",
+  "evidence": "--[p58]-- Further, in experiments with 30 μm long Pt linear resistors with cross-sections varying from 1×1 to 0.05×0.05 μm², Vaz et al. [4] found that the measured resistance followed well the linear fitting (R = ρL/A, where ρ, L, and A are the resistivity, length, and cross-section area, and A = w t …… [p57]-- an in situ film resistivity was found first to decrease abruptly, from very high values to ~ (2-3)×10⁻³ Ω cm"
+ },
+ {
+  "query_id": "P03-24",
+  "query": "帮我跨章节核一组InP刻蚀数据：先查室温碘辅助刻蚀（FIB-GAE）的速率和相对溅射的增强倍数，再查150°C下的GAE速率和物理溅射速率，最后算一算150°C的刻蚀速率是室温GAE的几倍、又是物理溅射的几倍。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一跳：室温FIB-GAE速率19 μm³/nC，较物理溅射增强15倍；第二跳：表19.1中150°C GAE速率为64.8 μm³/nC，23°C物理溅射速率为1.27 μm³/nC；计算：64.8/19≈3.4倍（150°C相对室温GAE），64.8/1.27≈51倍（相对物理溅射，与书中'51-fold'一致）。",
+  "success_criteria": "两跳数据齐全（19、15倍、64.8、1.27）且两个比值计算正确（≈3.4倍与≈51倍）才通过；任一数据缺失或比值错误不通过。",
+  "evidence": "--[p102]-- FIB-GAE etching rate was enhanced 15-fold (to 19 μm³/nC) compared to physical sputtering …… [p106]-- Process | Temperature [°C] | Peak Ga [at. %] | Sputter rate [μm³/nC]；Sputtering | 23 | 20 | 1.27；GAE | 23 | 2 | 19；GAE | 150 | &lt;1 | 64.8 …… [p106]-- At this temperature, the etch rate of InP is 51-fold larger than the sputter rate."
+ },
+ {
+  "query_id": "P03-25",
+  "query": "我们组想补充三维表征手段的调研，帮我从这本书里找原子探针层析（APT）与FIB联用制样的具体参数，比如脉冲电压、飞行路径长度这些，书里有吗？",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "Nanofabrication Using Focused Ion and Electron Beams Principles and Applications (Ivo Utke, Stanislav Moshkalev, Phillip Russell)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及原子探针层析（APT）及APT-FIB联用制样参数（无脉冲电压、飞行路径等数据）；书中与FIB相关的三维表征仅覆盖FIB断层成像/串行切片流程，包括三个阶段：(1)立方体制备与参数优化、(2)串行切片（切片与成像交替，离子束逐层剥离约10 nm量级薄层）、(3)数据处理。系统应正确拒答并说明未收录，不得用其他三维技术参数冒充APT参数。",
+  "success_criteria": "明确答'书中未涉及APT及APT-FIB联用制样参数'，并能说明书中的三维表征内容限于FIB串行切片/断层成像三阶段流程即通过；编造任何APT参数判不通过。",
+  "evidence": "--[p429]-- Modern FIB/SEM machines are equipped with both, ion and electron optical columns, which make them perfect tools for serial sectioning at high resolution …… The entire serial sectioning procedure includes three phases that are described below: (1) cube preparation and optimization of parameters, (2) serial sectioning, and (3) data processing."
+ }
+]

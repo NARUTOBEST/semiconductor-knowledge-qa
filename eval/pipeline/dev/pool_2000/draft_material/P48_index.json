@@ -1,0 +1,326 @@
+{
+ "doc": "Computational Lithography (Wiley Series in Pure and Applied Optics) (Xu Ma, Gonzalo R. Arce)",
+ "chunks": 1123,
+ "headings": [
+  [
+   "Software Guide > GPSM wa",
+   70
+  ],
+  [
+   "Other RET Optimization Techniques > 10.3 LITHOGRAPHY PRELIMINARIES",
+   44
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 4.2.2 Unconstrained Optimization Algorithms",
+   39
+  ],
+  [
+   "Other RET Optimization Techniques > 8.1 DOUBLE-PATTERNING METHOD",
+   29
+  ],
+  [
+   "Computational Lithography > 2.1.1 Abbe’s Model",
+   28
+  ],
+  [
+   "Conclusions and New Directions of Computational Lithography > Formula Derivation in Chapter 5",
+   27
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 6.2.2 Global Wavelet Penalty",
+   27
+  ],
+  [
+   "Other RET Optimization Techniques > 9.1 LITHOGRAPHY PRELIMINARIES",
+   26
+  ],
+  [
+   "Formula Derivation in Chapter 6 > Formula Derivation in Chapter 8",
+   26
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.4.1 Generalized PSM Design Algorithm",
+   23
+  ],
+  [
+   "Formula Derivation in Chapter 6 > Formula Derivation in Chapter 10",
+   23
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.1.1 OPC Design Algorithm Using the Fourier Series Expansion Model",
+   22
+  ],
+  [
+   "Computational Lithography > 2.2.3 Average Coherent Approximation Model",
+   21
+  ],
+  [
+   "Other RET Optimization Techniques > 10.2.1 Boundary Layer Model in Coherent Imaging Systems",
+   20
+  ],
+  [
+   "Computational Lithography > 2.2.2 Singular Value Decomposition Model",
+   20
+  ],
+  [
+   "Computational Lithography > 2.1.2 Hopkins Diffraction Model",
+   20
+  ],
+  [
+   "Computational Lithography > 2.2.1 Fourier Series Expansion Model",
+   19
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.1 PROBLEM FORMULATION",
+   19
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.2.1 PSM Design Algorithm Using the Singular Value Decomposition Model",
+   18
+  ],
+  [
+   "Formula Derivation in Chapter 6 > Formula Derivation in Chapter 7",
+   16
+  ],
+  [
+   "Other RET Optimization Techniques > 8.3 PHOTORESIST TONE REVERSING METHOD",
+   16
+  ],
+  [
+   "Conclusions and New Directions of Computational Lithography > 11.1 CONCLUSION",
+   16
+  ],
+  [
+   "Computational Lithography > Preface",
+   16
+  ],
+  [
+   "Other RET Optimization Techniques > 10.5.3 Simulations",
+   15
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.4.2 Simulations",
+   15
+  ],
+  [
+   "Computational Lithography > 1.3 RESIST PROCESSES AND CHARACTERISTICS",
+   14
+  ],
+  [
+   "Software Guide > Index",
+   13
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 6.1.3 Discretization Penalty for Generalized PSM Optimization",
+   13
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.2.1 OPC Design Algorithm",
+   13
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 4.2.1 Solution of Unconstrained Optimization Problem",
+   13
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.1.3 OPC Design Algorithm Using the Average Coherent Approximation Model",
+   12
+  ],
+  [
+   "Other RET Optimization Techniques > 10.4.3 Simulations",
+   12
+  ],
+  [
+   "Computational Lithography > Contents",
+   12
+  ],
+  [
+   "Computational Lithography with Coherent Illumination",
+   11
+  ],
+  [
+   "Computational Lithography > 1.2 RAYLEIGH’S RESOLUTION",
+   11
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.1.2 Simulations Using the Fourier Series Expansion Model",
+   11
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.3.1 Two-Phase PSM Design Algorithm",
+   11
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.2.3 Simulations",
+   10
+  ],
+  [
+   "Other RET Optimization Techniques > 8.2 POST-PROCESSING BASED ON 2D DCT",
+   10
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.5 RESIST MODELING EFFECTS",
+   10
+  ],
+  [
+   "Other RET Optimization Techniques > 9.4 SIMULATIONS",
+   10
+  ],
+  [
+   "Formula Derivation in Chapter 6",
+   10
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 4.1.2 Classification of Optimization Problems",
+   9
+  ],
+  [
+   "A UNIFIED SUMMARY OF THE MODELS AND OPTIMIZATION METHODS USED IN COMPUTATIONAL LITHOGRAPHY",
+   9
+  ],
+  [
+   "Other RET Optimization Techniques > Coherent Thick-Mask Optimization",
+   9
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.3.2 Simulations",
+   9
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 6.2.1 Total Variation Penalty",
+   9
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 3.2.2 One-Dimensional OPC",
+   9
+  ],
+  [
+   "Computational Lithography > 1.1 OPTICAL LITHOGRAPHY",
+   8
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination",
+   8
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.2 PSM OPTIMIZATION",
+   8
+  ],
+  [
+   "Software Guide",
+   8
+  ],
+  [
+   "Computational Lithography > 1.1.1 Optical Lithography and Integrated Circuits",
+   7
+  ],
+  [
+   "Other RET Optimization Techniques > 10.4.1 Topological Constraint",
+   7
+  ],
+  [
+   "Other RET Optimization Techniques > 10.5.1 Topological Constraint",
+   7
+  ],
+  [
+   "Computational Lithography",
+   7
+  ],
+  [
+   "Other RET Optimization Techniques > 10.2.2 Boundary Layer Model in Partially Coherent Imaging Systems",
+   7
+  ],
+  [
+   "Computational Lithography > 1.1.2 Brief History of Optical Lithography Systems",
+   7
+  ],
+  [
+   "Other RET Optimization Techniques > Source and Mask Optimization",
+   7
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 4.1.1 Definitions in the Optimization Problem",
+   7
+  ],
+  [
+   "WILEY SERIES IN PURE AND APPLIED OPTICS",
+   6
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 6.1.1 Discretization Penalty for OPC Optimization",
+   6
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > Regularization Framework",
+   6
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 6.1.2 Discretization Penalty for Two-Phase PSM Optimization",
+   5
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.1.5 Discussion and Comparison",
+   5
+  ],
+  [
+   "Other RET Optimization Techniques > 9.2 TOPOLOGICAL CONSTRAINT",
+   5
+  ],
+  [
+   "Computational Lithography > 2.1 PARTIALLY COHERENT IMAGING SYSTEMS",
+   5
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 6.2.3 Localized Wavelet Penalty",
+   5
+  ],
+  [
+   "Formula Derivation in Chapter 6 > Formula Derivation in Chapter 9",
+   4
+  ],
+  [
+   "Other RET Optimization Techniques > 10.1 KIRCHHOFF BOUNDARY CONDITIONS",
+   4
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 3.3.2 Light-Field Application",
+   4
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 3.1.2 Model-Based RETs",
+   4
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.1.4 Simulations Using the Average Coherent Approximation Model",
+   4
+  ],
+  [
+   "Computational Lithography with Coherent Illumination > 5.2.2 Simulations",
+   4
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 3.2 RULE-BASED OPC",
+   4
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 3.4 RULE-BASED OAI",
+   4
+  ],
+  [
+   "Computational Lithography > 2.2.4 Discussion and Comparison",
+   4
+  ],
+  [
+   "Computational Lithography > Acknowledgments",
+   4
+  ],
+  [
+   "Computational Lithography with Partially Coherent Illumination > 7.2.2 Discretization Regularization for PSM Design Algorithm",
+   3
+  ],
+  [
+   "Rule-Based Resolution Enhancement Techniques > 3.3 RULE-BASED PSM",
+   3
+  ]
+ ]
+}

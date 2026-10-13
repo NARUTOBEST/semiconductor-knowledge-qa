@@ -1,0 +1,326 @@
+{
+ "doc": "纳米制造手册 纳米科学进展系列 （导读版 英文版） [（美）维德雷希特 主编 ] 2011年版",
+ "chunks": 1858,
+ "headings": [
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.6 Stepwise Assembly of Complex Structures and Stimulus-Dependent Desorption on/from the Molecular Printboard",
+   51
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.3.2.1 Imprint resist",
+   46
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.4.1.2 Basic geometries in hydrogenbonded structures",
+   40
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.5.2 Patterning Arrays of Fullerenes",
+   37
+  ],
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.7 Assemblies of NPs and 2D and 3D Nanofabrication on the Molecular Printboard",
+   35
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 3.4 Chiral Heterogeneous Catalysis",
+   34
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.2.2 Proximity Mechanical Top-Down Nanopatterning Techniques",
+   30
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.4.1 Nanoparticle Molecules",
+   26
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > • Three-dimensional ordered assemblies",
+   26
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.1.3 Shuttles powered by light energy",
+   24
+  ],
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.4 Immobilization of Multivalent Guests on the Molecular Printboard",
+   23
+  ],
+  [
+   "6 Picoliter Printing > 6.3.3 Printable Metallic Inks for Ink-Jet Printing of Low-Resistivity Conductors",
+   23
+  ],
+  [
+   "4 Electron Beam Lithography of Nanostructures > 4.3 Proximity Correction: Software and Hardware Solutions",
+   23
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.2.1 Wet Chemistry Synthesis of Nanoparticles",
+   22
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.3.2 Rotary motors powered by light energy",
+   22
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.3.3 UV Imprint Tools",
+   22
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.6.1.1 UV light and STM tip-induced polymerization of diacetylenes",
+   22
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.3.3 Unidirectional ring rotation in catenanes",
+   20
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 1. Tartaric acid",
+   20
+  ],
+  [
+   "EDITORIAL ADVISORY BOARD > Preface",
+   18
+  ],
+  [
+   "6 Picoliter Printing > 6.6.3 Self-Aligned Gate Printing",
+   18
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.3.2 Nonspecific Physical Bonding Interactions",
+   18
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.1.1 Chemically driven shuttles, muscles, and elevators",
+   17
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 3.2.2.2 Chiral substrate modification",
+   17
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 3.2.4.1 Chiral substrate geometries",
+   17
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.6.2.2 Condensation polymerization via dehydration",
+   17
+  ],
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.3 Multivalency at Interfaces and the Molecular Printboard",
+   17
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.5.3 Patterning Other Molecules",
+   16
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 1. Small amino acids on Cu{531} (glycine, alanine, serine, cysteine, methionine)",
+   16
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > ● Two-dimensional ordered assemblies",
+   16
+  ],
+  [
+   "4 Electron Beam Lithography of Nanostructures > 4.1.2.5 What are the current trends in EBL systems?",
+   16
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 3.1.2 Nomenclature of Chirality – the R,S Convention",
+   15
+  ],
+  [
+   "4 Electron Beam Lithography of Nanostructures > 4.1.2.4 Evolution of e-beam writers",
+   15
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.7 Conclusions and Outlook",
+   15
+  ],
+  [
+   "6 Picoliter Printing > 6.2.2 Piezoelectric DOD Printing",
+   15
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.2.1 Photon-Based Top-Down Patterning Techniques",
+   15
+  ],
+  [
+   "6 Picoliter Printing > 6.3.1 Ink-Jet Printers",
+   14
+  ],
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.5 Writing Patterns of Molecules on the Molecular Printboard",
+   14
+  ],
+  [
+   "6 Picoliter Printing > 6.6.2 Self-Aligned Printed Polymer TFTs with Thin Gate Dielectrics",
+   14
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.3.1 Chemical Chain Reactions",
+   14
+  ],
+  [
+   "4 Electron Beam Lithography of Nanostructures > 4.1.2.7 Resists and processing are keys to success",
+   13
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.5.3 Solid-State Electronic Circuits",
+   13
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.1.1 The Bottom-Up (Supramolecular) Approach to Nanodevices",
+   13
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.1.2.1 Terms and definitions",
+   13
+  ],
+  [
+   "6 Picoliter Printing > 6.1 Introduction",
+   13
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.2.2.1 Common surfaces for studies of molecular assembly",
+   13
+  ],
+  [
+   "6 Picoliter Printing > 6.3.2 Piezoelectric Printheads",
+   13
+  ],
+  [
+   "6 Picoliter Printing > 6.5.2 Lithography-Free Self-Aligned Printing with Sub-Micrometer Resolution",
+   12
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 2. Alanine and other amino acids on Cu surfaces",
+   12
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.2.2.1 N:1 functionalized nanoparticles",
+   12
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.4.3 Defectivity and Mask Life",
+   12
+  ],
+  [
+   "6 Picoliter Printing > 6.5.3 Self-Aligned Printing of Metal Nanoparticles Inks",
+   12
+  ],
+  [
+   "6 Picoliter Printing > 6.4.3 Fabrication of Organic Thin Film Transistors by Ink-Jet Printing",
+   12
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.1 Introduction",
+   12
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.4.2 Metal-Organic Coordination",
+   11
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.1.2.2 Energy supply and monitoring signals",
+   11
+  ],
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.1 Introduction",
+   11
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.4.2 Walking devices",
+   10
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.3.3.1 Alignment system for UV imprint steppers",
+   10
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.1 Introduction",
+   10
+  ],
+  [
+   "6 Picoliter Printing > 6.4.1 Overview of Ink-Jet Printing Applications",
+   10
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.3.1 UV Imprint Masks",
+   10
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.6.1.4 Polyphenylene lines via Ulmann dehalogenation",
+   10
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.2.2 Electrochemically driven switching",
+   10
+  ],
+  [
+   "4 Electron Beam Lithography of Nanostructures > 4.1.2.1 Elements of an EBL system",
+   9
+  ],
+  [
+   "3 Chiral Molecules on Surfaces > 3.3.2 Chiral Surfaces",
+   9
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.3.2 Selectively Patterned Surfaces",
+   9
+  ],
+  [
+   "8 Molecular Machines and Motors > M",
+   9
+  ],
+  [
+   "5 Status of UV Imprint Lithography for Nanoscale Manufacturing > 5.2.3 Comparison of Nanoimprint Techniques",
+   9
+  ],
+  [
+   "8 Molecular Machines and Motors > 8.3.1 Molecular Shuttles and Related Species",
+   9
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.5.1 Designing Host-Guest Networks at Surfaces",
+   9
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.2.2.3 Anisotropically functionalized nanoparticles",
+   9
+  ],
+  [
+   "1 Directed Assembly of Nanostructures > 1.6.2.1 Porphyrin networks",
+   9
+  ],
+  [
+   "6 Picoliter Printing > 6.2.1 Principle of Operation",
+   9
+  ],
+  [
+   "6 Picoliter Printing > 6.4.2 Ink-Jet Printing Applications in the Display Industry",
+   9
+  ],
+  [
+   "7 Molecular Printboards: From Supramolecular Chemistry to Nanofabrication > 7.2 The Concept of Multivalency",
+   9
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2,3.1 Specific Chemical Bonding Interactions",
+   9
+  ],
+  [
+   "4 Electron Beam Lithography of Nanostructures > 4.2.1 Spintronics",
+   8
+  ],
+  [
+   "8 Molecular Machines and Motors > N",
+   8
+  ],
+  [
+   "2 Bio-Mediated Assembly of Ordered Nanoparticle Superstructures > 2.6 Summary and Outlook",
+   8
+  ]
+ ]
+}

@@ -86,6 +86,23 @@ _CLARIFY_PROMPT = (
 )
 
 
+def _history_referent(history: list | None, rounds: int = 2) -> bool:
+    """最近 rounds 轮(每轮=用户+助手两条)历史里是否出现过具体设备/型号/专名。
+    出现即视为当前问题的通称/代词可由历史消解,不需要澄清。"""
+    if not history:
+        return False
+    msgs = [h for h in history if (h.get("content") or "").strip()]
+    return any(_EXPLICIT_MODEL_RE.search(h.get("content", ""))
+               for h in msgs[-2 * rounds:])
+
+
+def _has_explicit_referent(question: str, history: list | None) -> bool:
+    """问题自身含型号/专名,或最近两轮历史已出现具体设备/型号 -> 有具体指代。"""
+    if _EXPLICIT_MODEL_RE.search((question or "").strip()):
+        return True
+    return _history_referent(history)
+
+
 def _rule_prescreen(question: str, history: list | None) -> dict | None:
     """规则预筛。返回可直接定论的结果 dict;无法规则判定返回 None。"""
     q = (question or "").strip()
@@ -102,6 +119,10 @@ def _rule_prescreen(question: str, history: list | None) -> dict | None:
 
     # 句中含明确型号/设备名:对象已指明,不澄清
     if _EXPLICIT_MODEL_RE.search(q):
+        return {"need_clarify": False, "question": "", "options": [], "source": "rule"}
+
+    # 最近两轮历史里出现过具体设备/型号:通称/代词可由历史消解,不澄清
+    if _history_referent(history):
         return {"need_clarify": False, "question": "", "options": [], "source": "rule"}
 
     has_history = bool([h for h in (history or []) if (h.get("content") or "").strip()])
@@ -174,7 +195,7 @@ def check_clarify(question: str, history: list | None = None) -> dict:
     prompt = _CLARIFY_PROMPT.format(history=history_text, question=question)
     try:
         resp, err = llm_create_with_retry(
-            get_client(), trace_id="clarify",
+            get_client(), trace_id="clarify", site="clarify",
             model=C.TIER_MODEL_SIMPLE,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,

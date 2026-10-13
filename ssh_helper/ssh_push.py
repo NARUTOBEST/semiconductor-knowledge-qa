@@ -38,8 +38,6 @@ def main():
         timeout=120,
         banner_timeout=60,
         auth_timeout=60,
-        allow_agent=False,
-        look_for_keys=False,
     )
 
     is_dir = os.path.isdir(args.local)

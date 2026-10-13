@@ -1,0 +1,326 @@
+{
+ "doc": "晶圆湿法清洗参考说明书保养手册S820L(WaferScrubber)DianipponScreenmaintenancemanual-0",
+ "chunks": 1139,
+ "headings": [
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.1 MASTER",
+   43
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.4 Chemical bath",
+   27
+  ],
+  [
+   "WARNING > NOTE",
+   23
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.8 OUTCTC",
+   18
+  ],
+  [
+   "WARNING > CAUTION",
+   18
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.12 POS18",
+   18
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.6 N<sub>2</sub>DRY",
+   17
+  ],
+  [
+   "WS-820/MTR series manuals > CONTENTS",
+   15
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.7 INCTC",
+   13
+  ],
+  [
+   "WARNING",
+   12
+  ],
+  [
+   "WARNING > WARNING",
+   12
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > CAUTION",
+   12
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.3 Bath main",
+   11
+  ],
+  [
+   "CAUTION > Restart procedure",
+   11
+  ],
+  [
+   "WARNING > Chemical bath modules",
+   11
+  ],
+  [
+   "5 Thermocouple and resistance temperature sensor replacement procedure (for processing bath) > Preparation",
+   11
+  ],
+  [
+   "CAUTION > Inspection procedure",
+   10
+  ],
+  [
+   "WARNING > 2.5.2 Interlock error list",
+   10
+  ],
+  [
+   "CAUTION > 2 Inspection items for maintenance",
+   10
+  ],
+  [
+   "WARNING > 4.3.1 Lot processing",
+   10
+  ],
+  [
+   "CAUTION > Preparation",
+   9
+  ],
+  [
+   "CAUTION > CAUTION",
+   9
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > NOTE",
+   8
+  ],
+  [
+   "CAUTION > 3 Safety during periodic inspection",
+   7
+  ],
+  [
+   "5.2 Temperature control check (Chemical baths and LPD) Equipment mode > Inspection procedure",
+   7
+  ],
+  [
+   "Introductory Note",
+   7
+  ],
+  [
+   "5.2 Temperature control check (Chemical baths and LPD) Equipment mode > CAUTION",
+   7
+  ],
+  [
+   "5.2 Temperature control check (Chemical baths and LPD) Equipment mode > Preparations",
+   7
+  ],
+  [
+   "5.2 Temperature control check (Chemical baths and LPD) Equipment mode > Restart procedure",
+   6
+  ],
+  [
+   "CAUTION > Equipment mode",
+   6
+  ],
+  [
+   "WARNING > 2.10.1 Chemical mixture",
+   6
+  ],
+  [
+   "WARNING > (2) Temperature control",
+   6
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 3.2.1 Alarm level",
+   6
+  ],
+  [
+   "6 Thermocouple replacement procedure (at exit of inline heater) > Replacement procedure",
+   6
+  ],
+  [
+   "6.3 LPD-IPA temperature control bath level sensor check Equipment mode > Inspection procedure",
+   5
+  ],
+  [
+   "WARNING > (3) Outer bath sensor 1",
+   5
+  ],
+  [
+   "WARNING > Transfer module functions and safety cautions",
+   5
+  ],
+  [
+   "WARNING > 2.2.1 Chemical level control",
+   5
+  ],
+  [
+   "6 Thermocouple replacement procedure (at exit of inline heater) > Thermocouple replacement procedure (at exit of inline heater)",
+   5
+  ],
+  [
+   "CAUTION > Required tools",
+   5
+  ],
+  [
+   "8 Circulation pump replacement procedure > Replacement procedure",
+   5
+  ],
+  [
+   "6.3 LPD-IPA temperature control bath level sensor check Equipment mode > CAUTION",
+   5
+  ],
+  [
+   "7.1 Operation check for the maintenance cover sensors Equipment mode > Inspection procedure",
+   5
+  ],
+  [
+   "WARNING > 3. Person in charge",
+   4
+  ],
+  [
+   "WARNING > 2.6.1 Chemical exchange sequence",
+   4
+  ],
+  [
+   "5.2 Temperature control check (Chemical baths and LPD) Equipment mode > Required tools",
+   4
+  ],
+  [
+   "CAUTION > \\* Indicator lamp light-up conditions",
+   4
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > Bath handshake display",
+   4
+  ],
+  [
+   "3 Replacement of circulation filter (cartridge type) > REFERENCE",
+   4
+  ],
+  [
+   "6.3 LPD-IPA temperature control bath level sensor check Equipment mode > • Air and ${ \\bf N } _ { 2 }$ flow rates",
+   4
+  ],
+  [
+   "CAUTION > Required tool",
+   4
+  ],
+  [
+   "DANGER > <Handling the parts/sections requesting periodic replacement or inspection>",
+   4
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 4.5.2 QDR",
+   4
+  ],
+  [
+   "9 Measuring tank immersion heater replacement procedure > Measuring tank immersion heater replacement procedure",
+   4
+  ],
+  [
+   "7.1 Operation check for the maintenance cover sensors Equipment mode > CAUTION",
+   4
+  ],
+  [
+   "CAUTION > 5.2 Switching from automatic mode to manual mode",
+   4
+  ],
+  [
+   "WARNING > (1) Measuring tank sensor 1",
+   4
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > Preparation",
+   3
+  ],
+  [
+   "WARNING > 2.3 To shut down the equipment for a long period:",
+   3
+  ],
+  [
+   "WARNING > (4) Delay timer for designated level detection",
+   3
+  ],
+  [
+   "7.1 Operation check for the maintenance cover sensors Equipment mode > Required tools",
+   3
+  ],
+  [
+   "WARNING > 3.2.2 QDR bath module",
+   3
+  ],
+  [
+   "CAUTION",
+   3
+  ],
+  [
+   "CAUTION > Operation check procedure",
+   3
+  ],
+  [
+   "DANGER > Chapter 6 Maintenance Procedure",
+   3
+  ],
+  [
+   "12 Automatic cover opening/closing speed adjustment procedure > 2.2 Deleting all lots",
+   3
+  ],
+  [
+   "WARNING > 1.5 Cover detachment",
+   3
+  ],
+  [
+   "WARNING > 6.1 System control",
+   3
+  ],
+  [
+   "CAUTION > WARNING",
+   3
+  ],
+  [
+   "WARNING > 4.2.1 Lot processing",
+   3
+  ],
+  [
+   "WARNING > 2.5.4 Pump drainage system",
+   3
+  ],
+  [
+   "WARNING > Required knowledge for handling chemicals",
+   3
+  ],
+  [
+   "WARNING > 2.7 Bath cleaning",
+   3
+  ],
+  [
+   "WARNING > 2.8 Designated amount replenishment",
+   3
+  ],
+  [
+   "WS-820/MTR series manuals > Chapter 1 Before Using – Safety Precautions –",
+   3
+  ],
+  [
+   "WARNING > 3.3 Procedure for the equipment’s inner modules",
+   3
+  ],
+  [
+   "3 Replacement of circulation filter (cartridge type) > Operation check procedure",
+   3
+  ],
+  [
+   "WARNING > (2) Drainage piping schematic",
+   3
+  ],
+  [
+   "WARNING > 2.1 Shut-down procedure",
+   3
+  ],
+  [
+   "WARNING > 1. Required items",
+   3
+  ]
+ ]
+}

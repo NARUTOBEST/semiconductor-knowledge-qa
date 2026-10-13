@@ -1,0 +1,1754 @@
+{
+ "doc": "Euv Lithography (Vivek Bakshi)",
+ "chunks": 2898,
+ "headings": [
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > A.1 Introduction",
+   61
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.1 EUV power scaling",
+   47
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.3.1 Debris mitigation and contamination",
+   46
+  ],
+  [
+   "Foreword to the Second Edition > Preface to the Second Edition",
+   41
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.9.3 Specific resist models",
+   38
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.2 The Early Stage of Development—1981 to 1992",
+   36
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > Appendix 2B: EUV LLC Program Patents",
+   35
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.3.3 Theoretical background",
+   32
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.5.3 The limits of peak reflectance at l 13.5 nm",
+   31
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.2.5 Driver $\\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b { \\ b } 2 } } } } } } } } } } } } } } } } } } }$ laser system",
+   31
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.4.2 Surface PSD and bidirectional scattering distribution function",
+   30
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.2.4 Full-field tools: future 0.55 NA",
+   30
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.4.4 The stray light point spread function: the link between the surface PSD and the flare distribution at the wafer",
+   28
+  ],
+  [
+   "Lithography SECOND > Contents",
+   28
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.3.2.2 Mask-roughness-induced LER",
+   27
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5.3 Fabrication and evaluation of aspherical mirrors",
+   25
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.2 Tin target delivery",
+   24
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.3.2 Atomic hydrogen cleaning",
+   24
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.4.3 Grazing-incidence collectors",
+   24
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.3.3 Hydrogen plasma cleaning",
+   23
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.3.1 Closing the loop for figure control: manufacturing and metrology",
+   23
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5.4 Multilayer coatings and reflection masks",
+   22
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.2 Earliest EUV Resist Imaging",
+   22
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.6 Mechanisms of acid generation in CARs",
+   21
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.3.2 Optical system for high-NA",
+   19
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.4.2 Photon stochastics: an analytic description",
+   19
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.7.1 Pellicle",
+   18
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7.5 Tool performance",
+   18
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.4.3 Multilayer performance improvement techniques and defect mitigation",
+   18
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5.6 EUV light source development",
+   17
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5.2 Design of reflective imaging systems",
+   17
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2.4 Prototypes: Alpha Demo Tool and EUV1",
+   17
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.3.3 Mask roughness effects on printed contact size variations",
+   17
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.4.3 Decadic RMS density and TIS density: the better way to represent the isotropic surface PSD",
+   16
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.1 Introduction",
+   16
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.8.1 Metal oxide resists from Oregon-State University and Inpria",
+   16
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.5.3 Realization options",
+   15
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.4.5 Flare and vignetted stray light: flare-efficiency functions",
+   15
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2.6 HVM: Starlith<sup>®</sup> 3300/3400 family",
+   15
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.3.1 Two-mirror imaging system development",
+   15
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.1 Introduction",
+   14
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.4.1 Early measurements",
+   14
+  ],
+  [
+   "Acronyms and Abbreviations",
+   14
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.4 EUV collector",
+   14
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.7 Summary",
+   14
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.5 Debris mitigation",
+   14
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.6 Hydrogen as a buffer gas",
+   14
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.5.4 The coating changes the properties of the optical surface",
+   14
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5.1 Selection of the exposure wavelength",
+   14
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1.2.1 Imaging",
+   14
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.4.1 Multilayer deposition process",
+   13
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.3.2 Figure metrology: requirements, interferometer setups, and reproducibility",
+   13
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.3.4 Compatibility of multilayer mirrors with $\\mathsf { H } _ { 2 }$ plasma",
+   13
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.2 Overview of Normal-Incidence Collector Mirrors",
+   13
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.4.1 Significance of micro-roughness and flare in EUV systems",
+   13
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.9.2 Modeling steps",
+   13
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.3.1 LER transfer from the mask to the wafer",
+   13
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.8.5 Attenuated phase shift mask",
+   12
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.4.4 Normal-incidence collectors",
+   12
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.1 Introduction",
+   12
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.2.3 Development of contamination-resistant cap layers",
+   12
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.1 Introduction to EUV Light Sources",
+   12
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.4 Summary",
+   12
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5.5 EUV resist development",
+   12
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.2 The physics of EUV exposure mechanisms",
+   12
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.8.3.1 High-speed resists using antimony, tin, tellurium, and bismuth",
+   12
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.9.1 Background: continuous and stochastic models",
+   12
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.3.4 Measuring absorption of actual resist films",
+   12
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.2.3 Pre-pulse technology and high-CE operation",
+   11
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.4.2 Witness-sample testing",
+   11
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.2.2 Industry reception of the EUV LLC patent portfolio",
+   11
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.1 Multilayer defect inspection",
+   11
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.1 Operating Principles",
+   11
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.4 Other Developments in Japan and Europe",
+   11
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3.2.3 Metrology of EUV-irradiation-induced carbon contamination",
+   11
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2.3 Early optical systems: MET, HiNA, and SFET",
+   11
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.8 Non-polymer-based organic EUV resists",
+   11
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.4.4 Photon and material effects",
+   11
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.1.1 Background",
+   10
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > References",
+   10
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.2 LDP System Configuration",
+   10
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3.2.2 Pressure dependence",
+   10
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.1 Introduction",
+   10
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.3.2 Spatial and temporal stability",
+   10
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.2 EUV Source Requirements",
+   10
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3.2.1 Intensity dependence",
+   10
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.3.2 Industry",
+   10
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7.3 System concept",
+   10
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.1 Introduction",
+   10
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.2.1 EUV LLC U.S. patent portfolio",
+   10
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2.5 Preproduction system: Starlith<sup>®</sup> 3100",
+   10
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7.2 Principle and application",
+   10
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.8.3 Mononuclear-metal resists",
+   10
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.2 Environmentally stable chemically amplified photoresists",
+   10
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.6 Characterization of Development Using AFM",
+   10
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.6 Metrology",
+   10
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.3 EUV Brightness and Power",
+   9
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.5.2 Key performance parameters",
+   9
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.2 Basic design specifications",
+   9
+  ],
+  [
+   "Foreword to the Second Edition",
+   9
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.6 Source Cleanliness",
+   9
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.7.2 Mask cleaning",
+   9
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.1.1 Background",
+   9
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.2 Risk management",
+   9
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.4.2 EUV collector types",
+   9
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1.2.2 Focus and dose control",
+   9
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > Notes and References",
+   9
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1.2.3 Overlay",
+   9
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.3.2.1 Influence of partial coherence",
+   9
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.6 Next-generation repair",
+   8
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.2.1 Carbonization and oxidation: photons or photoelectrons",
+   8
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.2.2 The elimination of oxidation as a problem: requirements for oxidation-resistant cap layers",
+   8
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.7 Summary",
+   8
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.1 Introduction",
+   8
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.5 Stability and Reliability",
+   8
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11.3 Types of resists",
+   8
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.2.2 The illumination system",
+   8
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > S",
+   8
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.4 Wafer and mask stage",
+   8
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7.3 Fluorine-stabilized AAs and olefin triggers",
+   8
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.4.5 Contact CDU limits",
+   8
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.3.3 A Change in absorption goals: from light to dark",
+   8
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.7 Material handling systems and clamps",
+   8
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.1 Introduction: The Benefits of EUV Imaging",
+   8
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > P",
+   8
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > References",
+   7
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.3 Multilayer defect repair",
+   7
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.1 Technical accomplishments",
+   7
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2.2 Beginning: collaborations and funding in Europe",
+   7
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.3.3 MOS device demonstration using EUVL",
+   7
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.4.2 Multilayer characterization",
+   7
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.1 Introduction",
+   7
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.5 Absorber defect repair",
+   7
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.5 Cleaning and Contamination Control",
+   7
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.4.3 A stochastic model",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11.2 Mechanism of EUV exposure",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7.2 Lithographic capabilities of acid amplifiers in EUV photoresists",
+   7
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.5 Optics and contamination control",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10.3 MET imaging",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10.1 Introduction",
+   7
+  ],
+  [
+   "7.8.8 Mask design for high-NA",
+   7
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.4.1 Introduction",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7.1 Introduction to acid amplifiers",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11.5 LER and modeling",
+   7
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.2.4 Chromeless phase-shift-mask printing in the EUV range",
+   7
+  ],
+  [
+   "Euv Lithography (Vivek Bakshi)_p501-760",
+   7
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.8.2 Tin oxide cluster resists from CNSE",
+   7
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.2.1 System concept",
+   6
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.3 Pre-pulse technology",
+   6
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.5.1 Absorber layer",
+   6
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.1 Vision",
+   6
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.8.3 Alternative mask structures",
+   6
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.6.1 Risk reduction",
+   6
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2.1 Introduction",
+   6
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.2 EUVL Mask Structure and Process Flow",
+   6
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.8.4 Etched ML binary mask",
+   6
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.7 Aerial image metrology",
+   6
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > Appendix 2A: Major Accomplishments of the EUV LLC Program",
+   6
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.3.2 Three-mirror imaging system development",
+   6
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3 Laser-Produced Plasma Source System",
+   6
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.8.1 Shadowing effect",
+   6
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.2.4 Superconducting magnet debris mitigation method (SM3) and the collector mirror",
+   6
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.2.1 Business model",
+   6
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.2.3 Resources",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.1 Introduction",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.3 Low-activation-energy acetal or ketal resists",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10.2 Interference lithography",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7.5 Photosensitized chemically amplified resists (PSCAR)",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.1 Introduction",
+   6
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > References",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.5 Total electron yield in EUV photoresists",
+   6
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > E",
+   6
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.3 The chemistry of EUV exposure mechanisms",
+   6
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.2.3 The projection system",
+   6
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1.2.4 Edge placement errors",
+   6
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > C",
+   6
+  ],
+  [
+   "7.8.6 Alternating phase shift mask",
+   6
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.3.3 Roughness improvements for flare reduction",
+   5
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.4.1 Extension of DUV",
+   5
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.6 EUVL Conferences",
+   5
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.4.5 Backside conductive coating and mask handling",
+   5
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.4.3 Witness-sample testing: nonconventional resists",
+   5
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.5.1 The difference between coatings for DUV and EUV lithography systems",
+   5
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.3.3 Defect requirements",
+   5
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.3 Additional semiconductor equipment manufacturer involvement",
+   5
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Droplet steering",
+   5
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.4.4 Capping layer",
+   5
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.3.2 Surface figure requirements",
+   5
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Tin management inside the vessel",
+   5
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > References",
+   5
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.6 Summary and Future Outlook",
+   5
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > Acknowledgments",
+   5
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.4 Multilayer defect compensation",
+   5
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Tin removal from the vessel",
+   5
+  ],
+  [
+   "List of Contributors",
+   5
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > A",
+   5
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > R",
+   5
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > M",
+   5
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.2.2 Full-field tools: past 0.25 NA",
+   5
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.8 Metal-Containing Resists",
+   5
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.8.2 Bossung curve assymetry and focus shift",
+   4
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.7 Suppliers",
+   4
+  ],
+  [
+   "Lithography SECOND > EUV Lithography",
+   4
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.4 Conclusion and Acknowledgment",
+   4
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3.2 Carbonization: admitted-gas studies",
+   4
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Source–scanner interface",
+   4
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.5 The Development of Individual Technologies",
+   4
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.5.3 E-beam patterning",
+   4
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.5.4 Absorber stack etch",
+   4
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.3.4 Conclusion on optical systems for EUVL",
+   4
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3.1 Facilities",
+   4
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.1 Introduction",
+   4
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.1.2 Need for a revolutionary approach",
+   4
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > EUV dose control",
+   4
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > References",
+   4
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7.4 Tool capabilities",
+   4
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > LPP sources",
+   4
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.2.2 CRADA negotiations",
+   4
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6.2 Absorber pattern inspection",
+   4
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.3 Committees",
+   4
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.4.1 Introduction",
+   4
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.4 EUV Spectrum and Out-of-Band Radiation",
+   4
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.6 Program termination",
+   4
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.2 Diagnostics for the EQ-10",
+   4
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.4 Summary and Future Outlook",
+   4
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.5.2 Measuring the optical properties of coatings at EUV wavelengths",
+   4
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3.2.2 Wavelength dependence",
+   4
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.3.1 Introduction",
+   4
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.5.2 Antireflection coating",
+   4
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology",
+   4
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > D",
+   4
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > T",
+   4
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.3.2 Early absorption goals",
+   4
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11.1 Background",
+   4
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.8 EUV pellicles",
+   4
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11.6 Benchmarking of resists",
+   4
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.2.3 Flare and contrast",
+   4
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > References",
+   4
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.2.1 Small-field tools",
+   4
+  ],
+  [
+   "EUV Lithography SECOND EDITION > Vivek Bakshi, Editor",
+   4
+  ],
+  [
+   "7.9 Summary and Future Outlook",
+   4
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.3.1 Definitions of transmission and absorption",
+   4
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Spectral content",
+   3
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.3.1 Thermal expansion coefficient",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.3 Reporting",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Developed engineered MLs with capping layers to provide good reflectivity and stability",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.5 Virtual National Laboratory",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.6.1 Advisory board",
+   3
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.3.1 Pilot #1 system construction",
+   3
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Main components of LPP sources",
+   3
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 6A Optics Contamination > References",
+   3
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.3.1 Power and brightness",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.2 Additional member company involvement",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > Acknowledgments",
+   3
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > 4B.7 Summary",
+   3
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.6.2 SEMATECH/SIA coordination",
+   3
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > 1.3 The Second Stage of Development—1993 to 1996",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.4.2 Competitive technologies",
+   3
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.4 Delays",
+   3
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.7 Tin management",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.7 Missed opportunities",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Developed reflective EUV mask technology including ML-coated, LTEM mask blanks complete with metrology, ML defect-repair methods, patterning inspection, and repair processes",
+   3
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > References",
+   3
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.3.3 Latest data of the Pilot #1 system",
+   3
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.2.2 Tin droplet generation technology",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.2 The EUV LLC office",
+   3
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.5.5 Technical challenges",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.7 High-fluorine resists",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10.6 Comparison of organic and metal-based resists",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.4 Outlook",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > High-NA multiple-patterning extension",
+   3
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > O",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.2.3 Full-field tools: current 0.33 NA",
+   3
+  ],
+  [
+   "7.8.7 Black border",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.3 Mechatronic architecture",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1.2 Business drivers",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.3 Absorption Coefficients of EUV Photoresists",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11.4 Acid amplifiers and PSCAR",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.1 Polymethylmethacrylate (PMMA) resists",
+   3
+  ],
+  [
+   "References",
+   3
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > N",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.2.1 The EUV light source",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1.1 EUVL scanner outline",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10.5 Comparison to ArF",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > Reduction in wavelength",
+   3
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > F",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.8 Conclusions",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10.4 Beta tool and production scanner imaging",
+   3
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.2 The optical system",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.4 Chain-scission resists",
+   3
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > H",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7.6 Conclusions",
+   3
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > L L",
+   3
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.7 Electron travel distance in photoresists",
+   3
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Program reporting",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.2.2 Goals and objectives",
+   2
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.3.1 VNL",
+   2
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > Acknowledgments",
+   2
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.5.1 Introduction",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.5 DOE support",
+   2
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7.6 Summary",
+   2
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing",
+   2
+  ],
+  [
+   "Chapter 6A Optics Contamination",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3 Program Structure",
+   2
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Concept of mass-limited targets",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Demonstrated EUVL printing",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.3.2 Monthly and quarterly reviews",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.3.1 Weekly meetings",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > References",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.3.4 International meetings",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.4 Supplier involvement",
+   2
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\*",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Intangible program strengths demonstrated",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.4.4 Website",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.4.3 Economic downturn",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Implemented EUV optics fabrication project with industry to demonstrate continuous improvement in the fabrication technology",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3 Organizational structure",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.1 Management board",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.4.4 Industry indecision",
+   2
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.5.4 Pupil tuning",
+   2
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.3.2 CE measurements and improvement",
+   2
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.1.2 The chemical processes",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1.1 Additional planning and slower ramp",
+   2
+  ],
+  [
+   "Chapter 1 EUV Lithography: An Historical Perspective\\* > References",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.2 Implementation",
+   2
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Laser-to-droplet timing",
+   2
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.3.4 Change of collector mirror reflectance during operation",
+   2
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.4.3 Conference presentations and journal publications",
+   2
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection > References",
+   2
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Lifetime",
+   2
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > Acknowledgments",
+   2
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > Index",
+   2
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners",
+   2
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > Acknowledgments",
+   2
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3.1 Introduction: architecture overview",
+   2
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4.4 Maximum quantum yield in chemically amplified photoresists",
+   2
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > I",
+   2
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.3 EUV and Aerial Image Variability",
+   2
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.4.1 Future prospects",
+   2
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > Further increase of the NA",
+   2
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance",
+   2
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.2.2 Aberrations and contrast",
+   2
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.6 Sulfonium-based resists",
+   2
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > B",
+   2
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.8.2.1 Organo-bismuth oligomers",
+   2
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7.4 Synthesis and preliminary lithographic performance of fluorine-stabilized polymers",
+   2
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > W",
+   2
+  ],
+  [
+   "Chapter 4B High-Brightness LDP Source for Mask Inspection",
+   1
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.3 250-W HVM LPP-EUV Source<sup>14,54</sup>",
+   1
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.8 Advanced Mask Structure for Better Imaging",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.2 IP portfolio",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.6 Status of EUV Development at the End of the EUV LLC",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > Acknowledgments",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6 Optical Modules: Projection Optics",
+   1
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Laser-to-droplet targeting",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.4 Working groups",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.2 Optical Systems: Beginning and Present",
+   1
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > 3A.3.8 Controls",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.3.3 NGL Review",
+   1
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors",
+   1
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.5 Absorber Stack and Pattern Fabrication",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Reviewed and collected program intellectual property",
+   1
+  ],
+  [
+   "Lithography SECOND",
+   1
+  ],
+  [
+   "Chapter 6B Collector Contamination: Normal-Incidence (Multilayer) Collectors > 6B.3 Collector Performance",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2.3.6 External advisory group coordination",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Demonstrated extended DUV resists",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Personnel participation",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.5 Optical Modules: Illuminator",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4 Program Results",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.5 Optics manufacturing: mirror coating",
+   1
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.3 Source Performance",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.4.1 White papers",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.4 Documentation",
+   1
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.3 Optics Contamination Experiments",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.7 Mask Inspection: The ZEISS AIMS EUV",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Developed and integrated computer-aided design methods to support thermal, dynamic, and vibrational design and analysis of individual components, subsystems, and complete system operation",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.2 Formation of the EUV LLC",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.4.2 Quarterly reports",
+   1
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Dose stability and control",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Pioneered the development of two types of plasma sources",
+   1
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.5 Conclusions",
+   1
+  ],
+  [
+   "Euv Lithography (Vivek Bakshi)_p1-500",
+   1
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source",
+   1
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.4 Resist Outgas Testing",
+   1
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Main types of EUV sources",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.3 Benefits",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.3 The Future: High-NA",
+   1
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.4 Multilayer and Backside Conductive Coating",
+   1
+  ],
+  [
+   "Chapter 4A The EQ-10 Electrodeless Z-Pinch<sup>™</sup> Metrology Source > 4A.4 Typical Installations",
+   1
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.3 Mask Substrate",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.1 Improvements",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.3.1 Organization",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Implemented formal program management",
+   1
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.7 Mask Contamination Protection and Cleaning",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > • Obtained SEMATECH support for infrastructure technologies",
+   1
+  ],
+  [
+   "Chapter 3B High-Power EUV Source by Gigaphoton for High-Volume Manufacturing > 3B.2. High-Power LPP EUV Light Source with Pre-pulse Technology",
+   1
+  ],
+  [
+   "Chapter 6A Optics Contamination > 6A.2 Optics Contamination Research",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.4 Modeling and simulating stray light and flare",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.2 External issues",
+   1
+  ],
+  [
+   "Chapter 7 EUV Mask and EUV Mask Metrology > 7.6 Mask Inspection, Metrology, and Repair",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5 Retrospective Observations",
+   1
+  ],
+  [
+   "Chapter 3A EUV Sources for High-Volume Manufacturing > Etendue",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.4 Optical Modules: Collector",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.6.1.1 Industry involvement",
+   1
+  ],
+  [
+   "Chapter 5 Optical Systems for EUVL > 5.6.3 Optics manufacturing: mirror surface",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.5.2.1 Washington, D.C. involvement",
+   1
+  ],
+  [
+   "Chapter 2 The EUV LLC: An Historical Perspective > 2.4.3 Program statistics",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > J",
+   1
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.4 Stochastics in Patterning",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.10 Benchmarking Studies: Tool Dependence and Resist Performance",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5.5 ArF polymer platforms",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.9 LER and Modeling",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.11 Summary",
+   1
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.3 EUVL Scanner Architecture",
+   1
+  ],
+  [
+   "Acknowledgments",
+   1
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.2 EUVL Projection Tool Overview: History and Future",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.5 Organic Photoresists",
+   1
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.3.2 Mask roughness effects on LER",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\*",
+   1
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.2 Parameters Affecting EUV Patterning Performance",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > Z",
+   1
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > References",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > Q",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > Y",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > X",
+   1
+  ],
+  [
+   "Appendix Reference Data for the EUV Spectral Region\\* > G",
+   1
+  ],
+  [
+   "EUV Lithography SECOND EDITION",
+   1
+  ],
+  [
+   "Chapter 10 EUVL System Patterning Performance > 10.2.1 Partial coherence",
+   1
+  ],
+  [
+   "Chapter 9 Fundamentals of EUVL Scanners > 9.1 Introduction",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.7 Strategies for Improving Resist Sensitivity: Acid Amplifiers and Photosensitized CARs",
+   1
+  ],
+  [
+   "Chapter 8 Photoresists for EUV Lithography > 8.4 Mechanisms of Resist Exposure to EUV Light",
+   1
+  ]
+ ]
+}

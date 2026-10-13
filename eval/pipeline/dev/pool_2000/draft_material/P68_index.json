@@ -1,0 +1,326 @@
+{
+ "doc": "制造硅薄晶片和硅基异质结构",
+ "chunks": 886,
+ "headings": [
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > SUMMARY",
+   28
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 6. Characterization of adhesion energy of bonding interface 6.1. Results",
+   13
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 4.1.2. H concentration in the thermal oxide",
+   12
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 6. Description of the thesis strategy.",
+   12
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 5.2. Model of diffusion by de-trapping of H",
+   11
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.1.4. Characterization of splitting for low dose samples",
+   10
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 8 Conclusion of the chapter",
+   10
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 2.1. Motivations for using planar heterostructures",
+   9
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 8.1. Thermal budget calculation including the out-diffusion",
+   9
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 3.2 Blistering / non blistering domain determination (4.0\\*10<sup>16</sup>Hcm<sup>-2</sup>, 5.0\\*10<sup>16</sup>Hcm<sup>-2</sup>, $\\mathbf { 1 . 0 ^ { * } 1 0 ^ { 1 7 } H c m ^ { - 2 } }$ 1.2\\*10<sup>17</sup>Hcm<sup>-2</sup>)",
+   9
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 5.3. Comparison between numerical modelling and SIMS for ${ \\bf 3 . 5 ^ { * } 1 0 ^ { 1 6 } }$ Hcm<sup>-2</sup> samples",
+   9
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.7. Energy analysis of the crack propagation in the H implanted Si",
+   9
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 6 Conclusion of chapter",
+   9
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 4.3.1 Thermal budget calculations",
+   9
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures",
+   8
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > Conclusion",
+   8
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 9. Conclusion of the chapter",
+   8
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.3 Description of the heating system",
+   8
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.1. Personal views of the societal context for both microelectronics and photovoltaics",
+   7
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 2.4. Annealing of an implanted material by laser beam",
+   7
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 2.1. Numerical modelling of millisecond laser annealing of the bonded heterostructure 2.1.1. Constitutive equations",
+   7
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.1. Market of photovoltaics",
+   7
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.1. Historical aspects of Smart Cut™ and applications of SOI",
+   7
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 6.1.1 Summary of the experimental conditions",
+   7
+  ],
+  [
+   "Epitaxie en phase liquide de Si sur substrat implanté > 4.3.Simulations de la solidification d’un film liquide de Si sur un substrat de Si",
+   7
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 1.2.4 Thermal budget of splitting",
+   7
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 2.1.3. Optical model",
+   7
+  ],
+  [
+   "Conferences, publications and patents > 1.1.Vues et motivations personnelles",
+   7
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.4.2 Kinetics of solidification",
+   7
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 2.2.1. Heteroepitaxy of semiconductors",
+   7
+  ],
+  [
+   "Cinétique de Smart Cut™ à haute température. > 2.6.Contribution de l’exodiffusion d’H",
+   6
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.10. Energy of the bonding interface",
+   6
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.8. Splitting kinetics",
+   6
+  ],
+  [
+   "Cinétique de Smart Cut™ à haute température. > 2.5.Caractérisation de cinétiques de splitting",
+   6
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 2.2.1 Implanted Si bonded with sapphire",
+   6
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.5. Formation of the platelets during the annealing",
+   6
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 1.3. Generation of blisters by multi-pulse ns laser annealing $( \\mathbf { 1 . 0 ^ { * } 1 0 ^ { 1 7 } }$ Hcm<sup>-2</sup>)",
+   6
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 7 Roadmap for future developments",
+   6
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.4. Defects generated by the implantation",
+   6
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 2.3.1 EBSD cartography of sample deposited onto a non-implanted substrate",
+   6
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™",
+   6
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.1.3. Analysis of thermal budget of splitting",
+   6
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 2.2.3 Modelling of out-diffusion during the laser annealing",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.2. Main steps of the Smart Cut™",
+   5
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 4.2 Characterization of splitting",
+   5
+  ],
+  [
+   "Epitaxie en phase liquide de Si sur substrat implanté > 4.1.Etat de l’art de la fabrication de wafers fins de Si",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.4. Annealing of different sample geometries implanted at ${ \\bf 3 . 5 ^ { * } 1 0 ^ { 1 6 } }$ Hcm<sup>-2</sup>",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.1.1. Splitting kinetics and comparison with literature",
+   5
+  ],
+  [
+   "Cinétique de Smart Cut™ à haute température. > 2.2.Evolution dans la zone implantée du substrat donneur",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.3 Techniques based on ion implantation",
+   5
+  ],
+  [
+   "Epitaxie en phase liquide de Si sur substrat implanté > Conclusion de la thèse",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.11. Theoretical analysis on the effect of high temperature annealing on Smart $\\mathsf { c u t } ^ { \\mathsf { r m } }$ mechanisms",
+   5
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 2.1.2. Bending of the bonded structure on the laser chuck",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.3.2 Basic principles on electromagnetic levitation",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.2. Kinetics of splitting at the bulk-oxide layer interface up to 950°C",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 4.1.1. H concentration in implantation zone",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 8.3. Mechanisms leading to oxide layer transfer and detachment at the bonding interface",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 2.1. Blistering kinetics up to 600°C",
+   5
+  ],
+  [
+   "THESE DE L’UNIVERSITE DE LYON OPEREE AU SEIN DE L’INSA LYON > RESUME :",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > Chapter 4. Study of Smart Cut™ at high temperature by conventional furnace",
+   5
+  ],
+  [
+   "Smart Cut™ assisté par laser pour la fabrication d’hétérostructures > 3.3.Simulation numérique du recuit laser",
+   5
+  ],
+  [
+   "Smart Cut™ assisté par laser pour la fabrication d’hétérostructures > 3.5.Cinétiques de splitting pour des températures > 900°C",
+   5
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 2.2.1 Film thickness characterization",
+   5
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 7.1. Roughness as a function of temperature of Si splitting samples implanted with $\\mathbf { 5 . 0 ^ { * } 1 0 ^ { 1 6 } H c m ^ { - 2 } }$ by AFM characterization",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > PREAMBLE",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.3.1 Melting of Si in graphite crucible",
+   4
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 4.1.1. Inhomogeneity of annealing",
+   4
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 4.3.2 Unified model of splitting over the overall temperature range",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.6 Electromagnetic levitation",
+   4
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 2.2 Application of the numerical modelling to the annealing of implanted structures 2.2.1 Comparison with pyrometer characterization",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > Chapter 3. Design of experiments",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 3.5 Spreading of liquid Si onto a surface",
+   4
+  ],
+  [
+   "Smart Cut™ assisté par laser pour la fabrication d’hétérostructures > 3.2.Fabrication d’hétérostructures par Smart Cut™ assisté par laser",
+   4
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 2.3 Design of experiment for the characterization of the splitting kinetics by laser annealing",
+   4
+  ],
+  [
+   "Smart Cut™ assisté par laser pour la fabrication d’hétérostructures > 3.1.1. Applications des hétérostructures planaires",
+   4
+  ],
+  [
+   "Chapter 5. Application of laser annealing to Smart Cut™ > 5.1.3 Bow of the structure after splitting",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > 1.6. Formation and coalescence of micro-cracks",
+   4
+  ],
+  [
+   "Conclusion of the thesis > Kinetics of Smart Cut™ at high temperature",
+   4
+  ],
+  [
+   "Chapter 6 . D eposition of liquid Si on Si substrate. > 3.2 EBSD cartography of sample deposited on an implanted substrate",
+   4
+  ],
+  [
+   "The Advanced Developments of the Smart Cut™ Technology: Fabrication of Silicon Thin Wafers & Silicon-On-Something Hetero-structures > Chapter I: Introduction",
+   4
+  ]
+ ]
+}

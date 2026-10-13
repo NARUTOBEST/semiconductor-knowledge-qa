@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "MAG-01",
+  "query": "这台 magnatran 机器人能搬哪几种尺寸的晶圆？最大支持到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "支持的晶圆尺寸为 100mm、125mm、150mm、200mm、300mm，最大 300mm，且每种尺寸均有 SEMI 标准兼容的 end effector 可选。",
+  "success_criteria": "答出全部 5 种尺寸（100/125/150/200/300mm）且明确最大为 300mm。",
+  "evidence": "--[p38]-- Wafer Sizes 100mm, 125mm, 150mm, 200mm, 300mm (SEMI standard compatible end effectors are available for each size)"
+ },
+ {
+  "query_id": "MAG-02",
+  "query": "机器人中心到晶圆中心的最大臂展伸距是多少毫米？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最大伸距（reach）为 1050mm，即从机器人中心线到晶圆中心线。",
+  "success_criteria": "答出 1050mm。",
+  "evidence": "--[p25]-- The MagnaTran 7wafer transfer robot is designed for applications where a maximum reach of 1050 mm from the center line of the robot to the center line of the wafer is required."
+ },
+ {
+  "query_id": "MAG-03",
+  "query": "这台机器人的晶圆放置重复精度（placement repeatability）标称多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "放置重复精度为 0.1mm TIR（水平面内、在相应速度下）。",
+  "success_criteria": "答出 0.1mm 且带 TIR 口径。",
+  "evidence": "--[p35]-- Placement Repeatability 0.1mm TIR (in horizontal plane, at appropriate speeds)"
+ },
+ {
+  "query_id": "MAG-04",
+  "query": "设备供电有什么要求？电压、电流和功率分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "输入电源为 24V DC ±10%，20A，480W。",
+  "success_criteria": "答出 24VDC(±10%)、20A、480W 三项且单位正确。",
+  "evidence": "--[p36]-- Input Power 24 volts DC ±10%, 20 amps, 480 watts"
+ },
+ {
+  "query_id": "MAG-05",
+  "query": "机器人正常运行时噪声大不大？噪声水平是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "正常工作时噪声低于 70dB，手册说明其运行不构成直接噪声危害。",
+  "success_criteria": "答出小于 70dB。",
+  "evidence": "--[p56]-- The MagnaTran 7 provides no direct noise hazard during operation. When operating normally the robot produces a noise level that is less than 70db."
+ },
+ {
+  "query_id": "MAG-06",
+  "query": "用串口连机器人时，出厂默认的波特率、数据位、停止位和校验是怎么设的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "RS-232/RS-422 默认：波特率 9600，8 数据位，1 停止位，无校验（None），无握手（Handshake No，RTS/CTS No，XON/XOFF No）。",
+  "success_criteria": "答出 9600/8/1/无校验，至少命中波特率与数据位两项。",
+  "evidence": "--[p85]-- Table11-1: RS-232/RS-422Protocol Port Configuration | RS-232 or RS-422 Handshake | No Baud Rate | 9600 Parity Bits | None Data Bits | 8 Stop Bits | 1 Parity | None RTS/CTS | No XON/XOFF | No"
+ },
+ {
+  "query_id": "MAG-07",
+  "query": "每个机械臂可以在 EEPROM 里存多少个站点？每个站点要存哪些参数？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "每臂可存储 16 个站点；每站有自己的 Extend 位置(R)、Theta 位置(T)、Base Transfer Offset(BTO)、Lower 位置、Slot 数量(Number of Slots)和 Pitch。",
+  "success_criteria": "答出 16 站/臂，且至少列出 R、T、BTO、Lower、Slots、Pitch 中的 4 项。",
+  "evidence": "--[p226]-- Enables the user to Store, in EEPROM, the parameters for 16 stations per arm. Each station has its own Extend position (R), Theta position (T), Base Transfer Offset (BTO), Lower position, Number ofSlots, and Pitch."
+ },
+ {
+  "query_id": "MAG-08",
+  "query": "这台 magnatran 机器人整机的质保期是几年？保修条款在手册哪里写了？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该手册未涉及整机质保期/保修条款的信息，无法给出具体年限；手册仅在有异常时指引联系 Brooks Automation Customer Support，建议向厂家或销售渠道确认保修。不得编造任何年限。",
+  "success_criteria": "明确说明手册未包含保修期信息并拒答具体年限，不编造数字。",
+  "evidence": "--[p466]-- If any of the above inspection points report a discrepancy, call Brooks Automation Customer Support.（素材全文无 warranty/质保年限章节，此句为手册对异常处理的指引）"
+ },
+ {
+  "query_id": "MAG-09",
+  "query": "机器人的伺服位置记录功能一次最多能记多少次传感器跳变？可以同时给几个传感器开这个功能？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "每次指定传感器发生高→低或低→高状态跳变时记录伺服位置数据和跳变类型，最多记录 10 次（ten transitions）；同一时间只能配置一个传感器采集伺服位置数据，启用另一个传感器会清空 Servo Position Table 中的现有数据。",
+  "success_criteria": "答出最多 10 次跳变、同时仅 1 个传感器，最好补充启用新传感器会清空数据。",
+  "evidence": "--[p190]-- Each time the specified sensor makes a state transition from either a high to a low or from a low to high, the servo position data and the type of sensor transition will be recorded for a maximum of ten transitions. / Only one sensor may be configured to collect servo position data at a time. Enabling another sensor will clear all existing data from the Servo Position Table."
+ },
+ {
+  "query_id": "MAG-10",
+  "query": "机械臂运动分几档速度？各档分别在什么情况下用？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "实际臂运动分三档速度：High Speed（无晶圆时，PICK/PLACE 序列中 end effector 上无片的阶段）、Low Speed（带晶圆的搬运运动，是最慢档，通常略快于 Homing 速度）、Medium Speed（仅双臂机型：工作臂为空而另一臂有片时）；另外 Home 自参照时还有专用的慢速 Homing Speed 以保证定位精度。",
+  "success_criteria": "答出三档名称及 High=无片、Low=带晶圆、Medium=双臂一空一占的对应关系（Homing 速度为加分项）。",
+  "evidence": "--[p166]-- the actual arm motions occur at three different speeds. / The slowest speed (usually somewhat faster than Homing speed), the ‘with wafer’ or Low Speed, is used for wafer transfer motions. The Medium Speed is used for motions that occur when the active arm is empty and the inactive arm is occupied (dual arms only). / --[p167]-- High Speed motions occur during the automatic wafer transfer sequences, PICK and PLACE, only at points in the sequence when no wafer is on the end effector(s)."
+ },
+ {
+  "query_id": "MAG-11",
+  "query": "机器人刚上电复位完，为什么一直不走高速？要怎么它才恢复高速运行？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "因为机器人没有直接的晶圆感知能力，靠 PICK/PLACE 历史跟踪臂上有无片；上电时默认 pan（BiSymmetrik/Leapfrog 双臂则两个 pan）都是 occupied（有片），所以不走高速，直到两个 pan 都执行过 PLACE 之后才恢复高速。",
+  "success_criteria": "答出上电默认两 pan 均视为有片、需两 pan 均完成 PLACE 后才走高速。",
+  "evidence": "--[p167]-- Since the robot has no direct wafer sensing ability, it keeps track of the PICK and PLACE history for the arms. When the robot is first powered on it assumes that the pan, or both pans of a BiSymmetrik or Leapfrog arm, are occupied and will not move at high speed until a PLACE has been performed on both pans."
+ },
+ {
+  "query_id": "MAG-12",
+  "query": "手册里命令参数的单位是怎么约定的？Theta、R、Z 分别用什么单位？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Theta 用十进制毫度（decimal millidegrees）；R 和所有 Z 参数用微米（micrometers）；Slot 和站号 Stn# 为 1-99 的整数。",
+  "success_criteria": "答出 Theta=毫度、R/Z=微米、Slot/Stn#=1-99 整数。",
+  "evidence": "--[p233]-- Units: Theta in decimal millidegrees R and all Z parameters in micrometers Slot, Stn# are integers (1 - 99)"
+ },
+ {
+  "query_id": "MAG-13",
+  "query": "MISC I/O 那个 50 针连接器上，输入、输出和电源引脚分别有多少个？分布在哪些针脚号上？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "22 个输入引脚（针脚 1-22，I/O 编号 0-21）、20 个输出引脚（针脚 31-50，I/O 编号 0-19）、6 个电源引脚（针脚 25-30 单独编号），这些输入输出均可由用户编程分配为操作联锁（Operational Interlocks）。",
+  "success_criteria": "答出 22 输入(pin1-22)、20 输出(pin31-50)、6 电源(pin25-30)。",
+  "evidence": "--[p146]-- Table 5-7 shows the MISC I/O 50 pin connector that contains 22 input pins (pins 1-22, I/O designation 0-21), 20 output pins (pins 31-50, I/O designation 0-19), and 6 power pins (pins 25-30 individually designated)."
+ },
+ {
+  "query_id": "MAG-14",
+  "query": "双臂机型的 A、B 两个臂是怎么联动的？径向运动和旋转/垂直运动有什么区别？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "三个轴上 A、B 臂都由肩轴同时驱动：T（旋转）和 Z（垂直）运动两臂同时动作且速度、加速度相同；径向（R）更复杂——一臂伸出时另一臂缩回（Arm A 伸出时 Arm B 缩回），两臂线性运动曲线因 BiSymmetrik 机构运动学而异；软件给两臂设定的速度/加速度只作用于肩轴旋转，操作员可用 SET LOAD 命令指定每个 end effector 上有无晶圆。",
+  "success_criteria": "答出 T/Z 同速同加速度同时动、R 向一伸一缩、可用 SET LOAD 声明有无片，至少两项。",
+  "evidence": "--[p163]-- On all three axes of the MagnaTran 7, the ‘A’ and ‘B’ arms are driven simultaneously. For Theta (T) motion and for the vertical (Z) motion, therefore, the arms move at the same time and with the same velocities and accelerations. / --[p164]-- When Arm A extends, Arm B retracts / NOTE: The SET LOAD command can be used by an operator to specify the presence or absenceofa wafer on eachend effector."
+ },
+ {
+  "query_id": "MAG-15",
+  "query": "手册说双轴机型是 +24VDC、20A 供电，那整机功率是多少瓦？和手册标称的功率对得上吗？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "P = 24V × 20A = 480W，与手册输入电源规格中标注的 480 watts 一致。",
+  "success_criteria": "给出算式 24×20=480 且结果 480W，并指出与手册标称 480W 一致。",
+  "evidence": "--[p68]-- Two Axis Robot: +24 VDC at 20 Amps / --[p36]-- Input Power 24 volts DC ±10%, 20 amps, 480 watts"
+ },
+ {
+  "query_id": "MAG-16",
+  "query": "Frogleg 单臂在 0.3g 和 0.1g 加速度限幅下，200mm 晶圆一次典型取放各要几秒？如果加速度限幅只能用 0.1g，连搬 100 片比 0.3g 多花多少时间？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "单 Frogleg 臂、735mm 伸距、180° 旋转、0.4s Z 动作、200mm 晶圆的典型 PICK and PLACE：0.3g 时 5.8 秒/片，0.1g 时 8.4 秒/片；每片多 8.4−5.8=2.6 秒，100 片共多花 2.6×100=260 秒（约 4 分 20 秒）。",
+  "success_criteria": "答出 5.8s 与 8.4s，且 100 片差额 260 秒（±1 秒内），算式正确。",
+  "evidence": "--[p38]-- Single Frogleg™ Arm with typical PICK and PLACE sequence, 735mm extension, 180° rotation, 0.4 second Z motion for 200mm wafer size: 5.8 seconds typical at 0.3g acceleration limit 8.4 seconds typical at 0.1g acceleration limit"
+ },
+ {
+  "query_id": "MAG-17",
+  "query": "BiSymmetrik 双臂最重和 Frogleg 单臂最轻差多少？最重的是最轻的几倍？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按手册重量表：Single Frogleg™ Arm 3-7kg，BiSymmetrik™ Arm 4-9kg，Leapfrog™ Arm 4-9kg；最重 9kg（BiSymmetrik/Leapfrog），最轻 3kg（Frogleg），相差 9−3=6kg，9÷3=3 倍。",
+  "success_criteria": "答出最大 9kg、最小 3kg，相差 6kg 且为 3 倍。",
+  "evidence": "--[p39]-- Weight Single Frogleg™ Arm 3 - 7 kg (6 - 16 lbs.) BiSymmetrik™ Arm 4 - 9 kg (9 - 20 lbs.) Leapfrog™ Arm 4 - 9 kg (9 - 20 lbs.)"
+ },
+ {
+  "query_id": "MAG-18",
+  "query": "我要手动下命令搬晶圆，带着片走的时候该用哪个命令把载荷状态告诉机器人？空手走又是哪个命令？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "需先检索速度机制：有晶圆时所有后续动作走低加速度（Low Speed），用 SET LOAD ON 声明 end effector 上有片；无片时走高加速度（High Speed），用 SET LOAD OFF；配套移动命令如 GOTO N 1 R EX 伸臂到站 1。",
+  "success_criteria": "答出 SET LOAD ON（有片/慢速）与 SET LOAD OFF（无片/高速）的对应关系。",
+  "evidence": "--[p167]-- Issue SET LOAD ON to indicate a wafer is on the End Effector and all subsequent moves will be at low acceleration. Issue SET LOAD OFF to allow all subsequent moves to be at high acceleration. The syntax for a move is GOTO N 1 R EX to extend the arm to station 1 and GOTO N 2R EX to extend the arm to station 2. / --[p166]-- The fastest speed, the ‘without wafer’ or High Speed, is used for motions that occur when no wafer is on the End Effector."
+ },
+ {
+  "query_id": "MAG-19",
+  "query": "手册里说的 BTO 是个什么参数？我在 CDM 上改完 BTO 之后，用什么功能确认它已经存进去了？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索到 BTO（Base Transfer Offset）：它是决定各站晶圆搬运平面（WTP）高度的机器人控制器参数，等于从机器人 Home 位置到 UP（晶圆搬运）位置的垂直距离；调整后应先用 CDM 的 setup 功能 jog 到合适高度并存储 BTO 值，再用 CDM 的 INFO 功能确认 BTO 值已保存。",
+  "success_criteria": "答出 BTO 全称与定义（Home 到 UP 位置的垂直距离/决定 WTP 高度），并答出用 CDM INFO 功能验证。",
+  "evidence": "--[p258]-- A robot controller parameter, called the Base Transfer Offset (BTO), determines the height of the robot’s Wafer Transport Plane (WTP) for each station. The BTO is the vertical distance from the robot’s home position to its UP, or wafer transport, position. / --[p260]-- 6. Use the ‘INFO’ function on the CDM to verify that the BTO value has been saved."
+ },
+ {
+  "query_id": "MAG-20",
+  "query": "我们产线这边想用 EtherCAT 总线控制这台 magnatran，手册里支持吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该手册未涉及 EtherCAT 或任何现场总线接口；手册中主机串行通信仅给出 RS-232/RS-422 协议（默认 9600、8、1、无校验），无法据此确认支持 EtherCAT，建议联系 Brooks 确认，不得编造支持能力。",
+  "success_criteria": "明确说明手册未提及 EtherCAT、仅见 RS-232/RS-422 串口通信，不编造支持结论。",
+  "evidence": "--[p85]-- Serial Communications Default Settings Table11-1: RS-232/RS-422Protocol（素材全文无 EtherCAT/现场总线相关内容）"
+ },
+ {
+  "query_id": "MAG-21",
+  "query": "end effector 的 TIR 允许值跟晶圆直径是什么关系？我们要搬 300mm 晶圆，TIR 上限是多少英寸？这个 TIR 又是由什么组成的？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "规则：TIR 上限为每英寸晶圆直径 0.001 英寸（手册示例：8 英寸晶圆 TIR 上限 0.008 英寸）；TIR = dip 与 twist 之和。300mm 晶圆换算：300÷25.4≈11.81 英寸，故 TIR 上限 ≈ 11.81×0.001=0.0118 英寸（约 0.3mm）。",
+  "success_criteria": "答出 0.001\"/英寸规则、TIR=dip+twist，300mm 换算后 TIR≈0.0118\"（接受 0.0118±0.0003\"）。",
+  "evidence": "--[p252]-- The Total Indicator Runout (TIR) ofthe end effector is to be 0.001” maximum for each inch ofwafer diameter. Therefore, for an end effector that is transporting an eight inch diameter wafer, the end effector’s TIR is 0.008” maximum. The end effector’s TIR is the sum of it’s dip and twist."
+ },
+ {
+  "query_id": "MAG-22",
+  "query": "我用 RQ ARMS ALL 查到 Miscellaneous arm data 里 total z travel 显示 0.035000，这个数单位是什么？换算成微米后，用 MOVE Z ABS 命令把 Z 走到最大行程该填多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "total z travel 显示值 0.035000 单位是米（手册明确 Dimensions are given in meters）；换算 0.035m×10^6=35000 微米；MOVE Z ABS 的 position value 以 microns（米×10^-6）为单位，故应填 MOVE Z ABS 35000（手册同章示例即用 MOVE Z ABS 35000；25mm 行程机型用 MOVE Z ABS 25000）。",
+  "success_criteria": "答出单位为米、换算 35000 微米、命令写作 MOVE Z ABS 35000。",
+  "evidence": "--[p11]-- MOVE Z ABS [position value], where [position value] is in microns (meters x 10-6). ... The maximum Z travel for the robot will be provided in the miscellaneous arm data in the following example format: “total z travel........0.035000”. Dimensions are given in meters."
+ },
+ {
+  "query_id": "MAG-23",
+  "query": "Z 轴 Home 位重新调过之后，上部微开关和硬 stop 的间隙要保证多少？如果量出来不对，该按手册哪个程序去调整？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需分块检索：Z 上部——Z 上微开关与微开关 flag 之间 0.024 英寸（0.6mm），Z 上硬 stop（2 件）与 T1/T2 电机组件顶部之间 0.040 英寸（1.0mm）；Z 下部对应同样数值（下微开关-flag 0.024\"/0.6mm，下硬 stop-电机组件底部 0.040\"/1.0mm）；如不符合，按 Z Hard Stop and Overtravel Limit Switch Adjustment（手册 9-53 页）程序调整。",
+  "success_criteria": "答出 0.024\"(0.6mm) 微开关间隙、0.040\"(1.0mm) 硬 stop 间隙，并给出调整程序名/页码 9-53。",
+  "evidence": "--[p11]-- With the robot in the maximum Z position, use either shims or gap feeler gauges to verify the following dimensions have been maintained: 0.024” (0.6mm) between the Z upper microswitch and the z upper microswitch flag. 0.040” (1.0 mm) between the Z upper hard stops (qty 2) and the top of the robot T1/T2 motor assembly. If these dimensions are not correct, see Z Hard Stop and Overtravel Limit Switch Adjustment on page 9-53. / --[p11]-- 0.024” (0.6mm) between the Z lower microswitch and the z lower microswitch flag. 0.040” (1.0 mm) between the Z lower hard stops (qty 2) and the bottom of the robot T1/T2 motor assembly."
+ },
+ {
+  "query_id": "MAG-24",
+  "query": "PowerPak 掉电保护这块：主电源完全掉电时它能撑多久、供多大电流？+24V 主电掉到多少伏它会切入？电池电压低到多少伏机器人会受控停机、给主机发什么信号？电池标称电压和寿命是多少？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需跨块综合：主电源丢失时 PowerPak 最大以 20A 供电 2 秒并启动机器人受控停机，2 秒后切除电池电源；当 +24VDC 主电低于 +22VDC 时 Power Pack 切入（低于 +22VDC 持续 2 秒则断电并置位 AC_FAIL_UPS）；电池电压低于 23.5VDC 时执行受控停机并向主机发 BATT_LO 信号；电池标称 +24V，寿命 2.5 年。",
+  "success_criteria": "答出 20A/2 秒、+22VDC 切入阈值、23.5VDC 低电压阈值、BATT_LO 信号、+24V 标称/2.5 年寿命，至少命中 4 项。",
+  "evidence": "--[p237]-- Upon loss of primary power, the PowerPak will supply a maximum of 20A for 2 seconds and signal the robot to start a controlled shutdown. After two seconds, the PowerPak removes battery power from the robot. / When +24VDC power is less than +22VDC, the Power Pack is switched on. When +24VDC power is less than +22VDC and lasts more that 2 seconds, the Power Pack is switched on and AC\\_FAIL\\_UPS is asserted and at the end of 2 seconds, power is removed from the robot. / --[p238]-- Battery voltage is less than 23.5VDC: controlled shutdown ofthe robot is executed and BATT\\_LO signal is sent to the host. / The battery voltage is +24V nominal. Battery life is 2.5 years."
+ },
+ {
+  "query_id": "MAG-25",
+  "query": "Station 2 我想设成槽阀（slot valve）关闭时机械臂不许伸进去，命令行下用什么命令设？真触发的时候机器人会报什么错误码？这个错误码属于哪一类，去手册哪里查完整列表？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "双臂取晶圆机器人magnatran_71",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳链：先设映射（MAP STN_2_SLOT SBIT_SVLV_SEN …）后执行 STORE STN 2 OPTION SBIT_SVLV_SEN STN_2_SLOT（或 SET STN 2 OPTION SBIT_SVLV_SEN STN_2_SLOT），把映射名 STN_2_SLOT 指派给 Station 2；之后若传感器报告槽阀关闭，机器人将不在 Station 2 伸出并报错误码 710；错误码 710 属于 Interlock Error Codes 中的 I/O Mapping Errors 类，完整列表见 Error Code Reference I/O Mapping Errors（手册 8-185 页）。",
+  "success_criteria": "答出命令 STORE/SET STN 2 OPTION SBIT_SVLV_SEN STN_2_SLOT、错误码 710、类别 I/O Mapping Errors（页 8-185）。",
+  "evidence": "--[p183]-- SET STN 2 OPTION SBIT\\_SVLV\\_SEN STN\\_2\\_SLOT This will assign the created mapped name ofSTN\\_2\\_SLOT to Station 2. Now the robot will not extend at Station 2 if the sensors report that the slot valve is closed and error 710will be reported. See Error Code ReferenceI/O Mapping Errors on page 8-185 for a list of Interlock Error Codes."
+ }
+]

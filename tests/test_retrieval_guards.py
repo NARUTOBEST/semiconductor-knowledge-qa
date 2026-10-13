@@ -177,3 +177,85 @@ class TestBatchedEncoder:
             w.encode(["x"])
         with pytest.raises(RuntimeError, match="boom"):
             w.encode(["x", "y"])
+
+
+# ==================== _dynamic_cut 断崖截断 ====================
+class TestDynamicCutCliff:
+    """τ 绝对阈值之后的断崖检测:金标块群分数扎堆,群后断崖即截断。"""
+
+    def _cut(self, scores, monkeypatch, tau=0.3, max_k=8, min_k=3, cliff=0.6,
+             fixed=0):
+        monkeypatch.setattr(engine_api, "_reranker_failed", False)
+        monkeypatch.setattr(C, "RERANK_TAU", tau)
+        monkeypatch.setattr(C, "RERANK_MAX_K", max_k)
+        monkeypatch.setattr(C, "RERANK_MIN_K", min_k)
+        monkeypatch.setattr(C, "RERANK_CLIFF_RATIO", cliff)
+        monkeypatch.setattr(C, "RERANK_FIXED_K", fixed)   # 默认旁路固定模式
+        ranked = [(f"p{i}", s) for i, s in enumerate(scores)]
+        return engine_api._dynamic_cut(ranked, k=3)
+
+    def test_cliff_truncates_after_gap(self, monkeypatch):
+        # 0.9/0.85/0.8 扎堆,0.4 < 0.6*0.8 断崖 -> 只留前 3
+        out = self._cut([0.9, 0.85, 0.8, 0.4, 0.35, 0.3], monkeypatch)
+        assert [p for p, _ in out] == ["p0", "p1", "p2"]
+
+    def test_no_cliff_keeps_tau_passed(self, monkeypatch):
+        out = self._cut([0.9, 0.85, 0.8, 0.75, 0.7, 0.65], monkeypatch)
+        assert len(out) == 6            # 平缓下降无断崖,τ 过线全留
+
+    def test_cliff_keeps_at_least_top1(self, monkeypatch):
+        out = self._cut([0.9, 0.3], monkeypatch)   # 0.3 < 0.6*0.9 -> 保底 top-1
+        assert [p for p, _ in out] == ["p0"]
+
+    def test_cliff_disabled_by_zero(self, monkeypatch):
+        out = self._cut([0.9, 0.85, 0.8, 0.4, 0.35, 0.3], monkeypatch, cliff=0)
+        assert len(out) == 6
+
+    def test_tau_fallback_still_cliffed(self, monkeypatch):
+        # 全部低于 τ -> 保底 MIN_K=3(p0..p2),断崖在保底集上继续生效
+        out = self._cut([0.25, 0.2, 0.1, 0.05], monkeypatch)
+        assert [p for p, _ in out] == ["p0", "p1"]
+
+    def test_reranker_failed_bypasses_cliff(self, monkeypatch):
+        monkeypatch.setattr(engine_api, "_reranker_failed", True)
+        monkeypatch.setattr(C, "RERANK_CLIFF_RATIO", 0.6)
+        ranked = [(f"p{i}", s) for i, s in enumerate([5.0, 0.1, 0.05, 0.01])]
+        assert len(engine_api._dynamic_cut(ranked, k=3)) == 3  # RRF 分不同标,不走断崖
+
+
+# ==================== _dynamic_cut 固定 top-K ====================
+class TestDynamicCutFixed:
+    """RERANK_FIXED_K>0:重排后固定取 top-K,τ/断崖全旁路(评测对照基线)。"""
+
+    def _cut(self, scores, monkeypatch, fixed=5, tau=0.3, cliff=0.6):
+        monkeypatch.setattr(engine_api, "_reranker_failed", False)
+        monkeypatch.setattr(C, "RERANK_FIXED_K", fixed)
+        monkeypatch.setattr(C, "RERANK_TAU", tau)
+        monkeypatch.setattr(C, "RERANK_CLIFF_RATIO", cliff)
+        ranked = [(f"p{i}", s) for i, s in enumerate(scores)]
+        return engine_api._dynamic_cut(ranked, k=3)
+
+    def test_fixed_takes_top5_regardless_of_score(self, monkeypatch):
+        # 低分块也照留——固定模式不看分数,τ/断崖均不生效
+        out = self._cut([0.9, 0.8, 0.7, 0.1, 0.05, 0.01, 0.001], monkeypatch)
+        assert [p for p, _ in out] == ["p0", "p1", "p2", "p3", "p4"]
+
+    def test_fixed_pool_smaller_than_k(self, monkeypatch):
+        out = self._cut([0.9, 0.8], monkeypatch, fixed=5)
+        assert [p for p, _ in out] == ["p0", "p1"]   # 池不足 K 返回全部
+
+    def test_fixed_bypasses_cliff(self, monkeypatch):
+        # 有断崖(0.4<0.6*0.8)也照取 5 个
+        out = self._cut([0.9, 0.8, 0.4, 0.35, 0.3, 0.2], monkeypatch)
+        assert len(out) == 5
+
+    def test_fixed_zero_falls_back_to_dynamic(self, monkeypatch):
+        out = self._cut([0.9, 0.8, 0.4, 0.35, 0.3, 0.2], monkeypatch, fixed=0)
+        assert [p for p, _ in out] == ["p0", "p1"]   # 回到 τ+断崖
+
+    def test_reranker_failed_still_rrf_k(self, monkeypatch):
+        monkeypatch.setattr(engine_api, "_reranker_failed", True)
+        monkeypatch.setattr(C, "RERANK_FIXED_K", 5)
+        ranked = [(f"p{i}", s) for i, s in enumerate([5.0, 0.1, 0.05, 0.01])]
+        # 回退路径不受固定模式影响,按调用方 k 截断
+        assert len(engine_api._dynamic_cut(ranked, k=3)) == 3

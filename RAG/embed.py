@@ -207,13 +207,27 @@ def _device_str():
     return getattr(C, "EMBED_DEVICE", None) or "cpu"
 
 
+def _plain_snapshot_ok(local_dir) -> bool:
+    """平铺模型目录(modelscope/网盘直下布局)是否可直接用。
+
+    snapshot_download(local_files_only=True) 要求 HF 缓存元数据(refs/main 等);
+    网盘软链过来的平铺目录(只有 config.json/safetensors/tokenizer)没有这些,
+    会报 "Cannot find an appropriate cached snapshot folder"。下游模型类
+    (BGEM3FlagModel/SentenceTransformer/AutoModel)本就直接吃本地目录,
+    平铺目录齐全即等价可用。"""
+    return os.path.isdir(local_dir) and any(os.path.exists(
+        os.path.join(local_dir, m)) for m in
+        ("config.json", "modules.json"))   # 后者=sentence-transformers 布局(CLIP)
+
+
 def _ensure_snapshot(repo_id):
     """先手动 snapshot_download 到本地目录,跳过 .DS_Store / imgs/ / onnx 等无用或会 403 的文件
     (bge-m3 仓库里混进 imgs/.DS_Store,hf-mirror 对它 403,无过滤的 snapshot_download 会让整个下载失败),
     再把本地路径交给下游模型,避免它再次全量拉取。
 
     离线优先:本地已缓存时用 local_files_only=True 直接返回(不联网校验 etag),
-    断网环境也能用;仅当本地无缓存时才联网下载。"""
+    断网环境也能用;仅当本地无缓存时才联网下载。平铺目录(网盘软链)没有 HF
+    元数据时直接返回目录本身——下游按本地目录加载,等价可用。"""
     from huggingface_hub import snapshot_download
     cache_root = os.path.join(os.path.expanduser("~"), ".cache",
                               "huggingface", "hub_local")
@@ -224,6 +238,8 @@ def _ensure_snapshot(repo_id):
             return snapshot_download(repo_id=repo_id, local_dir=local_dir,
                                      ignore_patterns=ignore, local_files_only=True)
         except Exception:
+            if _plain_snapshot_ok(local_dir):
+                return local_dir
             pass  # 本地不完整,fallback 到联网下载
     return snapshot_download(repo_id=repo_id, local_dir=local_dir,
                              ignore_patterns=ignore)
@@ -241,8 +257,13 @@ def _ensure_snapshot_offline(repo_id):
                               "huggingface", "hub_local")
     local_dir = os.path.join(cache_root, repo_id.replace("/", "__"))
     ignore = ["*.DS_Store", "imgs/*", "*.onnx", "onnx/*", "*.ot", "*.msgpack"]
-    return snapshot_download(repo_id=repo_id, local_dir=local_dir,
-                             ignore_patterns=ignore, local_files_only=True)
+    try:
+        return snapshot_download(repo_id=repo_id, local_dir=local_dir,
+                                 ignore_patterns=ignore, local_files_only=True)
+    except Exception:
+        if _plain_snapshot_ok(local_dir):
+            return local_dir
+        raise
 
 
 # ---------- 文本嵌入 BGE-m3 ----------
@@ -375,6 +396,68 @@ def get_image_encoder(offline=False):
 # ---------- 重排 BGE-reranker-v2-m3 ----------
 _re = None  # FlagReranker
 
+class _Qwen3Reranker:
+    """Qwen3-Reranker(decoder-only,官方 transformers 用法):yes/no token
+    logit 差为相关分。FlagEmbedding 的 FlagLLMReranker 只认 gemma/minicpm 的
+    提示格式,Qwen3 系须用自己的 instruct 模板,故单独实现。
+
+    与 Reranker 接口对齐:compute_score(pairs, batch_size) 返回 raw 分列表
+    (yes-no logit 差,相关为正;调用方 min-max 归一,不依赖绝对标尺)。
+    """
+
+    _INSTRUCTION = ("Given a user query, retrieve relevant passages that "
+                    "answer the query")
+
+    def __init__(self, local_dir, device):
+        import torch
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+        self._torch = torch
+        self.tok = AutoTokenizer.from_pretrained(
+            local_dir, padding_side="left")     # 左填充:取最后一个位置的 logit
+        self.model = AutoModelForCausalLM.from_pretrained(
+            local_dir, torch_dtype=torch.bfloat16).to(device).eval()
+        self.device = device
+        # yes/no 单 token id(Qwen 词表);取首 token 防 add_special_tokens 干扰
+        self._yes = self.tok("yes", add_special_tokens=False).input_ids[0]
+        self._no = self.tok("no", add_special_tokens=False).input_ids[0]
+        # Qwen3 模板:思考关闭(think 置空),与官方 reranker 用法一致
+        self._prefix = ('<|im_start|>system\nJudge whether the Document meets'
+                        ' the requirements based on the Query and the Instruct'
+                        ' provided. Note that the answer can only be "yes" or'
+                        ' "no".<|im_end|>\n<|im_start|>user\n')
+        self._suffix = ('<|im_end|>\n<|im_start|>assistant\n'
+                        '<think>\n\n</think>\n\n')
+
+    def compute_score(self, pairs, batch_size=8, **_):
+        import torch
+        max_len = getattr(C, "RERANK_MAX_CONTENT", 800)
+        # 长度分桶:全部文本先截断编码(不 pad),按 token 数升序成批后再各自
+        # pad 到本批最长——同批长度相近,padding 浪费从"批内最长者"降到最低。
+        # 20u 压测下 padding 浪费是 rerank 吞吐的主要损耗之一(短文档被迫陪长
+        # 文档跑满 max_length),排序批处理零质量影响、纯吞吐收益。
+        texts = [
+            self._prefix + f"<Instruct>: {self._INSTRUCTION}\n"
+            f"<Query>: {q}\n<Document>: {str(d)[:max_len]}" + self._suffix
+            for q, d in pairs
+        ]
+        enc_all = self.tok(texts, truncation=True, max_length=2048)
+        order = sorted(range(len(pairs)),
+                       key=lambda i: len(enc_all["input_ids"][i]))
+        scores = [0.0] * len(pairs)
+        for i in range(0, len(order), batch_size):
+            idx = order[i:i + batch_size]
+            feats = {k: [enc_all[k][j] for j in idx]
+                     for k in ("input_ids", "attention_mask")}
+            enc = self.tok.pad(feats, padding=True, return_tensors="pt")
+            enc = {k: v.to(self.device) for k, v in enc.items()}
+            with torch.no_grad():
+                logits = self.model(**enc).logits[:, -1, :]
+            diff = (logits[:, self._yes] - logits[:, self._no]).float()
+            for pos, j in enumerate(idx):
+                scores[j] = diff[pos].item()
+        return scores
+
+
 class Reranker:
     """Cross-Encoder 重排器:对 (query, document) 对打分,精度远高于双塔检索。
 
@@ -385,40 +468,241 @@ class Reranker:
     用法: 召回 20 条(BGE-m3)-> 重排取 top 3(Reranker)
     """
     def __init__(self, model_name=C.RERANK_MODEL):
-        from FlagEmbedding import FlagReranker
         # reranker 为可选增强:仅用本地快照,缺失即快速失败(上层降级为召回顺序),
         # 不在请求路径上联网下载(断网时会长时间挂起并持模型锁)。
         local = _ensure_snapshot_offline(model_name)
-        self.model = FlagReranker(
-            local,
-            device=_device_str(),
-            use_fp16=(_device_str() == "cuda"),
-        )
+        self._llm = any(k in model_name.lower() for k in ("gemma", "minicpm", "qwen3"))
+        if "qwen3" in model_name.lower():
+            # Qwen3-Reranker:官方 transformers 用法(yes/no logit 差),
+            # FlagLLMReranker 的 gemma 提示格式不适用
+            self.model = _Qwen3Reranker(local, _device_str())
+        elif self._llm:
+            # decoder-only LLM 系 reranker(FlagReranker 仅支持 xlm-roberta 系编码器);
+            # gemma 系权重按官方说明用 bf16(fp16 会溢出)
+            from FlagEmbedding import FlagLLMReranker
+            self.model = FlagLLMReranker(
+                local,
+                device=_device_str(),
+                use_bf16=(_device_str() == "cuda"),
+            )
+        else:
+            from FlagEmbedding import FlagReranker
+            self.model = FlagReranker(
+                local,
+                device=_device_str(),
+                use_fp16=(_device_str() == "cuda"),
+            )
 
-    def rerank(self, query, documents, batch_size=8):
-        """对 (query, doc) 对打分,返回归一化分数列表(0~1)。
+    def score_pairs(self, pairs, batch_size=None):
+        """对已构造好的 (query, doc) 对打分(攒批包装器的底层入口)。
 
-        documents 为字符串列表,每条截断到 RERANK_MAX_CONTENT 字符。
+        batch_size 缺省取 RERANK_BATCH_SIZE:默认 8 对历史小模型够用,但
+        Qwen3-4B bf16 下 8 对/批让 GPU 严重欠载(4080S 实测 20u 压测重排
+        阶段占请求延迟 96%,利用率 38-100% 震荡)——批 64 前向是主要吞吐杠杆。
         """
-        max_len = getattr(C, "RERANK_MAX_CONTENT", 512)
-        pairs = [[query, doc[:max_len]] for doc in documents]
+        if batch_size is None:
+            batch_size = max(1, int(getattr(C, "RERANK_BATCH_SIZE", 8)))
         scores = self.model.compute_score(
-            pairs, normalize=True, batch_size=batch_size
+            pairs, normalize=not self._llm, batch_size=batch_size
         )
         # 单条时 compute_score 返回 float,需统一为 list
         if isinstance(scores, float):
             scores = [scores]
         return list(scores)
 
+    def rerank(self, query, documents, batch_size=None):
+        """对 (query, doc) 对打分,返回分数列表。
+
+        documents 为字符串列表,每条截断到 RERANK_MAX_CONTENT 字符。
+        LLM 系(gemma 等)返回 raw logits(相关 ~+5~+8 / 无关 ~-1~-6,动态范围
+        完整,sigmoid 归一化会把 90% 候选压到 0.9+ 使 τ 阈值失效——实测);
+        编码器系(v2-m3)仍返回 normalize 后 0~1。
+        """
+        max_len = getattr(C, "RERANK_MAX_CONTENT", 512)
+        pairs = [[query, doc[:max_len]] for doc in documents]
+        return self.score_pairs(pairs, batch_size)
+
+
+class _RerankSlot:
+    """单次 rerank 挂起请求:攒批队列元素,执行完回填 result(分数列表)或 error。"""
+    __slots__ = ("query", "documents", "result", "error")
+
+    def __init__(self, query, documents):
+        self.query = query
+        self.documents = documents
+        self.result = None
+        self.error = None
+
+    @property
+    def done(self):
+        return self.result is not None or self.error is not None
+
+
+class _BatchedReranker:
+    """跨请求攒批 + 多副本推理包装器(leader-follower,单飞批同款)。
+
+    与 _BatchedEncoder 的差异:rerank 单请求本身就是一批 (query, doc) 对
+    (RERANK_RECALL_K=96),并发瓶颈在"请求间"——N 个并发请求各带一批对,
+    逐请求持全局锁串行会把队尾拖过 MCP 30s 超时(轮次13 实测)。这里把窗口内
+    到达的多个请求合并成一次 compute_score(RERANK_BATCH_MAX_PAIRS 封顶,
+    单请求超限则独自成批),按各请求文档数切分回填;持**空闲副本**自己的锁——
+    RERANK_REPLICAS=2 时两个 leader 可同时各占一个副本,吞吐近翻倍。
+    返回形状与"自己单独调用一次"完全一致。
+    失败语义:同批请求共享同一次调用——批量调用抛错则整批各自收到同一异常。
+    """
+
+    def __init__(self, replicas, window_s=0.05, max_pairs=96):
+        self._replicas = replicas     # list[(Reranker, threading.Lock)]
+        self._window_s = window_s
+        self._max_pairs = max(1, max_pairs)
+        self._cond = threading.Condition()
+        self._pending = []            # list[_RerankSlot],_cond 保护
+        self._inflight = 0            # 收集/执行中的 leader 数(<副本数)
+
+    def rerank(self, query, documents):
+        documents = list(documents)
+        with self._cond:
+            slot = _RerankSlot(query, documents)
+            self._pending.append(slot)
+            leader = self._inflight < len(self._replicas)
+            if leader:
+                self._inflight += 1
+        if leader:
+            self._flush_loop()
+        else:
+            with self._cond:
+                # 结果/异常由 leader 回填并 notify
+                self._cond.wait_for(lambda: slot.done)
+        if slot.error is not None:
+            raise slot.error
+        return slot.result
+
+    def _flush_loop(self):
+        while True:
+            time.sleep(self._window_s)   # 攒批窗口:等后来者进队
+            with self._cond:
+                batch = self._take_batch_locked()
+                if not batch:
+                    self._inflight -= 1
+                    return
+            try:
+                self._execute(batch)
+            except BaseException as e:   # 防御:执行器自身异常不能让 follower 永久挂起
+                with self._cond:
+                    for s in batch:
+                        s.error = e
+                    self._cond.notify_all()
+
+    def _take_batch_locked(self):
+        """从队首取请求凑批,总对数不超 max_pairs(单个超限请求独自成批)。"""
+        batch, pairs = [], 0
+        while self._pending:
+            n = len(self._pending[0].documents)
+            if batch and pairs + n > self._max_pairs:
+                break
+            batch.append(self._pending.pop(0))
+            pairs += n
+        return batch
+
+    def _execute(self, batch):
+        max_len = getattr(C, "RERANK_MAX_CONTENT", 512)
+        pairs, counts = [], []
+        for s in batch:
+            docs = [d[:max_len] for d in s.documents]
+            counts.append(len(docs))
+            pairs.extend([s.query, d] for d in docs)
+        try:
+            model, lk = self._acquire_replica()
+            try:
+                raw = model.score_pairs(pairs)
+            finally:
+                lk.release()
+        except Exception as e:
+            with self._cond:
+                for s in batch:
+                    s.error = e
+                self._cond.notify_all()
+            return
+        with self._cond:
+            off = 0
+            for s, n in zip(batch, counts):
+                s.result = list(raw[off:off + n])
+                off += n
+            self._cond.notify_all()
+
+    def _acquire_replica(self):
+        """取一个空闲副本;全忙时等第一个(各 leader 锁序一致,无死锁)。"""
+        for model, lk in self._replicas:
+            if lk.acquire(blocking=False):
+                return model, lk
+        model, lk = self._replicas[0]
+        lk.acquire()
+        return model, lk
+
+
+_re_pool = None          # 重排管线单例(_BatchedReranker)
+
+
+def get_rerank_pipeline():
+    """重排管线单例:RERANK_REPLICAS 个副本 + 跨请求攒批(leader-follower)。
+
+    所有 reranker 实例的唯一属主——engine_api 与 /rerank 端点都从这里取,
+    避免双份加载烧显存。副本数 RERANK_REPLICAS:vGPU-32G 可开 2
+    (bge-reranker-v2-gemma bf16 ~5.2G/个,双副本 + BGE-m3 + CLIP ≈ 13G)。
+    """
+    global _re_pool
+    if _re_pool is None:
+        with _model_lock:
+            if _re_pool is None:
+                n = max(1, int(getattr(C, "RERANK_REPLICAS", 1)))
+                replicas = [(Reranker(), threading.Lock()) for _ in range(n)]
+                _re_pool = _BatchedReranker(
+                    replicas,
+                    window_s=float(getattr(C, "RERANK_BATCH_WINDOW_S", 0.05)),
+                    max_pairs=int(getattr(C, "RERANK_BATCH_MAX_PAIRS", 96)))
+    return _re_pool
+
 
 def get_reranker():
-    """懒加载 Reranker(首次调用下载模型 ~2GB,后续走缓存)。"""
-    global _re
-    if _re is None:
+    """懒加载 Reranker(首次调用下载模型 ~2GB,后续走缓存)。
+
+    攒批改造后返回管线包装器(API 兼容:同样有 .rerank(query, documents)),
+    内部自动合并并发请求并按副本数并行。
+    """
+    return get_rerank_pipeline()
+
+
+_re2_pool = None         # 混合重排副路管线单例(RERANK2_MODEL;None=未配置/未加载)
+
+
+def get_rerank2_pipeline():
+    """混合重排副路(词面系,如 bge-reranker-v2-m3)管线单例。
+
+    与主路 get_rerank_pipeline 同构但独立:RERANK2_MODEL 未配置时返回 None,
+    调用方按单路走。副本数 RERANK2_REPLICAS(词面系模型小,默认 1)。
+    """
+    global _re2_pool
+    name = (getattr(C, "RERANK2_MODEL", "") or "").strip()
+    if not name:
+        return None
+    if _re2_pool is None:
         with _model_lock:
-            if _re is None:
-                _re = Reranker()
-    return _re
+            if _re2_pool is None:
+                n = max(1, int(getattr(C, "RERANK2_REPLICAS", 1)))
+                replicas = [
+                    (Reranker(model_name=name), threading.Lock())
+                    for _ in range(n)
+                ]
+                _re2_pool = _BatchedReranker(
+                    replicas,
+                    window_s=float(getattr(C, "RERANK_BATCH_WINDOW_S", 0.05)),
+                    max_pairs=int(getattr(C, "RERANK_BATCH_MAX_PAIRS", 96)))
+    return _re2_pool
+
+
+def get_reranker2():
+    """副路 reranker(API 兼容主路);未配置返回 None。"""
+    return get_rerank2_pipeline()
 
 if __name__ == "__main__":
     # 自测:编码 3 条文本 + 1 张图

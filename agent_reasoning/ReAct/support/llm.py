@@ -6,6 +6,9 @@ import time
 import logging
 
 import config as C
+from agent_reasoning.ReAct.support.tool_circuit import (
+    CircuitOpenError, get_llm_breaker,
+)
 
 logger = logging.getLogger("agent")
 
@@ -17,6 +20,115 @@ LLM_TIMEOUT = 20
 STREAM_TIMEOUT = 10
 
 _llm_client = None
+
+
+class LLMServiceUnavailable(Exception):
+    """某环节的 LLM 熔断器已放弃(OPEN / 连续 2 次半开试探失败),本次调用拒绝。
+
+    str(e) 即用户可读提示;关键环节(raglite/react 主作答)捕获后把它作为
+    SSE error 消息下发并认定本次作答无效,辅助环节(改写/救场/压缩/grounding)
+    捕获后按既有降级路径处理。
+    """
+
+    def __init__(self, site: str, exhausted: bool = False):
+        self.site = site
+        self.exhausted = exhausted
+        super().__init__(
+            f"该环节({site})LLM 服务不可用,请稍后作答,本次作答无效")
+
+
+def _llm_error_type(e: Exception) -> str:
+    """LLM 调用失败的熔断记账分类:配置类 4xx 不代表服务故障,fatal 不计数。"""
+    status = getattr(e, "status_code", None)
+    if status is None:
+        status = getattr(getattr(e, "response", None), "status_code", None)
+    if status in (400, 401, 403, 404, 422):
+        return "fatal"
+    return "timeout"
+
+
+def _llm_breaker_guard(site: str):
+    """进入 LLM 调用前过熔断器;OPEN/放弃期抛 LLMServiceUnavailable。
+
+    返回熔断器实例(供成功/失败记账),特性关闭返回 None。
+    """
+    brk = get_llm_breaker(site)
+    if brk is None:
+        return None
+    try:
+        brk.before_call()
+    except CircuitOpenError as e:
+        raise LLMServiceUnavailable(site, exhausted=e.exhausted) from e
+    return brk
+
+
+class _LLMGate:
+    """LLM 出口波次并发闸:同时最多 size 个调用在途,超出的排队攒波齐发。
+
+    规则(2026-10-10 用户拍板):
+    - 在途 < size 且无排队者 → 直通,零等待(低负载完全不感知);
+    - 在途满 → 后续请求排队,等当前波【全部结束】后一次性放下一波
+      (≤size 个攒批齐发),直到队列穷尽;
+    - 排队超过 wait_timeout 秒 → 抛 TimeoutError(调用方报"稍后重试")。
+    目的:把 20 并发齐发对 Ark 的秒级突发冲击削成 ≤size 的波次,避免首波
+    集体流式挂死(轮次14 实测 600s 超时集中第一波)。
+    """
+
+    def __init__(self, size: int, wait_timeout: float = 300.0):
+        self.size = max(1, int(size))
+        self.wait_timeout = float(wait_timeout)
+        self._cond = threading.Condition()
+        self._inflight = 0
+        self._waiters = 0
+        self._promote = 0   # 新一波已放出的名额数(由 release 时一次性分发)
+
+    def acquire(self) -> None:
+        with self._cond:
+            if self._inflight == 0 and self._waiters == 0:
+                self._inflight += 1
+                return
+            if 0 < self._inflight < self.size and self._waiters == 0:
+                self._inflight += 1   # 低负载:当前波有空位且无人排队,直通
+                return
+            self._waiters += 1
+            promoted = False
+            try:
+                deadline = time.time() + self.wait_timeout
+                while self._promote <= 0:
+                    remaining = deadline - time.time()
+                    if remaining <= 0:
+                        raise TimeoutError(
+                            f"当前请求较多,已排队 {self.wait_timeout:.0f}s,"
+                            "请稍后重试")
+                    self._cond.wait(remaining)
+                self._promote -= 1
+                promoted = True
+            finally:
+                self._waiters -= 1
+                if promoted:
+                    self._inflight += 1
+
+    def release(self) -> None:
+        with self._cond:
+            self._inflight -= 1
+            if self._inflight <= 0:
+                self._inflight = 0
+                if self._waiters > 0:
+                    # 当前波清零:开新一波,名额一次性分给队列前排
+                    self._promote = min(self.size, self._waiters)
+                    self._cond.notify_all()
+
+    @property
+    def stats(self) -> dict:
+        with self._cond:
+            return {"inflight": self._inflight, "waiters": self._waiters}
+
+
+# 进程内单例;LLM_GATE_ENABLED=False 一键关闭(直通)。
+_GATE: "_LLMGate | None" = (
+    _LLMGate(getattr(C, "LLM_GATE_SIZE", 10),
+             getattr(C, "LLM_GATE_WAIT_TIMEOUT", 300.0))
+    if getattr(C, "LLM_GATE_ENABLED", True) else None)
 
 
 def get_client():
@@ -36,11 +148,14 @@ def get_client():
 
 
 def _apply_thinking_policy(kwargs: dict) -> None:
-    """按模型族注入思考开关(云端两族模型行为不同,实测):
+    """按模型族注入思考开关(各模型族行为不同,实测):
     - doubao 系:支持 thinking.type=disabled;路由类短 prompt 带思考 12-14s,
       关闭后 2-3s——所有经此函数的 light 调用(路由/质检/升迁门)统一受益;
     - GLM 系:纯思考模型,请求体带 thinking 参数直接 400 InvalidParameter,
-      必须剔除(GLM 经 reasoning_content 独立字段思考,不污染 content)。
+      必须剔除(GLM 经 reasoning_content 独立字段思考,不污染 content);
+    - 自建网关(Qwen3 混合思考模型,如 Qwen3-32B-FP8/14B-FP8):chat 模板默认
+      enable_thinking=True,每次调用先思考数十秒——经 chat_template_kwargs
+      显式关闭(思考内容由服务端 --reasoning-parser 分离,不污染正文)。
     LLM_ENABLE_THINKING=1 整体豁免(恢复思考)。"""
     if getattr(C, "LLM_ENABLE_THINKING", False):
         return
@@ -57,10 +172,25 @@ def _apply_thinking_policy(kwargs: dict) -> None:
             kwargs["extra_body"] = extra
         else:
             kwargs.pop("extra_body", None)
+    elif getattr(C, "LLM_GATEWAY_ACTIVE", False):
+        # 自建网关(Qwen3 混合思考模型):chat 模板默认 enable_thinking=True,
+        # 每次调用先思考数十秒——经 chat_template_kwargs 显式关闭;
+        # 思考内容若仍产生,由服务端 --reasoning-parser qwen3 分离到独立字段。
+        extra = dict(kwargs.get("extra_body") or {})
+        ctk = extra.get("chat_template_kwargs")
+        ctk = dict(ctk) if isinstance(ctk, dict) else {}
+        ctk.setdefault("enable_thinking", False)
+        extra["chat_template_kwargs"] = ctk
+        kwargs["extra_body"] = extra
 
 
-def llm_create_with_retry(client, trace_id="", retries=LLM_RETRIES, **kwargs):
+def llm_create_with_retry(client, trace_id="", retries=LLM_RETRIES, site="", **kwargs):
     """带指数退避重试的 LLM 调用,主模型耗尽后自动切备用模型(P1⑥)。
+
+    入口两道闸:
+    - 熔断器(三状态,按 site 环节):OPEN/放弃期抛 LLMServiceUnavailable;
+    - 波次并发闸(_LLMGate,全局):在途 ≤LLM_GATE_SIZE 直通,超出的攒波
+      排队,排队超时返回 (None, TimeoutError)——两者都先于任何网络调用。
 
     返回 (stream, error):成功时 error=None;失败(含备用模型)返回 (None, error)。
     仅对创建请求抛出的同步异常重试/切换;流式中途断线由调用方兜底。
@@ -75,6 +205,30 @@ def llm_create_with_retry(client, trace_id="", retries=LLM_RETRIES, **kwargs):
     # 流式调用不受影响(建立连接的报错是秒级,重试代价低)。
     if not kwargs.get("stream", False) and retries > 1:
         retries = 1
+    brk = _llm_breaker_guard(site or "llm")
+    if _GATE is not None:
+        try:
+            _GATE.acquire()
+        except TimeoutError as e:
+            # 排队超时=后端自我保护生效,不计入熔断(不是上游故障)
+            logger.warning(json.dumps({
+                "trace_id": trace_id, "event": "llm_gate_timeout",
+                "site": site or "llm", "gate": _GATE.stats,
+            }, ensure_ascii=False))
+            return None, e
+    try:
+        return _llm_create_impl(client, trace_id=trace_id, brk=brk,
+                                retries=retries, **kwargs)
+    finally:
+        if _GATE is not None:
+            _GATE.release()
+
+
+def _llm_create_impl(client, trace_id="", brk=None, retries=LLM_RETRIES, **kwargs):
+    """主备模型循环 + 指数退避(由 llm_create_with_retry 包裹:熔断/并发闸在外层)。
+
+    brk 为 site 环节的熔断器(可为 None),成功/最终失败在此记账。
+    """
     model = kwargs.pop("model", "") or ""
     fallback = getattr(C, "EFFECTIVE_FALLBACK_MODEL", "") or getattr(C, "OPENAI_FALLBACK_MODEL", "") or ""
     models = [model] + ([fallback] if (fallback and model and fallback != model) else [])
@@ -87,7 +241,10 @@ def llm_create_with_retry(client, trace_id="", retries=LLM_RETRIES, **kwargs):
         kwargs.setdefault("temperature", float(getattr(C, "LLM_TEMPERATURE", 0.3)))
         for i in range(retries):
             try:
-                return client.chat.completions.create(**kwargs), None
+                resp = client.chat.completions.create(**kwargs)
+                if brk is not None:
+                    brk.on_success()
+                return resp, None
             except Exception as e:
                 last_err = e
                 if i == retries - 1:
@@ -102,6 +259,8 @@ def llm_create_with_retry(client, trace_id="", retries=LLM_RETRIES, **kwargs):
                         "trace_id": trace_id, "event": "llm_fail",
                         "model": m, "attempt": i + 1, "error": str(e)[:120],
                     }, ensure_ascii=False))
+                    if brk is not None:
+                        brk.on_failure(_llm_error_type(e))
                     return None, e
                 wait = 1.5 ** i
                 logger.info(json.dumps({
@@ -110,6 +269,8 @@ def llm_create_with_retry(client, trace_id="", retries=LLM_RETRIES, **kwargs):
                     "error": str(e)[:120],
                 }, ensure_ascii=False))
                 time.sleep(wait)
+    if brk is not None and last_err is not None:
+        brk.on_failure(_llm_error_type(last_err))
     return None, last_err
 
 

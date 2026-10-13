@@ -1,0 +1,326 @@
+{
+ "doc": "Advanced Processes for 193-nm Immersion Lithography (SPIE Press Monograph Vol. PM189) (Yayi Wei, Robert L. Brainard)",
+ "chunks": 2490,
+ "headings": [
+  [
+   "Advanced Processes for 193-nm Immersion Lithography > Contents",
+   39
+  ],
+  [
+   "References",
+   38
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > 11.1.3 Development of high-RI fluids",
+   28
+  ],
+  [
+   "Chapter 1 Immersion Lithography and Its Challenges > 1.2.1 Depth-of-focus improvement",
+   28
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.2.3 LER generation in positive chemically amplified (CA) resists",
+   27
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.4.1 Double trench patterning",
+   26
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography",
+   25
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.5 Self-Aligned Double Patterning",
+   23
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > 11.3.2 Aerial image improvements with high-RI material",
+   23
+  ],
+  [
+   "Chapter 5 Topcoat and Resist Processes for Immersion Lithography > 5.1.1 Refractive index and thickness of topcoat",
+   22
+  ],
+  [
+   "Chapter 1 Immersion Lithography and Its Challenges > 1.2 Immersion Lithography and Its Advantages",
+   22
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology",
+   22
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > References",
+   22
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > References",
+   20
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > 11.2 Materials with High Refractive Indices",
+   19
+  ],
+  [
+   "Chapter 1 Immersion Lithography and Its Challenges > 1.1.1 Resolution of the exposure system",
+   18
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.1.3 Relationship between LER and LWR",
+   18
+  ],
+  [
+   "Advanced Processes for 193-nm Immersion Lithography > Preface",
+   18
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > 3.6.2 Quartz crystal microbalance to measure water uptake",
+   18
+  ],
+  [
+   "Chapter 1 Immersion Lithography and Its Challenges > 1.2.3 Hyper-NA and high refractive index immersion (193i+)",
+   18
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > References",
+   18
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > References",
+   18
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > References",
+   17
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > 11.3.1 Development of high-RI resists",
+   16
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.2.3 Image-assisted double exposure",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.2 Challenges to Antireflection Control for Hyper-NA Exposure",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 8.2.1 Shrinkage behavior",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.1.1 Optical requirements",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 8.1.1 Behavior of thermal reflow",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.4.4 Resist compatibility and the tetralayer approach",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > Chapter 8 Resist Shrink and Trim Processes",
+   16
+  ],
+  [
+   "Chapter 1 Immersion Lithography and Its Challenges > 1.3.3 Imaging at hyper-NA",
+   16
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 8.1.3 Optical proximity correction (OPC) for thermal reflow",
+   15
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.4.3 Etch selectivity",
+   15
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.3.2 Graded spin-on BARCs",
+   14
+  ],
+  [
+   "Advanced Processes for 193-nm Immersion Lithography > List of Acronyms and Abbreviations",
+   14
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.4.5 Storage stability and solvent rework capability",
+   14
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.3.2.1 Freezing technique with a surface-protecting layer",
+   14
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.1.5.3 Edge bead and backside contamination",
+   14
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.1.1 Double exposure (DE)",
+   14
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.1.4 Challenges",
+   14
+  ],
+  [
+   "Chapter 5 Topcoat and Resist Processes for Immersion Lithography > 5.1.2 Chemical compatibility of topcoat and resist",
+   14
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.3.1 Spin-on dual-layer BARCs",
+   14
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > 3.5.2 Controlled immersion contamination",
+   14
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.4.4 Si-BARC film as a hard mask for double patterning",
+   13
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.4.1 Process flow of the resist/Si-BARC/SOC trilayer",
+   13
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.4.6 Thick Si-BARC (“etch screw”) process",
+   13
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > References",
+   13
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.3.2.2 Freezing technique with thermal cross-link resist",
+   12
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.3.2 Optimization of resist process parameters",
+   12
+  ],
+  [
+   "Chapter 7 Antireflection Coatings and Underlayer Technology > 7.5.2 Evaluation of filling capability",
+   12
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > 3.2.2 Leaching dynamics described by the double-exponential model",
+   12
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > 3.4 Pre-Rinse to Partially Remove Leached Contaminants",
+   12
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.3.1 Double exposure with positive and negative resists",
+   12
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.1.4 Correlation length of the roughness",
+   12
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.4.1 Mechanism of line collapse",
+   12
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > 3.5.3 In situ cleaning of the immersion system",
+   12
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.1.4 Reduction of material consumption",
+   12
+  ],
+  [
+   "Chapter 4 Contact Angle of Water on Resist Stacks > 4.2 Dynamics of the Water Meniscus",
+   12
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.2.1 Combination of interference and projection (regular) lithography",
+   12
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.6 Novel Approaches",
+   12
+  ],
+  [
+   "Chapter 5 Topcoat and Resist Processes for Immersion Lithography",
+   12
+  ],
+  [
+   "Chapter 5 Topcoat and Resist Processes for Immersion Lithography > 6.11 Summary",
+   11
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > 11.1.2 Measuring the RI of immersion fluids",
+   11
+  ],
+  [
+   "Chapter 5 Topcoat and Resist Processes for Immersion Lithography > 5.4.1 Intrinsic topcoats: balancing immersion needs with highresolution performance",
+   11
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.7 Additional Comments",
+   11
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.3.1 Developer dispense",
+   10
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.2.2 Aerial image contrast at the pattern edge",
+   10
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.3.3 Smoothing resist patterns through surfactant rinse and hard bake",
+   10
+  ],
+  [
+   "Chapter 1 Immersion Lithography and Its Challenges > 1.3.1 Topcoat versus non-topcoat",
+   10
+  ],
+  [
+   "Chapter 10 Line-Edge Roughness of Resist Patterns > 10.1.5 Spatial frequency spectrum",
+   10
+  ],
+  [
+   "Chapter 11 Extendibility of 193-nm Immersion Lithography > 11.1.4 Leaching and contact angle",
+   10
+  ],
+  [
+   "Chapter 5 Topcoat and Resist Processes for Immersion Lithography > 6.8.3 Wafer edge",
+   10
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.6 193-nm Immersion-Specific Track Process",
+   10
+  ],
+  [
+   "Chapter 3 Resist Leaching and Water Uptake > 3.5.1 Simulation results",
+   10
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.4.2 Surfactant rinse to reduce line collapse",
+   10
+  ],
+  [
+   "Chapter 2 Process Steps in the Track > 2.2.4 Sublimation at high-temperature post-apply bakes",
+   10
+  ],
+  [
+   "Chapter 4 Contact Angle of Water on Resist Stacks > 4.4 Leakage Mechanism of the Water Meniscus",
+   10
+  ],
+  [
+   "Chapter 4 Contact Angle of Water on Resist Stacks > 4.1 Definition of Static and Dynamic Contact Angles",
+   10
+  ],
+  [
+   "Chapter 9 Double Exposure and Double Patterning > 9.2.2 Exposures with X-dipole and Y-dipole illuminations",
+   10
+  ]
+ ]
+}

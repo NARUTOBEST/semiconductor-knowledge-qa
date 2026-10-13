@@ -1,0 +1,326 @@
+{
+ "doc": "半导体纳米结构影印版 [（德）宾贝格 主编] 2013年版",
+ "chunks": 3959,
+ "headings": [
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.4.3 Optical Stark Effect: Ultrafast Control of Single Exciton Polarizations",
+   62
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.5 Coupling Two Quantum Dots via the Dipole-Dipole Interaction",
+   61
+  ],
+  [
+   "Single-Photon Generation from Single Quantum Dots > 16.3 Multiphoton Emission from Single Quantum Dots",
+   54
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > References",
+   54
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > References",
+   52
+  ],
+  [
+   "Preface > Contents",
+   50
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.4.1Equilibrium Volume of Strained Islands versus Ostwald Ripening",
+   48
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.3 Coherent Spectroscopy of Interface Quantum Dots: Experimental Technique",
+   46
+  ],
+  [
+   "Theory of the Optical Response of Single and Coupled Semiconductor Quantum Dots > References",
+   44
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.4.1 Ultrafast Optical Nonlinearities of Single Interface Quantum Dots",
+   44
+  ],
+  [
+   "The Atomic Structure of Quantum Dots > 6.4.1 InAs Quantum Dots",
+   40
+  ],
+  [
+   "Single-Photon Generation from Single Quantum Dots > Index",
+   40
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > 5.3.3 Controlling 3D Ordering in $( \\mathbf { I n } , \\mathbf { G a } ) .$ As QD Arrays through GaAs Surface Orientation",
+   40
+  ],
+  [
+   "In-Situ Monitoring for Nano-Structure Growth in MOVPE > 3.3.2 Monolayer Oscillations",
+   38
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.2.3 Kinetic Monte Carlo Simulation of GaAs Homoepitaxy",
+   38
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > 5.2.1Dot Evolution in a Close-to-Equilibrium Regime",
+   38
+  ],
+  [
+   "Phonons in Quantum Dots and Their Role in Exciton Dephasing > 8.3.1 Continuum Elasticity Model of Phonons",
+   36
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > 5.4 Ga(Sb,As) Quantum Dots on GaAs",
+   36
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.4.2Rabi Oscillations in a Quantum Dot",
+   36
+  ],
+  [
+   "References",
+   36
+  ],
+  [
+   "Control of Self-Organized In(Ga)As/GaAs Quantum Dot Growth > References",
+   34
+  ],
+  [
+   "Preface",
+   34
+  ],
+  [
+   "Single-Photon Generation from Single Quantum Dots > 16.4 Realization of the Ultimate Limit of a Light Emitting Diode",
+   32
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > 5.3.1 Shape, Size, Strain and Composition Gradient in InGaAs QD Arrays",
+   32
+  ],
+  [
+   "Phonons in Quantum Dots and Their Role in Exciton Dephasing > Dephasing of the Ground Exciton State: Quadratic Coupling Model",
+   32
+  ],
+  [
+   "Single-Photon Generation from Single Quantum Dots > References",
+   32
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.4.2 Crossover from Kinetically Controlled to Thermodynamically Controlled Growth of Quantum Dots",
+   30
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.5.3 Spin Dynamics of the Resident Electron",
+   30
+  ],
+  [
+   "In-Situ Monitoring for Nano-Structure Growth in MOVPE > 3.1 Introduction",
+   30
+  ],
+  [
+   "Theory of Excitons in InGaAs/GaAs Quantum Dots > 7.8 Correlation vs. QD Size, Shape and Particle Type",
+   30
+  ],
+  [
+   "Control of Self-Organized In(Ga)As/GaAs Quantum Dot Growth > 2.3.1 Formation of Self-Similar Dots with a Multimodal Size Distribution",
+   30
+  ],
+  [
+   "Optical Properties of III-V Quantum Dots > 14.2.1 Renormalization",
+   28
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.3.2 Trions in Charged Quantum Dots",
+   28
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.4.3 Tunable Metastability of Quantum Dot Arrays",
+   28
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.3.1 Hybrid Approach to Calculation of the Equilibrium Shape of Individual Quantum Dots",
+   28
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.3.4 Constraint Equilibrium of Quantum Dots with a Wetting Layer",
+   28
+  ],
+  [
+   "Theory of the Optical Response of Single and Coupled Semiconductor Quantum Dots > Correlation Expansion",
+   28
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.1 Introduction",
+   26
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.3.1 Excitons and Biexcitons",
+   26
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > References",
+   26
+  ],
+  [
+   "The Atomic Structure of Quantum Dots > 6.4.2 InGaAs Quantum Dots",
+   24
+  ],
+  [
+   "Theory of Excitons in InGaAs/GaAs Quantum Dots > 7.3.2 Piezoelectricity and the Reduction of Lateral Symmetry",
+   24
+  ],
+  [
+   "Optical Properties of III-V Quantum Dots > 14.2.2 Phonon Interaction",
+   24
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > 5.3.2 Chemical Composition of (In,Ga)As QDs Determined by TEM",
+   24
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.4.4 Evolution Mechanisms in Dense Arrays of Elastically Interacting Quantum Dots",
+   24
+  ],
+  [
+   "Control of Self-Organized In(Ga)As/GaAs Quantum Dot Growth > 2.2.1 Evolution of InGaAs Dots",
+   24
+  ],
+  [
+   "Phonons in Quantum Dots and Their Role in Exciton Dephasing > 8.4 Exciton-Acoustic Phonon Coupling in Quantum Dots",
+   24
+  ],
+  [
+   "Quantum Dots for Memories > 11.3.2 CarrierStorage in InGaAs/GaAs Quantum Dots",
+   22
+  ],
+  [
+   "Phonons in Quantum Dots and Their Role in Exciton Dephasing > 8.3.2 Phonons in Quantum Dots",
+   22
+  ],
+  [
+   "Control of Self-Organized In(Ga)As/GaAs Quantum Dot Growth > Single InGaAs QD Layers",
+   22
+  ],
+  [
+   "Single-Photon Generation from Single Quantum Dots > 16.5.2 Quantum Computing",
+   22
+  ],
+  [
+   "Bottom-up Approach to the Nanopatterning of Si(001) > 4.1 Quantum Dot Growth on Semiconductor Templates",
+   22
+  ],
+  [
+   "Control of Self-Organized In(Ga)As/GaAs Quantum Dot Growth > Stacked InGaAs QD Layers",
+   22
+  ],
+  [
+   "In-Situ Monitoring for Nano-Structure Growth in MOVPE > 3.2 Reflectance",
+   22
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > References",
+   22
+  ],
+  [
+   "Optical Properties of III-V Quantum Dots > 14.4.1 Time-Resolved Studies on Quantum Dot Ensembles",
+   21
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.2Epitaxial Growth",
+   21
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.2 Epitaxial Growth",
+   21
+  ],
+  [
+   "14.4.1 Time-Resolved Studies on Quantum Dot Ensembles",
+   21
+  ],
+  [
+   "Quantum Dots for Memories > 11.3.1 Experimental Technique",
+   20
+  ],
+  [
+   "Theory of Nonlinear Transport for Ensembles of Quantum Dots > References",
+   20
+  ],
+  [
+   "The Atomic Structure of Quantum Dots > References",
+   20
+  ],
+  [
+   "Control of Self-Organized In(Ga)As/GaAs Quantum Dot Growth > 2.4.2 Structure of GaSb/GaAs Quantum Dots",
+   20
+  ],
+  [
+   "Phonons in Quantum Dots and Their Role in Exciton Dephasing > 8.5.1 Single Exciton Level: Independent Boson Model",
+   20
+  ],
+  [
+   "Ultrafast Coherent Spectroscopy of Single Semiconductor Quantum Dots > 15.2 Interface Quantum Dots",
+   20
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.5.2 Finite Size Effect: AbruptTransitions between Correlated and Anticorrelated Growth",
+   20
+  ],
+  [
+   "Theory of Excitons in InGaAs/GaAs Quantum Dots > 7.5 The Impact of QD Size",
+   20
+  ],
+  [
+   "Optical Properties of III-V Quantum Dots > 14.2.4 Multimodal InAs/GaAs QuantumDots",
+   19
+  ],
+  [
+   "Single-Photon Generation from Single Quantum Dots > 16.1 Introduction",
+   18
+  ],
+  [
+   "Theory of Excitons in InGaAs/GaAs Quantum Dots > 7.5.1 The Role of the Piezoelectric Field",
+   18
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.4 Coherent Control of the Exciton-Biexciton System",
+   18
+  ],
+  [
+   "The Atomic Structure of Quantum Dots > 6.3 STM Studies of InAs Quantum Dots on the Growth Surface",
+   18
+  ],
+  [
+   "Narrow-Gap Nanostructures in Strong Magnetic Fields > 13.4.2 Infrared Magneto-Resonance Spectroscopy",
+   18
+  ],
+  [
+   "Theory of Nonlinear Transport for Ensembles of Quantum Dots > 10.5Full Counting Statistics and Decoherence in Coupled Quantum Dots",
+   18
+  ],
+  [
+   "Visible-Bandgap II-VI Quantum Dot Heterostructures > 12.6 Diluted Magnetic Quantum Dots",
+   18
+  ],
+  [
+   "Theory of Nonlinear Transport for Ensembles of Quantum Dots > 10.4 Current Fluctuations and Shot Noise",
+   18
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.5.3 Reduction of a Size of a Critical Nucleus in the Second Quantum Dot Layer",
+   18
+  ],
+  [
+   "Bottom-up Approach to the Nanopatterning of Si(001) > 4.3 Monte Carlo Simulations on the (2 × n) Formation",
+   18
+  ],
+  [
+   "Thermodynamics and Kinetics of Quantum Dot Growth > 1.1.2 Multiscale Approach to the Modeling of Nanostructures",
+   18
+  ],
+  [
+   "Structural Characterisation of Quantum Dots by X-Ray Diffraction and TEM > 5.1 Introduction",
+   18
+  ]
+ ]
+}

@@ -1,0 +1,326 @@
+{
+ "doc": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+ "chunks": 4972,
+ "headings": [
+  [
+   "Chapter 3 Atomic Xenon Data > Section B.12 References",
+   140
+  ],
+  [
+   "Chapter 3 Atomic Xenon Data > Appendix: Results of Theoretical Calculations of Sn Ion Spectra",
+   139
+  ],
+  [
+   "Fundamentals and Limits of Plasma-based EUV Sources > 7.5 Factors Influencing the Radiative Yield",
+   58
+  ],
+  [
+   "HEIGHTS-EUV Package for DPP Source Modeling > 9.5 Atomic Physics and Opacities",
+   57
+  ],
+  [
+   "EUV Sources for Lithography > Contents",
+   38
+  ],
+  [
+   "Conversion Efficiency of LPP Sources > 11.3 Power Balance Model",
+   36
+  ],
+  [
+   "Chapter 19 Technology for LPP Sources > 19.4 Laser-Driver Technology for LPP EUV Sources",
+   32
+  ],
+  [
+   "Chapter 21 Modular LPP Source > 21.2.2 Optimizing the laser-target interaction",
+   29
+  ],
+  [
+   "Conversion Efficiency of LPP Sources > 11.5.2 Dependence of CE on laser wavelength",
+   26
+  ],
+  [
+   "Potential Energy Sputtering of EUVL Materials > 38.2 Interactions of HCIs with Solids",
+   26
+  ],
+  [
+   "Radiative Collapse in Z Pinches > 6.5 Plasma-Column Energy Balance; Pease-Braginskii Current; Critical Current for Heavy-Ion Plasmas",
+   25
+  ],
+  [
+   "Conversion Efficiency of LPP Sources > 11.4.1 Average-ion model with (n, l) splitting and radiation hydrodynamic code",
+   25
+  ],
+  [
+   "Chapter 3 Atomic Xenon Data > 3.2 Specification of the Subtypes of Fundamental Atomic Data Needed",
+   25
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.4.2.2 Radiation characterization",
+   24
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.3.2 Effective conservative schemes for plasma RMHD modeling",
+   24
+  ],
+  [
+   "High-Power GDPP Z-Pinch EUV Source Technology > 14.4 Discharge Electrode System, Source Collector, and Electrode Lifetime",
+   23
+  ],
+  [
+   "Synchrotron Radiation Sources for EUVL Applications > 32.4.1 EUV reflectometry",
+   23
+  ],
+  [
+   "Electrode and Condenser Materials for Plasma Pinch Sources > 35.3.1 Selection of electrode candidate materials",
+   23
+  ],
+  [
+   "HEIGHTS-EUV Package for DPP Source Modeling > 9.4 Detailed Radiation Transport",
+   22
+  ],
+  [
+   "Erosion of Condenser Optics Exposed to EUV Sources > 37.4.2 Results and discussion",
+   21
+  ],
+  [
+   "LPP Source Development and Operation in the Engineering Test Stand > 24.3 ETS Source Development",
+   21
+  ],
+  [
+   "Synchrotron Radiation Sources for EUVL Applications > 32.1 Electron Storage Rings and Synchrotron Radiation",
+   21
+  ],
+  [
+   "High-Power GDPP Z-Pinch EUV Source Technology > 14.1.2 Requirements on EUV sources for HVM",
+   20
+  ],
+  [
+   "List of Contributors",
+   20
+  ],
+  [
+   "Potential Energy Sputtering of EUVL Materials > 38.3 Experimental Studies of PE Damage to EUVL Devices",
+   20
+  ],
+  [
+   "Flying Circus EUV Source Metrology and Source Development Assessment > 28.5.1 Time-of-flight spectrometry",
+   20
+  ],
+  [
+   "High-Power GDPP Z-Pinch EUV Source Technology > 15.1.2 First wall",
+   19
+  ],
+  [
+   "High-Power GDPP Z-Pinch EUV Source Technology > 14.5 Pulsed Power Excitation of Z Pinches",
+   19
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.2.1 Radiative and ionization properties of multicharged ion plasmas",
+   19
+  ],
+  [
+   "Spatially and Temporally Multiplexed Laser Modules for LPP Sources > 20.2.2 Laser parameters for efficient EUV generation",
+   19
+  ],
+  [
+   "Conversion Efficiency of LPP Sources > 11.5.1 Tin: calculation and comparison with experiments",
+   18
+  ],
+  [
+   "HEIGHTS-EUV Package for DPP Source Modeling > 9.2 Magnetohydrodynamics",
+   18
+  ],
+  [
+   "Conversion Efficiency of LPP Sources > 11.5.3 Xenon: effects of satellite lines and opacity",
+   18
+  ],
+  [
+   "Electrode and Condenser Materials for Plasma Pinch Sources > 35.5 Modeling and Testing Condenser-Optic Response",
+   18
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.4.1.1 3D plasma compression",
+   17
+  ],
+  [
+   "Chapter 10 Modeling LPP Sources > 10.4.1 Laser plasmas with hydrodynamic codes",
+   17
+  ],
+  [
+   "Atomic Physics of Highly Charged Ions and the Case for Sn as a Source Material > 5.3.2 Origin of UTA intensity",
+   17
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.3.1 Databases of radiation and ionization plasma properties",
+   17
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.2.3 Plasma-dynamics description",
+   17
+  ],
+  [
+   "Chapter 10 Modeling LPP Sources > 10.5.2.1 Elementary radiative transfer and Kirchhoff’s law",
+   17
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.2.5 Plasma– and radiation–solid-material interactions",
+   17
+  ],
+  [
+   "36.3.3 Presence of a background gas only",
+   17
+  ],
+  [
+   "Erosion of Condenser Optics Exposed to EUV Sources > 37.1 Introduction",
+   17
+  ],
+  [
+   "LPP Source Development and Operation in the Engineering Test Stand > 24.4 Integration of the High-Power Source into the ETS",
+   17
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > Appendix A: Analytical Solution for the Axially Inhomogenous Capillary Discharge",
+   16
+  ],
+  [
+   "High-Power GDPP Z-Pinch EUV Source Technology > 14.10 Path to Meet Remaining Challenges for HVM GDPP Sources—Lifetime Improvement of Discharge Electrode System and Source Collector Optics for Tin Fuel",
+   16
+  ],
+  [
+   "Conversion Efficiency of LPP Sources > 11.2 Design Window for Practical Use",
+   16
+  ],
+  [
+   "36.4.3 Plasma and biased collimation",
+   16
+  ],
+  [
+   "Synchrotron Radiation Sources for EUVL Applications > 32.4.3 EUV imaging",
+   16
+  ],
+  [
+   "Laser Plasma EUV Sources based on Droplet Target Technology > 26.3.1 Determination of electron density through interferometry",
+   16
+  ],
+  [
+   "Electrode and Condenser Materials for Plasma Pinch Sources > 35.2 Electrode Thermal Response",
+   16
+  ],
+  [
+   "Radiative Collapse in Z Pinches > 6.9 Equilibrium Radius; EUV Source Size",
+   15
+  ],
+  [
+   "Fundamentals and Limits of Plasma-based EUV Sources > 7.7 Atomic Physics, Radiation, and Ionization Modeling",
+   15
+  ],
+  [
+   "Chapter 3 Atomic Xenon Data > Sn XIII",
+   15
+  ],
+  [
+   "Fundamentals and Limits of Plasma-based EUV Sources > 7.3 Fundamental Limits",
+   15
+  ],
+  [
+   "List of Contributors > List of Abbreviations",
+   15
+  ],
+  [
+   "36.5.1 Gibbsian segregation",
+   15
+  ],
+  [
+   "Collection Efficiency of EUV Sources > 34.2.1 The geometrical flux of extended volume sources of elliptical shape",
+   15
+  ],
+  [
+   "Chapter 33 Grazing-Incidence EUV Collectors > 33.3.2 Design",
+   15
+  ],
+  [
+   "Electron-based EUV Sources for At-Wavelength Metrology > 31.3.1 Calibration of EUV instruments",
+   15
+  ],
+  [
+   "Synchrotron Radiation Sources for EUVL Applications > 32.4.2 EUV interferometry",
+   15
+  ],
+  [
+   "Chapter 17 Capillary Z-Pinch Source > 17.4.1 On-axis EUV energy",
+   15
+  ],
+  [
+   "Xenon and Tin Pinch Discharge Sources > 16.2 Pinch Effect",
+   15
+  ],
+  [
+   "Chapter 10 Modeling LPP Sources > 10.5.4 Examples of emission spectra and comparison with experiment",
+   14
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.2.2 EUV emission and radiation transport",
+   14
+  ],
+  [
+   "Radiative Collapse in Z Pinches > 6.3 Discharge Source for EUVL: High-Power, High-CE Alternative Concept Source",
+   14
+  ],
+  [
+   "EUV Sources for Lithography > Preface",
+   14
+  ],
+  [
+   "Hollow-Cathode-Triggered Plasma Pinch Discharge > 13.2.2 Ignition phase",
+   14
+  ],
+  [
+   "High-Power GDPP Z-Pinch EUV Source Technology > 14.2.1 Physical principle",
+   14
+  ],
+  [
+   "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))_p1001-1094",
+   14
+  ],
+  [
+   "Flying Circus EUV Source Metrology and Source Development Assessment > 27.3 EUV Source Metrology Calibration Procedures",
+   14
+  ],
+  [
+   "15.3.4 Alternative fuels",
+   14
+  ],
+  [
+   "Laser Plasma EUV Sources based on Droplet Target Technology > 26.3.2 Inference of plasma temperature from x-ray spectroscopy",
+   14
+  ],
+  [
+   "Chapter 19 Technology for LPP Sources > 19.7 Scaling of Performance to HVM",
+   14
+  ],
+  [
+   "Calibration of Detectors and Tools for EUV-Source Metrology > 30.4.6 Linearity",
+   14
+  ],
+  [
+   "Calibration of Detectors and Tools for EUV-Source Metrology > 30.4.2 Spectral responsivity of different types",
+   14
+  ],
+  [
+   "Chapter 21 Modular LPP Source > 21.2.3 Laser development for the modular LPP source",
+   14
+  ],
+  [
+   "Chapter 3 Atomic Xenon Data > 4.5 Primary Classification on Charge States",
+   13
+  ],
+  [
+   "Chapter 10 Modeling LPP Sources > 10.3.1 Laser coupling and interaction processes",
+   13
+  ],
+  [
+   "Z∗ Code for DPP and LPP Source Modeling > 8.4 EUV Radiation Source Simulations",
+   13
+  ]
+ ]
+}

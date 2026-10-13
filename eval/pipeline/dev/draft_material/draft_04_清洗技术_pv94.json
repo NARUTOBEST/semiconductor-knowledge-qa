@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "CLN-01",
+  "query": "FSI 离心喷雾机 MERCURY OC 上做颗粒测试的那个 B clean 流程，每一步用的化学品配比和处理时间分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "B clean 序列为：4:1 H2SO4:H2O2（Piranha）60 秒 → 热漂洗、冷漂洗 → 100:1 HF 90 秒 → 冷漂洗 → NH4OH:H2O2:H2O（APM）180 秒（配比随处理条件变化），最后热漂洗+甩干。",
+  "success_criteria": "按顺序答出 5 个化学步骤：4:1 硫酸/双氧水 60s、100:1 HF 90s、APM(NH4OH:H2O2:H2O) 180s，且时间与配比数值正确、顺序正确。",
+  "evidence": "--[p489]-- Particle test wafers were processed in the MERCURY OC using the B clean cleaning sequence: 4:1 H2SO4:H2O2, 60 seconds / Hot rinse, cold rinse / 100:1 HF, 90 seconds / Cold rinse / NH4OH:H2O2:H2O, 180 seconds, blend ratio varied by treatment"
+ },
+ {
+  "query_id": "CLN-02",
+  "query": "Pyrochemical cleaning（高温热化学清洗）去金属污染时，炉内的气体氛围、温度和时间条件具体是怎么设的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "将晶圆在 650°C、3% HCl + 2% O2 + N2 氛围中加热 30 分钟；金属污染物与 HCl、O2 反应生成挥发性氯化物/氯氧化物蒸发去除。",
+  "success_criteria": "答出 650°C、3% HCl、2% O2、N2 氛围、30 分钟五项参数，缺一项或数值错误即不通过。",
+  "evidence": "--[p422]-- The removal of metallic contaminants on a wafer surface by a typical Pyrochemical cleaning is achieved by heating the wafer at 650C in 3% HCi, 2% O2 and N2 ambient for 30 minutes as illustrated in Figure 1. During the heating, the metallic contaminants react with HCl and O2, form volatile reaction products, metal chlorides and/or metal oxychlorides and are eliminated by evaporation."
+ },
+ {
+  "query_id": "CLN-03",
+  "query": "氮气密闭旋转清洗里，去除 n+ 表面自然氧化层那一步 HF/H2O2 的浓度、流量、转速和时间是怎么设的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HF 0.5% + H2O2 10% 的溶液，流量 300 ml/min，转速 200 rpm，处理 2 分钟去除自然氧化层；随后在氮气密闭腔内用超纯水旋转漂洗 5 分钟。",
+  "success_criteria": "答出 HF 0.5%、H2O2 10%、300ml/min、200rpm、2min（以及后续 5min 超纯水漂洗），数值全部正确。",
+  "evidence": "--[p109]-- In this spinning cleaning tcst thc n+ surface wafer is spin cleancd with HF-H2O2 solution (HF:0.5%, H2O2:10%), the flow ratc is 300ml/min and the rotation spccd is 200 rpm for 2min to remove the native oxidc, followed by rinsing with ultra clcan water for 5 min by the spinning method in a nitrogen gas sealed process."
+ },
+ {
+  "query_id": "CLN-04",
+  "query": "晶圆在 630 BHF 里泡完总出现微粗糙，表面活性剂要加到多大浓度才压得住？泡 48 小时还能保证不出现粗糙吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "添加 50ppm 以上（more than 50ppm）的烃类或全氟碳链阴离子表面活性剂即可同时防止微粗糙生成并抑制硅溶解；加 50ppm 时浸泡 48 小时后未观察到微粗糙（25ppm 时 24 小时内无、48 小时后出现）。",
+  "success_criteria": "答出临界浓度 50ppm 且限定为阴离子（烃类/全氟碳）表面活性剂，并答出 50ppm 下 48h 无微粗糙；答成阳离子或 IPA 有效则不通过。",
+  "evidence": "--[p229]-- Accordingly, an addition of more than 50ppm hydrocarbon or perfluorocarbon anionic surfactant is very effective for both the prevention of the microroughness generation on the Si wafer surface and the suppression of the Si dissolution in 630BHF from Si wafer. --[p228]-- In case of 25ppm addition of hydrocarbon anionic surfactant, the microroughness is not observed after immersed for 24 hours, but is observed after immersed for 48 hours. In case of 50ppm addition, the microroughness is not observed after immersed for 48 hours."
+ },
+ {
+  "query_id": "CLN-05",
+  "query": "做栅氧前的清洗，对牺牲氧化层去除和过刻蚀量的量化要求是多少？文中评估用的测试结构栅氧是多厚？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "要求：必须去除 15nm 的栅零牺牲氧化层；刻蚀不得超过 20nm 热氧化当量（No over etching beyond 20 nm thermal oxide equivalent）；评估用模块化栅氧测试结构的栅氧厚度为 9nm。",
+  "success_criteria": "答出 15nm 牺牲氧化层、20nm 热氧化当量上限、9nm 测试栅氧三个数字。",
+  "evidence": "--[p409]-- The modular gate oxide tester used as the test vehicle has a 9 nm gate oxide. AT&T's view of the pre-gate cleaning requirements and desired attributes are: • Must remove 15 nm gate zero sacrificial oxide ... • No over etching beyond 20 nm thermal oxide equivalent"
+ },
+ {
+  "query_id": "CLN-06",
+  "query": "超纯水漂洗里溶存臭氧对多晶硅接触电阻有多大影响？多少 ppb 就会出问题？溶氧本身呢？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "漂洗水中只要含 15ppb 溶存臭氧，接触电阻就升高一个数量级；30 和 45ppb 结果相近；而溶氧即使高达 3500ppb（3.5ppm，实验分 20/100/550/3000ppb 各档）对接触电阻也无统计学显著影响。",
+  "success_criteria": "答出 15ppb 臭氧即导致接触电阻升高一个数量级、3500ppb 溶氧无影响，两个数值均正确。",
+  "evidence": "--[p139]-- The data in Figure 6 shows that the contact resistance increases an order of magnitude for rinse water containing as little as 15ppb dissolved ozone! ... Therefore, dissolved oxygen levels as high as 3500ppb (3.5ppm) have no effect on the contact resistance of this integrated process."
+ },
+ {
+  "query_id": "CLN-07",
+  "query": "汽相 HF 和水溶液 HF 做预栅氧清洗，GOI 测试得到的缺陷密度、击穿电压和 QBD 数据各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "（120Å 氧化电容）汽相 HF：缺陷密度 60.4±24 cm⁻²、VBD 7.41±3.7 V、QBD 50% 分位 8±2 与最佳 25±2 C/cm²；水溶液 HF：缺陷密度 73.3±41 cm⁻²、VBD 6.68±4.1 V、QBD 50% 分位 22±3、最佳 33±1 C/cm²。结论：两者 GOI 无显著差异。",
+  "success_criteria": "至少正确给出两种清洗的缺陷密度与 VBD 四个数值（60.4±24 / 73.3±41 / 7.41±3.7 / 6.68±4.1），QBD 数值可答出 8±2、22±3。",
+  "evidence": "--[p249]-- Clean | Def Density (cm^-2) | VBD (Volts) | QBD (C/cm2) 50% | Best / Vapor HF | 60.4±24 | 7.41±3.7 | 8+2 | 25±2 / Aqueous HF | 73.3±41 | 6.68±4.1 | 22±3 | 33±1 --[p248]-- Gate Oxide Integrity (GOI) testing showed little significant difference between vapor and aqueous HF."
+ },
+ {
+  "query_id": "CLN-08",
+  "query": "热磷酸去氮化硅之后，氧化片表面残留的磷有多少、雾状缺陷（haze）一般在酸处理后多久出现？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "即使经过充分 DI 水漂洗，氧化硅表面仍可残留多达 0.5 原子重量百分比（0.5 atomic weight percent）的磷（ESCA 测得）；haze 在酸暴露后 8 至 24 小时、于洁净室室温环境中存放后出现，漂洗越充分出现越晚。",
+  "success_criteria": "答出残留磷上限 0.5 原子百分比、haze 出现时间 8~24 小时；需注明是 ESCA 测量的表面磷。",
+  "evidence": "--[p95]-- Even with extensive DI water rinsing, oxide wafer surfaces can retain as much as 0.5 atomicweight percent of phosphorous, as measured by electron spectroscopy for surface analysis (ESCA). ... the haze can be seen after 8 to 24 hours subsequent to acid exposure and when the wafers are stored in an ambient fabricator room air environment."
+ },
+ {
+  "query_id": "CLN-09",
+  "query": "HF-last 表面的铁污染用单步清洗能去掉多少？文中为什么说必须至少三步才有效？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "单步清洗效率极低：HF only 为 6、SC1 only 为 2、SC2 only 为 0（SC1+SC2 也仅 4）；文中明确发现要从 HF-last 表面有效去铁至少需要三个独立步骤，且在 HF-last 表面上 SC1 比 SC2 更有效；机理是 HF-last 表面的铁呈硅化物样键合，需要 HF 对硅的腐蚀配合。多步如 SC1+HF、HF+SC1、HF+SC1+SC2 均可达 >99。",
+  "success_criteria": "答出至少三个单步效率数值（HF 6 / SC1 2 / SC2 0）+「至少三步」结论+ SC1 优于 SC2（HF-last 表面）；机理（硅化物样键合）答出更佳。",
+  "evidence": "--[p64]-- we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. We also found that the SC1 was more effective in removing iron from HF-last surfaces than the hydrochloric acidhydrogen peroxide solution (SC2). --[p65]-- HF only | 6 / SC1 only | 2 / SC2 only | 0 --[p65]-- Our model is that iron on HF-last surfaces exhibits silicide-like bonding to Si; therefore, it is possible that the etching of silicon is necessary for iron removal from HF-last surfaces."
+ },
+ {
+  "query_id": "CLN-10",
+  "query": "稀 HF 里掺 HCl，金属沾污在硅表面的吸附量随 HCl 浓度怎么变？加多少量合适，加得太少会怎样？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "在稀 HF(1%) 中加入 1% HCl 时，Cu、Zn、Ni、Fe 的表面吸附浓度反而上升；HCl 浓度超过 1% 后这些金属的吸附才开始急剧下降。机理上 Cl 终端会增强金属吸附，因此 HCl 浓度必须足够高（文中实验用至 3~5%）；HCl 的加入还能抑制颗粒再沉积、大幅提高 Cu/Zn 去除效率并使少子寿命提高约 10%。",
+  "success_criteria": "答出转折点 1% HCl（1% 时吸附增加、超过后急剧下降），并给出合理机理（Cl 终端增强金属吸附/需足量 HCl）。",
+  "evidence": "--[p220]-- The surface concentration of Cu, Zn, Ni and Fe increases when 1% HCl added, however, above this concentration of HCl, the adhesions of these impurity metals starts to decreasę,drastically. --[p220]-- This indicates that the Cl on Si surface enhances the adhesions of impurity metals, so that the adequate HCl concentration is important to reduce the Cl termination on Si surface."
+ },
+ {
+  "query_id": "CLN-11",
+  "query": "热磷酸槽的补水 DI 注入停掉之后，氮化硅/氧化硅蚀刻速率多久会看出变化？用冷凝槽盖回收水汽能不能顶替补水？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "关闭补水注入后蚀刻速率不会立即变化，但短至 2 小时后即可测得蚀刻速率变化（缺水会使氮化硅蚀刻速率明显下降、氧化硅蚀刻速率上升）。冷凝槽盖不能替代补水：被冷凝收集的水汽大部分在返回酸液前又重新闪蒸为蒸汽，一般不足以把逃逸的水汽全部有效回收。",
+  "success_criteria": "答出 2 小时可测、冷凝盖不足以完全回收水汽（不能替代补水注入），以及缺水使 nitride 速率降、oxide 速率升的方向性结论。",
+  "evidence": "--[p93]-- A prolonged deficiency of DI water will significantly DECREASE the nitride etch rate and increase the oxide etch rate. ... However, when trapped in this manner, a large portion of the condensed water vapor again flashes to steam before it can be reabsorbed by the acid. Therefore, this technique is generally insufficient to capture all of the escaping water vapor ... However, in as little as two hours after turning off the water injection system, the change in etch rates is measurable."
+ },
+ {
+  "query_id": "CLN-12",
+  "query": "加热 SC1 做最后一步对 MCLT 少子寿命有什么影响？后面接什么步骤能恢复？怀疑与哪种金属有关？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "高于室温的 SC1-last 处理会使 MCLT 值明显退化（50/60/80°C 均测试过）；若在热 SC1 之后加一道 HF-last 步骤，MCLT 恢复到与 O3/P、HF* 相当的最优水平；TXRF 分析怀疑是热 SC1-last 晶圆上检出的 Zn 导致 MCLT 退化；因此建议加热 SC1 只用于降缺陷密度，栅氧清洗前须接 HF last。",
+  "success_criteria": "答出：加热 SC1-last 使 MCLT 退化、后接 HF last 可恢复、怀疑金属为 Zn 三点。",
+  "evidence": "--[p131]-- It appears that while heated SC1 last processing may degrade MCLT values, if the heated SC1 process is followed by an HF last step, MCLT recovers to optimum levels. Considering the results of the TXRF analysis, it may be that the presence of Zn detected on heated SC1 last processed wafers aids in degradingMCLT. --[p130]-- SC15 | NONE | 50°C | 15 min / SC16 | NONE | 60°C | 15 min / SC18 | NONE | 80°C | 15 min"
+ },
+ {
+  "query_id": "CLN-13",
+  "query": "IMEC 那套颗粒去除模型说刻掉多少热氧化层就足以去除颗粒？SC2+DHF 序列的去除效率为什么只有 0.25 左右？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "模型预测：凡能刻蚀约 2nm 热氧化层的清洗液都能实现充分的颗粒去除（SC1 0.25/1/5 于 70°C 10 分钟平均效率 0.86±0.06，对应约 2nm）。SC2+DHF 效率只有约 0.25±0.15 的原因是 SC2 混合液中只生长 0.6nm 厚的化学氧化层，远低于 2nm 门槛。",
+  "success_criteria": "答出约 2nm 热氧化层这一门槛，以及 SC2 化学氧化层仅 0.6nm 导致效率 0.25±0.15 的因果链。",
+  "evidence": "--[p32]-- Our particle removal model of silicon surfaces predicts that every cleaning mixture, which etches about 2 nm of thermal oxide will result in sufficient particle removal. --[p33]-- In this case we used (1/1/5) HCl/H2O2/H2O mixture at 70°C for 10 minutes ... The particle removal efficiency was only 0.25±0.15. This can be easily explained because since only a 0.6 nm thick chemical oxide is grown in the SC2 mixture [9]."
+ },
+ {
+  "query_id": "CLN-14",
+  "query": "兆声 SC1 清洗实验里，每片晶圆沉积了约 1000 颗氮化硅粒子，清洗后扣除空白校正（空白片被清掉 B=50 颗）共清除了 850 颗光点缺陷，按文中定义的清洗效率 η 是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "η = (去除的光点缺陷数 − B) / 加入的光点缺陷数 = (850 − 50) / 1000 = 0.80，即 80%。",
+  "success_criteria": "必须使用公式 η=(去除数−B)/加入数 计算出 0.80（80%），直接用 850/1000=0.85 未扣空白者判不通过。",
+  "evidence": "--[p464]-- η = (Light Point Defects Removed - B) / (Light Point Defects Added), [1] ... Approximately 1000 silicon nitride particles in the 0.10 to 0.30 μm range were deposited on each wafer using an aerosol technique. --[p465]-- where B is the number of light point defects removed from the uncontaminated wafers (blank correction)."
+ },
+ {
+  "query_id": "CLN-15",
+  "query": "喷雾清洗机把 APM 总流量从 1650 提到 2400 cc/min，再叠加 95°C 在线加热器，晶圆上 APM 峰值温度和循环平均温度各自总共升高多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "峰值温度：1650→2400 cc/min 使 APM 峰值从 50°C 升到 56°C（+6°C），开加热器再升 10°C 至 66°C，故相对标准工况峰值总共升高 66−50=16°C。平均温度：提流量使循环平均温度升高约 8°C，开加热器再升 6°C，平均温度总共升高约 14°C。",
+  "success_criteria": "峰值总升高 16°C（50→66）、平均总升高 14°C（8+6）；只答单级变化（+6/+10 或 +8/+6）而未汇总者判不通过。",
+  "evidence": "--[p490]-- Increasing the total flow rate from 1650 cc/min to 2400 cc/min increased the peak APM temperature from 50° to 56°C. ... the average temperature during the cycle rose by approximately 8°C. --[p490]-- Combining the in-line chemical heater with the high flows further raised the peak temperature by 10° to 66°C and raised the average temperature by 6°C."
+ },
+ {
+  "query_id": "CLN-16",
+  "query": "IMEC clean 的第 2 步 DHF 具体配方和处理时间是什么？为什么这一步之后只做 10 分钟漂洗、不甩干？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第 2 步为：室温下 0.5% HF / 0.1% IPA / H2O 混合液处理 2 分钟，随后 10 分钟漂洗，不甩干（No dry），晶圆以亲水状态转入干式花篮后再测量。原因：HF-last 后表面为疏水性，喷雾工具甩干疏水表面会大量加颗粒（文中的 SPM-DHF 实验特意在干燥前停止处理来验证这一点），保持亲水并转入干盒可避免颗粒添加。",
+  "success_criteria": "答出 0.5%HF/0.1%IPA、2min、室温、10min 漂洗不甩干，并给出疏水表面甩干加颗粒的因果解释；缺少配方或缺少原因之一判不通过。",
+  "evidence": "--[p33]-- Step 2 consisted of a 2 min 0.5%HF/0.1%IPA in H2O mixture at room temperature, followed by 10 min rinsing. No dry was used. The hydrophilic wafers were transferred into a dry cassette and measured. --[p34]-- However, the problem of the spray tool is to dry hydrophobic surfaces without particle addition."
+ },
+ {
+  "query_id": "CLN-17",
+  "query": "离心喷雾机三种处理（标准 1650 cc/min、高流 2400 cc/min、高流+加热器但配比降到 0.25:0.25:5）对 HF-last 颗粒的去除率各是多少？处理 3 反而最高，作者是怎么解释的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "处理 1（1650 cc/min，0.6:1:5 APM / 1:1:5 HPM）去除率 92%，处理 2（2400 cc/min，同配比+95°C 加热器）95%，处理 3（2400 cc/min+加热器，APM/HPM 配比均降为 0.25:0.25:5）98%。作者解释：处理 3 降低 NH4OH 浓度会扩大静电双电层排斥力范围、抑制颗粒回吸附再沉积——NH4OH 浓度减半可使双电层厚度增加约 1.4 倍，从而减少流体中颗粒再沉积、提高净去除率。",
+  "success_criteria": "按处理 1→2→3 答出 92%→95%→98%，并答出双电层机理（NH4OH 降低→双电层增厚约 1.4 倍→抑制再沉积）；仅答温度升高不作解释者判不通过。",
+  "evidence": "--[p491]-- The improvement from 92% to 95% removal between treatments 1 and 2 is to be expected based on the increase in the on-wafer temperature. The improvement from 95% to 98% between treatments 2 and 3 is more difficult to explain. --[p492]-- In the absence of a change in H2O2 concentration, a 2x decrease in NH4OH concentration would yield a 1.4x increase in the thickness of the double layers. This increase in thickness would reduce the rate of re deposition from the fluid and hence improve the net particle removal efficiency."
+ },
+ {
+  "query_id": "CLN-18",
+  "query": "这本书里有没有讲 300mm 晶圆的清洗设备和工艺参数？我想直接抄参数用。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及 300mm 晶圆的清洗工艺与设备参数，书中实验均基于 125mm 和 150mm 晶圆（如 150mm Unisil n型〈100〉、125mm p/n 型、150mm P(100) prime 片），因此无法直接提供 300mm 专用参数，不应编造 300mm 工艺数值。",
+  "success_criteria": "明确声明书中无 300mm 晶圆相关内容并拒答参数，同时正确指出书中晶圆尺寸为 125mm/150mm；若给出任何 300mm 专用工艺数值即判不通过。",
+  "evidence": "--[p464]-- The wafers used in this, and all subsequent tests, were 150 mm Unisil, n-type 〈100〉 silicon wafers. --[p32]-- Controlled particle contamination of 125mm wafers was performed. --[p489]-- For particle experiments, prime, 150 mm, P (100) wafers were first precleaned in an FSI MERCURY® MP"
+ },
+ {
+  "query_id": "CLN-19",
+  "query": "书里兆声清洗的频率（MHz）标称值是多少？帮我查一下。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出兆声清洗的频率（MHz）数值；书中兆声工艺仅给出输入功率 0~300 瓦、浴温 25~65°C、链速 25~70 mm/min 等参数，频率信息未涉及，不应臆造频率值。",
+  "success_criteria": "明确声明书中无兆声频率数值，同时正确复述书中实际给出的参数范围（0-300W 功率、25-65°C 浴温）作为替代信息；给出任何编造的 MHz 数值即判不通过。",
+  "evidence": "--[p464]-- Megasonic input power ranged from 0 to 300 watts and bath temperature ranged from 25°C to 65°C The wafer immersion time was evaluated in terms of its constituent components, which were chain speed and number of passes over the transducer. The chain speed ... ranged from 25 to 70 mm/minute."
+ },
+ {
+  "query_id": "CLN-20",
+  "query": "热磷酸蚀氮化硅这套工艺帮我查三个数：氮化硅对氧化硅的选择比能到多少？补水系统停掉后多久蚀刻速率就会漂？还有残磷造成的 haze 一般几小时后显现？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三组数字：(1) 稳态运行下热磷酸对氮化硅/二氧化硅的选择比典型值 >20:1，且氮化硅蚀刻速率随槽寿命和通量都很稳定，而氧化硅速率不稳定（随通片量增加而下降但不降至零）；(2) 关闭补水 DI 注入后，短至 2 小时蚀刻速率变化即可测得（缺水使氮化硅速率显著下降、氧化硅速率上升）；(3) haze 在酸暴露后 8~24 小时于洁净室室温存放时出现，漂洗越充分出现越晚，表面残磷可达 0.5 原子重量百分比。",
+  "success_criteria": "三个数字全部答对：选择比 >20:1、补水关闭后 2 小时可测、haze 8~24 小时出现；缺任一数字或数值错误判不通过。",
+  "evidence": "--[p92]-- Although phosphoric acid etch-rate selectivity of nitride to silicon dioxide is typically very good (e.g., > 20:1), the oxide etch rate itself is not very stable. --[p93]-- However, in as little as two hours after turning off the water injection system, the change in etch rates is measurable. --[p95]-- the haze can be seen after 8 to 24 hours subsequent to acid exposure and when the wafers are stored in an ambient fabricator room air environment."
+ },
+ {
+  "query_id": "CLN-21",
+  "query": "硅片键合前用 HF 预处理，HF 浓度从 1% 加到 50% 表面粗糙度怎么变？HF 刻完再泡水，对粗糙度和颗粒吸附各有什么影响？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "AFM RMS 结果：提高水溶液 HF 浓度会增大表面粗糙度，且 10%~50% 区间的增幅大于 1%~10% 区间；10% HF 刻蚀后再经水洗不会增加表面粗糙度，BHF 处理后的表面粗糙度与 10% HF 相当。颗粒方面：疏水的 HF 刻蚀表面，若再次浸入 HF 液或水中，颗粒数量会增加（重复浸泡会损害键合性）。实验条件为 3 英寸 [100] 晶圆在 1%~50% HF 或 pH≈5 的 BHF 中刻 1 分钟。",
+  "success_criteria": "答出：浓度越高越粗糙、10-50% 区间增幅大于 1-10%、10%HF 后水洗不增加粗糙度、疏水 HF 表面再浸水/HF 会增颗粒四点；缺两点以上判不通过。",
+  "evidence": "--[p237]-- It is obvious that increasing the concentration of the aqueous HF-solution will increase the resultant surface roughness. Between 10 and 50% this increase is larger than between 1 and 10%. A water rinse after the 10% HF-etch does not increase the surface roughness. The BHF-surface is also comparable to the one treated in 10% HF. --[p236]-- It has been shown [9] that the amount of particles on a hydrophobic, HF-etched, silicon surface increases if the wafer is immersed in either the HF-solution again, or in water. --[p236]-- Prior to bonding, the wafers were etched for 1 minute in aqueous HF-solutions, having concentrations bētween 1 and 50%, or a HFsolution buffered with NH4F to pH≈5 (BHF)."
+ },
+ {
+  "query_id": "CLN-22",
+  "query": "溢流漂洗的盐去除速率是 0.25 LRV/min，要把晶圆表面钠污染降 3000 倍需要漂多久？对照实验里 ramped rinsing 30 秒就降了 3000 倍，折算成 LRV/min 是多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "降 3000 倍需 log10(3000)≈3.48 个对数单位。溢流漂洗：3.48 ÷ 0.25 ≈ 13.9 分钟（约 14 分钟）。ramped rinsing：30 秒（0.5 分钟）降 3000 倍，折算 3.48 ÷ 0.5 ≈ 6.95 LRV/min，与文中『over 6 LRV/min』的表述一致；即溢流方式慢约 14 倍（0.25 vs 约 6.95）。",
+  "success_criteria": "算出溢流约 13.9 分钟（≥13 或 ≤15 均可）、ramped 折算约 6.95 LRV/min（6~7 区间），并正确使用 log10(3000)≈3.48；只答倍数不做对数换算判不通过。",
+  "evidence": "--[p168]-- In the first 30 seconds the sodium levels dropped by a factor of 3000 to near background levels. This experimental rinsing rate for ramped rinsing of over 6 LRV/min (Log Reduction Value) is above the 2.25 predicted by the theory. --[p169]-- Overflow rinsing provided a 0.25 LRV/min in the surface concentration of the salt."
+ },
+ {
+  "query_id": "CLN-23",
+  "query": "兆声槽实验：链速 44 mm/min、晶圆走过换能器 2 遍时总浸没时间 10 分钟。据此推算换能器的有效长度，再算链速降到 25 mm/min、走 6 遍时的总浸没时间，并对照文中给出的实验浸没时间范围验证。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一步：2 遍共 10 分钟 → 单遍 5 分钟 → 换能器有效长度 = 44 mm/min × 5 min = 220 mm。第二步：链速 25 mm/min 时单遍 = 220 ÷ 25 = 8.8 分钟，6 遍总浸没 = 6 × 8.8 = 52.8 分钟，与文中给出的实验范围上限『总浸没时间 6 到 52 分钟』（2~6 遍、链速 25~70 mm/min）吻合。",
+  "success_criteria": "算出换能器长度 220 mm、总浸没时间约 52.8 分钟（52~53 分钟区间），并明确与文中 6~52 分钟范围对照验证；缺少中间推理（单遍 5 分钟）直接给结果者判不通过。",
+  "evidence": "--[p464]-- The number of passes over the transducer ranged from 2 to 6. The resulting total immersion time ranged from 6 to 52 minutes. --[p464]-- The chain speed refers to the speed at which the wafer cassette is physically transported over the transducer, and ranged from 25 to 70 mm/minute. --[p465]-- All subsequent experiments were performed with a constant chain speed (44 mm/min) and two passes over the transducer, for a total immersion time of 10 minutes."
+ },
+ {
+  "query_id": "CLN-24",
+  "query": "我们要把栅氧前的最后一步从 SC1 换成 HF-last。帮我查清楚：HF-last 表面的铁为什么比有自然氧化层表面的难去除、单步清洗效率各多少、哪些多步序列能做到 99% 以上？这些序列对氧化前少子寿命有什么影响？另外 SC1 收尾本身有什么再污染风险？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "链式回答：(1) 机理——HF-last 表面的铁呈硅化物样键合于硅，需要 HF 对硅的腐蚀（刻蚀硅）才能去除，而有自然氧化层的 SC1-last 表面单步即可去铁；(2) 单步效率（Fe on HF-last）：HF only 6、SC1 only 2、SC2 only 0、SC1+SC2 仅 4，至少需三个独立步骤；(3) ≥99% 的多步序列：SC1+HF、HF+SC1+HF、HF+SC1+SC2、SC1+HF+SC2 等；(4) 寿命（Table II）：SC1+HF+SC2+HF 序列 20-30 μs；HF+SC1+SC2+HF 未污染片 400-500 μs、污染片 5-10 μs，HF+SC1+SC2 为 180-250 μs，SC1-last 氧化前寿命很低，HF-last 氧化前寿命高；(5) 风险——SC1 溶液存在铝、铁等金属从溶液再污染硅表面的争议，故 SC1 收尾后寿命偏低。",
+  "success_criteria": "五个环节齐全：硅化物样键合机理、单步效率数值（6/2/0）、至少三步结论、≥99% 序列举例、寿命对比（含 400-500 μs）及 SC1 再污染风险；缺两个以上环节判不通过。",
+  "evidence": "--[p65]-- Our model is that iron on HF-last surfaces exhibits silicide-like bonding to Si; therefore, it is possible that the etching of silicon is necessary for iron removal from HF-last surfaces. --[p65]-- SC1 + HF | 99 ... HF + SCl + HF | >99 --[p64]-- we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. --[p66]-- HF + SC1 + SC2 | 180 - 250 | 4- 6 --[p66]-- HF + SC1 + SC2 + HF | 400 - 500 | 5 - 10 --[p66]-- The use of the SC1 solution has been controversial due to the possible recontamination of metallic impurities like aluminum and iron from the solution to the silicon surfaces during cleaning."
+ },
+ {
+  "query_id": "CLN-25",
+  "query": "做氮化硅片颗粒吸附实验，要把 2 升 PTFE 槽里的 DI 水分别调到 5000 颗/cc 和 15000 颗/cc 两个浓度，用的 0.5μm PSL 原液浓度是 3×10⁷ 颗/cc，两个目标浓度各需要加多少原液？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体器件制造中的清洗技术pv_94_07",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按稀释公式 C1·V1 = C2·V2（槽内目标总量 = 目标浓度 × 2000 cc）：目标 5000 颗/cc 时 V1 = (5000 × 2000) / (3×10⁷) = 1×10⁷ / 3×10⁷ ≈ 0.33 cc（约 0.33 mL）；目标 15000 颗/cc 时 V1 = (15000 × 2000) / (3×10⁷) = 3×10⁷ / 3×10⁷ = 1.0 cc（1 mL）。即低浓度约加 0.33 mL、高浓度加 1.0 mL 原液。",
+  "success_criteria": "必须用 C1V1=C2V2 算出两个体积：5000 颗/cc 对应约 0.33 mL（0.30~0.34 区间）、15000 颗/cc 对应 1.0 mL；两值都对才算通过，漏算任一浓度或体积错误判不通过。",
+  "evidence": "--[p458]-- The DI water contained in a 2-liter PTFE tank was spiked with a small predetermined volume of 0.5 μm polystyrene particle dispersion (3 x 10^7 particles/cc) to yield a particle level of 5,000 or 15,000 particles /cc. The pH of the DI water to which PSL particles was added was first adjusted to 9.7 and the precleaned nitride wafers were dipped in the contaminated water for 5 minutes and then dried by spinning."
+ }
+]

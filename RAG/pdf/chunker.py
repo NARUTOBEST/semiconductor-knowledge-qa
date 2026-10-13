@@ -420,6 +420,26 @@ def _hard_split(text, max_size):
     return out if len(out) > 1 else None
 
 
+def _clip_header_line(line, budget):
+    """列名行超预算时在单元格边界(' | ')截断,保留可读前缀; hopeless 时返回 None。
+
+    旧逻辑是整行超 max_size//2 就彻底丢弃列名,导致跨块续行完全没有列名上下文;
+    截断到单元格边界(而非单元格内部)仍能为前几列提供语义。
+    连首个单元格都放不下(单元格本身超预算)时才放弃。
+    """
+    if not line:
+        return None
+    if len(line) <= budget:
+        return line
+    out = ""
+    for cell in line.split(" | "):
+        cand = cell if not out else out + " | " + cell
+        if len(cand) > budget:
+            break
+        out = cand
+    return out or None
+
+
 def _split_long_line(line, max_size):
     """把一行超长文本切成 <= max_size 的多段,优先在 ' | ' 单元格边界切。
 
@@ -601,11 +621,14 @@ def chunk_content_list(content_list, *, source_path, source_stem, auto_dir,
         # (是则说明表头在上一块,需在本块补列名)。
         tbl_html = None
         repeat_header = None
+        hdr_text = None
         body_lines = []
         for txt, _, kind in pieces:
             if kind and kind[0] == "hdr":
                 if tbl_html is None:
                     tbl_html = kind[2]            # 表头行携带的完整表 HTML
+                if hdr_text is None:
+                    hdr_text = txt                # 真实列名行文本(完整,未截断)
                 body_lines.append(txt)
             elif kind and kind[0] == "row":
                 if repeat_header is None and tbl_html is None:
@@ -614,11 +637,11 @@ def chunk_content_list(content_list, *, source_path, source_stem, auto_dir,
             else:
                 body_lines.append(txt)
 
-        # 列名行过长(本身就接近或超过 max_size,常见于 MinerU 把长段落首行误当
-        # 两列表头)时,不再作前缀复制到每个续块——否则前缀即超长,补列名后必超
+        # 列名行过长时不再作前缀复制到每个续块——否则前缀即超长,补列名后必超
         # max_size 且无法切分。完整 table_html 仍挂在含表头的首块,内容不丢失。
-        if repeat_header and len(repeat_header) > max_size // 2:
-            repeat_header = None
+        # 改为在单元格边界截断保留前缀(仍能为前几列提供语义), hopeless 才放弃。
+        if repeat_header:
+            repeat_header = _clip_header_line(repeat_header, max_size // 2)
         if pieces:
             content = "\n".join(body_lines).strip()
         else:
@@ -658,23 +681,18 @@ def chunk_content_list(content_list, *, source_path, source_stem, auto_dir,
                 # 单行超长时在单元格边界切,保证每个续块自解释。
                 # 若本次 flush 内含表头行(hdr),则取首行作为列名,续块复制。
                 if tbl_html is not None and body_lines:
-                    inline_header = body_lines[0]  # 首行即列名行
-                # 列名行过长时不作前缀复制(见上方 repeat_header 守卫),否则补列名后必超长
-                if inline_header and len(inline_header) > max_size // 2:
-                    inline_header = None
+                    # 取 hdr piece 的文本作为列名行;flush 以正文开头(表在段中)时
+                    # body_lines[0] 是正文,不能拿来当列名
+                    inline_header = hdr_text or body_lines[0]
+                # 列名行过长时截断保留前缀(见上方 repeat_header 处理)
+                if inline_header:
+                    inline_header = _clip_header_line(inline_header, max_size // 2)
                 if inline_header and not repeat_header:
                     budget = max(min_size, max_size - len(inline_header) - 1)
                 sub_texts = _split_table_content(content, budget)
                 if sub_texts is None:
                     sub_texts = _hard_split(content, budget)
-                # 续块(不含列名行的)复制列名到块首
-                if sub_texts and (inline_header or repeat_header):
-                    hdr_line = inline_header or repeat_header
-                    sub_texts = [
-                        s if s.startswith(hdr_line)
-                        else hdr_line + "\n" + s
-                        for s in sub_texts
-                    ]
+                # 补列名统一在下方 sub_texts 收尾处做一次(此处不再补,避免双份)
             else:
                 sub_texts = _split_by_sentence(content, budget)
                 if sub_texts is None and llm_split:
@@ -683,8 +701,15 @@ def chunk_content_list(content_list, *, source_path, source_stem, auto_dir,
                     sub_texts = _hard_split(content, budget)
         if sub_texts is None and repeat_header:
             content = repeat_header + "\n" + content   # 正常单块:补一次列名
-        if sub_texts and repeat_header:
-            sub_texts = [repeat_header + "\n" + s for s in sub_texts]
+        # 跨块续块统一补一次列名(自解释);已含完整列名行或已以列名开头的块不重复补
+        if sub_texts:
+            hdr_line = inline_header or repeat_header
+            if hdr_line:
+                sub_texts = [
+                    s if (hdr_text and hdr_text in s) or s.startswith(hdr_line)
+                    else hdr_line + "\n" + s
+                    for s in sub_texts
+                ]
         # 最终保险:若 sub_texts 中仍有超 max 的块(补列名后、或意外情况),强制硬切
         if sub_texts:
             fixed = []

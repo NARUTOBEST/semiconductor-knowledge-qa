@@ -1,0 +1,326 @@
+{
+ "doc": "Molecular Theory of Lithography (Uzodinma Okoroanyanwu)",
+ "chunks": 2342,
+ "headings": [
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4.1.2 Van der Waals interactions operating between molecules during resist PEB and development in the developer solvent medium",
+   52
+  ],
+  [
+   "MOLECULAR THEORY OF LITHOGRAPHY > Table of Contents",
+   35
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4.2.2 Case 2: Charged resist surface in TMAH electrolyte solutions",
+   34
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2 Preliminary Remarks on Resist Photochemistry and Photophysics",
+   32
+  ],
+  [
+   "Chapter 6 Theory of Imprint Lithographic Imaging Mechanisms > 6.4.2 Squeezing flow theory of the imprint process",
+   32
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.2 Exposure chemistry of DNQ resists",
+   30
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.3 Standing wave models",
+   29
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.4.1 Initiation by onium salts",
+   27
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.1.4 Quantifying crosslinking during resist exposure",
+   27
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.2.1.2 Kinetics of anionic polymerization",
+   27
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.4 Image formation in the resist",
+   26
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4.2.1 Case 1: Charged resist surface in water with no added electrolyte",
+   26
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.3 Physics of Micro- and Nanophase Separation in Block Copolymer Systems",
+   26
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.6.1.1 Entropy of mixing resist polymeric solutes dissolved in developer solvent",
+   25
+  ],
+  [
+   "MOLECULAR THEORY OF LITHOGRAPHY > 1.3.6.1 Block copolymer self-assembly lithography",
+   25
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > C. Ester-protected alicyclic polymer resist systems",
+   23
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.2 Adhesion Promotion",
+   22
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.10 Exposure mechanisms of resists and exposure radiation",
+   22
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.7.2 Ambipolar diffusion of photoacid ions",
+   22
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.2 Combining Relations and Interactions that Determine the Solubility Switch and Contrast in Lithographic Resist Systems",
+   22
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.5.1 Estimating the overall interaction energy of the developer–resist film system",
+   22
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.2.2 Post-exposure bake diffusion models",
+   21
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.1.1.1 DNQ/novolac resist systems",
+   21
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > A. Poly(hydroxystyrene) resist platform",
+   21
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.6 Resist Dissolution Process",
+   21
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.3.5 Experimental elucidation of deprotection kinetics<sup>160</sup> of a representative resist polymer system",
+   21
+  ],
+  [
+   "MOLECULAR THEORY OF LITHOGRAPHY > 1.2 The Lithographic Process",
+   20
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.1 Introduction",
+   20
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.3.1 Resist spin-coating process",
+   20
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.2.1 Poly(methyl methacrylate) resist system",
+   20
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.1 Basic imaging theory",
+   20
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.8 Dissolution Properties of Resist Polymers",
+   19
+  ],
+  [
+   "Chapter 6 Theory of Imprint Lithographic Imaging Mechanisms > 6.2 Imprint Resist Materials",
+   19
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.6.1.2 Enthalpy of mixing developer solvent and resist polymeric solute",
+   18
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.3.1 Phase formation and construction in a symmetric AB diblock copolymer melt",
+   18
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.1 Exposure models",
+   18
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.4.2 Chemical patterning or chemo-epitaxy",
+   18
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.7.3 Acid evaporation at the resist–air interface",
+   18
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4.1 General van der Waals interactions operating during resist film PEB and development in the developer solution medium",
+   17
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.3.1 Photoacid diffusion",
+   17
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.7.2 The nature of the development process",
+   16
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.3.2 Thermodynamics of radiation-induced depolymerization",
+   16
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.3.1 Dipole resonance transfer",
+   16
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.2.1.3.1 Synthesis of AB diblock copolymers",
+   15
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5 Continuum modeling of latent image formation in the resist",
+   15
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4.2.4 Electrostatic double-layer interactions between ions or charged small molecules in developer solution",
+   14
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.5 Overall Developer–Resist Interaction Potential and the Dissolution Process",
+   14
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.3 Exposure reaction and chemical amplification reaction",
+   14
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.1.2.1.3 Azide resist systems based on crosslinking of isoprenoids by nitrenes",
+   14
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4 Molecular Interactions in Lithography",
+   14
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.3.1.1 AB diblock copolymer configurations",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.2.3 Poly(olefin sulfone) resists",
+   13
+  ],
+  [
+   "Chapter 6 Theory of Imprint Lithographic Imaging Mechanisms > 6.3.1 Thermal imprint lithographic imaging mechanism",
+   13
+  ],
+  [
+   "Chapter 6 Theory of Imprint Lithographic Imaging Mechanisms > 6.4.1 General considerations on the viscoelastic properties of polymers",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.4 Energy migration in resist polymers",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.1.2.2.2 Condensation/intermolecular dehydration with acid-sensitive electrophile (crosslinking agent) imaging mechanism",
+   13
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.7 Development",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.6 Radiation chemistry versus photochemistry of resists",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.9 Sensitivity and exposure radiation",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.8.2 Determination of the scission yield",
+   13
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.1 Introduction",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.1 Radiation-induced crosslinking imaging mechanisms",
+   13
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.6.1.3 Free energy of mixing resist polymeric solute with developer solvent",
+   13
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.3.1.2 Dye-sensitized initiation",
+   12
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.1.1.1 Cinnamate resist systems",
+   12
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.2.1.3.2.1 Synthesis of linear symmetric triblock copolymers containing two different monomers (ABA triblocks)",
+   12
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.2.2.3 Condensation imaging mechanism",
+   12
+  ],
+  [
+   "Chapter 5 Theory of Block Copolymer Self-assembly Lithographic Imaging Mechanisms > 5.2.1 Block copolymers via anionic polymerization",
+   12
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.8.3 Electron beam curing of resists",
+   12
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.3.3.3 Instabilities and thermophysical properties of UTR films",
+   12
+  ],
+  [
+   "MOLECULAR THEORY OF LITHOGRAPHY > 1.3.1.1.4 Water-immersion ArF (193-nm) lithography",
+   12
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.3.3.2 Propagation versus termination and the kinetic chain length",
+   12
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.1.2 Chemical amplification mechanism",
+   12
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.1.2.1.4 Acetal- and ketal-protected poly(hydroxy styrene)-based resist systems",
+   12
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.6.5.3.2 Accounting for the effects of acid loss",
+   11
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.3.3.2 Hydrodynamics of UTR films",
+   11
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.2.5.1.1 Triplet sensitization",
+   11
+  ],
+  [
+   "Chapter 3 Theory of Molecular Interactions in Lithography > 3.4.2 General electrostatic interaction forces operating in resist solvent development",
+   11
+  ],
+  [
+   "Chapter 2 Theory of the Lithographic Process > 2.7.5.2.1 Kinetic development model or Mack model",
+   11
+  ],
+  [
+   "Theory of Photochemical and Radiochemical Lithographic Imaging Mechanisms > 4.4.1.1.3 Ortho-nitrobenzyl-based resists",
+   11
+  ]
+ ]
+}

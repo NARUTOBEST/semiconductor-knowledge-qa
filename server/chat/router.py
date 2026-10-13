@@ -6,6 +6,7 @@ import queue
 import threading
 import time
 import logging
+import uuid
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
@@ -14,8 +15,8 @@ from chat.service import react_stream
 from chat_schemas import ChatRequest
 from auth.deps import get_current_user
 from support.ratelimit import (
-    acquire_user_slot, acquire_global_slot,
-    release_user_slot, release_all,
+    acquire_session_slot, acquire_global_slot,
+    release_session_slot, release_all,
 )
 from support.metrics import metrics
 
@@ -42,8 +43,11 @@ async def api_chat(req: ChatRequest, request: Request,
 
     message = req.message
     history = [{"role": h.role, "content": h.content} for h in req.history]
-    thread_id = req.thread_id
-    session_id = req.session_id
+    # 会话隔离限流:按会话(session_id/thread_id)持锁,同会话串行保证上下文
+    # 一致,不同会话(含同账号多开、无会话 ID 的独立请求)互不阻塞。
+    # 无显式会话 ID 的请求在此生成 thread_id,使每题各持独立会话键。
+    thread_id = req.thread_id or str(uuid.uuid4())
+    sess_key = req.session_id or thread_id
 
     # 客户端断连信号:事件循环轮询 request.is_disconnected(),置位后 sync 生成器
     # 在事件边界停止迭代并关闭内部图生成器(及时释放限流槽、停掉后续 LLM/工具调用),
@@ -73,7 +77,7 @@ async def api_chat(req: ChatRequest, request: Request,
         t_start = time.time()
         had_error = False
         acquired = False
-        user_token = None         # 限流槽位 token(Redis 模式获取;内存回退为 None)
+        sess_token = None         # 限流槽位 token(Redis 模式获取;内存回退为 None)
         global_token = None
         saw_done = False          # 是否已向客户端发过终端 done 事件
         cancelled = False         # 是否因客户端断连而中断
@@ -83,15 +87,15 @@ async def api_chat(req: ChatRequest, request: Request,
         escalated = False
         try:
             try:
-                user_token = acquire_user_slot(username)
+                sess_token = acquire_session_slot(sess_key)
                 try:
                     global_token = acquire_global_slot(username)
                     acquired = True
                 except Exception:
-                    release_user_slot(username, user_token)
+                    release_session_slot(sess_key, sess_token)
                     raise
             except HTTPException as e:
-                # 429(同用户并发 / 全局排队超时):以 SSE error 事件告知前端
+                # 429(同会话并发 / 全局排队超时):以 SSE error 事件告知前端
                 had_error = True
                 yield f'data: {json.dumps({"type": "error", "message": e.detail}, ensure_ascii=False)}\n\n'
                 yield 'data: {"type": "done"}\n\n'
@@ -100,7 +104,7 @@ async def api_chat(req: ChatRequest, request: Request,
             stream = react_stream(message, history,
                                   thread_id=thread_id,
                                   username=username,
-                                  session_id=session_id)
+                                  session_id=req.session_id)
             try:
                 for ev in stream:
                     # 断连:在事件边界停止迭代并关闭内部图生成器(触发其 finally,
@@ -148,7 +152,7 @@ async def api_chat(req: ChatRequest, request: Request,
                     escalated=escalated,
                 )
             if acquired:
-                release_all(username, user_token=user_token,
+                release_all(sess_key, sess_token=sess_token,
                             global_token=global_token)
 
     # SSE 心跳:GLM 等思考模型静默思考期间(流式缓冲/reasoning 不产生下发字节),

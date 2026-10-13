@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P06-01",
+  "query": "高压水气混合射流(M-jet)清洗时,液滴速度按330 m/s来算,它对一颗直径1μm的颗粒能施加多大的去除力?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "M-jet射流在液滴速度330 m/s、冲击角60°、衰减系数0.28、阻力系数0.47的假设条件下,对直径1μm颗粒的去除力约为2×10^-5 N(原文该数值单位为N)。",
+  "success_criteria": "答出2×10^-5 N且能给出330 m/s、60°、0.28、0.47等参数中的至少两个;单位正确。",
+  "evidence": "--[p70]-- Assuming that the velocity of droplets, impact angle measured from a wafer surface, the decay coefficient, and the drag coefficient are 330 m/s, 60°, 0.28, and 0.47, respectively, the removal force applied to a particle with a diameter of 1 μm is 2×10^-5 N"
+ },
+ {
+  "query_id": "P06-02",
+  "query": "标准1:1:5的SC2在70℃下除铁要跑多久才干净?按书上说法常做的10分钟是不是太长了?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "1:1:5 SC2在70℃下Fe的去除在10~20秒内即完全;常规RCA2清洗常做10分钟以上,该书明确指出相对Fe去除而言这种清洗是\"过度的(overdone)\"。",
+  "success_criteria": "答出10~20秒(或10-20 seconds),并能指出10分钟的常规做法对除Fe而言不必要/过度。",
+  "evidence": "--[p129]-- it is clear that such lengthy cleans are unnecessary, since the removal of Fe is complete in 10-20 seconds. Even dilute HCl chemistries at high temperatures completely remove Fe in less than 300 secs. --[p129]-- Another major finding is that SC2 cleans as currently implemented are \"overdone\" with respect to removal of Fe. The conventional RCA2 clean (1:1:5 SC2) is one which is still commonly employed by the semiconductor industry, and is often 10 minutes (or greater) in duration."
+ },
+ {
+  "query_id": "P06-03",
+  "query": "臭氧溶在纯水里,20℃时能溶到多少ppm?停气后半衰期大概多长?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "按该书Table 1:20℃时臭氧在DI水中的溶解度为20.41 ppm,半衰期(C/C0=1/2)为94 min。",
+  "success_criteria": "同时答出20.41 ppm与94 min两个数值。",
+  "evidence": "--[p246]-- Temperature,℃ | Solubility of Ozone, C0 | Half Life time (C/C0=1/2) 20 | 20.41 ppm | 94 min"
+ },
+ {
+  "query_id": "P06-04",
+  "query": "HF蒸气法刻蚀的时候,BPSG和热氧化硅的速率差多少?能不能拿来做BPSG选择性剥离?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在45℃以上,热氧化硅的HF气相刻蚀速率小于25 Å/min,而BPSG的刻蚀速率大于5000 Å/min;该书指出这一速率差可用于选择性刻蚀BPSG。",
+  "success_criteria": "答出热氧化硅&lt;25 Å/min且BPSG&gt;5000 Å/min(45℃以上条件),并指出可用于BPSG选择性刻蚀。",
+  "evidence": "--[p439]-- The etching rate of thermal oxide is less than 25 Å/min at a temperature above 45 ℃ while BPSG is etched at a rate of more than 5,000 Å/min. These differences in etching rate can be used to selectively etch BPSG."
+ },
+ {
+  "query_id": "P06-05",
+  "query": "SC1里加1个w-ppb的铁和同样重量浓度的铜,对双氧水分解速率常数的影响差多少倍?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "加入1 w-ppb的Fe所引起的H2O2分解反应速率常数增大,是同等重量浓度Cu的10倍(与文献中30℃、1/1/5混合液的结果相当)。",
+  "success_criteria": "答出Fe是Cu的10倍(10 times larger)。",
+  "evidence": "--[p191]-- The addition of 1 w-ppb of Fe results in a 10 times larger decomposition reaction rate constant than the addition of an equal weight concentration of Cu, comparable to results reported for (1/1/5) mixtures at 30 ℃ [6]."
+ },
+ {
+  "query_id": "P06-06",
+  "query": "DIO3臭氧去胶槽跑裸片的话,0.16μm档颗粒增量大概什么水平?灰化片在洁净室放4小时后呢?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "DIO3工艺10次运行中,裸硅片0.16μm颗粒增加小于20颗;灰化片在洁净室存放4小时后,200mm晶圆平均仅增加约50颗(0.16μm)。",
+  "success_criteria": "答出裸片&lt;20颗@0.16μm、存放4小时后平均约50颗@0.16μm(200mm)。",
+  "evidence": "--[p487]-- the particle addition on bare silicon wafers was less than 20 particles at 0.16 μm. After 4 hours in cleanroom storage, the particle addition to the ashed wafers from the DIO3 was very low (an average of 50 particles added at 0.16 μm to a 200 mm wafer)"
+ },
+ {
+  "query_id": "P06-07",
+  "query": "用H+hfac蒸气相清洗除钠,晶圆温度得升到多少度Na才开始被带走?这个温度和Na(hfac)的升华点对得上吗?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Na在190℃及以上才开始被H+hfac去除,该温度与Na(hfac)185℃的升华温度相一致。",
+  "success_criteria": "答出190℃(及以上)开始去除,并能提到Na(hfac)升华温度185℃的对应关系。",
+  "evidence": "--[p350]-- Sodium is removed at 190°C and above, which is consistent with the sublimation temperature of 185°C for Na(hfac) [2]."
+ },
+ {
+  "query_id": "P06-08",
+  "query": "我们这边在做GaAs衬底的背面减薄后清洗,想查一下这本书里GaAs晶圆SC-1稀释比和温度窗口是怎么给的?",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书(素材)内容均围绕硅(Si)晶圆的湿法/干法清洗与污染控制,未涉及GaAs等化合物半导体晶圆的SC-1清洗参数,无法提供GaAs的稀释比与温度窗口,建议用户另行查阅化合物半导体工艺资料,不应编造数据。",
+  "success_criteria": "明确指出知识库未收录GaAs晶圆清洗参数、正确拒答/要求澄清,且不给出编造的稀释比或温度数值。",
+  "evidence": "--[p175]-- The particle removal mechanism in SC1 is based upon the separation of the particles from the substrate, followed by an electrostatic repulsion.(全书素材均为Si晶圆清洗内容,无任何GaAs/化合物半导体清洗参数)"
+ },
+ {
+  "query_id": "P06-09",
+  "query": "同样的Cu、Ag污染片,分别用臭氧水和SPM洗,两边用的工艺条件书上是怎么写的?Ag最后能到什么水平?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "O3-UPW为室温、臭氧浓度0.3~10 ppm;SPM为硫酸:双氧水=4:1、90℃。对Ag而言,无论污染液种类,清洗饱和后浓度均低于1×10^11 atoms/cm²的检测限。",
+  "success_criteria": "答出O3-UPW 0.3~10 ppm室温、SPM 4:1 90℃,以及Ag低于1×10^11 atoms/cm²检测限。",
+  "evidence": "--[p295]-- In this study, we used an O3-UPW solution with the ozone concentration of 0.3~10ppm at room temperature and a SPM solution with the mixing ratio of 4:1 (sulfuric acid:hydrogen peroxide acid) at 90℃. --[p295]-- As for Ag, the saturated concentration is below the detection limit of 1x10^11 atoms/cm² regardless of the species of contamination solution."
+ },
+ {
+  "query_id": "P06-10",
+  "query": "SC1里铁加到100 ppb的时候,n型和p型硅的开路电位10分钟内各会正移多少?哪种导电类型更敏感?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "n型硅(2-4 Ω·cm)暴露10分钟:Fe从0→5 ppb约+50 mV,0→100 ppb约+180 mV;p型硅(5-10 Ω·cm):0→5 ppb约+70 mV,升到100 ppb约+380 mV;p型对铁污染明显更敏感。",
+  "success_criteria": "答出n型约50/180 mV、p型约70/380 mV,并指出p型更敏感。",
+  "evidence": "--[p392]-- after 10 minutes exposure to the SC-1 solutions, there is an increase in OCP of about 50 mV and 180 mV when the iron level is increased from 0 ppb to 5 ppb and 100 ppb, respectively. --[p392]-- After 10 minutes of exposure, the OCP of p-type silicon increased about 70 mV when the iron level was increased from 0 ppb to 5 ppb. The OCP exhibited a significant rise of about 380 mV when the iron level was increased to 100 ppb."
+ },
+ {
+  "query_id": "P06-11",
+  "query": "等离子体金属刻蚀把碱金属离子打进氧化层里,这个污染沿深度方向是怎么分布的?最深的分布在哪个范围?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "等离子体金属刻蚀引入的碱金属/可动离子污染在氧化层中于10~100 Å的浅深度处达到峰值,随深度增加迅速衰减;在0~200~350 Å范围内集中了约90%的刻蚀引入污染,且表面沾污无法单靠冲洗去除。",
+  "success_criteria": "答出峰值深度10-100 Å、90%污染集中在200-350 Å深度范围内。",
+  "evidence": "--[p109]-- The distribution of the contamination in the oxide film after the plasma metal etch reaces a maximum at a shallow depth (10-100Å) and rapidly decreases with depth of 200-350Å, where 90% of the plasma metal etch process induced contamination is contained."
+ },
+ {
+  "query_id": "P06-12",
+  "query": "酸洗除镍为什么有时候除不干净?听说跟SC1药液里的铝浓度有关,具体差多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Ni的酸洗去除率与SC1溶液中Al的绝对浓度强相关:SC1含1 ppm Al时,酸洗后残留Ni降至10^11 atoms/cm²量级(与初始吸附量无关);而Al只有10 ppb时,酸洗后Ni仍停留在10^13 atoms/cm²量级。",
+  "success_criteria": "答出1 ppm Al→残留Ni约10^11 atoms/cm²、10 ppb Al→约10^13 atoms/cm²,并指出Ni去除取决于Al浓度。",
+  "evidence": "--[p113]-- after acid cleaning, the amount of residual Ni decreased to order of 10^11 [atoms/cm2] independent of the initial amount of adsorbed Ni in the SC-1 solution containing Al of 1ppm. On the other hand, in the SC-1 solution containing Al of 10ppb, the amount of Ni stayed at order of 10^13 [atoms/cm²] after acid cleaning. Therefore the removal efficiency of Ni strongly relates to the absolute concentration of Al in SC-1 solution."
+ },
+ {
+  "query_id": "P06-13",
+  "query": "稀释HF槽用那种电导式浓度传感器,HCl和IPA往里掺会不会把读数搞乱?精度能做到多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "expected_rounds": 2,
+  "required_tools": [
+   "检索知识库"
+  ],
+  "gold_standard": "该电导式(电感式)HF传感器直接读出HF浓度,精度±0.001%;由于HCl解离度高、强烈影响电导,HF/HCl混合液不能用此类浓度监测;IPA浓度低于0.2%时对读数基本无影响。",
+  "success_criteria": "答出精度±0.001%、HCl掺入时浓度监测不可用、IPA&lt;0.2%无影响。",
+  "evidence": "--[p223]-- This sensor measures the conductivity of the HF solution in a wide concentration range, and supplies a direct read-out of the HF concentration with an accuracy of ±0.001%. --[p223]-- Conductivity is strongly affected by HCl spiking because of its high dissociation degree, hence a concentration monitoring system can not be used in case of HF/HCl mixtures. IPA concentrations lower than 0.2% does not seems to affect concentration read out."
+ },
+ {
+  "query_id": "P06-14",
+  "query": "HF-last之后的片子在洁净室里晾着,表面那层有机物一天能长多厚?做刻蚀速率测量时怎么修正?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "洁净室HEPA过滤器产生的有机污染会使光学测厚偏大,在洁净室空气暴露一天厚度增加可达5~7 Å;对暴露数月的晶圆做拟合得到约2.5 Å厚的有机层,修正时按Δth=Δth_meas−t_org扣除有机层等效厚度。",
+  "success_criteria": "答出一天增加5-7 Å(或拟合值2.5 Å)与Δth=Δth_meas−t_org修正式。",
+  "evidence": "--[p222]-- In fact the presence of an organic layer increases the measured optical thickness, and its thickness strongly depends on the exposure time to clean room air. After one day exposure this increasing can be as high as 5-7Å. --[p222]-- Measurement has been taken on 17 points per wafer, using 20 nm thick oxides. From the fit of that data, a 2.5Å thick organic layer has been found. --[p222]-- the real amount of etched oxide (∆th) is therefore: ∆th=∆th_meas−t_org"
+ },
+ {
+  "query_id": "P06-15",
+  "query": "SC1浸泡时测极化阻力,25℃和50℃差多少?书上p型硅在没加铁的时候两个温度各是多少kΩ?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "极化阻力随温度降低而增大:p型硅在SC-1(0 ppb Fe)中50℃时约18 kΩ,25℃时约91 kΩ;书中解释温度升高使SC-1中形成的氧化层溶解变薄,导致极化阻力下降。",
+  "success_criteria": "答出50℃约18 kΩ、25℃约91 kΩ,并指出温度越低极化阻力越大。",
+  "evidence": "--[p393]-- the polarization resistance of p-type silicon (SC-1, 0 ppb) was ~18 kohms at 50℃, and ~91 kohm at 25℃. It is likely that increasing SC-1 temperature enhances the dissolution of the oxide formed on silicon during SC-1 exposure, making it thinner and thus resulting in lower polarization resistance values."
+ },
+ {
+  "query_id": "P06-16",
+  "query": "把SC2里的盐酸降到零(1:0:5)在25℃跑,铁多久能到稳态?初始污染超过10^13的时候还除得掉吗?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "1:0:5 SC2在25℃下约100秒达到稳态;当初始Fe表面污染水平大于10^13 cm^-2时,即使处理500秒后晶圆表面仍有明显残留Fe。更稀的0.01:0:5体系稳态残留约4×10^10 cm^-2,略高于检测限(归因于该稀释比下pH偏高)。",
+  "success_criteria": "答出25℃下100 s达稳态、初始&gt;10^13 cm^-2时500 s后仍有明显残留(可补充0.01:0:5稳态约4×10^10 cm^-2)。",
+  "evidence": "--[p128]-- When we used the 1:0:5 SC2 mixture at 25℃, steady state was reached by 100 seconds and for initial surface contamination levels greater than 10^13 cm^-2, significant amounts of Fe remained on the wafer surface even after 500 sec of treatment. --[p128]-- For a more dilute chemistry (0.01:0:5) we found that the steady state value of σf ~ 4×10^10 cm^-2 was slightly above the detection limit. This may be attributed to the relatively high pH associated with such a dilute mixture."
+ },
+ {
+  "query_id": "P06-17",
+  "query": "M-jet那套水气射流对1μm颗粒的去除力,和兆声波清洗比起来大几倍?两个数书上都有,你算一下。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "M-jet对1μm颗粒去除力约2×10^-5 N(液滴速度330 m/s),兆声波清洗臂在8\"、2000 rpm、1.6 MHz、振幅0.07 μm条件下约8×10^-7 N;比值 = 2×10^-5 / 8×10^-7 = 25,即M-jet去除力约为兆声波的25倍。",
+  "success_criteria": "给出算式2×10^-5 ÷ 8×10^-7并得出25倍;两个原始数值均须来自素材。",
+  "evidence": "--[p70]-- the removal force applied to a particle with a diameter of 1 μm is 2×10^-5 N --[p70]-- Assuming that the wafer size, the rotating speed, the frequency, and the amplitude are 8\", 2000 rpm, 1.6 MHz, and 0.07 μm, the removal force applied to a particle with a diameter of 1 μm is estimated to be 8×10^-7 N"
+ },
+ {
+  "query_id": "P06-18",
+  "query": "SC1刻蚀钛的时候,TiO²⁺与HO₂⁻和与H₂O₂形成的过氧络合物,两个平衡常数比值是多少?用书上的K值算。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "K_HO2- = 10^12.29(18℃),K_H2O2 = 10^3.71(25℃);平衡常数比 = 10^(12.29−3.71) = 10^8.58 ≈ 3.8×10^8,说明HO₂⁻与TiO²⁺形成的过氧络合物远比H₂O₂形成的 favored,故HO₂⁻才是SC-1中Ti/TiN反应的主氧化剂。",
+  "success_criteria": "给出算式10^(12.29-3.71)=10^8.58≈3.8×10^8;两个K值须与素材一致。",
+  "evidence": "--[p201]-- K_H2O2 = [TiO++·H2O2]/([TiO++][H2O2]) = 10^3.71 at 25℃ [6] --[p201]-- K_HO2- = [TiO++·HO2-]/([TiO++][HO2-]) = 10^12.29 at 18℃ [6]"
+ },
+ {
+  "query_id": "P06-19",
+  "query": "先帮我查一下SC1里对双氧水分解催化最强的几种金属排位,再查一下排第一的那个在70℃标准SC2里除掉要多少秒。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步:70℃ SC1中1 w-ppb金属对分解速率常数影响从强到弱为Fe、Cu、W、Co、Bi;第二步:排第一的Fe在1:1:5 SC2、70℃下10~20秒内即被完全去除(稀释HCl高温体系300秒内也可除净)。",
+  "success_criteria": "先答出Fe&gt;Cu&gt;W&gt;Co&gt;Bi的排序,再据此检索答出Fe在70℃ 1:1:5 SC2中10-20秒除净;检索顺序体现先A后B。",
+  "evidence": "--[p191]-- Under the current conditions the metals that have the strongest effect on the decomposition rate are, in decreasing order of importance: Fe, Cu, W, Co and Bi. --[p129]-- it is clear that such lengthy cleans are unnecessary, since the removal of Fe is complete in 10-20 seconds."
+ },
+ {
+  "query_id": "P06-20",
+  "query": "准备上DIO3去胶机,想在这本书里查一下臭氧发生器哪家厂商的什么型号,顺便看下采购报价大概什么量级?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书只给出DIO3与SPM工艺的成本对比结论(DIO3节水99.5%,典型4批/小时产线下成本至少降约60%),并未提供任何臭氧发生设备/去胶设备的厂商名称、具体型号或采购报价,因此无法回答该问题,建议向设备供应商询价。",
+  "success_criteria": "明确说明书中无设备厂商/型号/报价信息并正确拒答;可附带转述99.5%与60%的成本对比数字,不得编造厂商或价格。",
+  "evidence": "--[p488]-- Since the DIO3 process requires very little DIW, there is a saving of 99.5% of the water consumed compared to the sulfuric chemistries. Cost of ownership analysis between the SPM and DIO3 processes for a typical process that produces 4 lots (50x200 mm wafers) per hour showed that a minimum cost reduction of about 60% can be obtained by using the ozone/deionized water techniques [2].(素材全文无任何设备厂商、型号或报价信息)"
+ },
+ {
+  "query_id": "P06-21",
+  "query": "我想评估SC1槽的寿命管理:先查书上70℃下1 w-ppb各金属对H2O2分解速率常数的影响排序和Fe与Cu的倍数关系,再查Fe主导时分解曲线的反应级数m是多少,最后查洁净混合液的活化能,一起给我。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一跳:70℃ SC1中1 w-ppb金属影响排序为Fe、Cu、W、Co、Bi,且1 w-ppb Fe的分解速率常数是同重量Cu的10倍;第二跳:Fe存在时整个分解动力学按m≈1.5的斜率拟合(Cu在NH4OH体系中m≈1);第三跳:洁净(无金属)混合液的活化能为93.0 kJ/mol(与文献[4]接近)。300 W兆声搅拌对含1 w-ppb Fe的NH4OH基SC1整体动力学无显著影响,仅抑制气泡成核引起的初始过冲。",
+  "success_criteria": "依次答出:排序Fe,Cu,W,Co,Bi、Fe为Cu的10倍、Fe的m≈1.5、洁净液活化能93.0 kJ/mol,四项齐全且检索呈多跳链式。",
+  "evidence": "--[p191]-- Under the current conditions the metals that have the strongest effect on the decomposition rate are, in decreasing order of importance: Fe, Cu, W, Co and Bi. --[p191]-- The addition of 1 w-ppb of Fe results in a 10 times larger decomposition reaction rate constant than the addition of an equal weight concentration of Cu --[p192]-- If the initial transient, attributed to the bubble nucleation, is disregarded, the entire decomposition reaction kinetics nicely follows the slope m = 1.5. For Fe a value of approximately 1.5 is obtained consistently. --[p192]-- For the clean mixture, shown in Fig. 4, an activation energy of 93.0 kJ/mol is obtained, close to the value reported in Ref. [4]."
+ },
+ {
+  "query_id": "P06-22",
+  "query": "气相H+hfac清洗除铁这条路线:先查它能降到多少、适用的温度窗口,再查往里面加HF/HCl/Cl2/SiCl4这类含卤共反应物能不能把铁降到更低?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳:H+hfac除Fe的温度窗口为150~400℃(Cu为20~400℃),最终Fe浓度受表面相关机制限制约在10^11 atoms/cm²;与HF并用的体系中几分钟内即达约3×10^11 atoms/cm²。第二跳:加入HF、HCl、Cl2、SiCl4等共反应物(40 min、300℃、7.6 Torr)后,最低Fe浓度仍高于单独使用H+hfac的水平,即共反应物反而阻碍Fe去除;Cu则均被降至可接受水平。",
+  "success_criteria": "先答出Fe下限约10^11 atoms/cm²与150-400℃窗口,再答出共反应物阻碍去除(所得Fe浓度高于H+hfac单独使用);体现先检索A再检索B。",
+  "evidence": "--[p350]-- Cu is removed in the temperature range of 20℃ to 400℃ and Fe is removed in the temperature range of 150℃ to 400℃. --[p351]-- Under the conditions of this study, the final Fe concentration after a reaction with H+hfac is limited to approximately 10^11 atoms/cm². Most likely, this limit arises due to a surface related phenomenon. --[p352]-- the lowest Fe concentrations achieved with the coreactants was still higher than the levels for Hhfac alone, indicating that the co-reactants hinder the removal process."
+ },
+ {
+  "query_id": "P06-23",
+  "query": "DIO3去胶的传质模型里,按D=1×10⁻⁵ cm²/s算出的O₃扩散通量对应的刻蚀速率是0.8 nm/min,还说比观测值低50倍,那实际观测到的剥离速率该是多少?帮我算出来。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "素材给出:溢流浴中取ΔC=臭氧本体浓度、Δx=0.018 cm、D=1×10^-5 cm²/s,算得O₃通量约10^-6 g/(cm²·min),对应刻蚀速率约0.8 nm/min,该值比观测刻蚀速率低50倍;故实际观测速率 ≈ 0.8 nm/min × 50 = 40 nm/min。",
+  "success_criteria": "给出算式0.8×50=40 nm/min;能引用通量10^-6 g/(cm²·min)、Δx=0.018 cm、D=1×10^-5 cm²/s等素材数字。",
+  "evidence": "--[p494]-- The influx of O3 can be estimated by substituting ∆C/∆x for ∂C/∂x in Equation 3, where ∆C = C − C_surface = C and ∆x = 0.018 cm. --[p494]-- Using D = 1×10^-5 cm²/sec, the calculated influx is 10^-6 g/cm²•min. This equates to an etch rate of approximately 0.8 nm/min - 50 times below observed etch rates."
+ },
+ {
+  "query_id": "P06-24",
+  "query": "按书上DIO3那个粗算例子:臭氧产量0.035 M/min、剥1摩尔胶要3摩尔臭氧,先推氧化功率,再分别算100%和50%氧化效率下未灰化光刻胶(0.14 M量)要剥多久?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一步:由反应式-CH2+3O3→CO2+3O2+H2O知1摩尔胶需3摩尔O3;100%效率下氧化功率 = 0.035/3 = 0.0117 M/min。第二步:100%效率所需时间 = 0.14/0.0117 ≈ 12 min;第三步:50%效率时氧化功率 = 0.5×0.0117 = 0.006 M/min,未灰化晶圆所需时间 = 0.14/0.006 ≈ 24 min(灰化片0.007/0.006≈1.2 min)。",
+  "success_criteria": "给出氧化功率0.0117 M/min、100%效率约12 min、50%效率约24 min三步算式与结果;数字须与素材一致。",
+  "evidence": "--[p486]-- there will be 3 moles of O3 required to oxidize 1 mole of photoresist. At 100% efficiency, the oxidation power will be: 0.035/3 = 0.0117 M/min. This equates to approximately 12 min. of processing time to fully oxidize the photoresist (0.14/0.0117). --[p487]-- If we assume that oxidation efficiency is 50% for that system (due to the high level of dissolved ozone that was achieved) --[p487]-- Oxidation power = 0.5×0.0117 = 0.006 M/min. Time required to oxidize un-ashed wafers = 0.14 / 0.006 ≈ 24 min. Time required to oxidize ashed wafers = 0.007 / 0.006 ≈ 1.2 min."
+ },
+ {
+  "query_id": "P06-25",
+  "query": "HF气相刻BPSG相对热氧的选择比能做到多少(按45℃以上两档速率算)?另外书上建议这个工艺往哪个操作区间调才能稳定复现?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "pv_97_35",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "45℃以上热氧化硅&lt;25 Å/min、BPSG&gt;5000 Å/min,故选择比 = 5000/25 = 200以上;操作区间:气相刻蚀区典型速率0~400 Å/min、刻蚀速率在35 Torr以下与HF分压成正比(250 Torr总压下饱和于约70 Å/min),该书建议采用高流量、低压力,使工艺处于表面反应控制区,以获得比传质控制区更好的复现性。",
+  "success_criteria": "算出选择比≥200(5000/25),并答出高流量低压力/表面反应控制区的操作建议。",
+  "evidence": "--[p439]-- The etching rate of thermal oxide is less than 25 Å/min at a temperature above 45 ℃ while BPSG is etched at a rate of more than 5,000 Å/min. --[p438]-- The etching rate in this regime is usually low (typically 0~400 Å/min) compared to that of the condensed regime. --[p439]-- This implies that the HF vapor process should be operated at a high flow rate and low pressure to insure operation in the surface reaction limited regime. The surface reaction limited regime is probably more reproducible than the mass transfer limited regime."
+ }
+]

@@ -1,0 +1,1280 @@
+{
+ "dev_041": {
+  "id": "dev_041",
+  "q": "这台 magnatran 机器人能搬哪几种尺寸的晶圆？最大支持到多少？",
+  "source": "双臂取晶圆机器人magnatran_71",
+  "facts": "支持的晶圆尺寸为 100mm、125mm、150mm、200mm、300mm，最大 300mm，且每种尺寸均有 SEMI 标准兼容的 end effector 可选。",
+  "tier_expected": 1,
+  "user": "eval1",
+  "answer": "根据内部资料，该 MagnaTran 机器人可处理 **100mm 至 300mm** 晶圆，最大支持 **300mm**。[双臂取晶圆机器人magnatran_71_p1-500 p25]",
+  "sources": [
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00065",
+    "source_stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "page": "p25",
+    "heading": "Changes > MagnaTran 7 Robot Overview",
+    "score": 0.3333,
+    "content": "Continuous rotation capability, no dynamic seals, drive belts or moving cables in effective operation.\nThe MagnaTran 7wafer transfer robot is designed for appli",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF%2F%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71.pdf&exp=1791637357&sig=d36bdeb0eead13175b1b09fd7ef5c63fb189aac9df19ef30bb8bdcd8659e0517",
+    "doc_page": 26
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00453",
+    "source_stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "page": "p155",
+    "heading": "CAUTION > MagnaTran 7.1 Wafer Handling Robot Overview",
+    "score": 0.25,
+    "content": "MagnaTran 7.1 Wafer Handling Robot Overview\nThe MagnaTran 7 robot is a vacuum-compatible, central wafer handling robot that can service up to 16 stations per ar",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF%2F%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71.pdf&exp=1791637357&sig=d36bdeb0eead13175b1b09fd7ef5c63fb189aac9df19ef30bb8bdcd8659e0517",
+    "doc_page": 156
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00463",
+    "source_stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "page": "p157",
+    "heading": "CAUTION > BiSymmetrik™ Dual Pan Arm Set",
+    "score": 0.2,
+    "content": "While the maximum radial extension is dependent on the geometry ofthe arm specified by the user, the MagnaTran 7 is typically supplied with a BiSymmetrik arm th",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86/%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF/%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71_p1-500/auto/images/b2ef0ce502c190214e4f28c31f7c11ee9a4f3fa23b7802e5e915e023a6f9ffb8.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120231Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bb1481e9a4b46b912581b6b503796c001e27159babd1967f24bfca68af31a0f2",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF%2F%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71.pdf&exp=1791637357&sig=d36bdeb0eead13175b1b09fd7ef5c63fb189aac9df19ef30bb8bdcd8659e0517",
+    "doc_page": 158
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00467",
+    "source_stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "page": "p159",
+    "heading": "CAUTION > Leapfrog™ Same-Side Dual Arm Set",
+    "score": 0.1667,
+    "content": "While the maximum radial extension is dependent on the geometry ofthe arm specified by the user, the MagnaTran 7 is typically supplied with a Leapfrog arm that ",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86/%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF/%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71_p1-500/auto/images/b828234553d0d1623e055b4476eccecb34c6d3ff66057e1f0df7777eacbf84a2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120231Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=97cc725773f72406d7d6fb46e4b2d40215ffbfbf309a3eff4bcb7b991b29e2bb",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF%2F%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71.pdf&exp=1791637357&sig=d36bdeb0eead13175b1b09fd7ef5c63fb189aac9df19ef30bb8bdcd8659e0517",
+    "doc_page": 160
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00358",
+    "source_stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "page": "p120",
+    "heading": "CAUTION > Robot Arms",
+    "score": 0.1429,
+    "content": "Robot Arms\nThe arms supplied with the MagnaTran 7are designed for a vacuum environment for 100mm to 300mm wafers. Various arm sizes, end effectors and configura",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF%2F%E5%8F%8C%E8%87%82%E5%8F%96%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BAmagnatran_71.pdf&exp=1791637357&sig=d36bdeb0eead13175b1b09fd7ef5c63fb189aac9df19ef30bb8bdcd8659e0517",
+    "doc_page": 121
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "3e66cefe",
+   "elapsed_ms": 8991,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1017,
+    "completion": 143,
+    "total": 1160
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 11.9,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.4,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.3333,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_070": {
+  "id": "dev_070",
+  "q": "氦离子束光刻(HIBL)用 HSQ 胶最细做到多少 nm 半间距?这个结果跟目前电子束光刻的最高分辨率记录比怎么样?",
+  "source": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson  (Eds.))",
+  "facts": "HIBL 在 HSQ 上做出 5 nm 半间距清晰分辨线条(无残胶),以及 4 nm 半间距可分辨线条(有残胶),最优线剂量分别为 110 和 90 pC/cm;4 nm 半间距首次提供了 HIBL 超过迄今最高 EBL 分辨率记录(4.5 nm 半间距)的实验证据。",
+  "tier_expected": 2,
+  "user": "eval10",
+  "answer": "HIBL 用 HSQ 最细做到 **4 nm 半间距（half-pitch）**，并首次提供了 HIBL 超过当时 EBL 最高分辨率记录——**4.5-nm half-pitch**——的实验证据 [《Materials and Processes for Next Generation Lithography》p91]。  \n另据同一资料，200-keV EBL 在 HSQ 上曾实现 **2 nm 孤立图形分辨率**，但该指标为 isolated features，与半间距（half-pitch）不同 [《Materials and Processes for Next Generation Lithography》p492]。",
+  "sources": [
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00403",
+    "source_stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "page": "p91",
+    "heading": "Scanning helium ion beam lithography > 17.3.2.3 High-resolution patterning",
+    "score": 1.0244,
+    "content": "This line dose is an order of magnitude lower than the dose required for HSQ in EBL for the fabrication of similar features.<sup>54</sup> These findings on sens",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99/%E5%85%89%E5%88%BB%E6%95%99%E6%9D%90/Materials%20and%20Processes%20for%20Next%20Generation%20Lithography%20%28Alex%20Robinson%20and%20Richard%20Lawson%20%28Eds.%29%29_p501-614/auto/images/44fc5794c2037a7dcf94eb6fe7aa5a684db23216a581674d79029b1de7f0d7a6.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120303Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d793cacbe3dfc781e974c5074f506e8e42c3b9c536aa04cb482d2d9242c74f48",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%85%89%E5%88%BB%E6%95%99%E6%9D%90%2FMaterials%20and%20Processes%20for%20Next%20Generation%20Lithography%20%28Alex%20Robinson%20and%20Richard%20Lawson%20%28Eds.%29%29.pdf&exp=1791637383&sig=8095902f003f7be9275e7eea38f8637aa9d79b975b9ed9c9c25a2fa9e4e4b0a4",
+    "doc_page": 592
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00369",
+    "source_stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "page": "p83",
+    "heading": "Scanning helium ion beam lithography > 17.3.1 GENERAL PROCEDURE AND CONSIDERATIONS FOR HIBL",
+    "score": 0.3129,
+    "content": "Several groups have made breakthroughs into the sub-10-nm patterning regime, using HIBL on the high-resolution HSQ and PMMA resists.<sup>12,40,41</sup> The best",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%85%89%E5%88%BB%E6%95%99%E6%9D%90%2FMaterials%20and%20Processes%20for%20Next%20Generation%20Lithography%20%28Alex%20Robinson%20and%20Richard%20Lawson%20%28Eds.%29%29.pdf&exp=1791637383&sig=8095902f003f7be9275e7eea38f8637aa9d79b975b9ed9c9c25a2fa9e4e4b0a4",
+    "doc_page": 584
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00398",
+    "source_stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "page": "p89",
+    "heading": "Scanning helium ion beam lithography > 17.3.2.3 High-resolution patterning",
+    "score": 0.2034,
+    "content": "The demonstrated line widths in PMMA are well in excess of the resolution limits of the helium ion probe, indicating that resolution is being limited by propert",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99/%E5%85%89%E5%88%BB%E6%95%99%E6%9D%90/Materials%20and%20Processes%20for%20Next%20Generation%20Lithography%20%28Alex%20Robinson%20and%20Richard%20Lawson%20%28Eds.%29%29_p501-614/auto/images/119a631e79df2128d5483e6b60ad4087a49a24fc96bc88cde63d45803dbc146b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120303Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c904ee3c294b568e2b453ac79bffa1e8c63156e928e3bad44a352a4c93edb2e6",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%85%89%E5%88%BB%E6%95%99%E6%9D%90%2FMaterials%20and%20Processes%20for%20Next%20Generation%20Lithography%20%28Alex%20Robinson%20and%20Richard%20Lawson%20%28Eds.%29%29.pdf&exp=1791637383&sig=8095902f003f7be9275e7eea38f8637aa9d79b975b9ed9c9c25a2fa9e4e4b0a4",
+    "doc_page": 590
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500__t02176",
+    "source_stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500",
+    "page": "p492",
+    "heading": "Next generation lithographydthe rise of unconventional methods? > 14.2.3 MASKLESS LITHOGRAPHY (ML2)",
+    "score": 0.1298,
+    "content": "State-of-the-art techniques are electron-beam lithography (EBL) and ion-beam lithography (IBL), in which a focused beam of high-energy electrons (5e200 keV) or ",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%85%89%E5%88%BB%E6%95%99%E6%9D%90%2FMaterials%20and%20Processes%20for%20Next%20Generation%20Lithography%20%28Alex%20Robinson%20and%20Richard%20Lawson%20%28Eds.%29%29.pdf&exp=1791637383&sig=8095902f003f7be9275e7eea38f8637aa9d79b975b9ed9c9c25a2fa9e4e4b0a4",
+    "doc_page": 493
+   },
+   {
+    "chunk_id": "E-Beam Nanolithography Integrated with Scanning Electron Microscope__t00095",
+    "source_stem": "E-Beam Nanolithography Integrated with Scanning Electron Microscope",
+    "page": "p11",
+    "heading": "E-Beam Nanolithography Integrated with Scanning Electron Microscope > 2.2.3. Negative Resists",
+    "score": 0.1008,
+    "content": "HSQ has been employed as a negative resist for electron beam lithography, nanoimprint, and extreme ultraviolet (EUV) lithography [32–35]. As a competitive resis",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E7%9B%B4%E5%86%99%E5%85%89%E5%88%BB%2F%E8%AE%BA%E6%96%87%2FE-Beam%20Nanolithography%20Integrated%20with%20Scanning%20Electron%20Microscope.pdf&exp=1791637383&sig=425a568d408d4ceb5dd246293e4da319c51347d5197e5263340b35acd0a52498",
+    "doc_page": 12
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "5b7aee91",
+   "elapsed_ms": 18909,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1081,
+    "completion": 947,
+    "total": 2028
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 30.7,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.8,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.2,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_111": {
+  "id": "dev_111",
+  "q": "书里兆声清洗的频率（MHz）标称值是多少？帮我查一下。",
+  "source": "半导体器件制造中的清洗技术pv_94_07",
+  "facts": "应说明该书未给出兆声清洗的频率（MHz）数值；书中兆声工艺仅给出输入功率 0~300 瓦、浴温 25~65°C、链速 25~70 mm/min 等参数，频率信息未涉及，不应臆造频率值。",
+  "tier_expected": 2,
+  "user": "eval11",
+  "answer": "根据检索资料，兆声清洗相关频率为：\n\n- 典型兆声清洗槽的基频为 **950 kHz（即0.95 MHz）** [半导体器件制造中的清洗技术 VIII p197]；\n- 部分 MHz 清洗单元使用的超声喷嘴振荡频率约为 **1.5 MHz** [半导体器件制造中的清洗技术 VIII p179]。",
+  "sources": [
+   {
+    "chunk_id": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00086",
+    "source_stem": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版",
+    "page": "p30",
+    "heading": "第1章 半导体晶片沾污与清洗技术的回顾和演变 > 1.3.4 湿法化学清洗工艺的应用",
+    "score": 1.2667,
+    "content": "是在RCA工艺过程中开发出来的技术，用以去除晶片上的微粒，并作为过氧化氢浸没清洗技术的补充\n• 声波能量是由压电传感器阵列产生频率范围在0.85\\~0.90 MHz的超高频声波\n● 使用能量密度为 $\\mathsf { \\pmb { \\varsigma } } \\sim 1 0 ~ \\mathsf { W } / \\m",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%99%B6%E7%89%87%E6%B8%85%E6%B4%97%E7%A7%91%E5%AD%A6%E3%80%81%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%20%5B%EF%BC%88%E7%BE%8E%EF%BC%89%E5%85%8B%E6%81%A9%20%E4%B8%BB%E7%BC%96%5D%202012%E5%B9%B4%E7%89%88.pdf&exp=1791637390&sig=c14396e05254794092f4eae829abc4994003c6bed65e68fc4b69143cfcc3d00b",
+    "doc_page": 31
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00954",
+    "source_stem": "半导体器件制造中的清洗技术 VIII",
+    "page": "p197",
+    "heading": "EXPERIMENTAL VALIDATION OF A SCIENCE-BASED UNDERCUT REMOVAL MODEL FOR THE CLEANING OF MICRON SCALE PARTICLES FROM SURFACES > MEGASONIC FREQUENCY SPECTRUM",
+    "score": 0.386,
+    "content": "Figure 4 shows the Power Spectral Density in a typical megasonic cleaning bath operating at a fundamental frequency of 950 kHz. The sound field was sensed with ",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%95%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%20VIII.pdf&exp=1791637390&sig=721a50dd41b9edff9dec795e7d7743270993b9019d4ea311d468fa7d0852d731",
+    "doc_page": 198
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00878",
+    "source_stem": "半导体器件制造中的清洗技术 VIII",
+    "page": "p179",
+    "heading": "STUDY OF THE CLEANING CONTROL USINGA MEGAHERTZ NOZZLE SOUND PRESSURE MONITOR SYSTEMFOR SINGLE-PLATE SPIN CLEANERS > INTRODUCTION",
+    "score": 0.287,
+    "content": "The ultrasonic nozzle with oscillation frequencies of approximately 1.5 MHz is used for these MHz cleaning units. In order to measure and control the sound pres",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%95%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%20VIII.pdf&exp=1791637390&sig=721a50dd41b9edff9dec795e7d7743270993b9019d4ea311d468fa7d0852d731",
+    "doc_page": 180
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00945",
+    "source_stem": "半导体器件制造中的清洗技术 VIII",
+    "page": "p195",
+    "heading": "EXPERIMENTAL VALIDATION OF A SCIENCE-BASED UNDERCUT REMOVAL MODEL FOR THE CLEANING OF MICRON SCALE PARTICLES FROM SURFACES > ANALYTICAL SOLUTION",
+    "score": 0.1661,
+    "content": "For instance, a 1 μm thick by 40 μm long cantilever would resonate near 1 MHz and could easily be excited to destruction during Megasonic cleaning. The possibil",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%95%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%20VIII.pdf&exp=1791637390&sig=721a50dd41b9edff9dec795e7d7743270993b9019d4ea311d468fa7d0852d731",
+    "doc_page": 196
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00876",
+    "source_stem": "半导体器件制造中的清洗技术 VIII",
+    "page": "p179",
+    "heading": "STUDY OF THE CLEANING CONTROL USINGA MEGAHERTZ NOZZLE SOUND PRESSURE MONITOR SYSTEMFOR SINGLE-PLATE SPIN CLEANERS > INTRODUCTION",
+    "score": 0.1656,
+    "content": "INTRODUCTION\nIn the manufacturing processes of semiconductor devices, megahertz-band (MHz-band) ultrasonic cleaning is widely used for the removal of submicron ",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%95%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%20VIII.pdf&exp=1791637390&sig=721a50dd41b9edff9dec795e7d7743270993b9019d4ea311d468fa7d0852d731",
+    "doc_page": 180
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "e6d902ed",
+   "elapsed_ms": 6797,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 942,
+    "completion": 306,
+    "total": 1248
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 15.7,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 1.0,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.1667,
+  "judge_chitchat": false,
+  "judge_refusal": true,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_036": {
+  "id": "dev_036",
+  "q": "书里 SOI 硅纳米膜转移前释放埋氧层(BOX)用的是哪种刻蚀液?要浸泡多久?",
+  "source": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "facts": "使用浓氢氟酸水溶液(aqueous concentrated hydrofluoric acid, HF)选择性刻蚀 BOX 层,浸泡时间为 10–20 分钟;刻蚀过程中活性层靠范德华力贴回起始硅衬底。",
+  "tier_expected": 1,
+  "user": "eval16",
+  "answer": "SOI 释放法制备 Si 纳米薄膜时，释放埋氧层（BOX）所用刻蚀液为 **HF 酸（氢氟酸）**，用于腐蚀 SiO₂ 层以释放顶层 Si 薄膜 [微纳加工及在纳米材料与器件研究中的应用 顾长志 编著 2013年 p210]。\n\n内部资料中暂未找到具体的浸泡时间数据，建议查阅对应工艺手册或联系设备技术支持（FAE）确认。",
+  "sources": [
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00506",
+    "source_stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "page": "p210",
+    "heading": "《纳米科学与技术》丛书编委会 > 7.2.4 SOI 释放法",
+    "score": 2.0,
+    "content": "SOI释放法制备薄膜片与外延剥离法类似。SOI(silicon on insulator)是绝缘体上薄层硅的英文缩写，其中绝缘体层通常是利用热氧化方法在Si片上形成的$\\mathrm { S i O _ { 2 } }$ 层，SOI通过键合方法制作在Si衬底上，然后再通过减薄和抛光工艺除去S片上表面的 $\\mathrm",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4.pdf&exp=1791637334&sig=9c81d38e32f1940ebc656d019b7dd892b71915bb03ea606df9902d147a60e432",
+    "doc_page": 211
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00507",
+    "source_stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "page": "p210",
+    "heading": "《纳米科学与技术》丛书编委会 > 7.2.4 SOI 释放法",
+    "score": 1.3333,
+    "content": "由于商业可以购买到的SOI中的Si层最薄已经可以做到20nm左右，而氧化层 $\\mathrm { S i O _ { 2 } }$ 可以减少至2nm，同时具有非常高的表面均匀性(0.3 nm)。\n因此，利用SOI剥离制备Si纳米片的厚度可以通过SOI上面Si膜的厚度进行控制，获得Si薄膜的厚度选择范围较大。同时，可以根",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99/%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0/%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4/auto/images/c9ed0dc9d6c0cc3269d5b871ed67438433b96999cacf3f24b735377671a6fc11.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120213Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=44dab35fa010d938d56f438a5fb4a166895855342f7bead41b89c4375bed90df",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4.pdf&exp=1791637334&sig=9c81d38e32f1940ebc656d019b7dd892b71915bb03ea606df9902d147a60e432",
+    "doc_page": 211
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291__t00049",
+    "source_stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291",
+    "page": "p16",
+    "heading": "7.2.4 SOI 释放法",
+    "score": 1.0,
+    "content": "SOI释放法制备薄膜片与外延剥离法类似。SOI(silicon on insulator)是绝缘体上薄层硅的英文缩写，其中绝缘体层通常是利用热氧化方法在Si片上形成的$\\mathrm { S i O _ { 2 } }$ 层，SOI通过键合方法制作在Si衬底上，然后再通过减薄和抛光工艺除去Si片上表面的 $\\mathr",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4.pdf&exp=1791637334&sig=9c81d38e32f1940ebc656d019b7dd892b71915bb03ea606df9902d147a60e432",
+    "doc_page": 211
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291__t00050",
+    "source_stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291",
+    "page": "p16",
+    "heading": "7.2.4 SOI 释放法",
+    "score": 0.8,
+    "content": "由于商业可以购买到的SOI中的Si层最薄已经可以做到20nm左右，而氧化层 $\\mathrm { S i O _ { 2 } }$ 可以减少至2nm，同时具有非常高的表面均匀性(0.3 nm)。\n因此，利用SOI剥离制备Si纳米片的厚度可以通过SOI上面Si膜的厚度进行控制，获得Si薄膜的厚度选择范围较大。同时，可以根",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99/%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0/%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4_p195-291/auto/images/6a6a116f07a58b96501511abc4e237c02315260d11de0d5db3f7f4d9569f169d.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120213Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=781f4baf0f0de63af5a5f73f600a3b854a72c423fb9e822750556c41a544b918",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4.pdf&exp=1791637334&sig=9c81d38e32f1940ebc656d019b7dd892b71915bb03ea606df9902d147a60e432",
+    "doc_page": 211
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00508",
+    "source_stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "page": "p212",
+    "heading": "《纳米科学与技术》丛书编委会 > 7.2.4 SOI 释放法",
+    "score": 0.619,
+    "content": "上面介绍的这些表面剥离技术在制备特殊结构及形状的纳米薄膜方面具有一定的优势，它可以将原来利用传统薄膜沉积、光刻及后续的溶脱工艺直接简化，既可以制备单个纳米薄片，也可以结合光刻和干法刻蚀形成图形阵列结构，再进行整体剥离和转移，因此具有较大灵活性和可操作性，为研究纳米材料特性、纳米结构与器件性能与系统集成应用提供了更为丰富",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%BE%AE%E7%BA%B3%E5%8A%A0%E5%B7%A5%E5%8F%8A%E5%9C%A8%E7%BA%B3%E7%B1%B3%E6%9D%90%E6%96%99%E4%B8%8E%E5%99%A8%E4%BB%B6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20%5B%E9%A1%BE%E9%95%BF%E5%BF%97%20%E7%BC%96%E8%91%97%5D%202013%E5%B9%B4.pdf&exp=1791637334&sig=9c81d38e32f1940ebc656d019b7dd892b71915bb03ea606df9902d147a60e432",
+    "doc_page": 213
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "4bc2702f",
+   "elapsed_ms": 6568,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1853,
+    "completion": 279,
+    "total": 2132
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [
+   {
+    "question": "请问您想问的是以下哪个对象的刻蚀液和浸泡时间？",
+    "options": [
+     "SOI释放法制备Si纳米薄膜",
+     "Smart Cut工艺SOI",
+     "芯片制造中SOI工艺"
+    ]
+   }
+  ],
+  "clarify_picked": "SOI释放法制备Si纳米薄膜",
+  "clarify_matched": 0.2,
+  "wall_s": 46.0,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.8,
+  "judge_answer_relevancy": 0.5,
+  "judge_context_recall": 0.0,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_180": {
+  "id": "dev_180",
+  "q": "我们要把栅氧前的最后一步从 SC1 换成 HF-last。帮我查清楚：HF-last 表面的铁为什么比有自然氧化层表面的难去除、单步清洗效率各多少、哪些多步序列能做到 99% 以上？这些序列对氧化前少子寿命有什么影响？另外 SC1 收尾本身有什么再污染风险？",
+  "source": "半导体器件制造中的清洗技术pv_94_07",
+  "facts": "链式回答：(1) 机理——HF-last 表面的铁呈硅化物样键合于硅，需要 HF 对硅的腐蚀（刻蚀硅）才能去除，而有自然氧化层的 SC1-last 表面单步即可去铁；(2) 单步效率（Fe on HF-last）：HF only 6、SC1 only 2、SC2 only 0、SC1+SC2 仅 4，至少需三个独立步骤；(3) ≥99% 的多步序列：SC1+HF、HF+SC1+HF、HF+SC1+SC2、SC1+HF+SC2 等；(4) 寿命（Table II）：SC1+HF+SC2+HF 序列 20-30 μs；HF+SC1+SC2+HF 未污染片 400-500 μs、污染片 5-10 μs，HF+SC1+SC2 为 180-250 μs，SC1-last 氧化前寿命很低，HF-last 氧化前寿命高；(5) 风险——SC1 溶液存在铝、铁等金属从溶液再污染硅表面的争议，故 SC1 收尾后寿命偏低。",
+  "tier_expected": 5,
+  "user": "eval20",
+  "answer": "初步检索命中了核心文献《半导体器件制造中的清洗技术》(pv_94_07)，其中正好有\"表面铁对复合寿命的影响及去除\"章节。我先取回完整块内容，并并行检索清洗效率数字、多步序列和 SC1 收尾风险等具体数据。\n\n根据内部资料《半导体器件制造中的清洗技术 pv_94_07》中“表面铁对复合寿命的影响及其去除”一节，回答如下：\n\n## 1. 为什么 HF-last 表面铁比有自然氧化层表面更难去除\n- 资料指出：对 SC1 收尾（SC1-last）的自然氧化层表面，**单步清洗即可去除铁**；而 **HF-last 表面的铁要难去除得多** [半导体器件制造中的清洗技术pv_94_07 p65]。\n- 原因解释：能否用化学溶液溶解除铁，取决于**金属与硅本身之间形成的键合**（bonding between metals and silicon itself）[半导体器件制造中的清洗技术pv_94_07 p65]。HF-last 是疏水/近裸硅表面，铁与硅的键合方式导致更难被化学液溶解带走。\n\n## 2. 单步清洗效率\n- 对 SC1-last（自然氧化层）表面：单步清洗即可有效去除铁，但资料**未给出具体百分比数字**。\n- 对 HF-last 表面：**至少需要三个独立步骤（three separate steps）才能有效去除铁**；且资料明确指出，在去除 HF-last 表面铁时，**SC1 比 SC2（盐酸+过氧化氢）更有效** [半导体器件制造中的清洗技术pv_94_07 p65]。\n- 单步清洗效率的具体百分数值，内部资料中暂未找到。\n\n## 3. 哪些多步序列能做到 99% 以上\n- 内部资料中**未列出具体多步序列及其去除率数字**，无法给出“哪个序列能做到 99%”的结论。\n\n## 4. 对氧化前少子寿命的影响\n- 实验结论（光电导复合寿命测试）：**SC1 收尾表面寿命很低，SC2 收尾表面寿命相对较高，HF-last 表面寿命高** [半导体器件制造中的清洗技术pv_94_07 p69]。\n- 注意：这一结论是针对“收尾表面”的总体寿命趋势；资料**未将具体多步清洗序列与氧化前少子寿命逐一对应**，所以不能据此推断某个具体序列的寿命影响。\n\n## 5. SC1 收尾本身的再污染风险\n- 资料明确反映：**SC1 收尾（SC1-last）表面的复合寿命很低** [半导体器件制造中的清洗技术pv_94_07 p69]，说明其表面状态对少子寿命不利，存在金属/表面状态相关的再污染或寿命退化风险。\n- 至于 SC1 收尾再污染的具体机理（如金属再沉积、表面络合物等），内部资料中暂未进一步展开。\n\n---\n\n**概括**：从当前资料看，HF-last 收尾从寿命角度比 SC1-last 更好，但铁去除更难，需要至少三步清洗；SC1 对 HF-last 表面除铁优于 SC2。具体单步效率百分数和“99%以上”的多步序列，内部资料未覆盖，建议查阅更详细的清洗工艺配方数据或对应设备的工艺验证报告。",
+  "sources": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00313",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p64",
+    "heading": "EFFECTS OF SURFACE IRON ON RECOMBINATION LIFETIME AND ITS REMOVAL FROM SILICON SURFACES > Chemical cleaning efficiency of the removal of iron from silicon surfaces",
+    "score": 1.0139,
+    "content": "In the former case (SC1-last surface), we could remove iron from native oxide surfaces even with single-step cleans. $( 2 , 3 )$ The iron on HF-last surfaces wa",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637403&sig=4655f11260e3c2317340300676c03d235337967d81703bd68de8ab512641f267",
+    "doc_page": 65
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t01562",
+    "source_stem": "半导体器件制造中的清洗技术 VIII",
+    "page": "p311",
+    "heading": "ADVANCED FRONT END OF THE LINE CLEAN FOR POST CMP PROCESSES > RESULTS AND DISCUSSION",
+    "score": 0.6889,
+    "content": "Increasing the SC1 time and temperatures yielded better results but was found to be not economically feasible approaches.\nFurther testing lead to the replacemen",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99/%E5%8D%95%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%20VIII/auto/images/4170f3a7b81973bb6672e71ac4e2e860b01fb674a9f099418c59aed7c286ed87.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120320Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=090cb86134556ba6ecb3d821d81bef25eddaa8a35a16b775e754ea7f1b10dda7",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%95%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%20VIII.pdf&exp=1791637403&sig=c93cab1215e831701645c7517d3bebb66155f11e22262d48404b7f9494f0d538",
+    "doc_page": 312
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00311",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p64",
+    "heading": "EFFECTS OF SURFACE IRON ON RECOMBINATION LIFETIME AND ITS REMOVAL FROM SILICON SURFACES > Chemical cleaning efficiency of the removal of iron from silicon surfaces",
+    "score": 0.4935,
+    "content": "As shown in the table, we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. We also found that the SC1 was more",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637403&sig=4655f11260e3c2317340300676c03d235337967d81703bd68de8ab512641f267",
+    "doc_page": 65
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00213",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p44",
+    "heading": "ELECTROCHEMICAL EQUILIBRIUM OF Fe IN ACID/BASE/PEROXIDE SOLUTIONS RELATED TO Si WAFER CLEANING > CONCLUSIONS AND RECOMMENDATIONS",
+    "score": 0.3439,
+    "content": "We are left with the situation of the undesirability of SC1-last surfaces due to metal contamination, but the undesirability of anything else due to particle co",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637403&sig=4655f11260e3c2317340300676c03d235337967d81703bd68de8ab512641f267",
+    "doc_page": 45
+   },
+   {
+    "chunk_id": "pv_97_35_p1-500__t01026",
+    "source_stem": "pv_97_35_p1-500",
+    "page": "p209",
+    "heading": "CHARACTERIZATION OF HF-LAST CLEANED Si FOR GATE OXIDES > I. INTRODUCTION",
+    "score": 0.2082,
+    "content": "The characterization of HF-last cleaning was focused on cleaning performances by (1) the measurements of metallic and particulate contamination levels as well a",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E8%B5%84%E6%96%99%E5%92%8C%E8%A7%86%E9%A2%91%2Fpv_97_35.pdf&exp=1791637403&sig=95210c938f884c0eb4ea308b4ab186ce7a716312238231fa7ffbd6a9a5df73f0",
+    "doc_page": 210
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "74dc0729",
+   "elapsed_ms": 59523,
+   "steps": 2,
+   "sources_count": 5,
+   "tools_count": 5,
+   "tokens": {
+    "prompt": 13121,
+    "completion": 2330,
+    "total": 15451
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 65.6,
+  "judge_faithfulness": 0.7895,
+  "judge_context_precision": 0.8,
+  "judge_answer_relevancy": 0.8,
+  "judge_context_recall": 0.2,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_003": {
+  "id": "dev_003",
+  "q": "厂房这边要给 6DS-SP 预留去离子水（D.I. water）管路，手册要求的 D.I. 水供给峰值流量、平均流量和压力各是多少？",
+  "source": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+  "facts": "D.I. Water Supply：峰值流量 6 GPM、平均流量 3 GPM、压力 30-45 PSI（管路 1/2 英寸，接头 3/8 FNPT，回流无限制）",
+  "tier_expected": 1,
+  "user": "eval3",
+  "answer": "D.I. 水压力要求：30 PSI 最小，45 PSI 最大 [晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer p92、p404]。\n\n内部资料中未找到 D.I. 水供给的峰值流量和平均流量要求，建议联系设备技术支持（FAE）或查阅 Strasbaugh 6DS-SP 官方手册确认。",
+  "sources": [
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01388",
+    "source_stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "page": "p485",
+    "heading": "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > ATTENTION 6DS-SP OWNER!",
+    "score": 1.0333,
+    "content": "The flow rate is proportional to the 0 to 5 volt analog output signal. The peristaltic pumps, energized for the programmed flow rate and duration, pump D.I. wat",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86CMP%E7%A0%94%E7%A3%A8%E6%9C%BAStrasbaugh%206DS-SP%20Production%20CMP%20Planarizer.pdf&exp=1791637250&sig=edb18be5ca09e3c8fde127a07413297a7000b10f0e7d07b6a1b994f3732c11f1",
+    "doc_page": 486
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01135",
+    "source_stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "page": "p404",
+    "heading": "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS",
+    "score": 1.0,
+    "content": "Hg\nD.I. Water: 30 PSI minimum 45 PSI maximum\n(Note that Teflon D.I. water plumbing is now standard on all machines.)\nAcid Drain: 1-1/2-in. pipe\nIndustrial Waste",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86CMP%E7%A0%94%E7%A3%A8%E6%9C%BAStrasbaugh%206DS-SP%20Production%20CMP%20Planarizer.pdf&exp=1791637250&sig=edb18be5ca09e3c8fde127a07413297a7000b10f0e7d07b6a1b994f3732c11f1",
+    "doc_page": 405
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00315",
+    "source_stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "page": "p92",
+    "heading": "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS",
+    "score": 0.8292,
+    "content": "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS\nIMPORTANT: The necessary utilities must meet the required specifications (shown below) in order for the Model ",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86CMP%E7%A0%94%E7%A3%A8%E6%9C%BAStrasbaugh%206DS-SP%20Production%20CMP%20Planarizer.pdf&exp=1791637250&sig=edb18be5ca09e3c8fde127a07413297a7000b10f0e7d07b6a1b994f3732c11f1",
+    "doc_page": 93
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01802",
+    "source_stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500",
+    "page": "p435",
+    "heading": "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > New Calibration Variables:",
+    "score": 0.75,
+    "content": "Also, an elevator tank with D.I. water system must be installed in the buffer cassette (right send) position so that buffered polished wafers can be stored subm",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86CMP%E7%A0%94%E7%A3%A8%E6%9C%BAStrasbaugh%206DS-SP%20Production%20CMP%20Planarizer.pdf&exp=1791637250&sig=edb18be5ca09e3c8fde127a07413297a7000b10f0e7d07b6a1b994f3732c11f1",
+    "doc_page": 1436
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000__t01287",
+    "source_stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000",
+    "page": "p409",
+    "heading": "6DS-SP DATE AND TIME SETTING",
+    "score": 0.75,
+    "content": "6DS-SP DATE AND TIME SETTING\nThe date and time are set in the 6DS-SP in \"DOS\" using the standard DOS commands.\nNote: You don't have to do all date and time step",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86CMP%E7%A0%94%E7%A3%A8%E6%9C%BAStrasbaugh%206DS-SP%20Production%20CMP%20Planarizer.pdf&exp=1791637250&sig=edb18be5ca09e3c8fde127a07413297a7000b10f0e7d07b6a1b994f3732c11f1",
+    "doc_page": 910
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "2710f16e",
+   "elapsed_ms": 23306,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1068,
+    "completion": 716,
+    "total": 1784
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 58.9,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.4,
+  "judge_answer_relevancy": 0.5,
+  "judge_context_recall": 0.1667,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_043": {
+  "id": "dev_043",
+  "q": "这台机器人的晶圆放置重复精度（placement repeatability）标称多少？",
+  "source": "双臂取晶圆机器人magnatran_71",
+  "facts": "放置重复精度为 0.1mm TIR（水平面内、在相应速度下）。",
+  "tier_expected": 1,
+  "user": "eval3",
+  "answer": "Brooks ABM 407B 大气单臂晶圆机器人的晶圆放置重复精度标称为 **±25 微米（3 sigma）**。  \n来源：[晶圆机器人Brooks_PRI_Automation_ABM_407B_Manual p28]",
+  "sources": [
+   {
+    "chunk_id": "EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001__t00001",
+    "source_stem": "EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001",
+    "page": "",
+    "heading": "视频: EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001.mp4",
+    "score": 0.8333,
+    "content": "该视频展示半导体领域的双臂晶圆机器人的 pick&place（取放）作业流程，场景为半导体制造设备操作现场。\n设备/材料为型号RR741 RB3K006的双晶圆搬运机器人，以及两个装载晶圆的透明晶圆盒（FOUP）；过程含机器人臂的旋转移动、取放晶圆的动作，通过双协作臂实现晶圆在盒间的转运。\n可读关键文字：“ROBOT:",
+    "video_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/mp4/009%20EFEM%20%E5%89%8D%E7%AB%AF%E5%A4%84%E7%90%86%E8%AE%BE%E5%A4%87/%E5%A4%A7%E9%87%8F%E8%A7%86%E9%A2%91/EFEM%20%28RORZE%29%20RR741%20RB3K006%2C%20RA210-C12-101-1%2C%20RV201-F06-001/EFEM%20%28RORZE%29%20RR741%20RB3K006%2C%20RA210-C12-101-1%2C%20RV201-F06-001.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120234Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=2d5ea28ba37dd18223caeeb6d5573a58e1d925a0f9c753f687afa88996927788"
+   },
+   {
+    "chunk_id": "晶圆分拣机及晶圆卸料机的详细技术开发__t00045",
+    "source_stem": "晶圆分拣机及晶圆卸料机的详细技术开发",
+    "page": "p47",
+    "heading": "2. 产品开发及可靠性认证计划",
+    "score": 0.3529,
+    "content": "• High Speed Wafer Align Through-put .\n•Robot Swing Arm  lô Foot Print，\n• Guaranty Spec\nReliability : MTBF(More than 100,000wfs) MTTR(Less than 1 Hrs)\nThrough-p",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/009%20EFEM%20%E5%89%8D%E7%AB%AF%E5%A4%84%E7%90%86%E8%AE%BE%E5%A4%87/%E6%99%B6%E5%9C%86%E5%88%86%E6%8B%A3%E6%9C%BA%E5%8F%8A%E6%99%B6%E5%9C%86%E5%8D%B8%E6%96%99%E6%9C%BA%E7%9A%84%E8%AF%A6%E7%BB%86%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/auto/images/e028025ccb3b480282f209ae528818ed58c341a9be0aec61af6140ff60613d31.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120234Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=af7b8ecda8fec718f643c68abce7a894bad9ed35d4ef5ee1ce501d5f1a11499d",
+    "doc_url": "/api/media/doc?key=pdf%2F009%20EFEM%20%E5%89%8D%E7%AB%AF%E5%A4%84%E7%90%86%E8%AE%BE%E5%A4%87%2F%E6%99%B6%E5%9C%86%E5%88%86%E6%8B%A3%E6%9C%BA%E5%8F%8A%E6%99%B6%E5%9C%86%E5%8D%B8%E6%96%99%E6%9C%BA%E7%9A%84%E8%AF%A6%E7%BB%86%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91.pdf&exp=1791637354&sig=cea31b8acc1f4cddf09d68206bd7798080861e53e3470826ec222d3444615742",
+    "doc_page": 48
+   },
+   {
+    "chunk_id": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401__t00065",
+    "source_stem": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401",
+    "page": "p10",
+    "heading": "Highly Dynamic and Precise Piezo Wafer Positioning Solution",
+    "score": 0.125,
+    "content": "▪ Bidirectional repeatability: 10 nm (1 sigma)   \n▪ Position stability < 5 nm   \n▪ Z-Rotation Axis: High-Accuracy Motion up to 360°   \n▪ Piezo motor technology ",
+    "doc_url": "/api/media/doc?key=pdf%2F006%20%E7%B2%BE%E5%BA%A6%E8%A1%A5%E5%81%BF%E7%AD%89%E8%BF%90%E5%8A%A8%E6%8E%A7%E5%88%B6%E6%8A%80%E6%9C%AF%2FMotion-Solutions-for-Photonics-Lasers-and-Semicon202401.pdf&exp=1791637354&sig=f1d6d9def4063f3df574873eef743a1d31f66e3c2bdd438ded4669ad322db18f",
+    "doc_page": 11
+   },
+   {
+    "chunk_id": "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612__t00084",
+    "source_stem": "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612",
+    "page": "p28",
+    "heading": "Brooks Automation Atmospheric Single-Arm Robot User’s Manual > Robot Specifications",
+    "score": 0.0909,
+    "content": "Robot Specifications\nRepeatability: 3 sigma repeatability at +/- 25 microns\nWafer Sizes: 75mm (3 in) to 300 mm (12 in)\nContamination: Cleanroom Class 1",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E4%BC%A0%E8%BE%93%E8%A3%85%E7%BD%AE%E4%B9%8B%E6%8A%80%E6%9C%AF%2F%E6%99%B6%E5%9C%86%E6%9C%BA%E5%99%A8%E4%BA%BABrooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612.pdf&exp=1791637354&sig=955aa8fc891c2c035ab54ae443919e730b441f8890bc17cb9b6ea4792bd69877",
+    "doc_page": 29
+   },
+   {
+    "chunk_id": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401__t00066",
+    "source_stem": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401",
+    "page": "p10",
+    "heading": "Highly Dynamic and Precise Piezo Wafer Positioning Solution",
+    "score": 0.0556,
+    "content": "▪ High resonance frequency for highest stability   \n▪ Travel range: up to +/-6 mrad for highest accuracy, can be extended to up to 360°   \n▪ Move and settling t",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/006%20%E7%B2%BE%E5%BA%A6%E8%A1%A5%E5%81%BF%E7%AD%89%E8%BF%90%E5%8A%A8%E6%8E%A7%E5%88%B6%E6%8A%80%E6%9C%AF/Motion-Solutions-for-Photonics-Lasers-and-Semicon202401/auto/images/3696555f1ec33c353bf434ba2533621a1eeb7375a13d44381a21471d1b185cf5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120234Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c6751a7d9983c405d390720c58cce999a6ace37bf7278a48d604bda4dbe694dc",
+    "doc_url": "/api/media/doc?key=pdf%2F006%20%E7%B2%BE%E5%BA%A6%E8%A1%A5%E5%81%BF%E7%AD%89%E8%BF%90%E5%8A%A8%E6%8E%A7%E5%88%B6%E6%8A%80%E6%9C%AF%2FMotion-Solutions-for-Photonics-Lasers-and-Semicon202401.pdf&exp=1791637354&sig=f1d6d9def4063f3df574873eef743a1d31f66e3c2bdd438ded4669ad322db18f",
+    "doc_page": 11
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "d2b5dd14",
+   "elapsed_ms": 8207,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1175,
+    "completion": 351,
+    "total": 1526
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [
+   {
+    "question": "请问您指的是哪一台机器人？",
+    "options": [
+     "晶圆分拣机移动工艺机器人",
+     "压电晶圆定位机器人",
+     "Brooks ABM 407B大气单臂晶圆机器人"
+    ]
+   }
+  ],
+  "clarify_picked": "Brooks ABM 407B大气单臂晶圆机器人",
+  "clarify_matched": 0.32,
+  "wall_s": 27.6,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.6,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.0,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_083": {
+  "id": "dev_083",
+  "q": "预成形的 Paddle position recognition 有哪几种模式？各种模式下识别出错时机器怎么动作？",
+  "source": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "facts": "5.1.6.1 Recognition Setting 的 Paddle position recognition 有 4 种模式：Disable=不识别；Auto 1=识别出错时进行手动识别（manual recognition）；Auto 2=识别出错时进行自动识别（auto recognition）；Manual=以手动模式进行识别。",
+  "tier_expected": 2,
+  "user": "eval3",
+  "answer": "预成形的 Paddle position recognition（画胶区域识别）模式有：ALL、BLK、PRE 三种。[日立固晶机DB800_Manual-eng_ver01_012_00_p1-500 p213]\n\n关于“各种模式下识别出错时机器的动作”，内部资料中暂未找到相关内容，建议联系设备技术支持（FAE）或查阅对应厂商官方手册。",
+  "sources": [
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00194",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "page": "p81",
+    "heading": "! CAUTION > 4.3.4.2 Preform recognition confirmation",
+    "score": 1.078,
+    "content": "Input paddle position that is used for preform paddle position recognition in [Paddle X,Y] box to set it.\nPress [START] button. The machine execute the recognit",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A/%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95/%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00_p1-500/auto/images/4b6e67a825d4e31f104b0ca7488b76d50715082e8dd0b1e12658f733d45dabd2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120316Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3380602e4191de4ba6abd868c28a11ab272048085a90b84e66005019d75b1ed9",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637399&sig=866145d3a15787a1c26559fa43ff8bd79eab043f8d62313af31460439eda0683",
+    "doc_page": 82
+   },
+   {
+    "chunk_id": "日立DB800 Level 1-2 中文操作手册__t00189",
+    "source_stem": "日立DB800 Level 1-2 中文操作手册",
+    "page": "p135",
+    "heading": "DB800 Level 1-2 中文操作手册 > 4.1.6 Preform Recognition 画胶识别",
+    "score": 0.754,
+    "content": "4.1.6 Preform Recognition 画胶识别\n4.1.6.1 Recognition Setting 识别设定\nNo. | Window Display | Unit | Description\nRecognition | Setting\n1. | Paddle positionrecognition ",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A/%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95/%E6%97%A5%E7%AB%8BDB800%20Level%201-2%20%E4%B8%AD%E6%96%87%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/auto/images/f29c75d6381901d4ce661389f0b5904abb811a9a075df191c8d8dbb9cb756327.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120316Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=af26fc98db3976e0c86e0e3d073af1eebd165becf24a917ddca654d1db272946",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8BDB800%20Level%201-2%20%E4%B8%AD%E6%96%87%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C.pdf&exp=1791637399&sig=4f62ef7a4a5024fe647afff36618f7f30a5032197c1cc85b10bfac7dc96bf642",
+    "doc_page": 136
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00192",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "page": "p79",
+    "heading": "! CAUTION > 4.3.4.2 Preform recognition confirmation",
+    "score": 0.6426,
+    "content": "The machine execute the recognition for the designate paddle\nOr touch [Done ] to quit “Preform Paddle Alignment recognition.\nInput paddle position that is used ",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A/%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95/%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00_p1-500/auto/images/a735ccc20b42a9e37b010a6b22394b20b0499a616e3bad246f89c8f2c4b80871.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120316Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=cb644e22459b120fea48fef46230671e68738d827b723310c730b36257c8a615",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637399&sig=866145d3a15787a1c26559fa43ff8bd79eab043f8d62313af31460439eda0683",
+    "doc_page": 80
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00564",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "page": "p251",
+    "heading": "! CAUTION > 5.1.8 Bonding Recognition",
+    "score": 0.4628,
+    "content": "of recognition FOV (Field of View) (1shot or 2 shots)\n4. | Paddle recognitionmode | Option to set Die pad recognition mode (ALL/BLK/PRE)\n5. | No. of Block recog",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637399&sig=866145d3a15787a1c26559fa43ff8bd79eab043f8d62313af31460439eda0683",
+    "doc_page": 252
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00477",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "page": "p213",
+    "heading": "! CAUTION > 5.1.6 Preform Recognition",
+    "score": 0.3313,
+    "content": "point | Option to set No. of recognition points (1-point or2-points)\n3. | Paddle recognitionmode | Option to set Die pad position recognition mode(ALL/BLK/PRE)\n",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637399&sig=866145d3a15787a1c26559fa43ff8bd79eab043f8d62313af31460439eda0683",
+    "doc_page": 214
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "d36f67e6",
+   "elapsed_ms": 6131,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1117,
+    "completion": 399,
+    "total": 1516
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 24.2,
+  "judge_faithfulness": 0.5,
+  "judge_context_precision": 0.6,
+  "judge_answer_relevancy": 0.5,
+  "judge_context_recall": 0.0,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": true,
+  "judge_done": true
+ },
+ "dev_124": {
+  "id": "dev_124",
+  "q": "手册里有没有蓝宝石(sapphire)衬底的减薄配方或者推荐工艺参数?我们下一批想磨 sapphire。",
+  "source": "晶圆减薄strasbaugh Model 7AF",
+  "facts": "应说明手册未提供蓝宝石专用配方或推荐参数:工艺说明只覆盖硅(silicon,默认状态)和 AlTiC 及替代材料(AlTiC and alternative materials,变量82 ATC Grinder 模式)两类;应建议按\"alternative materials/Force 模式\"路径并联系厂家确认,不得编造蓝宝石参数。",
+  "tier_expected": 2,
+  "user": "eval4",
+  "answer": "根据检索到的内部资料，蓝宝石衬底减薄工艺大致为：“先在横向减薄机上，用50-70μm的砂轮研磨磨去300μm左右的厚度；再用抛光机（秀和、NTS、WEC等）针对不同的研磨盘（锡/铜盘），采用合适的蓝宝石研磨液（水/油性）对芯片背面抛光，从150nm减至100nm左右” [抛光技术及抛光液]。但资料中未找到具体的减薄配方（如研磨液配比、浓度）或更详细的推荐工艺参数（转速、压力、时间等），内部资料暂未覆盖这部分内容。建议联系设备技术支持（FAE）或查阅对应研磨/抛光设备厂商的官方工艺手册。",
+  "sources": [
+   {
+    "chunk_id": "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00165",
+    "source_stem": "集成电路芯片制造实用技术 [卢静主编] 2011年版",
+    "page": "p51",
+    "heading": "全国高等职业教育规划教材电子类专业编委会成员名单 > 2. 蓝宝石衬底",
+    "score": 0.6667,
+    "content": "2. 蓝宝石衬底\n蓝宝石的主要成分是三氧化二铝，密度为3.98g/cm³（20℃时），熔点为 $2 ~ 0 5 0 \\mathrm { ‰}$ ，沸点为3500℃，最高工作温度为1900℃。其化学性能非常稳定，一般不溶于水，也不受酸、碱腐蚀。蓝宝石硬度很高，莫氏硬度达9级，仅次于最硬的金刚石，并且它具有很好的力学性能、",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%8A%AF%E7%89%87%E5%88%B6%E9%80%A0%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF%20%5B%E5%8D%A2%E9%9D%99%E4%B8%BB%E7%BC%96%5D%202011%E5%B9%B4%E7%89%88.pdf&exp=1791637450&sig=19d1f65223fe735f97398e54dad0a56dc5ac4fb9780f0f1ccac34fb63078bebd",
+    "doc_page": 52
+   },
+   {
+    "chunk_id": "抛光技术及抛光液__t00003",
+    "source_stem": "抛光技术及抛光液",
+    "page": "",
+    "heading": "抛光技术及抛光液",
+    "score": 0.5,
+    "content": "为解决蓝宝石的散热问题，需要将蓝宝石衬底的厚度减薄，从450nm左右减至100nm左右。主要有两步：先在横向减薄机上，用50-70um的砂轮研磨磨去300um左右的厚度；再用抛光机（秀和、NTS、WEC等）针对不同的研磨盘（锡/铜盘），采用合适的蓝宝石研磨液（水/油性）对芯片背面抛光，从150nm减至100nm[1]左",
+    "doc_url": "/api/media/doc?key=docx%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E7%9B%B8%E5%85%B3%E7%9A%84%E7%A0%94%E7%A9%B6%E6%96%87%E6%A1%A3%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%88%B6%E9%80%A0%E5%B7%A5%E8%89%BA%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%88%B6%E9%80%A0%E5%B7%A5%E8%89%BA%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%8A%9B%E5%85%89%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%8A%9B%E5%85%89%2F%E6%8A%9B%E5%85%89%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%8A%9B%E5%85%89%E6%B6%B2.docx&exp=1791637450&sig=c03d4b9904d6a65f1daecdd4b77a89c36e3c84d8afe346de791e82bfecad1eed"
+   },
+   {
+    "chunk_id": "先进材料合成与制备技术 [李爱东 编著] 2014年_p441-480__t00090",
+    "source_stem": "先进材料合成与制备技术 [李爱东 编著] 2014年_p441-480",
+    "page": "p34",
+    "heading": "14.6.2 纳米图案化蓝宝石衬底",
+    "score": 0.4444,
+    "content": "当凸凹结构的图案尺度达到亚波长，即500nm以下，甚至更小时，不仅图案化蓝宝石生产成本会大幅度降低，同时光的取出效率将远高于微米尺度的图案化蓝宝石衬底。\n但是目前可产业化的接触式、投影式等光刻技术只能制造微米尺度以上的图案，而用于半导体行业的步进式光刻技术，由于其成本非常昂贵，以及蓝宝石衬底本身表面起伏大、翘曲率高，无",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E5%85%88%E8%BF%9B%E6%9D%90%E6%96%99%E5%90%88%E6%88%90%E4%B8%8E%E5%88%B6%E5%A4%87%E6%8A%80%E6%9C%AF%20%5B%E6%9D%8E%E7%88%B1%E4%B8%9C%20%E7%BC%96%E8%91%97%5D%202014%E5%B9%B4.pdf&exp=1791637450&sig=1d998f2993c6ab6c06fb64ca0e6b2cfed493995f245bc9b16c9ef923773471be",
+    "doc_page": 475
+   },
+   {
+    "chunk_id": "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00628",
+    "source_stem": "集成电路芯片制造实用技术 [卢静主编] 2011年版",
+    "page": "p176",
+    "heading": "全国高等职业教育规划教材电子类专业编委会成员名单 > 8.3 芯片封装工艺",
+    "score": 0.3333,
+    "content": "以超薄小外形封装（TSOP）为例。硅片上电路层的有效厚度一般为300μm，为了保证其功能，有一定的衬底支撑厚度，因此，硅片的厚度一般为900μm。衬底材料是为了保证硅片在制造、测试和运送过程中有足够的强度。在电路层制作完成后，需要对硅片进行背面减薄（Back SideThinning）处理，使其达到所需要的厚度，然后再",
+    "doc_url": "/api/media/doc?key=pdf%2F0002%20%E5%85%89%E5%88%BB%E8%B5%84%E6%96%99%2F%E5%BE%AE%E7%BA%B3%E5%8E%8B%E5%8D%B0%2F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%8A%AF%E7%89%87%E5%88%B6%E9%80%A0%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF%20%5B%E5%8D%A2%E9%9D%99%E4%B8%BB%E7%BC%96%5D%202011%E5%B9%B4%E7%89%88.pdf&exp=1791637450&sig=19d1f65223fe735f97398e54dad0a56dc5ac4fb9780f0f1ccac34fb63078bebd",
+    "doc_page": 177
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00795",
+    "source_stem": "晶圆减薄strasbaugh Model 7AF_p1001-1500",
+    "page": "p316",
+    "heading": "晶圆减薄strasbaugh Model 7AF_p1001-1500",
+    "score": 0.25,
+    "content": "236985 | 2.00 EA | 7AF, BRKT, SHIPPING, | HANDLING S | FAB-SHMT | 7AF-236985D1\n236986 | 2.00 EA | 7AF, BRKT, SHIPPING, | LOWER GRIN | FAB-SHMT | 7AF-236986D1\n24",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84strasbaugh%20Model%207AF.pdf&exp=1791637450&sig=08f8f93c642bfc0ed4dc0c07678eeda62f526b87d3994b256cc5b917ce5cac47",
+    "doc_page": 1317
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "dc6a15ef",
+   "elapsed_ms": 12222,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1595,
+    "completion": 590,
+    "total": 2185
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 18.2,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.2,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.0,
+  "judge_chitchat": false,
+  "judge_refusal": true,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_184": {
+  "id": "dev_184",
+  "q": "同样是砂轮磨损超限,磨硅片时报 \"Coarse wheel wear limit\" 和磨 AlTiC 时报同样消息,机器的处理方式有什么不同?这个超限状态怎么清除?另外磨损量是在哪个卡盘上测的?",
+  "source": "晶圆减薄strasbaugh Model 7AF",
+  "facts": "三跳:①硅片模式(默认)下只呈现警告,提示通知维护但继续磨削(Notify Maintenance. Continue Grinding);AlTiC/替代材料模式下出现强制性换轮消息,send cassettes 被禁用、turrets 被锁定,防止再上料。②两种情况的清除方法都是更换出问题的砂轮(change the offending wheel)。③磨损在每次右工件卡盘磨削材料时检查,只使用右探针及其参考数据(right probe and reference data)。",
+  "tier_expected": 4,
+  "user": "eval4",
+  "answer": "根据内部资料 [晶圆减薄strasbaugh Model 7AF_p501-1000 p597]：\n\n1. **两种情况的处理方式相同**：资料中未区分磨硅片和磨 AlTiC 时的处理差异，说明“该条件在两种情况下均通过更换有问题的砂轮来清除”（The condition is cleared in both cases by changing the offending wheel），即直接更换触发报警的砂轮即可清除超限状态。\n\n2. **磨损量测量位置**：磨损量是在**右工作卡盘（right work chuck）**上检查的。资料明确：“每次在右工作卡盘上磨料时都会检查砂轮磨损，磨损量测量仅使用右探针和参考数据”，并与机器变量 Coarse Wear Lim microns（变量25）和 Fine Wear Lim microns（变量35）比较，超过即显示磨损超限消息。\n\n内部资料中暂未找到针对“硅片与 AlTiC 两种材料分别采取不同处理逻辑”的说明。",
+  "sources": [
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00479",
+    "source_stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "page": "p99",
+    "heading": "7AF Version 4.03 Features 5/27/98 Ken Hill > Wheel Wear Detection",
+    "score": 1.0833,
+    "content": "As in previous releases, the amount of wheel wear is compared to the Machine Variables Coarse Wear Lim microns (variable 25) and Fine Wear Lim microns (variable",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84strasbaugh%20Model%207AF.pdf&exp=1791637517&sig=2a2155d957215de1c46517418ce9fe9a5f9c98331ce54ee42c8e4316ecc348b2",
+    "doc_page": 600
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00456",
+    "source_stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "page": "p96",
+    "heading": "5/5/98 Ken Hill > Wheel Wear Detection",
+    "score": 1.0147,
+    "content": "Therefore, the first wafer will provide a “mark” for the current amount of wheel wear and subsequent wear (at the right chuck only) will be compared to the last",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84strasbaugh%20Model%207AF.pdf&exp=1791637517&sig=2a2155d957215de1c46517418ce9fe9a5f9c98331ce54ee42c8e4316ecc348b2",
+    "doc_page": 597
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00431",
+    "source_stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "page": "p94",
+    "heading": "5/5/98 Ken Hill > Wheel Wear Detection",
+    "score": 0.7417,
+    "content": "In the case of AlTiC and alternative materials grinding, the send cassettes are disabled and the turrets are locked.\nA new optional check is made, wheel wear pe",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84strasbaugh%20Model%207AF.pdf&exp=1791637517&sig=2a2155d957215de1c46517418ce9fe9a5f9c98331ce54ee42c8e4316ecc348b2",
+    "doc_page": 595
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00432",
+    "source_stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "page": "p94",
+    "heading": "5/5/98 Ken Hill > Wheel Wear Detection",
+    "score": 0.7037,
+    "content": "Therefore, the first wafer will provide a “mark” for the current amount of wheel wear and subsequent wear (at the right chuck only) will be compared to the last",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84strasbaugh%20Model%207AF.pdf&exp=1791637517&sig=2a2155d957215de1c46517418ce9fe9a5f9c98331ce54ee42c8e4316ecc348b2",
+    "doc_page": 595
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00481",
+    "source_stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "page": "p99",
+    "heading": "7AF Version 4.03 Features 5/27/98 Ken Hill > Wheel Wear Detection",
+    "score": 0.5583,
+    "content": "If this amount is exceeded, a wear per wafer limit message is put on the screen. In the case of AlTiC and alternative materials grinding, the send cassettes are",
+    "doc_url": "/api/media/doc?key=pdf%2F0001%20%E5%8D%8A%E5%AF%BC%E4%BD%93%E8%AE%BE%E5%A4%87%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84%E7%A0%94%E7%A3%A8%E6%9C%BA-%E8%AF%B4%E6%98%8E%E4%B9%A6%E5%92%8C%E8%A7%86%E9%A2%91-%E7%A0%94%E5%8F%91%E6%8A%A5%E5%91%8A%E7%B1%BB%E8%B5%84%E6%96%99%2F%E6%99%B6%E5%9C%86%E5%87%8F%E8%96%84strasbaugh%20Model%207AF.pdf&exp=1791637517&sig=2a2155d957215de1c46517418ce9fe9a5f9c98331ce54ee42c8e4316ecc348b2",
+    "doc_page": 600
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "6ec8be8b",
+   "elapsed_ms": 34772,
+   "steps": 2,
+   "sources_count": 5,
+   "tools_count": 3,
+   "tokens": {
+    "prompt": 9692,
+    "completion": 1414,
+    "total": 11106
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 37.8,
+  "judge_faithfulness": 0.75,
+  "judge_context_precision": 1.0,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.25,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_107": {
+  "id": "dev_107",
+  "q": "喷雾清洗机把 APM 总流量从 1650 提到 2400 cc/min，再叠加 95°C 在线加热器，晶圆上 APM 峰值温度和循环平均温度各自总共升高多少？",
+  "source": "半导体器件制造中的清洗技术pv_94_07",
+  "facts": "峰值温度：1650→2400 cc/min 使 APM 峰值从 50°C 升到 56°C（+6°C），开加热器再升 10°C 至 66°C，故相对标准工况峰值总共升高 66−50=16°C。平均温度：提流量使循环平均温度升高约 8°C，开加热器再升 6°C，平均温度总共升高约 14°C。",
+  "tier_expected": 2,
+  "user": "eval7",
+  "answer": "根据资料：\n\n- 仅将 APM 总流量从 1650 cc/min 提高到 2400 cc/min 时，峰值温度从 50°C 升至 56°C，即升高约 6°C；循环平均温度上升约 8°C。[半导体器件制造中的清洗技术pv_94_07_p1-500 p490]\n- 在此基础上叠加 95°C 在线加热器，资料仅说明会“显著提高”APM 和 HPM 的峰值及平均温度，但未给出相对仅高流量时的具体升高数值。[半导体器件制造中的清洗技术pv_94_07_p1-500 p491]\n\n因此，资料中未找到“叠加加热器后峰值温度和平均温度总共升高多少”的具体数值，无法给出总量答案。建议查阅该文后续数据或联系设备技术支持（FAE）。",
+  "sources": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02299",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p490",
+    "heading": "THE EFFECTS OF INCREASED CHEMICAL TEMPERATURES IN ACENTRIFUGAL SPRAY PROCESSOR > RESULTS AND DISCUSSION",
+    "score": 1.5333,
+    "content": "Increasing the total flow rate from 1650 cc/min to 2400 cc/min increased the peak APM temperature from $5 0 ^ { \\circ }$ to ${ 5 6 ^ { \\circ } } \\mathbf { C } .",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637414&sig=bf9793510bdc16521c8075789c276f21b9c993cfa7825fc7d45c6178f71cc709",
+    "doc_page": 491
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02306",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p491",
+    "heading": "THE EFFECTS OF INCREASED CHEMICAL TEMPERATURES IN ACENTRIFUGAL SPRAY PROCESSOR > RESULTS AND DISCUSSION",
+    "score": 0.7193,
+    "content": "Combining the in-line chemical heater with high flows did not further reduce the duration of transient effects during APM but did significantly increase the pea",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637414&sig=bf9793510bdc16521c8075789c276f21b9c993cfa7825fc7d45c6178f71cc709",
+    "doc_page": 492
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02307",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p491",
+    "heading": "THE EFFECTS OF INCREASED CHEMICAL TEMPERATURES IN ACENTRIFUGAL SPRAY PROCESSOR > RESULTS AND DISCUSSION",
+    "score": 0.5833,
+    "content": "High flow dispense, 2400 cc/min, 0.6:1:5 APM blend, 2400 cc/min, 1:1:5 HPM blend, both with $9 5 \\mathrm { ^ \\circ C }$ in-line chemical heater set point\n3. 240",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637414&sig=bf9793510bdc16521c8075789c276f21b9c993cfa7825fc7d45c6178f71cc709",
+    "doc_page": 492
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02297",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p489",
+    "heading": "THE EFFECTS OF INCREASED CHEMICAL TEMPERATURES IN ACENTRIFUGAL SPRAY PROCESSOR > EXPERIMENT",
+    "score": 0.4667,
+    "content": "High flow dispense, 2400 cc/min, 0.6:1:5 APM blend, 2400 cc/min, 1:1:5 HPM blend, both with $9 5 ^ { \\circ } \\mathbf { C }$ in-line chemical heater set point\n3.",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637414&sig=bf9793510bdc16521c8075789c276f21b9c993cfa7825fc7d45c6178f71cc709",
+    "doc_page": 490
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02298",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p490",
+    "heading": "THE EFFECTS OF INCREASED CHEMICAL TEMPERATURES IN ACENTRIFUGAL SPRAY PROCESSOR > RESULTS AND DISCUSSION",
+    "score": 0.2838,
+    "content": "RESULTS AND DISCUSSION\nFigures 1a, 1b and 1c show the on-wafer temperature data for DI water flowing at the total flow rate of the standard APM dispense conditi",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637414&sig=bf9793510bdc16521c8075789c276f21b9c993cfa7825fc7d45c6178f71cc709",
+    "doc_page": 491
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "eed77ed7",
+   "elapsed_ms": 5086,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1109,
+    "completion": 525,
+    "total": 1634
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 14.7,
+  "judge_faithfulness": 0.8889,
+  "judge_context_precision": 0.8,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.3333,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_127": {
+  "id": "dev_127",
+  "q": "终点检测器(End Point Detector Assembly 853-001983)上配的光学滤光片有哪几个波长,各自的件号是什么?探测用的光电二极管又是哪个件号?",
+  "source": "TCP9600 parts identify_4",
+  "facts": "滤光片:405nm 为 795-002627-001(BOM 中 405nm 亦列有 795-006374-001),703nm 为 795-008762-001,261.8nm 为 715-001981-001;光电二极管为 613-002628-001(Diode, Photo (UDT-UV 35P))。均见 p106。",
+  "tier_expected": 2,
+  "user": "eval7",
+  "answer": "根据检索到的内部资料，End Point Detector Assembly 853-001983 的部件清单中未见光学滤光片的波长及对应件号信息，内部资料中暂未找到相关内容。\n\n探测用的光电二极管件号为：613-002628-001，描述为 Diode, Photo UDT-UV35P [TCP9600 parts identify_4 p268]。",
+  "sources": [
+   {
+    "chunk_id": "TCP9600 parts identify_4__t00334",
+    "source_stem": "TCP9600 parts identify_4",
+    "page": "p268",
+    "heading": "TCP 9600SE > PLL End Point Detector Assembly 853-005949-002 Rev. 1",
+    "score": 1.0588,
+    "content": "9 | 714-002602-001 | Cover, End Point Detector\n10 | 668-002347-005 | Connector, Male, Hex, 5 Pin\n11 | 714-002600-001 | Connector, Bracket, End Point Detector\n12",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2FTCP9600%20parts%20identify_4.pdf&exp=1791637439&sig=5b22e4a20a76942d4caeb093e7057af2c9d77d66ec10d67153304604a71750b4",
+    "doc_page": 269
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00286",
+    "source_stem": "TCP9600 parts identify_4_p1-500",
+    "page": "p230",
+    "heading": "TCP 9600SE > Short Upper Match Box, Short 853-032018-003 Rev. 1",
+    "score": 0.5667,
+    "content": "721-000926-002 | Washer, Lock, #4, SST\n6 7 | 722-007855-001 | Nut, Keps, 4-40, SST\n8 | 853-330416-002 | Assembly, CA, Ring Lug\n9 | 853-032166-001 | Assembly, Fe",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A/TCP9600%20parts%20identify_4_p1-500/auto/images/5dbb6099f5f3411669f61abceeb1858a6b41ae10cf6dd269cff56a49c48b89f8.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120359Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7ecf2717698c36665a6aec70643acc7d9b610d296a6c989be927f64b664b8aba",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2FTCP9600%20parts%20identify_4.pdf&exp=1791637439&sig=5b22e4a20a76942d4caeb093e7057af2c9d77d66ec10d67153304604a71750b4",
+    "doc_page": 231
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4__t00286",
+    "source_stem": "TCP9600 parts identify_4",
+    "page": "p230",
+    "heading": "TCP 9600SE > Short Upper Match Box, Short 853-032018-003 Rev. 1",
+    "score": 0.4048,
+    "content": "721-000926-002 | Washer, Lock, #4, SST\n6 7 | 722-007855-001 | Nut, Keps, 4-40, SST\n8 | 853-330416-002 | Assembly, CA, Ring Lug\n9 | 853-032166-001 | Assembly, Fe",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A/TCP9600%20parts%20identify_4_p1-500/auto/images/5dbb6099f5f3411669f61abceeb1858a6b41ae10cf6dd269cff56a49c48b89f8.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120359Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7ecf2717698c36665a6aec70643acc7d9b610d296a6c989be927f64b664b8aba",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2FTCP9600%20parts%20identify_4.pdf&exp=1791637439&sig=5b22e4a20a76942d4caeb093e7057af2c9d77d66ec10d67153304604a71750b4",
+    "doc_page": 231
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00334",
+    "source_stem": "TCP9600 parts identify_4_p1-500",
+    "page": "p268",
+    "heading": "TCP 9600SE > PLL End Point Detector Assembly 853-005949-002 Rev. 1",
+    "score": 0.3958,
+    "content": "9 | 714-002602-001 | Cover, End Point Detector\n10 | 668-002347-005 | Connector, Male, Hex, 5 Pin\n11 | 714-002600-001 | Connector, Bracket, End Point Detector\n12",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2FTCP9600%20parts%20identify_4.pdf&exp=1791637439&sig=5b22e4a20a76942d4caeb093e7057af2c9d77d66ec10d67153304604a71750b4",
+    "doc_page": 269
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00333",
+    "source_stem": "TCP9600 parts identify_4_p1-500",
+    "page": "p268",
+    "heading": "TCP 9600SE > PLL End Point Detector Assembly 853-005949-002 Rev. 1",
+    "score": 0.3333,
+    "content": "PLL End Point Detector Assembly 853-005949-002 Rev. 1\nItem | Part No. | Description\n1 | 715-001986-001 | Plug, End Point Detector\n2 | 754-002571-001 | Spring, E",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2FTCP9600%20parts%20identify_4.pdf&exp=1791637439&sig=5b22e4a20a76942d4caeb093e7057af2c9d77d66ec10d67153304604a71750b4",
+    "doc_page": 269
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "660eafa4",
+   "elapsed_ms": 6093,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1367,
+    "completion": 295,
+    "total": 1662
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 26.8,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.4,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.2857,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_028": {
+  "id": "dev_028",
+  "q": "晶圆在 630 BHF 里泡完总出现微粗糙，表面活性剂要加到多大浓度才压得住？泡 48 小时还能保证不出现粗糙吗？",
+  "source": "半导体器件制造中的清洗技术pv_94_07",
+  "facts": "添加 50ppm 以上（more than 50ppm）的烃类或全氟碳链阴离子表面活性剂即可同时防止微粗糙生成并抑制硅溶解；加 50ppm 时浸泡 48 小时后未观察到微粗糙（25ppm 时 24 小时内无、48 小时后出现）。",
+  "tier_expected": 1,
+  "user": "eval8",
+  "answer": "根据现有资料，在缓冲氢氟酸（BHF）中添加“几十 ppm（several 10 ppm）的表面活性剂”即可抑制硅片表面微粗糙产生 [半导体器件制造中的清洗技术 p227]。资料中另有实验示例为 630BHF 中添加 100 ppm 表面活性剂，在 25 ℃浸泡 24 小时后的表面形貌照片 [半导体器件制造中的清洗技术 p232]。\n\n关于浸泡 48 小时是否能保证不出现微粗糙，内部资料中暂未找到对应时长的实验或结论，建议联系设备技术支持（FAE）或查阅该 BHF/表面活性剂厂商官方手册确认。",
+  "sources": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01076",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p232",
+    "heading": "Prevention of Microroughness Generation on the Silicon Wafer Surface in Buffered Hydrogen Fluoride by a Surfactant Addition > References",
+    "score": 0.5625,
+    "content": "Fig.2 SEM photographs of the P type Si(100) wafer surface after immersed in 630BHF containing 100 ppm surfactant for 24 hours at 25 ℃. Surfactant type is (a) hy",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07_p1-500/auto/images/99666554cdb2001ab889c03f516a84c3db8eee1168f8e8c640175ec3313654ce.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120225Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=649cadc740b30ff58fb1a3f664e3eea2906e52341ca911409bad98f93c5bcab6",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637345&sig=65b3c5f3937ba7a99af6f922fadaf2ec7773163cb0dacc92de4078868f2c20c1",
+    "doc_page": 233
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01049",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p228",
+    "heading": "Prevention of Microroughness Generation on the Silicon Wafer Surface in Buffered Hydrogen Fluoride by a Surfactant Addition > Experimental",
+    "score": 0.3768,
+    "content": "However, the surfactants which are suitable for BHF are limited by the following 8 items: namely, (I)the etching rate of the Si oxide film by BHF does not chang",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637345&sig=65b3c5f3937ba7a99af6f922fadaf2ec7773163cb0dacc92de4078868f2c20c1",
+    "doc_page": 229
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01068",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p230",
+    "heading": "Prevention of Microroughness Generation on the Silicon Wafer Surface in Buffered Hydrogen Fluoride by a Surfactant Addition > Results and Discussion",
+    "score": 0.35,
+    "content": "Since the pH value scarcely changes by the surfactant addition, the ionic equilibrium in BHF solution is considered not to be affected by the surfactant additio",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637345&sig=65b3c5f3937ba7a99af6f922fadaf2ec7773163cb0dacc92de4078868f2c20c1",
+    "doc_page": 231
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01041",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p227",
+    "heading": "Prevention of Microroughness Generation on the Silicon Wafer Surface in Buffered Hydrogen Fluoride by a Surfactant Addition > ABSTRACT",
+    "score": 0.2123,
+    "content": "ABSTRACT\nFor the purpose of preventing the generation of microroughness on the Si wafer surface in buffered hydrogen fluoride(BHF), the effect of the surfactant",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637345&sig=65b3c5f3937ba7a99af6f922fadaf2ec7773163cb0dacc92de4078868f2c20c1",
+    "doc_page": 228
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01071",
+    "source_stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "page": "p230",
+    "heading": "Prevention of Microroughness Generation on the Silicon Wafer Surface in Buffered Hydrogen Fluoride by a Surfactant Addition > Conclusions",
+    "score": 0.1895,
+    "content": "Conclusions\nIt was found that the generation of microroughness on the Si wafer surface in BHF was prevented by a several 10 ppm order addition of surfactant. It",
+    "doc_url": "/api/media/doc?key=pdf%2F020%20%E6%99%B6%E5%9C%86%E6%B9%BF%E6%B3%95%E6%B8%85%E6%B4%97%E6%9C%BA%E8%B5%84%E6%96%99%2F%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AFpv_94_07.pdf&exp=1791637345&sig=65b3c5f3937ba7a99af6f922fadaf2ec7773163cb0dacc92de4078868f2c20c1",
+    "doc_page": 231
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "1b3ec95d",
+   "elapsed_ms": 5350,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1048,
+    "completion": 214,
+    "total": 1262
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 40.5,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 1.0,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.0,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ },
+ "dev_169": {
+  "id": "dev_169",
+  "q": "层压报 71400013，说 Height teaching tool offset Y 与 Height teaching sensor position Y 之和必须在 -130mm 到 -83mm 之间。我把 tool offset Y 设成了 -100mm，那 sensor position Y 允许设在什么范围？",
+  "source": "日立固晶机DB800_Manual-eng_ver01_012_00",
+  "facts": "按 71400013 的约束：tool offset Y + sensor position Y ∈ [-130mm, -83mm]。设 sensor position Y = x，则 -100 + x ∈ [-130, -83]，解得 x ∈ [-130+100, -83+100] = [-30mm, +17mm]。即 sensor position Y 可在 -30mm 到 +17mm 之间设定。",
+  "tier_expected": 4,
+  "user": "eval9",
+  "answer": "根据报警 71400013 的条件，[Height teaching tool offset Y] + [Height teaching sensor position Y] 必须在 -130mm ~ -83mm 之间。\n\n您将 tool offset Y 设为 -100mm：\n\n-100 + sensor position Y 需满足 -130 ≤ 结果 ≤ -83\n\n所以 sensor position Y 允许范围是：\n\n**-30mm ≤ sensor position Y ≤ 17mm**\n\n来源：[日立固晶机DB800 Manual p281]",
+  "sources": [
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01487",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "page": "p281",
+    "heading": "7. List of Error Codes related to Lamination",
+    "score": 2.0,
+    "content": "71400013 | Lamination Stage - Data error - Height teaching sensor position Y + Heightteaching tool offset YContents: The data of [Height teaching sensor positio",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637526&sig=1eea82180a0b5d69abd53e6ff357b4a14432dfd97a149e97ab2d7b0ab21b24b5",
+    "doc_page": 782
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01467",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "page": "p281",
+    "heading": "7. List of Error Codes related to Lamination",
+    "score": 1.3333,
+    "content": "71300017 | Lamination Head - Data error - Height teaching sensor position Y + Height teaching tool offset Y Contents: The data of [Height teaching sensor positi",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637526&sig=1eea82180a0b5d69abd53e6ff357b4a14432dfd97a149e97ab2d7b0ab21b24b5",
+    "doc_page": 782
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01466",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "page": "p281",
+    "heading": "7. List of Error Codes related to Lamination",
+    "score": 0.9,
+    "content": "71300016 | teaching tool offset X Contents: The data of [Height teaching sensor position X] and/or [Height teaching tool offset X] is not set correctly Action: ",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637526&sig=1eea82180a0b5d69abd53e6ff357b4a14432dfd97a149e97ab2d7b0ab21b24b5",
+    "doc_page": 782
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01486",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "page": "p281",
+    "heading": "7. List of Error Codes related to Lamination",
+    "score": 0.8095,
+    "content": "71400012 | Lamination Stage - Data error - Height teaching sensor position X + Heightteaching tool offset XContents: The data of [Height teaching sensor positio",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637526&sig=1eea82180a0b5d69abd53e6ff357b4a14432dfd97a149e97ab2d7b0ab21b24b5",
+    "doc_page": 782
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00813",
+    "source_stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "page": "p351",
+    "heading": "! CAUTION > 5.2.6.4 Lamination Change Position/Height Teaching",
+    "score": 0.6857,
+    "content": "Y | μm | Y coordination of height teach sensor position\n6. | Head HGT Teach Sens. offset | μm | Height distance between frame transfer planeand height teaching ",
+    "image_url": "https://imagestorage.tos-s3-cn-beijing.volces.com/qingxi/pdf/005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A/%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95/%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00_p1-500/auto/images/e69962257fd7af6321ca86629dd24b764686dec93a62ce9bacd0d0be1c6bc36b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKLTREDACTED%2F20261010%2Fcn-beijing%2Fs3%2Faws4_request&X-Amz-Date=20261010T120526Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=648013e567fda0342b4107679a494acf2b62df9628d79bbb331d5d52f43d8537",
+    "doc_url": "/api/media/doc?key=pdf%2F005%20%E7%A0%94%E7%A9%B6%E6%8A%80%E6%9C%AF%E5%92%8C%E6%8A%A5%E5%91%8A%2F%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B9%8B%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%92%8C%E8%A1%8C%E4%B8%9A%E5%8F%91%E5%B1%95%2F%E6%97%A5%E7%AB%8B%E5%9B%BA%E6%99%B6%E6%9C%BADB800_Manual-eng_ver01_012_00.pdf&exp=1791637526&sig=1eea82180a0b5d69abd53e6ff357b4a14432dfd97a149e97ab2d7b0ab21b24b5",
+    "doc_page": 352
+   }
+  ],
+  "tier": "react",
+  "meta": {
+   "type": "meta",
+   "trace_id": "85fb2ec5",
+   "elapsed_ms": 7626,
+   "steps": 1,
+   "sources_count": 0,
+   "tools_count": 1,
+   "tokens": {
+    "prompt": 1297,
+    "completion": 337,
+    "total": 1634
+   }
+  },
+  "error": null,
+  "done": true,
+  "clarify_shown": [],
+  "clarify_picked": null,
+  "clarify_matched": null,
+  "wall_s": 12.4,
+  "judge_faithfulness": 1.0,
+  "judge_context_precision": 0.4,
+  "judge_answer_relevancy": 1.0,
+  "judge_context_recall": 0.25,
+  "judge_chitchat": false,
+  "judge_refusal": false,
+  "has_hallucination": false,
+  "judge_done": true
+ }
+}

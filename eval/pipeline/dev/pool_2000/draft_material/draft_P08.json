@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P08-01",
+  "query": "13.5 nm 的 EUV 光子能量大概是多少 eV?跟 248 nm 和 193 nm 的 DUV 光子能量比分别是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "13.5 nm EUV 单光子能量约 92 eV;248 nm DUV 光子能量为 5.0 eV,193 nm 为 6.4 eV。三个数值与单位均需答出。",
+  "success_criteria": "答出 92 eV、5.0 eV(248 nm)、6.4 eV(193 nm)三个数值且单位为 eV;EUV 与 248/193 nm 对应关系不混淆。",
+  "evidence": "--[p24]-- An incident 13.5-nm EUV photon has about 92 eV of energy compared to 5.0 and 6.4 eV for the DUV wavelengths of 248 and 193 nm, respectively."
+ },
+ {
+  "query_id": "P08-02",
+  "query": "EUV 光刻机里 Mo/Si 多层膜反射镜的反射率大概能做到多少?投影成像一般需要几面反射镜?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Mo/Si 交替多层膜反射镜在峰值波长 13.5 nm 处反射率约 70%;制造用 EUV 曝光机需要 6 到 12 面反射镜。",
+  "success_criteria": "答出反射率约 70%、峰值波长 13.5 nm,以及反射镜数量 6~12 面。",
+  "evidence": "--[p23]-- The most commonly used EUV reflector stack consists of multiple alternating layers of molybdenum and silicon, which shows around 70% reflection efficiency with a peak wavelength of 13.5 nm. EUV exposure tools for manufacturing will require multiple mirrors (6 to 12) to project a sufficiently high fidelity image."
+ },
+ {
+  "query_id": "P08-03",
+  "query": "HafSOx 旋涂液一般是用哪些原料配的?显影用水相还是有机相,成像出来是正性还是负性?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HafSOx 旋涂液由 HfOCl2·xH2O(固)、H2SO4(水溶液)、H2O2(水溶液)在水中混合配制;是水性胶体系,用水性碱(如 TMAH)显影,显影为负性(negative-tone)。",
+  "success_criteria": "答出三种原料 HfOCl2·xH2O、H2SO4、H2O2,并答出负性、水性碱显影。",
+  "evidence": "--[p372]-- Unlike HSQ and most organic resists, HafSOx is an aqueous-resist system. Films are deposited from acidic aqueous solutions and developed with aqueous base. Spinnable solutions are ordinarily prepared by mixing HfOCl2·xH2O(s), H2SO4(aq), and H2O2(aq) in water. --[p371]-- As described in Section 10.3.3, the materials develop as negative-tone resists in TMAH."
+ },
+ {
+  "query_id": "P08-04",
+  "query": "HSQ 一般用什么显影?Namatsu 他们最早演示显影时用的 TMAH 和 KOH 质量浓度分别是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HSQ 通常在水性碱中显影;Namatsu 等最初演示的是 2.38 wt% TMAH 和 20 wt% KOH 两种显影液,且 2.38% TMAH 是较弱的显影液、所需曝光剂量更小。",
+  "success_criteria": "答出 2.38% TMAH 与 20% KOH(按重量),并能说明 TMAH 2.38% 为较弱显影液、剂量省但分辨率/重复性不如加强显影。",
+  "evidence": "--[p368]-- HSQ is generally developed in aqueous base. Namatsu et al. initially demonstrated development in 2.38% TMAH and 20% KOH (by weight). TMAH at 2.38% is a weaker developer, and hence, HSQ patterns can be realized with less exposure dose. However, higher resolution and better reproducibility are found by strengthening the developer."
+ },
+ {
+  "query_id": "P08-05",
+  "query": "热扫描探针光刻用的 PPA 胶,玻璃化转变温度是多少?分解发生在什么温度附近?软烘温度多少合适?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "PPA 在其玻璃化转变温度 140 °C 处或附近分解(因此图形化过程中不流动,保持尖锐图形);旋涂后软烘 3 分钟,温度 80~90 °C 最佳。",
+  "success_criteria": "答出 Tg/分解温度 140 °C 和软烘 80~90 °C 两个数值,单位 °C 正确。",
+  "evidence": "--[p54]-- Thermogravimetric analysis and differential scanning calorimetry show that PPA decomposes at or near its glass-transition temperature of 140 °C. Therefore, the resist does not flow during the patterning process, preserving sharp features. --[p55]-- After spin coating, a moderate 3-minute long soft bake is necessary to remove most of the solvent from the film... 80–90 °C was found to be best."
+ },
+ {
+  "query_id": "P08-06",
+  "query": "鎓盐 PAG 的阴离子是决定什么的?tosylate 和 triflate 这两种阴离子分别用来产生哪种酸?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "鎓盐 PAG 中阳离子(发色团)主要决定吸收特性和量子产率,阴离子决定产生光酸的种类;tosylate(对甲苯磺酸根)阴离子产生 tosic acid(对甲苯磺酸),triflate 阴离子产生 triflic acid(三氟甲磺酸)。",
+  "success_criteria": "答出阴离子决定光酸种类,且 tosylate→tosic acid、triflate→triflic acid 对应关系正确。",
+  "evidence": "--[p45]-- The anion is chosen to produce a particular acid. For example, tosylate anion is used to produce tosic acid, triflate anion for triflic acid, and so on."
+ },
+ {
+  "query_id": "P08-07",
+  "query": "同样 15 mJ/cm² 的剂量,EUV 和 193 nm 各对应大约多少个光子每平方纳米?为什么说 EUV 的光子散粒噪声问题更突出?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "15 mJ/cm² 剂量下 EUV 约 10 个光子/nm²,而 193 nm 等效剂量下约 146 个光子/nm²;EUV 光子数少一个数量级以上、更接近散粒噪声极限,局部光子数的统计涨落会恶化 LER 甚至导致无法正确成像。",
+  "success_criteria": "答出 10 photons/nm²(EUV)与 146 photons/nm²(193 nm),并说明 EUV 光子数少、统计涨落大。",
+  "evidence": "--[p56]-- For example, there are approximately 10 photons/nm² at EUV for a dose of 15 mJ/cm², while there are 146 photons/nm² at the equivalent dose at 193 nm. --[p56]-- This variation in the local concentration can potentially contribute to LER or failed patterning."
+ },
+ {
+  "query_id": "P08-08",
+  "query": "SML2000 胶里曝光测得的线条宽 200 nm,胶厚 2 µm,帮我算一下这组图形的长宽比是多少,和书里给的值对不对得上?",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "长宽比 = 2000 nm / 200 nm = 10,即 10:1,与书中给出的 10:1 一致。",
+  "success_criteria": "给出算式 2000/200=10,结果 10:1,与原文一致。",
+  "evidence": "--[p442]-- The exposed lines were measured to be 200-nm wide. As the resist thickness was 2 mm, this gives an aspect ratio of 10:1."
+ },
+ {
+  "query_id": "P08-09",
+  "query": "书里比较不同光刻胶性能用的 Z 因子是怎么定义的?公式里 sensitivity 取的是什么剂量?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Z 因子定义为 Half pitch³ × LER² × Sensitivity = Z(Wallow 等的简化模型),其中 sensitivity 取 dose-to-size,即达到预期特征尺寸所需的剂量;Z 越小综合性能越好,且 Z 因子未考虑曝光工具的成像性能,适合在相同/相近曝光条件下比较。",
+  "success_criteria": "完整写出 Half pitch³×LER²×Sensitivity=Z,并答出 sensitivity 为 dose-to-size。",
+  "evidence": "--[p160]-- Half pitch³ × LER² × Sensitivity = Z (12), where Z is a constant called the Z-factor. In this context, sensitivity is determined as the dose-to-size (the dose where the anticipated feature sizes are achieved). --[p160]-- the Z-factor does not take into account the imaging performance of the exposure tool and the quality of the illumination."
+ },
+ {
+  "query_id": "P08-10",
+  "query": "化学放大胶的 LER 跟曝光剂量是什么定量关系?剂量一直往上加,LER 最低能降到多少,受什么限制?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "典型 CAR 中 LER 与曝光剂量的平方根成反比(LER ∝ 1/√dose);增大剂量可降低 LER,但存在下限 3~4 nm,由分子尺寸和聚合物链的高阶相互作用决定;另外 PAG 在长时间曝光下会分解,这也限制了靠高剂量压 LER 的空间。",
+  "success_criteria": "答出 LER 与 1/√dose 成反比、LER 最小值 3~4 nm,并提到 PAG 分解限制。",
+  "evidence": "--[p160]-- The LER values in a typical CAR have been found to be inversely proportional to the square root of the exposure dose. Hence, increasing exposure dose decreases the LER, until a certain minimum value (3–4 nm), as determined by the molecular size and high-order interaction of the polymer chains within the CAR. --[p160]-- the acid generators have been found to decompose during prolonged exposures, setting a limit on the minimum LER in CARs requiring high exposure doses."
+ },
+ {
+  "query_id": "P08-11",
+  "query": "显影后干燥阶段线条承受的最大应力公式是什么样的?公式里哪个量正好是图形的长宽比?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "把抗蚀剂线条当作一端固定梁,最大应力 σ = 6γ·cosθ·(H/W)²·(1/S₁ − 1/S₂),其中 γ 为清洗液表面张力、θ 为接触角、S₁/S₂ 为两侧间距;式中 H/W(胶厚/线宽)正是图形的长宽比。",
+  "success_criteria": "写出 σ = 6γcosθ(H/W)²(1/S₁−1/S₂),并指出 H/W 为长宽比。",
+  "evidence": "--[p66]-- The maximum stress (σ) experienced by the resist can be calculated using solid mechanics treating the resist line as a beam fixed on one end and is given by Eq. (16) where W is the width of the resist line and H is the thickness of the resist film or line feature after development. This demonstrates an important result because the quantity H/W is the aspect ratio of the resist feature. σ = 6γ cosθ (H/W)² (1/S₁ − 1/S₂) (1.16)"
+ },
+ {
+  "query_id": "P08-12",
+  "query": "配 HafSOx 的时候,溶液里 H2SO4 和铪(HF)的比值落在什么范围才能旋出可图形化的膜?膜里结合的过氧根与 HF 之比又是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "H2SO4/HF 比值约在 0.5~0.9 之间可制得适合图形化的膜;剥膜后化学分析测得结合态 O2²⁻/HF 比为 0.5;长期放置最终会沉淀出组成为 Hf18O4(OH)38.3(SO4)12.6·33H2O 的十八聚体团簇。",
+  "success_criteria": "答出 H2SO4/HF ≈ 0.5–0.9、O2²⁻/HF = 0.5 两个数值;能提到 Hf18 沉淀更佳。",
+  "evidence": "--[p372]-- In the solution, H2SO4/HF ratios between approximately 0.5 and 0.9 produce films suitable for patterning. --[p372]-- By stripping films with acid, then performing standard chemical analyses, the bound O2²⁻/HF ratio is determined to be 0.5. --[p373]-- Over time, all HF sulfate solutions, including those containing peroxide, precipitate the octadecameric cluster formulated as Hf18O4(OH)38.3(SO4)12.6·33H2O."
+ },
+ {
+  "query_id": "P08-13",
+  "query": "氦离子束光刻(HIBL)用 HSQ 胶最细做到多少 nm 半间距?这个结果跟目前电子束光刻的最高分辨率记录比怎么样?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson  (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HIBL 在 HSQ 上做出 5 nm 半间距清晰分辨线条(无残胶),以及 4 nm 半间距可分辨线条(有残胶),最优线剂量分别为 110 和 90 pC/cm;4 nm 半间距首次提供了 HIBL 超过迄今最高 EBL 分辨率记录(4.5 nm 半间距)的实验证据。",
+  "success_criteria": "答出 5 nm hp(110 pC/cm)与 4 nm hp(90 pC/cm),并指出超过 EBL 最高记录 4.5 nm hp。",
+  "evidence": "--[p91]-- This study also included fabrication of 5 nm clearly resolved half-pitch lines with no resist residuals between features and resolvable 4-nm half-pitch lines with clear contrast but resist residues (Fig. 16). The optimal line doses were 110 and 90 pC/cm, respectively. --[p91]-- the 4-nm half-pitch lines provided, for the first time, experimental evidence of HIBL exceeding the highest reported EBL resolution to date, which is a 4.5-nm half-pitch."
+ },
+ {
+  "query_id": "P08-14",
+  "query": "DPA-2Ep 这种水碱显影的环氧化分子胶,高剂量显影后膜厚为什么会比初始膜还厚?书里把原因归结到什么?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "DPA-2Ep 可在 60 °C 或更高的 PEB 下成功图形化,但表现出 NRT&gt;1(高剂量下剩余厚度大于初始厚度)的异常行为;原因是交联网络中残留的自由羧酸与显影液反应生成体积更大的四甲基铵羧酸盐导致膜溶胀(后经原位光谱反射法证实),并伴随类似薄膜屈曲的伪周期形变。",
+  "success_criteria": "答出 NRT&gt;1 现象、PEB ≥60 °C,以及归因于自由羧酸与显影液生成四甲基铵羧酸盐引起的溶胀。",
+  "evidence": "--[p303]-- DPA-2Ep formed good quality films that did not show any visible dewetting behavior, even at elevated bake temperatures and could be successfully patterned with a PEB of 60 °C or greater. The resist showed highly unusual behavior in that its remaining thickness at high doses was greater than the initial thickness (i.e., NRT is greater than 1) as shown in Fig. 83. --[p303]-- This was attributed to swelling of the film due to reaction of remaining free carboxylic acids in the cross-linked network with developer to form tetramethylammonium carboxylate salts, which have larger volume than the initial acids."
+ },
+ {
+  "query_id": "P08-15",
+  "query": "书里说 15 mJ/cm² 时 EUV 大约是 10 个光子每平方纳米,那按线性换算,30 mJ/cm² 时每平方纳米大约多少个光子?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "光子数与剂量成正比:10 photons/nm² × (30/15) = 20 photons/nm²。",
+  "success_criteria": "给出算式 10×(30/15)=20,结果 20 photons/nm²。",
+  "evidence": "--[p56]-- For example, there are approximately 10 photons/nm² at EUV for a dose of 15 mJ/cm², while there are 146 photons/nm² at the equivalent dose at 193 nm."
+ },
+ {
+  "query_id": "P08-16",
+  "query": "功能化的富勒烯衍生物胶在 20 keV 电子束下灵敏度是 1.2×10⁻³ C/cm²,原始 C60 胶在同样显影条件下是 5×10⁻³ 到 1×10⁻² C/cm²,帮我算算灵敏度大概提高了几倍?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按低端算 5×10⁻³ / 1.2×10⁻³ ≈ 4.2 倍,按高端算 1×10⁻² / 1.2×10⁻³ ≈ 8.3 倍,即灵敏度提高约 4~8 倍(书中表述为一个数量级 better)。",
+  "success_criteria": "给出 5×10⁻³/1.2×10⁻³ 与 1×10⁻²/1.2×10⁻³ 的除法算式,结果在 4.2~8.3 倍范围内即算正确。",
+  "evidence": "--[p236]-- Tada et al. found negative-tone resist behavior of fullerene C60 films on silicon substrates upon 20-keV electron beam exposure. Sensitivity between 5×10⁻³ and 1×10⁻² C/cm² was obtained depending on developer strength (Fig. 3A). --[p237]-- With monochlorobenzene (MCB) development, a sensitivity of 1.2×10⁻³ C/cm² under 20-keV e-beam exposure was reported, showing an order of magnitude better than C60 using the same developer."
+ },
+ {
+  "query_id": "P08-17",
+  "query": "600 nm 厚的 PMMA 和 SML 胶,书里给的线清除剂量分别是 920 和 1380 pC/cm,SML 的剂量比 PMMA 高百分之多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "(1380 − 920) / 920 × 100% = 460/920 × 100% = 50%,即 SML 的线清除剂量比 PMMA 高 50%。",
+  "success_criteria": "给出算式 (1380−920)/920=50%,结果为 50%。",
+  "evidence": "--[p449]-- The line clearing doses were 920 and 1380 pC/cm for PMMA and SML resists, respectively. All resists were developed using MIBK–IPA [1:3] for 30 s followed by a 15 s rinse in IPA and a blow dry with N2."
+ },
+ {
+  "query_id": "P08-18",
+  "query": "帮我理一条线索:先查 HSQ 这种无机胶在量产上的主要短板是什么,再顺着书里的思路查,正是因为这个短板才转向了 HafSOx、ZircSOx 这类高 Z 团簇胶,动机是什么?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:HSQ 虽然能实现高分辨率,但灵敏度太低,不适合量产。第二跳:正是兼顾高分辨率与高灵敏度(尤其针对 EUV 应用)的需求,推动了以 HafSOx 和 ZircSOx 为代表的新型高 Z 氧羟基团簇光刻胶的研究,其兼具高分辨率、低 LER、高灵敏度和高抗刻蚀性。",
+  "success_criteria": "先答出 HSQ 灵敏度过低不适合制造,再答出因高分辨率+高灵敏度(尤其 EUV)需求转向 HafSOx/ZircSOx;两跳信息齐全。",
+  "evidence": "--[p371]-- While high-resolution is achievable with HSQ, its sensitivity is too low for manufacturing. The need for both high resolution and high sensitivity, particularly for EUV applications, led to research on new high-Z oxo-hydroxo cluster photoresists represented by HafSOx and ZircSOx. Their performance—comprising high resolution, low line-edge roughness, high sensitivity, and high etch resistance—have motivated renewed and widespread interest in inorganic resists."
+ },
+ {
+  "query_id": "P08-19",
+  "query": "把书里 Inpria 锡氧化物 EUV 光刻胶的完整配方整理给我,组分名称和各组分含量比例都要,我照着配一锅。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及 Inpria 锡氧化物光刻胶的具体配方(组分名称与含量比例),书中只给出材料类别(新型锡氧羟基化合物)和性能数据,如 13 nm 半间距 @ 35 mJ/cm²(ASML NXE:3300B)、灵敏度降至 20 mJ/cm² 以下、用于 IMEC 7nm BEOL 块层图形化最小 21 nm 金属柱等;不应编造任何配方组分或比例。",
+  "success_criteria": "明确指出书中未给出锡氧化物胶配方,转述书中实际记载的性能指标(13 nm hp @ 35 mJ/cm² 等),不虚构组分与比例。",
+  "evidence": "--[p378]-- In 2015, Grenville et al. described new, directly patterned tin-oxide materials for high-resolution EUV lithography. Formulations produced 13-nm half-pitch features at 35 mJ/cm² on ASML's NXE:3300B scanner. --[p378]-- In this work, Inpria tin-oxide materials were integrated into IMEC's 7-nm back end of line process as a block mask layer to pattern metal pillars as small as 21 nm. Resist exposure sensitivity was also reduced below 20 mJ/cm²."
+ },
+ {
+  "query_id": "P08-20",
+  "query": "书里有没有给三苯基锍盐 PAG 的实验室合成步骤和反应条件?有的话把合成规程原文摘给我,我按步骤做。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书未涉及鎓盐 PAG 的具体合成步骤和反应条件;书中只评价说这类 PAG 可以用多种方法比较容易地合成、在常用旋涂溶剂中溶解性好、量子产率高故产酸效率高,并提到其由 Crivello 等人广泛研究表征;不应编造任何合成规程。",
+  "success_criteria": "明确说明书中未提供合成步骤/反应条件,仅转述\"可用多种方法较容易合成、溶解性好、量子产率高\"等定性描述,不虚构规程。",
+  "evidence": "--[p44]-- The most commonly used PAGs for lithography are ionic PAGs in the family of onium salts, usually sulfonium or iodonium salts, which were extensively studied and characterized by Crivello and coworkers. Their popularity stems from the fact that they can be relativity easily synthesized by a variety of methods, they usually have good solubility in common casting solvents, and they are very efficient at generating acid under exposure due to their high quantum yield."
+ },
+ {
+  "query_id": "P08-21",
+  "query": "用书里的 Z 因子公式,帮我估算 MPPM 对比表里 CA-A 这支胶的 Z 值:16 nm 线条/间距,实测 LWR 3.1 nm,灵敏度 30 mJ/cm²。写出算式和数值。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "Z = Half pitch³ × LER² × Sensitivity = 16³ × 3.1² × 30 = 4096 × 9.61 × 30 ≈ 1.18×10⁶(量纲 nm³·nm²·mJ/cm²);需先从 Z 因子公式一节取得公式,再从 MPPM 对比表中取得 CA-A 的 16 nm L/S、LWR 3.1 nm、灵敏度 30 mJ/cm² 三个数。",
+  "success_criteria": "正确套用 Half pitch³×LER²×Sensitivity,算出 4096×9.61×30≈1.18×10⁶(允许 1.1~1.2×10⁶ 区间),且三个输入值取自 CA-A 行。",
+  "evidence": "--[p160]-- Half pitch³ × LER² × Sensitivity = Z (12), where Z is a constant called the Z-factor. In this context, sensitivity is determined as the dose-to-size. --[p195]-- we consider a series of leading CA and nonchemically amplified inorganic (NCA) resists achieving 16-nm line/space resolution or better as printed in a 0.3-NA microfield exposure tool. --[p197]-- Table 3: CA-A | Sensitivity (mJ/cm²) 30 | Measured LWR (nm) 3.1."
+ },
+ {
+  "query_id": "P08-22",
+  "query": "帮我对比 PMMA 和 SML2000 这两种电子束胶:先分别查两者 SE(二次电子)系数在 50–100 kV 范围怎么变化,再查 BSE(背散射电子)系数的对比,最后从材料密度角度解释为什么 SML 的邻近效应贡献小。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "SE 系数:PMMA 膜在 50–100 kV 范围从 20% 降到 10%,而 SML2000 在该加速电压范围内 SE 系数为零;BSE 系数:PMMA 在 50–100 kV 从 13.6% 降到 6.8%,SML2000 从 5.6% 降到 4.1%。原因:SML 材料密度低(表中 0.835 g/cm³ 对 PMMA 约 1.19~1.2 g/cm³),平均自由程更大、非弹性碰撞少,入射primary electron几乎不损失能量直接穿过胶层进入硅衬底,SE 几乎不产生,故邻近效应贡献趋近于零。",
+  "success_criteria": "三跳齐全:PMMA SE 20%→10% 且 SML2000 SE=0;PMMA BSE 13.6%→6.8% 对 SML2000 5.6%→4.1%;并用密度差(0.835 vs 1.19/1.2 g/cm³)解释。",
+  "evidence": "--[p438]-- At the higher energy range, the SE coefficient for the PMMA film decreases from 20% to 10% over the 50–100-kV range. --[p438]-- However, over this acceleration voltage range the SE coefficient, calculated using Eq. (1), was zero for the SML2000 resist. --[p440]-- At the higher range the BSE coefficient for a PMMA film decreases from 13.6% to 6.8% over the 50–100-kV range, whereas the BSE coefficient is lower for the SML2000 material from 5.6% to 4.1% at 50–100-kV range, respectively. --[p450]-- the densities of PMMA and SML300 are 1.2 g/cm³ and 0.835 g/cm³, respectively."
+ },
+ {
+  "query_id": "P08-23",
+  "query": "先查书里 HafSOx 用 EUV 干涉光刻报道过的最细半间距是多少,再顺着查 MPPM 随机极限分析里,无机胶和 CA 胶比是哪个随机项占主导、趋势怎么反过来。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳:2012 年 Ekinci 等报道 HafSOx 用 EUV 干涉光刻做出 11 nm 半间距线条/空间图形。第二跳:在 MPPM 与实测 LWR 对比中,CA 胶是材料项(material term)最大且与光子项相当,而转向无机胶后趋势反转,变成光子项(photon component)占主导。",
+  "success_criteria": "两跳齐全:HafSOx EUV-IL 11 nm 半间距;无机胶为光子项占主导(CA 胶为材料项最大)。",
+  "evidence": "--[p377]-- In 2012, Ekinci et al. reported 11-nm half-pitch line-space HafSOx patterns by using EUV interference lithography. --[p195]-- For all the CA resists, we find the material term to be the largest but on par with the photon term. --[p195]-- Turning to the inorganic resist, we see the trend reverse with the photon component being dominant."
+ },
+ {
+  "query_id": "P08-24",
+  "query": "书里有个研究把一支总 LER 2.9 nm 的胶分解成几个模糊来源,分别是多少 nm?哪个贡献最大?为什么作者说酸扩散相关的 blur 不只受 PAG 统计的影响?结合碱淬灭剂的作用机制解释一下。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "对总 LER 2.9 nm 的胶,计算得到:电子 blur 贡献 1.9 nm、酸扩散 0.9 nm、PAG 统计 0.6 nm、quencher(淬灭剂)统计 1.8 nm;单相最大贡献是电子 blur(1.9 nm)。作者指出 quencher 统计项的 blur 值很大,说明酸扩散及其相关 blur 不仅受 PAG 随机性影响,还受其他因素( specifically quencher)影响。机制上:碱淬灭剂通过中和光酸使其失去去保护能力而起作用,常规负载为 PAG 的 5~30%,其局部分布的计数涨落因此直接进入酸Blur的统计。",
+  "success_criteria": "四个数值(1.9/0.9/0.6/1.8 nm)齐全且指出最大项为电子 blur(1.9 nm);能结合\"淬灭剂中和光酸、负载 5–30% PAG\"的机制解释 quencher 统计的影响。",
+  "evidence": "--[p172]-- For a resist with total LER of 2.9 nm, these researchers calculated that the electron blur contributes 1.9 nm, acid diffusion 0.9 nm, PAG statistics 0.6 nm, and quencher statistics 1.8 nm. The large blur value found for this latter phenomenon indicates that the acid diffusion (and the acid diffusion–related blur) is affected not only by the stochasticity of the PAG but also by other contributions, specifically the quencher. --[p59]-- Base quenchers work by neutralizing the photoacid to eliminate its ability to carry out deprotection and other reactions. They are now commonly loaded into the resist at 5–30% of the PAG loading; too high and the resist may fail to pattern."
+ },
+ {
+  "query_id": "P08-25",
+  "query": "书里提到有个研究把酸扩散长度从 90 nm 一直调到 37 nm,这个扩散长度影响的是图形粗糙度的哪个指标?按第 1 章的说法,控制酸扩散常用哪三种方法?",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "该研究把扩散长度从 90 nm 调到 37 nm,考察的是扩散长度与 LER 的相关长度(correlation length ξ,即 LER 的低频分量)之间的关系;相关长度越低越好,因为它对器件性能有不利影响(如短沟道 FET 制造)。控制酸扩散的三种常用方法:提高光刻胶的 Tg、增大光酸阴离子尺寸、添加碱淬灭剂(base quencher)。",
+  "success_criteria": "答出扩散长度调变 90→37 nm 影响的是 LER 相关长度(低频分量),并完整列出三种控制方法:Tg、阴离子尺寸、碱淬灭剂。",
+  "evidence": "--[p169]-- Another relevant effect of acid diffusion is its relationship with the correlation length ξ of the LER, that is, its low frequency component, a parameter which has a detrimental effect on device performance. The relationship between these two quantities is described by a study where the diffusion length was tuned from 90 to 37 nm as shown in Fig. 20. --[p57]-- Three methods are commonly used to control acid diffusion: increasing the Tg of the resist, increasing the anion size of the photoacid, and addition of base quencher."
+ }
+]

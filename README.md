@@ -17,7 +17,7 @@
 ## 🏗️ 架构
 
 ```
-浏览器 ── cloudflared 公网隧道 ──> VM (Docker Compose 五容器)
+内网用户浏览器 ──> VM (Docker Compose 五容器)
                                     ├── web        (Next.js :3000)
                                     ├── backend    (FastAPI :8001)
                                     ├── qdrant / redis / postgres
@@ -26,7 +26,7 @@
                                                       └── 检索微服务 :8002（BGE-m3 / Reranker / CLIP）
 ```
 
-- 三机分工：LLM 与向量检索在 GPU，业务后端与存储在 VM，公网入口经隧道
+- 三机分工：LLM 与向量检索在 GPU（AutoDL 实例），业务后端与存储在 VM；本地部署后供内网用户直接访问
 - 检索微服务与业务后端解耦，通过 MCP 协议 + 内部令牌鉴权互访
 
 ## 📊 评测体系与指标
@@ -34,12 +34,12 @@
 自建 RAGAS 口径评测线束：20 并发 × 50 题真实 HTTP（SSE）全量回归、题级断点续跑、GPU 本地 LLM-as-Judge（Qwen3-32B 裁判，零云成本、无限流）+ 确定性检索硬指标（MRR / NDCG@K / Rfact@K / P_ret / R_pool），与基线自动对比，可一键复跑：
 
 ```bash
-eval\pipeline\pipeline_50x5\regression_50x5.bat          # 全量 20 用户 × 50 题（1000 条记录）
-eval\pipeline\pipeline_50x5\fetch_pools.py               # 离线补查 1000 题重排前候选池（R_pool 分母）
-eval\pipeline\pipeline_50x5\concurrent_metrics.py        # 检索硬指标计算（--pools 池内召回）
-eval\pipeline\pipeline_50x5\judge_50x5.py                # GPU LLM-as-Judge（忠实度/幻觉率/上下文召回/切题/答案准确）
-eval\pipeline\pipeline_50x5\sweep_retrieval.py           # 免 LLM 参数扫描（/debug_cfg 热调参，1000 题 × 10 配置）
-eval\pipeline\pipeline_full100\run_eval.py               # 全量 100 题白盒评测
+eval\pipeline\dev\pipeline_50x5\regression_50x5.bat          # 全量 20 用户 × 50 题（1000 条记录）
+eval\pipeline\dev\pipeline_50x5\fetch_pools.py               # 离线补查 1000 题重排前候选池（R_pool 分母）
+eval\pipeline\dev\pipeline_50x5\concurrent_metrics.py        # 检索硬指标计算（--pools 池内召回）
+eval\pipeline\dev\pipeline_50x5\judge_50x5.py                # GPU LLM-as-Judge（忠实度/幻觉率/上下文召回/切题/答案准确）
+eval\pipeline\dev\pipeline_50x5\sweep_retrieval.py           # 免 LLM 参数扫描（/debug_cfg 热调参，1000 题 × 10 配置）
+eval\pipeline\dev\pipeline_full100\run_eval.py               # 全量 100 题白盒评测
 ```
 
 **检索调优方法**：直调检索服务 `/search_text`（不经 LLM）扫 RERANK_POOL_MIN{8,16,24,32,48} × score_ratio{0.4,0} × 截断模式（τ+断崖 / 固定 K），真值分母统一取 48 候选全集，选定 **RERANK_POOL_MIN=32**（MRR +2.5pt、NDCG@5 +4.6pt、R@10 +5.8pt，P_ret 仅 -1.7pt）；扫描还证明 τ/MIN_K/断崖/固定 K 变体收益均 <1pt，池深是唯一显著杠杆。
@@ -60,7 +60,9 @@ eval\pipeline\pipeline_full100\run_eval.py               # 全量 100 题白盒�
 
 > 口径说明：**Rfact@K** = 金标要点的证据块进入返回前 K 名的要点占比（分母=要点数，跨版本可比，是召回能力的真实口径）；块级 R@K 的分母为金标文档在候选全集中的全部命中切块（均值 ~14 块/题），受返回容量（MAX_K=8）结构性封顶（上限 ≈ 8/14 ≈ 0.56），故不作为召回主指标。Rfact@K 本轮为评测记录内 sources 文本口径；上一轮表中 0.8481 为 Qdrant 全文口径，同口径基线为 0.7519。
 
-完整产物见 [`eval/runs/50x5_20260921_1000_v2/`](eval/runs/50x5_20260921_1000_v2/)（本轮）与 [`eval/runs/50x5_20260920_poolmin32/`](eval/runs/50x5_20260920_poolmin32/)（上轮，REPORT.md 含 10 配置扫描全表）。
+完整产物见 [`eval/runs/dev/50x5_20260921_1000_v2/`](eval/runs/dev/50x5_20260921_1000_v2/)（本轮）与 [`eval/runs/dev/50x5_20260920_poolmin32/`](eval/runs/dev/50x5_20260920_poolmin32/)（上轮，REPORT.md 含 10 配置扫描全表）。
+
+> **评测口径声明**：以上指标均产自 `eval/runs/dev/`（题集参与了迭代调参，属开发集口径，用于版本间回归对比）。独立泛化效果以 `eval/runs/heldout/`（出题与调参隔离、配置冻结后一次定版，协议见 `eval/pipeline/heldout/README.md`）为准。
 
 ## 🚀 从 0 到 1 保姆级搭建教程
 
@@ -352,10 +354,10 @@ curl -s -m2 http://127.0.0.1:6333/collections         # -R 反向:GPU 上的检�
 
 ### 阶段 6:评测复跑(20 并发 × 50 题 = 1000 条)
 
-工具五件套在 `eval/pipeline/pipeline_50x5/`,全部可一键复跑:
+工具五件套在 `eval/pipeline/dev/pipeline_50x5/`,全部可一键复跑:
 
 ```bash
-cd eval/pipeline/pipeline_50x5
+cd eval/pipeline/dev/pipeline_50x5
 
 # 1) 全量回归(真实 HTTP/SSE,题集 qa_sets_20x50,20 用户各 50 题)
 regression_50x5.bat
@@ -422,7 +424,7 @@ ssh <VM> 'curl -s -m2 http://127.0.0.1:8002/health'
 ├── server/               # FastAPI 业务后端（SSE 流式、限流、鉴权）
 ├── web/                  # Next.js 前端
 ├── projectdocker/        # Docker Compose 五容器编排
-├── eval/                 # 评测：pipeline/（可复用流水线）+ runs/（每次评测产物）
+├── eval/                 # 评测：pipeline/{dev,heldout}/（流水线）+ runs/{dev,heldout}/（评测产物）
 ├── tests/                # 单元/集成测试
 └── ssh_helper/           # GPU/VM 部署与隧道脚本
 ```

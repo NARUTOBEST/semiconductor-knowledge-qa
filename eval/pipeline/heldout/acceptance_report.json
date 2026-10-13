@@ -1,0 +1,48 @@
+{
+ "06_SECS500": {
+  "pass": 24,
+  "fail": 1,
+  "no_frag": 0
+ },
+ "10_EUV_Lithography": {
+  "pass": 20,
+  "fail": 5,
+  "no_frag": 0
+ },
+ "11_Chemistry_Lithography": {
+  "pass": 25,
+  "fail": 0,
+  "no_frag": 0
+ },
+ "12_先进封装材料": {
+  "pass": 17,
+  "fail": 8,
+  "no_frag": 0
+ },
+ "13_Optical_Litho_Mack": {
+  "pass": 23,
+  "fail": 2,
+  "no_frag": 0
+ },
+ "15_印制电路上册": {
+  "pass": 15,
+  "fail": 10,
+  "no_frag": 0
+ },
+ "16_超洁净处理XIII": {
+  "pass": 24,
+  "fail": 1,
+  "no_frag": 0
+ },
+ "18_微纳加工_顾长志": {
+  "pass": 20,
+  "fail": 5,
+  "no_frag": 0
+ },
+ "_SUMMARY": {
+  "total": 200,
+  "pass": 168,
+  "fail": 32,
+  "pass_rate": 0.84
+ }
+}

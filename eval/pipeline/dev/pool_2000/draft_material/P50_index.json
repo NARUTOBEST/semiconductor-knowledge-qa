@@ -1,0 +1,326 @@
+{
+ "doc": "CP45FVNEO Administrator’s Guide (Eng, Ver3)",
+ "chunks": 1090,
+ "headings": [
+  [
+   "Advanced Flexible Component Placer CP Series > 13.2.1. Placement Point Teaching",
+   16
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Head Offset> button",
+   13
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Option> group",
+   12
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Test> button",
+   11
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Camera No.> combo box",
+   11
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 7.2.1.1. Common Align Data",
+   10
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Move…> button",
+   10
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <PCB Origin Offset> group",
+   10
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Device> combo box",
+   10
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > Table of Contents",
+   9
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Image Capture> button",
+   9
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > \"Memo",
+   9
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Size> group",
+   8
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > WARNING",
+   8
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Light Control> button",
+   8
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <1. Device List> list box",
+   8
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 2. Select a pre-resistered part as in the following figure.",
+   7
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Outline> button",
+   7
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Cancel> button",
+   7
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <2. Teach> group",
+   7
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > Ì <Vac Off> edit box",
+   6
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Head[Fly] Camera> button",
+   6
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Type> combo box",
+   6
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Threshold> edit box",
+   6
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Get> button",
+   6
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > Chapter 6. Board Definition",
+   6
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 14.3.4. Component Recognition Error",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <R> column",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 13.2.2. Pickup Point Teaching",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Move Next> button",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Get> button",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 14.1. Preparation for Placement Test",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Nozzle Check Height> edit box",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 7.1. Part [F3]",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > About Safety",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 16.1. Limit [F3]",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Device> combo box",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 16.2. Offset [F4]",
+   5
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 18.1. Print... [F2]",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 3.2. Open [Ctrl+O]",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Offset> group",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Cancel> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Move> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > About Warranty",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Head - Fly Offset> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > STS Co., Ltd.",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > amera> buttonà <Move C",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Update> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Move to Fix Camera> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Move> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Feeder & Nozzle> group",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Align Z> edit box",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Fix 1 Camera> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <OK> button",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 14.3.5. ent ErrorComponent Placem",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Communication> group",
+   4
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 3.1. New [Ctrl+N]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Auto Teach> button",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > ※ Set the Z-axis height where the green and red LEDs turn on as the Nozzle Check Height.simultaneously",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 9.1. Step-Program",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 16.6. Dump [F7]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 8.1.3. Tray Feeder",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > age Capture> button <Im",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 4.2. Current Position",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  Nozzle Defect",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 17.1. I/O [F2]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 17.4. Vacuum [F5]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > ata value for normal chip com3. D ponents (1005 \\~ 3216)",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Auto> check box",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Offset…> button",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Origin> group",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 17.6. Tray [F7]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > à <Device> combo box:",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 17.2. Conveyor [F3]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Default Light> group",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series > 15.2. Camera [F9]",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Pick> button",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  <Upward Pickup> column",
+   3
+  ],
+  [
+   "Advanced Flexible Component Placer CP Series >  Pickup Position Error",
+   3
+  ]
+ ]
+}

@@ -1,0 +1,2878 @@
+{
+ "doc": "日立固晶机DB800_Manual-eng_ver01_012_00",
+ "chunks": 2668,
+ "headings": [
+  [
+   "4. List of Error Codes related to Wafer",
+   431
+  ],
+  [
+   "3. List of Error Codes related to Frame Transfer",
+   206
+  ],
+  [
+   "5. List of Error Codes related to Preform",
+   93
+  ],
+  [
+   "6. List of Error Codes related to Bonding",
+   82
+  ],
+  [
+   "7. List of Error Codes related to Lamination",
+   82
+  ],
+  [
+   "2. List of Error Codes related to System Manager",
+   64
+  ],
+  [
+   "! CAUTION > 5.1.8 Bonding Recognition",
+   37
+  ],
+  [
+   "! CAUTION > 5.1.7 Preform Conditions",
+   32
+  ],
+  [
+   "! CAUTION > Others",
+   30
+  ],
+  [
+   "! CAUTION > 5. Orientation flat direction",
+   23
+  ],
+  [
+   "! CAUTION > 5.2.2 Frame Transfer Machine",
+   21
+  ],
+  [
+   "! CAUTION > 5.1.9 Bonding Conditions",
+   21
+  ],
+  [
+   "! CAUTION > 5.1.10.6 Lamination Position Offset",
+   21
+  ],
+  [
+   "! CAUTION > Details of stage up-and-down motion",
+   18
+  ],
+  [
+   "! CAUTION > 5.1.3.2 Motion Setting",
+   17
+  ],
+  [
+   "! CAUTION > 5.1.11.1 Disable Data Check",
+   17
+  ],
+  [
+   "DB-800 SERIES > ④Touch Panel",
+   16
+  ],
+  [
+   "! CAUTION > 5.1.6 Preform Recognition",
+   16
+  ],
+  [
+   "! CAUTION > 5.1.10 Lamination Conditions/Recognition",
+   16
+  ],
+  [
+   "! CAUTION > (2) Input of 1<sup>st</sup> Die Pad Center Position in < Auto Mode>",
+   16
+  ],
+  [
+   "(1) Preparation",
+   16
+  ],
+  [
+   "! CAUTION > 5.1.4.6 Die Recognition Data",
+   14
+  ],
+  [
+   "(2)’ Input of $1 ^ { \\mathsf { s t } }$ Die Pad Center Position in <Manual Teaching>",
+   14
+  ],
+  [
+   "! CAUTION > 5.2.1.1 Motion Mode",
+   13
+  ],
+  [
+   "! CAUTION > 5.1.5 Wafer Conditions",
+   12
+  ],
+  [
+   "! CAUTION > 4.10 Offset",
+   12
+  ],
+  [
+   "! CAUTION > Basic Pattern 4",
+   11
+  ],
+  [
+   "! CAUTION > End Motion",
+   11
+  ],
+  [
+   "Ending Motion",
+   11
+  ],
+  [
+   "(3) Data registration",
+   11
+  ],
+  [
+   "Offset Teaching - P/U Pos. (Metal mode – Pos. Adjust.)",
+   11
+  ],
+  [
+   "! CAUTION > Teaching – WAF Area Search",
+   10
+  ],
+  [
+   "! CAUTION > Teaching – Auto Offset of WAF Attach Pos.",
+   10
+  ],
+  [
+   "! CAUTION > 4.3.9 Manual Operation Solenoid Valve Check",
+   10
+  ],
+  [
+   "! CAUTION > 4.3.1 Feeder Manual Operation",
+   10
+  ],
+  [
+   "! CAUTION > 5.3.4 Tool",
+   9
+  ],
+  [
+   "! CAUTION > 5.3.3.1 Temperature Vacuum Setting",
+   9
+  ],
+  [
+   "! CAUTION > 5.1.6.3 Paddle center",
+   9
+  ],
+  [
+   "! CAUTION > 4.9 Setting Confirmation",
+   9
+  ],
+  [
+   "Extractor POS teach",
+   9
+  ],
+  [
+   "Offset Teaching - P/U Pos. (Metal mode – Die Rec.)",
+   9
+  ],
+  [
+   "Offset Teaching - P/U Pos. (Metal mode - Pos. Adjust.)",
+   9
+  ],
+  [
+   "! CAUTION > 5.2.3 Wafer Machine",
+   8
+  ],
+  [
+   "! CAUTION > 5.3.1.7 Pen-write Pattern (Preform Conditions)",
+   8
+  ],
+  [
+   "DB-800 SERIES > 2.3.2 Unit name and its function",
+   8
+  ],
+  [
+   "! CAUTION > <Procedure>",
+   7
+  ],
+  [
+   "! CAUTION > 4.3.3 Wafer Single Operation",
+   7
+  ],
+  [
+   "! CAUTION > Target Die Info.",
+   7
+  ],
+  [
+   "! CAUTION > 5.2.6 Lamination Machine",
+   7
+  ],
+  [
+   "! CAUTION > 5.1.9.9 NG Bonding",
+   7
+  ],
+  [
+   "! CAUTION > 4.3.4.2 Preform recognition confirmation",
+   7
+  ],
+  [
+   "Setup Motion",
+   7
+  ],
+  [
+   "(4) End of Teaching",
+   7
+  ],
+  [
+   "Teaching - Stage HGT",
+   7
+  ],
+  [
+   "! CAUTION > 4.3.5 Bonding Manual Operation",
+   6
+  ],
+  [
+   "! CAUTION > 5.1.4.4 Check Die",
+   6
+  ],
+  [
+   "! CAUTION > Align. Reference Point",
+   6
+  ],
+  [
+   "! CAUTION > 5.2.5.1 Bonding",
+   6
+  ],
+  [
+   "DB-800 SERIES > ! CAUTION",
+   6
+  ],
+  [
+   "DB-800 SERIES > CONTENTS",
+   6
+  ],
+  [
+   "! CAUTION > Basic Pattern 13",
+   6
+  ],
+  [
+   "! CAUTION > 4.1.2 General Information on Main Window",
+   6
+  ],
+  [
+   "! CAUTION > 4.5 Consumables Check",
+   6
+  ],
+  [
+   "! CAUTION > 4.3.2 Loader/Unloader Manual Operation",
+   6
+  ],
+  [
+   "! CAUTION > 5.1.1.4 Transfer Conditions",
+   6
+  ],
+  [
+   "! CAUTION > (5) Data registration",
+   6
+  ],
+  [
+   "! CAUTION > 5.1.7.13 Pen-write Pattern",
+   6
+  ],
+  [
+   "End Motion",
+   6
+  ],
+  [
+   "(4) Data registration",
+   6
+  ],
+  [
+   "! CAUTION > (2)’ Input of $1 ^ { \\mathsf { s t } }$ Die Pad Center Position in <Manual Mode>",
+   5
+  ],
+  [
+   "! CAUTION > Align. reference point",
+   5
+  ],
+  [
+   "! CAUTION > 4.3.6 LM Manual",
+   5
+  ],
+  [
+   "! CAUTION > (6) End of Teaching",
+   5
+  ],
+  [
+   "! CAUTION > 4.10.4 Lamination Height Offset",
+   5
+  ],
+  [
+   "! CAUTION > 5.2.4 Preform Machine",
+   5
+  ],
+  [
+   "! CAUTION > 4.1.1 Operation Method of Touch Panel, Buttons/Display Functions",
+   5
+  ],
+  [
+   "! CAUTION > 5.2.6.4 Lamination Change Position/Height Teaching",
+   5
+  ],
+  [
+   "! CAUTION > ②Unloader Magzine",
+   5
+  ],
+  [
+   "! CAUTION > III) Reversed frame recognition",
+   5
+  ],
+  [
+   "<Manual Teaching>",
+   5
+  ],
+  [
+   "(2) Input of $1 ^ { \\mathsf { s t } }$ Die Pad Center Position in < Auto Mode>",
+   5
+  ],
+  [
+   "Teaching - P/U HGT Offset (On-WAF mode)",
+   5
+  ],
+  [
+   "(6) Data registration",
+   5
+  ],
+  [
+   "（5）End of Teaching",
+   5
+  ],
+  [
+   "Teaching – Extractor Pos.",
+   5
+  ],
+  [
+   "! CAUTION > Teaching - Die Pitch",
+   4
+  ],
+  [
+   "! CAUTION > 5.1.4.5 Alignment",
+   4
+  ],
+  [
+   "! CAUTION > (2) Input of $1 ^ { \\mathsf { s t } }$ Die Pad Center Position in < Auto Mode>",
+   4
+  ],
+  [
+   "! CAUTION > 4.3.4 Preform Manual Operation",
+   4
+  ],
+  [
+   "DB-800 SERIES > 2.3.1 System Outline and Configuration",
+   4
+  ],
+  [
+   "! CAUTION > 5.3.1.9 Bonding Position Offset (Bonding Conditions)",
+   4
+  ],
+  [
+   "! CAUTION > (3) Data registration",
+   4
+  ],
+  [
+   "! CAUTION > 5.1.4.1 Recognition Mode",
+   4
+  ],
+  [
+   "! CAUTION > 4.3.7 Lamination feeder manual Operation",
+   4
+  ],
+  [
+   "! CAUTION > 4.3.11 Sensor Check",
+   4
+  ],
+  [
+   "! CAUTION > Teaching – Die Pitch",
+   4
+  ],
+  [
+   "! CAUTION > 5.1.2.7 Lamination feeder",
+   4
+  ],
+  [
+   "! CAUTION > 5.2.2.6 Stage",
+   4
+  ],
+  [
+   "! CAUTION > II) Block Alignment Recognition",
+   4
+  ],
+  [
+   "! CAUTION > (4) Data registration",
+   4
+  ],
+  [
+   "! CAUTION > 5.3.1 Parameter",
+   4
+  ],
+  [
+   "! CAUTION > 5.1.3 Wafer Material",
+   4
+  ],
+  [
+   "! CAUTION > <Wafer ID input>",
+   4
+  ],
+  [
+   "! CAUTION > 5.1.1.1 Frame Profile",
+   4
+  ],
+  [
+   "LA Tool Force Correction Teach",
+   4
+  ],
+  [
+   "（4）Data registration",
+   4
+  ],
+  [
+   "Teaching - Preform HGT",
+   4
+  ],
+  [
+   "(4) End of teaching",
+   4
+  ],
+  [
+   "Teaching – Bond Pos. XY Offset",
+   4
+  ],
+  [
+   "Then click [Fix] key.",
+   4
+  ],
+  [
+   "(6) End of Teaching",
+   4
+  ],
+  [
+   "! CAUTION > 5.2.5.5 Bonding Change Position",
+   3
+  ],
+  [
+   "! CAUTION > Teaching - WAF Area Search",
+   3
+  ],
+  [
+   "! CAUTION > 5.1.1.2 Reversed Frame Detection",
+   3
+  ],
+  [
+   "! CAUTION > 4.3.8.1 Setting Method of Manual Operation Button",
+   3
+  ],
+  [
+   "! CAUTION",
+   3
+  ],
+  [
+   "! CAUTION > Target Die Search Setting",
+   3
+  ],
+  [
+   "! CAUTION > 4.11 Visual Inspection",
+   3
+  ],
+  [
+   "! CAUTION > (5) End of Teaching",
+   3
+  ],
+  [
+   "! CAUTION > 5.2.4.4 Paste Refresh Area",
+   3
+  ],
+  [
+   "! CAUTION > ①Bonding Stage",
+   3
+  ],
+  [
+   "! CAUTION > Temporary Manual Align.",
+   3
+  ],
+  [
+   "! CAUTION > V) Paste inspection Paste Area You can choose the paddle that is used for paste area inspection.",
+   3
+  ],
+  [
+   "! CAUTION > WAF Barcode Pos. Teaching",
+   3
+  ],
+  [
+   "! CAUTION > ①Loader Magzine",
+   3
+  ],
+  [
+   "! CAUTION > 4.12 Data Log",
+   3
+  ],
+  [
+   "! CAUTION > Target die position check",
+   3
+  ],
+  [
+   "! CAUTION > (2) Edge pattern registeration",
+   3
+  ],
+  [
+   "! CAUTION > 6.1.1 Wafer Recognition Register",
+   3
+  ],
+  [
+   "! CAUTION > (1) Preparation",
+   3
+  ],
+  [
+   "! CAUTION > 4.4 Operation Information",
+   3
+  ],
+  [
+   "DB-800 SERIES > 1.4 Installation method of equipment",
+   3
+  ],
+  [
+   "! CAUTION > (4) Pattern registration",
+   3
+  ],
+  [
+   "! CAUTION > Setup Motion",
+   3
+  ],
+  [
+   "! CAUTION > 5.1.4.3 Target Die",
+   3
+  ],
+  [
+   "! CAUTION > 5.1.7.11 Pen-write Pattern",
+   3
+  ],
+  [
+   "DB-800 SERIES > 3.3.2 Chemical Substance",
+   3
+  ],
+  [
+   "! CAUTION > 4.1.3 Note to Window Layer",
+   3
+  ],
+  [
+   "! CAUTION > (5) Set the Die category around search Die",
+   3
+  ],
+  [
+   "! CAUTION > (3) Die Pattern registration",
+   3
+  ],
+  [
+   "Teaching – Bond Pos. θ Offset",
+   3
+  ],
+  [
+   "Teaching – Stage HGT",
+   3
+  ],
+  [
+   "WAF table manual button : WAF table Manual Motion.",
+   3
+  ],
+  [
+   "Teaching - Paste Refresh Area HGT",
+   3
+  ],
+  [
+   "(5) End of Teaching",
+   3
+  ],
+  [
+   "(2) Resolution Pattern Registration",
+   3
+  ],
+  [
+   "(5) Data registration",
+   3
+  ],
+  [
+   "6.1.3.7 Visual Inspection - Registration of inspection point",
+   3
+  ],
+  [
+   "(5) End of teaching",
+   3
+  ],
+  [
+   "＜Pattern 1＞",
+   3
+  ],
+  [
+   "Teaching - Paddle Center",
+   3
+  ],
+  [
+   "(2) Paddle choice",
+   3
+  ],
+  [
+   "Pattern 2",
+   3
+  ],
+  [
+   "Input ”Recognition Threshold ”",
+   3
+  ],
+  [
+   "(3) Preform position",
+   3
+  ],
+  [
+   "Teaching - Resolution",
+   3
+  ],
+  [
+   "Teaching - P/U HGT Offset (On-dome mode)",
+   3
+  ],
+  [
+   "(2) Data registration",
+   3
+  ],
+  [
+   "6.2.2.9 Needle XY position offset teaching (1) Preparation",
+   3
+  ],
+  [
+   "! CAUTION > Set the Map Offset",
+   2
+  ],
+  [
+   "! CAUTION > Press [START] button to fix.",
+   2
+  ],
+  [
+   "DB-800 SERIES > <sub>!</sub> DANGER",
+   2
+  ],
+  [
+   "! CAUTION > As extra input functions, the following functions are available",
+   2
+  ],
+  [
+   "! CAUTION > 4.3 Manual Operation",
+   2
+  ],
+  [
+   "! CAUTION > ＜Pattern 2 ＞",
+   2
+  ],
+  [
+   "! CAUTION > (1) Setting of recognition data.",
+   2
+  ],
+  [
+   "! CAUTION > <Map data loading>",
+   2
+  ],
+  [
+   "! CAUTION > 4.6 Map Setting",
+   2
+  ],
+  [
+   "! CAUTION > (6) Ending of teaching",
+   2
+  ],
+  [
+   "! CAUTION > WAF ID setting",
+   2
+  ],
+  [
+   "! CAUTION > 4.3.4.1 Preform by Specifying Die Pad",
+   2
+  ],
+  [
+   "! CAUTION > (10) Set Check Die",
+   2
+  ],
+  [
+   "! CAUTION > (3) Teaching",
+   2
+  ],
+  [
+   "! CAUTION > Chapter 4 Operation",
+   2
+  ],
+  [
+   "DB-800 SERIES > 3.1 General",
+   2
+  ],
+  [
+   "! CAUTION > LAH Tilt Adjust.",
+   2
+  ],
+  [
+   "! CAUTION > ¾Paste form",
+   2
+  ],
+  [
+   "! CAUTION > (2) Die corner 1",
+   2
+  ],
+  [
+   "! CAUTION > Die Pitch Motion",
+   2
+  ],
+  [
+   "! CAUTION > ＜Pattern 1 ＞",
+   2
+  ],
+  [
+   "! CAUTION > (2) Input of 1<sup>st</sup> Die Paddle Center Coordinates",
+   2
+  ],
+  [
+   "DB-800 SERIES > 3.3.1 General Matters",
+   2
+  ],
+  [
+   "! CAUTION > Teaching – Check Die Info",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.9.11 Bonding Position Offset",
+   2
+  ],
+  [
+   "! CAUTION > Teaching - RVS Frame Rec.",
+   2
+  ],
+  [
+   "! CAUTION > 4.3.6.4 Lamination recognition check",
+   2
+  ],
+  [
+   "! CAUTION > 6.1.2 Preform Recognition Register",
+   2
+  ],
+  [
+   "! CAUTION > 4.5.1 Paste Use Time Limit Setting",
+   2
+  ],
+  [
+   "! CAUTION > ①Unloader Magzine",
+   2
+  ],
+  [
+   "! CAUTION > 4.13.1 Error/Warning History",
+   2
+  ],
+  [
+   "! CAUTION > Then press [START] button. Wafer table move to left end Die",
+   2
+  ],
+  [
+   "DB-800 SERIES > 4.12 Data Log",
+   2
+  ],
+  [
+   "! CAUTION > 4.2.7 Dry Operation Method",
+   2
+  ],
+  [
+   "! CAUTION > (6) Data registration",
+   2
+  ],
+  [
+   "! CAUTION > WAF map read",
+   2
+  ],
+  [
+   "DB-800 SERIES > 1.3.3 In case the equipment is moved using casters (option)",
+   2
+  ],
+  [
+   "! CAUTION > 4.1.5 Operation Method of Property Button",
+   2
+  ],
+  [
+   "! CAUTION > Details of LDF profile",
+   2
+  ],
+  [
+   "! CAUTION > 5.2.4.3 Preform Change Position",
+   2
+  ],
+  [
+   "! CAUTION > Ending Motion",
+   2
+  ],
+  [
+   "! CAUTION > 4.13.2 Error Count",
+   2
+  ],
+  [
+   "! CAUTION > (12) Setting of $\\pmb { 2 } ^ { \\mathsf { n d } }$ horizontal point",
+   2
+  ],
+  [
+   "DB-800 SERIES > ACAUTION",
+   2
+  ],
+  [
+   "! CAUTION > ＜Are set completion＞",
+   2
+  ],
+  [
+   "! CAUTION > Target Die Map Setting",
+   2
+  ],
+  [
+   "! CAUTION > 5.2.4.2 Preform Movable Range",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.9.10 Bonding Press Motion",
+   2
+  ],
+  [
+   "! CAUTION > (4) The inspection result appears. And recognized pattern is pointed by green box on camera image monitor.",
+   2
+  ],
+  [
+   "! CAUTION > < Fail mark recognition by Brightness>",
+   2
+  ],
+  [
+   "DB-800 SERIES > 2.3.3.1 General of Operation Panels",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.2.1 Stage",
+   2
+  ],
+  [
+   "! CAUTION > 4.3.5.1 Bonding by Specifying Die Pad",
+   2
+  ],
+  [
+   "DB-800 SERIES > ②Power ON/OFF Switch",
+   2
+  ],
+  [
+   "! CAUTION > (3) Alignment of last die pad position",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.4.9 Die Presence Recognition",
+   2
+  ],
+  [
+   "! CAUTION > ＜Wafer type setting error＞",
+   2
+  ],
+  [
+   "! CAUTION > WH XY Manual Motion on Cursor Switch, perform fine Adjust of die Pos..",
+   2
+  ],
+  [
+   "! CAUTION > 4.3.8.2 Clear Method of Sing Operation Button",
+   2
+  ],
+  [
+   "! CAUTION > Basic Pattern 3",
+   2
+  ],
+  [
+   "! CAUTION > Then press [START] button. Wafer table move to bottom end Die",
+   2
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a check die.",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.12 Load/Save",
+   2
+  ],
+  [
+   "DB-800 SERIES > 2.2 Handling Precautions",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.7.10 Preform Position Offset",
+   2
+  ],
+  [
+   "! CAUTION > 5.2.7 Signal Tower",
+   2
+  ],
+  [
+   "! CAUTION > Fine Adjust. of die Pos.",
+   2
+  ],
+  [
+   "! CAUTION > 5.1.3.4 Different Pitch Wafer",
+   2
+  ],
+  [
+   "(2)’ Input of $1 ^ { \\mathsf { s t } }$ Die Pad Center Position in <Manual Mode>",
+   2
+  ],
+  [
+   "Teaching – Needle Pos. Z",
+   2
+  ],
+  [
+   "(3) Inspection area registration",
+   2
+  ],
+  [
+   "(4) Die center position calibration",
+   2
+  ],
+  [
+   "(2) Input of 1<sup>st</sup> Die Pad Center Position in < Auto Mode>",
+   2
+  ],
+  [
+   "Press [START] button to chuck the die on the collet. And then touch [Confirm] key",
+   2
+  ],
+  [
+   "Teaching – Paste Refresh Area HGT",
+   2
+  ],
+  [
+   "Bond Pos. offset",
+   2
+  ],
+  [
+   "(7) End of Teaching",
+   2
+  ],
+  [
+   "Block Rec. Teaching",
+   2
+  ],
+  [
+   "Teaching - Nozzle HGT Check",
+   2
+  ],
+  [
+   "Teaching - R/U Pos.",
+   2
+  ],
+  [
+   "(2) Pickup Height teaching",
+   2
+  ],
+  [
+   "LA Die Center Teaching",
+   2
+  ],
+  [
+   "Teaching - Extractor Origin",
+   2
+  ],
+  [
+   "(2) Interference area width teach",
+   2
+  ],
+  [
+   "<Manual teaching>",
+   2
+  ],
+  [
+   "＜1st inspection area : Grayscale image＞",
+   2
+  ],
+  [
+   "Start teaching of the next point.",
+   2
+  ],
+  [
+   "(4) Pattern registration",
+   2
+  ],
+  [
+   "(3) Date registration",
+   2
+  ],
+  [
+   "Bond paddle pitch teaching",
+   2
+  ],
+  [
+   "＜Pattern 2＞",
+   2
+  ],
+  [
+   "Teaching - Paste Inspection(Paste Form)",
+   2
+  ],
+  [
+   "Teaching – Bond Before Inspection",
+   2
+  ],
+  [
+   "LA Tool Force 1 Correction Result",
+   2
+  ],
+  [
+   "Pattern 1",
+   2
+  ],
+  [
+   "(7) End of teaching",
+   2
+  ],
+  [
+   "LA Paddle Rec. Teaching",
+   2
+  ],
+  [
+   "Teaching - P/U HGT Offset(On-WAF mode)",
+   2
+  ],
+  [
+   "Press [START] button. Bond head moves to pickup position.",
+   2
+  ],
+  [
+   "6.3.1.3 Wafer Optics",
+   2
+  ],
+  [
+   "Retum to Previous Teaching.",
+   2
+  ],
+  [
+   "(3) Teaching",
+   2
+  ],
+  [
+   "(2) 1<sup>st</sup> paddle position recognition",
+   2
+  ],
+  [
+   "LA Die Rec. Teaching",
+   2
+  ],
+  [
+   "6.1.3 Bonding Recognition Register",
+   2
+  ],
+  [
+   "Teaching - Extractor Pos.",
+   2
+  ],
+  [
+   "DB-800 SERIES > 3.6.6 Pinching (Crushing) Hazards",
+   1
+  ],
+  [
+   "! CAUTION > （2）Preparation",
+   1
+  ],
+  [
+   "! CAUTION > (3) Reversed frame recognition setting",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.4 Block Recognition Registration (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.10 Real paste area inspection (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.8 Ink. Ptn. Teaching",
+   1
+  ],
+  [
+   "! CAUTION > (2) Save",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.9 User Management",
+   1
+  ],
+  [
+   "! CAUTION > If the machine failed to recognize right end die, the machine gives error",
+   1
+  ],
+  [
+   "! CAUTION > 4.2.6 Invalid Setting Data Check",
+   1
+  ],
+  [
+   "DB-800 SERIES > Note: Description in this manual",
+   1
+  ],
+  [
+   "! CAUTION > < Reversed frame recognition by Brightness>",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.8.5 Bondhing Recognition Register",
+   1
+  ],
+  [
+   "! CAUTION > (5) Seting of right end Die",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.4.3 Preform Lighting Change",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.1 New teaching",
+   1
+  ],
+  [
+   "DB-800 SERIES > ①Main Power Switch (Option)",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.5.4 Bonding Head Force Check Operation",
+   1
+  ],
+  [
+   "! CAUTION > 4.2.3 Stop Auto Operation",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.3.3 Operation Panels",
+   1
+  ],
+  [
+   "! CAUTION > ¾Paste Area",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.10 Motor Sensor Check",
+   1
+  ],
+  [
+   "! CAUTION > Teaching - Paddle Rec.",
+   1
+  ],
+  [
+   "! CAUTION > 4.2 Auto Operation",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.3 Die Size Teaching (1) Preparation",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.2 Danger Marking Label",
+   1
+  ],
+  [
+   "! CAUTION > Touch [Completion] to register the data",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.6.7 Lamination Vision System",
+   1
+  ],
+  [
+   "! CAUTION > (1) Data check",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.3 Ionizer",
+   1
+  ],
+  [
+   "! CAUTION > Using XY Manual, start die Rec",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.5.2 Note to Safety Cover Interlock",
+   1
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a left edge die for Align.",
+   1
+  ],
+  [
+   "! CAUTION > (11) Check the Die category around Check Die",
+   1
+  ],
+  [
+   "! CAUTION > (2) Select the Automatic",
+   1
+  ],
+  [
+   "! CAUTION > 4.1 Basic Operation",
+   1
+  ],
+  [
+   "! CAUTION > (4) Target Die Search mode",
+   1
+  ],
+  [
+   "! CAUTION > Using cursor button, choose the top end Die and press [START] button to",
+   1
+  ],
+  [
+   "! CAUTION > (2) $1 ^ { \\mathsf { s t } }$ point",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.1 Unpacking",
+   1
+  ],
+  [
+   "! CAUTION > (4) Alignment left end Die coordinate",
+   1
+  ],
+  [
+   "! CAUTION > (4) Die presence judgment related data setting",
+   1
+  ],
+  [
+   "! CAUTION > (3) Remove",
+   1
+  ],
+  [
+   "! CAUTION > Touch [Fix] to register the top end Die. Then wafer table move to wafer bottom",
+   1
+  ],
+  [
+   "DB-800 SERIES > 6.2 Offset Data",
+   1
+  ],
+  [
+   "! CAUTION > ① Copy to built-in data",
+   1
+  ],
+  [
+   "! CAUTION > (1) Starting MD-R-01 initializing",
+   1
+  ],
+  [
+   "! CAUTION > ① Barcode Position Move",
+   1
+  ],
+  [
+   "! CAUTION > <Aligmnet reference point errroe>",
+   1
+  ],
+  [
+   "! CAUTION > 2) Press Auto.",
+   1
+  ],
+  [
+   "! CAUTION > (3) $\\pmb { 2 } ^ { \\mathsf { n d } }$ point",
+   1
+  ],
+  [
+   "! CAUTION > 5.3.2.1 Wafer Recognition Register (Wafer Recognition）",
+   1
+  ],
+  [
+   "! CAUTION > Press [START] buttom to fix the position",
+   1
+  ],
+  [
+   "! CAUTION > (13) Data registration",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.13 Auto Offset of Wafer Attach Position Teaching (1) Preparation",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.4.1 Emergency Stop Switch Installed Positions",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.5.3 Bonding Lighting Change",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.2 Transfer Setting",
+   1
+  ],
+  [
+   "DB-800 SERIES > Chapter 3 Safety",
+   1
+  ],
+  [
+   "! CAUTION > 5.2 Setup Data",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.6.5 Lamination lighting (illumination) change",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.1 Signal Word",
+   1
+  ],
+  [
+   "! CAUTION > (3) Delete",
+   1
+  ],
+  [
+   "! CAUTION > (1) Load",
+   1
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a bottom edge die for Align..",
+   1
+  ],
+  [
+   "! CAUTION > Press [START] button to fix the Die and position.",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.3.3 Wafer Vision",
+   1
+  ],
+  [
+   "! CAUTION > [START] button: to complete teaching",
+   1
+  ],
+  [
+   "DB-800 SERIES > 6.3 Machine Data",
+   1
+  ],
+  [
+   "! CAUTION > ② Barcode Reading",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.5 Pickup Die recognition (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > ② Save",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.10 Mirror Die recognition (1) Mirror Die choice",
+   1
+  ],
+  [
+   "! CAUTION > Ink Mark",
+   1
+  ],
+  [
+   "! CAUTION > 5.3.2 Recognition Register",
+   1
+  ],
+  [
+   "Hitachi HighTech SiP BONDER",
+   1
+  ],
+  [
+   "! CAUTION > ⑦ Group deletion",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.14 Die Presence Detection (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > WH XY Manual Motion on Cursor Switch, select a left edge die for Align..",
+   1
+  ],
+  [
+   "! CAUTION > (3) Choice of Target Die or Check Die",
+   1
+  ],
+  [
+   "! CAUTION > ⑤ Group change",
+   1
+  ],
+  [
+   "! CAUTION > (2) Barcode position Teaching",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.4.2 Utilities",
+   1
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a right edge die for Align.",
+   1
+  ],
+  [
+   "! CAUTION > (5) Alignment right end Die coordinate",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.5.7 Bonding Vision",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.3.1 Transportation by Pallet Truck",
+   1
+  ],
+  [
+   "! CAUTION > 5.3.1.2 Magazine Profile (Transfer Material)",
+   1
+  ],
+  [
+   "! CAUTION > ⑥ Group addition",
+   1
+  ],
+  [
+   "! CAUTION > (10) End of Teaching",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.3 System Configuration",
+   1
+  ],
+  [
+   "! CAUTION > 4.2.2 Start Auto Operation",
+   1
+  ],
+  [
+   "! CAUTION > (7) Target Die data registration",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.10.1 Internal data",
+   1
+  ],
+  [
+   "! CAUTION > Register the following Pos. for a right edge die.",
+   1
+  ],
+  [
+   "! CAUTION > <Target Die data registration>",
+   1
+  ],
+  [
+   "! CAUTION > LA Inspection Start Setting",
+   1
+  ],
+  [
+   "! CAUTION > Teaching- Check Die Info",
+   1
+  ],
+  [
+   "! CAUTION > (4) Ending of teaching",
+   1
+  ],
+  [
+   "! CAUTION > 3.6.7 Safety Labels Attached Positions",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.4 High Voltage Hazards",
+   1
+  ],
+  [
+   "! CAUTION > 5.3.3 Temperature Vacuum",
+   1
+  ],
+  [
+   "! CAUTION > ②1st Alignment reference point",
+   1
+  ],
+  [
+   "! CAUTION > 4.7.2 Map file upload (transfer) Map file upload procedure:",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.2 1st Die Pad Center Coordinates (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > ⑧ Copy to external media",
+   1
+  ],
+  [
+   "! CAUTION > < Reversed frame recognition by Pattern Matching>",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.2.4 “Inhalation Risk” Label",
+   1
+  ],
+  [
+   "! CAUTION > (2) Error window appears if setting of dispenser is not MD-R-01 as shown.",
+   1
+  ],
+  [
+   "! CAUTION > <Data Check>",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.2.2 “Heat, High Temperature Surface” Label",
+   1
+  ],
+  [
+   "! CAUTION > 5.1 Recipe Data",
+   1
+  ],
+  [
+   "! CAUTION > Die recognition error mode",
+   1
+  ],
+  [
+   "! CAUTION > ○Initializing MD-R-01",
+   1
+  ],
+  [
+   "! CAUTION > (7) Data registration",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.11 Area Search Teaching",
+   1
+  ],
+  [
+   "! CAUTION > 4.2.4 Stop of Equipment",
+   1
+  ],
+  [
+   "! CAUTION > 5.3.2.3 Bonding Recognition Register (Bonding Recognition)",
+   1
+  ],
+  [
+   "! CAUTION > (4) Changing Password",
+   1
+  ],
+  [
+   "! CAUTION > (1) Adding User",
+   1
+  ],
+  [
+   "! CAUTION > ⑩ Host Upload",
+   1
+  ],
+  [
+   "! CAUTION > 4.8 Wafer Information",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.2.6 Magazine",
+   1
+  ],
+  [
+   "! CAUTION > 4.2.5 Operation at emergency",
+   1
+  ],
+  [
+   "! CAUTION > Touch [Completion] to register the data.",
+   1
+  ],
+  [
+   "! CAUTION > 4.10.6 Teaching",
+   1
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a left edge die.",
+   1
+  ],
+  [
+   "! CAUTION > ② Touch [Save] key, then user level of “Selected Recipe” change to TECHNICIAN.",
+   1
+  ],
+  [
+   "! CAUTION > Press [START] button, Wafer table move to wafer top area.",
+   1
+  ],
+  [
+   "! CAUTION > 4.13 Alarm",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.6.3 Lamination stage tilt adjustment",
+   1
+  ],
+  [
+   "DB-800 SERIES > Chapter 1 Handling of Equipment Transportation",
+   1
+  ],
+  [
+   "! CAUTION > (2) Choice of Target Die",
+   1
+  ],
+  [
+   "! CAUTION > (2) Editing User",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.6 Die Pad Pitch (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.8 Manual Operation",
+   1
+  ],
+  [
+   "! CAUTION > (3) Alignment Top end Die coordinate",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.3.3.2 Details of Operation Panels",
+   1
+  ],
+  [
+   "! CAUTION > (2) Setting of pickup Die",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.5 Registration Fail Mark (1) Preparation",
+   1
+  ],
+  [
+   "DB-800 SERIES > Chapter 2 General",
+   1
+  ],
+  [
+   "! CAUTION > (2) Die Choice",
+   1
+  ],
+  [
+   "! CAUTION > Teaching - F-Mark",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.8 Configuration Setting",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.4 Wafer Recognition",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.2 Procedures involved in transportation",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.9 Target Die / Check Die teaching (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > <Setting of Number of check Die>",
+   1
+  ],
+  [
+   "! CAUTION > 4.12.2 System Log Output",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.3.1 Wafer Lighting Change",
+   1
+  ],
+  [
+   "! CAUTION > ＜Nth inspection area＞",
+   1
+  ],
+  [
+   "! CAUTION > Then press [START] button. Wafer table move to right end Die",
+   1
+  ],
+  [
+   "! CAUTION > WH XY Manual Motion on Cursor Switch, select a target die.",
+   1
+  ],
+  [
+   "! CAUTION > (1) Copy to machine",
+   1
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a top edge die.",
+   1
+  ],
+  [
+   "! CAUTION > (8)Others",
+   1
+  ],
+  [
+   "! CAUTION > (2) Ink Mark Pattern registeration",
+   1
+  ],
+  [
+   "! CAUTION > (14) Ending of teaching",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.2 Temporary Manual Alignment",
+   1
+  ],
+  [
+   "! CAUTION > 5.3 Selected Recipe Data",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.1.1 Move to Stage Change Position",
+   1
+  ],
+  [
+   "DB-800 SERIES > ■ CAUTION ■",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.5.2 Bonding Recognition Confirmation",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.2.1 Warning and Caution Columns",
+   1
+  ],
+  [
+   "! CAUTION > Check die function",
+   1
+  ],
+  [
+   "! CAUTION > (5) Copy to External Media",
+   1
+  ],
+  [
+   "! CAUTION > ④ Name change",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.4.10 Wafer Recognition Register",
+   1
+  ],
+  [
+   "! CAUTION > (2) Alignment Top end Die coordinate",
+   1
+  ],
+  [
+   "! CAUTION > ①Alignment start point",
+   1
+  ],
+  [
+   "! CAUTION > (12) Check the Die category around Check Die",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.4 Emergency Stop Switch and Safety Cover Interlock",
+   1
+  ],
+  [
+   "! CAUTION > Perform Pitch Motion and select a die that is applicable to a target die.",
+   1
+  ],
+  [
+   "DB-800 SERIES",
+   1
+  ],
+  [
+   "! CAUTION > 4.7.1 Frame ID read Frame ID read procedure",
+   1
+  ],
+  [
+   "! CAUTION > い。",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.3 Attention before use",
+   1
+  ],
+  [
+   "! CAUTION > (3) Fail mark recognition setting < Fail mark recognition by Pattern Matching>",
+   1
+  ],
+  [
+   "! CAUTION > Register the 1st Align. reference point",
+   1
+  ],
+  [
+   "! CAUTION > ③ Map Data Read",
+   1
+  ],
+  [
+   "! CAUTION > (9) Setting of Check Die",
+   1
+  ],
+  [
+   "! CAUTION > Mirror Die Decision Register",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.5 High Temperature Surface Hazards",
+   1
+  ],
+  [
+   "! CAUTION > (7) Ending of teaching",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.1.3 Magazine Profile",
+   1
+  ],
+  [
+   "! CAUTION > II) Post lamination inspection (Visual inspection)",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.1.2 CAUTION",
+   1
+  ],
+  [
+   "! CAUTION > <Pattern 1>",
+   1
+  ],
+  [
+   "! CAUTION > Please confirm data.",
+   1
+  ],
+  [
+   "! CAUTION > Touch [FIX] to register the right end die",
+   1
+  ],
+  [
+   "! CAUTION > Press [START] button to load the wafer map data. And then touch [Next]",
+   1
+  ],
+  [
+   "! CAUTION > Press [START] button to fix the position",
+   1
+  ],
+  [
+   "! CAUTION > <Delete procedure>",
+   1
+  ],
+  [
+   "! CAUTION > P/U Die Rec. Register(Edge Ptn. Teach)",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.2 Danger Marking",
+   1
+  ],
+  [
+   "! CAUTION > (8) Ending of teaching",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.11 Motion Setting",
+   1
+  ],
+  [
+   "! CAUTION > II) Recognition Block Alignment check",
+   1
+  ],
+  [
+   "! CAUTION > (3) Inspection mode setting",
+   1
+  ],
+  [
+   "DB-800 SERIES > ■■■■ Warning ■■■■",
+   1
+  ],
+  [
+   "! CAUTION > $3 ^ { \\mathsf { r d } }$ point:",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.3.2 In case the equipment is moved using a heavy-duty crane",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.1 New Teaching",
+   1
+  ],
+  [
+   "! CAUTION > <Change Name procedure>",
+   1
+  ],
+  [
+   "! CAUTION > 4.7 Frame map setup",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.3 Move of equipment",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.15 Wafer Barcode position teaching (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > (8) Check Die mode",
+   1
+  ],
+  [
+   "! CAUTION > ! CAUTION",
+   1
+  ],
+  [
+   "DB-800 SERIES > Appendix A ERROR CODE LIST",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.4.2.2 Connection Position",
+   1
+  ],
+  [
+   "! CAUTION > (13) Setting of 1<sup>st</sup> vertical point",
+   1
+  ],
+  [
+   "! CAUTION > ＜1<sup>st</sup> inspection area＞",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.3.2.1 Transportation by Crane",
+   1
+  ],
+  [
+   "! CAUTION > Input ”Recognition threshold”",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.6.2 Lamination head Tilt adjustment",
+   1
+  ],
+  [
+   "! CAUTION > (3) Select The Manual",
+   1
+  ],
+  [
+   "! CAUTION > WH XY Manual Motion on Cursor Switch, select a right edge die for Align..",
+   1
+  ],
+  [
+   "! CAUTION > <System Log Output Procedure>",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.4.2.1 List of Utilities",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6 Hazard in Machine",
+   1
+  ],
+  [
+   "! CAUTION > Result",
+   1
+  ],
+  [
+   "! CAUTION > <Date deleting procedure>",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.4 Die Pitch Teaching",
+   1
+  ],
+  [
+   "! CAUTION > WH XY Manual Motion on Cursor Switch, select a top edge die for Align.",
+   1
+  ],
+  [
+   "! CAUTION > LAS Tilt Adjust.",
+   1
+  ],
+  [
+   "! CAUTION > (2) Choice of pattern registration mode",
+   1
+  ],
+  [
+   "! CAUTION > Rec error occurred on the right edge die. CHG the die and exercise Re-Rec.",
+   1
+  ],
+  [
+   "! CAUTION > (2) Delete",
+   1
+  ],
+  [
+   "! CAUTION > If the machine failed to recognize top end Die, the machine gives error",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.6.1 Lamination Designated paddle",
+   1
+  ],
+  [
+   "! CAUTION > (3) Setting of recognition data.",
+   1
+  ],
+  [
+   "! CAUTION > ① Load",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.1 Machine Setting",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.9 Die presence check (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > WAF map read is done.",
+   1
+  ],
+  [
+   "! CAUTION > （\\*1） Initialize (Home position) is required when move on other screen after the usage.",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.8 Visual Inspection (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.7 Reversed Frame Recognition (1) Preparation",
+   1
+  ],
+  [
+   "! CAUTION > 5.1.1 Transfer Material",
+   1
+  ],
+  [
+   "DB-800 SERIES > 2.1 General",
+   1
+  ],
+  [
+   "! CAUTION > WAF ID HYOUJYUN WAFER\\_123456",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.2.3 Registration Paddle Recognition (1) Preparation",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.3.4 Lockout/Tagout",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.10 Setup Data - Load／Save",
+   1
+  ],
+  [
+   "! CAUTION > ④ Map Data Upload",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.1.1 DANGER",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.5 Safety Cover Interlock",
+   1
+  ],
+  [
+   "! CAUTION > <Lower right>",
+   1
+  ],
+  [
+   "! CAUTION > Press [START] buttom.",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.2.3 “High Voltage” Label",
+   1
+  ],
+  [
+   "! CAUTION > (5) Changing User Level",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.7 Edge. Ptn. Teaching",
+   1
+  ],
+  [
+   "! CAUTION > ¾Paste Presence",
+   1
+  ],
+  [
+   "! CAUTION > 4.2.1 Start-up of Equipment",
+   1
+  ],
+  [
+   "! CAUTION > III) Post-bond inspection",
+   1
+  ],
+  [
+   "! CAUTION > <Pattern 2>",
+   1
+  ],
+  [
+   "! CAUTION > I) Paddle Alignment",
+   1
+  ],
+  [
+   "! CAUTION > 4.3.3.2 Cassette Lifter Elevator",
+   1
+  ],
+  [
+   "! CAUTION > WAF Area Research Teaching",
+   1
+  ],
+  [
+   "! CAUTION > <Data copy procedure>",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.6 Pos. Ptn. Teaching",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.10.2 External Media",
+   1
+  ],
+  [
+   "! CAUTION > ② Delete",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.4.2 Emergency Stop Switch",
+   1
+  ],
+  [
+   "! CAUTION > Using Pitch Motion, select a right edge die.",
+   1
+  ],
+  [
+   "DB-800 SERIES > 3.6.2.1 “Danger to Crush” Label",
+   1
+  ],
+  [
+   "! CAUTION > (4) Change Name",
+   1
+  ],
+  [
+   "! CAUTION > (3) Die corner 2",
+   1
+  ],
+  [
+   "DB-800 SERIES > 1.3.2.2 Transportation by Forklift",
+   1
+  ],
+  [
+   "! CAUTION > (2) Setting of Top end Die",
+   1
+  ],
+  [
+   "! CAUTION > 4.1.4 Window Transition",
+   1
+  ],
+  [
+   "! CAUTION > Teaching has been completed. Do you update the data?",
+   1
+  ],
+  [
+   "! CAUTION > ③ Delete",
+   1
+  ],
+  [
+   "! CAUTION > (3) Inspection area registration",
+   1
+  ],
+  [
+   "! CAUTION > WH XY Manual Motion on Cursor Switch, select a bottom edge die for Align.",
+   1
+  ],
+  [
+   "! CAUTION > 5.2.5 Bonding Machine",
+   1
+  ],
+  [
+   "! CAUTION > (4) Setting of left end Die",
+   1
+  ],
+  [
+   "! CAUTION > (3) Recognition data setting",
+   1
+  ],
+  [
+   "! CAUTION > (4) End of Teaching",
+   1
+  ],
+  [
+   "! CAUTION > ⑨ Host Download",
+   1
+  ],
+  [
+   "! CAUTION > 6.1.1.12 Alignment Reference Point Registration",
+   1
+  ],
+  [
+   "! CAUTION > Teaching - Paste Inspection",
+   1
+  ],
+  [
+   "6.2.2.5 Pickup Position Offset teaching（Metal mode – Die recognition）",
+   1
+  ],
+  [
+   "6.1.3.2 1st Die Pad Center Coordinates (1) Preparation",
+   1
+  ],
+  [
+   "II) Extractor – Position teaching (1) Preparation",
+   1
+  ],
+  [
+   "Press [START] button. Bond head moves to wait position.",
+   1
+  ],
+  [
+   "(2) Move to Teaching point",
+   1
+  ],
+  [
+   "(5) Teaching tool removing",
+   1
+  ],
+  [
+   "(4) Recognition data setting",
+   1
+  ],
+  [
+   "(2) Paste pattern registration",
+   1
+  ],
+  [
+   "(2) Teaching",
+   1
+  ],
+  [
+   "(2) θoffset teaching",
+   1
+  ],
+  [
+   "6.2.1.2 Preform Position XY Offset Teaching",
+   1
+  ],
+  [
+   "(4) Teaching tool removing",
+   1
+  ],
+  [
+   "Attach the teaching tool. And then touch [Confirm].",
+   1
+  ],
+  [
+   "(7) Holder set release position setting",
+   1
+  ],
+  [
+   "＜Pattern 2 ＞",
+   1
+  ],
+  [
+   "※You can choose the combination of “lower left corner and upper right corner”",
+   1
+  ],
+  [
+   "6.3.1.1 Wafer Holder",
+   1
+  ],
+  [
+   "(2) Wafer ring Extraction position",
+   1
+  ],
+  [
+   "(4) XY position adjustment",
+   1
+  ],
+  [
+   "（1）Move to Nozzle height Check position",
+   1
+  ],
+  [
+   "<Automatic Teaching>",
+   1
+  ],
+  [
+   "(3) Recognition pattern 1 related setting",
+   1
+  ],
+  [
+   "6.2.1.1 Preform height offset Teaching",
+   1
+  ],
+  [
+   "(4) Push position setting",
+   1
+  ],
+  [
+   "Nozzle HGT check teaching",
+   1
+  ],
+  [
+   "<Wafer Holder Manual >",
+   1
+  ],
+  [
+   "6.2.3 Lamination Offset Teaching",
+   1
+  ],
+  [
+   "(2) Die Center position",
+   1
+  ],
+  [
+   "1. List of Error Codes related to Common",
+   1
+  ],
+  [
+   "6.1.2.11.2 Paste form Inspection – Interference width set (1) Preparation",
+   1
+  ],
+  [
+   "＜Wafer Holder Manual>",
+   1
+  ],
+  [
+   "(2) θoffset teaching by die recognition",
+   1
+  ],
+  [
+   "6.2.2.1 Bonding Stage Height Offset teaching – 1 point offset",
+   1
+  ],
+  [
+   "Press [START] button to move the extractor to Lifter wait position.",
+   1
+  ],
+  [
+   "6.1.4.1 New Teaching",
+   1
+  ],
+  [
+   "(3) Confirmation of Row (Y) average",
+   1
+  ],
+  [
+   "<Manual Teach>",
+   1
+  ],
+  [
+   "＜Wafer Pitch＞",
+   1
+  ],
+  [
+   "(2) Teaching start",
+   1
+  ],
+  [
+   "<Point 1>",
+   1
+  ],
+  [
+   "Clearing No. of times to cycle paste refresh.",
+   1
+  ],
+  [
+   "6.2.2.8 Pickup Height Offset (On-dome mode) teaching",
+   1
+  ],
+  [
+   "(2) Height Teaching",
+   1
+  ],
+  [
+   "(1) Specifying position to teach the home position of wafer holder",
+   1
+  ],
+  [
+   "(2) Stage height teaching start",
+   1
+  ],
+  [
+   "<Edge 4＞",
+   1
+  ],
+  [
+   "6.2.2.6 Pickup position offset teaching（Metal mode – Position adjustment）",
+   1
+  ],
+  [
+   "Remove the die from the teaching tool and then touch [Confirmation] key",
+   1
+  ],
+  [
+   "I) Wafer Holder – XY Home Position Teaching [Figure 1: Brief Summary of Wafer Holder – XY Home Position Teaching]",
+   1
+  ],
+  [
+   "Extractor Origin 99999.9 μm",
+   1
+  ],
+  [
+   "※Make sure that the collet holds the die properly.",
+   1
+  ],
+  [
+   "(3) Registration of die",
+   1
+  ],
+  [
+   "(3)’ Input of $1 ^ { \\mathsf { s t } }$ Die Pad Center Position in <Manual Mode>",
+   1
+  ],
+  [
+   "＜Are set completion＞",
+   1
+  ],
+  [
+   "6.3.1 Teaching – Wafer Mechanism",
+   1
+  ],
+  [
+   "(9) Data registration",
+   1
+  ],
+  [
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+   1
+  ],
+  [
+   "II) Wafer Holder - θ Home Position Teaching",
+   1
+  ],
+  [
+   "Touch [Completion] key to register the data",
+   1
+  ],
+  [
+   "6.1.3.5 Paddle pitch (1) Preparation",
+   1
+  ],
+  [
+   "6.1.3.3 Registration Paddle Recognition (1) Preparation",
+   1
+  ],
+  [
+   "Offset Teaching - P/U Pos. (Metal mode - Pos. Adjust)",
+   1
+  ],
+  [
+   "Touch [Needle 1 Automatic Teaching] to choose the automatic teaching. And then touch [Fix]",
+   1
+  ],
+  [
+   "(3) θshift offset teaching",
+   1
+  ],
+  [
+   "＜Manual teach＞",
+   1
+  ],
+  [
+   "(8) Data registration",
+   1
+  ],
+  [
+   "6.2.2.10 Needle Position Z position offset (1) Preparation",
+   1
+  ],
+  [
+   "I) Extractor – Origin Teaching (1) Extractor – Origin position setting",
+   1
+  ],
+  [
+   "6.2.2.7 Pickup Height Offset teaching (On-Wafer mode)",
+   1
+  ],
+  [
+   "6.2.3.1 Lamination stage height offset teaching",
+   1
+  ],
+  [
+   "＜All paddle offset >",
+   1
+  ],
+  [
+   "Press [START] button to start teach.",
+   1
+  ],
+  [
+   "6.2.2.2 Bonding Stage Height Offset teaching – All paddle offset",
+   1
+  ],
+  [
+   "(2) Paddle recognition pattern teaching",
+   1
+  ],
+  [
+   "＜Point 2＞",
+   1
+  ],
+  [
+   "6.2.2 Bonding Offset Teaching",
+   1
+  ],
+  [
+   "(7) Data registration",
+   1
+  ],
+  [
+   "Press [START] button. Extractor move to Push position.",
+   1
+  ],
+  [
+   "6.2.1.3 Pasts Refresh Area Height Offset Teaching (1) Move to center of Paste Refresh Area",
+   1
+  ],
+  [
+   "<Wafer Pitch>",
+   1
+  ],
+  [
+   "(4) Confirmation of bonding position offset",
+   1
+  ],
+  [
+   "(3) Put in position setting",
+   1
+  ],
+  [
+   "(2) View position of 1<sup>st</sup> paddle",
+   1
+  ],
+  [
+   "Press [START] button. Ejection dome raises.",
+   1
+  ],
+  [
+   "(5) Lifter wait position setting",
+   1
+  ],
+  [
+   "Teaching - Paste Inspection(Paste Area)",
+   1
+  ],
+  [
+   "Press [START] button to fix the same position as the 1st point.",
+   1
+  ],
+  [
+   "Press [START] button. Extractor move to Put in position.",
+   1
+  ],
+  [
+   "LA teaching - LAH HGT",
+   1
+  ],
+  [
+   "(4) Lamination tool force correction teaching start",
+   1
+  ],
+  [
+   "6.2.1 Preform Offset Teaching",
+   1
+  ],
+  [
+   "Press [START] button. Extractor move to Lifter wait position.",
+   1
+  ],
+  [
+   "(4) Paddle pitch teaching",
+   1
+  ],
+  [
+   "(1) Preparations",
+   1
+  ],
+  [
+   "(3) Move to height teach position",
+   1
+  ],
+  [
+   "6.1.2.11 Arbitrary pattern inspection 6.1.2.11.1 Paste form- Pattern registration (1) Preparation",
+   1
+  ],
+  [
+   "Bond Y(Column) Offset Calculation",
+   1
+  ],
+  [
+   "(3) Paddle center teaching",
+   1
+  ],
+  [
+   "(3) Input of 1<sup>st</sup> Die Pad Center Position in < Auto Mode>",
+   1
+  ],
+  [
+   "（2）XY position adjustment",
+   1
+  ],
+  [
+   "(3) Re- Specifying the position to teach the home position of wafer holder",
+   1
+  ],
+  [
+   "6.3.3.1 Lamination Resolution Teaching (1) Preparation",
+   1
+  ],
+  [
+   "(2) Sample size input",
+   1
+  ],
+  [
+   "6.2.3.2 Lamination head height offset teaching (1) Preparation",
+   1
+  ],
+  [
+   "(b)Input of Last Die Pad Center Position in < Manual Mode>",
+   1
+  ],
+  [
+   "(2) Paddle pointing",
+   1
+  ],
+  [
+   "(4) Interference area set",
+   1
+  ],
+  [
+   "<Wafer holder – XY manual operation>",
+   1
+  ],
+  [
+   "6.1.4.4 Paddle Recognition Pattern Teaching (1) Preparation",
+   1
+  ],
+  [
+   "Press [START] button. Bonding head moves to pickup position.",
+   1
+  ],
+  [
+   "6.1.4 Lamination Recognition Register",
+   1
+  ],
+  [
+   "6.3.2.1 Bonding Resolution Teaching (1) Preparation",
+   1
+  ],
+  [
+   "6.3.2 Bonding Mechanism Teaching",
+   1
+  ],
+  [
+   "(5) Stage height teaching",
+   1
+  ],
+  [
+   "(2) Data confirmation",
+   1
+  ],
+  [
+   "Teaching – Holder XY Origin",
+   1
+  ],
+  [
+   "(6) Pattern registration",
+   1
+  ],
+  [
+   "Press [START] button. Bond head puts the die on the teaching tool.",
+   1
+  ],
+  [
+   "(9) End of Teaching",
+   1
+  ],
+  [
+   "(2) 2. Expander – elevating home position setting",
+   1
+  ],
+  [
+   "WH XY Manual Motion on Cursor Switch, align it with origin.",
+   1
+  ],
+  [
+   "(3) Die center teaching",
+   1
+  ],
+  [
+   "(6) Adjustment track position setting",
+   1
+  ],
+  [
+   "6.1.4.2 Die Center Teaching (1) Preparation",
+   1
+  ],
+  [
+   "(5) Date registration",
+   1
+  ],
+  [
+   "Completion",
+   1
+  ],
+  [
+   "＜Edge 1＞",
+   1
+  ],
+  [
+   "＜Nozzle Height Check Teaching＞",
+   1
+  ],
+  [
+   "6.1.3.6 Visual Inspection",
+   1
+  ],
+  [
+   "Bond new teaching end",
+   1
+  ],
+  [
+   "(3) Input of 1st Die Paddle Center Coordinates",
+   1
+  ],
+  [
+   "＜Edge 2＞",
+   1
+  ],
+  [
+   "Stick “position check tape” onto wafer table. And then touch [Confirm] key",
+   1
+  ],
+  [
+   "Offset Teaching - P/U Pos. (Metal mode - Die Rec.)",
+   1
+  ],
+  [
+   "6.2.3.3 Lamination Tool Force Correction Teach (1) Preparation",
+   1
+  ],
+  [
+   "Press [START] button to move the extractor to Push position",
+   1
+  ],
+  [
+   "6.3.1.2 Wafer Cassette Lifter / Extractor",
+   1
+  ],
+  [
+   "(3) Start teaching",
+   1
+  ],
+  [
+   "(3) XY offset teaching by recognition",
+   1
+  ],
+  [
+   "Press [START] button. Bonding head move to die pickup position.",
+   1
+  ],
+  [
+   "6.2.2.11 Row (Y) position offset teaching.",
+   1
+  ],
+  [
+   "IV) Wafer Holder – Wafer loading/unloading Position Teaching (1) Wafer holder – Wafer Loading/Unloading position setting",
+   1
+  ],
+  [
+   "III) Expand – Home Position Z Teaching (1) Setup operation",
+   1
+  ],
+  [
+   "(2) Die recognition pattern teaching",
+   1
+  ],
+  [
+   "Teaching – R/U Pos.",
+   1
+  ],
+  [
+   "(2) Paste Refresh Area height Teach position",
+   1
+  ],
+  [
+   "(8) End of Teaching",
+   1
+  ],
+  [
+   "Press [START] button. The machine recognizes the die and figures XY offset.",
+   1
+  ],
+  [
+   "Press [START] button. The machine recognizes the die and figures theθoffset.",
+   1
+  ],
+  [
+   "<Wafer holder - θ manual operation>",
+   1
+  ],
+  [
+   "(4) XY offset input",
+   1
+  ],
+  [
+   "Attach a teaching jig tol to WAF dome.",
+   1
+  ],
+  [
+   "（3）Nozzle Height Check Teaching",
+   1
+  ],
+  [
+   "＜Area set completion＞",
+   1
+  ],
+  [
+   "(8) Moving to Extractor origin position",
+   1
+  ],
+  [
+   "6.3.3 Lamination Mechanism Teaching",
+   1
+  ],
+  [
+   "6.1.3.4 Registration Block Recognition (1) Preparation",
+   1
+  ],
+  [
+   "※ You can choose the combination of “left-bottom corner and right top corner” instead of “left-top and right bottom”",
+   1
+  ],
+  [
+   "(2) Needle 1Z position teaching",
+   1
+  ],
+  [
+   "6.1.4.3 Die Recognition Pattern Teaching",
+   1
+  ],
+  [
+   "6.2.2.3 Bonding Position XY Offset Teaching",
+   1
+  ],
+  [
+   "(2) Head height teaching start",
+   1
+  ],
+  [
+   "(6) Calibration of inspection point 1 and Point 2",
+   1
+  ],
+  [
+   "Press [START] button. Extractor move to Wafer ring Extraction.",
+   1
+  ],
+  [
+   "[START] button: to start teaching",
+   1
+  ],
+  [
+   "6.1.3.1 New Teaching",
+   1
+  ],
+  [
+   "6.2.2.4 Bonding Position θ Offset Teaching",
+   1
+  ],
+  [
+   "(1) Mode setting",
+   1
+  ],
+  [
+   "(5) Recognition Pattern setting for “Angle X”",
+   1
+  ],
+  [
+   "(5) Inspection area registration",
+   1
+  ]
+ ]
+}

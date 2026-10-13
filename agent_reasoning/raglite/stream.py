@@ -24,7 +24,7 @@ from system_prompt import RAGLITE_SYSTEM_PROMPT  # noqa: E402
 from tools import dispatch, registry  # noqa: E402
 from agent_reasoning.ReAct.support.llm import (  # noqa: E402
     get_client, llm_create_with_retry, STREAM_TIMEOUT, no_think_extra,
-    arm_stream_watchdog,
+    arm_stream_watchdog, LLMServiceUnavailable,
 )
 from agent_reasoning.ReAct.support.tool_resilience import call_with_resilience  # noqa: E402
 from agent_reasoning.ReAct.trace import TraceRecorder  # noqa: E402
@@ -45,12 +45,14 @@ def _extract_usage(chunk):
     }
 
 
-def _do_search(message, hard_deadline, search_future):
+def _do_search(message, hard_deadline, search_future, scope_stem=""):
     """执行 search_text:优先取投机检索 future,失败回退同步调用。
-    返回 (result, err)。"""
+    返回 (result, err)。scope_stem 非空时注入会话锁定的目标文档族(轮次9)。"""
     spec = registry.get("search_text")
     args = {"query": message, "k": C.RAGLITE_SEARCH_K,
             "score_ratio": C.RAGLITE_SEARCH_SCORE_RATIO}
+    if scope_stem:
+        args["scope_stem"] = scope_stem
     if search_future is not None:
         budget = C.RAGLITE_MAX_TOTAL_SECONDS
         if hard_deadline:
@@ -114,7 +116,7 @@ def _rewrite_query(message: str, prior_turns: list[dict], trace_id: str) -> str:
         for t in prior_turns[-2:] if t.get("role") == "user")
     try:
         resp, err = llm_create_with_retry(
-            get_client(), trace_id=trace_id,
+            get_client(), trace_id=trace_id, site="raglite-rewrite",
             model=C.MODEL_LIGHT,
             messages=[
                 {"role": "system", "content":
@@ -144,7 +146,8 @@ def raglite_answer_stream(message: str,
                           thread_id: Optional[str] = None,
                           hard_deadline: Optional[float] = None,
                           qc_feedback: Optional[str] = None,
-                          search_future=None):
+                          search_future=None,
+                          scope_stem: str = ""):
     """生成器:执行 raglite 单检索单作答,yield SSE 事件 dict。"""
     history = history or []
 
@@ -164,7 +167,8 @@ def raglite_answer_stream(message: str,
 
     # ---- 1 次检索(投机 future 或同步)----
     t_search = time.time()
-    result, err = _do_search(message, hard_deadline, search_future)
+    result, err = _do_search(message, hard_deadline, search_future,
+                             scope_stem=scope_stem)
     chunks = _prompt_chunks(result) if err is None else []
     if err is None:
         search_count = 1
@@ -218,10 +222,20 @@ def raglite_answer_stream(message: str,
                          "content": turn.get("content", "")})
     user_content = message
     if chunks:
+        # 轻模型抽关键句压缩(熔断+超时+降级):失败回退原截断,不阻断作答
+        picked = None
+        try:
+            from compressor import compress_chunks
+            picked = compress_chunks(chunks, message, trace_id=trace_id,
+                                     min_chars=C.CONTEXT_COMPRESS_RAGLITE_MIN_CHARS)
+        except Exception:  # noqa: BLE001
+            picked = None
         blocks = []
-        for c in chunks[:C.RAGLITE_PROMPT_CHUNKS]:
+        for i, c in enumerate(chunks[:C.RAGLITE_PROMPT_CHUNKS]):
             head = c["source_stem"] + (f" p{c['page']}" if c["page"] else "")
-            blocks.append(f"【{head}】\n{c['content'][:C.RAGLITE_CHUNK_CHARS]}")
+            body = (picked[i] if picked and i < len(picked) and picked[i]
+                    else c["content"][:C.RAGLITE_CHUNK_CHARS])
+            blocks.append(f"【{head}】\n{body}")
         user_content = ("以下是检索到的内部资料:\n\n" + "\n\n".join(blocks)
                         + "\n\n---\n问题:" + message)
     if qc_feedback:
@@ -239,20 +253,27 @@ def raglite_answer_stream(message: str,
                          duration_ms=int((time.time() - t_search) * 1000),
                          ok=err is None, category="retrieval")
     t_llm = time.time()
-    stream, lerr = llm_create_with_retry(
-        get_client(), trace_id=trace_id,
-        model=C.TIER_MODEL_REACT,
-        messages=messages,
-        stream=True, stream_options={"include_usage": True},
-        temperature=0.3, timeout=STREAM_TIMEOUT,
-        max_tokens=C.RAGLITE_ANSWER_MAX_TOKENS,
-        **no_think_extra(),
-    )
+    try:
+        stream, lerr = llm_create_with_retry(
+            get_client(), trace_id=trace_id, site="raglite-answer",
+            model=C.TIER_MODEL_REACT,
+            messages=messages,
+            stream=True, stream_options={"include_usage": True},
+            temperature=0.3, timeout=STREAM_TIMEOUT,
+            max_tokens=C.RAGLITE_ANSWER_MAX_TOKENS,
+            **no_think_extra(),
+        )
+    except LLMServiceUnavailable as e:
+        # 熔断器放弃(连续 2 次半开试探失败):按用户口径认定本次作答无效,
+        # 明确报"该环节 LLM 服务不可用",不走静默降级。
+        stream, lerr = None, e
     if lerr is not None:
         err_doc = recorder.record_error(1, "llm_create", lerr)
         yield {"type": "error_trace", "trace_id": trace_id, **err_doc}
+        _msg = (str(lerr) if isinstance(lerr, LLMServiceUnavailable)
+                else f"模型请求失败: {str(lerr)[:160]}")
         yield {"type": "error", "trace_id": trace_id, "step": 1,
-               "message": f"模型请求失败: {str(lerr)[:160]}"}
+               "message": _msg}
         recorder.finish_step(step_doc, "error")
         recorder.final_reason = "error"
         return
@@ -349,6 +370,7 @@ def raglite_answer_stream(message: str,
         try:
             resp, rerr = llm_create_with_retry(
                 get_client(), trace_id=trace_id, retries=1,
+                site="raglite-rescue",
                 model=str(getattr(C, "MODEL_LIGHT", "")
                           or "doubao-seed-2.0-lite"),
                 messages=messages,

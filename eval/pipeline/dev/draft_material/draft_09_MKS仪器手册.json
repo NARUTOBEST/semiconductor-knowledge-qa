@@ -1,0 +1,358 @@
+[
+ {
+  "query_id": "MKS-01",
+  "query": "Q开关激光器打出来的脉冲大概什么量级？脉宽、单脉冲能量和重复频率各在什么范围？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Q开关产生ns级激光脉冲，单脉冲能量很大，达mJ或更高；重复频率通常在几Hz到许多kHz之间。原理是先把腔内损耗加大抑制出光、积累远超阈值的粒子数反转，再把腔反馈接回，Q值（腔内储能与每周期损耗之比）由低切到高，储能以短而强的脉冲释放。",
+  "success_criteria": "答出脉宽ns级、能量mJ或更高、重复频率几Hz至许多kHz三个要点，单位正确。",
+  "evidence": "--[p38]-- Q-switching results in ns laser pulses with very large pulse energies of mJ or greater. They often operate with repetition rates between a few Hz and many kHz [30]. --[p38]-- The quality factor (Q) is the ratio of the energy stored in a cavity to its energy loss per cycle."
+ },
+ {
+  "query_id": "MKS-02",
+  "query": "Class 2 激光为什么短时间看一眼问题不大？它对功率和波长范围有什么限制？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Class 2 为低功率激光，辐射仅限可见光谱段400-700 nm，最大输出功率&lt;1 mW；由于人眼的眨眼反应，有限曝光（最长0.25 s）内对眼睛不危险。典型例子有对准用HeNe激光器、许多激光笔、超市扫描器。",
+  "success_criteria": "答出波长400-700 nm、最大功率&lt;1 mW、眨眼反应保护曝光不超过0.25 s三点。",
+  "evidence": "--[p44]-- 2 | (low power) Laser radiation limited to visible spectral range (400-700 nm) with maximumoutput power &lt; 1 mW. Due to the blink response, not dangerous for eye in case of limitedexposure (up to 0.25 s). | Alignment HeNe lasers,many laser pointers,supermarket scanners"
+ },
+ {
+  "query_id": "MKS-03",
+  "query": "13.5 nm 的 EUV 光刻为什么整条光路都得抽真空，掩模也只能做成反射式的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "因为13.5 nm光被所有固体、液体和气体强烈吸收，所以整个光学系统必须维持高真空；由于没有任何光学材料对EUV透明（不存在13.5 nm下透明的光学材料），EUV扫描光刻机的掩模也必须是反射式的，系统内反射镜为Mo/Si多层膜Bragg反射镜，最多可反射70%的入射光。",
+  "success_criteria": "答出13.5 nm被所有固液气强烈吸收需高真空、无透明光学材料故掩模/光学件全为反射式两点。",
+  "evidence": "--[p178]-- The entire optical system is maintained under high vacuum since 13.5 nm light is strongly absorbed by all solids, liquids, and gases. The mirrors are also Bragg reflectors and can reflect up to 70% of the incident light. --[p178]-- Since the optics are all reflective, the masks used in EUV scanners must also be reflective, since no optical materials are transparent to EUV."
+ },
+ {
+  "query_id": "MKS-04",
+  "query": "MKS 那款通用型热电堆探头 30A-BB-18，功率量程和能量量程分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "30A-BB-18为通用型、宽带吸收热电堆：功率模式量程10 mW-30 W（功率标尺30W/5W/0.5W，噪声0.5 mW）；能量模式量程6 mJ-30 J（能量标尺30J/3J/300mJ，最小能量6 mJ）。",
+  "success_criteria": "答出功率范围10mW-30W与能量范围6mJ-30J，单位正确。",
+  "evidence": "--[p74 [表]]-- Model 30A-BB-18Use General purpose / Absorber Type Broadband / Power Range 10mW-30W / Energy Range | 6mJ - 30J / Energy Scales | 30J/3J/300mJ"
+ },
+ {
+  "query_id": "MKS-05",
+  "query": "给探测器选型的时候常看到 NEP 这个参数，它到底是什么含义？单位怎么标注？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "NEP（噪声等效功率）是使输出信号信噪比SNR等于1所需的输入功率，因此是传感器最小可探测信号的量度；单位通常为 W/Hz^(1/2)，且必须注明波长、调制频率、探测面积、温度和带宽等条件。可探测度D*与NEP互为倒数。",
+  "success_criteria": "答出NEP定义（SNR=1所需输入功率/最小可探测信号）及单位W/Hz^(1/2)。",
+  "evidence": "--[p65]-- The noise equivalent power (NEP) is the input power necessary to give an output signal that gives a SNR equal to one. Therefore, NEP is a measure of the minimum detectable signal for a sensor. --[p65]-- NEP values are typically given in units of W/Hz1/2 ... Detectivity is the reciprocal of NEP"
+ },
+ {
+  "query_id": "MKS-06",
+  "query": "HeNe 激光和固体激光器的 M² 一般是多少？M²=1 到底代表什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "常见HeNe激光器M²&lt;1.1（近理想高斯束）；许多固体激光器M²在1.1-1.3；准直后发射基横模的激光二极管M²为1.1-1.7，高能多模激光器M²可达10-100。M²=1即理想高斯束，可聚焦到最小光斑直径；M²越大，聚焦光斑直径按M²比例增大。",
+  "success_criteria": "答出HeNe M²&lt;1.1、固体激光1.1-1.3，并说明M²=1时可聚焦到最小光斑。",
+  "evidence": "--[p83]-- A commonly-available helium-neon laser emits a near-ideal Gaussian beam with a value of M2 &lt; 1.1. For many solid-state lasers, M² is in the range of 1.1-1.3. --[p82]-- an ideal Gaussian beam (i.e., M2 = 1) can be focused to a minimum spot diameter, whereas beams of higher M² values focus to larger spot diameters in proportion to the M² value."
+ },
+ {
+  "query_id": "MKS-07",
+  "query": "MultiGas 2030 这台 FTIR 气体分析仪一次能同时测多少种气体、多快出结果？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "MKS MultiGas 2030 是高速、高分辨率的FTIR气体分析仪，可在1秒内同时监测30种以上的排放气体。",
+  "success_criteria": "答出同时监测&gt;30种气体、用时不到1秒。",
+  "evidence": "--[p270]-- MKS' MultiGasTM 2030 system (Figure 271) is a high-speed, high-resolution FTIR-based gas analyzer designed to simultaneously monitor more than 30 emission gases in under a second."
+ },
+ {
+  "query_id": "MKS-08",
+  "query": "热探测器和光电二极管的响应度单位为什么一个用 V/W 一个用 A/W？同样 1 W 的紫外光和红外光打上去响应一样吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "热探测器把温度变化转换为电压，响应度单位为V/W；光电二极管把吸收的光子在半导体内转换为电流，响应度单位为A/W。热探测器响应的是热量，只要受热材料吸收均匀，1 W紫外光子与1 W红外光子产生相同响应（光谱响应平坦）；而光子探测器因光子能量与波长成反比、且只有高于带隙能量的光子才被吸收，紫外段响应显著低于红外段且强波长依赖。",
+  "success_criteria": "答出热探测器V/W、光电二极管A/W；热探测器对等功率的UV与IR响应相同，光子探测器则不同。",
+  "evidence": "--[p64]-- Thermal detectors convert a temperature change into a voltage (see Section II.A.2); therefore, their responsivity is typically given in units of V/W. Photodiodes convert absorbed photons in a semiconductor into a current (see Section II.A.2); therefore, the responsivity is given in A/W. --[p64]-- Thermal detectors respond to heat and so one watt delivered by a UV photon produces the same response as one watt delivered by an IR photon."
+ },
+ {
+  "query_id": "MKS-09",
+  "query": "3B 类和 4 类激光在功率上限上怎么划分？手册里各给了什么典型激光器做例子？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "3B类（中等功率）：直视对眼危险、特殊条件下对皮肤危险，漫反射一般无害，最大输出功率&lt;500 mW（可见与非可见辐射均适用），典型例子为100 mW CW倍频Nd:YAG激光器。4类（高功率）：对眼和皮肤都非常危险，漫反射光也可能伤眼，辐射可能引起火灾或爆炸，典型例子为40 W Q开关Nd:YAG激光器和非封闭 setup 下的4 kW薄片（thin-disk）激光器。",
+  "success_criteria": "答出3B上限&lt;500 mW及其例子、4类两个例子（40 W Q开关Nd:YAG、4 kW薄片激光器）。",
+  "evidence": "--[p44]-- 3B | (moderate power) Laser radiation dangerous for eye with direct viewing and for the skin underspecial conditions. Diffuse radiation, e.g., scattered from diffuse surface, is typically harmless.Maximum output power &lt; 500 mW (for visible and non-visible raditaion). | 100-mW CW frequency-doubled Nd:YAG laser --[p44]-- 4 | (high power) Laser radiation is very dangerous for the eye and for the skin. Even light fromdiffuse reflections may be hazardous for the eye. The radiation may cause fire or explosions. | 40-W Q-switched Nd:YAGlaser, 4-kW thin-disk laser ina non-encapsulated setup"
+ },
+ {
+  "query_id": "MKS-10",
+  "query": "做超快放大想选增益带宽宽的介质：手册里 Ti:Sapphire 和 HeNe 的增益带宽各是什么量级？腔内纵模数 N 怎么估？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HeNe等气体激光因原子跃迁带宽很窄，约1 GHz量级；Ti:Al2O3（Ti:Sapphire）等固体激光带宽极宽，可超过100 THz。腔内可起振纵模数 N = B/Δν（增益带宽除以谐振腔频率间隔），若Ti:Al2O3的整个自发发射谱都可用于增益，N可超过200,000，这也是实现锁模产生短脉冲的基础。",
+  "success_criteria": "答出HeNe约1 GHz、Ti:Sapphire可超100 THz，并给出公式N=B/Δν及N可超200,000。",
+  "evidence": "--[p27]-- Gas lasers, like the HeNe laser, typically have very narrow bandwidths on the order of 1 GHz owing to their atomic transitions. --[p27]-- Conversely, solid-state lasers, such as the Ti:Al2O3 ... can have extremely wide bandwidths exceeding 100 THz. --[p27]-- The number of these lasing modes (N) is given by the gain bandwidth divided by the resonator frequency spacing given by Equation (5): N = B/Δv ... if the entire spontaneous emission spectrum for a Ti:Al2O3 laser shown in Figure 11 is available for gain, N can exceed 200,000."
+ },
+ {
+  "query_id": "MKS-11",
+  "query": "机载 LiDAR 基本都用 1064 nm，这个波长有什么短板？对激光线宽和接收端滤光片提出了什么要求？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "1064 nm是机载LiDAR最常用波长（激光器/探测器易得、常见目标反射率高），主要短板是太阳光谱辐照造成的背景噪声。为提高该波段的SNR，接收端采用窄带通滤光片，因此激光线宽必须足够窄（如&lt;0.1 nm）；典型应用中要求激光在&lt;2 nm的指定带宽内递送90%以上的脉冲能量。",
+  "success_criteria": "答出太阳背景噪声问题、激光线宽需&lt;0.1 nm、90%脉冲能量落在&lt;2 nm带宽内三点。",
+  "evidence": "--[p225]-- As discussed above, 1064 nm is the most common wavelength for airborne LiDAR systems due to the laser/detector availability and high reflectance from common targets. One major limitation of this wavelength is the background noise created by the spectral irradiance of the sun. To improve the SNR in this wavelength regime, LiDAR receivers employ a narrow bandpass filter. It is therefore essential that the spectral width of the laser be sufficiently narrow (e.g., &lt; 0.1 nm). --[p225]-- In typical applications, the laser is required to deliver over 90% of its pulse energy within a specified bandwidth of &lt; 2 nm."
+ },
+ {
+  "query_id": "MKS-12",
+  "query": "我有一台 100 mW 的连续激光要测功率，直接打到 MKS 光电二极管探头上会不会饱和？加可拆卸滤光片最多能测到多大功率？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "100 mW超过内置滤光片的30 mW上限，直接测量会饱和。MKS光电二极管内置衰减滤光片，可承受最高30 mW入射功率不饱和；许多型号另有可拆卸滤光片，根据型号不同可测量至300 mW到3 W。所以100 mW需装上附加滤光片（选支持300 mW-3 W的型号）。",
+  "success_criteria": "答出内置滤光下限上限30 mW、加可拆卸滤光片后可测300 mW至3 W，并据此判断100 mW需加滤光片。",
+  "evidence": "--[p75]-- MKS photodiodes are typically constructed with a built-in filter that reduces the power on the sensor so it can accommodate incident laser powers up to 30 mW without saturation. Furthermore, many photodiodes possess an additional removable filter that enables measurements up to 300 mW to 3 W, depending on the model."
+ },
+ {
+  "query_id": "MKS-13",
+  "query": "单色仪和摄谱仪（spectrograph）都是光栅分光，我要测一条光谱该选哪个？两者在速度和分辨率上怎么取舍？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "单色仪用单个光电二极管窄带通检测、通过转动光栅组件逐点扫描拼出光谱——分辨率高但采集速度慢；摄谱仪（spectrograph）带通极宽，用光电二极管阵列（PDA）一次 essentially 探测整条光谱——采集快但光谱分辨率较差。两者共享光栅色散、成像光学与探测器等部件，差别主要在光谱的采集与探测方式。",
+  "success_criteria": "答出单色仪=窄带通单管扫描/高分辨慢速，摄谱仪=宽带PDA整谱采集/快速低分辨。",
+  "evidence": "--[p99]-- A monochromator typically detects light using a narrow bandpass on a single photodiode and builds up a spectrum by scanning the grating assembly. This results in a spectrum with high-resolution but slow acquisition speed. A spectrograph has a very wide bandpass and essentially detects a whole spectrum using a photodiode array (PDA). This gives rise to fast acquisition but poorer spectral resolution."
+ },
+ {
+  "query_id": "MKS-14",
+  "query": "车间一台脉冲激光器：单脉冲能量 1 J、脉宽 10 ns、重复频率 10 Hz。它的平均功率和峰值功率各是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "平均功率=脉冲能量×重复频率=1 J×10 Hz=10 W；峰值功率≈脉冲能量/脉宽=1 J/10 ns=1×10^11 W=1,000,000 kW（100 MW）。与手册示例完全一致：10 ns、1 J、10 Hz 的激光平均功率 10 W，峰值功率 1,000,000 kW。",
+  "success_criteria": "平均功率10 W、峰值功率1,000,000 kW（即10^11 W/100 MW），单位正确。",
+  "evidence": "--[p29]-- For a pulsed laser, an average output power can also be defined as the product of the pulse energy and the repetition rate --[p29]-- peak output power or peak power is proportional to the pulse energy divided by the width of the pulse --[p29]-- For a 10 ns laser with a pulse energy of 1 Joule (J) operating at 10 Hz, an average power of 10 W is generated, but the laser's peak power is 1,000,000 kW."
+ },
+ {
+  "query_id": "MKS-15",
+  "query": "一支 1064 nm 的光纤激光，光束质量 M²=1.3，按手册的定义它的光参积（BPP）等于多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "手册定义 BPP = M²λ/π = 2W_M·θ_M，另有光束传播因子 K=1/M²。代入：BPP = 1.3 × 1.064 µm / π ≈ 0.44 µm·rad，即约 0.44 mm·mrad。",
+  "success_criteria": "给出公式BPP=M²λ/π并算得约0.44 mm·mrad（±5%）。",
+  "evidence": "--[p83]-- Finally, additional beam quality metrics include the Beam Propagation Factor (K) where K = 1/M2 as well as the Beam Parameter Product (BPP), which is defined as BPP = M2λ/π = 2WMθM."
+ },
+ {
+  "query_id": "MKS-16",
+  "query": "一只激光二极管，微分响应度 0.4 mW/mA、阈值电流 20 mA。注入电流加到 100 mA 时，稳态输出光功率是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按手册L-I关系 Po = ℜd(i − it)（其中 ℜd = ηd·1.24/λ0，单位W/A或mW/mA，it为L-I曲线与x轴交点处的阈值电流）：Po = 0.4 mW/mA × (100 − 20) mA = 0.4 × 80 = 32 mW。0.4 mW/mA 落在手册给出的激光二极管 ℜd 典型范围 0.2-1 mW/mA 内，结果合理。",
+  "success_criteria": "给出公式Po=ℜd(i−it)并算得32 mW。",
+  "evidence": "--[p50]-- Po = ℜd (i − it) where ℜd = ηd 1.24/λ0 --[p50]-- The current value at which the line intersects the x-axis and produces zero emission is the threshold current for lasing --[p54]-- The values of ℜd for a laser diode often fall in the range of 0.2 – 1 mW/mA (or W/A)."
+ },
+ {
+  "query_id": "MKS-17",
+  "query": "我的 Q 开关激光器单脉冲几十 mJ，想逐个脉冲测能量。用 30A-BB-18 热电堆探头行不行？测的时候有什么限制？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "可行（需先检索Q开关输出特性，再检索热电堆能量测量能力做匹配）：Q开关脉冲为ns级、单脉冲能量mJ或更高，而30A-BB-18能量模式量程6 mJ-30 J，覆盖几十mJ单脉冲。限制：热电堆测单 shot 能量是对盘上流过的功率做时间积分，盘升降温典型需数秒，所以最多每几秒测一个脉冲，不能逐发连续记录；若脉宽&lt;10 µs 应用体吸收式热电堆替代表面吸收式以免表面被汽化。",
+  "success_criteria": "判断可行（能量范围6mJ-30J覆盖几十mJ），并指出每几秒最多测一个脉冲的限制。",
+  "evidence": "--[p38]-- Q-switching results in ns laser pulses with very large pulse energies of mJ or greater. --[p74]-- Although these thermal power sensors are used primarily to measure power, they can also measure single shot energies as well, where they integrate the power flowing through the disc over time and thus measure energy --[p74 [表]]-- Energy Range | 6mJ - 30J --[p74]-- The typical time it takes for the disc to heat up and cool down is several seconds, so these thermal sensors can only measure one pulse every several seconds at most."
+ },
+ {
+  "query_id": "MKS-18",
+  "query": "手册里说机载 LiDAR 的 1064 nm 激光要足够窄的线宽。MKS 的 VGEN-SP-NL 激光器线宽指标是多少，达不达得到这个要求？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "需两跳检索：先查得1064 nm机载LiDAR为抑制太阳背景噪声要求激光线宽足够窄（如&lt;0.1 nm）；再查Table 15中VGEN-SP-NL光纤激光器规格：线宽FWHM&lt;0.1 nm、波长1064/532/1550 nm。结论：VGEN-SP-NL的FWHM&lt;0.1 nm恰好满足&lt;0.1 nm的要求，可配窄带通滤光片获得高SNR。",
+  "success_criteria": "先给出要求线宽&lt;0.1 nm，再给出VGEN-SP-NL线宽FWHM&lt;0.1 nm并判定满足。",
+  "evidence": "--[p225]-- It is therefore essential that the spectral width of the laser be sufficiently narrow (e.g., &lt; 0.1 nm). --[p226]-- Line Width (FWHM) | &lt; 0.1 nm | High SNR --[p226]-- Wavelength | 1064 nm532 nm1550 nm"
+ },
+ {
+  "query_id": "MKS-19",
+  "query": "我们产线想上一台 MultiGas 2030，这台机器报价大概多少？交货周期和质保期是多久？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该手册未涉及价格、交货周期、质保期等商务信息：手册只给出MultiGas 2030的技术性能（高速高分辨率FTIR气体分析仪，1秒内同时监测30种以上排放气体）。正确做法是明确告知手册中不存在该信息，建议联系MKS或其代理商获取报价与商务条款，不得编造数字。",
+  "success_criteria": "明确说明手册未包含价格/交期/质保信息，不编造数字，并建议联系厂商。",
+  "evidence": "--[p270]-- MKS' MultiGasTM 2030 system (Figure 271) is a high-speed, high-resolution FTIR-based gas analyzer designed to simultaneously monitor more than 30 emission gases in under a second. （该节及全手册仅有技术描述，无价格、交期、质保内容）"
+ },
+ {
+  "query_id": "MKS-20",
+  "query": "PD300-UV 光电二极管探头允许的工作温度范围是多少？我们车间夏天能到 45 °C，会不会超规格？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该手册未给出PD300-UV的工作温度范围（或存储温度）规格：其规格表只列出探测器类型（硅）、光敏面10x10mm、光谱范围200-1100 nm、功率范围20 pW-3 mW（滤光片取出）/2 µW-300 mW（滤光片装入）、损伤阈值、最大脉冲能量等项，不含温度指标。正确做法是告知手册未涉及该参数、无法据此判断45 °C是否超规格，建议向厂家确认，不得编造温度限值。",
+  "success_criteria": "明确说明手册规格表中无工作温度范围参数，不编造温度限值，建议向厂家确认。",
+  "evidence": "--[p76]-- Model PD300-UV/PD300-UV-193Use Lowest powers from 200-1100nm / Detector Type | silicon / Aperture | 10x10mm / Spectral Range nm | 200-1100 | 220-1100 / Power Range | 20pW to 3mW | 2μW to 300mW / Damage Threshold W/cm² | 10 | 50 （规格表未含工作温度范围项）"
+ },
+ {
+  "query_id": "MKS-21",
+  "query": "我拿一片聚焦透镜处理准直高斯光束，心里没底：聚焦后束腰落在哪、有多大？光路上探测器前开多大孔径才不会把功率削掉？还有瑞利范围（Rayleigh range）是怎么定义的？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三处综合：1) 准直高斯束（2·zR&gt;&gt;f）经薄透镜后，新束腰位于透镜焦点处，其大小=焦距f与原发散角的乘积（束腰=f×θ）；2) 孔径：以半径1.5×W的圆对辐照度积分可得99%的总功率，故孔径半径取1.5倍光束半径即可保留99%功率；3) 瑞利范围 zR = πW0²/λ，定义为从束腰到光束半径增大√2倍处的距离（也是辐照度降至束腰峰值一半处），两倍瑞利范围称为共焦参数（焦深）。",
+  "success_criteria": "三个要点齐全：束腰在焦点且=f×原发散角、孔径半径1.5×W保99%功率、zR=πW0²/λ（半径增大√2倍）。",
+  "evidence": "--[p82]-- When a collimated beam ... encounters a lens, the resulting beam waist is simply the product of the focal length and original divergence ... with the waist positioned at the focal point of the lens. --[p80]-- integrating the irradiance within a circle of radius 1.5×W results in 99% of the total power. --[p81]-- zR is known as the Rayleigh range and represents the distance from the waist where the radius increases by a factor of √2 ... zR = πW0²/λ --[p81]-- Twice the Rayleigh range is called the confocal parameter (or depth-of-focus)"
+ },
+ {
+  "query_id": "MKS-22",
+  "query": "车间那台 4 类激光器要做安全规程评审。为什么激光对眼睛的危害最突出？MPE 是什么、怎么规定的？工程控制、程序控制和个人防护装备各要落实哪些？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节综合：1) 眼睛最易受辐射伤害，因为眼晶状体能把准直激光聚焦到视网膜上极小光斑，产生远高于瞳孔处的强度，眼损伤后果也更严重（如部分失明）且可在更低功率下发生；4类激光连漫反射光都可能伤眼，辐射还可能引起火灾或爆炸。2) MPE（最大允许曝光量）按给定强度下的允许曝光时间制表，取决于激光波长、功率、光束尺寸、重复频率及人眼自身的光谱透射。3) 控制措施分三类：工程控制（防护外壳、光束衰减器/快门、钥匙开关、光束封闭、受控光路、光闸、联锁、警告灯等）、程序控制（激光安全员、标准操作规程、访客限制、培训、维护手册、警告标识等）、PPE（护目镜/激光防护眼镜最重要，其衰减系数须保证不超过MPE）。",
+  "success_criteria": "答出晶状体聚焦致视网膜高强度、MPE按允许曝光时间制表、三类控制措施各举至少两例且指出护目镜是最重要的PPE。",
+  "evidence": "--[p44]-- Eye injuries generally have more dire consequences, e.g., partial loss of vision, and can occur at lower laser powers. These low thresholds exist because the lens of the eye can focus collimated laser light to a tiny spot on the retina --[p44]-- maximum permissible exposure (MPE) limits are tabulated in terms of the allowable exposure time for a given intensity --[p44 [表]]-- Table 4. Control measures for Class 3b and Class 4 lasers [43]. Engineering Procedural Personal ProtectiveControls Controls Equipment ... Protective housing and service panel | Laser safety officer | Eyewear --[p45]-- protective eyewear or laser safety glasses or goggles are the most important type of PPE --[p45]-- Laser goggles should have the appropriate attenuation factor, e.g., transmission reduction, to ensure that the MPE is never exceeded"
+ },
+ {
+  "query_id": "MKS-23",
+  "query": "一片刻线密度 600 grooves/mm 的光栅，500 nm 的光垂直入射（α=0°），取一级衍射（m=1），衍射角是多少度？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索得光栅方程 mλ = dG(sinα + sinβm)，各角自光栅法线量起。dG = 1/600 mm ≈ 1.667 µm；m=1、α=0° 时 sinβ = λ/dG = 500 nm / 1667 nm = 0.3，故 β = arcsin(0.3) ≈ 17.5°（约17.46°）。",
+  "success_criteria": "写出光栅方程mλ=dG(sinα+sinβm)，算得β≈17.5°（±0.5°）。",
+  "evidence": "--[p97]-- mλ = dG(sinα + sinβm). (15) --[p97]-- Light of wavelength λ is incident at an angle α and diffracted by the grating (with a groove spacing dG) along a set of angles βm. These angles are measured from the grating normal ... In Equation (15), m is the order of diffraction, which is an integer."
+ },
+ {
+  "query_id": "MKS-24",
+  "query": "EUV 光刻里，光源发出的 13.5 nm 光穿过 ASML 的 50 nm 厚 pellicle 膜层后，又要经过 11 次镜面反射才到硅片。假设每面反射镜都做到上限反射率，最终到达硅片的能量还剩百分之几？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索两个参数：50 nm 厚 pellicle 膜可透射85%的EUV光；EUV系统反射镜为Bragg反射镜，上限反射70%入射光，且由于反射不到100%，光源与硅片之间反射镜数量对到达硅片的束流能量影响显著。计算：0.85 × 0.70^11 = 0.85 × 0.01977 ≈ 0.0168，即约1.7%（若不计pellicle，仅11次反射约为0.70^11≈2.0%）。",
+  "success_criteria": "算式0.85×0.70^11，结果约1.7%（±0.2%），并说明反射镜上限反射率70%、pellicle透射85%的出处。",
+  "evidence": "--[p179]-- 50 nm thick pellicle membranes supplied by ASML can transmit 85% of the EUV light (useful for lower power EUV) [269]. --[p178]-- The mirrors are also Bragg reflectors and can reflect up to 70% of the incident light. --[p178]-- Since reflection is not 100%, the number of reflectors between the source and the substrate has a significant impact on the energy of the EUV beam at the substrate surface."
+ },
+ {
+  "query_id": "MKS-25",
+  "query": "我在评估机载 LiDAR 方案，要求垂直（距离）分辨率优于 50 cm。请先查一下手册里距离分辨率跟激光脉宽是什么关系、现役传感器脉宽什么水平，再查 VGEN-SP-NL 的脉宽指标，算出它对应的分辨率，看能不能达标。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "MKS 仪器手册光子技术原理与应用",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "三跳链式：1) 检索得距离分辨率公式 δR = cτ/2（c为真空光速，τ为脉宽），现役LiDAR传感器脉宽2-5 ns（主要受接收机带宽限制），对应δR=30-75 cm；2) 再检索Table 15：VGEN-SP-NL脉宽&lt;3 ns；3) 计算δR = 3×10^8 m/s × 3×10^-9 s / 2 = 0.45 m = 45 cm &lt; 50 cm，结论：按上限3 ns算仍满足优于50 cm的要求（脉宽越短分辨率越好）。",
+  "success_criteria": "给出δR=cτ/2公式、引用现役2-5 ns与VGEN&lt;3 ns两处规格、算得45 cm并判定满足&lt;50 cm。",
+  "evidence": "--[p224]-- The laser pulse width ... determines the range or vertical target resolution. This resolution (δR) can be determined by δR = cτ/2, where c is the speed of light in vacuum and τ is the pulse width (duration). --[p224]-- For example, when τ = 2 ns, δR = 30 cm ... Current LiDAR sensors use laser pulse widths in the 2-5 ns range, mainly limited by the bandwidth of the receiver. --[p226]-- Pulse Width | &lt; 3 ns | High resolution"
+ }
+]

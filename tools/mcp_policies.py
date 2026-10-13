@@ -23,6 +23,10 @@ def extract_doc_sources(result):
       description(图像描述,截 160 字) / video_url(视频块签名链接)
     """
     out = []
+    if isinstance(result, dict):
+        # MCP bridge 解包后的 dict 形状({"items": [...], ...} 轮次9/10 engine
+        # 契约)——取 items;list 形状(旧契约)照常。
+        result = result.get("items") or result.get("results") or []
     if not isinstance(result, list):
         return out
     for r in result:
@@ -45,6 +49,17 @@ def extract_doc_sources(result):
             item["image_url"] = image_url
         if r.get("video_url") and str(r["video_url"]).startswith("http"):
             item["video_url"] = r["video_url"]
+        # 原文档在线打开:签名直链 + 原始 PDF 物理页(前端拼 #page= 锚点)。
+        # TOS 桶强制下载、直链无法 inline 预览 → 文档换成本后端代理链接
+        # (本进程无 JWT_SECRET 时 resign 内部回落原直链,行为不变)
+        if r.get("doc_url") and str(r["doc_url"]).startswith("http"):
+            try:
+                from mcp_servers.retrieval.image_s3 import resign_url
+                item["doc_url"] = resign_url(str(r["doc_url"]))
+            except Exception:
+                item["doc_url"] = r["doc_url"]
+        if r.get("doc_page"):
+            item["doc_page"] = int(r["doc_page"])
         if r.get("item_type"):
             item["item_type"] = r["item_type"]
         if r.get("description"):
@@ -78,6 +93,9 @@ POLICIES = {
         "timeout": 30.0,
         "retry_times": 1,
         "max_input_length": {"query": 500},
+        # 轮次11 回退:首轮多角度并行检索(queries 数组扇出)已撤销——实测同题
+        # recall 持平但 precision -0.10,恢复单 query 串行
+        # (eval/optimization_log/20261008_round10_20u200.md)。
     },
     "retrieval:search_image": {
         "category": Category.RETRIEVAL,

@@ -13,6 +13,8 @@ simple→react 升级一次。
 """
 from __future__ import annotations
 
+import json
+import re
 import time
 import uuid
 import logging
@@ -21,7 +23,8 @@ from typing import Callable, Optional
 from agent_reasoning.ReAct.support.runner import run_agent_graph
 from agent_reasoning.simple import run_simple
 from agent_reasoning.raglite import run_raglite
-from agent_reasoning.ReAct.support.llm import get_client, llm_create_with_retry, LLM_RETRIES
+from agent_reasoning.ReAct.support.llm import (
+    get_client, llm_create_with_retry, LLM_RETRIES, no_think_extra)
 from agent_reasoning.router import classify_complexity, classify_and_clarify, _obviously_simple
 from agent_reasoning.clarify import check_clarify
 from agent_reasoning.quality_gate import check as quality_check
@@ -43,21 +46,186 @@ _MAX_REDOS = 1         # 同一 tier 质检 failed 最多重做一次
 
 # run_simple 不认这些 ReAct 预算/重做参数,分发前剔除。
 _NON_SIMPLE_KW = ("max_steps", "max_total_seconds", "hard_deadline",
-                  "qc_feedback", "search_future")
+                  "qc_feedback", "search_future", "scope_stem")
 
 
-def _speculative_search(message: str):
+# ---- 轮次9:检索冲突反问 + 会话 scope 锁(轮次12 改版)----
+# 机械冲突信号命中后,先经 lite LLM 判定问题是否已指明具体对象:已指明则
+# 不反问照常作答(轮次11 dev200 实测"我想查砷中毒的处理流程"这类具体问题
+# 被相似手册挤占 top-K 误伤反问);确实没指明才反问,且选项为从 top-4 候选
+# 块内容提取的**对象名**(设备/机型/物料等,用户看得懂),绝不出现文档文件名
+# ——用户无法判断该选哪份手册。每个选项携带其所属文档族 stem(option_stems)。
+# 轮次12:scope 锁退役为纯"会话已消解"标记——锁定期间不再反问,检索一律
+# 正常翻译双路(原 query+英文翻译 RRF),不再做文档族强加权(轮次9 的
+# scope_stem 注入已全部撤除);应答轮检索用原问题(选项只是消歧信号,
+# 不是信息需求;详见 _scope_resolve)。
+# key = (username, 会话首条用户消息):前端反问应答轮 history 首条用户消息不变,
+# 天然按会话隔离;TTL 兜底防泄漏。
+_SCOPE_PENDING: dict = {}   # key -> {"choices": [(label, stem)...], "stems": [...], "ts", "message"}
+_SCOPE_LOCKS: dict = {}     # key -> {"stem": base_stem, "ts"}   # 仅标记已消解
+_SCOPE_TTL_S = 30 * 60
+_CONFLICT_CLARIFY_QUESTION = "你想了解的具体对象是下面哪一个?(也可以直接补充说明)"
+
+
+def _scope_key(username, history, message):
+    """会话键:取 history 首条用户消息(多轮中恒定),无历史用当前消息。"""
+    first = ""
+    for h in (history or []):
+        role = h.get("role") if isinstance(h, dict) else getattr(h, "role", "")
+        if role == "user":
+            first = (h.get("content") if isinstance(h, dict)
+                     else getattr(h, "content", "")) or ""
+            break
+    return (username or "", (first or message or "")[:200])
+
+
+def _norm_opt(s):
+    return re.sub(r"[\s_\-·・()（）]+", "", (s or "").lower())
+
+
+def _scope_resolve(username, message, history):
+    """反问应答轮:消息与待选选项(对象名,或兼容旧口径的文档族 stem)匹配
+    → 转正为锁定并返回 (stem, 原问题);不匹配则清除待选。
+    锁定活跃(TTL 内)→ 返回锁定 stem;否则空串。
+    轮次12:stem 仅作"本会话已消解、不再反问"标记,不注入检索加权。
+    原问题仅在本轮刚转正时非空:应答轮的检索 query 必须用原问题而非选项
+    文本——选项(对象名/文档名)不是信息需求,拿它当 query 只会命中标题/
+    概览块,金事实全 miss(20261008 轮次11 dev200 实测 34/37 反问题
+    recall=0 的根因)。"""
+    key = _scope_key(username, history, message)
+    pend = _SCOPE_PENDING.pop(key, None)
+    if pend and time.time() - pend["ts"] <= _SCOPE_TTL_S:
+        m = _norm_opt(message)
+        if m:
+            # 先按对象名匹配(轮次12 选项口径),再按文档族 stem 兜底
+            # (用户直接回文档名的情形)
+            for label, stem in (pend.get("choices") or []):
+                ns = _norm_opt(label)
+                if ns and (ns in m or m in ns):
+                    _SCOPE_LOCKS[key] = {"stem": stem, "ts": time.time()}
+                    return stem, (pend.get("message") or "")
+            for stem in pend.get("stems") or []:
+                ns = _norm_opt(stem)
+                if ns and (ns in m or m in ns):
+                    _SCOPE_LOCKS[key] = {"stem": stem, "ts": time.time()}
+                    return stem, (pend.get("message") or "")
+    lock = _SCOPE_LOCKS.get(key)
+    if lock and time.time() - lock["ts"] <= _SCOPE_TTL_S:
+        return lock["stem"], ""
+    return "", ""
+
+
+def _conflict_probe(future, timeout=30.0):
+    """投机检索 future → (conflict_stems, 候选块列表)。
+    conflict_stems 为检索引擎机械冲突信号;候选块(heading/内容片段/source_stem)
+    供反问前置 LLM 提取候选对象。
+    不取消 future:超时/失败后 raglite/react 仍可正常消费该结果。"""
+    try:
+        out = future.result(timeout=timeout)
+    except Exception:  # noqa: BLE001  信号层故障不阻断主链路
+        return [], []
+    if isinstance(out, tuple) and len(out) == 2:
+        result, err = out
+        if err is not None:
+            return [], []
+        out = result
+    if not isinstance(out, dict):
+        return [], []
+    scope = out.get("scope") or {}
+    stems = [s for s in (scope.get("conflict_stems") or []) if s]
+    items = out.get("items") or []
+    return stems, items
+
+
+# 冲突反问前置判定(轮次12):机械冲突信号只说明"检索回了多份相似文档",
+# 不代表问题本身有歧义——是否反问必须以"问题是否指明具体对象"为准。
+_CONFLICT_OBJECTS_PROMPT = (
+    "你是公司内部知识问答系统的澄清判定器。用户提出了一个问题,系统检索回了"
+    "若干候选资料块(可能来自不同文档/涉及不同对象)。请依次判断:\n"
+    "1) 用户问题是否已明确指出了它所问的**对象**(具体设备/机型/物料/工艺/标准等)?"
+    "只要能从问题里看出明确对象就视为 specific——即使检索回了多份相似文档也照样"
+    " specific,不得因检索结果歧义而反问具体问题。\n"
+    "2) 仅当问题确实没指明对象(如只说'怎么保养''这个参数多少',上下文也无法消解)"
+    "时,从候选块中提取最多 4 个用户可能想问的**对象**作为选项。对象名必须具体、"
+    "用户一眼看得懂(如'重掺砷硅单晶''F200 键合机');**绝对不要用文档文件名/"
+    "手册名作为选项**——用户无法凭文件名判断该选哪个。\n"
+    "只输出 JSON,不要解释,格式:\n"
+    '{{"specific": true/false, "question": "反问句(specific=true 或提不出对象时为空串)",'
+    ' "objects": [{{"name": "对象名", "stem": "该对象所在候选块的文档名原文"}}]}}\n\n'
+    "用户问题:{question}\n\n候选块:\n{blocks}"
+)
+
+
+def _conflict_objects(message, items):
+    """冲突反问前置 LLM 判定。返回 (specific, question, [(对象名, stem)...])。
+    specific=问题已指明对象(不反问);objects=候选对象(含所属文档族 stem,
+    供点选后 scope 锁定与评测匹配)。
+    任何异常/解析失败 fail-open 返回 (True, "", []):照常作答,绝不因反问
+    模块故障阻断对话。"""
+    blocks = []
+    for i, it in enumerate((items or [])[:4], 1):
+        stem = str(it.get("source_stem", "") or "")
+        head = str(it.get("heading_path", "") or "")
+        content = re.sub(r"\s+", " ", str(it.get("content", "") or ""))[:300]
+        blocks.append(f"[{i}] (文档:{stem}) 标题:{head}\n{content}")
+    if not blocks:
+        return True, "", []
+    prompt = _CONFLICT_OBJECTS_PROMPT.format(
+        question=message, blocks="\n\n".join(blocks))
+    try:
+        resp, err = llm_create_with_retry(
+            get_client(), trace_id="conflict-clarify",
+            model=C.TIER_MODEL_SIMPLE,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0, max_tokens=300,
+            timeout=max(getattr(C, "CLARIFY_TIMEOUT", 8), C.ROUTER_TIMEOUT),
+            **no_think_extra(), retries=1)
+        if err is not None:
+            logger.warning("conflict-clarify LLM failed, skip clarify: %s", err)
+            return True, "", []
+        text = (resp.choices[0].message.content or "").strip()
+        start, end = text.find("{"), text.rfind("}")
+        if start < 0 or end <= start:
+            return True, "", []
+        obj = json.loads(text[start:end + 1])
+        if not isinstance(obj, dict) or bool(obj.get("specific")):
+            return True, "", []
+        question = str(obj.get("question", "")).strip()
+        choices = []
+        for o in (obj.get("objects") or [])[:4]:
+            if not isinstance(o, dict):
+                continue
+            name = str(o.get("name", "")).strip()
+            stem = str(o.get("stem", "")).strip()
+            if name:
+                choices.append((name, stem))
+        return False, question, choices
+    except Exception:  # noqa: BLE001  fail-open:反问层故障不阻断主链路
+        logger.warning("conflict-clarify failed, skip clarify", exc_info=True)
+        return True, "", []
+
+
+def _speculative_search(message: str, scope_stem: str = ""):
     """投机检索:在后台工具池预发一次 search_text,与路由/分类重叠执行。
     返回 future(.result() -> (result, err),与 call_with_resilience 同构);
-    无人消费时结果自然丢弃(daemon 池,不阻塞收尾)。"""
+    无人消费时结果自然丢弃(daemon 池,不阻塞收尾)。
+    (原低置信触发 LLM 查询改写已删除——轮次5 dev-200 验证四项指标均劣于
+    单路且在噪声带内;跨语言鸿沟由检索服务内的翻译双路承担。)
+    with_scope_info=True:响应附带 scope 锁定/冲突信号,供冲突反问判定(轮次9)。"""
     from tools import dispatch, registry
-    from agent_reasoning.ReAct.support.tool_resilience import call_with_resilience
     from agent_reasoning.ReAct.support.tool_pool import get_pool
-    spec = registry.get("search_text")
-    args = {"query": message, "k": C.RAGLITE_SEARCH_K,
-            "score_ratio": C.RAGLITE_SEARCH_SCORE_RATIO}
-    return get_pool().submit(
-        call_with_resilience, "search_text", args, spec, invoke=dispatch)
+    from agent_reasoning.ReAct.support.tool_resilience import call_with_resilience
+
+    def _search():
+        spec = registry.get("search_text")
+        args = {"query": message, "k": C.RAGLITE_SEARCH_K,
+                "score_ratio": C.RAGLITE_SEARCH_SCORE_RATIO,
+                "with_scope_info": True}
+        if scope_stem:
+            args["scope_stem"] = scope_stem
+        return call_with_resilience("search_text", args, spec, invoke=dispatch)
+
+    return get_pool().submit(_search)
 
 
 def _qc_feedback_msg(feedback: str) -> dict:
@@ -127,6 +295,21 @@ def react_stream(message,
 
     # 0+1. 入口判定(澄清 + 路由)。ROUTER_FUSED=1 时合并为单次判定
     #      (规则可判时零 LLM),替代旧的 clarify + router 两次串行调用。
+    # 先解析会话 scope 锁:轮次12 起锁定仅作"本会话已消解、不再反问"标记,
+    # 不再注入检索加权(投机检索/下游 tier 均不带 scope_stem)。
+    scope_stem = ""
+    clarified_q = ""   # 反问应答轮刚转正时的原问题(检索用它,见 _scope_resolve)
+    if getattr(C, "RETRIEVAL_CONFLICT_CLARIFY", False):
+        try:
+            scope_stem, clarified_q = _scope_resolve(
+                username, message, history or [])
+        except Exception:  # noqa: BLE001  信号层故障不阻断主链路
+            logger.warning("scope resolve failed", exc_info=True)
+    # 反问应答轮:入口判定(澄清/路由)必须用原问题——本轮 message 是选项
+    # 文本(对象名,往往短且无领域词面),拿它判定会被误路由到 simple
+    # (simple 不检索,recall 归零)或再触发一次澄清(轮次12)。
+    entry_q = clarified_q or message
+
     search_future = None
     if getattr(C, "ROUTER_FUSED", True):
         # 投机检索:在融合分类 LLM 调用前预发 search_text,两路重叠省 1.5~2.5s;
@@ -136,20 +319,26 @@ def react_stream(message,
         # 一次后台检索成本远低于 react 漏检索导致的零来源作答。
         if (getattr(C, "RAGLITE_SPECULATIVE_SEARCH", True)
                 and getattr(C, "RAGLITE_ENABLED", True)
-                and not _obviously_simple(message)):
+                and (clarified_q or not _obviously_simple(message))):
             try:
-                search_future = _speculative_search(message)
+                # 轮次12:scope 加权已全面退役——反问应答轮与锁定粘性轮一律
+                # 正常翻译双路检索(检索服务内 原query+英文翻译 RRF),
+                # query 用原问题(clarified_q)或当前消息;选项文本绝不单独
+                # 当 query(丢原问题信息需求,轮次11 dev200 事故)。
+                # clarified_q 非空时无视 _obviously_simple:选项文本(对象名)
+                # 往往短且无领域词面,会被误判闲聊跳过投机检索。
+                search_future = _speculative_search(clarified_q or message)
             except Exception:  # noqa: BLE001  投机失败不影响主链路
                 search_future = None
         try:
-            entry = classify_and_clarify(message, history or [])
+            entry = classify_and_clarify(entry_q, history or [])
         except Exception:
             logger.warning("classify_and_clarify 异常,兜底 react", exc_info=True)
             entry = {"need_clarify": False, "tier": "react",
                      "confidence": 0.0, "source": "fallback"}
     else:
         try:
-            clarify = check_clarify(message, history or [])
+            clarify = check_clarify(entry_q, history or [])
         except Exception:
             logger.warning("check_clarify 异常,跳过澄清", exc_info=True)
             clarify = {"need_clarify": False}
@@ -160,7 +349,7 @@ def react_stream(message,
                    "source": clarify.get("source", "llm")}
             yield {"type": "done", "trace": {}}
             return
-        decision = classify_complexity(message, history or [])
+        decision = classify_complexity(entry_q, history or [])
         entry = {"need_clarify": False, "tier": decision["tier"],
                  "confidence": decision.get("confidence", 0.0),
                  "source": decision.get("source", "fallback")}
@@ -173,6 +362,33 @@ def react_stream(message,
         return
 
     tier = entry["tier"] or "react"
+
+    # 轮次9/12:检索冲突反问——投机检索机械信号(top-4 跨文档族且分差小且
+    # 词面未确信命中榜首族)只是廉价预筛;命中后先经 _conflict_objects 用
+    # lite LLM 判定:问题已指明具体对象 → 不反问照常作答(具体问题被相似
+    # 手册误伤反问是轮次11 dev200 的主要伤害面);确实没指明 → 以候选块中
+    # 提取的对象名为选项反问(绝不给文档名)。仅首轮问;应答轮经
+    # _scope_resolve 转正锁定。
+    if (getattr(C, "RETRIEVAL_CONFLICT_CLARIFY", False)
+            and not scope_stem and search_future is not None
+            and not (history or []) and tier in ("raglite", "react")):
+        stems, citems = _conflict_probe(search_future)
+        if stems:
+            specific, cquestion, choices = _conflict_objects(message, citems)
+            if not specific and len(choices) >= 2:
+                _SCOPE_PENDING[_scope_key(username, history or [], message)] = {
+                    "choices": choices, "stems": stems, "ts": time.time(),
+                    "message": message}   # 原问题:应答轮检索要用它(选项只是消歧)
+                if len(_SCOPE_PENDING) > 256:
+                    _SCOPE_PENDING.clear()
+                yield {"type": "clarify",
+                       "question": cquestion or _CONFLICT_CLARIFY_QUESTION,
+                       "options": [c[0] for c in choices],
+                       "option_stems": [c[1] for c in choices],
+                       "source": "retrieval-conflict"}
+                yield {"type": "done", "trace": {}}
+                return
+            # specific(问题已指明对象)或提不出 ≥2 个候选对象:不反问,照常作答
 
     # 2. 告知前端所选 tier。raglite 对外仍报 "react"(eval tier_ok / 前端零改动),
     #    真实路径放 path 字段供观测。
@@ -228,6 +444,8 @@ def react_stream(message,
             on_event=on_event,
             # 投机检索 future:raglite 直接消费,react 作为预检索注入;simple 不消费
             search_future=(search_future if tier in ("raglite", "react") else None),
+            # 轮次12:不再向下传 scope_stem——锁定仅作"本会话已消解、不再反问"
+            # 标记,检索一律正常翻译双路,无文档族加权
         )
         for ev in gen:
             etype = ev.get("type")

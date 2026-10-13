@@ -1,94 +1,52 @@
 #!/bin/bash
-# GPU 服务器三服务启动(权重/依赖就绪后执行)。全部 nohup 后台 + 日志落盘。
-# 【GPU 机以后只部署 LLM;检索全套已迁回项目机 docker-project(CPU/内存)】
-# 环境优先系统盘镜像副本(/root/envs-gateway,方案B自定义镜像随系统盘保存),
-# 不存在(老实例/未做镜像)回退数据盘原路径
+# GPU 服务器服务启动(2026-10-11 改版:混合重排全进程内,不再起 vLLM)。
+#   只起检索服务 :8002(编码 + 双路重排都在进程内),nohup 后台 + 日志落盘。
+#   vLLM :8003 已弃用:vLLM 0.29 载不上 CausalLM 打分(/score 未注册,classify
+#   硬转退化恒 0.5),gemma 时代即回退进程内;混合重排(Qwen3-Reranker-4B +
+#   bge-reranker-v2-m3)继续走进程内 _BatchedReranker 攒批,不留 vLLM 白吃显存。
+# 显存布局(RTX 4080S 24G):Qwen3-4B bf16 ~8G + bge-m3 ~1.2G + 编码三件套
+#   (bge-m3 embed/CLIP)~3G + 余量,充裕。
+#   不再起 vLLM LLM/LiteLLM(backend 公网直连 Ark api/v3,见 DEPLOY.md)。
 ENV_HOME=/root/envs-gateway
 [ -x "$ENV_HOME/bin/python" ] || ENV_HOME=/root/autodl-tmp/envs/gateway
 export PATH=/root/miniconda3/bin:$ENV_HOME/bin:$PATH   # EngineCore 子进程要能找到 ninja 等
 export LD_LIBRARY_PATH=$ENV_HOME/lib:${LD_LIBRARY_PATH:-}   # conda icu/libstdc++ 优先于系统旧库
 GW=$ENV_HOME/bin
-M=/root/autodl-tmp/models
 LOG=/root/autodl-tmp/logs
 mkdir -p $LOG
 
-# ---- 0. 权重改走 autodl-fs 网盘(幂等 symlink;实例重启后重跑本脚本即可) ----
-#   3 个检索模型 -> ~/.cache/huggingface/hub_local/<owner>__<repo>
-#     (RAG/embed.py::_ensure_snapshot_offline 硬编码该路径,HF_HUB_OFFLINE=1 离线加载)
-#   2 个 Qwen  -> /root/autodl-tmp/models/(vLLM 直读)
+# ---- 0. 权重走 autodl-fs 网盘(幂等 symlink;实例重启后重跑本脚本即可) ----
+#   重排/编码模型 -> ~/.cache/huggingface/hub_local/<owner>__<repo>
+#     (RAG/embed.py::_ensure_snapshot_offline 硬编码该路径,HF_HUB_OFFLINE=1 离线加载;
+#      autodl-fs 内目录名不限定,按通配符探测后链接到规范的 <owner>__<repo> 名)
 FS=/root/autodl-fs/models
 if [ -d "$FS" ]; then
   HC=/root/.cache/huggingface/hub_local
-  mkdir -p "$HC" /root/autodl-tmp/models
+  mkdir -p "$HC"
   link() { # link <fs_src> <dst>  (dst 为缺失或空目录时建软链)
     if [ -e "$2" ] && [ ! -L "$2" ] && [ -n "$(ls -A "$2" 2>/dev/null)" ]; then
       echo "== keep existing $2"; return 0
     fi
     rm -rf "$2"; ln -sfn "$1" "$2"; echo "== link $2 -> $1"
   }
-  link "$FS/BAAI__bge-m3"                    "$HC/BAAI__bge-m3"
-  link "$FS/BAAI__bge-reranker-v2-m3"        "$HC/BAAI__bge-reranker-v2-m3"
-  link "$FS/sentence-transformers__clip-ViT-B-32" "$HC/sentence-transformers__clip-ViT-B-32"
-  link "$FS/Qwen3-30B-A3B-GPTQ-Int4"         "$M/Qwen3-30B-A3B-GPTQ-Int4"
-  link "$FS/Qwen3-8B-AWQ"                    "$M/Qwen3-8B-AWQ"
+  link_src() { # link_src <glob> <dst>:autodl-fs 下按通配符找权重目录
+    local src; src=$(ls -d "$FS"/$1 2>/dev/null | head -1)
+    if [ -n "$src" ]; then link "$src" "$2"; else echo "== WARN $FS 下未找到 $1"; fi
+  }
+  link_src "*bge-m3"                     "$HC/BAAI__bge-m3"
+  link_src "*bge-reranker-v2-m3"         "$HC/BAAI__bge-reranker-v2-m3"
+  link_src "*Qwen3-Reranker-4B"          "$HC/Qwen__Qwen3-Reranker-4B"
+  link_src "*clip-ViT-B-32*"             "$HC/sentence-transformers__clip-ViT-B-32"
 else
   echo "== WARN $FS not mounted; using existing local weights"
 fi
 
-# ---- 1. vLLM 主模型 :8000 ----
-if ! curl -s -m2 http://127.0.0.1:8000/health >/dev/null 2>&1; then
-  nohup $GW/python -m vllm.entrypoints.openai.api_server \
-    --model $M/Qwen3-30B-A3B-GPTQ-Int4 --served-model-name vllm-main \
-    --max-model-len 16384 --gpu-memory-utilization 0.60 \
-    --enable-auto-tool-choice --tool-call-parser hermes \
-    --reasoning-parser qwen3 \
-    --trust-remote-code --port 8000 > $LOG/vllm_main.log 2>&1 &
-  echo "vllm-main starting pid=$!"
-else echo "vllm-main already up"; fi
-
-# ---- 1.5 等 main 健康再起 light(避免两者并发抢显存) ----
-if ! curl -s -m2 http://127.0.0.1:8000/health >/dev/null 2>&1; then
-  echo "waiting for vllm-main to become healthy ..."
-  for i in $(seq 1 60); do
-    curl -s -m2 http://127.0.0.1:8000/health >/dev/null 2>&1 && break
-    sleep 10
-  done
-fi
-
-# ---- 2. vLLM 轻模型 :8001 ----
-if ! curl -s -m2 http://127.0.0.1:8001/health >/dev/null 2>&1; then
-  nohup $GW/python -m vllm.entrypoints.openai.api_server \
-    --model $M/Qwen3-8B-AWQ --served-model-name vllm-light \
-    --max-model-len 8192 --max-num-seqs 64 --gpu-memory-utilization 0.30 \
-    --reasoning-parser qwen3 \
-    --trust-remote-code --port 8001 > $LOG/vllm_light.log 2>&1 &
-  echo "vllm-light starting pid=$!"
-else echo "vllm-light already up"; fi
-
-# ---- 3. LiteLLM :4000 ----
-# 密钥不入库:从同目录 gpu.env(被 .gitignore 排除)读取 LITELLM_MASTER_KEY/CLOUD_API_KEY
-_gpu_env="$(dirname "$0")/gpu.env"
-[ -f "$_gpu_env" ] && . "$_gpu_env"
-: "${LITELLM_MASTER_KEY:?请在 ssh_helper/gpu.env 中设置 LITELLM_MASTER_KEY}"
-: "${CLOUD_API_KEY:?请在 ssh_helper/gpu.env 中设置 CLOUD_API_KEY}"
-if ! curl -s -m2 http://127.0.0.1:4000/health/liveliness >/dev/null 2>&1; then
-  cd /root/autodl-tmp/gw
-  export LITELLM_MASTER_KEY
-  export VLLM_API_KEY=dummy
-  export VLLM_MAIN_BASE_URL=http://127.0.0.1:8000/v1
-  export VLLM_LIGHT_BASE_URL=http://127.0.0.1:8001/v1
-  export CLOUD_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/v1
-  export CLOUD_API_KEY="${CLOUD_API_KEY}"
-  nohup $GW/litellm --config litellm_config.yaml --port 4000 > $LOG/litellm.log 2>&1 &
-  echo "litellm starting pid=$!"
-else echo "litellm already up"; fi
-
-# ---- 4. 检索服务 :8002(BGE-m3/CLIP/Reranker, cuda;权重在 ~/.cache/huggingface/hub_local)----
+# ---- 1. 检索服务 :8002(BGE-m3/CLIP 编码 + 双路重排全进程内) ----
 # qdrant 在项目机 VM,经 VM 发起的 SSH 隧道 -R 6333 回到 VM 本机
 if ! curl -s -m2 http://127.0.0.1:8002/health >/dev/null 2>&1; then
   cd /root/autodl-tmp/app
   set -a; source /root/autodl-tmp/app/ret.env; set +a
-  nohup $GW/python -m mcp_servers.retrieval.service > $LOG/retrieval.log 2>&1 &
+  CUDA_VISIBLE_DEVICES=${RETRIEVAL_GPUS:-0} nohup $GW/python -m mcp_servers.retrieval.service > $LOG/retrieval.log 2>&1 &
   echo "retrieval starting pid=$!"
 else echo "retrieval already up"; fi
 

@@ -13,7 +13,8 @@ memories.storage.working.summarize;support.runner 通过 import 调用它们。
 """
 from .core.state import AgentState
 from .core.graph import build_graph
-from .support.llm import get_client, llm_create_with_retry, LLM_RETRIES
+from .support.llm import (get_client, llm_create_with_retry, LLM_RETRIES,
+                          LLMServiceUnavailable)
 from .support.runner import run_agent_graph
 
 __all__ = [
@@ -23,4 +24,5 @@ __all__ = [
     "get_client",
     "llm_create_with_retry",
     "LLM_RETRIES",
+    "LLMServiceUnavailable",
 ]

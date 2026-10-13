@@ -1,0 +1,326 @@
+{
+ "doc": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+ "chunks": 2370,
+ "headings": [
+  [
+   "Principles of Lithography > 5.4 Reduction Lenses",
+   99
+  ],
+  [
+   "Principles of Lithography > 5.2 Light Sources",
+   72
+  ],
+  [
+   "Principles of Lithography > 2.4 Focus",
+   71
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.4 Electron-Beam Lithography and Single-Beam Mask Writers",
+   69
+  ],
+  [
+   "Principles of Lithography > 2.2 Aerial Images",
+   67
+  ],
+  [
+   "Principles of Lithography > 3.3 Resist Spin Coating, Softbake, and Hardbake",
+   60
+  ],
+  [
+   "Principles of Lithography > 6.2 Overlay Models",
+   58
+  ],
+  [
+   "Principles of Lithography > 6.3 Matching",
+   55
+  ],
+  [
+   "Principles of Lithography > 3.8 Line-Edge Roughness",
+   53
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 8.2 Optical Proximity Effects",
+   51
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 9.1.1 Linewidth measurement using scanning electron microscopes",
+   50
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 8.1 Off-Axis Illumination",
+   50
+  ],
+  [
+   "Principles of Lithography > 4.2 Aberrations",
+   47
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 11.1.1 Capital costs",
+   46
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 8.4 Phase-Shifting Masks",
+   46
+  ],
+  [
+   "Principles of Lithography > 2.3 The Contributions of Physics and Chemistry",
+   43
+  ],
+  [
+   "Principles of Lithography > 4.6 Methods for Addressing the Problems of Reflective Substrates",
+   39
+  ],
+  [
+   "Principles of Lithography > 6.1.2 Optical methods for alignment and wafer-to-reticle referencing",
+   36
+  ],
+  [
+   "Principles of Lithography > 5.6 The Wafer Stage",
+   34
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.9 Pellicles",
+   34
+  ],
+  [
+   "Principles of Lithography > 3.5 Acid-Catalyzed DUV Resists",
+   33
+  ],
+  [
+   "Principles of Lithography > 3.6 Development and Post-Exposure Bakes",
+   31
+  ],
+  [
+   "Principles of Lithography > 4.1 Models of Optical Imaging",
+   28
+  ],
+  [
+   "12.6 EUV Resists",
+   28
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 10.1 Immersion Lithography",
+   27
+  ],
+  [
+   "12.3 EUV Masks",
+   27
+  ],
+  [
+   "Principles of Lithography > Chapter 1 OVERVIEW OF LITHOGRAPHY",
+   26
+  ],
+  [
+   "13.2 Electron-Beam Direct-Write Lithography",
+   26
+  ],
+  [
+   "12.4 Sources and Illuminators",
+   26
+  ],
+  [
+   "13.1 Proximity X-ray Lithography",
+   26
+  ],
+  [
+   "Principles of Lithography > Problems",
+   25
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.10 Mask-Defect Inspection and Repair",
+   24
+  ],
+  [
+   "Principles of Lithography > 3.9 Multilayer Resist Processes",
+   23
+  ],
+  [
+   "Principles of Lithography > 4.4 Thin-Film Optical Effects",
+   23
+  ],
+  [
+   "Principles of Lithography > 6.1 Alignment Systems",
+   23
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 8.3 The Mask-Error Enhancement Factor (MEEF)",
+   23
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 12.1 Background and Multilayer Reflectors",
+   22
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 10.10 Multiple Patterning",
+   21
+  ],
+  [
+   "12.5 EUV Optics",
+   21
+  ],
+  [
+   "Principles of Lithography, Fourth Edition (Harry J. Levinson)_p501-593",
+   21
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 8.5 Putting It All Together",
+   20
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 10.2 The Diffraction Limit",
+   20
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.7 Resists for Mask Making",
+   19
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 10.9 How Far Can Optical Lithography Be Extended?",
+   19
+  ],
+  [
+   "Principles of Lithography > 3.1 Positive and Negative Resists",
+   19
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 9.2 Measurement of Overlay",
+   19
+  ],
+  [
+   "Principles of Lithography > 5.3 Illumination Systems",
+   19
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 10.4 Maximum Numerical Aperture",
+   18
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.2 Mask Blanks",
+   18
+  ],
+  [
+   "Principles of Lithography > 5.1 Overview",
+   18
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > Problems",
+   17
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 10.5 The Shortest Wavelength",
+   17
+  ],
+  [
+   "References",
+   17
+  ],
+  [
+   "Principles of Lithography > 4.5 Post-Exposure Bakes",
+   16
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 11.2 Mix-and-Match Strategies",
+   16
+  ],
+  [
+   "Principles of Lithography > 4.3 Modeling Photochemical Reactions",
+   16
+  ],
+  [
+   "13.2.2 Multiple-electron-beam direct-write systems",
+   16
+  ],
+  [
+   "Principles of Lithography > 5.9 Lithography Exposure Tools before Steppers",
+   15
+  ],
+  [
+   "13.2.4 Scattering-mask electron-projection lithography",
+   15
+  ],
+  [
+   "Principles of Lithography > Preface to the First Edition",
+   14
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 9.1.2 Scatterometry",
+   14
+  ],
+  [
+   "13.2.1 Single-beam direct-write systems",
+   14
+  ],
+  [
+   "Problems",
+   14
+  ],
+  [
+   "Principles of Lithography > 3.2 Adhesion Promotion",
+   13
+  ],
+  [
+   "Principles of Lithography > 6.1.3 Number of alignment marks",
+   13
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 9.1.3 Electrical linewidth measurement",
+   12
+  ],
+  [
+   "Principles of Lithography > 6.4 Process-Dependent Overlay Effects",
+   11
+  ],
+  [
+   "Principles of Lithography > Preface to the Second Edition",
+   11
+  ],
+  [
+   "Principles of Lithography > 4.8 Quantum Effects and Modeling",
+   11
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.5 Multi-Electron-Beam Mask Writers",
+   11
+  ],
+  [
+   "Principles of Lithography > 5.5 Autofocus Systems",
+   11
+  ],
+  [
+   "Principles of Lithography > Contents",
+   11
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 11.1.3 Mask costs",
+   11
+  ],
+  [
+   "Principles of Lithography > Preface to the Third Edition",
+   10
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.1 Overview",
+   10
+  ],
+  [
+   "Principles of Lithography > 5.7 Scanning",
+   10
+  ],
+  [
+   "13.5 Directed Self-Assembly",
+   10
+  ],
+  [
+   "Principles of Lithography > 3.7 Operational Characterization",
+   9
+  ],
+  [
+   "Chapter 7 MASKS AND RETICLES > 7.6 Optical Mask Writers",
+   9
+  ],
+  [
+   "Principles of Lithography > 3.4 Photochemistry of Novolak/DNQ g- and i-line Resists",
+   9
+  ]
+ ]
+}

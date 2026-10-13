@@ -113,11 +113,27 @@ def _extract_numbers(text: str) -> set[str]:
     return out
 
 
+# 计算推导句标记:句中含计算/推导类词或显式计算式。此类句子的结果数必然
+# 不在资料原文(资料只给参数,结果靠算),层1 硬杀会把合法计算题全灭
+# (实测 dev_143:K=96.5/A=3.42 在资料里,模型算出 15.88 被判幻觉)。
+_CALC_RE = re.compile(r"计算|推导|推算|换算|估算|公式|按.{0,12}模型")
+
+
 def _layer1_check(sents: list[str], src_nums: set[str]) -> tuple[list[bool], int]:
-    """逐句判数字是否全部有据。返回 (每句是否层1通过, 层1判死数)。"""
+    """逐句判数字是否全部有据。返回 (每句是否层1通过, 层1判死数)。
+
+    豁免:含计算标记且句中至少含 1 个资料数字(运算对象有据)的句子,
+    不做层1判死,交层2 LLM 按其"直接推论"标准判定——层2 判 true 还需给出
+    资料原文 quote,推导依据可被引文机械验证兜住,幻觉风险可控。"""
     verdicts, killed = [], 0
     for s in sents:
-        bad = _extract_numbers(s) - src_nums
+        nums = _extract_numbers(s)
+        bad = nums - src_nums
+        if bad and _CALC_RE.search(s) and (nums & src_nums):
+            logger.info("grounding L1 defer to L2 (derived calc): nums=%s",
+                        sorted(bad))
+            verdicts.append(True)
+            continue
         if bad:
             killed += 1
             logger.info("grounding L1 kill: nums=%s not in sources", sorted(bad))
@@ -217,6 +233,7 @@ def grounding_filter(answer: str, sources: list[dict], *, trace_id: str = ""):
             _gmodel = _alias.get(_gmodel.lower(), _gmodel)
             resp, cerr = llm_create_with_retry(
                 get_client(), trace_id=trace_id, retries=1,  # 失败快速让位:熔断器兜底,不拖垮延迟
+                site="grounding",
                 model=_gmodel,
                 messages=[
                     {"role": "system", "content": "你是事实核查员。只输出 JSON。"},
@@ -225,14 +242,15 @@ def grounding_filter(answer: str, sources: list[dict], *, trace_id: str = ""):
                         "资料内容蕴含(supported=true/false)。判断标准:同义改写、直接推"
                         "论、合理具体化都算 true;资料无法推出、与资料矛盾、或资料完全"
                         "没提的机理/原因解释/通用建议算 false。"
-                        "判 true 必须同时给出资料中支撑该句的最短原文片段(quote),quote"
-                        "必须是资料原文的连续片段;判 false 不需要 quote。\n"
+                        "判 true 必须同时给出资料中支撑该句的最短原文片段(quote),"
+                        "quote 必须是资料原文的连续片段且不超过 25 个字(截取能支撑"
+                        "该句的最小片段即可,不要整句照抄);判 false 不需要 quote。\n"
                         f"【回答句子】\n{numbered}\n\n【资料】\n{ctx_blob}\n\n"
                         '输出格式:{"verdicts":[{"i":1,"supported":true,'
-                        '"quote":"资料原句"}]}'},
+                        '"quote":"≤25字原文片段"}]},只输出 JSON,不要解释。'},
                 ],
                 temperature=0.0, timeout=float(getattr(C, "GROUNDING_TIMEOUT", 12)),
-                max_tokens=400, **no_think_extra(),
+                max_tokens=int(getattr(C, "GROUNDING_MAX_TOKENS", 300)), **no_think_extra(),
             )
             if cerr is not None:
                 err = cerr

@@ -1,0 +1,7446 @@
+{
+ "doc": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer",
+ "chunks": 4769,
+ "headings": [
+  [
+   "6DS-SP CALIBRATION/CONFIGURATION REFERENCE",
+   231
+  ],
+  [
+   "USER INTERFACE REFERENCE > MENU ITEM DESCRIPTIONS:",
+   89
+  ],
+  [
+   "Table of Contents > Chapter 9 Mechanical Maintenance",
+   70
+  ],
+  [
+   "Table of Contents > Chapter 13 Troubleshooting",
+   70
+  ],
+  [
+   "USER INTERFACE REFERENCE > FUNCTION KEY CHOICES:",
+   44
+  ],
+  [
+   "New Features Information Locator",
+   43
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Miscellaneous Improvements:",
+   41
+  ],
+  [
+   "Operations Manual > AUTO POLISH CYCLE OPERATION - THE SEQUENCE OF",
+   21
+  ],
+  [
+   "MECHANICAL DESCRIPTION > SPINDLE DRIVE ASSEMBLY",
+   18
+  ],
+  [
+   "Menu Information Locator",
+   18
+  ],
+  [
+   "PLANARIZER SUBASSEMBLIES",
+   18
+  ],
+  [
+   "MECHANICAL DESCRIPTION > ELEVATOR ASSEMBLY",
+   18
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Alarms",
+   17
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > Alarms",
+   17
+  ],
+  [
+   "New Features Information Locator > List of Figures",
+   16
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Procedure:",
+   16
+  ],
+  [
+   "Table of Contents > Chapter 3 Physical Description 3-1",
+   16
+  ],
+  [
+   "PREVENTIVE MAINTENANCE SCHEDULES > PREVENTIVE MAINTENANCE SCHEDULE",
+   15
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > Notes:",
+   15
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > OVERVIEW OVERVIEW",
+   14
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   14
+  ],
+  [
+   "6DS-SP DATE AND TIME SETTING > OVERVIEW OVERVIEW",
+   14
+  ],
+  [
+   "Table of Contents > Chapter 2 Installation",
+   13
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > ENVIRONMENTAL INFORMATION",
+   12
+  ],
+  [
+   "MECHANICAL DESCRIPTION > ROBOT ASSEMBLY",
+   12
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Version 4.32 adds the following miscellaneous improvements:",
+   12
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Change the parameter.",
+   12
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Introduction:",
+   12
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Description of AGV > Polish> Scrubber Mode:",
+   12
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians): > Miscellaneous Improvements:",
+   12
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > ATTENTION 6DS-SP OWNER!",
+   11
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Notes:",
+   11
+  ],
+  [
+   "MODEL 6DS-SP INTERLOCK SYSTEM",
+   10
+  ],
+  [
+   "MECHANICAL DESCRIPTION > BRIDGE DRIVE ASSEMBLY",
+   10
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > AUTO POLISH CYCLE MENU",
+   10
+  ],
+  [
+   "CONDITIONING ARM DOWN FORCE ASSEMBLY",
+   10
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE > Introduction",
+   10
+  ],
+  [
+   "Table of Contents > Volume One",
+   10
+  ],
+  [
+   "IMPORTANT ! > Summary of Software Release Changes:",
+   10
+  ],
+  [
+   "IMPORTANT ! > General Alarm Action Information:",
+   10
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Importance of vacuum switch adjustments:",
+   10
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Support for Slurry Flow Sensing Option:",
+   10
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 1)",
+   9
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > SCREEN USAGE",
+   9
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS",
+   9
+  ],
+  [
+   "Physical Description > OPERATOR DOOR INTERLOCKS",
+   9
+  ],
+  [
+   "MACHINE DESCRIPTION > OPERATOR DOOR INTERLOCKS",
+   9
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Inline Scrubber Configuration Support:",
+   9
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > 4. Install the dial indicator:",
+   9
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > D. TEST THE SCALE FACTOR",
+   9
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT",
+   9
+  ],
+  [
+   "MACHINE PARAMETERS MENU (SCREEN PAGE 2)",
+   8
+  ],
+  [
+   "MECHANICAL DESCRIPTION > POLISH TABLE DRIVE ASSEMBLY",
+   8
+  ],
+  [
+   "TROUBLESHOOTING > ALARM LOG MENU",
+   8
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS > ADDITIONAL EMERGENCY OFF BUTTONS",
+   8
+  ],
+  [
+   "New Features Information Locator > Introduction",
+   8
+  ],
+  [
+   "MECHANICAL DESCRIPTION > SPINDLE DOWN FORCE ASSEMBLY",
+   8
+  ],
+  [
+   "INTRODUCTION TO THE 6DS-SP SOFTWARE > SOFTWARE FEATURES",
+   8
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > ELECTRICAL DISTRIBUTION AND CONTROL",
+   8
+  ],
+  [
+   "New Features Information Locator > NOTE",
+   8
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Installing new software from floppy disks to the machine:",
+   8
+  ],
+  [
+   "IMPORTANT ! > Procedure:",
+   8
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Endpoint Carrier Presence Detection for Cable Protection:",
+   8
+  ],
+  [
+   "IMPORTANT ! > Miscellaneous Improvements:",
+   8
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > C. ALIGNMENT PROCEDURE",
+   8
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > B. TEST THE PRESENT POSITION",
+   8
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > MANUAL CONTROL MENU (SCREEN PAGE 2)",
+   8
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Notes:",
+   8
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > C. ADJUSTMENT PROCEDURE",
+   8
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2)",
+   7
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > GENERAL FACILITIES AND ELECTRICAL SERVICE DATA SHEET",
+   7
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > HOME MACHINE MENU",
+   7
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES > WARNING",
+   7
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Independent Left and Right Spindle \"Move Down\" Variables:",
+   7
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Change to \"Table Start with Slurry Prestart\" Feature:",
+   7
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Bulk Slurry Halt Feature:",
+   7
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE PARAMETERS MENU (cont.)(screen page 4):",
+   7
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Direct cassette to Nova transfer:",
+   7
+  ],
+  [
+   "USER INTERFACE REFERENCE > GEM/SECS CONFIGURATION MENU (cont):",
+   7
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Independent Left/Right Throughput Up/Dn Robot Bottom Positions (also affects AGV configuration):",
+   7
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Light Tower Configuration #5 Change:",
+   7
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > B. TEST THE PRESENT POSITION",
+   7
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > E. INSTALL INNER/OUTER GIMBAL RING UNIT ONTO WAFER MANIFOLD PLATE",
+   7
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > Rear Stop Adjustment",
+   7
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > Note: “WFR NOT ON SPINDLE” and “WFR FOUND ON SPINDLE” are the only error conditions that will actually halt an auto cycle.",
+   7
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > Summary:",
+   7
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “BRIDGE NOT ARRIVING AT LOAD - # 168 “BRIDGE NOT ARRIVING AT MIDDLE - # 169 “BRIDGE NOT ARRIVING AT TABLE 1 - # 170",
+   6
+  ],
+  [
+   "STEP 7 - SLURRY SYSTEMCONNECTION",
+   6
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > THREE-PANEL ALERT GRAPHICS",
+   6
+  ],
+  [
+   "MODEL 6DS-SP INTERLOCK SYSTEM > CAUTION",
+   6
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > Notes:",
+   6
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > When to be Aware:",
+   6
+  ],
+  [
+   "SLURRY SYSTEM CONNECTION",
+   6
+  ],
+  [
+   "POWER DISTRIBUTION > AC DISTRIBUTION",
+   6
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > MACHINE SAFETY LABELS",
+   6
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > Sequence of Lockout Procedure",
+   6
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > (AUTO) POLISH PARAMETERS MENU",
+   6
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > CAUTION",
+   6
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE > Training",
+   6
+  ],
+  [
+   "MECHANICAL DESCRIPTION > LEFT/RIGHT LOAD/UNLOAD STATIONS",
+   6
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > USER INPUT",
+   6
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > NO RESPONSE FROM KEYBOARD OR NO RESPONSE FROMMACHINE--PART A",
+   6
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > PASSWORD MENU",
+   6
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > MECHANICAL COMPONENTS",
+   6
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > WARNING",
+   6
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > (Reproduce for shop copy. Fill-in data or check off as appropriate.)",
+   6
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS > CONTROL PANEL",
+   6
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > WAFERS BREAK DURING POLISH CYCLE - PART A",
+   6
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > \"Keep Elevator Tanks Full\" Feature:",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Description:",
+   6
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > Zone Backpressure Support:",
+   6
+  ],
+  [
+   "IMPORTANT ! > Process Alarm Delays:",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   6
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Support Lot Recipe Integrity in Non-HTP Configurations:",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Backup Utility Batch File:",
+   6
+  ],
+  [
+   "USER INTERFACE REFERENCE > CONDITIONING/CLEANING PARAMETERS MENU (cont.)(screen page 2):",
+   6
+  ],
+  [
+   "IMPORTANT ! > Introduction:",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Diagnostic Variable Watch Screen (for technicians):",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Description:",
+   6
+  ],
+  [
+   "USER INTERFACE REFERENCE > CONDITIONING/CLEANING PARAMETERS MENU (screen page 1):",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Example:",
+   6
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X General Information for Technicians:",
+   6
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Wafer handling when using Nova:",
+   6
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT",
+   6
+  ],
+  [
+   "LEFT SEND ELEVATOR > B. Check and Adjust the Current Calibration",
+   6
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > C. ADJUSTMENT PROCEDURE",
+   6
+  ],
+  [
+   "CLEANING STATIONS ADJUSTMENT SERIES--ORDER OF ADJUSTMENT",
+   6
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “BRIDGE NOT ARRIVING AT LOAD - # 168 “BRIDGE NOT ARRIVING AT MIDDLE - # 169 “BRIDGE NOT ARRIVING AT TABLE 1 - # 170",
+   6
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > B. ADJUSTMENT PROCEDURE",
+   6
+  ],
+  [
+   "PREVENTIVE MAINTENANCE SCHEDULE",
+   6
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION",
+   6
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > Forward Stop Adjustment",
+   6
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > WARNING: To prevent possible injury, do not place hands, arms, other body parts, or tools underneath the table.",
+   6
+  ],
+  [
+   "SHUTTLE FLOW CONTROL ADJUSTMENTS > B. CHECK AND CORRECT CURRENT ADJUSTMENT",
+   6
+  ],
+  [
+   "Software Calibration Procedures",
+   6
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY > ADJUSTMENT PROCEDURE",
+   6
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > H. INSTALL WAFER MOUNTING PLATE",
+   6
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > 1. Reinstall the left load chuck:",
+   6
+  ],
+  [
+   "Mechanical Maintenance Procedures",
+   6
+  ],
+  [
+   "Turn Machine Power On, Perform Home Sequence Routine, and Install Carriers on Spindles > B. PROCEDURE",
+   6
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > DIAGNOSTICS MENU",
+   6
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > Shuttle Forward Reed Switch Adjustment",
+   6
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > DANGER",
+   5
+  ],
+  [
+   "MECHANICAL DESCRIPTION > B. WAFER LOADING SEQUENCE",
+   5
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM",
+   5
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > Menu Item Descriptions at the Auto Polish Parameters Menu",
+   5
+  ],
+  [
+   "CONDITIONING ARM DOWN FORCE ASSEMBLY > SERVO CONTROLLER",
+   5
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > B. WAFER LOADING SEQUENCE",
+   5
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Note: “WFR NOT ON SPINDLE” and “WFR FOUND ON SPINDLE” are the only error conditions that will actually halt an auto cycle.",
+   5
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > Note:",
+   5
+  ],
+  [
+   "MECHANICAL DESCRIPTION > or",
+   5
+  ],
+  [
+   "Model 6DS-SP Planarizer",
+   5
+  ],
+  [
+   "I/O AND INTERFACE SYSTEM",
+   5
+  ],
+  [
+   "Table of Contents",
+   5
+  ],
+  [
+   "Table of Contents > Volume Two",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Ver 4.32 changed \"Move Down\" calibration variables assignment:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Ver 4.29.1 added a new \"Alarm Action\" feature:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Provision for Extra Wafer Fetch Vacuum Time:",
+   5
+  ],
+  [
+   "USER INTERFACE REFERENCE > ALARM MANAGEMENT MENU:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > New Prompts and More Information about the Reset Button:",
+   5
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE PARAMETERS MENU (screen page 1):",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Menu Changes for Carrier X:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Supervisor Password Feature:",
+   5
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Choice of Spindle and Table Rotation Direction:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   5
+  ],
+  [
+   "USER INTERFACE REFERENCE > CALIBRATION/CONFIGURATION MENU:",
+   5
+  ],
+  [
+   "IMPORTANT ! > Installing new software from floppy disks to the machine:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > New Odd Polish Force Adjustments Added to Recipe:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Theory of Operation:",
+   5
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Manual Control Menu Zero Spindle Force Handling (for technicians):",
+   5
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Additional Light Tower Configuration:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Ver 4.14 added important calibration variables that must be set correctly:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > To use this feature:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   5
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Software Support for Yaskawa Servo Controllers (for technicians):",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Ver 4.12 added important calibration variables that must be set correctly:",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Independent Left and Right Spindle \"Loop Gain\" Variables:",
+   5
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE PARAMETERS MENU (cont.)(screen page 2):",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > IMPORTANT !",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Ver 4.33 changed \"Loop Gain\" calibration variables assignment:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Notation and Memory of Wafer Polish/Unpolish Status at Load Stations:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Alarm and Cycle Start Inhibit if Center Protection Enabled and Conditioning Sweep Hazard Exists or Conditioning Device Diameter Set to \"0\":",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Bridge Move before F-B Rinse:",
+   5
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Note to GEM users:",
+   5
+  ],
+  [
+   "USER INTERFACE REFERENCE > ALARM PARAMETERS MENU:",
+   5
+  ],
+  [
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500",
+   5
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   5
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > C. ADJUSTMENT PROCEDURE",
+   5
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > B. PERFORM THE ADJUSTMENT",
+   5
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > C. INSTALL INNER GIMBAL RING IN OUTER GIMBAL RING",
+   5
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > B. CALIBRATE THE E - P REGULATORS ONE AT A TIME",
+   5
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > C. ALIGNMENT PROCEDURE",
+   5
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > CALIBRATION VARIABLES SET DURING THIS PROCEDURE",
+   5
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU",
+   5
+  ],
+  [
+   "TABLE UNLOCKING CYLINDER REED SWITCH ADJUSTMENTS > B. TEST THE PRESENT POSITION AND ADJUST",
+   5
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > D. LEVEL THE END EFFECTOR",
+   5
+  ],
+  [
+   "UNIVERSAL WAFER CASSETTE SUPPORT",
+   5
+  ],
+  [
+   "TABLE LOCKING CYLINDER REED SWITCH ADJUSTMENTS > B. TEST THE PRESENT POSITION AND ADJUST",
+   5
+  ],
+  [
+   "ROBOT BELT TENSIONING [#B IN ELEVATORS AND ROBOT ADJUSTMENT SERIES] > B. CHECK AND ADJUST THE BELT TENSION",
+   5
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > A. ASSEMBLE CARRIER TOP PLATE",
+   5
+  ],
+  [
+   "MEASUREMENT OF THE PRESENT LOAD CHUCK HEIGHT POSITION > B. MEASURE AND RECORD",
+   5
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > 30. Adjust the shuttle rear reed switch:",
+   5
+  ],
+  [
+   "POWER DISTRIBUTION > POWER UP",
+   4
+  ],
+  [
+   "OPERATIONS MANUAL - CONTENTS AND PURPOSE > MAINTENANCE MANUAL - CONTENTS AND PURPOSE",
+   4
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > or",
+   4
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ROBOT TOP/BOTTOM NOT AT ZERO” - # 54",
+   4
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > NOTES",
+   4
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS",
+   4
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > ELECTRICAL",
+   4
+  ],
+  [
+   "MECHANICAL DESCRIPTION > LEFT/RIGHT CARRIER/WAFER CLEANING STATIONS",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > SPECIAL PROTECTION",
+   4
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > Operator Functions",
+   4
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > POWER GOES OFF DURING CYCLE",
+   4
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > ROBOT DROPS WAFERS--PART B",
+   4
+  ],
+  [
+   "TROUBLESHOOTING > OVERVIEW",
+   4
+  ],
+  [
+   "MACHINE PARAMETERS MENU (SCREEN PAGE 3)",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > REFERENCES",
+   4
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > AUTO CYCLE FEATURES:",
+   4
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > GENERAL OPERATION",
+   4
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > ODD WAFER POLISHING:",
+   4
+  ],
+  [
+   "CARRIER UNLOADING FOR THE TWO-TABLE MACHINE > 1. Close all doors to the machine.",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > SKIN CONTACT",
+   4
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER",
+   4
+  ],
+  [
+   "MODEL 6DS-SP > Machine Description",
+   4
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE > Removal of Lockout/Tagout Devices",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > HEALTH WARNING",
+   4
+  ],
+  [
+   "MECHANICAL DESCRIPTION > SHUTTLE ASSEMBLY",
+   4
+  ],
+  [
+   "MODEL 6DS-SP",
+   4
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > ALARM PARAMETERS MENU",
+   4
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > WARNING:",
+   4
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > 5 - RUN AN AUTO POLISH CYCLE",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > FIRE AND EXPLOSION HAZARDS",
+   4
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > SLURRY FLUSH MENU",
+   4
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > CYCLE WON’T START--PART A",
+   4
+  ],
+  [
+   "DC MOTOR CONTROLLER > SERVO AMPLIFIER",
+   4
+  ],
+  [
+   "MACHINE PARAMETERS MENU (SCREEN PAGE 3) > MENU ITEM DESCRIPTIONS AT THE MACHINE PARAMETERS MENU (SCREEN PAGE 3)",
+   4
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > ROBOT DROPS WAFERS--PART A",
+   4
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > DRAIN SYSTEM",
+   4
+  ],
+  [
+   "5 - RUN AN AUTO POLISH CYCLE USING THE “START WITH LOAD” FEATURE",
+   4
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION > WAFER BACKING INSERT CHANGE",
+   4
+  ],
+  [
+   "DOCUMENT CONVENTIONS > AT THE KEYBOARD",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > EYE CONTACT",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > INGESTION",
+   4
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > Note:",
+   4
+  ],
+  [
+   "New Features Information Locator > INTRODUCTION",
+   4
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE > Written Program",
+   4
+  ],
+  [
+   "MACHINE SETUP > SLURRY FLUSH MENU",
+   4
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > MACHINE PARAMETERS MENU(SCREEN PAGE 1 )",
+   4
+  ],
+  [
+   "STEP 8 - COMPLETING THE INSTALLATION - INITIAL ADJUSTMENTS",
+   4
+  ],
+  [
+   "New Features Information Locator > FLAT PANEL DISPLAY OPERATOR INTERFACE",
+   4
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > CARRIERS DROP OFF SPINDLES",
+   4
+  ],
+  [
+   "CARRIER LOADING AND UNLOADING FOR MACHINES EQUIPPED WITH A SECOND POLISH TABLE > Procedure",
+   4
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > PROCEDURE INVOLVING MORE THAN ONE PERSON",
+   4
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > MENU ITEM DESCRIPTIONS AT THE MACHINE PARAMETERS MENU (SCREEN PAGE 1)",
+   4
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > WAFERS LEFT ON TABLE - PART B",
+   4
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > SWEEP PARAMETERS MENU",
+   4
+  ],
+  [
+   "CLEANING STATION PAD PRESSURE ADJUSTMENTS > CYLINDER PRESSURE / PAD FORCE TABLE",
+   4
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > Note:",
+   4
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > INHALATION",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > Settable Spindle Flush Water and Air Blowoff Times:",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Additional Carrier Loading/Unloading Protective Shuttle Moves:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Calibration Information for Technicians:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > MANUAL CONTROL MENU (screen page 1):",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Manual GEM Software Installation:",
+   4
+  ],
+  [
+   "List of Figures",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Version 4.33 adds the following miscellaneous improvements:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Pad Conditioning Life Timer:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Lever Type Conditioning Arm Changes:",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Front Panel Reset Button:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > DcxTest (Test the DCX board status) Utility Program:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Support:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > ALARM MANAGEMENT MENU (cont):",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Operator \"Scaling and Odd Time Adjust\" Choice:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > POLISH PARAMETERS MENU:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > DIAGNOSTICS MENU:",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Operator \"Ring Force\" Choice:",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Software Installation:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Expose Table 2 Feature:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Hardware:",
+   4
+  ],
+  [
+   "IMPORTANT ! > More Recipes Can Be Displayed:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > SCREEN USAGE:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Procedure:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Operation if not using Nova:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > DOCUMENTATION ON DISKETTE: The diskette \"6DS-SP DOCUMENTATION, Version 4.27\"",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Procedure:",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Primary Conditioner Cleaning Feature:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Description:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Description:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > MENU GROUPING AND RECIPE DEFINITION:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   4
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians): > Procedure:",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   4
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > DOCUMENTATION ON DISKETTE: The diskette \"6DS-SP DOCUMENTATION, Version 4.24\"",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > DcxCntrl (DCX Control) Utility Program:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Direct Cassette to Scrubber Transfer (for scrubber equipped machines):",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > DOCUMENTATION ON DISKETTE: The diskette \"6DS-SP DOCUMENTATION, Version 4.28\"",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > \"Use Partial Send Cassette\" Feature:",
+   4
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Optional Carrier Unloading Sequence for Two Table Machines:",
+   4
+  ],
+  [
+   "USER INTERFACE REFERENCE > USER INTERFACE DESCRIPTION (continued):",
+   4
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Procedure:",
+   4
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Version 4.33, 4.34 or 4.34.1 should NOT be installed in Carrier X equipped 6DS-SP's:",
+   4
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   4
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > B. CHECK AND WET CALIBRATE THE TRANSMITTER",
+   4
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY > CHECK CURRENT CALIBRATION",
+   4
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > B. CHECK AND ADJUST VARIABLE 38, THE SPINDLES DOWN SOFT VALUE",
+   4
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > 3. WHEN LEFT AND RIGHT SPINDLE POLISH FORCEHAVE BEEN CALIBRATED",
+   4
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > EXPANDED, DESCRIPTIVE CALIBRATION VARIABLES LIST",
+   4
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > C. TEST LEFT VERSUS RIGHT PERFORMANCE",
+   4
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION > B. CHECK CURRENT CALIBRATION",
+   4
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT > Notes:",
+   4
+  ],
+  [
+   "LEFT SEND ELEVATOR > C. Check and Adjust the Current Calibration",
+   4
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > B. CHECK CURRENT ADJUSTMENT",
+   4
+  ],
+  [
+   "SOFTWARE AND CONTROL COMPUTER MAINTENANCE > OVERVIEW",
+   4
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > MANUAL CONTROL MENU (SCREEN PAGE 3)",
+   4
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > Notes:",
+   4
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > B. CHECK CURRENT CALIBRATION",
+   4
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS > 4. Raise the spindles:",
+   4
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > For Both Six- and Eight-Inch Carriers:",
+   4
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > B. REMOVE THE ROBOT FROM THE MACHINE",
+   4
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ROBOT TOP/BOTTOM NOT AT ZERO” - # 54",
+   4
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > C. ADJUSTMENT PROCEDURE",
+   4
+  ],
+  [
+   "LOAD STATION ALIGNMENT > B. CHECK CURRENT CALIBRATION",
+   4
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > FUNCTION KEY CHOICES AVAILABLE AT THE DIAGNOSTICS MENU",
+   4
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > I. INSTALL CARRIER TOP PLATE",
+   4
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > [#4 IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   4
+  ],
+  [
+   "ROBOT VACUUM SWITCH WAFER SENSING CALIBRATION > B. ADJUSTMENT PROCEDURE",
+   4
+  ],
+  [
+   "MACHINE DESCRIPTION > OVERVIEW",
+   3
+  ],
+  [
+   "MECHANICAL DESCRIPTION > C. POLISH CYCLE SEQUENCE",
+   3
+  ],
+  [
+   "Maintenance Manual",
+   3
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > DRAINS",
+   3
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Notes on Bridge Shutoffs Due to Low Sensed Spindle Vacuum:",
+   3
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES > REMOVAL OF CARRIERS FROM SPINDLES",
+   3
+  ],
+  [
+   "CONDITIONING ARM DOWN FORCE ASSEMBLY > CONTROL COMPUTER",
+   3
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > WATER SYSTEM",
+   3
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > OPERATOR ROUTINE PREVENTIVE MAINTENANCE AND ASSOCIATED OPERATOR ROUTINE PREVENTIVI ASSOCTATED",
+   3
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > FUNCTION KEY CHOICES AVAILABLE AT THE SWEEP PARAMETERS MENU",
+   3
+  ],
+  [
+   "CLEANING STATION PAD PRESSURE ADJUSTMENTS > ÀDANGER",
+   3
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > WARNINGS:",
+   3
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > STEP 6 - CONNECTING UTILITIES",
+   3
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > EXPANDED PASSWORD PROTECTION:",
+   3
+  ],
+  [
+   "MENU GROUPING AND RECIPE DEFINITION > RECIPE DEFINITION",
+   3
+  ],
+  [
+   "Operations Manual > Chapter 2 Machine Description",
+   3
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > C. POLISH CYCLE SEQUENCE",
+   3
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > VACUUM SYSTEM",
+   3
+  ],
+  [
+   "New Features Information Locator > LIST OF FIGURES",
+   3
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > DRAINS",
+   3
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WAFER AT LEFT SND ELEVATOR” - # 100 “WAFER AT RIGHT SND ELEVATOR” - # 101 “WAFER AT LEFT RCV ELEVATOR” - # 102 “WAFER AT RIGHT RCV ELEVATOR” - # 103",
+   3
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > EXHAUST FAILURE INDICATOR",
+   3
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > SEISMIC PROTECTION",
+   3
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “CONDITION ARM NOT ARRIVING $U P ^ { \\prime \\prime }$ - # 158 “CONDITION ARM NOT ARRIVING DOWN” - # 159",
+   3
+  ],
+  [
+   "STEP 1 - OBTAIN THE FACILITY AND EQUIPMENT PREPARATION SIGN-OFF SHEET",
+   3
+  ],
+  [
+   "POWER DISTRIBUTION > INTERLOCKS",
+   3
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > ODD WAFER POLISHING:",
+   3
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > MACHINE SETUP MENU",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > MportRec (Import Recipe) Utility Program:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Force Cycling:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > New Light Tower Configuration:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Jog Feature for Calibration/Configuration Menu (for technicians):",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Changes to Automatic Setting of Screen Colors (for technicians):",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > STRASBAUGH, INC.",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > Description:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > ViPRR Menu Items:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > SWEEP PARAMETERS MENU:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > For technicians:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Signal Descriptions:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > \"Spindles Down Hard Value\" Now Used for Carrier Loading:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Alarm and Cycle Start Inhibit if \"Stroke Limit\" and \"Slide & Lift\" are Both Selected:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > New Light Tower Control Configuration for Any Two Cassette Machine:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > AGV Automatic Start and New Transfer Request Wait Variable:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Add \"Finish Lot\" Alarm Action Feature:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > R. Howard Strasbaugh, Inc.",
+   3
+  ],
+  [
+   "IMPORTANT ! > 7) IMPORTANT! CONFIGURE ALARM ACTIONS",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > File Checking at Startup:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > SWEEP PARAMETERS MENU (continued):",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > Two Table Machine Wafer Cleaning and Carrier Pad Cleaning:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > ViPRR Hardware Configuration:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > NOTE:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Left and Right Force Scaling Effects Now Show on Status Display of Polish Force:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > If Software Prior to Version 4.38 is Loaded on a CE equipped Machine:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Detection of Failure to Home:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Manual Control Table 2 rotation not permitted at “Operator” password level:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Table Selectable Backpressure Enable:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.17 NEW FEATURES / INSTALLATION > Description:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Choice for No HydroLift Spray During Wafer Unloading:",
+   3
+  ],
+  [
+   "IMPORTANT ! > Previous Alarm Actions That are Now Handled Differently (continued):",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Added Changes to Use Slurry Systems 1 and 2 \"Alarm #2\" Inputs More Fully:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Support for Independent Control of Four Passage Rotary Unions:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Added Choices for \"Table Rinse with Curtain Rinse\":",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > IMPORTANT !",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > The 4.23.1 (and previous 4.23) release adds the following features:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > STRASBAUGH, INC.",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > MANUAL CONTROL MENU (cont)(screen page 2):",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > New Calibration Variables:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Known AGV related issues with Version 4.26.1:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE PARAMETERS MENU (cont.)(screen page 3):",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Choice to Inhibit Life Counting if Using Low or Zero Polish Times:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Note to technicians:",
+   3
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Slurry Priming Feature:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Miscellaneous Improvements:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Introduction:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Support for Latched Carriers:",
+   3
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians): > Introduction:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Problem Handling:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Forced Curtain Rinse with Front-to-Back High Throughput:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Endpoint Pressure Control Disable:Endpt Pol Step",
+   3
+  ],
+  [
+   "IMPORTANT ! > External Alarm Support:",
+   3
+  ],
+  [
+   "IMPORTANT ! > Partial Finish Cycle for HTP Configurations:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Externally Detected Leak Input:",
+   3
+  ],
+  [
+   "IMPORTANT ! > AGV \"Phase 2\":",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > Introduction:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Introduction:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > SLURRY FLUSH MENU:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Alarm if Cassette Arm Lifted During Wafer Fetch:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > F-B Throughput Post Polish Curtain Rinse Wetting:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Send Cassette Retry Disable Feature:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > \"Front to Back\" High Throughput Mechanism Support:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > NOTES CONTINUED ON NEXT PAGE",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE SETUP MENU:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > How Forces Build during a Carrier X Polishing Cycle:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Introduction:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > AUTO POLISH CYCLE MENU:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Throughput option Up/Down calibration (for technicians):",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > \"Once Only\" Ex-situ Condition Feature:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.19.1 NEW FEATURES / INSTALLATION > Description:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > HydroLift Wafer Unloading Change:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > MANUAL CONTROL MENU (cont)(screen page 3):",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.37.2 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.17 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   3
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Added for Version 4.37.1:",
+   3
+  ],
+  [
+   "USER INTERFACE REFERENCE > POLISH PARAMETERS MENU (continued):",
+   3
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Additional Rotating Axis Error Handling:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Introduction:",
+   3
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > AGV Data Display:",
+   3
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > ROBOT",
+   3
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > B. PREPARE AN ALIGNMENT GUIDE WAFER",
+   3
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > A. BEFORE YOU BEGIN",
+   3
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “SLURRY 1 SUPPLY LOW OR ABSENT” - # 72",
+   3
+  ],
+  [
+   "6DS-SP COMPUTER SETUP > PC-DOS AND CONFIGURATION SETUP",
+   3
+  ],
+  [
+   "BACKING UP POLISH RECIPES AND MACHINE DATA FILES > Procedure to Backup Files:",
+   3
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > B. CENTER THE LOAD STATIONS UNDER THE SPINDLES",
+   3
+  ],
+  [
+   "LOAD STATIONS",
+   3
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS > B. SET THE VACUUM SWITCHES TO 15 HG",
+   3
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > B. PERFORM THE E - P CALIBRATION",
+   3
+  ],
+  [
+   "LOAD STATION ALIGNMENT > C. ALIGNMENT PROCEDURE",
+   3
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > HOW THE ROBOT’S UP/DOWN MOTION IS USED AT THE ELEVATORS",
+   3
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > B. WEIGH CARRIERS AND ADJUST SENSOTEC INDICATOR",
+   3
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY > Tools and Parts Recommended",
+   3
+  ],
+  [
+   "SLURRY SYSTEM",
+   3
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > B. CHECK CURRENT CALIBRATION",
+   3
+  ],
+  [
+   "LEFT SPINDLE DOWN LIMIT SWITCH > C. ADJUSTMENT PROCEDURE",
+   3
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > G. INSTALL THREE JACKSCREW ASSEMBLIES IN BACK SIDE OF WAFER MANIFOLD PLATE",
+   3
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > Outside Diameter Holes",
+   3
+  ],
+  [
+   "ROBOT VACUUM SWITCH WAFER SENSING CALIBRATION > Notes:",
+   3
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > AT THE ELEVATORS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION",
+   3
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > 12. Close the operator doors.",
+   3
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > TOOLS AND PARTS RECOMMENDED",
+   3
+  ],
+  [
+   "CLEANING STATIONS",
+   3
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > B. TEST THE PRESENT POSITION AND ADJUST",
+   3
+  ],
+  [
+   "SLURRY SYSTEM > Notes:",
+   3
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > C. INPUT TEST VALUES FOR THE LEFT FORCE PARAMETER",
+   3
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT > PROGRAMMABLE ARM CALIBRATION [#4 IN CONDITIONING ARM ADJUSTMENT SERIES]",
+   3
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > B. REMOVE THE LOAD CHUCKS, TABLE, AND SUBTABLE",
+   3
+  ],
+  [
+   "ENHANCED CLEANING STATION ROTATIONAL SPEED (POTENTIOMETER) CALIBRATION > LEFT CLEANING STATION",
+   3
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “SHUTTLE NOT ARRIVING FRONT” - # 150 “SHUTTLE NOT ARRIVING REAR” - # 151",
+   3
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “CONDITION ARM NOT ARRIVING $U P ^ { \\prime \\prime }$ - # 158 “CONDITION ARM NOT ARRIVING DOWN” - # 159",
+   3
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > Notes:",
+   3
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > 3. Adjust the small left side shock absorber:",
+   3
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > NOTICE: The procedure below is a two-person job!",
+   3
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > ROBOT",
+   3
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > B. TABLE REMOVAL",
+   3
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > Notes on Bridge Shutoffs Due to Low Sensed Spindle Vacuum:",
+   3
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > B. CHECK CURRENT CALIBRATION",
+   3
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > A. PLUG THE BACK PRESSURE OUTLETS AT THE SPINDLES",
+   3
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Summary of the Position Correction Sequence",
+   3
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > B. CHECK CURRENT CALIBRATION",
+   3
+  ],
+  [
+   "MANUAL CONTROL MENU > MANUAL CONTROL MENU (SCREEN PAGE 1)",
+   3
+  ],
+  [
+   "Set Auto Polish Cycle Parameters for Short Test Cycle > B. CHECK CURRENT ADJUSTMENT",
+   3
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > 22. Torque each jack screw to 120 inch-pounds using a torque wrench:",
+   3
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > Goal for Six-Inch Carriers Only:",
+   3
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS",
+   2
+  ],
+  [
+   "New Features Information Locator > WHAT’S NEW....",
+   2
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > PRESETTABLE WAFER POLISH COUNT:",
+   2
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION > Remove carriers from spindles:",
+   2
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > DUAL TIME AND DUAL BACKPRESSURE ENTRY CHOICES:",
+   2
+  ],
+  [
+   "TROUBLESHOOTING > Assumption",
+   2
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > POLISH AND CONDITION FORCE UNITS AND DIAMETER ENTRY CHANGE:",
+   2
+  ],
+  [
+   "Operations Manual > Table of Contents",
+   2
+  ],
+  [
+   "TROUBLESHOOTING > Messages Displayed on the Control Computer Screen Take Precedence!",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > NOTE",
+   2
+  ],
+  [
+   "MODEL 6DS-SP > Installation",
+   2
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > MENU ITEM DESCRIPTIONS AT THE ALARM PARAMETERS MENU",
+   2
+  ],
+  [
+   "TROUBLESHOOTING",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > CAUTION",
+   2
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > TEMPERATURE CONTROL UNIT",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > 4. If vacuum is inadequate:",
+   2
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > OPEN DOOR",
+   2
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE",
+   2
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > \"ON THE FLY\" CHANGES:",
+   2
+  ],
+  [
+   "Physical Description",
+   2
+  ],
+  [
+   "DOCUMENT CONVENTIONS > COMPUTER COMMANDS - EXTENDED AND ABREVIATED",
+   2
+  ],
+  [
+   "Left Cleaning Station Pad Pressure > PROCEDURE FOR SETTING PRESSURE",
+   2
+  ],
+  [
+   "CONDITIONING ARM DOWN FORCE ASSEMBLY > CONTROL SYSTEM DESCRIPTION",
+   2
+  ],
+  [
+   "CLEANING STATION PAD PRESSURE ADJUSTMENTS > Notes:",
+   2
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > CONNECTING UTILITIES",
+   2
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > VISUAL HAZARD ALERTS",
+   2
+  ],
+  [
+   "DOCUMENT CONVENTIONS > STEP-BY-STEP INSTRUCTIONS",
+   2
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > TEMPERATURE-CONTROLLED WATER",
+   2
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > “FINISH” AN AUTO POLISH CYCLE",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > REACTIVITY WARNING",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE",
+   2
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > PRESETTABLE WAFER POLISH COUNT:",
+   2
+  ],
+  [
+   "MAINTENANCE MANUAL(VoI#1) > NOTICE",
+   2
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “LEFT SPINDLE VACUUM SWITCH OFF” - # 51 “RIGHT SPINDLE VACUUM SWITCH OFF” - # 52",
+   2
+  ],
+  [
+   "Physical Description > CABINETRY",
+   2
+  ],
+  [
+   "MODEL 6DS-SP INTERLOCK SYSTEM > ATTENTION 6DS-SP OWNER!",
+   2
+  ],
+  [
+   "MACHINE DESCRIPTION > CABINETRY",
+   2
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “CARRIER(S) NOT INDEXING” - # 142",
+   2
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > GUARANTEE/WARRANTY CERTIFICATE",
+   2
+  ],
+  [
+   "DOCUMENT CONVENTIONS",
+   2
+  ],
+  [
+   "New Features Information Locator > 6DS-SP USER INTERFACE REFERENCE DOCUMENT ADDITION",
+   2
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > TEMPERATURE-CONTROLLED WATER",
+   2
+  ],
+  [
+   "New Features Information Locator > REVISED, UPDATED ENGINEERING DRAWINGS",
+   2
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “SHUTTLE NOT ARRIVING FRONT” - # 150 “SHUTTLE NOT ARRIVING REAR” - # 151",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > LOCKOUT PROCEDURE",
+   2
+  ],
+  [
+   "OPERATION USING MANUAL LOADING OF WAFERS > SUMMARY",
+   2
+  ],
+  [
+   "Left Cleaning Station Pad Pressure > Right Cleaning Station Pad Pressure",
+   2
+  ],
+  [
+   "MATERIAL SAFETY DATA SHEETS FOR PRODUCTS USED IN MACHINE MAINTENANCE",
+   2
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 6 - RUN AN AUTO POLISH CYCLE",
+   2
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > The three light tower operates as shown below:",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > MACHINE WON’T HOME",
+   2
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > A BASIC MACHINE WITH OPTIONAL FEATURES",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > RESPONSIBILITY",
+   2
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD",
+   2
+  ],
+  [
+   "Mechanical Description",
+   2
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE > STRASBAUGH",
+   2
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > 4 - RETRIEVE A STORED RECIPE",
+   2
+  ],
+  [
+   "APPENDIX TO LOCKOUT SAFETY PROCEDURE > TRAINING, LOCKOUT/TAGOUT, PER 29 CFR 1910.147",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > GALLIUM ARSENIDE (GAAS)",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > PREPARATION FOR LOCKOUT",
+   2
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > TEMPERATURE CONTROL UNIT",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > WAFERS LEFT ON TABLE - PART A",
+   2
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU",
+   2
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > ÀDANGER",
+   2
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS",
+   2
+  ],
+  [
+   "MECHANICAL DESCRIPTION > AUTO POLISH CYCLE OPERATION -THE SEQUENCE OF EVENTS",
+   2
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > DUAL TIME AND DUAL BACKPRESSURE ENTRY CHOICES:",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > WATER SPRAYER WON’T SPRAY",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > MACHINE MAINTENANCE MANUALS:",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > REACTIVITY WARNINGS",
+   2
+  ],
+  [
+   "Model 6DS-SP Planarizer OPERATIONS MANUAL > NOTICE",
+   2
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES > Note: For 7-Day, 28-Day, and 180-Day maintenance schedules, refer to the Preventive Maintenance chapter of the 6DS-SP Maintenance manual",
+   2
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > SUMMARY",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > RULES FOR USING LOCKOUT PROCEDURE",
+   2
+  ],
+  [
+   "New Features Information Locator > VERSION 4.25 OF THE 6DS-SP SOFTWARE",
+   2
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > WARNING:",
+   2
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > “ON THE FLY” CHANGES:",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > Restoring Equipment to Service",
+   2
+  ],
+  [
+   "GALLIUM ARSENIDE AND GERMANIUM USE > GERMANIUM (GE)",
+   2
+  ],
+  [
+   "CONTROL COMPUTER > WHERE TO FIND MORE INFORMATIONON THE SOFTWARE...",
+   2
+  ],
+  [
+   "PREVENTIVE MAINTENANCE SCHEDULES > OVERVIEW",
+   2
+  ],
+  [
+   "POWER DISTRIBUTION > WARNING:",
+   2
+  ],
+  [
+   "CONTROL COMPUTER > WHERE TO FIND MORE INFORMATION ON THESOFTWARE...",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > \\*\\* (6a) Notes on Testing and Adjusting Vacuum Solenoid:",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > SOFTWARE (COMPUTER) PROBLEMS",
+   2
+  ],
+  [
+   "MODEL 6DS-SP INTERLOCK SYSTEM > SLURRY COMPOUNDS",
+   2
+  ],
+  [
+   "POWER DISTRIBUTION > INTRODUCTION",
+   2
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > PURPOSE",
+   2
+  ],
+  [
+   "MECHANICAL DESCRIPTION",
+   2
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION > Installation",
+   2
+  ],
+  [
+   "POWER DISTRIBUTION > DC DISTRIBUTION",
+   2
+  ],
+  [
+   "CLEANING STATION PAD PRESSURE ADJUSTMENTS",
+   2
+  ],
+  [
+   "CONTROL COMPUTER",
+   2
+  ],
+  [
+   "GUARANTEE/WARRANTY CERTIFICATE",
+   2
+  ],
+  [
+   "DC MOTOR CONTROLLER",
+   2
+  ],
+  [
+   "DOCUMENT CONVENTIONS > AT THE CONTROL PANEL",
+   2
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > “ABORT” AN AUTO POLISH CYCLE OR OTHER MACHINE MOTION",
+   2
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > For Further Information:",
+   2
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > HAZARD MAGNITUDE LEVELS",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > ELEVATOR TANKS WON’T HOLD WATER",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B",
+   2
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > Notes:",
+   2
+  ],
+  [
+   "TROUBLESHOOTING > Problem Prevention",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART A",
+   2
+  ],
+  [
+   "MODEL 6DS-SP INTERLOCK SYSTEM > WASTE DISPOSAL",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS",
+   2
+  ],
+  [
+   "MODEL 6DS-SP INTERLOCK SYSTEM > SPRAYER USE",
+   2
+  ],
+  [
+   "MACHINE SETUP > OVERVIEW",
+   2
+  ],
+  [
+   "ABOUT THE 6DS-SP MANUALS",
+   2
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION > Removal",
+   2
+  ],
+  [
+   "OPERATIONS MANUAL - CONTENTS AND PURPOSE",
+   2
+  ],
+  [
+   "PROCEDURE FOR SAFE REMOVAL OF WAFER FROM ROBOT > 1. Prepare to catch the wafer.",
+   2
+  ],
+  [
+   "MACHINE SETUP > “ON THE FLY” RECIPE PARAMETER CHANGES",
+   2
+  ],
+  [
+   "ABOUT THE MODEL 6DS-SP PLANARIZER > SAFETY",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > MACHINE WON’T POWER UP",
+   2
+  ],
+  [
+   "Physical Description > OVERVIEW",
+   2
+  ],
+  [
+   "TROUBLESHOOTING > FUNCTION KEY CHOICES AVAILABLE AT THE ALARM LOG MENU",
+   2
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Note: Error messages 194, 195, and 196 apply to the servo controlled conditioning arm.",
+   2
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > EXHAUST SYSTEM",
+   2
+  ],
+  [
+   "Left Cleaning Station Pad Pressure",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > \\* Notes on Opening Doors:",
+   2
+  ],
+  [
+   "FREQUENTLY ENCOUNTERED PROBLEM CONDITIONS > CYCLE WON’T START--PART B",
+   2
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS > Emergency Off",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > Description:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > RECIPE MANAGEMENT MENU:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > NOTES:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > CONDITIONING/CLEANING PARAMETERS MENU (cont.)(screen page 1):",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Miscellaneous F-B Throughput Improvements:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Always Lower Both Spindles for Wafer Unloading Added:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > Term (Terminal Emulator) Utility Program:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > \"No Elevator Fill when Load Rinsing\" Feature:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > EditVars (Edit Variables) Utility Program:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Overall hardware design:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.37.2 NEW FEATURES / INSTALLATION > A note about PC DOS:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > AUTO POLISH CYCLE MENU (continued):",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Exhaust Fail Alarm (CE related):",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Optional Wet Idle Robot to Scrubber Move:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.34.1 NEW FEATURES / INSTALLATION > What this document describes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > \"Cassette ready to be removed\" correction:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Alarm Action Behavior:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Force Spindle Flush Wafer Blowoff Choice:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Alarm Action Configuration:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Throughput Improvement When Using Pre-conditioning:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Loading from a send cassette:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.36 NEW FEATURES / INSTALLATION > What this document describes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > GEM Changes:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > PASSWORD MENU:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Cycle Start \"No Active Receive Cassette\" Error Check:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Loading from a load station:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > DCX Servo Controller Board Error Message (for technicians):",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Calibration/Configuration Menu Changes:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Choice for No HydroLift Spray During Nova Handling:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.35 NEW FEATURES / INSTALLATION > What this document describes:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Increased Number of Calibration Variables:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > Entering numbers:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > New \"Hot Key\" for Technicians:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.34.1 NEW FEATURES / INSTALLATION > A note about PC DOS:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Existing I/O with changed functions:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > What this document describes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > ViPRR Operation In Maintenance Menus:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Added VID’s",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Backpressure Process Alarms:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > DcxUser (DCX User) Utility Program:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Automatic Set To Operator Password Level:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Long Second Table Only Slurry Prestart Choice:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > ViPRR Default Pressure Change:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Wafer Loading:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > GEM/SECS CONFIGURATION MENU:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Abort Screen Idle or Wet Idle if Leak Detected Feature:",
+   2
+  ],
+  [
+   "IMPORTANT ! > GEM Changes:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Added Wet Idle End Effector Wetting at Axis 8:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Pad Change Alarms:",
+   2
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > GEM Changes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > New Light Tower Configuration #7:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Machine Setup Menu Changes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Automated Process Monitoring:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Show Last Alarm Text Feature:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Right Backpressure Disabled During Odd Polish:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Polish Halt upon High Table 1 Temperature:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Serial Port Error Handler Removed:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Operation:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Alarm Buzzer with GEM Host Message Waiting:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Instead, Strasbaugh recommends the following:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Support for a Four Lamp Light Tower:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.34.1 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   2
+  ],
+  [
+   "Calibration Variables Listing",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > New Menu Choices:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Throughput Improvement, Conditioning Starts when Current Rinse Ends:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.37.2 NEW FEATURES / INSTALLATION > What this document describes:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Auto Cycle Action if Leak Feature:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > IMPORTANT NOTES CONTINUED ON NEXT PAGE - PLEASE READ",
+   2
+  ],
+  [
+   "IMPORTANT ! > End Effector Vacuum with Robot to Scrubber Wet Idle Feature:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > A note about PC DOS:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Feature to End Primary Table In-Situ Conditioning after a Selected Step:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Nuisance Force Alarm Improvement:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Wet Idle of Unused Second Table:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Additional Wafer Handling Tests:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > TABLE OF CONTENTS",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Multiple Endpoint Control:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Description of AGV> Scrubber Mode:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE PARAMETERS MENU (cont.)(screen page 1):",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > MENU SELECTION:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.35 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Operation Modes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > New Calibration Variables for Carrier X:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.36 NEW FEATURES / INSTALLATION > A note about PC DOS:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Computer Setup (for technicians):",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > New DCX intialization files (for technicians):",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Choice to Limit Primary Table Oscillation Stroke:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Automated Process Control/Monitor:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > MANUAL CONTROL MENU (cont)(screen page 4:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.35 NEW FEATURES / INSTALLATION > A note about PC DOS:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Enhanced Lot/Recipe Integrity for Front-to-Back Throughput Configuration:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Wafer Lift Off Vacuum Alarm:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Carrier loading:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Manual GEM Software Installation:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Wafer Check Added for Demand Wafer Unload:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > Wafer Slipout Detection Change:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Faster Arm Parking after Primary Table In-Situ Conditioning:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > MACHINE SETUP MENU (cont.):",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Scrubber Error Choice:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > CE GEM Related Changes:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.19.1 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > \"No. of Wafers\" Maximum Limit Based On Cassette Size:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Alarms:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Notes:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > HOME MACHINE MENU:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Conditioner Sweep and Bridge Error Checks:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Conditioning Device Downforce Added at \"Park\" position:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Primary Table Inlet Cooling Water Temperature Alarm:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Nova Station Robot Up/Down calibration (for technicians):",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Lever Type Conditioning Arm Changes:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > “Long/Short” Slurry Prestart Choice for Table 1:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Changes to Slurry Alarm Messages:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > GEM Driver Sensing:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Process Alarm Disabling:",
+   2
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Pre-polish Robot Move:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Wafer Slip-Out Sensor Feature:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Support for Single Table Configuration with HydroLift:",
+   2
+  ],
+  [
+   "IMPORTANT !",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Throughput Improvement when Using Scrubber:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Throughput Improvement, Choice to Not Park Ex-Situ Conditioner Between Batches:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > In situ Conditioning Cycles Choices:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Throughput Improvement if Using Primary Table In-Situ Conditioning:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > Summary of Utility Programs:",
+   2
+  ],
+  [
+   "IMPORTANT ! > Software Installation:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > XportRec (Export Recipe) Utility Program:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Different behaviors when opening polish door:",
+   2
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians): > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Current Password Level Shown at All Times:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Alarm Label Changes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Always Lower Both Spindles for Wafer Loading Choice:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION",
+   2
+  ],
+  [
+   "IMPORTANT ! > Leave Idle with Alt-L Feature:",
+   2
+  ],
+  [
+   "USER INTERFACE REFERENCE > PrntVars (Print Variables) Utility Program:",
+   2
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians):",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM Command for Parking the Conditioning Arm(s):",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Wafer Unloading:",
+   2
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.21.2 NEW FEATURES / INSTALLATION > Installing new software from floppy disks to the machine:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Throughput Improvement, Concurrent Wafer Loading and Conditioner Parking:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Send Elevators Made Immediately \"Inactive\" When Cassette Arm Lifted:",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Include Pacific Scientific Amplifier Software and Strasbaugh Parameter Files (for technicians):",
+   2
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > XportRec and MportRec Utility Programs:",
+   2
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Liftoff from Table:",
+   2
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > ÀDANGER",
+   2
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > CALIBRATION VARIABLES SET DURING THIS PROCEDURE",
+   2
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Procedure:",
+   2
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Procedure:",
+   2
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS > B. TEST THE PRESENT POSITION AND ADJUST",
+   2
+  ],
+  [
+   "EXITING TO THE DOS SYSTEM PROMPT FROM THE 6DS-SP CONTROL PROGRAM MENUS",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “CARRIER(S) NOT INDEXING” - # 142",
+   2
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > OVERVIEW",
+   2
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > A. BEFORE YOU BEGIN",
+   2
+  ],
+  [
+   "LOAD STATIONS > Turn Machine Power On and Perform Home Sequence Routine",
+   2
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION",
+   2
+  ],
+  [
+   "TABLE TEMPERATURE CONTROLUNIT OPERATION > At the Filterine Temperature Control Unit",
+   2
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES FOR THE SECOND TABLE OPTION > SUMMARY",
+   2
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > F. TEST THE UNIT FOR .004 TO .005 INCHES OF PLAY (MOVEMENT) IN THE INSIDE DIAMETER INNER GIMBAL RING BEARINGS",
+   2
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > C. CHECK AND ADJUST SLURRY 1",
+   2
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > B. CORRECTION FOR BACK PRESSURE DISPLAYED IN PSIA",
+   2
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   2
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > B. CHECK CURRENT ADJUSTMENT",
+   2
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > 9. Adjust the small top right shock absorber:",
+   2
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION",
+   2
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > EASY SERVO CALIBRATION:",
+   2
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > Correction Procedure",
+   2
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > C. ADJUSTMENT PROCEDURE",
+   2
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES]",
+   2
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > 9. Lower the left and right spindles:",
+   2
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > TURN MACHINE POWER ON",
+   2
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > A. BEFORE YOU BEGIN",
+   2
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > ÀDANGER",
+   2
+  ],
+  [
+   "MAINTENANCE MANUAL(VoI#2) > NOTICE",
+   2
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   2
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > Variable 76",
+   2
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE",
+   2
+  ],
+  [
+   "PERFORMANCE OF RELATED SOFTWARE CALIBRATION PROCEDURES",
+   2
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > Front to Rear",
+   2
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > For Six-Inch Carriers:",
+   2
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "LEFT SPINDLE UP LIMIT SWITCH > C. ADJUSTMENT PROCEDURE",
+   2
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > TOOLS REQUIRED",
+   2
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > A. BEFORE YOU BEGIN",
+   2
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > 14. Adjust the four side set screws in the spindle collar:",
+   2
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > C. TEST THE ADJUSTMENT BY MANUALLY APPLYING AND REMOVING WAFERS",
+   2
+  ],
+  [
+   "LOAD STATIONS > Upward Motion Adjustment",
+   2
+  ],
+  [
+   "SOFTWARE CALIBRATION PROCEDURES > OVERVIEW",
+   2
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT > B. CALIBRATION PROCEDURE",
+   2
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Tools Required",
+   2
+  ],
+  [
+   "The Incoming Compressed Air Supply Filter and Regulation System",
+   2
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > C. CORRECTION FOR BACK PRESSURE DISPLAYED IN PSIG",
+   2
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > OVERVIEW",
+   2
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > CALIBRATION VARIABLES SET DURING THIS PROCEDURE",
+   2
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > Notes:",
+   2
+  ],
+  [
+   "Read and Record the Actual Temperature of the Chilled Water > A. CHECK THE CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "THERMOCOUPLE CALIBRATION",
+   2
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > A. CHECK PRESENT CALIBRATION",
+   2
+  ],
+  [
+   "6DS-SP DATE AND TIME SETTING",
+   2
+  ],
+  [
+   "LOAD STATIONS > Downward Motion Adjustment",
+   2
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > WARNING:",
+   2
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > D. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   2
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > E. REINSTALL THE ROBOT IN THE MACHINE",
+   2
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > C. CENTER A TEST WAFER UNDER THE ROBOT VACUUM CHUCK",
+   2
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > FUNCTION KEY CHOICES AVAILABLE AT PAGE 3 OF THE MANUAL CONTROL MENU",
+   2
+  ],
+  [
+   "LOAD STATIONS > A. BEFORE YOU BEGIN",
+   2
+  ],
+  [
+   "Turn Machine Power On, Perform Home Sequence Routine, and Install Carriers on Spindles > ASSEMBLY DRAWING AND ASSOCIATED PART LISTS",
+   2
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > B. CHECK AND CORRECT CURRENT ADJUSTMENT",
+   2
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > 10. Replace the stainless steel pan:",
+   2
+  ],
+  [
+   "SPINDLE CARRIER BLOW OFF PRESSURE > B. CHECK AND CORRECT CURRENT ADJUSTMENT",
+   2
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > D. CHECK THE CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > D. TEST THE UNIT FOR .004 TO .005 INCHES OF PLAY (MOVEMENT) IN THE OUTSIDE DIAMETER INNER GIMBAL RING BEARINGS",
+   2
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   2
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > At the Neslab Temperature Control Unit",
+   2
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES] > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > Inside Diameter Holes",
+   2
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES",
+   2
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS > Install new insert on carrier:",
+   2
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > 7. Measure:",
+   2
+  ],
+  [
+   "Turn Machine Power On, Perform Home Sequence Routine, and Install Carriers on Spindles",
+   2
+  ],
+  [
+   "STARTING THE 6DS-SP CONTROL PROGRAM AT THE DOS PROMPT",
+   2
+  ],
+  [
+   "SLURRY SYSTEM > B. CHECK THE CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "TABLES > A. CHECK PRESENT CALIBRATION",
+   2
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > Turn Machine Power On and Perform Home Sequence Routine",
+   2
+  ],
+  [
+   "SPINDLE CARRIER BLOW OFF PRESSURE > Software and Control Computer Maintenance",
+   2
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > CALIBRATION/CONFIGURATION MENU",
+   2
+  ],
+  [
+   "Set Auto Polish Cycle Parameters for Short Test Cycle > Notes:",
+   2
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > 2. Evaluate the Back Pressure status screen value:",
+   2
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > E. CALIBRATE THE SCALE FACTOR",
+   2
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > Shuttle Rear Reed Switch Adjustment",
+   2
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES] > C. ALIGNMENT PROCEDURE",
+   2
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > D. CALCULATE THE NEW LEFT SPINDLE FORCE SCALE FACTOR",
+   2
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > C. LEVEL THE ROBOT",
+   2
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > Pneumatic Adjustments",
+   2
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > Notes:",
+   2
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "LOAD STATIONS > B. CENTER THE LOAD STATIONS UNDER THE SPINDLES",
+   2
+  ],
+  [
+   "LEFT SPINDLE DOWN LIMIT SWITCH > B. CHECK CURRENT CALIBRATION",
+   2
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > 7. Reinstall the right load chuck platform and ring:",
+   2
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > B. REINSTALL THE LOAD CHUCKS, TABLE, AND SUBTABLE",
+   2
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Summary of the Position Correction Sequence",
+   2
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > 7. Adjust the jack screws:",
+   2
+  ],
+  [
+   "ROBOT VACUUM SWITCH WAFER SENSING CALIBRATION > [#8 IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   2
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION",
+   2
+  ],
+  [
+   "6DS-SP COMPUTER SETUP > HARDWARE SETUP",
+   2
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > C. ADJUSTMENT PROCEDURE",
+   2
+  ],
+  [
+   "CONDITIONING DEVICE AIR CYLINDER ADJUSTMENT > C. ADJUSTMENT PROCEDURE",
+   2
+  ],
+  [
+   "Set Auto Polish Cycle Parameters for Short Test Cycle > C. Adjustment Procedure",
+   2
+  ],
+  [
+   "RESTORING POLISH RECIPES AND MACHINE DATA FILES > CAUTION: THIS SHOULD BE DONE BY QUALIFIED PERSONNELONLY--WHEN IN DOUBT, CONTACT THE FACTORY!",
+   2
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > Note: Error messages 194, 195, and 196 apply to the servo controlled conditioning arm.",
+   2
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Conditioning/Cleaning Parameters Menu",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 3 - LOAD PAD CONDITIONING DEVICES ON SPINDLES",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > WHERE TO FIND MORE INFORMATION ON THECONTROL COMPUTER SYSTEM...",
+   1
+  ],
+  [
+   "Physical Description > INTERLOCK SAFETY SWITCHES",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Calibration/Configuration Menu",
+   1
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > VACUUM SYSTEM",
+   1
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > CYCLE HALT BUTTON",
+   1
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > STEP 4 - LEVELING",
+   1
+  ],
+  [
+   "OPERATION USING MANUAL LOADING OF WAFERS > 3 - PLACE CARRIERS ON SPINDLES",
+   1
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > VACUUM AND D.I. WATER",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > GEM/SECS Menu",
+   1
+  ],
+  [
+   "CARRIER UNLOADING FOR THE TWO-TABLE MACHINE > WARNING:",
+   1
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION > WAFER TEMPLATE RING CHANGE",
+   1
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > ELECTRICAL",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > MONITORS AND KEYBOARDS",
+   1
+  ],
+  [
+   "CONDITIONING ARM DOWN FORCE ASSEMBLY > Control System Description",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > HEATER/CHILLER OPERATION",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > 3 - PLACE CARRIERS ON SPINDLES",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > WET IDLE SLURRY FLUSH:",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > WHERE TO FIND MORE INFORMATIONON THE CONTROL COMPUTERSYSTEM...",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Sweep Parameters Menu",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > SUMMARY",
+   1
+  ],
+  [
+   "MACHINE DESCRIPTION > SERVICE DOOR INTERLOCKS",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Diagnostics Menu",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > Keys Used",
+   1
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Alarm Parameters Menu",
+   1
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > POLISH AND CONDITION FORCE UNITS AND DIAMETER ENTRY:",
+   1
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > LEVELING FEET",
+   1
+  ],
+  [
+   "Physical Description > SERVICE DOOR INTERLOCKS",
+   1
+  ],
+  [
+   "MODEL 6DS-SP > ACHINE ESCRIPTION",
+   1
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > EMERG OFF BUTTON",
+   1
+  ],
+  [
+   "MENU GROUPING AND RECIPE DEFINITION > MENU GROUPING",
+   1
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS > Cycle Halt",
+   1
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > VACUUM SEPARATOR",
+   1
+  ],
+  [
+   "MAINTENANCE MANUAL(VoI#1)",
+   1
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > STORED ENERGY (Remember energy can be stored!): \\*",
+   1
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > SLURRY SYSTEM",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ROBOT TRAVEL NOT HOMED” - # 63",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Machine Parameters Menu",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 1 - POWER UP",
+   1
+  ],
+  [
+   "MECHANICAL DESCRIPTION > 27. If carrier cleaning is enabled:",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEUSING THE CONDITIONING ARM",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Slurry System Flush Menu",
+   1
+  ],
+  [
+   "STEP 8 - COMPLETING THE INSTALLATION - INITIAL ADJUSTMENTS > HYSICAL ESCRIPTION",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > KEYPAD AND KEYBOARD USAGE",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “SLURRY 1 SUPPLY LOW OR ABSENT” - # 105 “SLURRY 2 SUPPLY LOW OR ABSENT” - # 106",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “BRIDGE NOT ARRIVING AT TABLE $z ^ { \\prime \\prime }$ - # 148",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > LIGHT TOWER SUPPORT",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Appendices",
+   1
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > \"SINGLE\" SWEEP STYLE CHOICE:",
+   1
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > IN-SITU CONDITIONING DUTY CYCLE:",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Machine Parameters Menu",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > Standard Keyboard (not shown)",
+   1
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS > Cycle Start",
+   1
+  ],
+  [
+   "RECIPE MANAGEMENT MENU",
+   1
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > ADDITIONAL FEATURE",
+   1
+  ],
+  [
+   "I/O AND INTERFACE SYSTEM > Power Distribution",
+   1
+  ],
+  [
+   "OPERATOR FUNCTIONS > Messages Displayed on the Control Computer Screen Take Precedence!",
+   1
+  ],
+  [
+   "CARRIER UNLOADING FOR THE TWO-TABLE MACHINE > Tools Required",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Appendix A",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > DUAL BACKPRESSURE CONTROL:",
+   1
+  ],
+  [
+   "MECHANICAL DESCRIPTION > F. CYCLE HALT",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “POLISH SECTION OPERATOR DOOR OPEN” - #199",
+   1
+  ],
+  [
+   "New Features Information Locator > Where to Find More Information on the Software...",
+   1
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > Sweep Parameters Setup:",
+   1
+  ],
+  [
+   "MACHINE SETUP > MENU GROUPING",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Password Menu",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ROBOT TOP AXIS NOT HOMED” - # 64",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WAFER NOT FOUND ON ROBOT” - # 149",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > ECHANICAL ESCRIPTION",
+   1
+  ],
+  [
+   "MACHINE SETUP",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > HEATER/CHILLER CONTROL UNIT AND TEMPERATURE DISPLAY",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > WARNING!",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WAFER FOUND ON ROBOT” - # 67",
+   1
+  ],
+  [
+   "MACHINE SETUP > MACHINE SETUP",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ROBOT BOTTOM AXIS NOT HOMED” - # 65",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > MENU “HOPPING”:",
+   1
+  ],
+  [
+   "Model 6DS-SP Planarizer OPERATIONS MANUAL > Model 6DS-SP Planarizer",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Conditioning/Cleaning Parameters Menu",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES",
+   1
+  ],
+  [
+   "PROCEDURE FOR SAFE REMOVAL OF WAFER FROM ROBOT",
+   1
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > PREPARATION FOR INSTALLATION",
+   1
+  ],
+  [
+   "CARRIER UNLOADING FOR THE TWO-TABLE MACHINE",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 5 - AT THE MACHINE PARAMETERS MENU, SET AUTO CYCLEOPERATION TO CONDITION",
+   1
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > COMPRESSED AIR",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Manual Control Menu",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “NO ACTIVE RECEIVE CASSETTE” - # 121",
+   1
+  ],
+  [
+   "MACHINE SETUP > WET IDLE SLURRY FLUSH:",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Machine Setup Menu",
+   1
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > A. CASSETTE LOADING",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Auto Polish Cycle Menu",
+   1
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES > DAILY PREVENTIVE MAINTENANCE SCHEDULE",
+   1
+  ],
+  [
+   "FACILITIES CONNECTIONS",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “BRIDGE TRAVEL NOT HOMED” - # 68",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Diagnostics Menu",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > OPERATION OF A CARRIER CLEANING CYCLE",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > LECTRIAL NPUT UTPUT",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > WATER TEMPERATURE DISPLAY ON THE 6DS-SP STATUS",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > OPERATION OF A SPINDLE FLUSH CYCLE",
+   1
+  ],
+  [
+   "Left Cleaning Station Pad Pressure > ACHINE ETUP",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 4 - RETRIEVE A STORED RECIPE",
+   1
+  ],
+  [
+   "MACHINE SETUP > Additional Feature",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > Additional Features",
+   1
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > PRE OR POST PAD CONDITIONING:",
+   1
+  ],
+  [
+   "PREVENTIVE MAINTENANCE SCHEDULES",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > The four light tower operates as shown below:",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > TROUBLESHOOTING",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > Error Messages",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > POST POLISH SLURRY FLUSH:",
+   1
+  ],
+  [
+   "OPERATION USING MANUAL LOADING OF WAFERS > 4 - RETRIEVE A STORED RECIPE",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > MENUS",
+   1
+  ],
+  [
+   "CONDITIONING/CLEANINGPARAMETERS MENU(SCREEN PAGE 2) > ADDITIONAL FEATURES AT THE CONDITIONING/CLEANING PARAMETERS MENU",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEUSING THE CONDITIONING ARM > SUMMARY",
+   1
+  ],
+  [
+   "MACHINE DESCRIPTION > INTERLOCK SAFETY SWITCHES",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Recipe Management Menu",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > MENUS",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “BRIDGE LUBE OIL LOW” - # 110",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > WET IDLE SLURRY FLUSH:",
+   1
+  ],
+  [
+   "CARRIER UNLOADING FOR THE TWO-TABLE MACHINE > Procedure",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “BRIDGE NOT ARRIVING AT LEFT CURTAIN - # 190 “BRIDGE NOT ARRIVING AT RIGHT CURTAIN - # 191",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Machine Setup Menu",
+   1
+  ],
+  [
+   "PLUMBING DESCRIPTION COMPRESSED AIR SYSTEM > CHEMICAL SYSTEM",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Password Menu",
+   1
+  ],
+  [
+   "OPERATOR FUNCTIONS > Assumptions",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Polish Parameters Menu",
+   1
+  ],
+  [
+   "INSTALLATION > SUMMARY",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > 1 - POWER UP",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > MENU ITEM DESCRIPTIONS AT THE MACHINE SETUP MENU",
+   1
+  ],
+  [
+   "MENU GROUPING AND RECIPE DEFINITION",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Alarm Log",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Auto Polish Cycle Menu",
+   1
+  ],
+  [
+   "LOCKOUT SAFETY PROCEDURE > SOURCES OF ENERGY FOR THIS EQUIPMENT: \\*",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > ÀDANGER",
+   1
+  ],
+  [
+   "OPERATOR FUNCTIONS",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WAFER NOT FOUND AT RIGHT $L O A D ^ { \\prime \\prime }$ - # 143 “WAFER NOT FOUND AT LEFT $L O A D ^ { \\prime \\prime }$ - # 144",
+   1
+  ],
+  [
+   "Left Cleaning Station Pad Pressure > Machine Setup",
+   1
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > DUAL BACKPRESSURE CONTROL:",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “SEND CASSETTE(S) NOT ACTIVE” - # 53",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > 2 - PERFORM HOME SEQUENCE ROUTINE",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > ADDITIONAL FEATURES AT THE ALARM PARAMETERS MENU",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > MENU SELECTION",
+   1
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > COMPRESSED AIR",
+   1
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > PERATOR UNCTIONS",
+   1
+  ],
+  [
+   "CONTROL PANEL AND EMERGENCY OFF BUTTONS > Audible Alarm",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > BASIC OPERATION",
+   1
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > F. CYCLE HALT",
+   1
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES > SLURRY SYSTEM FLUSH",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > Troubleshooting",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > RECIPE MANAGEMENT MENU",
+   1
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > DURING ROBOT WAFER MOVEMENT PHASE OF AUTO POLISH CYCLE",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > GEM/SECS Menu",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > Additional Feature",
+   1
+  ],
+  [
+   "MAINTENANCE MANUAL(VoI#1) > Model 6DS-SP Planarizer",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ELEVATOR SECTION OPERATOR DOOR OPEN AT START ” - # 70",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Alarm Parameters Menu",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > ADDITIONAL FEATURES AT THE PASSWORD MENU",
+   1
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > EXHAUST",
+   1
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > D. WAFER UNLOADING SEQUENCE",
+   1
+  ],
+  [
+   "CONSUMABLE MATERIALS SERVICING",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “LOW COOLING WATER FLOW RATE” - # 111",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WFR FOUND ON LOAD STATION” - # 122",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ELEVATOR SECTION OPERATOR DOOR OPEN” - # 200",
+   1
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION",
+   1
+  ],
+  [
+   "MACHINE SETUP > RECIPE DEFINITION AND PROCESS SETUP",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Homing Menu",
+   1
+  ],
+  [
+   "STEP 5 - CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > EXHAUST",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 7 - REMOVE CONDITIONING DEVICES FROM SPINDLES",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Polish Parameters Menu",
+   1
+  ],
+  [
+   "MACHINE DESCRIPTION",
+   1
+  ],
+  [
+   "MECHANICAL DESCRIPTION > A. CASSETTE LOADING",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > KEYPAD AND KEYBOARD",
+   1
+  ],
+  [
+   "POWER DISTRIBUTION > LUMBING ESCRIPTION",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WFR FOUND ON SPINDLE, ABORT CLEARS” - # 109",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > PROBLEMS AND ERROR MESSAGES",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 2 - PERFORM HOME SEQUENCE ROUTINE",
+   1
+  ],
+  [
+   "INTRODUCTION TO THE 6DS-SP SOFTWARE > Notes:",
+   1
+  ],
+  [
+   "I/O AND INTERFACE SYSTEM > OWER ISTRIBUTION",
+   1
+  ],
+  [
+   "MECHANICAL DESCRIPTION > D. WAFER UNLOADING SEQUENCE",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > USER INTERFACE DESCRIPTION",
+   1
+  ],
+  [
+   "MECHANICAL DESCRIPTION > OVERVIEW",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Calibration/Configuration Menu",
+   1
+  ],
+  [
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “LEFT SPINDLE VACUUM NOT FOUND” - # 156 “RIGHT SPINDLE VACUUM NOT FOUND” - # 157",
+   1
+  ],
+  [
+   "Operations Manual",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEWITH CONDITIONING DEVICES ON THESPINDLES > 8 - AT THE MACHINE PARAMETERS MENU, SET AUTO CYCLEOPERATION TO AUTO",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “COND ARM NOT ARRIVING AT PARK” - # 194 “COND ARM NOT ARRIVING AT INNER” - # 195 “COND ARM NOT ARRIVING AT OUTER” - # 196",
+   1
+  ],
+  [
+   "CARRIER LOADING AND UNLOADING FOR MACHINES EQUIPPED WITH A SECOND POLISH TABLE",
+   1
+  ],
+  [
+   "Physical Description > PHYSICAL DESCRIPTION",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “POLISH SECTION OPERATOR DOOR OPEN AT START” - # 69",
+   1
+  ],
+  [
+   "POLISHING PAD REMOVAL AND INSTALLATION > Tools Required",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “AIR, WATER, OR VACUUM ABSENT” - # 112",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “ROBOT UP/DOWN AXIS NOT HOMED” - # 66",
+   1
+  ],
+  [
+   "CARRIER LOADING AND UNLOADING FOR MACHINES EQUIPPED WITH A SECOND POLISH TABLE > Notes:",
+   1
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > ADDITIONAL FEATURES",
+   1
+  ],
+  [
+   "POWER DISTRIBUTION > Plumbing Description",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > KEYBOARDS",
+   1
+  ],
+  [
+   "MECHANICAL DESCRIPTION > E. CASSETTE REMOVAL",
+   1
+  ],
+  [
+   "OPERATOR FUNCTIONS > OVERVIEW",
+   1
+  ],
+  [
+   "POWER DISTRIBUTION",
+   1
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEUSING THE CONDITIONING ARM > 4 - RUN A PAD CONDITIONING CYCLE AT THE AUTO POLISH MENU",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Manual Control Menu",
+   1
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > LEVELING REQUIREMENT",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > New Feature at All Menus - “Menu “Hopping”",
+   1
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > VACUUM AND D.I. WATER",
+   1
+  ],
+  [
+   "Model 6DS-SP Planarizer OPERATIONS MANUAL",
+   1
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION > Use a FORKLIFT to lift the machine from the pallet.",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Sweep Parameters Menu",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Homing Menu",
+   1
+  ],
+  [
+   "RECIPE MANAGEMENT MENU > PROGRAMMABLE ARM CALIBRATION AND SETUP:",
+   1
+  ],
+  [
+   "ADDITIONAL FEATURES AT THE MACHINE PARAMETERS MENU > SLURRY ALARM ACTION CHOICE:",
+   1
+  ],
+  [
+   "INSTALLATION > OVERVIEW",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “LEAK DETECTION FAULT” - # 108",
+   1
+  ],
+  [
+   "OPERATION USING MANUAL LOADING OF WAFERS",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEUSING THE CONDITIONING ARM > 2 - PERFORM HOME SEQUENCE ROUTINE",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Slurry System Flush Menu",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEUSING THE CONDITIONING ARM > 1 - POWER UP",
+   1
+  ],
+  [
+   "OPERATION USING MANUAL LOADING OF WAFERS > 1 - POWER UP",
+   1
+  ],
+  [
+   "Preventive Maintenance Schedules",
+   1
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > VACUUM SEPARATOR",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “WFR NOT ON SPINDLE, ABORT OR START CLEARS” - #107",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “SLURRY 1 SUPPLY LOW OR ABSENT” - # 72",
+   1
+  ],
+  [
+   "FLAT PANEL DISPLAY OPERATOR INTERFACE,KEYPAD, AND KEYBOARD > Recipe Management Menu",
+   1
+  ],
+  [
+   "CALIBRATION/CONFIGURATION CHANGES > Keypad (shown in Figure 3-3)",
+   1
+  ],
+  [
+   "MENUS USED IN BASIC OPERATION > DO NOT OPERATE A 6DS-SP WITH AN UNLOADED CARRIER IN THE MACHINE!",
+   1
+  ],
+  [
+   "OPERATOR ROUTINE PREVENTIVEMAINTENANCE AND ASSOCIATEDPROCEDURES > ÀDANGER",
+   1
+  ],
+  [
+   "OPERATION OF A TABLE CONDITIONING CYCLEUSING THE CONDITIONING ARM > 3 - RETRIEVE A STORED RECIPE",
+   1
+  ],
+  [
+   "STEP 2 - UNPACKING AND INSPECTION",
+   1
+  ],
+  [
+   "INTRODUCTION TO THE 6DS-SP SOFTWARE",
+   1
+  ],
+  [
+   "INSTALLATION",
+   1
+  ],
+  [
+   "CYCLE HALTING FUNCTIONS AND ASSOCIATED PROCEDURES > DURING POLISHING PHASE OF AUTO POLISH CYCLE",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “TABLE DRAIN OVERFLOW FAULT” - # 104",
+   1
+  ],
+  [
+   "AUTO POLISH CYCLEOPERATION - THE SEQUENCEOF EVENTS > E. CASSETTE REMOVAL",
+   1
+  ],
+  [
+   "ERROR MESSAGES AND ALARMS > “LT SEND ELEV NOT ARRIVING AT SLOT - # 164 “RT SEND ELEV NOT ARRIVING AT SLOT - # 165 “LT RECV ELEV NOT ARRIVING AT SLOT - # 166 “RT RECV ELEV NOT ARRIVING AT SLOT - # 167",
+   1
+  ],
+  [
+   "CONTROL COMPUTER > Alarm Log",
+   1
+  ],
+  [
+   "OPERATION USING MANUAL LOADING OF WAFERS > 2 - PERFORM HOME SEQUENCE ROUTINE",
+   1
+  ],
+  [
+   "CARRIER LOADING AND UNLOADING FOR MACHINES EQUIPPED WITH A SECOND POLISH TABLE > CARRIER LOADING FOR THE TWO-TABLE MACHINE",
+   1
+  ],
+  [
+   "Maintenance Manual > VOLUME 1",
+   1
+  ],
+  [
+   "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS > VACUUM SYSTEM",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.19.1 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > \"Port empty or cassette ready to be removed\" correction:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Description of AGV > Polish> Cassette Mode:",
+   1
+  ],
+  [
+   "IMPORTANT ! > Bridge Lube Oil Control:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Post Polish Wafer Cleaning Disable Post TBL2 Post TBL1 PostTBL1&2",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Correction to Odd Polish with HTO:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Left and Right Force Scaling now Affects Ring Force:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM \"Homing Status\" Indication:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Cycle Start Alarm Test for High Recipe Polish Force:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > PTIONS",
+   1
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians): > Manual GEM Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.37.2 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Correction to Wet Idle Start for S-S HTP:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > NOTE:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > NOTE:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > PASSWORD MENU (cont):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Post Loading Wafer Presence Test:",
+   1
+  ],
+  [
+   "IMPORTANT ! > AGV Changes:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Example:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Added \"Halted by Host\" as New Status Line Display:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM Changes to Permit User Changes of SECS Parameter Constants:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > SSEMBLY RAWINGS",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Lifetime Wafer Count Shown in Alarm Log:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Send Cassette Retry Disable Feature Permitted in Nova Transfer Mode:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Overall electrical interface design:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.30.2 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Setup:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Version 4.38 or later should be for CE equipped 6DS-SP’s.",
+   1
+  ],
+  [
+   "IMPORTANT ! > No HydroLift Wet Idle Load Rinse:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.19.1 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.21.2 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Homing menu:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Change to Antivirus Handling:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > For single table machines:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Time Delay Increased for \"Wafer not found on robot\" Alarm:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Wafer Slipout Alarm Output:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Conditioner Rotation Shown:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.19.1 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.21.2 NEW FEATURES / INSTALLATION > Description:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM Command for Starting Wet Idle:",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (Vol. 1 of 3) > Maintenance Manual",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Improved \"No. of Wafers\" Handling:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.17 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Backpressure Scaling Entry Limits:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > LECTRICAL NPUT UTPUT",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Further Throughput Improvement with Short Polish Time for F-B Configuration:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Entering choices:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Manual GEM Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > AINTENANCE OG HEETS",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM \"Wet Idle Active\" Status Variable:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > FileVars (Make ASCII File of Variables) Utility Program:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > CALIBRATION/CONFIGURATION MENU (cont):",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Odd Wafer Handling if using AGV:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Restored Original \"Expose Table 2\" Action:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > SLURRY FLUSH MENU (continued):",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Queue GEM Remote Start Command when in Wet Idle Spindle Flush:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Operation if not using the throughput option:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > GEM Changes:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Curtain Rinse Spindle Speed Choices:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Throughput Option System Support:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > \"ROBOT TOP/BOTTOM NOT AT ZERO\"",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > GEM Changes:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Additional GEM Automated Process Control Variables:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.37.2 NEW FEATURES / INSTALLATION > A note about RAMBoost (part of PC DOS 2000):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.17 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.27 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > VERSION 4.33 SHOULD NOT BE INSTALLED IN THE FOLLOWING 6DS-SP'S:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Miscellaneous Improvements:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Primary Table \"Hi-Temp\" Halt Changed to \"Hi/Lo\" Temp Halt:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Control System Changes for Carrier X:",
+   1
+  ],
+  [
+   "IMPORTANT ! > \"Endpoint Spindles Used\" Signal Added:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.17 NEW FEATURES / INSTALLATION > Jog Feature for Calibration/Configuration Menu:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Carrier X Sequences for Loading, Unloading, and Liftoff:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Notes:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Added for Version 4.37.2:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM Variables for Endpointed Step Time:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > 6DS-SP SOFTWARE VERSION 4.38 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Manual GEM Software Installation:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > New Calibration Variable:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Example 2:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Block Upload Count Shown When Uploading GEM Software:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Primary Conditioner Process Alarms:",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Correction to Manual Mode with ViPRR:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > INTRODUCTION:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Change to Halt Sequence During Polishing:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > ALARM PARAMETERS MENU (continued):",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > 6DS-SP SOFTWARE UTILITY PROGRAMS REFERENCE",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > New Cycle Start Alarm:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.35 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (Vol. 1 of 3) > Model 6DS-SP Planarizer",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Increased Scrubber Wafer Set Error Time:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > RECIPE MANAGEMENT MENU (continued):",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.34.1 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (Vol. 1 of 3)",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Bridge and Robot Movement:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > New Menu Choice:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Screen function key labels and function keys:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > Elimination of Two Nuisance Errors:",
+   1
+  ],
+  [
+   "Appendix A",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > AGV Interface Support:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION > Automatic DI/Slurry Shutoff Feature:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Set to “0” if the machine is not CE equipped.",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.29.1 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Support for \"PC5\" GEM Computer:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Description of Cassette > Scrubber Mode:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > To change a SECS parameter:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > GEM Collection Events for End of Conditioning Arm Parking:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Abort/Reset function key:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Correction to Actions after F-B HTP Odd Wafer Abort:",
+   1
+  ],
+  [
+   "IMPORTANT ! > File Backup (for technicians):",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Version 4.33, 4.34, or 4.34.1 should NOT be installed in Carrier X equipped 6DS-SP's:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > NOTES:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Choice to Silence Alarm Buzzer for Currently Displayed Alarm:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > \"WAFER FOUND ON ROBOT\"",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > New Scrubber Up/Down Calibration Variable:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Summary of Software Release Changes:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > Appendix C",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > NOTES:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   1
+  ],
+  [
+   "Homing Protection for Robot Travel if Robot Arm not OK: (for technicians): > Software Installation:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > The following provides more details:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Conditioning/Cleaning Parameters menu:",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Calibration/Configuration Variable Label Changes:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Calibration of Nova maximum allowable measurement time before alarm (for technicians):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > New Calibration Variable Setup:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Set to “1” if machine is CE equipped.",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Correction to Misloaded Wafer Test:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > HOME MACHINE MENU (cont):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Desktop Type Keyboard:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.36 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Added I/O:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.36 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > CE Compliance Related Changes:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > NOTES ON OTHER CALIBRATION VARIABLES:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > A note about RAMBoost (part of PC DOS 2000):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Support for High Torque Secondary Table Motor:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > 6DSSP OPTIONS",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Close Dual Slurry Source Select Valves During Slurry System Flush:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > SAFETY:",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Miscellaneous Light Tower Control Corrections:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Feature to Deny Some Setup Choices in Operator Password Level:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > NOTES:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Scrubber Data Transfer Option Support:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > \"Double Conditioning\" Eliminated if Using Pre-Conditioning with HTP:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.34.1 NEW FEATURES / INSTALLATION > A note about RAMBoost (part of PC DOS 2000):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > At the beginning of the first cycle:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > For two table machines:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Bezel Keyboard:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > KEYBOARD USAGE:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > R. Howard Strasbaugh, Inc.",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.15 NEW FEATURES / INSTALLATION > New way of showing \"SECS communication\" on Machine Setup menu:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Summary of Software Release Changes:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "IMPORTANT ! > Automatic “Finish Cycle” Actions:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (Vol. 1 of 3) > VOLUME 3",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.14 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Description of Cassette > Polish> Cassette Mode:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Example:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > General Information:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Miscellaneous Improvements:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Support for ViPRR Carriers:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.21.2 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Please read \"IMPORTANT GENERAL INFORMATION\" on the next page.",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > Halt used for more cycles than only the automatic polish cycle:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Sweep Parameters menu:",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Keys Used:",
+   1
+  ],
+  [
+   "IMPORTANT ! > Wafer Slip-out Table Selection:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "IMPORTANT ! > Configuring Multiple Machines (for technicians):",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > MANUAL CONTROL MENU (cont)(screen page 1):",
+   1
+  ],
+  [
+   "NEW FEATURES / INSTALLATION > Correction to Polish Door Lock with ViPRR and F-B HTO:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Description of Cassette > Polish> Scrubber Mode:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > \"Cleaning Disabled\" Notation for Certain Machine Configurations:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > (Continued on next page)",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Automated Process Control:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Manual GEM Software Installation:",
+   1
+  ],
+  [
+   "ALIBRATION ARIABLES IST",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Manual Control menu:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.35 NEW FEATURES / INSTALLATION > A note about RAMBoost (part of PC DOS 2000):",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > DIAGNOSTICS MENU (cont):",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > Operation if using the throughput option:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.33 NEW FEATURES / INSTALLATION > Miscellaneous Improvements:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.22 NEW FEATURES / INSTALLATION > Second Table Edge Rinsing:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > There are two control configurations:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > GEM Recipe Queuing in Auto Cycle:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.13 NEW FEATURES / INSTALLATION > ARTS IST",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Membrane Type Keyboard:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.28 NEW FEATURES / INSTALLATION > Operator \"Backpressure Only\" Choice:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > USER INPUT:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.17 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.20 NEW FEATURES / INSTALLATION",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.21.2 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.18 NEW FEATURES / INSTALLATION > Support for \"Wafers Polishing\" Output:",
+   1
+  ],
+  [
+   "6DS-SP VERSION 4.16.3 NEW FEATURES / INSTALLATION > After each pair of wafers is polished:",
+   1
+  ],
+  [
+   "USER INTERFACE REFERENCE > Example 1:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.36 NEW FEATURES / INSTALLATION > A note about RAMBoost (part of PC DOS 2000):",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.26.1 NEW FEATURES / INSTALLATION > Introduction:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.24",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Software Installation:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.32 NEW FEATURES / INSTALLATION > Throughput Shuttle \"both switches on\" Alarm and Interlocking:",
+   1
+  ],
+  [
+   "IMPORTANT GENERAL INFORMATION > New Light Tower Control Configuration for CE Requirement:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.23.1 NEW FEATURES / INSTALLATION > Miscellaneous GEM Changes:",
+   1
+  ],
+  [
+   "6DS-SP SOFTWARE VERSION 4.31 NEW FEATURES / INSTALLATION > Version 4.31 adds the following miscellaneous improvements:",
+   1
+  ],
+  [
+   "Maintenance Manual > VOLUME 4",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (VoI. 3 of 3) > Model 6DS-SP Planarizer",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (VoI. 3 of 3) > VOLUME 5",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (VoI. 2 of 3)",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (VoI. 3 of 3)",
+   1
+  ],
+  [
+   "MANUFACTURER DATA (VoI. 3 of 3) > Maintenance Manual",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION",
+   1
+  ],
+  [
+   "TABLES > C. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > LEFT CURTAIN",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > Close All Access Doors",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > At the Machine Parameters Menu, Set Left and Right Force Scaling to 100%",
+   1
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > C. TEST EACH POSITION AND ADJUST IF NEEDED",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > RIGHT RECEIVE ELEVATOR",
+   1
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS > Remove carriers from spindles:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “NO ACTIVE RECEIVE CASSETTE” - # 121",
+   1
+  ],
+  [
+   "RIGHT RECEIVE ELEVATOR > FINE HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > 14. Remove the table:",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > E. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "SHUTTLE FLOW CONTROL ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > [#1 IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > Lower the Left and Right Spindles",
+   1
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > SLURRY FLOW 1 CALIBRATION",
+   1
+  ],
+  [
+   "LEFT SEND ELEVATOR",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > RIGHT SEND ELEVATOR",
+   1
+  ],
+  [
+   "6DS-SP DATE AND TIME SETTING > TROUBLESHOOTING",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > 1. LEFT SPINDLE",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > 5. Test the new position:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ROBOT BOTTOM AXIS NOT HOMED” - # 65",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION",
+   1
+  ],
+  [
+   "LEFT SPINDLE UP LIMIT SWITCH",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "SOFTWARE AND CONTROL COMPUTER MAINTENANCE",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS > Remove insert and clean carrier:",
+   1
+  ],
+  [
+   "RIGHT RECEIVE ELEVATOR > WHEN THE POSITIONS FOR ALL FOUR ELEVATORS HAVE BEEN ADJUSTED",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > 23. Install a retaining shim ring onto the plate.",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > Clean Bottom of Vacuum Chuck",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > F. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > LEFT SPINDLE CURRENT OFFSET",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > SHOCK ABSORBERS",
+   1
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS > PROCEDURE",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "FORMULAS USED IN SOFTWARE CALIBRATION PROCEDURES > ORDER OF ADJUSTMENT",
+   1
+  ],
+  [
+   "SHUTTLE FLOW CONTROL ADJUSTMENTS",
+   1
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > CALIBRATION VARIABLE(S) SET DURING THIS PROCEDURE",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > D. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > RIGHT CURTAIN",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > EASY PROGRAMMABLE ARM CALIBRATION AND SETUP:",
+   1
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE",
+   1
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "LOAD STATIONS > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > SPINDLE MOVE DOWN SPEED",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > 2. RIGHT SPINDLE",
+   1
+  ],
+  [
+   "MEASUREMENT OF THE PRESENT LOAD CHUCK HEIGHT POSITION",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > SLURRY ALARM ACTION CHOICE:",
+   1
+  ],
+  [
+   "RUNNING A SHORT TEST CYCLE > ÀDANGER",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > RIGHT SPINDLE",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “BRIDGE TRAVEL NOT HOMED” - # 68",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Required Position for Robot Arm Extension",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Linear (Side to Side) Positioning Correction",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION > ROBOT UP/DOWN RIGHT LOAD POSITION",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > SPINDLES",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > RIGHT SPINDLE CURRENT OFFSET",
+   1
+  ],
+  [
+   "Notes:",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “TABLE DRAIN OVERFLOW FAULT” - # 104",
+   1
+  ],
+  [
+   "OTHER USEFUL SOFTWARE PROCEDURES",
+   1
+  ],
+  [
+   "TABLE TEMPERATURE CONTROLUNIT OPERATION",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > [#7 IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS > Punch holes in the new insert:",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > 46 = RIGHT SPINDLE CURRENT OFFSET",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > D. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ROBOT TOP AXIS NOT HOMED” - # 64",
+   1
+  ],
+  [
+   "RUNNING A SHORT TEST CYCLE > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "LEFT SPINDLE UP LIMIT SWITCH > D. WHEN ADJUSTMENT OF BOTH LEFT AND RIGHT UP SWITCHES IS SATISFACTORY",
+   1
+  ],
+  [
+   "LOAD STATIONS > SHUTTLE",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > E. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > SUMMARY",
+   1
+  ],
+  [
+   "TABLES",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > SLURRY FLOW CALIBRATION",
+   1
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > DEVICE ARM UP POSITION SWITCH",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > [#5 IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > [#5 IN CONDITIONING ARM ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "BACKING UP POLISH RECIPES AND MACHINE DATA FILES",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION",
+   1
+  ],
+  [
+   "RIGHT SEND ELEVATOR > ROUGH HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS > D. CHECK THE DIGITAL INPUT WITH CARRIERS ON",
+   1
+  ],
+  [
+   "SLURRY FLOW 2 CALIBRATION",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > CALIBRATION VARIABLE(S) SET DURING THIS PROCEDURE",
+   1
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES] > LEFT CLEANING STATION",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > ALARM MESSAGES",
+   1
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > C. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > Error Messages",
+   1
+  ],
+  [
+   "6DS-SP DATE AND TIME SETTING > Troubleshooting",
+   1
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ELEVATOR SECTION OPERATOR DOOR OPEN” - # 200",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > Install a Polishing Pad on the Table",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > MENUS USED IN THE MECHANICAL MAINTENANCE PROCEDURES",
+   1
+  ],
+  [
+   "ROBOT VACUUM SWITCH WAFER SENSING CALIBRATION > Turn Machine Power On, Perform Home Sequence Routine, and Install Carriers on Spindles",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > CALIBRATION VARIABLES SET DURING THIS PROCEDURE",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > 3. Move the load chucks to their down position:",
+   1
+  ],
+  [
+   "FORMULAS USED IN SOFTWARE CALIBRATION PROCEDURES > EXCEPTIONS",
+   1
+  ],
+  [
+   "TESTING ELEVATOR AND ROBOT CALIBRATION ADJUSTMENTS - RUNNING A SHORT CYCLE TO OBSERVE WAFER HANDLING > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "CONDITIONING DEVICE AIR CYLINDER ADJUSTMENT > [#3 IN CONDITIONING ARM ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > 16. Set the span adjustment at the regulator:",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > PROCEDURE",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > UNIVERSAL CASSETTE SUPPORT:",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > OPTIONAL OPERATOR ACCESS TO POLISH TIME ANDBACKPRESSURE POLISH PARAMETERS:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “WAFER NOT FOUND ON ROBOT” - # 149",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > LEFT SEND ELEVATOR",
+   1
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > Tools Required",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > Up Flow Control",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > F. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > Tools Required",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > C. CHECK AND ADJUST VARIABLE 39, THE SPINDLES DOWN HARD DOWN VALUE",
+   1
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > 4. Reinstall the table:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “SEND CASSETTE(S) NOT ACTIVE” - # 53",
+   1
+  ],
+  [
+   "REMOVAL OF ELECTRICAL POWER FOR THE SECOND TABLE AT THE TERMINAL BLOCK > Turn Machine Power Off",
+   1
+  ],
+  [
+   "SPINDLE CARRIER BLOW OFF PRESSURE > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > Install Polishing Pad on Table and Carriers on Spindles",
+   1
+  ],
+  [
+   "TABLE UNLOCKING CYLINDER REED SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS",
+   1
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES] > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "MAINTENANCE MANUAL(VoI#2)",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > E. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "Read and Record the Actual Temperature of the Chilled Water > TEMPERATURE OUT OFFSET",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > E. WHEN THE TOP, MIDDLE, AND BOTTOM POSITION VARIABLES HAVE BEEN SET",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “BRIDGE NOT ARRIVING AT TABLE $z ^ { \\prime \\prime }$ - # 148",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > RIGHT SEND ELEVATOR",
+   1
+  ],
+  [
+   "LOAD STATIONS > LOAD CHUCK RAISE PRESSURE",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > BACKPRESSURE CALIBRATION",
+   1
+  ],
+  [
+   "CLEANING STATION PAD PRESSURE ADJUSTMENTS > [#4 IN CLEANING STATIONS ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY > BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "ROBOT VACUUM SWITCH WAFER SENSING CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "RESTORATION OF ELECTRICAL POWER FOR THE SECOND TABLE > Tools Required",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION",
+   1
+  ],
+  [
+   "SOFTWARE CALIBRATION PROCEDURES > RUNNING A SHORT TEST CYCLE",
+   1
+  ],
+  [
+   "Read and Record the Actual Temperature of the Chilled Water > 1. Determine the TEMPERATURE IN OFFSET:",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > ASSEMBLY OF A CARRIER",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > ELEVATOR CASSETTE PLATFORM LEVELING",
+   1
+  ],
+  [
+   "TABLE TEMPERATURE CONTROLUNIT OPERATION > POWERING DOWN",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > \"LEVER TYPE\" CONDITIONING ARM SUPPORT:",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > Remove Carriers from Spindles",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > B. SET THE ROBOT UP/DOWN TOP POSITION VARIABLE",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > GOAL 2",
+   1
+  ],
+  [
+   "Read and Record the Actual Temperature of the Chilled Water > B. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > E. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > RIGHT LOAD CHUCK",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > LEFT RECEIVE",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > 15. Remove the subtable:",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > C. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > WARNING: The value for the table 2 bridge home position variable is always negative. A positive number may do severe damage to the machine!",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > Down Flow Control",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > SLURRY 1",
+   1
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > DEVICE ARM PARK (HOME) POSITION SWITCH",
+   1
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY > DISASSEMBLY OF A CARRIER",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > At the 6DS-SP",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > Move Bridge to Polish Position",
+   1
+  ],
+  [
+   "ROBOT BELT TENSIONING [#B IN ELEVATORS AND ROBOT ADJUSTMENT SERIES] > C. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "SPINDLE UP/DOWN LIMIT SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "SOFTWARE CALIBRATION PROCEDURES",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > D. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > AFTER BOTH SPINDLE E-P REGULATORS HAVE BEEN CALIBRATED",
+   1
+  ],
+  [
+   "Read and Record the Actual Temperature of the Chilled Water > TEMPERATURE IN OFFSET",
+   1
+  ],
+  [
+   "ENHANCED CLEANING STATION ROTATIONAL SPEED (POTENTIOMETER) CALIBRATION > CONDITIONING ARM",
+   1
+  ],
+  [
+   "TABLE UNLOCKING CYLINDER REED SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > 6. Evaluate the readings:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “SLURRY 1 SUPPLY LOW OR ABSENT” - # 105 “SLURRY 2 SUPPLY LOW OR ABSENT” - # 106",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TABLE LOCKING CYLINDER REED SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > RIGHT RECEIVE",
+   1
+  ],
+  [
+   "LOAD STATIONS > CENTERING THE LOAD STATIONS UNDER THE SPINDLES",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > Tools Required",
+   1
+  ],
+  [
+   "J. WAFER MOUNTING PLATE ADJUSTMENT - FOR THREE-, FOUR-, AND FIVE-INCH CARRIERS ONLY > Obtain the Pocket Depth Specification",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "THERMOCOUPLE CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > PART II",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “WAFER FOUND ON ROBOT” - # 67",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > PART I",
+   1
+  ],
+  [
+   "LEFT RECEIVE ELEVATOR > FINE HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS > C. CHECK THE DIGITAL INPUT WITH CARRIERS OFF",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION > CALIBRATION VARIABLES SET DURING THIS PROCEDURE",
+   1
+  ],
+  [
+   "TABLES > Turn Machine Power On",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > D. CHECK AND ADJUST VARIABLE 48, THE SPINDLES DOWN EXTRA SOFT VALUE",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT",
+   1
+  ],
+  [
+   "RESTORATION OF ELECTRICAL POWER FOR THE SECOND TABLE > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TABLE LOCKING CYLINDER REED SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > SUMMARY",
+   1
+  ],
+  [
+   "EXITING TO THE DOS SYSTEM PROMPT FROM THE 6DS-SP CONTROL PROGRAM MENUS > FORMATTING DISKETTES",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TABLE TEMPERATURE CONTROLUNIT OPERATION > POWERING UP",
+   1
+  ],
+  [
+   "TEMPERATURE IN SCALE FACTOR > B. COMPARE THE ACTUAL TEMPERATURE WITH THE SCREENSTATUS AREA DISPLAY",
+   1
+  ],
+  [
+   "LEFT SEND ELEVATOR > ROUGH HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > 4. Left load chuck:",
+   1
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > DOWNWARD MOTION",
+   1
+  ],
+  [
+   "RESTORING POLISH RECIPES AND MACHINE DATA FILES",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION > B. SET THE VALUE OF VARIABLE 170, WAFER BLOW OFF PRESSURE AT THE CALIBRATION/CONFIGURATION MENU",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “WFR FOUND ON SPINDLE, ABORT CLEARS” - # 109",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "RIGHT RECEIVE ELEVATOR > ROUGH HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "Maintenance Manual > VOLUME 2",
+   1
+  ],
+  [
+   "RESTORATION OF ELECTRICAL POWER FOR THE SECOND TABLE > Turn Machine Power Off",
+   1
+  ],
+  [
+   "MANUAL CONTROL MENU",
+   1
+  ],
+  [
+   "ROBOT VACUUM SWITCH WAFER SENSING CALIBRATION",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION > D. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "ROBOT BELT TENSIONING [#B IN ELEVATORS AND ROBOT ADJUSTMENT SERIES] > Turn Machine Power On, Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > 13. Remove the stainless steel pan:",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > 4. Calculate the DEAD WEIGHT:",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT",
+   1
+  ],
+  [
+   "LEFT SEND ELEVATOR > FINE HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "REMOVAL OF ELECTRICAL POWER FOR THE SECOND TABLE AT THE TERMINAL BLOCK > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TEMPERATURE IN SCALE FACTOR",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > BRIDGE",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > C. ALIGNMENT PROCEDURE",
+   1
+  ],
+  [
+   "TEMPERATURE IN SCALE FACTOR > TEMPERATURE OUT SCALE FACTOR",
+   1
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES] > CONDITIONING ARM",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > LEFT SPINDLE",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > Right Cleaning Station Device",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > LEFT RECEIVE ELEVATOR",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ELEVATOR SECTION OPERATOR DOOR OPEN AT START ” - # 70",
+   1
+  ],
+  [
+   "CONDITIONING DEVICE AIR CYLINDER ADJUSTMENT > D. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > CARRIER/STAINLESS PAN POSITIONING",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > C. SET THE ROBOT UP/DOWN MIDDLE POSITION VARIABLE",
+   1
+  ],
+  [
+   "CLEANING STATION ALIGNMENT [#1 IN CLEANING STATIONS ADJUSTMENT SERIES] > RIGHT CLEANING STATION",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > D. WHEN SATISFACTORY ADJUSTMENT HAS BEEN ACHIEVED",
+   1
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "Set Auto Polish Cycle Parameters for Short Test Cycle",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > SPINDLE ALIGNMENT",
+   1
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > Line Replacement Procedure:",
+   1
+  ],
+  [
+   "CHANGING WAFER BACKING INSERTS > Turn machine power ON and perform home sequence:",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > Move Bridge to Polish Position",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Remove Table Pad and Clean Table",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “AIR, WATER, OR VACUUM ABSENT” - # 112",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > LOCK ADJUSTMENTS",
+   1
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "REINSTALLATION OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > Tools Required",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Procedure",
+   1
+  ],
+  [
+   "TABLES > BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “BRIDGE NOT ARRIVING AT LEFT CURTAIN - # 190 “BRIDGE NOT ARRIVING AT RIGHT CURTAIN - # 191",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “LT SEND ELEV NOT ARRIVING AT SLOT - # 164 “RT SEND ELEV NOT ARRIVING AT SLOT - # 165 “LT RECV ELEV NOT ARRIVING AT SLOT - # 166 “RT RECV ELEV NOT ARRIVING AT SLOT - # 167",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > SPINDLES",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > MANUAL CONTROL MENU:",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > For Eight-Inch Carriers Only:",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > Notes:",
+   1
+  ],
+  [
+   "LEFT SPINDLE DOWN LIMIT SWITCH",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > B. SET CALIBRATION VARIABLES 76, 77, 78, 79",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > LEFT SEND",
+   1
+  ],
+  [
+   "CONDITIONING ARM SWITCH ADJUSTMENTS > [#1 IN CONDITIONING ARM ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "SHUTTLE FLOW CONTROL ADJUSTMENTS > C. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "LOAD STATION ALIGNMENT > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > Install Polishing Pad on Table and Carriers on Spindles",
+   1
+  ],
+  [
+   "Set Auto Polish Cycle Parameters for Short Test Cycle > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > Setting Goals for Cassettes with Slot Spacing Other than Those Listed Above and Processing of Other Wafer Sizes",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “WFR NOT ON SPINDLE, ABORT OR START CLEARS” - #107",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > CALIBRATION VARIABLE(S) SET DURING THIS PROCEDURE",
+   1
+  ],
+  [
+   "SLURRY FLOW 2 CALIBRATION > 75 = PUMP 3 FLOW FACTOR variable",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES FOR THE SECOND TABLE OPTION",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > Remove Cassettes from Elevators",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > Notes:",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > Turn Machine Power On",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > NEUMATIC DJUSTMENTS",
+   1
+  ],
+  [
+   "6DS-SP COMPUTER SETUP > 3. Save the changes:",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > For All Carriers:",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > Side to Side",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > [#A IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES",
+   1
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > 3. Observe motion while the arm descends:",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > RIGHT RECEIVE ELEVATOR",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > Tools Required",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > INSTALLATION",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Radial (In/Out) Positioning Correction",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > POWERING UP",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > D. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > 21. Install locking nuts on the jack screws:",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > ÀDANGER",
+   1
+  ],
+  [
+   "ROBOT BELT TENSIONING [#B IN ELEVATORS AND ROBOT ADJUSTMENT SERIES] > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Machine Preparation",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "SPINDLE UP/DOWN LIMIT SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT > C. SWEEP PARAMETERS SETUP",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > 10. Unclamp the right load platform and ring:",
+   1
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "RIGHT SEND ELEVATOR > FINE HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > C. CHECK THE CURRENT CALIBRATION",
+   1
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "Turn Machine Power On, Perform Home Sequence Routine, and Install Carriers on Spindles > CARRIERS",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Procedure",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > RIGHT SEND",
+   1
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS > 5. Adjust the switch position:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “POLISH SECTION OPERATOR DOOR OPEN” - #199",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “WAFER NOT FOUND AT RIGHT $L O A D ^ { \\prime \\prime }$ - # 143 “WAFER NOT FOUND AT LEFT $L O A D ^ { \\prime \\prime }$ - # 144",
+   1
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS > TABLE REAR REED SWITCH",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > Set Bridge Table 1 Position to 0",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > GOAL 1",
+   1
+  ],
+  [
+   "ILLUSTRATIONS OF CARRIER COMPONENTS",
+   1
+  ],
+  [
+   "MEASUREMENT OF THE PRESENT LOAD CHUCK HEIGHT POSITION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > WARNING: Always raise the spindles before changing any bridge position variable.",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “WFR FOUND ON LOAD STATION” - # 122",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > Calibration steps:",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > Tools Required",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > Install Polishing Pad on Table and Remove Carriers from Spindles",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Radial (In/Out) Positioning Correction",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > SCRUBBER SUPPORT:",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > LEFT RECEIVE ELEVATOR",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > C. ALIGNMENT PROCEDURE",
+   1
+  ],
+  [
+   "CLEANING STATION PAD PRESSURE ADJUSTMENTS > Related Engineering Drawing",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ROBOT UP/DOWN AXIS NOT HOMED” - # 66",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > C. ESTABLISH THE DEAD WEIGHT OF THE CONDITIONING DEVICE",
+   1
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS > E. EVALUATE THE DIGITAL INPUT READINGS",
+   1
+  ],
+  [
+   "RESTORATION OF ELECTRICAL POWER FOR THE SECOND TABLE",
+   1
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > UPWARD MOTION",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > [#2 IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "TABLE TEMPERATURE CONTROLUNIT OPERATION > At The 6DS-SP",
+   1
+  ],
+  [
+   "CONDITIONING ARM ADJUSTMENT SERIES--ORDER OF ADJUSTMENT > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > POWERING DOWN",
+   1
+  ],
+  [
+   "LOAD STATION ALIGNMENT",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > EXCEPTIONS",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > BRIDGE HOME POSITION CALIBRATION",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > 6. Go on to Restoration of Electrical Power for the Second Table, below.",
+   1
+  ],
+  [
+   "SPINDLE VACUUM SWITCH ADJUSTMENTS > RIGHT SPINDLE",
+   1
+  ],
+  [
+   "SHUTTLE REAR STOP AND REED SWITCH ADJUSTMENT > ÀDANGER",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > Notes:",
+   1
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > SPINDLES",
+   1
+  ],
+  [
+   "LEFT RECEIVE ELEVATOR",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > B. INSTALL BEARINGS IN INNER GIMBAL RING",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > SPINDLE MOVE DOWN CALIBRATION",
+   1
+  ],
+  [
+   "LEFT SPINDLE UP LIMIT SWITCH > B. CHECK CURRENT CALIBRATION",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > 4. Repeat the centering procedure:",
+   1
+  ],
+  [
+   "6DS-SP COMPUTER SETUP > NOTICE!",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION > Notes:",
+   1
+  ],
+  [
+   "ENHANCED CLEANING STATION ROTATIONAL SPEED (POTENTIOMETER) CALIBRATION",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > WARNING!",
+   1
+  ],
+  [
+   "THERMOCOUPLE CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION",
+   1
+  ],
+  [
+   "SLURRY FLOW 2 CALIBRATION > PUMP 3 CALIBRATION",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > AWARNING",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > Tools Required",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > PNEUMATIC ADJUSTMENTS",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > Tools Required",
+   1
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES] > D. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Move Bridge to Middle Position",
+   1
+  ],
+  [
+   "SOFTWARE CALIBRATION PROCEDURES > LOCKOUT SAFETY PROCEDURE",
+   1
+  ],
+  [
+   "TABLES > LOAD CURRENT CALIBRATION",
+   1
+  ],
+  [
+   "LOAD STATIONS > RIGHT LOAD CHUCK RAISE PRESSURE",
+   1
+  ],
+  [
+   "LEFT SPINDLE UP LIMIT SWITCH > RIGHT SPINDLE UP LIMIT SWITCH",
+   1
+  ],
+  [
+   "CONDITIONING ARM PRESSURE [#2 IN CONDITIONING ARM ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > ROBOT UP/DOWN ABOVE LOAD POSITION",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Turn Compressed Air Supply to OFF",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > DANGER",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > C. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > SLURRY 2",
+   1
+  ],
+  [
+   "CONDITIONING ARM",
+   1
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > SHUTTLE FORWARD STOP AND REED SWITCH ADJUSTMENT",
+   1
+  ],
+  [
+   "POLISH FORCE DEAD WEIGHT AND SCALE FACTOR CALIBRATION > 1. Calculate the COMPENSATION WEIGHT for the left carrier:",
+   1
+  ],
+  [
+   "RUNNING A SHORT TEST CYCLE",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > LOCKOUT SAFETY PROCEDURE",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > Move Bridge to Left Curtain Position",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION > C. TEST THE NEW SETTING",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > Sweep Parameters Setup:",
+   1
+  ],
+  [
+   "TABLES > TABLE CURRENT OFFSET",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "WAFER BLOW OFF PRESSURE CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TESTING ELEVATOR AND ROBOT CALIBRATION ADJUSTMENTS - RUNNING A SHORT CYCLE TO OBSERVE WAFER HANDLING",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “LEFT SPINDLE VACUUM SWITCH OFF” - # 51 “RIGHT SPINDLE VACUUM SWITCH OFF” - # 52",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > SOFTWARE FEATURES",
+   1
+  ],
+  [
+   "CLEANING STATION DEVICE UP/DOWN ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "SHUTTLE FLOW CONTROL ADJUSTMENTS > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "TABLES > CALIBRATION VARIABLES SET DURING THIS PROCEDURE",
+   1
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS",
+   1
+  ],
+  [
+   "LEFT SPINDLE DOWN LIMIT SWITCH > D. WHEN ADJUSTMENT OF BOTH LEFT AND RIGHT DOWN SWITCHES IS SATISFACTORY",
+   1
+  ],
+  [
+   "MENUS USED IN MECHANICAL ADJUSTMENTS AND SOFTWARE CALIBRATION PROCEDURES > Calibration:",
+   1
+  ],
+  [
+   "RIGHT RECEIVE ELEVATOR > 83 = Right receive offset to slot 0",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > WARNING: Always raise the spindles before changing any bridge position variable.",
+   1
+  ],
+  [
+   "SPINDLE UP/DOWN LIMIT SWITCH ADJUSTMENTS > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “BRIDGE LUBE OIL LOW” - # 110",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Linear Travel (Side to Side) Positioning Correction",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “COND ARM NOT ARRIVING AT PARK” - # 194 “COND ARM NOT ARRIVING AT INNER” - # 195 “COND ARM NOT ARRIVING AT OUTER” - # 196",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > Move Bridge to Polish Position",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > B. TABLE INSTALLATION",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > DANGER",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "LOAD STATION ALIGNMENT > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "LEFT SPINDLE DOWN LIMIT SWITCH > RIGHT SPINDLE DOWN LIMIT SWITCH",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > Note:",
+   1
+  ],
+  [
+   "CONTROLLABLE CONDITIONING DOWN FORCE OPTION CALIBRATION > F. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > Note:",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > E. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "RIGHT RECEIVE ELEVATOR",
+   1
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > Power Up and Home",
+   1
+  ],
+  [
+   "DOWN FORCE E - P REGULATOR CALIBRATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > LEFT SEND ELEVATOR",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > D. TEST THE NEW ADJUSTMENT",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > ROBOT LEVELING",
+   1
+  ],
+  [
+   "LOAD STATION ALIGNMENT > SHUTTLE",
+   1
+  ],
+  [
+   "FORMULAS USED IN SOFTWARE CALIBRATION PROCEDURES > SAMPLE FORMULA PRESENTATION",
+   1
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > LEFT LOAD CHUCK",
+   1
+  ],
+  [
+   "LOAD STATIONS > B. CHECK THE CURRENT ADJUSTMENT",
+   1
+  ],
+  [
+   "LOAD STATIONS > LEFT LOAD CHUCK RAISE PRESSURE",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > RIGHT LOAD",
+   1
+  ],
+  [
+   "FUNCTION KEY CHOICES AVAILABLE AT PAGE 1 OF THE MANUAL CONTROL MENU > WARNING: The value for the bridge home position variable is always negative. A positive number may do severe damage to the machine!",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > A. CHECK THE PRESENT ADJUSTMENT",
+   1
+  ],
+  [
+   "MEASUREMENT OF THE PRESENT LOAD CHUCK HEIGHT POSITION > Notes:",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “ROBOT TRAVEL NOT HOMED” - # 63",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "SLURRY SYSTEM > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "LOAD STATION ALIGNMENT > Notes:",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > 1. At the Calibration/Configuration Menu",
+   1
+  ],
+  [
+   "ELEVATOR CASSETTE ARM SENSOR SWITCH ADJUSTMENTS > Turn Machine Power On, Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “LOW COOLING WATER FLOW RATE” - # 111",
+   1
+  ],
+  [
+   "SLURRY DIAPHRAGM PUMP PRESSURE > Install Carriers on Spindles",
+   1
+  ],
+  [
+   "LEFT RECEIVE ELEVATOR > ROUGH HEIGHT ADJUSTMENT",
+   1
+  ],
+  [
+   "TABLE TEMPERATURE CONTROLUNIT OPERATION > FILTERINE TEMPERATURE CONTROL UNIT",
+   1
+  ],
+  [
+   "TABLE TRAVEL CYLINDER REED SWITCH ADJUSTMENTS > TABLE FORWARD REED SWITCH",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > D. SET THE ROBOT UP/DOWN BOTTOM POSITION VARIABLE",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION > B. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Turn Machine Power to OFF",
+   1
+  ],
+  [
+   "FORMULAS USED IN SOFTWARE CALIBRATION PROCEDURES",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) LOAD POSITIONS CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "TEMPERATURE IN SCALE FACTOR > A. DETERMINE THE CURRENT TEMPERATURE IN SCALEFACTOR",
+   1
+  ],
+  [
+   "SECOND TABLE LOAD POSITION SHOCK ABSORBER ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "Read and Record the Actual Temperature of the Chilled Water",
+   1
+  ],
+  [
+   "The Drain Tubs for the Polish Table and Elevator",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > ELEVATORS AND ROBOT",
+   1
+  ],
+  [
+   "AT THE LOAD STATIONS -- ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > LEFT LOAD",
+   1
+  ],
+  [
+   "TABLES > B. ADJUSTMENT PROCEDURE",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > D. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > ELEVATORS",
+   1
+  ],
+  [
+   "BRIDGE LOAD POSITION CALIBRATION > Move Bridge to Load Position",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > ORDER OF ADJUSTMENT",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT",
+   1
+  ],
+  [
+   "REMOVAL OF ELECTRICAL POWER FOR THE SECOND TABLE AT THE TERMINAL BLOCK > B. DISCONNECT 588, 589, AND 590",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > NOTICE: The procedure below is a two-person job!",
+   1
+  ],
+  [
+   "POLISH TABLE REMOVAL AND INSTALLATION > B. CHECK CURRENT CALIBRATION",
+   1
+  ],
+  [
+   "ELEVATORS AND ROBOT-- ORDER OF ADJUSTMENT > ELEVATOR HEIGHT CALIBRATION",
+   1
+  ],
+  [
+   "CONDITIONING DEVICE AIR CYLINDER ADJUSTMENT",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Required Positions for Robot Arm Extension",
+   1
+  ],
+  [
+   "ASSEMBLY AND DISASSEMBLY OF A CARRIER > For Three-, Four-, and Five-Inch Carriers Only:",
+   1
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "SPINDLE CARRIER BLOW OFF PRESSURE",
+   1
+  ],
+  [
+   "6DS-SP COMPUTER SETUP",
+   1
+  ],
+  [
+   "ROBOT ARM ROTATION (THETA) CALIBRATION > D. WHEN CALIBRATION VARIABLES 76, 77, 78, 79 HAVE BEEN SATISFACTORILY ADJUSTED",
+   1
+  ],
+  [
+   "SLURRY PH TRANSMITTERCALIBRATION > Notes:",
+   1
+  ],
+  [
+   "REMOVAL OF ELECTRICAL POWER FOR THE SECOND TABLE AT THE TERMINAL BLOCK",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN LEFT LOAD POSITION > Tools Required",
+   1
+  ],
+  [
+   "RIGHT SEND ELEVATOR",
+   1
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > Tools Required",
+   1
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT > D. WHEN A SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "CONDITIONING DEVICE AIR CYLINDER ADJUSTMENT > B. CHECK CURRENT ADJUSTMENT",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > B. CHECK CURRENT CALIBRATION",
+   1
+  ],
+  [
+   "SPINDLE VACUUM CHUCK ALIGNMENT > D. WHEN SATISFACTORY ADJUSTMENT IS ACHIEVED",
+   1
+  ],
+  [
+   "SECOND TABLE POLISH POSITION SHOCK ABSORBER ADJUSTMENTS > ÀDANGER",
+   1
+  ],
+  [
+   "ROBOT UP/DOWN (Z-AXIS) TOP, MIDDLE, AND BOTTOM POSITIONS CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "BRIDGE LEFT/RIGHT CURTAINPOSITION CALIBRATION > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “POLISH SECTION OPERATOR DOOR OPEN AT START” - # 69",
+   1
+  ],
+  [
+   "LOAD CHUCK VACUUM SENSOR ADJUSTMENT",
+   1
+  ],
+  [
+   "NESLAB TEMPERATURE CONTROL UNIT > or",
+   1
+  ],
+  [
+   "MACHINE HALTS DURING CYCLE WITH POWER STILL ON BUT MOTION SUSPENDED - PART B > “LEFT SPINDLE VACUUM NOT FOUND” - # 156 “RIGHT SPINDLE VACUUM NOT FOUND” - # 157",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > B. PROCEDURE",
+   1
+  ],
+  [
+   "REMOVAL OF THE LOAD CHUCKS, TABLE, AND SUBTABLE > Turn Machine Power On and Perform Home Sequence Routine",
+   1
+  ],
+  [
+   "ENHANCED CLEANING STATION ROTATIONAL SPEED (POTENTIOMETER) CALIBRATION > RIGHT CLEANING STATION",
+   1
+  ],
+  [
+   "FORMULAS USED IN SOFTWARE CALIBRATION PROCEDURES > FRACTION/DECIMAL INCH CONVERSION TABLE",
+   1
+  ],
+  [
+   "ROBOT BELT TENSIONING [#B IN ELEVATORS AND ROBOT ADJUSTMENT SERIES]",
+   1
+  ],
+  [
+   "RESTORATION OF LOAD CHUCK HEIGHT TO THE PREVIOUSLY MEASURED POSITION > 5. Right load chuck:",
+   1
+  ],
+  [
+   "MAINTENANCE MANUAL(VoI#2) > Model 6DS-SP Planarizer",
+   1
+  ],
+  [
+   "LOAD CURRENT CALIBRATION",
+   1
+  ],
+  [
+   "BRIDGE TABLE 2 POSITION CALIBRATION > Unload Carriers",
+   1
+  ],
+  [
+   "RESTORATION OF ELECTRICAL POWER FOR THE SECOND TABLE > B. PROCEDURE TO RECONNECT 588, 589, AND 590",
+   1
+  ],
+  [
+   "ROBOT ARM EXTENSION (RADIAL) AND TRAVEL (LINEAR) CALIBRATION > Tools Required",
+   1
+  ],
+  [
+   "PERISTALTIC PUMP LINEREPLACEMENT > Remove Table Pad and Clean Table",
+   1
+  ],
+  [
+   "SHUTTLE TRAVEL ADJUSTMENTS > A. BEFORE YOU BEGIN",
+   1
+  ],
+  [
+   "MECHANICAL MAINTENANCE PROCEDURES > LOCKOUT SAFETY PROCEDURE",
+   1
+  ]
+ ]
+}

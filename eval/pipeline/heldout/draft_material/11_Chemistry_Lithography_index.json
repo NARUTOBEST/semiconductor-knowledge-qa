@@ -1,0 +1,2450 @@
+{
+ "doc": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+ "chunks": 4842,
+ "headings": [
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.9.3 Development of physical chemistry",
+   95
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.2.1.2 Negative resists based on cross-link formation by radiation-generated reactive species",
+   82
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.2 Developments in optical instruments and glassmaking technologies",
+   70
+  ],
+  [
+   "Chemistry and Lithography > Contents",
+   48
+  ],
+  [
+   "12.9.1 Adapting exposure kinetics of chemical amplification resists to the Dill equations",
+   45
+  ],
+  [
+   "Chemistry and Lithography > Introduction to Lithography",
+   44
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.1.1.1 DNQ-NOVOLAC RESISTS",
+   44
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.2 Invention of Lithography",
+   43
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.4.1 Joseph Nice´phore Nie´pce—The inventor of photography and photolithography",
+   38
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.4.1 Metal-chalcogenide resists",
+   38
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.7 Foundation of modern chemistry",
+   35
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.20 Quantum theory of light",
+   35
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.8.1 Optical lithography",
+   34
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.2.1.1 Negative resists based on cross-link formation by direct reactions of excited chromophores",
+   34
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.5 Resist Strippers and Cleaners",
+   34
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.7 Overall Device Technology Trends",
+   34
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.1 Acid generators",
+   33
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.5.3 Chemically amplified condensation/intermolecular dehydration negative resists based on acid-catalyzed cross-linking with acid-sensitive electrophile (cross-linking agent)",
+   33
+  ],
+  [
+   "Chemistry and Lithography > Preface",
+   31
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.4 Electromagnetic theory",
+   31
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.1 Introduction",
+   31
+  ],
+  [
+   "12.8.1 Adapting exposure kinetics of DNQ to the Dill equations",
+   30
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.6 Other Notable Developments in Transistor Technology",
+   29
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.2.1 Resists based on poly(methyl methacrylate) and its derivatives",
+   29
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.4.4 Instabilities and thermophysical properties of ultrathin resist films",
+   29
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.3 The Printed Circuit Board and the Development of the Electronics Industry",
+   29
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.5.2 Projection printing",
+   29
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (ix) Dissolution behavior of DNQ/novolac resists",
+   28
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.2 Photodissociation of molecular oxygen",
+   28
+  ],
+  [
+   "12.7 Standing Wave Models",
+   27
+  ],
+  [
+   "12.10.3 The lumped parameter model",
+   27
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.8.1.2 Propagation",
+   26
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (vi) Resins for DNQ resists",
+   25
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (v) Reactions of DNQs",
+   25
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.4 General Considerations on the Chemistry of Cross-Linking",
+   25
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.11 Exposure Mechanisms of Resists and Exposure Radiation",
+   25
+  ],
+  [
+   "11.17.1 Pattern collapse",
+   25
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2.1 Electron scattering",
+   25
+  ],
+  [
+   "12.8 Exposure Models",
+   24
+  ],
+  [
+   "11.8.1 Deprotection kinetics of representative resist polymer systems",
+   24
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3 Extreme Ultraviolet Lithography",
+   24
+  ],
+  [
+   "12.2 Historical Background",
+   24
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.1 Resolution limits due to chemical amplification in resists",
+   23
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.3.1 General mechanism of patterned resist polymer photo-oxidative degradation",
+   22
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.9 Copper interconnect wiring formation by means of the dual damascene<sup>20</sup> technique",
+   22
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.3.1 The resist spin-coating process",
+   21
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (ii) Poly(hydroxystyrene)",
+   21
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.4 Energy Migration in Resist Polymers",
+   20
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.3.3 ESTER-PROTECTED ALICYCLIC POLYMER RESIST PLATFORM",
+   20
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.2 Resists",
+   20
+  ],
+  [
+   "12.4 Basic Imaging Theory",
+   20
+  ],
+  [
+   "12.9 Postexposure Bake Models",
+   20
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4 Optical Materials for UV and Visible Light Lithographies",
+   20
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.4 Resist Developers and Rinses",
+   19
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.6 The velocity of light",
+   19
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (ii) Synthesis of alicyclic polymers",
+   19
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.1 Introduction",
+   19
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.14 Proximal Probe Lithography",
+   19
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.2 Mask types and mask materials",
+   19
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6.4 Nonthermal processes used in EUV optics contamination mitigation",
+   19
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.4.1 Scattering with angular limitation projection electron-beam lithography (SCALPEL)",
+   19
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.2.3 Reflection and transmission amplitudes",
+   18
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.1 Introduction",
+   18
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.10 Electron-Beam Lithography",
+   18
+  ],
+  [
+   "11.7 Exposure",
+   18
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > P",
+   18
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.7 Chemical effects of light",
+   17
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.1 Introduction",
+   17
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.18 Bohr’s model of the hydrogen atom",
+   17
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.16 Bright and dark line spectra",
+   17
+  ],
+  [
+   "12.5 Accounting for Aberrations",
+   17
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.4.1.1 SCALPEL technology challenges",
+   17
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.5.2 Oxidation",
+   17
+  ],
+  [
+   "11.16.1.7 Effects of resin and inhibitor structure on dissolution rate",
+   17
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.5.1 Carbon deposition",
+   17
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.2 Resins",
+   16
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.15 Einstein’s quantum hypothesis for the photoelectric effect",
+   16
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.5.2 General considerations on the thermodynamics of radiation-induced depolymerization",
+   16
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.4 Wave (or undulatory) theory of light",
+   16
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (iii) Thermal analysis",
+   16
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.1.2.1 Lasing mechanism of rare-gas halide exciplex and diatomic halogen excimer lasers",
+   16
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.5 Electromagnetic spectrum",
+   15
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.7 The polarization of light",
+   15
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.7.2 Electric field in photoresist films",
+   15
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.8 Semiconductor Lithography",
+   15
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.1 Introduction",
+   15
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6.3 Thermal processes used in EUV optics contamination mitigation",
+   15
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.1 EUV multilayer mirrors",
+   15
+  ],
+  [
+   "11.16.1.3 The critical deprotonation model",
+   15
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.1.2 Partial coherence theory of image formation",
+   15
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3 Mask and reticles",
+   15
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.8.2 Atomic theory",
+   14
+  ],
+  [
+   "Chemistry and Lithography > Acronyms and Abbreviations",
+   14
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.10 Sensitivity and Exposure Radiation",
+   14
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.4 Characterizing Ultrathin Resist Processes",
+   14
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.5.1 Poly(phthaldehyde) resists",
+   14
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.8.3 Electrochemical or dualistic theory",
+   14
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.1.1.3 RESISTS BASED ON ORTHO-NITROBENZYL CHEMISTRY",
+   14
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4 Water immersion ArF (193-nm) lithography",
+   14
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.1 Image formation",
+   14
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.5 Double-patterning techniques",
+   14
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.3.1.1 SCANNER-GENERATED DEFECTS",
+   14
+  ],
+  [
+   "11.18.2 UV radiation curing",
+   14
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.9.2 The formula of benzene",
+   13
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (i) Carbonate-protected poly(hydroxystyrene)-based resists",
+   13
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.3.3 Bilayer resists",
+   13
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.4.3 Hydrodynamics of ultrathin resist films",
+   13
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.5.1 ACETAL AND KETAL-PROTECTED POLY(HYDROXY STYRENE)-BASED RESISTS",
+   13
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.1 The four-element theory",
+   13
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.7 Radiation Chemistry Versus Photochemistry of Resists",
+   13
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.3.1 Dipole resonance transfer",
+   13
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3.2.1 Hydrophilic overlayer process",
+   13
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.4.1.1.3 PHOTOCHEMICAL OXIDATION OF SULFUR DIOXIDE BY OZONE ANDHYDROXYL RADICAL",
+   13
+  ],
+  [
+   "11.4.5 Ultrathin films and defectivity",
+   13
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.1 Interaction of Radiation with Resists",
+   12
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.4 The initiation step",
+   12
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.4.1 Suppression of standing waves and reflectivity effects",
+   12
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.2.1.2 POLY(OLEFIN SULFONE) RESISTS",
+   12
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.9.4 Development of polymer chemistry",
+   12
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.3 Dye-sensitized initiation",
+   12
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.5 Phlogiston theory",
+   12
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.5.5 Chemically amplified methacrylate negative resists based on acidcatalyzed deprotection and development in supercritical $\\mathbf { c o } _ { 2 }$",
+   12
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (b) Deep-UV 193-nm resists",
+   12
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.3.2 ESTER-PROTECTED POLY(METHACRYLATE)-BASED RESIST PLATFORM",
+   12
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.2.1 Top antireflection coatings",
+   12
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.2.1 Priming of silicon dioxide surface with HMDS",
+   12
+  ],
+  [
+   "11.18.3 Electron-beam curing of resists",
+   12
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3 UV Photochemistry in the Exposure Chamber Environment of Optical Lithographic Tools",
+   12
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.1.1 Fused-silica degradation mechanisms",
+   12
+  ],
+  [
+   "Chapter 13 Optical Lithography > (ii) Spectral bandwidth and temporal coherence",
+   12
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > C",
+   12
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > S",
+   12
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.2 Illumination system",
+   12
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.21 Einstein’s theory of relativity",
+   11
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.5.1 The steady state approximation",
+   11
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.2.1 Refraction",
+   11
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.4.1 The invention of the transistor",
+   11
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.6 Discovery of simple gases in common air",
+   11
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.3.1 ESTER-PROTECTED POLY(HYDROXY STYRENE)-BASED RESISTS",
+   11
+  ],
+  [
+   "11.16 General Facts about the Dissolution Mechanism of DNQ/Novolac Resists",
+   11
+  ],
+  [
+   "11.16.1.4 The percolation model of resist dissolution",
+   11
+  ],
+  [
+   "11.16.1.2 The secondary structure model",
+   11
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.4 Electron Projection Lithography",
+   11
+  ],
+  [
+   "11.12.3.2 Quartz crystal microbalance",
+   11
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.6 Defectivity issues",
+   11
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3 Dry ArF (193-nm) lithography",
+   11
+  ],
+  [
+   "12.10.1 The kinetic development model or Mack model",
+   11
+  ],
+  [
+   "11.5 Soft Bake/Prebake",
+   11
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.4 Pioneers of Photography",
+   10
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.17 Molecular Self-Assembly Lithography",
+   10
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.3 Particle (or corpuscular) theory of light",
+   10
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (v) Airborne poisoning of t-BOC-protected poly(hydroxy styrene)-based resists",
+   10
+  ],
+  [
+   "11.18.1 Postdevelopment bake",
+   10
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > D",
+   10
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.1.1 The role of the objective lens",
+   10
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.5.1 Mechanism of lithographic mask chrome structure oxidation",
+   10
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.5.3 Impact of contamination",
+   10
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.2.2.3 Bilayer resist system",
+   10
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.3 Resolution limits due to confinement effects in resists",
+   10
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.5.1 Types of ion-beam lithographies",
+   10
+  ],
+  [
+   "11.20.2.2 Reactive-ion etching",
+   10
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.5.1 Chemically amplified negative resists based on acid-catalyzed pinacol rearrangement",
+   9
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.3.1.1 Design approaches to organic bottom antireflection coatings",
+   9
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.9 X-ray Lithography",
+   9
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.4.3 William Henry Fox Talbot",
+   9
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.13 Blackbody radiation",
+   9
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.2 Offset Lithography",
+   9
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.2.2 X-ray masks",
+   9
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.1 UV absorption properties of typical gases in lithographic exposure tools",
+   9
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.1.1 n-well formation",
+   9
+  ],
+  [
+   "12.12.1 Research applications",
+   9
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.1 Introduction",
+   9
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.5 Resolution–line edge roughness–sensitivity trade-off",
+   9
+  ],
+  [
+   "11.8 Postexposure Bake",
+   9
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.2 Calcium fluoride",
+   9
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.4 Optics Lifetime",
+   9
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.5 Ion-Beam Lithography",
+   9
+  ],
+  [
+   "11.9 Monitoring Photoacid Generation in Thin Photoresist Films by Means of Fluorescence Spectroscopy",
+   9
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.2 Proximity X-Ray Lithography",
+   9
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2.2.1 Electron sources",
+   9
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.2.2 Manufacture of resists",
+   8
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.7.1 Reflectivity of absorbing layers",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.8 Post-Lavoisian evolution of chemistry",
+   8
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.4.2 Louis Jacques Mande´ Daguerre",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.4 Early theories of combustion and calcination",
+   8
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.2.1 Excimers",
+   8
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.3.1 Chemically amplified negative phenolic resists based on acid-catalyzed condensation/intermolecular dehydration cross-linking reactions",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.19 Implications of Bohr’s Theory",
+   8
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (a) DUV 248-nm resists",
+   8
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.4.2 Spin coating and instabilities in ultrathin resist films",
+   8
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2 Chemical amplification positive resists: the chemical amplification concept",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.3 Alchemy",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.2 Chemistry as a distinct discipline",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.1 Light and color",
+   8
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.1 Introduction",
+   8
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2 Electron-Beam Lithography",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.2.1 Base quenchers",
+   8
+  ],
+  [
+   "11.13 Dissolution Mechanism of Resist Polymers",
+   8
+  ],
+  [
+   "11.20.2 Dry etching",
+   8
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.1 Fused silica",
+   8
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.5.1 Contact and proximity printing",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.2.2.2 Top surface imaging resist system",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.2.3 Shot noise",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > A",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > R",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.5 Resist Materials Outlook for the 22-nm and Smaller Technology Nodes",
+   8
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.2.2 Electron-beam-induced CD shrink techniques",
+   8
+  ],
+  [
+   "11.11 Consequences of Acid Diffusion",
+   8
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.5 $\\boldsymbol { \\mathsf { F } } _ { 2 }$ excimer laser (157-nm) lithography",
+   8
+  ],
+  [
+   "11.12.3.1 Laser interferometry",
+   8
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.9.1 Development of organic chemistry",
+   7
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.17 Nuclear model of the atom",
+   7
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.5 Negative Resists Arising from Polymerization of Monomers in the Presence of Polyfunctional Components",
+   7
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (iv) Other t-BOC-protected poly(hydroxy styrene)-based resists",
+   7
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.5 Spectral Sensitization",
+   7
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.4.3 Damascene applications involving silicon-containing resists and silicon-containing hard mask materials with antireflection properties",
+   7
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.5.4 Chemically amplified methacrylate negative resists based on acid-catalyzed esterification",
+   7
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.8.2 Challenges of decreasing exposure wavelength in optical lithography",
+   7
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.4.2 Feature CD trimming",
+   7
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.14 Planck’s quantum hypothesis for blackbody radiation",
+   7
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.1.1.2 DIAZO-MELDRUM’S ACID-BASED RESISTS",
+   7
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.1 Tactile and emission theories of light",
+   7
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.1 Introduction",
+   7
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.2.1.3 POLY(CHLOROACRYLATE-CO-a-METHYLSTYRENE) RESISTS",
+   7
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.9.3 Determination of the cross-linking yield $\\pmb { G } _ { \\mathbf { x } }$",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.2.2 Multilayer resist systems",
+   7
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.5.2 Ion projection lithography",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > T",
+   7
+  ],
+  [
+   "12.10.2 The enhanced kinetic development model or enhanced Mack model",
+   7
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.2 Modulation transfer function",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > Afterword",
+   7
+  ],
+  [
+   "12.12.2 Process development applications",
+   7
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.7 EUV Resists and Imaging Performance",
+   7
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.2.1 Synchrotron sources",
+   7
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.3.3 Laser writers",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > E",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.1.1 Elucidating how photoacid diffusion leads to resist contrast and resolution loss",
+   7
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.5 Exposure optics system",
+   7
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.1 ArF resist material chemistry",
+   7
+  ],
+  [
+   "11.15 Comparison of Dissolution Characteristics of Novolac and Poly(hydroxystyrene)-based Resists",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.5.3 Self-aligned double-patterning (SADP) scheme",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.2.1 Thermal reflow shrink technique",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > F",
+   7
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.1.3 Postexposure-based CD shrink techniques",
+   7
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.6.1 Triplet sensitization",
+   6
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.13 Soft Lithography",
+   6
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.3.2 Exchange transfer",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (ii) Synthesis",
+   6
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.12 Extreme Ultraviolet Lithography",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.10.3 Printed circuit boards",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.4.3 Diazo resists",
+   6
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.11 Ion-Beam Lithography",
+   6
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.8.1 Laws of chemical reactions",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.3 Antireflection Coatings",
+   6
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.15 Atom Lithography",
+   6
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.9.2 Determination of the scission yield",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (iv) Photochemistry of DNQs: absorption characteristics",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6 General Considerations on the Chemistry of Photoinitiated Radical Polymerization Employed in Negative Resist Systems",
+   6
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.2.3 Laws of refraction",
+   6
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.1 Introduction",
+   6
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.7.3 Bulk standing wave intensity",
+   6
+  ],
+  [
+   "11.12 Development",
+   6
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3.1.2 Chemical amplification of resist lines (CARL) process scheme",
+   6
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.5 Corrosion and oxidation of chrome structures in DUV lithographic masks",
+   6
+  ],
+  [
+   "11.16.1.1 The membrane model",
+   6
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.5.1 Laser-produced plasma sources",
+   6
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.3.2 Scanning strategies",
+   6
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.1.2 Exciplex and excimer laser sources",
+   6
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.3.2 Electron-beam writers",
+   6
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4 Resolution Limit Issues of Resists",
+   6
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.3.1.2 Photo-oxygenation of polymers by singlet oxygen",
+   6
+  ],
+  [
+   "11.6 Alignment",
+   6
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2 ArF lithographic patterning issues",
+   6
+  ],
+  [
+   "11.20.1 Wet etching",
+   6
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.2.2 Polymer size",
+   6
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.4 Pellicles",
+   6
+  ],
+  [
+   "11.12.1 Resist development methods",
+   6
+  ],
+  [
+   "12.10.4 Resist profile",
+   6
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.4 Ester-protected acrylic acid-alicyclic polymer hybrid resist platform",
+   5
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.5.2 Chemically amplified negative resists based on acid-catalyzed intramolecular dehydration",
+   5
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.2 Offset Lithography",
+   5
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.3 Energy Transfer",
+   5
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.2 Adhesion Promotion",
+   5
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.8 The discovery of electrons",
+   5
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.11 The beginnings of quantum theory",
+   5
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.2.2 Exciplexes",
+   5
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.1 Stone and Plate Lithography",
+   5
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.9 The discovery of x rays",
+   5
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.7.1 The thiol-ene system",
+   5
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3 Chemical amplification positive resists based on deprotection",
+   5
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.2 Early studies in optics and catoptrics",
+   5
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.12 Molecular theory of matter",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.3.2 Dielectric optical coatings",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.1.1 High-pressure arc lamps",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > I",
+   5
+  ],
+  [
+   "11.21 Rework/Stripping",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > M",
+   5
+  ],
+  [
+   "12.6.1.1 Zero-order scalar model",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > L",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3.3 Plasma-assisted CD shrink technique",
+   5
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.4 The EUV exposure system",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.1 Resists and topcoats",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > B",
+   5
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.5.2 Discharge-produced plasma sources",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.3 Defectivity",
+   5
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.1 Introduction",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.8 Metrology issues",
+   5
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.7 Contact formation",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.5 Etching of mask-making resists",
+   5
+  ],
+  [
+   "12.6.1.2 First-order scalar model",
+   5
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.4 Inorganic salt formation on DUV exposure tool lenses and reticles",
+   5
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.2 Shallow trench isolation process",
+   5
+  ],
+  [
+   "12.3 Structure of a Lithographic Model",
+   5
+  ],
+  [
+   "11.12.2.1 Chemical development",
+   5
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.3 Types of Electron-Beam Lithographies",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.1 Introduction",
+   5
+  ],
+  [
+   "12.11 Accuracy of Lithographic Models",
+   5
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > N",
+   5
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1.1.2.2 ACETOPHENONE DERIVATIVES",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.6.1 Offset lithographic inks",
+   4
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 3—Etching the Stone",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.1.1 Wax-lampblack-soap resists",
+   4
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.6 Bottom Antireflection Coating–Resist Interactions",
+   4
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.2 Light as a wave or particle",
+   4
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.8.5 Avogadro’s hypothesis",
+   4
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.10 Radioactivity",
+   4
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.6.2 Sensitization by electron transfer",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.10 Lithographic Applications of Photopolymerization Negative Resists",
+   4
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.6 Absorption of light",
+   4
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.6 Fabrication of Lithographic Offset Plates",
+   4
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3 Developments in chemistry",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.3.2 Chemically amplified negative resists based on radiation-induced polarity changes",
+   4
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.8 Waterless Offset Lithography",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.10.5 IC device fabrication",
+   4
+  ],
+  [
+   "Invention of Lithography and Photolithography > 2.3 Invention of Photolithography",
+   4
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 2b—Color and Registration Control",
+   4
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.3 The Offset Lithographic Press",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.1.1 POLY(TETRAHYDROFURAN-CO-NOVOLAC) RESISTS",
+   4
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.4.2 Limits of discrete transistors",
+   4
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.9.1 Backbone scission and cross-linking",
+   4
+  ],
+  [
+   "11.19 Measurement and Inspection",
+   4
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.4 Resolution limits due to resist polymer molecular properties",
+   4
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.3 EUV masks",
+   4
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.4.2 Resolution limits due to line edge roughness",
+   4
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2.2.4 Computer",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.4 Mask-making resists",
+   4
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > Z",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.4 Normalized image log-slope",
+   4
+  ],
+  [
+   "12.6.2 Full scalar and vector models",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > (i) Spatial coherence",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.4.1 Mechanism of ammonium sulfate crystal formation on DUV lithographic exposure lenses and reticles",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.3 Fabrication of photomasks",
+   4
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.4 Double-exposure techniques",
+   4
+  ],
+  [
+   "11.20.2.1 Plasma etching",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.3 Postexposure bake sensitivity",
+   4
+  ],
+  [
+   "12.12.3 Manufacturing and instructional applications",
+   4
+  ],
+  [
+   "11.16.1 Mechanistic models for DNQ/novolac dissolution",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.3 Photo-oxidative degradation of photoresist polymers",
+   4
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.2.2.1 Hard mask resist system",
+   4
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2.2.2 Electron optical components",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.7.1 GATE ETCH PATTERNING APPLICATIONS",
+   4
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2.2.3 Exposure stage",
+   4
+  ],
+  [
+   "11.10 Postexposure Bake Sensitivity",
+   4
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3.1.1 Resolution enhancement of lithography assisted by chemical shrink (RELACS)",
+   4
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.2 Fabrication of Mo-Si multilayer mirrors",
+   4
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.1.2.1.1 EXCITATION SCHEMES",
+   4
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.2.1 Resist solvents",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.9.2 Binders",
+   3
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.3.2 Inorganic bottom antireflection coatings",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.6 Evolution of poly(hydroxy styrene)-based resists",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1.1.2.3 TRIAZINES",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.2.1.2 Michler’s ketone",
+   3
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3 On the nature of light",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1.1.2 Azo compounds",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.4 Chemical amplification positive resists based on Claisen rearrangement",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.2 Radicals generated by hydrogen abstraction",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (iii) Physical properties of DNQs",
+   3
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 2—Writing or Drawing on the Stone",
+   3
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.7.5 Relative swing amplitude",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.2 Non–chemically amplified positive resists based on main chain scission",
+   3
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.5 The Integrated Circuit",
+   3
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 2a—Inking of the Plates",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.10.2 Dry resists",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.3 Resist Materials for Multilayer Resist Systems",
+   3
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.13.4 Step-and-flash imprint lithography",
+   3
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.8 Bottom Antireflection Coatings for High-NA Imaging",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.2.1.1 Benzophenone and tertiary amines",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.2.1.1 POLY(METHYL ISOPROPENYL KETONE) RESISTS",
+   3
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.10.4 Solder mask",
+   3
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.3.3 The Perrin formula",
+   3
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 1—Preparation of the Stone",
+   3
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.13.1 Microcontact printing",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.3.1.2 TRACK-GENERATED DEFECTS",
+   3
+  ],
+  [
+   "11.12.2.2 Physical development",
+   3
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.5 Contamination Processes",
+   3
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.5.3 Stochastic blur",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.2 Optical proximity effects",
+   3
+  ],
+  [
+   "12.3.5 Postexposure bake",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.1 i-line (365-nm) lithography",
+   3
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.6 Resist Processing Outlook for the 22-nm and Smaller Technology Nodes",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.6.2 DEVELOP-PROCESS-INDUCED DEFECTS",
+   3
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.5.2 Lithography-freeze-lithography-etch patterning scheme",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2 Elements of Optical Lithography",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.1 CD uniformity and control",
+   3
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.1 Single-exposure techniques",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.4.1.1.1 DIRECT OXIDATION OF SULFUR DIOXIDE BY STABLE ATMOSPHERIC OXYGEN",
+   3
+  ],
+  [
+   "12.10 Development Models",
+   3
+  ],
+  [
+   "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)_p501-878",
+   3
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.5 Depth of focus",
+   3
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2 Fabrication of a 90-nm CMOS Microprocessor",
+   3
+  ],
+  [
+   "12.1 Introduction",
+   3
+  ],
+  [
+   "11.16.1.5 The critical ionization model",
+   3
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > H",
+   3
+  ],
+  [
+   "11.18.3.1 Radiation chemistry of electron-beam curing",
+   3
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.4 Lightly doped drain implant processes",
+   3
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.5.1 Lithography-etch-lithography-etch patterning scheme",
+   3
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.4.2 Damping system",
+   2
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.7.4 Substrate reflectivity and photoresist absorbance",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.8.1.1 Initiation",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1 Photogeneration of radicals",
+   2
+  ],
+  [
+   "Chemistry and Lithography > and",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.3.2 Top surface imaging resists",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.9.1 Negative resist composition",
+   2
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.8 Radiation Chemical Yield and Dosimetry",
+   2
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.5 Types of Offset Lithographic Inks",
+   2
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.16 Stereolithography",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.2 Chemical amplification positive resists and their imaging mechanisms",
+   2
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.2.2 The invention of the microscope and telescope",
+   2
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.8.4 Laws of electrolysis",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (viii) Additives",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (iii) Synthesis of PBOCST",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1.1.2.1 BENZOIN DERIVATIVES",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.6.2 Fountain solutions",
+   2
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.5 Organic versus Inorganic Bottom Antireflection Coating and Rework/Stripping Issues",
+   2
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.4.3 Inking system",
+   2
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 5—Creating Prints",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1.1 Initiators based on photofragmentation",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.4.2 Ylide resists",
+   2
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1 Developments in optical physics",
+   2
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.13.5 Nanoimprint lithography",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.3.1 Hard mask resist materials",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.1.1.4 RESISTS BASED ON PHOTO-FRIESS REARRANGEMENT",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.1.1.1 Peroxides",
+   2
+  ],
+  [
+   "Chemistry and Lithography",
+   2
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.10.1 Lithographic offset plates",
+   2
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 1—Prepress Production",
+   2
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.13.3 Nanoskiving",
+   2
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.2.2 Theory of top antireflection coatings",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.2.2 STI oxide polish and nitride strip",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.1.1 Hyper-NA imaging resist processing techniques",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.6 Exposure-defocus window",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > W",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.8.2 Tungsten plug formation",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.8.1 Via-1 formation",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.1 Contrast",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.3.1 Origins and evolution of immersion lithographic defects",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.4 Pellicle materials",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.6.1 COAT-PROCESS-INDUCED DEFECTS",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > Index",
+   2
+  ],
+  [
+   "12.3.6 Development",
+   2
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.3.5 Sources for EUV lithography",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.4.2 p LDD implant",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.2 KrF (248-nm) lithography",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.2.1 Single-layer resist systems",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.6.1 $\\pmb { n } ^ { + } \\ \\pmb { \\mathsf { s } } / \\pmb { \\mathsf { D } }$ implant",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.3 Optical coatings",
+   2
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.1 Introduction",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.3 Exposure latitude",
+   2
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6.2 Use of oxidation-resistant capping layers",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.10 Bond pad metal formation and packaging",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.8 Via-1 and tungsten plug formation",
+   2
+  ],
+  [
+   "11.18.3.2 Effects of electron-beam curing",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.1.2 EUV lithography resist processing technique",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.5 Pattern collapse",
+   2
+  ],
+  [
+   "11.16.1.6 The stone wall model of novolac dissolution",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.3.1.3 IMPACTS OF IMMERSION LITHOGRAPHY DEFECTS",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > G",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.6.2 ${ \\pmb \\ p } ^ { + } \\ { \\pmb \\ s } / { \\pmb \\ D }$ implant",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.4 Line edge and sidewall roughness",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.4.1.1.2 CATALYZED OXIDATION OF SULFUR DIOXIDE BY METAL IONS",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.3.1.1 Atomic oxygen reactions with polymers",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.3.1 Optical pattern generator",
+   2
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.3.1 Electron-beam direct-write lithography",
+   2
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > K",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.5 Sidewall spacer formation",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.3 Polysilicon gate process",
+   2
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6 Contamination Mitigation Strategies",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.4.1 n LDD implant",
+   2
+  ],
+  [
+   "12.3.1 Aerial image",
+   2
+  ],
+  [
+   "12.6.1.3 High-NA scalar model",
+   2
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.6 Source/drain implant process",
+   2
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.3.4.1.1 Reaction pathways leading to the formation of ammonium sulfate crystals in DUV lithographic exposure tools",
+   2
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.4.2 Projection reduction exposure with variable axis immersion lens (PREVAIL) lithography",
+   2
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.2 Antireflection Coating Strategies",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.1.1 Dissolution inhibition resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.1 Non-radiation-based negative resists",
+   1
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.6 Sensitization by Energy Transfer",
+   1
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2 Key Developments that Enabled the Invention and Development of Lithography",
+   1
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.3.1 Organic bottom antireflection coatings",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.9 Practical Negative Resist Compositions Arising from Photopolymerization of Monomers in the Presence of Polyfunctional Components",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.2 Carbonate-protected chemical amplification resists",
+   1
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.5 Chemical amplification positive resists based on depolymerization",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals",
+   1
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.4.1 Instabilities in ultrathin resist films",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (xi) Post-DNQ/novolac resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.2.1 Negative resists based on radiation-induced cross-linking reactions",
+   1
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.3 Bottom Antireflection Coatings",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.3 Ester-protected chemical amplification resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.5 Propagation versus termination and the kinetic chain length",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.2.1 Other practical initiator systems based on hydrogen abstraction",
+   1
+  ],
+  [
+   "Invention of Lithography and Photolithography",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.2 Radiation-induced negative resists",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 4—Inking the Stone",
+   1
+  ],
+  [
+   "The Semiconductor Lithographic Process",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.5 Acetal- and ketal-protected chemical amplification resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1.1 Non-chemically ampliflied positive resists based on functional group polarity switch",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.2.1.4 3-Ketocoumarins",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography",
+   1
+  ],
+  [
+   "Chapter 4 Evolution of Lithography",
+   1
+  ],
+  [
+   "Chemistry and Lithography > Chapter 1",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > Chapter 7 Positive Resists",
+   1
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.1.3.5 The wavelength of light",
+   1
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.4 Applications of Bottom Antireflection Coatings",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 5.6 Offset Lithographic Inks and Fountain Solutions",
+   1
+  ],
+  [
+   "Antireflection Coatings and Reflectivity Control > 9.7 Theory of Bottom Antireflection Coatings",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.2.1 POLY(HYDROXYSTYRENE) RESIST PLATFORM",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (i) The chemistry of DNQs",
+   1
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.9 Radiation Chemistry of Polymers",
+   1
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists > 8.2 Excited State Complexes",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (x) Resolution capability of DNQ/novolac resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.6.2.1.3 Thioxanthones",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.7 The Offset Lithographic Process",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 2—Press Run",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.1 Non-chemically amplified positive resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.4 Non-chemically amplified negative resists based on radiation-induced polarity changes",
+   1
+  ],
+  [
+   "Optical and Chemical Origins of Lithography",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.8 General Considerations on the Photoinitiated Cationic Polymerization Employed in Negative Resist Systems",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.7 General Considerations on Photoinitiated Condensation Polymerization",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > Chapter 6 Negative Resists",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.8.1 Initiation by onium salts",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.4.1 Paper-feeding system",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2 Types of Positive Resists",
+   1
+  ],
+  [
+   "General Considerations on the Radiation and Photochemistry of Resists",
+   1
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.13.2 Micromolding in capillaries",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3 Types of Negative Resists",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > 10.4 Components of an Offset Lithographic Press",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.3 Chemically amplified cross-linking negative resists",
+   1
+  ],
+  [
+   "Optical and Chemical Origins of Lithography > 3.2.3.9 Development of various fields in chemistry",
+   1
+  ],
+  [
+   "The Semiconductor Lithographic Process > 11.3 Resist Coating",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 6.3.5 Chemically amplified negative resists based on radiation-induced polarity changes",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > 7.2.2.3.1 Ether-protected chemical amplification resists",
+   1
+  ],
+  [
+   "Chapter 10 Stone, Plate, and Offset Lithography > Step 3—Binding",
+   1
+  ],
+  [
+   "Chapter 4 Evolution of Lithography > 4.4 The Transistor and Microelectronics Revolution",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (i) Synthesis of alicyclic monomers",
+   1
+  ],
+  [
+   "Chapter 5 Lithographic Chemicals > (vii) Solvents for DNQ/novolac resists",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.1.2.1.2 KEY OPERATIONAL PARAMETERS",
+   1
+  ],
+  [
+   "12.3.3 Prebake",
+   1
+  ],
+  [
+   "12.6.1 Scalar models for calculating aerial image intensity",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2 Image quality",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > Q",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6.2.7 Critical dimension uniformity",
+   1
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.11 Wafer testing and sorting",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > J",
+   1
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.2.1 STI oxide fill",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.3.1 Classification of masks",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.5 Printing Modes",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3 Advanced Resist Processing Techniques",
+   1
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6.1 Exposure chamber environment control",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7 Optical Lithographic Technologies and Their Performance",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.4.2 Postexposure bake delay stability",
+   1
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6.5 Reactive-ion etching processes for cleaning contaminated optics",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.2 Resist Systems",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > O",
+   1
+  ],
+  [
+   "12.12 Applications/Uses of Lithographic Modeling",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.2 Reflow CD shrink techniques",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3 Chemically induced CD shrink techniques",
+   1
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.6 General Considerations on Optics Relevant to Lithography",
+   1
+  ],
+  [
+   "11.17 Resist Development Issues",
+   1
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography > 15.2.2 Electron-beam lithography systems",
+   1
+  ],
+  [
+   "11.14 Dissolution Mechanism of Phenolic Resists",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.2.1 Radiation sources",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.7.3 TRENCH ETCH PATTERNING APPLICATIONS",
+   1
+  ],
+  [
+   "Chapter 16",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.7.2 CONTACT HOLE AND VIA ETCH PATTERNING APPLICATIONS",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > X",
+   1
+  ],
+  [
+   "Chapter 12 Lithographic Modeling",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > V",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.7.3.2.7 Etch patterning issues",
+   1
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication",
+   1
+  ],
+  [
+   "X-Ray and Extreme Ultraviolet Lithographies > 14.6.6 Debris-mitigation schemes",
+   1
+  ],
+  [
+   "Chapter 15 Charged Particle Lithography",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography > 13.4.3.1 Aluminum mirrors",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > Y",
+   1
+  ],
+  [
+   "11.20 Etching",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues",
+   1
+  ],
+  [
+   "12.3.4 Exposure",
+   1
+  ],
+  [
+   "Chapter 14",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3.1 Chemically induced CD shrink techniques based on sidewall formation",
+   1
+  ],
+  [
+   "11.18 Postdevelopment Bake and Resist Stabilization Treatments",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > 17.3.3.2 Chemically induced CD shrink techniques based on sidewall erosion",
+   1
+  ],
+  [
+   "Advanced Resist Processing and Resist Resolution Limit Issues > U",
+   1
+  ],
+  [
+   "12.3.2 Standing waves",
+   1
+  ],
+  [
+   "12.6 Aerial Image Formation Models",
+   1
+  ],
+  [
+   "11.12.2 Types of development processes",
+   1
+  ],
+  [
+   "Chapter 13 Optical Lithography",
+   1
+  ],
+  [
+   "11.12.3 Development rate characterization",
+   1
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.1.2 p-well formation",
+   1
+  ],
+  [
+   "Lithography in Integrated Circuit Device Fabrication > 16.2.1 Twin-well process",
+   1
+  ]
+ ]
+}

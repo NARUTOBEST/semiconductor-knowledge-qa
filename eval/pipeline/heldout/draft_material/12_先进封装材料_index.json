@@ -1,0 +1,2442 @@
+{
+ "doc": "先进封装材料",
+ "chunks": 3145,
+ "headings": [
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.2 Bumping Technologies",
+   44
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.9.3 Higher Frequency Bonding",
+   30
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > 17.5 Opportunities and Major Challenges",
+   30
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.1.1 Liquid/Solid Epoxy Encapsulants for Monotonic Color LEDs",
+   30
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.9.5 Extreme Temperature Environments",
+   27
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > 17.2 Packaging of MEMS",
+   27
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.3.3 Oxidation-Free Fluxless Soldering Technology",
+   26
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.5 Testing",
+   25
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.7 Polymers for Redistribution Layers (RDL)",
+   25
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.5 No-Flow Underfill",
+   24
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.2 Nano Solder Particles",
+   23
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4.2 Bond Pads",
+   22
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.3 Reliability of Flip Chip Underfill Packages",
+   22
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.7 Wafer Level Underfill",
+   22
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.3 Bump Metallurgy",
+   22
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.9.2 Soft Substrates",
+   20
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.6 Processing of Photo Resist and Photo Polymers",
+   20
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.2 Definition of Wafer Level Chip Size Packaging",
+   20
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.4 New Challenges to Underfill",
+   19
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.6 FCBGA Substrates",
+   19
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.1 2L PBGA Substrates",
+   18
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > Wafer Thinning",
+   18
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3.5 Internal Packaging",
+   18
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.8 Adhesion and Copper Diffusion into Polymers",
+   18
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.5.1 Approaches ofIncorporating Silica Fillers into No-Flow Underfill",
+   17
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > Technologies Based on Metal-to-Metal Bonding",
+   17
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.2.1 Inductance",
+   17
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4.1 Bonding Wire",
+   17
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1.2.1 Parasitic Inductance of Chip-to-Substrate I/O",
+   17
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.4 Materials and LED Performance and Reliability",
+   17
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > Technologies Based on Direct (Fusion) Bonding",
+   16
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.1 What is Thermal Interface Resistance?",
+   16
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.2.1 Glass Fabrics",
+   16
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.3 Lead-Free Solder Pastes",
+   16
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.5 Photo Resists",
+   16
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > 17.3 MEMS for Packaging",
+   16
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.3.2 Peel Strength",
+   15
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.9.1 Fine Pitch",
+   15
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.2.3 Wafer-Scale Compliant I/O",
+   15
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.1.2 Surface Activated Bonding",
+   15
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.7.2 Cratering",
+   15
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.2.3 Direct Current Nanogenerator",
+   15
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.1.2 Materials Challenges and Solutions for the Packaging ofHigh Power LEDs",
+   15
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.3 Improved Mechanical Performance Solder Capped Structures",
+   14
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1 Dielectric Materials",
+   14
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.2 Interconnection Requirements",
+   14
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.4.2 Low Stress (Silicon Chip Warpage)",
+   14
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.4 Materials for Integrated Passives",
+   14
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.4 Plating of Alloys",
+   14
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.3.1 Alignment of ZnO Nanowires",
+   14
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.1.1 Introduction",
+   14
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > 17.4 Packaging for MEMS",
+   14
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3.6 Machine Optimization",
+   13
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.8 Design (Wire Spacing, Loop Height)",
+   13
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.2.4 Performance",
+   13
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.1.1 Epoxy Resins",
+   13
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.1 Introduction",
+   13
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.3.1 Dielectric Constant",
+   13
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4.4 Pad Cleaning",
+   12
+  ],
+  [
+   "Chapter 14 Embedded Passives > Control of Dielectric Loss for Conductive Filler/Polymer Nanocomposites",
+   12
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3.2 Thermocompression Bonding",
+   12
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.3.2 On-chip Inductor Results",
+   12
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2.2 Surface Finishes",
+   12
+  ],
+  [
+   "About the Editors",
+   12
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.2.2 Nanogenerator from a Single ZnO Nanowire",
+   12
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.4 Materials and Processing Technologies",
+   11
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.3.2 The Fluxless Processes Dealing with Tin Oxides",
+   11
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.1.3 Conductive Filler/Polymer Composites",
+   11
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.6.3 Sensor Technology Platform",
+   11
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.3 Carbon Nanotubesfor Thermal Management",
+   11
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.1.2.2 Nanoparticle Applications",
+   11
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.3 Reliability Consideration for Polymeric TIMs",
+   10
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.3.3 Package Crack Resistance",
+   10
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.2 Conventional Underfill Materials and Process",
+   10
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.3 3D-Packaging",
+   10
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.6 Quality Assurance",
+   10
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.1.1 Copper Wafer Bonding",
+   10
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.3.1 Basic Soldering Processes",
+   10
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.4.5 Electrodes",
+   10
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > 17.1 Introduction",
+   10
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.2.1 Piezoelectric Property of ZnO Nanowires",
+   10
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5.3 Implantable Pressure Sensors",
+   10
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.3 Fundamental ofResistors",
+   9
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.4.2 Performance ofSurface Finishes",
+   9
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.1.3 All-Copper Chip-to-Substrate Pillar Interconnects",
+   9
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.2.2 Resistance",
+   9
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3 Organic Substrates",
+   9
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.2.1 Model to Predict Thermal Conductivity $( k _ { T I M } )$",
+   9
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.2.3 Handling ofThin Wafers",
+   9
+  ],
+  [
+   "Materials for Advanced Packaging",
+   9
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.1.1 A BriefHistory: From PCBs to Substrates",
+   9
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1.3 Mechanical Modeling",
+   9
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.1 Introduction",
+   9
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Phosphor Dispersion",
+   9
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.1 Encapsulation Materialsfor Standard LEDs",
+   9
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.2.2 Silicone Encapsulant for White LEDs",
+   9
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.1.3 Thermal and UV stable (Long Lifetime) Encapsulant Materials",
+   9
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.2.2 Diffusion Bonding",
+   8
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.2 Design ofBase Resinfor Die Attach Film",
+   8
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4 Solder-Free Chip-to-Substrate Interconnects",
+   8
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.4.1 Effect of Alloy Composition",
+   8
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.1.1 Limitations of Discrete Inductors and Air Core Spiral Inductors",
+   8
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.4 Reliability Considerations of Printed Circuit Board Materials",
+   8
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.6 Molded Underfill",
+   8
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.2.2 RheologicalModelto Predict TIMBondline Thickness (BLT)",
+   8
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.2.2 Grinding Process",
+   8
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.5 Nanotechnology Based TIMs",
+   8
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.1.2 Ferroelectric Ceramic/Polymer Composites",
+   8
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.6.2 Microsystems, BioMEMS, and BioChips",
+   8
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3.2 Electrical Compatibility",
+   8
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3.1 Biological Hermeticity",
+   8
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.3.2 Epitaxial Relationships",
+   8
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.4.3 Packaging of Nanogenerators",
+   8
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1.1 Under Bump Metallization",
+   8
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > White LED Packages",
+   8
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.2.2 Carbon Nanotubes as Interconnects",
+   8
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.7.1 Intermetallics",
+   7
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > 9.8 Summary",
+   7
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.4.1 Low Tg and Low Water Absorption of Polyimide Base Resin",
+   7
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.3 Compliant Gold Bump Interconnects",
+   7
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.3 Adhesive Matrix",
+   7
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.3.1 Breaking Strength and Flexibility",
+   7
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.2.4 Model to Predict Thermal Contact Resistance $( R _ { \\mathrm { c } } )$",
+   7
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.3 Inorganic Filler",
+   7
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.4 Die Attach Paste",
+   7
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.4.4 Properties of Die Attach Film",
+   7
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.2 Electroplated Copper Column Arrays",
+   7
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3.4 Thermosonic Bonding",
+   7
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.1 Introduction",
+   7
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.1.4 Requirements and Survey for the Magnetic Core Materials",
+   7
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.2.1 Anodic Bonding",
+   7
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.2 Recent Development in Thermal Interface Modeling",
+   7
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2.1.3 Copper Foil Treatments",
+   7
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1.1 ITRS Projectionsfor Flip-Chip Connections",
+   7
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.8.2 High Performance Substrates with Low Dielectric Constant",
+   7
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.3 Demands on Die Attach Materials",
+   7
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.2.3 Surface-Activated Bonding",
+   7
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5.3.1 Resin System with Low Water Absorption and Low Modulus",
+   7
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Phosphor Placement in White LED Packages",
+   7
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.4.1 Overview ofLeads",
+   7
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5.6 Implanted Glucose Sensors",
+   7
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.2.2 Light Extraction",
+   7
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.4 Integration ofCarbon Nanotubes into Microsystems",
+   7
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.4.2 Nanogenerators in Biofluid",
+   7
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Silicone Chemistry",
+   7
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.4.1 Surface Protection of ZnO Nanowire-Based Devices",
+   7
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.2.3 Specialty Reinforcements",
+   6
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques",
+   6
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.2 Motivationfor 3D Integration",
+   6
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.3.4 Fluxless Flip Chip Interconnect Technology",
+   6
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.4 Electroless NiB Interconnects",
+   6
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.3.4 On-Package Inductor Results",
+   6
+  ],
+  [
+   "Materials for Advanced Packaging > Contents",
+   6
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.1 Introduction",
+   6
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.4 Moldability",
+   6
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.2 Trends in Die Attach Materials",
+   6
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.2.3 Quality Factor",
+   6
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.6 Characterization of TIM Thermal Performance",
+   6
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4.3.2 Electroless Autocatalytic Gold",
+   6
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.2.3 Process Optimization",
+   6
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.1.3 Solder Filler Systems",
+   6
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.5.2 Microfluidic Interconnectsfor Thermal Management",
+   6
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.5.4 Tin Surface Finishes",
+   6
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5.1 Moisturized Reflow Resistance",
+   6
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.7 Coreless Substrates",
+   6
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4.3.1 Electroplated Gold",
+   6
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5.2 Mechanism",
+   6
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.4.2 1+2+1 Substrates (4L HDI)",
+   6
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.3.3 Other On-chip Inductors in Literature",
+   6
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.4.3 Conductive Columns",
+   6
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.3 Fillers",
+   6
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2.1 Copper Foils",
+   6
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6.3 Fatigue Life ofICA Joints",
+   6
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.4.3 Desired Magnetic Core Properties",
+   6
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials",
+   6
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3.3 Ultrasonic Bonding",
+   6
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Effect of Refractive Index of Silicone on Optical Output",
+   6
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.1.1 Introduction",
+   6
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.5.5 Direct Bond Copper (DBC)",
+   6
+  ],
+  [
+   "14.3.5 Thin Film Resistors on LCPfor RF Applications",
+   6
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.2.3 Optics",
+   6
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.1.5 Reliability and Lifetime",
+   6
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.4 Optical Chip Bonding Materials",
+   6
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5.1 Overview ofImplantable Sensors",
+   6
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.3.3 Control of Nanowire Growth",
+   6
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Molding Process for LED Packaging",
+   6
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.1 Introduction",
+   6
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.4.4 Insulation",
+   6
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.1 Introduction",
+   5
+  ],
+  [
+   "Chapter 14 Embedded Passives > Controlled Dispersion",
+   5
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.3 Electrical Considerations of PCB Materials",
+   5
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.5.1.2 Electrical and Optical Interconnects",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.5.1 Double-Layered ACF Film",
+   5
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing",
+   5
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.3.4 Conductor Loss",
+   5
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.1.2 The Essential Considerationsfor Making a Thin Die",
+   5
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.3.2 Dielectric Loss",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5 Flip Chip Applications Using Isotropic Conductive Adhesives",
+   5
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.1 Trends in Electronic Packaging",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.2 Metal-Bumped Flip Chip Joints",
+   5
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.3 Thin Substrates, Thin Dielectrics",
+   5
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.6 Flame Retardant",
+   5
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.1.3 Advanced Packages",
+   5
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.1.4 Thermoplastics",
+   5
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.4 Conclusions",
+   5
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > Technologies Based on Adhesive Bonding",
+   5
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.4.3 Low Attaching Temperature",
+   5
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.2.3 IMC Growth",
+   5
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.7 Reliability",
+   5
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.8.3.2 Embedded Die and Embedded Passives Substrates",
+   5
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1.2.3 Characteristic Impedance",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.1 Percolation Theory ofConduction",
+   5
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.1.2 Package Crack",
+   5
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1 Introduction",
+   5
+  ],
+  [
+   "Chapter 14 Embedded Passives",
+   5
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.3 6L PBGA Substrates",
+   5
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.6 Warpage Improvement of Area-Array Packages",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.3 ACA Bumped Flip Chipsfor High Frequency Applications",
+   5
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.6.2 Dimensional Stability",
+   5
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.4.2 Direction for the Magnetic Inductor Designs",
+   5
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.2.3 Effect ofParticle Volume Fraction on Bulk TIM Thermal Resistance",
+   5
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.3.2 SU 8 Adhesive Bonding",
+   5
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.1.3 Inductor Designs",
+   5
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6.2 High Frequency Performance ofICA Joints",
+   5
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.4.1 Fundamental Trade-offs of Magnetic Inductors",
+   5
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.4 High Density Interconnect Substrates – HDI",
+   5
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7.2 Reflow Profile",
+   5
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.2.2 SAC on Ni-Based Substrate",
+   5
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.2.1 Typical Process Steps",
+   5
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.6.4 Bio-Chip Packaging Issues and Challenges",
+   5
+  ],
+  [
+   "先进封装材料_p501-723",
+   5
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Cure Chemistry",
+   5
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials",
+   5
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5.4 Implantable Sensorsfor the Blind",
+   5
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5.2 Sensors for Gastrointestinal Diagnosis",
+   5
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.3 Optical Lens Materials",
+   5
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.1.2.1 Nanoparticle Fabrication and Properties",
+   5
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.3.1 Pure Silver vs. Ag-Coated Fillers",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.2.1 Selective Tacky Adhesive Method",
+   4
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.3 Molding Process of EMC",
+   4
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.2.1 Integrated Circuits",
+   4
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.9.4 Stud Bumping",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3 Flip Chip Applications Using Anisotropically Conductive Adhesives",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.5.2 Moisture Sensitivity Level",
+   4
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.10 Summary",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.2.3 SnAg (+Bi, +Cu, +In, þ dopants)",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.2.2 SnAg (+Cu, +Sb, þ dopants, e.g. Mn, Ti, Al, Ni, Zn, Co, Pt, P, Ce)",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.10.2 BGA Rework",
+   4
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.4.1 2L Via in Pad Substrates (2L HDI)",
+   4
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.6 Die Attach Film",
+   4
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.3.1 Survey of Inductor Works in Literature",
+   4
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.1 Low Cost Dielectrics",
+   4
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.1.2 Alternative Thermoset Resin Systems",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.4.2 Effect of Surface Finish",
+   4
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5.3.3 Improvement of Adhesion Strength",
+   4
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.3.3 Moisture Impact on Electrical Properties",
+   4
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.4 Low Expansion Dielectrics",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.3 ICA Processfor Unbumped Chips",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8.1 Causes for Resistance Increase",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.3.1 Effect of Alloy Composition",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.3.2 Effect of Surface Finish",
+   4
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.5.3 ENEPIG",
+   4
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.1 Thin Silicon Devices",
+   4
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.4 Tape Ball Grid Array – TBGA",
+   4
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.7.1 Stress Management",
+   4
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.3.1 Liquid Crystal Polymer (LCP)",
+   4
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.2 4L PBGA Substrates",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.7.3 Transient Liquid Phase Fillers",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.8.4 Through-Hole Filling ofThick PCBs",
+   4
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.2.4 Novel Ag-to-Cu Direct Bonding",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.4.1 Type ofLead-Free Surface Finishes",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6.1.2 Disadvantages",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.9.1 Epoxide-Terminated Polyurethane Systems",
+   4
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3.1 Wire Bonding Types",
+   4
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.2 Modeling and Design Considerations ofMagnetic Inductors",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.5.1 Temperature Tolerance",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.2.4 Effect of Moisture Absorption",
+   4
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.4.4 Solder Joint Reliability",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.1.2 Coated Plastic Filler",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.2.3 Effect of Low Tg Materials",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.1.2 Print ICA",
+   4
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.2.1 Peripheral-to-Flip-Chip Area Array Structures",
+   4
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.9 Inspection of Lead-Free Solder Joints",
+   4
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.7 Future Directions",
+   4
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.2.2 Chopped Fiber",
+   4
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.7.1 Eliminate Lubrication Layer",
+   4
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.5.3 Metal Core Printed Circuit Board (MCPCB)",
+   4
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.1.3 Other Nanoscale Topics",
+   4
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3.4 Electrical Pathway",
+   4
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.1 Introduction",
+   4
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.4.3 Conductors",
+   4
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.2.1 Silicone Encapsulant for UV, Blue and Other Color LEDs Introduction",
+   4
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.6.1 Introduction",
+   4
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.2.1 Encapsulation and Protection",
+   4
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2.2.3 Patient-Centered Care",
+   4
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.5 Summary",
+   4
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.5 PCB Materialsfor High Power LED",
+   4
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.1.1 Ferroelectric Ceramic Materials",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.2.1 Design",
+   3
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > Nomenclature",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.1 Microstructure",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.8.2 Design ofPCB",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.1 Mechanical Dicing",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.6 SMT Applications",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.2 Categories",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.2.5 BiSn (+Ag)",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > Filler Size Effect",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6.1.3 CSP Applications",
+   3
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2.1.4 Copper Foils for Buried Resistors",
+   3
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.2 Direct Bonding Methods",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.2.1 Dry Laser Dicing",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.1.1 Advantages ofThin Die",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.3.3 Limits ofWafer Thinning",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7.1 Equipment",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.1 Overview",
+   3
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.4.1 Copper Interconnects",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs)",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.2.2 The MAPLE Method",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.2.1 SnCu (+dopants, e.g. Ni, Co, Ce)",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.4.2 Non-metal Particles with Metal Coating",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7.3.3 Balancing Between Outgassing and Wetting",
+   3
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.5 Silane-Coupling Agent",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.2.2 Achieving Latency and Rapid Curing",
+   3
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.5.1.1 Coaxial Interconnects",
+   3
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.4.1 Via Reliability",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.3 Conclusions",
+   3
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.8.1 RF Modules",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > Scenario II:",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.1 Global Lead-Free Soldering Implementation",
+   3
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.1.2 Silicon Epitaxial Growth",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.5.2 Ceramic Chip Carriers vs. Organic Chip Carriers",
+   3
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.5.2 OSP and AFOP",
+   3
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5.3.2 High Filler Loading Technique",
+   3
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.2.1 Material Removal",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.1.2 Advantages of Magnetic Inductors as Embedded Inductors",
+   3
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3.5 Other Techniques",
+   3
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1.2 Electrical Modeling ofI/O",
+   3
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.1.1 Epoxy Resins",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.2.1 Nanodielectrics",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering",
+   3
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.1.1 Thermal Management",
+   3
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5.3 Improvement on Moisturized Reflow Resistance",
+   3
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2.1.1 Electrodeposited (ED) Copper",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.4.4 Potential Applications for the Integrated Magnetic Inductors",
+   3
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2 Conductive Materials",
+   3
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.7.2 FEM Study",
+   3
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.7.3 EMC Evaluation",
+   3
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.2.2 Materials Specification",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7.3.1 Outgassing Control",
+   3
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.2.3 Liquid Crystal Display",
+   3
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.5 Packaging of Thin Silicon Dies",
+   3
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.1.2.2 Parasitic I/O Capacitance",
+   3
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.5 Adhesive Tapefor LOC Package",
+   3
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.8.3 Equipment Erosion",
+   3
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.1.3 Polyimides",
+   3
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > Precision Alignment",
+   3
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.1.3 Solid Phase Crystallization",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.4 ACAfor Unbumped Flip Chips",
+   3
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3.3 Mechanical Requirements",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5.5 Implanted Sensorsfor Orthopedics and Spine",
+   3
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.2.1 Electrical Properties of Carbon Nanotubes",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > C",
+   3
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.2.5 Thermal Dissipation",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > P",
+   3
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Remote Phosphor Package",
+   3
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3 Materials for LED and Optoelectronic Device Packaging",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > M",
+   3
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.5.1 LED Substrate Materials",
+   3
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3.6 Soft Errors and Single Event Upsets",
+   3
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.1 Introduction",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > S",
+   3
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.4.2 Lead Connector",
+   3
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.2 Packaging Function",
+   3
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.1.4 Stress/Delamination",
+   3
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging",
+   3
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > 17.6 Conclusions",
+   3
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.3.3 Silver-Copper Fillers",
+   2
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.5.1 Ultra-high Off-Chip Frequency and High Bandwidth Operation",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7.3 Special Profiles",
+   2
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.4.2 Conductive Anodic Filament Growth (CAF)",
+   2
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.7 Challenges on Molding Low-K Dies",
+   2
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.2 Reinforcement Materials",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.6.1 Thermal Decomposition",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.2.4 SnZn (+Bi)",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.7 Failure Mechanism",
+   2
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.3 Separation by Thinning",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.1 3D on Chip Integration",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.4.3 Metal Particles with Insulating Coating",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.1 Issues in 3D IC-Stacking",
+   2
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.5.5 Super Juffit",
+   2
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.1.2 Silicone Resins",
+   2
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.2 3D IC-stacking Using Thru-Si Vias (TSVs)",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.4.2 Ni/Au Coated Silver Filler",
+   2
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.1 Adhesives in the Electronic Industries",
+   2
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.2.2 Flexible Circuit",
+   2
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.2.1.2 Rolled Annealed Copper",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.2.2 Cost",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.2.1 SAC on Cu-Based Substrate",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8 Improvement of Contact Resistance Stability",
+   2
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > 13.4 Solder Alloy Based TIMs",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.7.1 Oxidation of Non-noble Metals",
+   2
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.4.3 Pad Cratering",
+   2
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.4.2 Crack Propagation",
+   2
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.1 Embedded Capacitor Dielectrics Material Options",
+   2
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2 Introduction to Epoxy Molding Compounds",
+   2
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.4 Curing Promoter",
+   2
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.7.2 Dicing / Die Attach Dual Functioning Film",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.1.3 3D-Packaging",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.1.3 Curing",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8.2.3 Use of Oxygen Scavengers",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.3.4 Low-Melt Fillers",
+   2
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.8 Future Trend",
+   2
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.1 Epoxy Resin",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.5 ACA Flip Chipfor CSP and BGA Applications",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8.2.4 Sharp-Edge Filler Particles",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.3.2 Particle Shape and Size",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.1.1 Two Filler Systems",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.2.2 3D IC-stacking Technologies",
+   2
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.2.2 Redistribution Using Area Array Solder I/O",
+   2
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.4.4 2+2+2 Substrates (6L HDI)",
+   2
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.2.2 Water Guided Laser Dicing",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.2.2 Cost",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8.2.1 Reduce Moisture Absorption",
+   2
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.1 Resin Systems",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview",
+   2
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.3.1 Water Absorption of Base Resin",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.2.1 Matrix Materials",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.1.4 Ni Filler",
+   2
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.7.1 Die Attach Film for Advanced BGA/CSP",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.2 ACA Bumped Flip Chips on Glass Chip Carriers",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6.1 Surface Mount Applications",
+   2
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4 Singulation",
+   2
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.2 Laser Dicing",
+   2
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.1.2 IC-Stack Yield",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.7.2 Loss of Compressive Force",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2 Description of Technologies",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8.2.2 Use of Corrosion Inhibitors",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.1 Process",
+   2
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.1.4 Acrylics",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.1.2 3D IC-Stacking with Thru-Silicon Vias (Thru-Si Vias or TSVs)",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.7.2 Increase Shrinkage",
+   2
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.1.1 Beam Recrystallization",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7.3.2 Wetting Control",
+   2
+  ],
+  [
+   "Chapter 6 Thin Die Production",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.1.4 Underfill",
+   2
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.9 Improvement of Impact Performance",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.3 Temperature Cycling",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.7 Assembly with Lead-Free Reflow Soldering",
+   2
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.2.1 Comparison with Soldered Joints",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > D",
+   2
+  ],
+  [
+   "14.3.6 Conclusions",
+   2
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3.1 Metalsfor Wafer Bumping",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > B",
+   2
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.2 Encapsulation Materialsfor High Power LEDs",
+   2
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2.2.2 Demographic Changes",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2.1 Healthcare Trend and Key Drivers",
+   2
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.5 Summary and Future Needs",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > T",
+   2
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.2.4 Electrical Connections",
+   2
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > L",
+   2
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > E",
+   2
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.3 Aligned Growth ofZnO Nanowire Arrays",
+   2
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.10 Rework Lead-Free Solder Joints",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11 Reliability of Lead-Free Solder Joints",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2 Description of Anisotropically Conductive Adhesives",
+   1
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.2 Applications ofAdhesives in Electronics",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1.7 The Future ofAdvanced Die Attach Film",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3.2 Technology Barriers",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.2.1 Thermal Management",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.2.1 Form-Factor",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > Rererence",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.1 Categories of3D Integration Technologies",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.5 Components for Lead-Free Soldering",
+   1
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > References",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.2 Issues in 3D-packaging",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.4.1 Tape Expansion",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.4 Fragility ofSolder Joints",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.3 Embedded On-package and On-chip Inductors: Experiments and Analyses",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.7 Improvement of Electrical Conductivity of ICAS",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > Scenario I:",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.1.1 Technical Issues of Silver Paste",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3 Main Issues in 3D Integration Technologies",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.4 Die Attach Filmfor Advanced Package",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.2.3 Integration of Different Heterogeneous Technologies",
+   1
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1 Adhesive Bonding Techniques",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.3 Mechanical Properties of Thinned Wafers",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6 Applications of ICAS in Microelectronic Packaging",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.1.5 Cost",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.8.2 Approaches to Stabilize Contact Resistance",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > References",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.8 Assembly with Lead-Free Wave Soldering",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.2 Adhesive Matrix",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.1 ACA Flip Chipfor Bumped Dies",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.10.1 Cell Phone Rework",
+   1
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.9 Advanced Concepts",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.8.1 Lead-Free Wave Soldering Process",
+   1
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > References",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.1 Introduction",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > References",
+   1
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > References",
+   1
+  ],
+  [
+   "Materials forAdvancedPackaging",
+   1
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.7 Other Additives",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.4.4 Separation by Creating Damage",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > Reference",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.1.4 Inadequate Infrastructure",
+   1
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.5 Distant Future Needs and Solutions for Chip-to-Substrate Connections",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4 Description of Isotropic Conductive Adhesives (ICAS)",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.12 Summary",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.2.2 Approaches to Dielectric Performance Enhancement",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.4 Lead-Free Surface Finishes",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5 PBGA Substrate Trends",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.4.3 Conductive Fillers",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.5.1 Electroplated Nickel Gold",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.8.3 Substrates with Embedded Components",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.3 Die Attach Filmfor Package Crack Resistance",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.3.4.3 1+4+1 Substrates (6L HDI)",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.5.1.1 Formation of Protective Chip Pad Layer",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2.1 Introduction",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.3.1.3 Uncommon Die Sizes",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.6.1.1 Advantages",
+   1
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > 8.1.1.3 PTFE",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1.4 Future Directions ofthe Embedded Magnetic Inductors",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.1.1.1 3D On-Chip Integration",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.2 Prevailing Lead-Free Solder Alloys",
+   1
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > 3.2 Compliant Solder-Based I/O Structures",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > References",
+   1
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.3 Lead-Free Soldering and Bonding Processes",
+   1
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.3 Bonding Principles",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.1 Die Attach Materials",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.4 Conductive Fillers",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.8.3.1 Buried Passives Substrates",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.1 Embedded Inductors",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2.2 New Concepts and Current Trend",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.3.4.1 Gold-Coated Nickel Filler",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.6 Substrates for Lead-Free Soldering",
+   1
+  ],
+  [
+   "Chapter 11 Electrically Conductive Adhesives (ECAs) > 11.2.4.1 Solid Metal Particles",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.5 Surface Finishes",
+   1
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.5 Moisturized Reflow Resistance",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.5.2 Low Cost Solder Masks",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.2 Embedded Capacitors",
+   1
+  ],
+  [
+   "Chapter 1 3D Integration Technologies – An Overview > 1.2.2.3 Key Enabling Technologies for 3D IC-Stacking",
+   1
+  ],
+  [
+   "Chapter 9 Flip-Chip Underfill: Materials, Process and Reliability > References",
+   1
+  ],
+  [
+   "Chapter 14 Embedded Passives > 14.3 Embedded Resistors",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > References",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.3.2 Characterization ofthe Stress and Damage Induced by Grinding",
+   1
+  ],
+  [
+   "Chapter 8 Advanced Print Circuit Board Materials > References",
+   1
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4.3 Gold Plating",
+   1
+  ],
+  [
+   "Chapter 5 Lead-Free Soldering > 5.11.2 Solder Joint Intermetallics",
+   1
+  ],
+  [
+   "Chapter 12 Die Attach Adhesives and Films > 12.2 Development of Die Attach Film: High Reliability Performance for Package Crack Resistance and Advanced Package",
+   1
+  ],
+  [
+   "Chapter 6 Thin Die Production > 6.2 Wafer Thickness Reduction",
+   1
+  ],
+  [
+   "Chapter 2 Advanced Bonding/Joining Techniques > 2.1.3 New Adhesives",
+   1
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > 4.4 Materials",
+   1
+  ],
+  [
+   "Advanced Wire Bonding Technology: Materials, Methods, and Testing > References",
+   1
+  ],
+  [
+   "Chapter 10 Development Trend of Epoxy Molding Compound for Encapsulating Semiconductor Chips > 10.2.2 Hardener",
+   1
+  ],
+  [
+   "Chapter 3 Advanced Chip-to-Substrate Connections > Reference",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.8 Specialty Substrates",
+   1
+  ],
+  [
+   "Chapter 7 Advanced Substrates: A Materials and Processing Perspective > 7.2 Ceramic Substrates",
+   1
+  ],
+  [
+   "Chapter 13 Thermal Interface Materials > Greek",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > W",
+   1
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.5.2 Printed Circuit Board (PCB)",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2.2 Implications ofHealthcare Trends on the Opportunities/ Challenges ofElectronic Packaging",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > O",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3.2 Carbon Nanotubesfor Interconnect Applications",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.3 External Packaging of Implantable Medical Devices",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > G",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2.2.4 Information Technology Advances",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.3 Carbon Nanotubes",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > A",
+   1
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > References",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.4 Assembly and Packaging ofNanogenerator",
+   1
+  ],
+  [
+   "References",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > F",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > N",
+   1
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.1.2 Liquid/Solid Epoxy Encapsulants for White LEDs",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.1 Nanopackaging: Nanotechnologies in Microelectronics Packaging",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4 Nanogenerators: Principle, Fabrication and Packaging",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2 Healthcare Trends – Opportunities/Challenges on Medical Devices and Electronic Packaging",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.5 Implantable Biomedical Sensors",
+   1
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > References",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.2.2.1 Economic Pressure",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > References",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.6 Chip-Based Point of Care Sensors: Opportunities and Challenges",
+   1
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > Casting/Dispensing/Potting Processes for LED Packaging",
+   1
+  ],
+  [
+   "Chapter 17 Microelectromechanical Systems and Packaging > References",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.1.2 Nanoparticles",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > I",
+   1
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.3.5.4 Ceramic Substrate $( \\mathbf { A l _ { 2 } O _ { 3 } } / \\mathbf { A l N } )$",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > Q",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > H",
+   1
+  ],
+  [
+   "Chapter 18 LED and Optical Device Packaging and Materials > 18.1 Background",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > R",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > 19.4 Leads in Medical Devices",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > Z",
+   1
+  ],
+  [
+   "Chapter 19 Digital Health and Bio-Medical Packaging > U",
+   1
+  ],
+  [
+   "Chapter 16 Wafer Level Chip Scale Packaging > 16.3 Materials and Processes for Bumping and Redistribution Technology",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > References",
+   1
+  ],
+  [
+   "Chapter 15 Nanomaterials and Nanopackaging > 15.4.2 Nanogeneratorfrom ZnO Nanowires",
+   1
+  ]
+ ]
+}

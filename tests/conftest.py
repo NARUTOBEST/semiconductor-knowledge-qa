@@ -101,7 +101,7 @@ def isolated_ratelimit(monkeypatch):
     from support import ratelimit
 
     monkeypatch.setattr(ratelimit, "_global_sem", threading.Semaphore(2))
-    monkeypatch.setattr(ratelimit, "_user_locks", {})
+    monkeypatch.setattr(ratelimit, "_sess_locks", {})
     monkeypatch.setattr(C, "RATE_LIMIT_QUEUE_TIMEOUT", 0.5)
     yield ratelimit
 

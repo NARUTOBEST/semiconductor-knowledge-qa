@@ -1,0 +1,359 @@
+[
+ {
+  "query_id": "P05-01",
+  "query": "书里讲EUV光刻用的曝光波长到底降到多少纳米？和现在248nm的KrF激光比改进多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "EUV光刻的波长为13 nm，相对当前使用的248 nm KrF激光约降低20倍（almost a 20X decrease），分辨率有望提高到35 nm左右。",
+  "success_criteria": "答出13 nm且提到相对248 nm KrF激光约20倍改进（35 nm分辨率可加分）",
+  "evidence": "--[p115]-- EUV lithography offers almost a 20X decrease in wavelength to 13 nm (relative to the currently used KrF laser at 248 nm). This will improve the resolution significantly, possibly to 35 nm."
+ },
+ {
+  "query_id": "P05-02",
+  "query": "用普通AFM悬臂做蘸笔纳米光刻（DPN），线宽和空间分辨率能做到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "使用常规悬臂时，DPN可提供12 nm线宽和5 nm空间分辨率，可与电子束光刻相媲美。",
+  "success_criteria": "答出线宽12 nm且空间分辨率5 nm（单位正确）",
+  "evidence": "--[p332]-- With conventional cantilevers, DPN offers 12-nm linewidth and 5-nm spatial resolution and, therefore, rivals other techniques like e-beam lithography for patterning solid substrates."
+ },
+ {
+  "query_id": "P05-03",
+  "query": "压电按需式喷墨打印焊料，能打的焊球直径范围、最高工作温度和喷滴速率大概是什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "压电按需式焊料喷射系统：可形成直径25–125 μm的焊球；按需滴落速率最高1,000滴/秒；往焊盘上沉积最高600滴/秒；工作温度可达320°C。",
+  "success_criteria": "答出25–125 μm直径、最高1000滴/秒、工作温度320°C三项中至少两项且数值正确",
+  "evidence": "--[p217]-- Operating characteristics for solders dispensed using piezoelectric demandmode systems include formation of spheres with diameters of 25–125 μm; drop formation rates (on demand) up to 1,000 per second; deposition onto pads at up to 600 per second; and operating temperatures to 320 °C."
+ },
+ {
+  "query_id": "P05-04",
+  "query": "商用聚焦离子束（FIB）微加工设备一般用什么离子源？加速电压范围是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "商用FIB微加工系统 exclusively 使用Ga（镓）离子，能量范围25–50 keV。",
+  "success_criteria": "答出Ga离子且能量范围25–50 keV（单位正确）",
+  "evidence": "--[p379]-- Commercial FIB systems for micromachining exclusively use Ga ions in an energy range of 25– 50 keV."
+ },
+ {
+  "query_id": "P05-05",
+  "query": "书里那张电池电化学体系对比表，锂离子电池的质量能量密度标的是多少？跟镍氢比怎么样？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Li离子电池典型能量密度为100–200 Wh/kg；镍金属氢化物（NiMH）为60–80 Wh/kg，故Li-ion能量密度高于NiMH。",
+  "success_criteria": "答出Li-ion为100–200 Wh/kg（单位Wh/kg正确），NiMH 60–80 Wh/kg可加分",
+  "evidence": "--[p87]-- Li-ion | 100-200 | safe High energy density Low rate of self- discharge No memory effect …… --[p87]-- Nickel metal-hydride | 60-80 | competing technologies Higher energy density Some memory effect Relatively environmentally"
+ },
+ {
+  "query_id": "P05-06",
+  "query": "微笔（Micropen）打印时，浆料里的团聚体会限制笔尖尺寸吗？最小能用的笔尖口径是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "浆料中团聚体的存在会限制其流过1 mil（25 μm）口径笔尖的能力，即最小笔尖约为25 μm；可通过良好分散化学和三辊轧机破碎团聚体来改善。",
+  "success_criteria": "答出1 mil = 25 μm笔尖限制",
+  "evidence": "--[p269]-- An additional constraint on print size is the presence of aggregates in pastes, which limit the ability of the paste to flow through a 1-mil (25 μm) pen tip."
+ },
+ {
+  "query_id": "P05-07",
+  "query": "热喷涂做的BaTiO3电容涂层，容温系数TCC是正还是负？大概在什么范围？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "BaTiO3涂层的TCC为正值，约在400–500 ppm/°C范围，原因是其居里温度（130°C）高于环境温度。（对比：BST涂层TCC为负，-1,050至-1,600 ppm/°C）",
+  "success_criteria": "答出TCC为正且范围400–500 ppm/°C",
+  "evidence": "--[p310]-- The BaTiO3 coatings have positive TCC values since the Curie temperature $( 130 ^ { \\circ } C )$ is above ambient and is in the 400-500- ppm $/ ^ { \\circ } C$ range."
+ },
+ {
+  "query_id": "P05-08",
+  "query": "LIFT这个技术最早是谁演示的？当时写出来的铜线和银线有多宽，用什么激光器？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "LIFT工艺最早由Bohandy等人演示，用ArF准分子激光（193 nm，纳秒单脉冲）在高真空（10^-6 mbar）条件下直接写出50 μm宽的Cu和Ag线条。",
+  "success_criteria": "答出Bohandy、线宽50 μm、ArF准分子激光193 nm三项中至少两项",
+  "evidence": "--[p22]-- The LIFT process was first shown by Bohandy et al. (1,2) to be capable of producing direct writing of 50 μm wide Cu and Ag lines by using single pulses of a nanosecond ArF excimer laser (193 nm) under high vacuum conditions (10−⁶ mbar)."
+ },
+ {
+  "query_id": "P05-09",
+  "query": "HVOF喷涂的BaTiO3薄膜做电容，沉积层表面粗糙度、介电常数和损耗大概什么水平？跟等离子喷涂的比哪个更光滑？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HVOF喷涂得到粗糙的沉积层（RA≥6 μm），介电常数较低（约20–100），10 kHz下介电损耗&lt;0.05；等离子喷涂得到更光滑的沉积层（RA=3–5 μm），故等离子喷涂更光滑。",
+  "success_criteria": "答出HVOF的RA≥6 μm、K约20–100、tanδ&lt;0.05@10kHz，且指出等离子喷涂RA=3–5 μm更光滑",
+  "evidence": "--[p309]-- HVOF spraying resulted in rough deposits $( \\mathrm { R { A } } \\geq 6$ micrometers), with fairly low dielectric constants $( \\sim 2 0 - 1 0 0 )$ and dielectric losses $&lt; 0 . 0 5$ at 10 kHz. …… --[p309]-- Plasma spraying the $\\mathrm { B a T i O } _ { 3 }$ powders resulted in smoother deposits $( \\mathtt { R } _ { \\mathrm { A } } = 3 - 5$ micrometers)"
+ },
+ {
+  "query_id": "P05-10",
+  "query": "在低温基板上用激光烧结致密化沉积层，基板耐受温度是个什么约束？激光能量沿粉末深度的衰减规律书里是怎么说的？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "常规加热受基板耐热能力限制，许多新型基板材料耐受温度可低至150°C；激光输送的能量随粉末深度呈负五次方（inverse-fifth-power）衰减，因此只是近表面效应，表面加热强但热传输慢限制了烧结深度。",
+  "success_criteria": "答出基板耐受温度可低至150°C且能量随深度呈-5次方（逆五次方）衰减",
+  "evidence": "--[p179]-- Conventional heating is limited by the heat tolerance of the substrate, which can be as low as $1 5 0 ~ ^ { \\circ } C$ for many novel substrate materials in use today. …… --[p180]-- Also, the delivered energy declines with an inverse-fifth-power dependence on the powder depth, meaning that it is only a near surface effect (21)."
+ },
+ {
+  "query_id": "P05-11",
+  "query": "欧姆电阻器的主要阻值需求区间是多少？传统厚膜浆料要850°C烧成，直写工艺对兼容柔性基板有什么温度要求？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "电子应用对电阻器的主要需求阻值区间为10^3–10^8 Ω（而纯材料电阻率通常低于10^-6 Ω·m，单相纯材料无法满足）；陶瓷浆料（cermet）通常在850°C及以上加工，而用于保形基板直写的电阻配方必须设计为在400°C以下加工。",
+  "success_criteria": "答出需求区间10^3–10^8 Ω、cermet 850°C、直写需&lt;400°C三项中至少两项",
+  "evidence": "--[p185]-- The major demand for resistors in electronic applications lies in the resistance range from $1 0 ^ { 3 } - 1 0 ^ { 8 } \\Omega$ …… Cermet inks are typically processed at $8 5 0 ~ ^ { \\circ } \\mathrm { C }$ and above (6). …… --[p186]-- Formulations for direct write onto conformal substrates, on the other hand, have to be designed for processing at temperatures below $4 0 0 ~ ^ { \\circ } \\mathrm { C }$"
+ },
+ {
+  "query_id": "P05-12",
+  "query": "紫外激光烧蚀加工，常用的激光能量密度和单脉冲烧蚀速率大概在什么范围？聚酰亚胺在248nm下的阈值是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "紫外激光微加工的通量通常高于烧蚀阈值，典型在0.1 J/cm²至数J/cm²之间（取决于材料和激光参数），对应烧蚀速率约0.01 μm/脉冲至数μm/脉冲；聚酰亚胺在248 nm波长下通量低于约0.15 J/cm²时不发生明显烧蚀。",
+  "success_criteria": "答出通量0.1~数J/cm²、速率0.01~数μm/pulse、聚酰亚胺248nm阈值约0.15 J/cm²三项中至少两项",
+  "evidence": "--[p418]-- For micromachining using ultraviolet (UV) lasers, the fluences employed are above the ablation threshold, typically between $0 . 1 \\mathrm { J } / \\mathrm { c m } ^ { 2 }$ and several $\\mathrm { J } / \\mathrm { c m } ^ { 2 }$ , depending on the particular material and laser parameters. …… The corresponding ablation rates are between 0.01 μm/pulse and several μm/pulse. …… for fluences below ${ \\approx } 0 . 1 5 \\mathrm { J / c m } ^ { 2 }$ no substantial ablation takes place in polyimide using wavelengths of 248 nm."
+ },
+ {
+  "query_id": "P05-13",
+  "query": "微分配（micro-dispensing）设备打印电路走线，能稳定重复的线宽和厚度范围是多少？位移活塞式系统适用的浆料粘度区间呢？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "微分配系统演示的可重复走线尺寸为25–300 μm宽、1.3–51 μm厚；位移活塞式系统可沉积粘度100 mPa·s至100,000 mPa·s的浆料与溶液（旋转螺杆式为100–1,000,000 mPa·s）。",
+  "success_criteria": "答出25–300 μm宽、1.3–51 μm厚，且活塞式粘度100–100,000 mPa·s",
+  "evidence": "--[p63]-- The range of dimensions for repeatable traces that these tools have demonstrated are 25 to $3 0 0 \\mu \\mathrm { m }$ wide and 1.3 to 51 μm thick. …… --[p63]-- The system is capable of depositing slurries and solutions that cover a wide range of viscosities, from 100 mPa-s to 100,000 mPa-s."
+ },
+ {
+  "query_id": "P05-14",
+  "query": "MAPLE-DW转移PTF电阻那批实验，II型油墨平均方块电阻96.9Ω、标准差4.5Ω（n=10），帮我算一下变异系数CV是多少，跟书里表4标的对不对得上？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "CV = 标准差/平均值 × 100% = 4.5/96.9 × 100% ≈ 4.6%，与表4中II型电阻标注的CV=4.6完全一致。",
+  "success_criteria": "算出4.5/96.9≈4.6%且指出与表中4.6一致",
+  "evidence": "--[p65]-- TABLE 4 Result Summary of Polymer Thick-Film Resistors Deposited by MAPLE-DW Ink type | Average sheet resistance | Minimum sheet resistance | Maximum sheet resistance | Standard deviation | CV (%) | Sample size …… II | 96.9Ω | 90.0Ω | 106.0Ω | 4.5Ω | 4.6 | 10"
+ },
+ {
+  "query_id": "P05-15",
+  "query": "书里激光导向直写做的铂细线是2微米宽、间距5微米，帮我算算每毫米宽度上能排多少根这种线？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "线周期 = 线宽+间距 = 2 μm + 5 μm = 7 μm；每毫米线数 = 1000 μm / 7 μm ≈ 142.9，即约142~143根/mm。",
+  "success_criteria": "给出周期7 μm并算出约142（或143）根/mm，结果误差±2根内",
+  "evidence": "--[p8]-- The discrete lines of platinu:n on an alumina substrate in Fig. 4 show the excellent uniformity and line density that can be achieved. These lines are 2 microns wide and separated by 5 microns."
+ },
+ {
+  "query_id": "P05-16",
+  "query": "微笔打印电容样品先升到600°C保温2小时烧有机物，再以2°C/min升到最终烧结温度。如果做的是书里那种低烧配方（约1050°C），从600°C升到1050°C这段要花多久？加上600°C保温那段总热处理时间是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "升温段时间 = (1050−600)°C ÷ 2°C/min = 225 min = 3.75 h；600°C保温段为2 h；两段合计225+120 = 345 min = 5.75 h（不含最终温度下的2 h保温）。",
+  "success_criteria": "算出225分钟（3.75 h）升温，且总时间345 min（5.75 h，不含最终保温）",
+  "evidence": "--[p278]-- to $6 0 0 ~ ^ { \\circ } \\mathrm { C }$ and held for 2 hours to burn out any organic processing aids, then ramped at $2 ~ { ^ \\circ C } / \\operatorname* { m i n }$ . to the final firing temperature and held for 2 hours. …… --[p280]-- with dotted lines connecting each of two manufacturer's high- $( \\sim 1 , 3 0 0 ^ { \\circ } { \\mathrm C } )$ and low-fire $( \\sim 1 , 0 5 0 ^ { \\circ } C )$ compositions."
+ },
+ {
+  "query_id": "P05-17",
+  "query": "我想在柔性有机基板上做电阻，先帮我确认一下MAPLE-DW做的聚合物厚膜电阻为什么适合柔性基板，再把他们实验里优化出来的激光能量密度和ribbon-基板间距报给我。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：cermet电阻需要&gt;800°C热处理，而PTF（聚合物厚膜）电阻工艺温度足够低，适合沉积在柔性有机基板上；第二跳：通过优化激光能量密度0.58–1.09 J/cm²和ribbon-基板间距约70 μm，成功写出了几何可控、重现性好的电阻。",
+  "success_criteria": "先答出PTF低温工艺适于柔性基板，再答出激光通量0.58–1.09 J/cm²和间距约70 μm两个参数",
+  "evidence": "--[p63]-- Cermet resistors exhibit superior device properties, but require $&gt; 8 0 0 ^ { \\circ } C$ heat treatment, whereas PTF resistors offer sufficiently low processing temperatures to be suitable for deposition on flexible organic substrates. …… --[p64]-- By optimizing the laser fluence (from $0 . 5 8 \\mathrm { J } / \\mathrm { c m } ^ { \\bar { 2 } } \\mathrm { t o } 1 . 0 9 \\mathrm { J } / \\mathrm { c m } ^ { 2 } )$ and ribbon to substrate gap $( \\sim 7 0 \\mu \\mathrm { m } )$ , resistors with a controlled, reproducible geometry were successfully written."
+ },
+ {
+  "query_id": "P05-18",
+  "query": "我们等离子显示屏的荧光粉层想减薄，帮我查两件事：喷墨这种数字方式能不能打印荧光粉？喷雾热解做的球形荧光粉最薄能打印到几微米，比常规粉的最小可打印层厚薄多少？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：荧光粉粉末已用喷墨打印、注射器分配、静电印刷等直写/数字方法打印，聚焦100 μm以下特征；第二跳：喷雾热解球形荧光粉层可打印薄至2 μm，而常规方法参考粉最小层厚为10 μm（受粒径及分布限制），即薄5倍、荧光粉用量约少5倍。",
+  "success_criteria": "先确认喷墨可打印荧光粉，再答出球形粉最薄2 μm、参考粉最薄10 μm（约5倍差距）",
+  "evidence": "--[p194]-- Therefore features with sizes below 100 microns have been the focus of these feasibility demonstrations using direct write or digital methods such as inkjet printing, syringe dispensing, and electrostatic printing. …… --[p193]-- The reference powder was printed at 10 microns, its minimum layer thickness. …… the phosphor powder layer can be printed as thin as 2 microns (20)."
+ },
+ {
+  "query_id": "P05-19",
+  "query": "书里有讲石墨烯导电油墨喷墨打印的参数吗？粘度、墨滴尺寸这些数据帮我查一下。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及石墨烯（graphene）导电油墨的任何内容，全书素材中不存在graphene/石墨烯的相关记载；书中导体部分讨论的导电相仅为Cu、Ag、Au、Pd、Pt等传统金属及金属有机前驱体浆料（如Parmod™M）。系统应正确拒答/澄清，不得编造任何石墨烯油墨的粘度或墨滴参数。",
+  "success_criteria": "明确说明书中未涉及石墨烯导电油墨并拒答具体参数，不编造数值",
+  "evidence": "--[p184]-- To obtain good conductivity, the particles need to be phase pure. The best conductors are the group IB metals (Cu, Ag, Au). Pd and Pt are also good conductors and alloys are often formed to enhance overall performance or improve the compositional stability.（素材全文检索不到 graphene/石墨烯 的任何记载）",
+  "note": "异常处理题：素材中无该信息，正确行为是拒答/澄清"
+ },
+ {
+  "query_id": "P05-20",
+  "query": "书里有没有CIGS铜铟镓硒薄膜太阳能电池直写制备的工艺参数？ deposition温度和效率数据我想引用。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及CIGS铜铟镓硒薄膜太阳能电池，全书素材中无CIGS相关记载；书中电化学电源章节明确将对象限定为电池（含金属-空气电池）、燃料电池、超级电容器和电容器。系统应正确拒答/澄清，不得给出任何CIGS的沉积温度或效率数据。",
+  "success_criteria": "明确说明书中未涉及CIGS薄膜太阳能电池并拒答具体参数，不编造数值",
+  "evidence": "--[p81]-- An electrochemical power device is defined as a device that stores or produces electrical energy. This includes batteries, fuel cells, supercapacitors, and capacitors.（素材全文检索不到 CIGS 的任何记载）",
+  "note": "异常处理题：素材中无该信息，正确行为是拒答/澄清"
+ },
+ {
+  "query_id": "P05-21",
+  "query": "书里激光化学辅助刻蚀（CAE）的金属刻蚀表里，同样是Cl₂(0.1 torr)+N₂(337 nm) 0.12 J/cm²的条件，银、铁、钼三种金属的刻蚀速率各是多少？帮我对着表读一遍。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "在Cl₂(0.1 torr)、N₂(337 nm)、0.12 J/cm²条件下：Ag刻蚀速率500 Å/min（Sesselmann 1985）；Fe刻蚀速率850 Å/min（Sesselmann 1985）；Mo刻蚀速率为16 Å/sec（Sesselmann 1985），即Fe最快、Ag次之、Mo以每秒计最慢量级。",
+  "success_criteria": "三个数值全部答对：Ag 500 Å/min、Fe 850 Å/min、Mo 16 Å/sec，单位正确",
+  "evidence": "--[p470]-- $\\mathbf { A } \\mathbf { g }$ | $\\mathrm { C l } _ { 2 } ~ ( 0 . 1 \\mathrm { t o r r } )$ | $\\Nu _ { 2 } \\ ( 3 3 7 \\mathrm { n m } )$ | $0 . 1 2 \\mathrm { J } / \\mathrm { c m } ^ { 2 }$ | $5 0 0 \\mathrm { \\AA } / \\mathrm { m i n }$ | Sesselmann (1985)(134) …… --[p471]-- $\\mathtt { F e }$ | $\\mathbf { C l } _ { 2 } ~ ( 0 . 1 \\mathbf { t o r r } )$ | $\\mathsf { N } _ { 2 } \\ ( 3 3 7 \\mathrm { n m } )$ | $0 . 1 2 \\mathrm { J } / \\mathrm { c m } ^ { 2 }$ | $8 5 0 \\mathrm { \\AA } / \\mathrm { m i n }$ | Sesselmann (1985)(142) …… --[p471]-- Mo | $\\mathrm { C l } _ { 2 } ~ ( 0 . 1 \\mathrm { t o r r } )$ | $\\mathsf { N } _ { 2 } \\ ( 3 3 7 \\mathrm { n m } )$ | $0 . 1 2 \\mathrm { J } / \\mathrm { c m } ^ { 2 }$ | $1 6 \\mathrm { \\AA } / s e c$ | Sesselmann(1985)(144)"
+ },
+ {
+  "query_id": "P05-22",
+  "query": "电子束光刻那章的电子源参数表，把钨发叉阴极和六硼化镧阴极的工作温度、逸出功、电流密度和能量分散逐项对比一下。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "钨（W）发叉阴极：Tc=2,500–3,000 K，逸出功Φ=4.5 eV，电流密度Jc=1–3 A/cm²，能量分散ΔE=1–2 eV；LaB6：Tc=1,400–2,000 K，Φ=2.7 eV，Jc=20–50 A/cm²，ΔE=1 eV。即LaB6温度更低、逸出功更低、电流密度高约一个量级、能量分散更小。",
+  "success_criteria": "两种阴极的4项参数（温度、逸出功、电流密度、能量分散）均答对且单位正确",
+  "evidence": "--[p349]-- TABLE 1 Critical Parameters for Various Types of Electron-Emitting Sources Source | $T _ { c }$ (K) | $\\Phi$ | $J _ { c }$ | r | ΔE Tungsten (W) hairpin | 2,500–3,000 | 4.5eV | $\\mathbf { l } - 3 \\mathbf { A } / \\mathbf { c m } ^ { 2 }$ | 0.01 μm | 1-2eV Lanthanum hexaboride | 1,400–2,000 | 2.7 eV | $2 0 - 5 0 \\mathbf { A } / \\mathbf { c m } ^ { 2 }$ | 0.005μm | 1eV"
+ },
+ {
+  "query_id": "P05-23",
+  "query": "书里激光导向直写的介电层：2微米厚、介电常数160、单位面积电容C/A=7.2×10⁻⁴ F/m²。用平行板公式C/A=ε₀K/t反推一下介电常数，跟书里标的160自洽吗？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "K = (C/A)·t/ε₀ = 7.2×10⁻⁴ F/m² × 2×10⁻⁶ m ÷ 8.85×10⁻¹² F/m ≈ 162.7 ≈ 163，与书中给出的实测介电常数160基本一致（偏差&lt;2%），说明数据自洽。",
+  "success_criteria": "代入ε₀=8.85×10⁻¹²算出K≈163（160±3）并判断与书中160自洽",
+  "evidence": "--[p10]-- The dielectric layer in this case is 2 microns and the measured dielectric constant is 160. The loss tangent at 500 kHz is 0.9%. …… The capability to deposit thin layers gives rise to high capacitance per unit area, in this case, $\\mathsf { C } / \\mathrm { A } = 7 . 2 \\times 1 0 ^ { - 4 } \\mathrm { F } / \\mathrm { m } ^ { 2 }$ ."
+ },
+ {
+  "query_id": "P05-24",
+  "query": "焊料喷印的驱动波形能在约2:1直径范围内连续调节液滴体积。书里那台设备常规件是62 μm直径的焊滴，帮我算算单个液滴体积；如果调到直径上限，体积变成多少？跟书里说的8:1体积比对得上吗？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "62 μm焊滴体积 V = (π/6)d³ = 0.5236 × 62³ μm³ ≈ 1.25×10⁵ μm³（约0.125 nL）；直径上调一倍至124 μm时体积 = (π/6)×124³ ≈ 1.0×10⁶ μm³，为原来的8倍，与书中\"2:1直径(8:1体积)\"的调制范围一致。",
+  "success_criteria": "算出62 μm焊滴体积约1.25×10⁵ μm³，直径翻倍后体积为8倍并与书中8:1说法吻合",
+  "evidence": "--[p217]-- the drive waveform can be employed to modulate the volume of a drop over an approximately 2: 1-diameter (8: 1-volume) range. Figure 14 shows a solder jet device producing 62-μm-diameter droplets of solder at a rate of 120 Hz."
+ },
+ {
+  "query_id": "P05-25",
+  "query": "我在低温基板上布电路，想评估激光/气流导向直写方案的导体和电阻两条路线：先查他们金属前驱体走线处理后的电阻率相对体材是多少倍，再据此查书中5 kΩ银/玻璃电阻的线宽以及RuO₂-玻璃体系电阻率大概什么量级、比导体金属高几个数量级。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一跳（导体路线）：激光/热处理后各材料均转化为金属，电阻率一般小于体材的10倍，常接近2倍体材（良导体约3×10⁻⁸ Ω·m量级）。第二跳（电阻路线，据前一结论判断需引入玻璃绝缘相）：5 kΩ银/玻璃电阻走线宽60 μm，端接Ag-Pd合金焊盘；RuO₂-玻璃体系电阻率跨越数个数量级、中心在10 Ω·m，比导体金属高7个数量级；玻璃体积分数超过30%会得到粘附差的脆性电阻走线。",
+  "success_criteria": "答出电阻率&lt;10×体材（常~2×）、5 kΩ电阻线宽60 μm、RuO₂-玻璃电阻率中心10 Ω·m且比导体高7个数量级三项信息完整",
+  "evidence": "--[p8]-- The resistivities are generally less than 10× the resistivity of bulk material, but often are closer to 2× bulk. …… --[p11]-- Figure 6 shows an optical micrograph of a 5 kOhm silver/glass resistor. The resistor trace is 60 microns wide as has been terminated with contact pads of $\\mathbf { A g { \\mathrm { - } } } P d$ alloy. …… --[p11]-- The resistivity of the $\\mathrm { R u O } _ { 2 } { \\cdot } \\mathrm { g l a s s }$ system spans several decades and is centered at 10 Ohm-m, 7 orders more resistive than conductor metals."
+ }
+]

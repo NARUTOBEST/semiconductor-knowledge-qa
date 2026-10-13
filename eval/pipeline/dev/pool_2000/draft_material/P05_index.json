@@ -1,0 +1,326 @@
+{
+ "doc": "Direct-Write Technologies for Rapid Prototyping Applications to Sensors, Electronics, and Passivation Coatings (Alberto Pique, Douglas B. Chrisey)",
+ "chunks": 3161,
+ "headings": [
+  [
+   "Ancillary Technologies > Index",
+   54
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 5.1. LASER CVD AND ETCHING",
+   49
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 3.3. OPTICAL ABSORPTION, THERMOPHYSICS, AND LASER-INDUCED PLASMAS",
+   35
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 3.2 TYPES OF PATTERN TRANSFER TECHNOLOGIES",
+   35
+  ],
+  [
+   "Introduction to Direct-Write Technologies for Rapid Prototyping > 2. ELECTRONICS",
+   33
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 1. INTRODUCTION",
+   30
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 22. CONCLUSION",
+   30
+  ],
+  [
+   "Micropen Printing of Electronic Components > 3.1. PASTE RHEOLOGY",
+   29
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 3.1. BEAM PROPAGATION, ENERGY DELIVERY ON TARGET, AND COHERENCE",
+   29
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 1. INTRODUCTION",
+   29
+  ],
+  [
+   "Nanolithography with Electron Beams: Theory and Practice > 3.1. THE ELECTRON GUN",
+   26
+  ],
+  [
+   "Flow- and Laser-Guided Direct Write of Electronic and Biological Components > 2. FUNDAMENTALS",
+   26
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 5. 3D MICROFABRICATION BY 2DDIRECT-WRITE PATTERNING APPROACHES",
+   24
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 11. OVERVIEW OF MATERIAL TRANSFER TECHNOLOGIES",
+   23
+  ],
+  [
+   "Direct-Write Technologies for Rapid Prototyping Applications: Sensors, Electronics, and Integrated Power Sources > Part III: Direct-Write Techniques",
+   22
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 21. COMPARISON OF PATTERN AND MATERIAL TRANSFER TECHNIQUES",
+   22
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 20. PATTERN AND MATERIAL TRANSFER BY SELF-ASSEMBLY",
+   22
+  ],
+  [
+   "Laser Direct-Write Micromachining > 3.1. ABLATION",
+   21
+  ],
+  [
+   "Direct-Write Technologies for Rapid Prototyping Applications: Sensors, Electronics, and Integrated Power Sources > PREFACE",
+   21
+  ],
+  [
+   "Micropen Printing of Electronic Components > 3.2. PASTE DEPOSITION",
+   21
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 15.3 INK (DROPLET) JETTING",
+   21
+  ],
+  [
+   "Direct-Write Materials and Layers for Electrochemical Power Devices > 5.2. ACTIVE LAYERS",
+   19
+  ],
+  [
+   "Direct-Write Thermal Spraying of Multilayer Electronics and Sensor Structures > 3.4. CAPACITORS",
+   19
+  ],
+  [
+   "Ancillary Technologies > D",
+   19
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 3.8. LASER SINTERING",
+   18
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 3.2. PROCESSING SPEED AND PROCESS WINDOW",
+   18
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 6.1. DIELECTRIC MATERIALS",
+   17
+  ],
+  [
+   "Dip-Pen Nanolithography: Direct Writing Soft Structures on the Sub-100-Nanometer-Length Scale > 3. DIP-PEN NANOLITHOGRAPHY METHODS",
+   16
+  ],
+  [
+   "Direct-Write Materials and Layers for Electrochemical Power Devices > 2.3. BATTERIES",
+   16
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 4.1 MAINSTREAM OPTICAL TECHNIQUES",
+   16
+  ],
+  [
+   "Matrix Assisted Pulsed Laser Evaporation-Direct Write (MAPLE-DW): A New Method to Rapidly Prototype Organic and Inorganic Materials > 3.4. UNDERSTANDING THE MAPLE-DW PROCESS",
+   16
+  ],
+  [
+   "Ancillary Technologies > L L",
+   16
+  ],
+  [
+   "Focused Ion Beams for Direct Writing > 3. ION SOLID INTERACTION",
+   15
+  ],
+  [
+   "Nanolithography with Electron Beams: Theory and Practice > 3.4. WRITING STRATEGIES",
+   15
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 3.5. PRECURSOR CHEMISTRY",
+   15
+  ],
+  [
+   "Matrix Assisted Pulsed Laser Evaporation-Direct Write (MAPLE-DW): A New Method to Rapidly Prototype Organic and Inorganic Materials > 4.3. PHOSPHORS",
+   15
+  ],
+  [
+   "Flow- and Laser-Guided Direct Write of Electronic and Biological Components > 3. MATERIAL RESULTS",
+   15
+  ],
+  [
+   "Matrix Assisted Pulsed Laser Evaporation-Direct Write (MAPLE-DW): A New Method to Rapidly Prototype Organic and Inorganic Materials > 4.1. METALS AND CERAMICS",
+   15
+  ],
+  [
+   "Micropen Printing of Electronic Components > 4.2. SINGLE-LAYER AND MULTILAYERCAPACITOR DEPOSITION",
+   14
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 5. RESISTORS",
+   14
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 6.3. DIELECTRIC AND FERRITE FORMULATIONS FOR CONFORMAL DIRECT-WRITE APPLICATIONS",
+   14
+  ],
+  [
+   "Nanolithography with Electron Beams: Theory and Practice > 3.2. LENSES FOR ELECTRON OPTICS",
+   14
+  ],
+  [
+   "Direct Write Using Ink-Jet Techniques > 3.2. DEMAND MODE INK-JET TECHNOLOGY",
+   14
+  ],
+  [
+   "Role of Direct-Write Tools and Technologies for Microelectronic Manufacturing > 2.1.1. Micro-Dispensers",
+   14
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 6.4. MICROTHRUSTER APPLICATIONS",
+   14
+  ],
+  [
+   "Direct Write Using Ink-Jet Techniques > TABLE 1 Materials that Have Dispensed Using Ink-Jet Printing Technology",
+   14
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 4.2 ADDITIONAL OPTICAL TECHNOLOGIES",
+   14
+  ],
+  [
+   "Laser-Induced Forward Transfer: An Approach to Single-Step Microfabrication > 5. APPLICATIONS OF LIFT",
+   14
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 5. EXTREME ULTRAVIOLET LITHOGRAPHY",
+   14
+  ],
+  [
+   "Micropen Printing of Electronic Components > 3.4. PRINTING RESOLUTION",
+   13
+  ],
+  [
+   "Direct-Write Materials and Layers for Electrochemical Power Devices > 4.2. ELECTROCATALYST POWDERS",
+   13
+  ],
+  [
+   "Direct-Write Materials and Layers for Electrochemical Power Devices > 3.3.1. Construction and Operation of a Metal-Air Battery",
+   13
+  ],
+  [
+   "Overview of Commercial and Military Application Areas in Passive and Active Electronic Devices > 2. DIRECT-WRITE ELECTRONIC COMPONENT MANUFACTURING",
+   13
+  ],
+  [
+   "Nanolithography with Electron Beams: Theory and Practice > SIA Roadmap Acceleration",
+   13
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 3.1 HISTORICAL PERSPECTIVE",
+   13
+  ],
+  [
+   "Matrix Assisted Pulsed Laser Evaporation-Direct Write (MAPLE-DW): A New Method to Rapidly Prototype Organic and Inorganic Materials > 4.2. RESISTORS",
+   13
+  ],
+  [
+   "Laser-Induced Forward Transfer: An Approach to Single-Step Microfabrication > 2. DEPOSITION OF SINGLE ELEMENTS",
+   13
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 10. APPLICATIONS OF MATERIAL TRANSFER TECHNOLOGIES",
+   13
+  ],
+  [
+   "Matrix Assisted Pulsed Laser Evaporation-Direct Write (MAPLE-DW): A New Method to Rapidly Prototype Organic and Inorganic Materials > 5. MAPLE-DW OF ORGANIC AND BIOMATERIALS",
+   13
+  ],
+  [
+   "The Role of Direct Writing for Chemical and Biological Materials: Commercial and Military Sensing Applications > 5.1. SORBENT POLYMER-COATED RESONANT TRANSDUCERS",
+   12
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 7. PHOSPHOR MATERIALS FOR INFORMATION DISPLAY TECHNOLOGIES",
+   12
+  ],
+  [
+   "Nanolithography with Electron Beams: Theory and Practice > 4.1. A BRIEF HISTORY OF PROXIMITY CORRECTION",
+   12
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 2. THE LASER DIRECT-WRITE 3D PROCESSING TOOL",
+   12
+  ],
+  [
+   "Laser Direct-Write Micromachining > 4. LASER MICROMACHINING",
+   12
+  ],
+  [
+   "Focused Ion Beams for Direct Writing > 5. CONCLUSIONS",
+   12
+  ],
+  [
+   "Direct-Write Thermal Spraying of Multilayer Electronics and Sensor Structures > 3.2. DIELECTRICS",
+   12
+  ],
+  [
+   "Direct Write Using Ink-Jet Techniques > 7.1. SOLDER JETTING",
+   12
+  ],
+  [
+   "Focused Ion Beams for Direct Writing > 3.1. PHOTON AND CHARGED PARTICLE EMISSION",
+   12
+  ],
+  [
+   "Role of Direct-Write Tools and Technologies for Microelectronic Manufacturing > 1. INTRODUCTION",
+   12
+  ],
+  [
+   "The Role of Direct Writing for Chemical and Biological Materials: Commercial and Military Sensing Applications > 1. INTRODUCTION",
+   12
+  ],
+  [
+   "Advanced Materials Systems for Ultra-Low-Temperature, Digital, Direct-Write Technologies > 3.3. INKS AND PASTES",
+   12
+  ],
+  [
+   "Role of Direct-Write Tools and Technologies for Microelectronic Manufacturing > 2.1.2. Laser-Assisted Transfer",
+   12
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 6.3. NONLINEAR FLUENCE DEPENDENCE AND FABRICATION",
+   12
+  ],
+  [
+   "3D Microengineering via Laser Direct-Write Processing Approaches > 6.2. THE FABRICATION PROCESS",
+   12
+  ],
+  [
+   "Introduction to Direct-Write Technologies for Rapid Prototyping > 1. DIRECT-WRITE TECHNOLOGIES",
+   12
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 8. PROXIMAL PROBE LITHOGRAPHY",
+   12
+  ],
+  [
+   "Flow- and Laser-Guided Direct Write of Electronic and Biological Components > 1. MOTIVATION",
+   12
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 7.1 ELECTRON BEAM TECHNIQUES",
+   12
+  ],
+  [
+   "Ancillary Technologies > MATERIALS FOR THIN FILMS",
+   12
+  ],
+  [
+   "Technologies for Micrometer and Nanometer Pattern and Material Transfer > 18. THREE-DIMENSIONAL RAPIDMICROPROTOTYPING",
+   12
+  ]
+ ]
+}

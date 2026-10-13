@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "CHL-01",
+  "query": "HMDS 这个东西的沸点是多少?我们热板最高才 130℃,想确认拿它做 vapor prime 会不会有安全问题。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "书中给出 HMDS(hexamethyldisilazane)是无色液体,沸点为 125℃。",
+  "success_criteria": "答出沸点 125℃ 且单位正确;能结合该沸点说明 130℃ 以内热板使用的安全性判断。",
+  "evidence": "--[p485]-- &lt;sup&gt;7&lt;/sup&gt;HMDS is a colorless liquid that boils at 1258C."
+ },
+ {
+  "query_id": "CHL-02",
+  "query": "前烘(soft bake)一般用什么条件?热板上烘多长时间、多少度?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "典型软烘条件为 90–120℃、热板上 60 秒,随后在 chill plate 上冷却以保证晶圆温度均匀。另外书中提到多数光刻胶溶剂沸点约 140℃,远高于软烘温度。",
+  "success_criteria": "答出 90–120℃ 且 60 秒;提到后续 chill plate 冷却为加分项。",
+  "evidence": "--[p4]-- Typical soft bake temperatures are 90–1208C for 60 seconds on a hot plate, followed by a cooling step on a chill plate to achieve uniform wafer temperature control. The boiling points of most resist solvents are on the order of $1 4 0 ^ { \\circ } \\mathrm { C } ,$ far higher than the soft bake temperatures of resists."
+ },
+ {
+  "query_id": "CHL-03",
+  "query": "显影液温度对显影结果影响大吗?车间空调坏了温度偏高会有什么风险?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "显影温度在低/中十几度或高于 26℃ 时会改变给定胶所需的显影时间;显影温度远高于 26℃ 会造成图形胶结构损伤,而显影温度过低会导致显影不完全或 scumming(残渣)。",
+  "success_criteria": "答出 26℃ 这一阈值,并说明高温→图形损伤、低温→显影不全/scumming 两种后果。",
+  "evidence": "--[p211]-- Generally, temperatures in the low or mid-teens or above 268C may tend to cause changes in the required developing time for a given resist. Developer temperatures much higher than $2 6 \\mathrm { { ^\\circ C } }$ may cause pattern resist feature damage, whereas incomplete developing or scumming may occur at low developer temperatures."
+ },
+ {
+  "query_id": "CHL-04",
+  "query": "正胶显影完之后用什么漂洗(rinse)?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "正胶显影后用去离子水(deionized water)漂洗;现代半导体光刻工艺中只用去离子水漂洗显影后的正胶(水中钙可能形成低溶解度酸性盐导致 scumming,故对水质有要求)。",
+  "success_criteria": "答出去离子水(DI water)。",
+  "evidence": "--[p211]-- Rinsing of positive resists after developing is done with deionized water. --[p212]-- Hence, only deionized water is used for rinsing developed positive resists in modern semiconductor lithographic practices."
+ },
+ {
+  "query_id": "CHL-05",
+  "query": "EUV 多层膜反射镜里 Mo 层和 Si 层每层多厚?一共堆多少对?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "理想平滑界面的 50 对交替钼/硅层:Mo 每层 2.5 nm、Si 每层 4.2 nm,理论峰值反射率 74%。",
+  "success_criteria": "答出 Mo 2.5nm、Si 4.2nm、50 对;74% 理论反射率为加分项。",
+  "evidence": "--[p228]-- Figure 14.5 shows the calculated reflectivity curve for perfectly smooth interfaces of 50 alternating pairs of molybdenum (2.5 nm) and silicon layers (4.2 nm), indicating a theoretical peak reflectivity of 74%."
+ },
+ {
+  "query_id": "CHL-06",
+  "query": "193nm 浸没式光刻里,水在 193nm 波长的折射率是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在标准大气温度和压力下、波长 193nm 处,水的折射率为 1.44。",
+  "success_criteria": "答出 1.44 并注明条件(193nm、常温常压)。",
+  "evidence": "--[p211]-- From Eqs. (13.32)–(13.35), resolution in dry and immersion lithographies are equal for the same wavelength and NA, while the DOF of immersion lithography is greater than that of dry lithography by a factor that is at least as great as the refractive index of water (which is 1.44 at l 193 nm at standard atmospheric temperature and pressure)."
+ },
+ {
+  "query_id": "CHL-07",
+  "query": "同步辐射光源产出的 X 射线波长范围大概在哪个区间?电子要加速到多高能量?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "同步辐射储存环产生的 X 射线波长为 0.1–10 nm;环中电子被加速到最高 1 GeV 并维持该能量,在强磁场包围的真空管道中循环。",
+  "success_criteria": "答出 0.1–10 nm;1 GeV 为加分项。",
+  "evidence": "--[p221]-- Synchrotron storage rings produce x rays (0.1–10-nm wavelength) that have been used in x-ray lithography. In the synchrotron, electrons are accelerated to up to 1 GeV and maintained at that energy, and circulated in an evacuated ring of pipe surrounded by a strong magnetic field."
+ },
+ {
+  "query_id": "CHL-08",
+  "query": "DNQ 感光剂的分解温度是多少?硬烘(hard bake)时对温度要有什么讲究?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "DNQ 的分解温度为 110℃;将 DNQ/novolac 胶烘到该温度以上会破坏 PAC(光活性化合物),阻止其参与后续不必要的反应(如防止注入工序中残留 DNQ 辐解放氮导致 popping)。",
+  "success_criteria": "答出 110℃,并说明高于此温度烘烤可分解 PAC/消除残留 DNQ。",
+  "evidence": "--[p55]-- Baking the DNQ/novolac resist above the decomposition temperature of DNQ $( 1 1 0 ^ { \\circ } \\mathrm { C } )$ has been reported to destroy the PAC and prevent it from participating in any unwanted reactions."
+ },
+ {
+  "query_id": "CHL-09",
+  "query": "书里那个接触孔热回流收缩(reflow shrink)实验是 170℃/60s 吧?CD 能缩百分之多少?按这个比例,我 150nm 的接触孔回流后 CD 变多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "书中实验:170℃ 回流加热 60 秒,接触孔 CD 收缩 70%,胶图形厚度下降 56%。计算:150nm × (1 − 0.70) = 45nm,即回流后接触孔 CD 约为 45nm。",
+  "success_criteria": "答出 70% 收缩比例且算出 45nm(算式 150×0.30=45)。",
+  "evidence": "--[p315]-- Figure 17.4 shows cross-sectional SEM micrographs of contact holes printed in a resist that was not subjected to reflow heating and another that was subjected to reflow heating at $1 7 0 \\mathrm { { } ^ \\circ C }$ for 60 seconds, which resulted in 70% shrinkage in the CD and 56% decrease in the thickness of the contact hole resist pattern."
+ },
+ {
+  "query_id": "CHL-10",
+  "query": "浸没式光刻的景深(DOF)相比干式至少能提升多少倍?如果干式工艺 DOF 是 400nm,换到浸没式至少能有多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "书中指出:相同波长和 NA 下干式与浸没式分辨率相同,而浸没式 DOF 比干式至少大水折射率倍数(193nm 处 n=1.44)。计算:400nm × 1.44 = 576nm,即浸没式 DOF 至少约 576nm。",
+  "success_criteria": "答出 1.44 倍且算出 576nm(算式 400×1.44)。",
+  "evidence": "--[p211]-- From Eqs. (13.32)–(13.35), resolution in dry and immersion lithographies are equal for the same wavelength and NA, while the DOF of immersion lithography is greater than that of dry lithography by a factor that is at least as great as the refractive index of water (which is 1.44 at l 193 nm at standard atmospheric temperature and pressure)."
+ },
+ {
+  "query_id": "CHL-11",
+  "query": "LPP 型 EUV 光源里,Sn、Xe、Li 三种靶材的转换效率各是多少?Sn 比 Xe 高几倍?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Sn 转换效率 3%,Xe 为 1%,反应性高的 Li 为 2–3%;因此优选 Sn。计算:3% ÷ 1% = 3,即 Sn 的转换效率是 Xe 的 3 倍。",
+  "success_criteria": "答出 Sn 3%、Xe 1%(Li 2–3%)且算出 3 倍。",
+  "evidence": "--[p233]-- with Sn being preferred because of its higher conversion efficiency (3%) compared to that of Xe (1%) and the highly reactive Li (2–3%)."
+ },
+ {
+  "query_id": "CHL-12",
+  "query": "顶部抗反射涂层(TARC)最早是谁、哪一年提出来的?现在用的水性 TARC 显影时怎么去掉?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "顶部抗反射涂层最早由日立(Hitachi)的 Tanaka 等人在 1990 年提出(ARCOR);1990 年代推出的商用水性 TARC 不需要溶剂处理,可在常规显影中于 0.26 N 四甲基氢氧化铵(TMAH)水性显影液中去除,或直接用水冲洗掉。",
+  "success_criteria": "答出 1990 年/Hitachi(或 Tanaka)以及 0.26 N TMAH 显影去除或水洗去除。",
+  "evidence": "--[p443]-- Top antireflection coatings were first proposed by Tanaka and co-workers at Hitachi in $1 9 9 0 . ^ { 5 }$ --[p445]-- The 1990s saw the introduction of commercial water-based top antireflection coating materials that do not require a solvent treatment but are removed during normal resist development in 0.26 N aqueous tetramethyl ammonium hydroxide developer solution or simply dissolved with a water rinse."
+ },
+ {
+  "query_id": "CHL-13",
+  "query": "光刻胶图形倒塌(pattern collapse)和胶本身的力学性能有什么关系?书里给的光刻胶杨氏模量典型范围是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "光刻胶杨氏模量典型范围 2–6 GPa(novolac 胶在高端,丙烯酸酯类胶在低端);胶的 Tg 与杨氏模量正相关,Tg 高则模量高。倒塌倾向随线条高宽比(纵横比)的立方增长,降低纵横比能显著减少倒塌;外侧线条比内侧更易倒塌。",
+  "success_criteria": "答出 2–6 GPa 并说明 novolac 高端/acrylate 低端,且提到倒塌随纵横比立方增加。",
+  "evidence": "--[p53]-- In general, resists have a Young's modulus in the range of 2–6 GPa (with novolac resists occupying the high end of the range and the acrylate resists occupying the low end of the range). The $T _ { \\mathrm { g } }$ of a resist correlates positively with its Young's modulus --[p54]-- By far, the most critical factor in pattern collapse is the aspect ratio of the line, given that the tendency to collapse increases as the cube of the line aspect ratio; decreasing the aspect ratio of the line will significantly reduce pattern collapse."
+ },
+ {
+  "query_id": "CHL-14",
+  "query": "DNQ/novolac 显影之后想硬烘提高抗刻蚀能力,温度该怎么定?烘太狠会出什么问题?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步检索 postbake/hard bake 目的:去除胶膜中残留的涂布溶剂、显影液和水,并硬化胶膜以承受等离子刻蚀;由于感光度不再需要,烘烤温度可尽量高,有时接近溶剂沸点。第二步检索上限:novolac 胶 Tg 为 80–120℃、聚羟基苯乙烯类 DUV 胶 Tg 为 140–180℃;温度高于 120–130℃ 时 DNQ/novolac 中硬化和流动两个过程互相竞争,130℃ 下大图形会因表面张力变圆变形(先于交联温度流动)。结论:硬烘温度应控制在约 120–130℃ 以下并结合 DNQ 分解温度 110℃ 权衡。",
+  "success_criteria": "给出硬烘目的、novolac Tg 80–120℃(或 PHS 140–180℃)以及 120–130℃ 以上硬化与流动竞争/图形变形的风险。",
+  "evidence": "--[p55]-- The function of the postdevelopment bake step is to remove residual casting solvent, developer, and water within the resist film, as well as to harden the resist film so that it can withstand the rigors of plasma etching... the baking temperature can be elevated to as high as possible, sometimes approaching the solvent boiling point --[p56]-- At temperatures higher than $1 2 0 { - } 1 3 0 ^ { \\circ } \\mathbf { C } .$ , hardening and flow of the resist patterns are two competing processes in DNQ/novolac resists. Poly(hydroxystyrene)-based DUV resists have $T _ { \\mathrm { g } }$ values on the order of $1 4 0 { - } 1 8 0 ^ { \\circ } \\mathrm { C }$ , while novolacs have $T _ { \\mathrm { g } }$ values in the range of $8 0 - 1 2 0 ^ { \\circ } \\mathrm { C } .$"
+ },
+ {
+  "query_id": "CHL-15",
+  "query": "软烘温度对 DNQ/novolac 显影溶解速率的影响是单调的吗?书里是怎么分温度区间的?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "不是单调的,书中共分四区:(i) 不烘区:残溶剂多、溶解速率高;(ii) 低温区(≤80℃):溶剂去除,溶解速率明显下降;(iii) 中温区(80–110℃):DNQ 被热优先转化为茚并羧酸(indene carboxylic acid),溶解速率上升;(iv) 高温区(&gt;120℃):薄膜致密化、DNQ 热分解、失水、novolac 交联,造成剧烈的溶解抑制。",
+  "success_criteria": "答出四个温度区并正确给出 80℃/110℃/120℃ 边界及各区趋势。",
+  "evidence": "--[p7]-- 11.16).&lt;sup&gt;86&lt;/sup&gt; Four zones can be distinguished in this plot: (i) a no-bake zone where residual solvent and dissolution rates are high, (ii) a low-temperature zone (up to $8 0 ^ { \\circ } \\mathrm { C } )$ where the dissolution rate shows an appreciable decrease due to solvent removal, (iii) a mid-temperature zone $( 8 0 { - } 1 1 0 ^ { \\circ } \\mathrm { C } )$ where the DNQ is thermally and preferentially converted to indene carboxylic acid, leading to an increase in dissolution rate, and (iv) a high-temperature zone $( &gt; 1 2 0 ^ { \\circ } \\mathrm { C } )$ where the film densification takes place, DNQ is thermally decomposed, the film is depleted of water, and the novolac resin is cross-linked, resulting in dramatic dissolution inhibition."
+ },
+ {
+  "query_id": "CHL-16",
+  "query": "193nm/248nm 曝光机光罩和透镜上那些 haze 缺陷晶体是什么成分?为什么 193nm 机器上问题特别严重?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "拉曼光谱分析表明这些晶体主要是硫酸铵 [(NH4)2SO4],是随生产使用不断增长的 progressive 缺陷;在 193nm 波长问题尤其严重,原因一是光子能量高(6.4 eV),二是同期向 300mm 晶圆过渡,使光罩和透镜要经受更长时间的暴露。",
+  "success_criteria": "答出 ammonium sulfate((NH4)2SO4)及 6.4 eV(或 300mm 晶圆暴露更久)的原因。",
+  "evidence": "--[p158]-- Raman spectroscopic compositional analyses of these crystals have shown them to be made primarily of ammonium sulfate $[ ( \\mathrm { N H } _ { 4 } ) _ { 2 } \\mathrm { S O } _ { 4 } ]$ --[p158]-- Although these progressive defects have been observed at almost all lithographic wavelengths, the problem is especially severe in 193-nm lithography because of the highly energetic (6.4-eV) photons and the concurrent transition to 300-mm wafers, which require photomasks and lenses to endure more prolonged exposure compared to 200-mm wafers."
+ },
+ {
+  "query_id": "CHL-17",
+  "query": "CaF2 做 DUV/VUV 透镜的话,热导率、热膨胀系数、在水里的溶解度这些关键物性书里给的是什么数?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "CaF2 的关键物性(Table 13.9):273K 下热导率 10 W/(m·K);293K 下线膨胀系数 18.7 ppm/K;298K 下在水中的溶解度 0.015 g/100g H2O;晶体结构为立方(cubic)。",
+  "success_criteria": "至少答出其中两个数值且单位/条件正确(如热导率 10 W/m·K、膨胀系数 18.7 ppm/K、溶解度 0.015 g/100g)。",
+  "evidence": "--[p173 [表]]-- Table 13.9 Select properties of ${ \\mathsf { C a F } } _ { 2 } . ^ { 1 5 0 }$ Property | Value Thermal conductivity $( \\mathbf { W } / \\mathbf { m } ^ { \\circ } \\mathbf { K } )$ at $2 7 3 ^ { \\circ } \\mathrm { K }$ | 10 Linear expansion coefficient $\\left( { \\mathrm { p p m } } / { } ^ { \\circ } \\mathrm { K } \\right)$ at $2 9 3 ^ { \\circ } \\mathrm { K }$ | 18.7 --[p173]-- Solubility in water $( \\mathbf { g } / 1 0 0 \\mathbf { g }$ of $_ { \\mathrm { H } _ { 2 } \\mathrm { O } )}$ at $2 9 8 ^ { \\circ } \\mathrm { K }$ | 0.015 Crystal structure | Cubic"
+ },
+ {
+  "query_id": "CHL-18",
+  "query": "浸没式机台上 topcoat 除了光学上的作用,还有什么用处?PEB 延迟(曝光后到前烘的等待)能撑多久不出问题?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "topcoat 还提供防护功能,阻挡胺类等空气分子污染物进入胶内中和化学放大胶中的光酸;书载带 topcoat 保护的胶膜 PEB 延迟稳定性可达 15 分钟,即使延迟 15 分钟,80nm 和 90nm 线条/间隔图形的 CD 仍保持稳定(明显优于不用 topcoat 的情况)。",
+  "success_criteria": "答出阻挡胺类等空气污染物、以及 PEB 延迟稳定性达 15 分钟(80nm/90nm L/S CD 稳定)。",
+  "evidence": "--[p213]-- Topcoats also provide a protective function against airborne molecular contaminants such as amines. Figure 13.53 shows PEB delay stabilty of up to 15 minutes obtained on a resist film protected with a topcoat. Following the indicated PEB delay times, the resist film was postexposure baked and developed. Even after 15 minutes, the CD values of the 80-nm and 90-nm lines/space features remained remarkably stable."
+ },
+ {
+  "query_id": "CHL-19",
+  "query": "书里 DNQ/novolac 用的标准显影液是 5% NaOH 溶液吧?具体浓度写的是多少?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应纠正该前提:书中并未提及\"5% NaOH 标准显影液\",不得编造该浓度。书中实际说法为:早期半导体光刻流行使用氢氧化钾等无机碱显影液,而现代半导体光刻偏好有机显影液(不含会造成器件电气失效的金属离子);正胶显影液中的碱在现代配方中为四甲基氢氧化铵(TMAH),文献中亦有 0.26 N 水性 TMAH 显影液的记载。",
+  "success_criteria": "明确否定\"5% NaOH\"说法且不编造浓度;正确给出 TMAH 为现代显影液碱源(0.26 N 为加分)、KOH 等无机碱属早期做法。",
+  "evidence": "--[p212]-- While inorganic developers such as potassium hydroxide were popular during the early days of semiconductor lithography, in modern semiconductor lithography, organic developers are the preferred option because unlike their inorganic counterparts, they do not contain metallic ions, which can cause electrical failures in devices fabricated with them. --[p211]-- ...is neutralized by the alkali substance present in older developers of bygone eras or a tetramethylammonium hydroxide (TMAH) base in modern developers, forming salts."
+ },
+ {
+  "query_id": "CHL-20",
+  "query": "HMDS prime 做过头(over prime)会有什么坏处?客户那边离子注入工序曝光剂量很大,听说会\"炸胶\",是怎么回事、怎么防?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "priming 过度会导致去润湿(dewetting);在高辐照剂量(如离子注入工序中的强紫外曝光)条件下会引发 \"popping\":DNQ/novolac 类胶中产生的氮气来不及通过扩散逸出膜外,在胶-晶圆界面处聚集,削弱两者附着力并形成气泡,高 fluence 下气泡可能爆炸并把胶碎屑散布到邻近区域。缓解措施:缩短 priming 时间、使用低表面张力的光刻胶溶剂、涂胶前先用光刻胶涂布溶剂预冲晶圆表面、以及对晶圆做氧或臭氧等离子处理。",
+  "success_criteria": "答出 popping 机理(N2 在胶-晶圆界面聚集形成气泡)及至少两条缓解措施。",
+  "evidence": "--[p486]-- In conditions of high fluence exposure such as obtained in heavy UV exposure in ion-implantation steps, overpriming can also lead to a phenomenon known as \"popping,\" in which nitrogen formed in the DNQ/novolac-type resists may not escape from the film quickly enough through diffusion, but may instead accumulate at the resist-wafer interface, weakening the adhesion between the two surfaces, and resulting in the formation of bubbles there. --[p486]-- Remedies for mitigating against overpriming include the use of shorter priming times, resist solvents with lower surface tension, prerinsing the wafer surface with the resist casting solvent before resist coating, and oxygen or ozone plasma treatments of the wafer."
+ },
+ {
+  "query_id": "CHL-21",
+  "query": "EUV 的激光等离子体(LPP)光源选哪个靶材最好?为什么它效率最高但用起来又有麻烦?这个麻烦在书里有没有对应的处理办法?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三跳链:①先检索 LPP 光源靶材:LPP 用高强脉冲激光(Nd-YAG、CO2 或二极管泵浦光纤激光)打 Sn、Li、Xe 等靶材产生等离子体,Sn 因转换效率最高(3%,对比 Xe 1%、Li 2–3%)而受青睐;②再检索 Sn 的问题:Sn 是可凝结燃料(condensable fuel),在标准 EUV 工具运行条件下会沉积到表面,污染光学面并降低被污染光学元件的反射率;③再检索缓解/清理方案:EU V 源中实施 debris-mitigation(碎片缓解)方案;对已污染反射镜,可用 Ar/Cl2 反应离子刻蚀(RIE)选择性刻蚀 Sn 来清洁。",
+  "success_criteria": "按序答出转换效率比较(Sn 3%&gt;Li 2–3%&gt;Xe 1%)、Sn 可凝结沉积污染/降反射率的机理、以及 Ar/Cl2 RIE 清洁(或 debris mitigation)方案。",
+  "evidence": "--[p233]-- with Sn being preferred because of its higher conversion efficiency (3%) compared to that of Xe (1%) and the highly reactive Li (2–3%). It must be mentioned that Sn has several critical challenges, the main one of which is the fact that it is a condensable fuel that deposits on surfaces under standard EUV tool operating conditions. Not only does the Sn deposition contaminate optical surfaces, it also degrades the reflectivity of the affected optics. --[p253]-- Reactive-ion etching (RIE) of debris is a potential method for cleaning contaminated mirror surfaces. In particular, RIE with $\\mathbf { A r / C l } _ { 2 }$ can selectively etch Sn, offering the potential for using this approach to clean contaminated mirrors."
+ },
+ {
+  "query_id": "CHL-22",
+  "query": "我们要上线 HMDS vapor prime,书里给的工艺条件是什么?qual 判定用什么指标?另外客户离子注入那道工序光刻剂量很大,担心 prime 过头出 popping,书里怎么解释、怎么防?显影后硬烘和这事有关系吗?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳链:①工艺条件:先对衬底做 UV/ozone、HF、等离子等\"氧化性\"清洗,再约 150℃ 脱水烘去除吸附水分,随后在约 100℃ 的工艺温度下做增黏底涂(HMDS 或 TMSDEA,液相或气相);②qual 判定指标: sessile drop 水接触角,正常 primed 表面为 50°&lt;θ&lt;70°(过大偏疏水/过度 prime,过小偏亲水/prime 不足,prime 不足附着失效、过度去润湿);③popping 机理与防范:高 fluence(如离子注入强紫外曝光)下,overpriming 引发 popping——DNQ/novolac 产生的氮气无法及时扩散逸出,在胶-晶圆界面聚集、削弱附着并成气泡,气泡爆炸散布胶屑;防范可用更短 priming 时间、低表面张力溶剂、涂胶前用 casting solvent 预冲、氧/臭氧等离子处理;④与硬烘的关联:显影后硬烘超过 DNQ 分解温度 110℃ 可分解破坏 PAC,消除残留 DNQ,防止后续注入工序中 DNQ 辐解急速放氮导致 popping。",
+  "success_criteria": "四点齐全:~100℃ prime 与 ~150℃ 脱水烘、水接触角 50–70°、popping 机理(N2 界面积聚成气泡)与对策、硬烘&gt;110℃ 分解 DNQ 消除隐患的关联。",
+  "evidence": "--[p485]-- In either case, priming is done at elevated process temperatures ${ \\sim } 1 0 0 ^ { \\circ } \\mathrm { C } .$ . Substrates are typically cleaned with UV/ozone treatment, HF, plasma, or other \"oxidative\" cleaning methods, followed by dehydration bake at ${ \\sim } 1 5 0 ^ { \\circ } \\mathrm { C }$ to remove adsorbed moisture before the application of the adhesion promoter. --[p487]-- A properly primed wafer surface typically has water contact angle values of 50 deg $&lt; \\Theta &lt; 7 0$ deg. --[p486]-- In conditions of high fluence exposure such as obtained in heavy UV exposure in ion-implantation steps, overpriming can also lead to a phenomenon known as \"popping,\" in which nitrogen formed in the DNQ/novolac-type resists may not escape from the film quickly enough through diffusion, but may instead accumulate at the resist-wafer interface, weakening the adhesion between the two surfaces, and resulting in the formation of bubbles there. --[p55]-- For DNQ/novolac resist, unreacted DNQ compounds can lead to problems in subsequent process steps such as implantation, which may cause the rapid release of nitrogen from the radiolysis of DNQ."
+ },
+ {
+  "query_id": "CHL-23",
+  "query": "EUV 多层膜反射镜 50 对 Mo/Si 的反射带宽有多窄?按书里的公式在 13.5nm 处换算成波长是多少?理论峰值反射率和实际做到的反射率各是多少?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式:①多层膜是共振结构,工作在布拉格条件附近的窄波段,相对带宽公式为 2Δλ/λ = 1/N;②代入 N=50:2Δλ/λ = 1/50 = 0.02,即总相对带宽 2%;在 λ=13.5nm 处,2Δλ = 13.5×0.02 = 0.27nm,即 Δλ = ±0.135nm(半宽约 0.135nm);③反射率:50 对 Mo(2.5nm)/Si(4.2nm)理想平滑界面理论峰值反射率 74%,实际因界面粗糙度等只能接近(approaching)70%(@13.5nm 正入射)。",
+  "success_criteria": "答出 2Δλ/λ=1/N=2%、Δλ=±0.135nm(或总带宽 0.27nm)、理论 74% 与实际约 70%。",
+  "evidence": "--[p229]-- Given that multilayer reflectors are resonant structures, they typically operate within a narrow range of wavelengths around the Bragg condition $$\\frac { 2 \\Delta \\lambda } { \\lambda } = \\frac { 1 } { N } .\\tag{14:7}$$ --[p228]-- normal incidence multilayer mirrors with reflectivity approaching 70% at 13.5 nm have been fabricated using the molybdenum-silicon pair. Figure 14.5 shows the calculated reflectivity curve for perfectly smooth interfaces of 50 alternating pairs of molybdenum (2.5 nm) and silicon layers (4.2 nm), indicating a theoretical peak reflectivity of 74%."
+ },
+ {
+  "query_id": "CHL-24",
+  "query": "线条倒塌对高宽比到底多敏感?高宽比从 2 提到 4,线弯曲量变多少倍?结合书里的杨氏模量数据,想抗倒塌该选哪类胶、怎么改?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式:①力学模型:把胶线弯曲视作弹性悬臂梁,施加毛细力 F 时线弯移量 δ = (3/2)(F/E)(h/d)^3(E 为杨氏模量),弯曲量与线条高宽比(h/d)的立方成正比;②计算:高宽比从 2 到 4,弯曲量变为 (4/2)^3 = 8 倍;③结合杨氏模量:光刻胶 E 典型 2–6 GPa(novolac 高端、acrylate 低端),Tg 高则 E 高;因此抗倒塌应选高 Tg/高模量胶(如 novolac 类)并降低线条高宽比(也可在漂洗液中加表面活性剂降低表面张力、用超临界 CO2 显影等)。",
+  "success_criteria": "答出 δ∝(h/d)^3、8 倍((4/2)^3)、杨氏模量 2–6 GPa,并给出提高 E(高 Tg)/降低高宽比的选胶或工艺建议。",
+  "evidence": "--[p53]-- $$\\hat { 8 } = \\frac { 3 } { 2 } \\left( \\frac { F } { E } \\right) \\left( \\frac { h } { d } \\right) ^ { 3 } .\\tag{11:41}$$ The fact that the amount of bending is proportional to the cube of the aspect ratio of the resist line implies that bending is very sensitive to the aspect ratio. --[p53]-- In general, resists have a Young's modulus in the range of 2–6 GPa (with novolac resists occupying the high end of the range and the acrylate resists occupying the low end of the range)."
+ },
+ {
+  "query_id": "CHL-25",
+  "query": "书里 EUV 光刻胶的灵敏度给了多少 mJ/cm²?直接给我一个具体数。",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出 EUV 光刻胶灵敏度的具体 mJ/cm² 数值,不得编造数字;书中的 EUV 光刻胶性能仅以图 14.24–14.26 形式展示:密集线条/间隔分辨率低至 25nm、40nm 线条/间隔图形的景深大于 200nm、接触孔分辨率低至 55nm;并补充:EUV 光刻胶以化学放大机制成像,树脂多为羟基苯乙烯、丙烯酸酯和脂环族聚合物,PAG 与 KrF/ArF 光刻胶化学类似但针对 EUV 优化,设计上通过聚合物骨架键合 PAG 或低活化能胶来限制光酸扩散。",
+  "success_criteria": "明确说明书中无 EUV 光刻胶灵敏度的 mJ/cm² 具体数值且不编造;能以 25nm L/S、&gt;200nm DOF@40nm L/S、55nm contact hole 等书中实际性能数据作为替代答复。",
+  "evidence": "--[p254]-- Dense line/space resolution down to 25-nm (Fig. 14.24), greater than 200-nm depth of focus for 40-nm line/space features (Fig. 14.25), and contact hole resolution down to 55 nm (Fig. 14.26) have been demonstrated with this technology. --[p254]-- Resins for EUV resists are mostly hydroxystyrene,&lt;sup&gt;144&lt;/sup&gt; acrylate,&lt;sup&gt;145&lt;/sup&gt; and alicyclic&lt;sup&gt;146&lt;/sup&gt; polymers of the kinds in use in KrF and ArF lithographic resists."
+ }
+]

@@ -1,0 +1,383 @@
+{
+  "run": "dev200_baseline",
+  "date": "2026-10-02",
+  "dataset": "eval/qa_sets/v2_20261001/dev_200.json",
+  "users": 10,
+  "questions": 200,
+  "errors": 0,
+  "judge_methodology": "口径修正后重判(2026-10-02):算术推导算 supported、定位用中间块算 relevant、拒答题(异常处理)剔除总口径单列",
+  "metrics": {
+    "total": 200,
+    "judged": 154,
+    "chitchat_skipped": 0,
+    "refusal_excluded": 9,
+    "avg_faithfulness": 0.8133,
+    "avg_context_precision": 0.5297,
+    "avg_context_recall": 0.6116,
+    "avg_answer_relevancy": 0.94,
+    "hallucination_count": 37,
+    "hallucination_rate": 0.2552,
+    "refusal_bucket": {
+      "n": 9,
+      "avg_faithfulness": 0.6545,
+      "avg_context_precision": 0.3333,
+      "hallucination_count": 5
+    }
+  },
+  "old_metrics_first_judge": {
+    "avg_faithfulness": 0.7724,
+    "avg_context_precision": 0.4662,
+    "avg_context_recall": 0.5629,
+    "avg_answer_relevancy": 0.9558,
+    "hallucination_count": 46,
+    "hallucination_rate": 0.2987
+  },
+  "faithfulness_by_task_type": {
+    "信息查询": {
+      "n": 92,
+      "avg": 0.8458
+    },
+    "工具编排": {
+      "n": 20,
+      "avg": 0.7716
+    },
+    "数据计算": {
+      "n": 33,
+      "avg": 0.7479
+    }
+  },
+  "context_precision_by_task_type": {
+    "信息查询": {
+      "n": 92,
+      "avg": 0.55
+    },
+    "工具编排": {
+      "n": 20,
+      "avg": 0.67
+    },
+    "数据计算": {
+      "n": 33,
+      "avg": 0.3879
+    }
+  },
+  "faithfulness_by_tier": {
+    "1": {
+      "n": 44,
+      "avg": 0.9018
+    },
+    "2": {
+      "n": 51,
+      "avg": 0.8108
+    },
+    "3": {
+      "n": 15,
+      "avg": 0.8179
+    },
+    "4": {
+      "n": 31,
+      "avg": 0.7162
+    },
+    "5": {
+      "n": 4,
+      "avg": 0.6086
+    }
+  },
+  "remaining_hallucinations": [
+    {
+      "id": "dev_193",
+      "task_type": "数据计算",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.0,
+      "q": "书里说 500:1 的稀 HF 对应总氟浓度约 0.05 M，按那个一阶刻蚀模型算，22°C 下刻掉 1 Å 的 SiO"
+    },
+    {
+      "id": "dev_106",
+      "task_type": "数据计算",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.0,
+      "q": "兆声 SC1 清洗实验里，每片晶圆沉积了约 1000 颗氮化硅粒子，清洗后扣除空白校正（空白片被清掉 B=50 颗）共清"
+    },
+    {
+      "id": "dev_114",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.0,
+      "q": "砂轮磨损量是怎么通过 GEM 上报给主机的?两个 VID 分别是多少?轮子没做参考(referenced)时上报什么值?"
+    },
+    {
+      "id": "dev_143",
+      "task_type": "数据计算",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.0,
+      "q": "HF 刻蚀模型 R=K[CF]-A 在 22°C 下 K=96.5、A=3.42，帮我算一下总氟浓度 0.2 M 时 S"
+    },
+    {
+      "id": "dev_196",
+      "task_type": "信息查询",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.0769,
+      "q": "我拿一片聚焦透镜处理准直高斯光束，心里没底：聚焦后束腰落在哪、有多大？光路上探测器前开多大孔径才不会把功率削掉？还有瑞利"
+    },
+    {
+      "id": "dev_030",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.0833,
+      "q": "超纯水漂洗里溶存臭氧对多晶硅接触电阻有多大影响？多少 ppb 就会出问题？溶氧本身呢？"
+    },
+    {
+      "id": "dev_183",
+      "task_type": "数据计算",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.2,
+      "q": "如果产线严格按 \"7天/5000片\" 的保养节奏满负荷跑,一个 900K 的磨削数据文件大约多少天就会被写满触发清空?("
+    },
+    {
+      "id": "dev_099",
+      "task_type": "工具编排",
+      "difficulty": "medium",
+      "expected_rounds": 3,
+      "faithfulness": 0.25,
+      "q": "报警 227 Vision Connection Error 的处理建议里说刷新视觉连接,这个操作在软件的哪个界面里做?"
+    },
+    {
+      "id": "dev_142",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.25,
+      "q": "臭氧水里的 OH 自由基产生跟 pH 有什么关系？做酸性臭氧水时臭氧和乙酸浓度大概调到多少？"
+    },
+    {
+      "id": "dev_139",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.2727,
+      "q": "氮化硅炉管原位清洗为什么最后选了 NF3？ClF3 和 F2 不是也能刻氮化硅吗？"
+    },
+    {
+      "id": "dev_200",
+      "task_type": "工具编排",
+      "difficulty": "hard",
+      "expected_rounds": 5,
+      "faithfulness": 0.2857,
+      "q": "我在评估机载 LiDAR 方案，要求垂直（距离）分辨率优于 50 cm。请先查一下手册里距离分辨率跟激光脉宽是什么关系、"
+    },
+    {
+      "id": "dev_014",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.3333,
+      "q": "识别设置里的 Recognition threshold 和 Recognition cutoff 单位是什么？管什么的"
+    },
+    {
+      "id": "dev_199",
+      "task_type": "数据计算",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.3333,
+      "q": "EUV 光刻里，光源发出的 13.5 nm 光穿过 ASML 的 50 nm 厚 pellicle 膜层后，又要经过 1"
+    },
+    {
+      "id": "dev_083",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.3333,
+      "q": "预成形的 Paddle position recognition 有哪几种模式？各种模式下识别出错时机器怎么动作？"
+    },
+    {
+      "id": "dev_155",
+      "task_type": "数据计算",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.3333,
+      "q": "一支 1064 nm 的光纤激光，光束质量 M²=1.3，按手册的定义它的光参积（BPP）等于多少？"
+    },
+    {
+      "id": "dev_192",
+      "task_type": "信息查询",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.3846,
+      "q": "HF 里加表面活性剂防粒子沾污，书里测的那几种效果怎么样？要是再把表面活性剂加进 SC-1 里管用吗？疏水面上为什么去除"
+    },
+    {
+      "id": "dev_052",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.3846,
+      "q": "氮气气溶胶清洗高深宽比的悬臂结构，喷嘴压力至少要多高才不会把结构打坏？长径比 200 的也能撑住吗？"
+    },
+    {
+      "id": "dev_157",
+      "task_type": "工具编排",
+      "difficulty": "medium",
+      "expected_rounds": 3,
+      "faithfulness": 0.3846,
+      "q": "我的 Q 开关激光器单脉冲几十 mJ，想逐个脉冲测能量。用 30A-BB-18 热电堆探头行不行？测的时候有什么限制？"
+    },
+    {
+      "id": "dev_197",
+      "task_type": "信息查询",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.4,
+      "q": "车间那台 4 类激光器要做安全规程评审。为什么激光对眼睛的危害最突出？MPE 是什么、怎么规定的？工程控制、程序控制和个"
+    },
+    {
+      "id": "dev_176",
+      "task_type": "信息查询",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.4167,
+      "q": "热磷酸蚀氮化硅这套工艺帮我查三个数：氮化硅对氧化硅的选择比能到多少？补水系统停掉后多久蚀刻速率就会漂？还有残磷造成的 h"
+    },
+    {
+      "id": "dev_180",
+      "task_type": "工具编排",
+      "difficulty": "hard",
+      "expected_rounds": 5,
+      "faithfulness": 0.4167,
+      "q": "我们要把栅氧前的最后一步从 SC1 换成 HF-last。帮我查清楚：HF-last 表面的铁为什么比有自然氧化层表面的"
+    },
+    {
+      "id": "dev_077",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.4286,
+      "q": "报警 11030023 是 after heater 过热，手册给的排查动作有哪些？"
+    },
+    {
+      "id": "dev_177",
+      "task_type": "信息查询",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.4286,
+      "q": "硅片键合前用 HF 预处理，HF 浓度从 1% 加到 50% 表面粗糙度怎么变？HF 刻完再泡水，对粗糙度和颗粒吸附各有"
+    },
+    {
+      "id": "dev_015",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.5,
+      "q": "一个 die pad 上最多能键合多少个点？这个参数叫什么名字、在哪组设置里？"
+    },
+    {
+      "id": "dev_049",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.5,
+      "q": "现在量产里做 post-ash 清洗，每次清洗的热氧化硅损耗量要控制在多少才算达标？"
+    },
+    {
+      "id": "dev_079",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.5,
+      "q": "层压（Lamination）报 71300008 说 head wait position 数据错误，是哪个参数设小了？"
+    },
+    {
+      "id": "dev_081",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.5,
+      "q": "5.3.3.1 温度真空设置里，哪些加热项目是只有 DB-800HL 机型才有的？"
+    },
+    {
+      "id": "dev_172",
+      "task_type": "数据计算",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.5,
+      "q": "我们用的是内径 1.5mm 的 laser mark rubber tip,按手册要求换完 tip 后,tip 中心和 "
+    },
+    {
+      "id": "dev_167",
+      "task_type": "工具编排",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.5455,
+      "q": "预成形报 31002039，说 X mode 的 Number in Block 超过 32。为什么上限偏偏是 32？这"
+    },
+    {
+      "id": "dev_168",
+      "task_type": "数据计算",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.5556,
+      "q": "报 51310015 说 wafer motion radius 设小了。我用的晶圆是 φ300mm，Attach Of"
+    },
+    {
+      "id": "dev_028",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.5714,
+      "q": "晶圆在 630 BHF 里泡完总出现微粗糙，表面活性剂要加到多大浓度才压得住？泡 48 小时还能保证不出现粗糙吗？"
+    },
+    {
+      "id": "dev_184",
+      "task_type": "工具编排",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.6,
+      "q": "同样是砂轮磨损超限,磨硅片时报 \"Coarse wheel wear limit\" 和磨 AlTiC 时报同样消息,机器"
+    },
+    {
+      "id": "dev_122",
+      "task_type": "工具编排",
+      "difficulty": "medium",
+      "expected_rounds": 3,
+      "faithfulness": 0.625,
+      "q": "屏幕上跳出 Left Grind Seal 故障,怎么判断是没装传感器却开了读取开关,还是真空真的出问题了?如果装了密封"
+    },
+    {
+      "id": "dev_005",
+      "task_type": "信息查询",
+      "difficulty": "easy",
+      "expected_rounds": 1,
+      "faithfulness": 0.6667,
+      "q": "我们车间要处理砷化镓晶圆，安全培训要用。手册里砷（Arsenic）和锗（Germanium）的 NFPA 健康等级分别是"
+    },
+    {
+      "id": "dev_154",
+      "task_type": "数据计算",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.6667,
+      "q": "车间一台脉冲激光器：单脉冲能量 1 J、脉宽 10 ns、重复频率 10 Hz。它的平均功率和峰值功率各是多少？"
+    },
+    {
+      "id": "dev_170",
+      "task_type": "数据计算",
+      "difficulty": "hard",
+      "expected_rounds": 4,
+      "faithfulness": 0.6667,
+      "q": "手册规格写设备电源是 7.5 kVA、AC200~240V 单相。按 200V 供电算，设备至少要留多大电流容量的空开？"
+    },
+    {
+      "id": "dev_103",
+      "task_type": "信息查询",
+      "difficulty": "medium",
+      "expected_rounds": 2,
+      "faithfulness": 0.7143,
+      "q": "热磷酸槽的补水 DI 注入停掉之后，氮化硅/氧化硅蚀刻速率多久会看出变化？用冷凝槽盖回收水汽能不能顶替补水？"
+    }
+  ]
+}

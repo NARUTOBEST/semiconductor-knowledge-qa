@@ -49,16 +49,88 @@ from ..support.tool_errors import Stage, Kind, ToolCallError, error_tool_message
 from support.metrics import metrics  # noqa: E402
 from message_builder import build_messages  # noqa: E402
 from context_management import truncate_tool_result  # noqa: E402
+from compressor import compress_chunks  # noqa: E402
 from ..trace import TraceRecorder  # noqa: E402
 from ..utils.sources import sources_from_result, final_citation_cards  # noqa: E402
 from ..utils.events import meta_event  # noqa: E402
 
 logger = logging.getLogger("agent")
 
+
+def _compressed_result_content(result, *, question: str,
+                               trace_id: str) -> str | None:
+    """单条 list[dict] 检索结果 -> 轻模型抽关键句后的 JSON 文本(保留元数据)。
+
+    不适用或压缩链路任何失败(熔断/超时/解析失败)返回 None,调用方回退
+    truncate_tool_result 原截断。
+    """
+    if not (isinstance(result, list) and result):
+        return None
+    chunks = [c for c in result
+              if isinstance(c, dict) and str(c.get("content") or "").strip()]
+    if not chunks or not all(isinstance(c, dict) for c in result):
+        return None
+    picked = compress_chunks(chunks, question, trace_id=trace_id)
+    if picked is None:
+        return None
+    try:
+        out = []
+        for c, s in zip(chunks, picked):
+            d = dict(c)
+            if s:
+                d["content"] = s
+            out.append(d)
+        return json.dumps(out, ensure_ascii=False, default=str)
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _compress_pool_of_step(executed: list[dict], *, question: str,
+                           trace_id: str, state: AgentState) -> dict[tuple[int, int], str]:
+    """整步批量压缩:把本步所有召回类结果的 chunk 合并成一次轻模型调用。
+
+    一次 LLM 调用 2-4s,若每个工具结果各调一次,一步 3 个检索会 +6-9s,
+    得不偿失;合并后每步固定 +1 次调用。返回 {(executed下标, chunk下标): 关键句}。
+    任何失败(熔断/超时/解析失败/体量不足)返回 {} —— 调用方回退原截断。
+    """
+    pool: list[dict] = []
+    slots: list[tuple[int, int, int]] = []  # (executed下标, chunk下标, pool下标)
+    for ei, r in enumerate(executed):
+        if r.get("err") is not None:
+            continue
+        spec_r = r.get("spec")
+        if not (spec_r and getattr(spec_r, "produces_sources", False)):
+            continue
+        res = r.get("result")
+        if not (isinstance(res, list) and res):
+            continue
+        if not all(isinstance(c, dict) for c in res):  # 混合结构交回截断路径
+            continue
+        for ci, c in enumerate(res):
+            if str(c.get("content") or "").strip():
+                slots.append((ei, ci, len(pool)))
+                pool.append(c)
+    if not pool:
+        return {}
+    # 端到端预算余量不足时不压缩(压缩调用最长 CONTEXT_COMPRESS_TIMEOUT,
+    # 不能把主链路的最后几秒烧在可选增强上)
+    rem = _remaining_budget(state)
+    budget_needed = float(getattr(C, "CONTEXT_COMPRESS_TIMEOUT", 12)) + 6.0
+    if rem is not None and rem < budget_needed:
+        logger.info("compress skip: budget %.1fs < %.1fs (trace=%s)",
+                    rem, budget_needed, trace_id)
+        return {}
+    logger.info("compress pool: %d chunks %d chars (trace=%s)", len(pool),
+                sum(len(str(c.get("content") or "")) for c in pool), trace_id)
+    picked = compress_chunks(pool, question, trace_id=trace_id)
+    if picked is None:
+        return {}
+    return {(ei, ci): picked[pi] for ei, ci, pi in slots if picked[pi]}
+
 from .state import AgentState  # noqa: E402
 from ..support.llm import (  # noqa: E402
     get_client, llm_create_with_retry, STREAM_TIMEOUT, no_think_extra,
-    arm_stream_watchdog,
+    arm_stream_watchdog, LLMServiceUnavailable,
 )
 from ..support.tool_pool import get_pool  # noqa: E402
 from memories.storage.working.summarize import format_summary_block  # noqa: E402
@@ -134,6 +206,17 @@ def _no_source_status(tool_status: dict[str, str]) -> str:
     if tool_status.get(Category.RETRIEVAL) == "down":
         return ("⚠️ 检索服务暂时不可用，以下回答可能缺乏文献支持，请注意核实。")
     return "未检索到相关资料,尝试基于通用知识回答…"
+
+
+# 零来源答案中的"伪引用"特征:标准内联引用 [《文档》 pNN] / "根据内部资料" /
+# 书名号引用。全程零检索来源时出现,即检索失败后模型模仿引用格式裸编
+# (轮次13:20 并发实测 24 题,recall_memory 豁免绕开裸答熔断后放行)。
+# 如实拒答("…未找到/暂未提及")同样会提到内部资料,须排除——只拦"有引用架势"
+# 的裸编,不拦"没查到就说没查到"。
+_FABRICATED_CITATION_RE = re.compile(
+    r"根据内部资料|\[[^\[\]]{2,80}\]|《[^》]{2,60}》")
+_FAIR_REFUSAL_RE = re.compile(
+    r"未找到|未提及|暂未|无法核实|未能找到|资料中不|没有找到|无法查证")
 
 
 # 各工具类别故障时给模型的人类可读名称与替代策略(注入 system 提示,引导自适应)
@@ -482,7 +565,7 @@ def agent_node(state: AgentState, config) -> dict:
                "result_preview": preview[:RESULT_PREVIEW_LEN]
                    + ("…" if len(preview) > RESULT_PREVIEW_LEN else ""),
                "error": None, "error_type": None})
-            w({"type": "sources", "items": list(pre_srcs.values())[:6],
+            w({"type": "sources", "items": list(pre_srcs.values())[:8],
                "trace_id": trace_id, "step": 0})
             pre_patch = {
                 "collected_sources": pre_srcs,
@@ -491,7 +574,11 @@ def agent_node(state: AgentState, config) -> dict:
                     (float(s.get("score") or 0.0) for s in pre_srcs.values()),
                     default=0.0),
             }
-            pre_content = truncate_tool_result(
+            # 预检索结果是后续每步 prompt 的常驻底座,优先压缩(整段最大回灌);
+            # 压缩不可用回退原截断
+            pre_content = _compressed_result_content(
+                pre_search, question=str(state.get("question") or ""),
+                trace_id=trace_id) or truncate_tool_result(
                 pre_search, C.CONTEXT_TOOL_RESULT_MAX_CHARS, spec=spec_pre)
             openai_messages = openai_messages + [
                 {"role": "assistant",
@@ -557,13 +644,20 @@ def agent_node(state: AgentState, config) -> dict:
             llm_kwargs["tool_choice"] = "auto"
     client = get_client()
     t_llm = time.time()
-    stream, err = llm_create_with_retry(
-        client, trace_id=trace_id, **llm_kwargs,
-    )
+    try:
+        stream, err = llm_create_with_retry(
+            client, trace_id=trace_id, site="react-answer", **llm_kwargs,
+        )
+    except LLMServiceUnavailable as e:
+        # 熔断器放弃(连续 2 次半开试探失败):按用户口径认定本次作答无效,
+        # 明确报"该环节 LLM 服务不可用",不走静默降级。
+        stream, err = None, e
     if err is not None:
+        _msg = (str(err) if isinstance(err, LLMServiceUnavailable)
+                else f"模型请求失败: {str(err)[:160]}")
         err_doc = recorder.record_error(step, "llm_create", err)
         w({"type": "error_trace", "trace_id": trace_id, **err_doc})
-        w({"type": "error", "message": f"模型请求失败: {str(err)[:160]}",
+        w({"type": "error", "message": _msg,
            "trace_id": trace_id, "step": step})
         recorder.finish_step(step_doc, "error")
         recorder.final_reason = "error"
@@ -663,6 +757,7 @@ def agent_node(state: AgentState, config) -> dict:
         try:
             _resp, _rerr = llm_create_with_retry(
                 client, trace_id=trace_id, retries=1,
+                site="react-rescue",
                 model=str(getattr(C, "MODEL_LIGHT", "")
                           or "doubao-seed-2.0-lite"),
                 messages=openai_messages,
@@ -783,8 +878,11 @@ def agent_node(state: AgentState, config) -> dict:
                    "message": "检测到过程性叙述,正在重新生成最终答案…",
                    "trace_id": trace_id, "step": step})
                 try:
-                    _client = get_client()
-                    _r2 = _client.chat.completions.create(
+                    # 直连改走统一封装:补齐三状态熔断记账(原直连绕过熔断,
+                    # 是 600s 挂死排查中发现的裸调用点之一)。
+                    _r2, _r2err = llm_create_with_retry(
+                        get_client(), trace_id=trace_id, retries=1,
+                        site="react-salvage",
                         model=getattr(C, "TIER_MODEL_REACT", None) or C.OPENAI_TEXT_MODEL,
                         messages=openai_messages + [
                             {"role": "assistant", "content": content_buf},
@@ -798,8 +896,9 @@ def agent_node(state: AgentState, config) -> dict:
                         max_tokens=int(getattr(C, "REACT_ANSWER_MAX_TOKENS", 600)),
                         timeout=STREAM_TIMEOUT,
                     )
-                    _txt2 = ((_r2.choices[0].message.content
-                              if _r2.choices else "") or "").strip()
+                    _txt2 = ("" if _r2err is not None else
+                             ((_r2.choices[0].message.content
+                               if _r2.choices else "") or "").strip())
                     if _txt2 and not _NARRATION_RE.search(_txt2):
                         if full_reply.endswith(content_buf):
                             full_reply = full_reply[:-len(content_buf)] + _txt2
@@ -911,6 +1010,9 @@ def execute_tools_node(state: AgentState, config) -> dict:
     mem_username = (config.get("configurable", {}).get("user_id")
                     or state.get("user_id"))
     mem_thread_id = config.get("configurable", {}).get("thread_id")
+    # 轮次9:会话锁定的目标文档族,注入本轮 search_text 调用(用户反问选定后
+    # 强制 scope 加权,跳过词面推断)。
+    mem_scope_stem = config.get("configurable", {}).get("scope_stem") or ""
     mem_prefetch_ids: set = set()
     try:
         from tools.memory_tool import (
@@ -939,6 +1041,8 @@ def execute_tools_node(state: AgentState, config) -> dict:
                 circuits.append(ev)
 
         cache_hit_var.set(False)  # 复位;handler 命中缓存时置 True(同线程可见)
+        if name == "search_text" and mem_scope_stem and not args.get("scope_stem"):
+            args = {**args, "scope_stem": mem_scope_stem}
         try:
             result, err = call_with_resilience(
                 name, args, spec, deadline=hard_deadline,
@@ -991,7 +1095,10 @@ def execute_tools_node(state: AgentState, config) -> dict:
                 fut.cancel()  # 排队中的可取消;运行中的允许跑完(结果丢弃),不 join
 
     # 结果回主线程:发 circuit/tool_result、记 metrics/trace、合并来源、构造 ToolMessage。
-    for r in executed:
+    comp_map = _compress_pool_of_step(
+        executed, question=str(state.get("question") or ""),
+        trace_id=trace_id, state=state)
+    for ei, r in enumerate(executed):
         name = r["name"]
         args = r["args"]
         tcid = r["tcid"]
@@ -1046,10 +1153,27 @@ def execute_tools_node(state: AgentState, config) -> dict:
                 if key not in new_sources or _s.get("score", 0) > new_sources[key].get("score", 0):
                     new_sources[key] = _s
 
-        # 回灌 LLM 的 ToolMessage:成功截断结果;失败用面向模型的纠错文案。
+        # 回灌 LLM 的 ToolMessage:召回类结果优先用整步批量压缩后的关键句
+        # (comp_map 为空 = 压缩关闭/失败/不适用,回退原截断);失败回灌纠错文案。
         if tool_ok:
+            content = None
+            if comp_map:
+                comp = [comp_map.get((ei, ci))
+                        for ci, c in enumerate(result) if isinstance(c, dict)]
+                if any(comp):
+                    dicts = [c for c in result if isinstance(c, dict)]
+                    try:
+                        out = []
+                        for c, s in zip(dicts, comp):
+                            d = dict(c)
+                            if s:
+                                d["content"] = s
+                            out.append(d)
+                        content = json.dumps(out, ensure_ascii=False, default=str)
+                    except Exception:  # noqa: BLE001
+                        content = None
             tool_msgs.append(ToolMessage(
-                content=truncate_tool_result(
+                content=content or truncate_tool_result(
                     result, C.CONTEXT_TOOL_RESULT_MAX_CHARS, spec=spec),
                 tool_call_id=tcid))
         else:
@@ -1079,7 +1203,7 @@ def execute_tools_node(state: AgentState, config) -> dict:
 
     if total_sources:
         metrics.record_search(hit=True)
-        w({"type": "sources", "items": list(total_sources.values())[:6],
+        w({"type": "sources", "items": list(total_sources.values())[:8],
            "trace_id": trace_id, "step": step})
     else:
         metrics.record_search(hit=False)
@@ -1131,6 +1255,18 @@ def finalize_node(state: AgentState, config) -> dict:
     is_error = decision == "error"
     is_incomplete = decision in ("max_steps", "timeout")
     if not is_error and full_reply.strip():
+        # 轮次13 防静默幻觉收尾守门:全程零检索来源(collected_sources 空)而答案
+        # 带"根据内部资料/[《文档》 pNN]/书名号"式伪引用——检索失败后模型模仿
+        # 引用格式裸编。裸答熔断有上下文豁免(recall_memory/多轮)可能放行,这里
+        # 确定性兜底:前置显式声明,让"未经资料核实"对用户可见(不替换正文,
+        # 保留模型答案的参考价值)。
+        if (not collected_sources
+                and _FABRICATED_CITATION_RE.search(full_reply)
+                and not _FAIR_REFUSAL_RE.search(full_reply)):
+            full_reply = ("⚠️ 说明:本轮知识库检索未返回可用资料,"
+                          "以下内容未经内部资料核实,其中的引用出处不可信,"
+                          "请谨慎参考。\n\n") + full_reply
+            logger.warning("零来源答案含伪引用,已前置未核实声明 trace=%s", trace_id)
         msg: dict[str, Any] = {"type": "assistant_message",
                                "trace_id": trace_id, "content": full_reply}
         if is_incomplete:

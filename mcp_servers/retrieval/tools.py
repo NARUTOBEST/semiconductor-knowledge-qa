@@ -56,9 +56,19 @@ def search_text(
     k: Annotated[int, Field(description="返回的条数(按相关度降序)。")] = 3,
     score_ratio: Annotated[float, Field(
         description="相关分阈值系数:保留 score >= 最高分*score_ratio 的结果,默认 0.6。")] = 0.6,
-) -> list[dict]:
-    """文本库混合检索(dense+sparse RRF)+ 精确代码兜底 + 重排。"""
-    return _run(engine_api.search_text, query, k=k, score_ratio=score_ratio)
+    scope_stem: Annotated[str, Field(
+        description="内部参数(会话状态自动注入,调用时不要设置):用户选定的目标文档族,非空时跳过词面推断直接锁定加权。")] = "",
+    with_scope_info: Annotated[bool, Field(
+        description="内部参数(调用时不要设置):响应附带 scope 锁定/冲突信号。")] = False,
+) -> dict:
+    """文本库混合检索(dense+sparse RRF)+ 精确代码兜底 + 重排。
+
+    注意:engine 返回 {"items": [...], ...} dict(with_ranked/scope 信号),
+    注解必须与实际一致——标 list[dict] 时 mcp 2.x 按 list 生成输出 schema,
+    结果 dict 过不了校验,tool 直接 isError(20261007 部署踩坑)。
+    """
+    return _run(engine_api.search_text, query, k=k, score_ratio=score_ratio,
+                scope_stem=scope_stem, with_scope_info=with_scope_info)
 
 
 @mcp.tool(

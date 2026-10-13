@@ -36,7 +36,29 @@ function CodeBlock({ lang, code }: { lang: string; code: string }) {
   );
 }
 
-function MarkdownImpl({ content }: { content: string }) {
+/** 把正文里的来源引用 [文档名 pN] / [文档名] 转成 Markdown 链接。
+ *  仅当文档名精确命中来源的 source_stem(有原文档直链)才转,避免误链。
+ *  链接目标用 <url> 角括号包裹(签名 URL 长,防解析截断);链接文本转义
+ *  Markdown 特殊字符,保持与原引用显示一致。 */
+function linkifyCites(content: string, citeLinks?: Record<string, string>) {
+  if (!citeLinks || Object.keys(citeLinks).length === 0) return content;
+  const esc = (s: string) => s.replace(/([_[\]*])/g, "\\$1");
+  return content.replace(
+    /\[([^\[\]\n]+?)(?:\s+(p\d+(?:[-–]\d+)?))?\]/g,
+    (m, stem: string, pg?: string) => {
+      const href = citeLinks[stem];
+      return href ? `[${esc(stem)}${pg ? " " + pg : ""}](<${href}>)` : m;
+    },
+  );
+}
+
+function MarkdownImpl({
+  content,
+  citeLinks,
+}: {
+  content: string;
+  citeLinks?: Record<string, string>;
+}) {
   return (
     <div className="md">
       <ReactMarkdown
@@ -63,7 +85,7 @@ function MarkdownImpl({ content }: { content: string }) {
           },
         }}
       >
-        {content}
+        {linkifyCites(content, citeLinks)}
       </ReactMarkdown>
     </div>
   );

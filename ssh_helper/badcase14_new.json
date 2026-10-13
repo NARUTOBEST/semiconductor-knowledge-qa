@@ -1,0 +1,1267 @@
+{
+ "dev_003": {
+  "q": "厂房这边要给 6DS-SP 预留去离子水（D.I. water）管路，手册要求的 D.I. 水供给峰值流量、平均流量和压力各是多少？",
+  "baseline_top5": [
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01388",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "content": "The flow rate is proportional to the 0 to 5 volt analog output signal. The peristaltic pumps, energized for the programmed flow rate and duration, pump D.I. wat"
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01135",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "content": "Hg\nD.I. Water: 30 PSI minimum 45 PSI maximum\n(Note that Teflon D.I. water plumbing is now standard on all machines.)\nAcid Drain: 1-1/2-in. pipe\nIndustrial Waste"
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00315",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "content": "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS\nIMPORTANT: The necessary utilities must meet the required specifications (shown below) in order for the Model "
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01802",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500",
+    "content": "Also, an elevator tank with D.I. water system must be installed in the buffer cassette (right send) position so that buffered polished wafers can be stored subm"
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000__t01287",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000",
+    "content": "6DS-SP DATE AND TIME SETTING\nThe date and time are set in the 6DS-SP in \"DOS\" using the standard DOS commands.\nNote: You don't have to do all date and time step"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01137",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "score": 0.9662267078842328,
+    "content": "Component | Service | ServiceSize | Connector | PeakFlow | AverageFlow | Pressure | Notes\nPlanarizer | D.I. Water Supply | 1/2&quot; | 3/8&quot;FNPT | 6 GPM | 3 GPM | 30-45 PSI\nD.I. Water Return | 1/2&quot; | 3/8&quot; FNPT | * | * | * | * Unrestricted return\nClean Dry Air | 1/2&quot; | 3/8&quot; FNPT | 10 SCFM | 3 SCFM | 100 PSI\nVacuum | 3/8&quot; | 3/8&quot; comp | 1 SCFM | 0.5 SCFM | 20&quot; Hg min.\nExhaust | 6&quot; | 6&quot; exhaust | 250 SCFM | 250 SCFM | 1/2 water col."
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00315",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "score": 0.916923076923077,
+    "content": "CONFIRMING THAT UTILITY SOURCES MEET REQUIREMENTS\nIMPORTANT: The necessary utilities must meet the required specifications (shown below) in order for the Model 6DS-SP Planarizer to operate correctly.\nThe following list identifies the minimum facilities requirements for the machine:\nElectrical: 208 VAC, THREE-PHASE 60 Hz, 60 FLA\nClean Dry Air: 100 PSI, 10 SCFM\nVacuum: 20 in. Hg\nD.I. Water: 30 PSI minimum 45 PSI maximum\n(Note that teflon D.I. water plumbing is now standard on all machines.)"
+   },
+   {
+    "chunk_id": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00318",
+    "stem": "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500",
+    "score": 0.9095526366066352,
+    "content": "| 23 | 275 | none | none | Unit mounted on rolling stand\nComponent | Service | ServiceSize | Connector | PeakFlow | AverageFlow | Pressure | Notes\nPlanarizer | D.I. Water Supply | 1/2&quot; | 3/8&quot; FNPT | 6 GPM | 3 GPM | 30-45 PSI\nD.I. Water Return | 1/2&quot; | 3/8&quot; FNPT | * | * | * | * Unrestricted return\nClean Dry Air | 1/2&quot; | 3/8&quot; FNPT | 10 SCFM | 3 SCFM | 100 PSI\nVacuum | 3/8&quot; | 3/8&quot; comp | 1 SCFM | 0.5 SCFM | 20&quot; Hg min."
+   },
+   {
+    "chunk_id": "晶圆减薄研磨机strasbaugh Model 7AB-II-含图纸ncompass_7abii__t00089",
+    "stem": "晶圆减薄研磨机strasbaugh Model 7AB-II-含图纸ncompass_7abii",
+    "score": 0.8970520843667174,
+    "content": "FACILITY SERVICES DATA\nCOMPONENT | SERVICE | SERVICECONNECTION | PEAK FLOW | AVERAGE FLOW | PRESSURE\nEDGE GRINDER(Main Machine) | D.I Water Sup. | 3/8&quot; P-Flo Tubing | 6 GPM | 2 GPM | 20-40 PSI\nAir | 3/8&quot; P-Flo Tubing | 5 CFM | 3 SCFM | 90 PSI\nExhaust | 4&quot; Exhaust | 500 CFM | 100 SCFM\nVacuum | 3/8&quot; P-Flo Tubing | 4 CFM | 2 CFM | 25&quot; Hg\nWaste Drain | 3/4&quot; PVC | 2 GPM | 1 GPM | None"
+   }
+  ],
+  "new_pool_ids": [
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01388",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00315",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01135",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01802",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP 设备介绍__t00036",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01643",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01137",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01650",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01613",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000__t01287",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01387",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01302",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t00172",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01383",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t00169",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t00175",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000__t01147",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t00171",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01330",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00067",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00982",
+   "晶圆减薄研磨机strasbaugh Model 7AB-II-含图纸ncompass_7abii__t00089",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00197",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p501-1000__t01266",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t01134",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00318",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t00087",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01068",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01412",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t01490",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1001-1500__t00173",
+   "晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer_p1-500__t00422",
+   "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t01073",
+   "硅料酸洗机 SCrystal-Processing-13-FIT-SLQX14E-001__t00107"
+  ]
+ },
+ "dev_028": {
+  "q": "晶圆在 630 BHF 里泡完总出现微粗糙，表面活性剂要加到多大浓度才压得住？泡 48 小时还能保证不出现粗糙吗？",
+  "baseline_top5": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01076",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "Fig.2 SEM photographs of the P type Si(100) wafer surface after immersed in 630BHF containing 100 ppm surfactant for 24 hours at 25 ℃. Surfactant type is (a) hy"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01049",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "However, the surfactants which are suitable for BHF are limited by the following 8 items: namely, (I)the etching rate of the Si oxide film by BHF does not chang"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01068",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "Since the pH value scarcely changes by the surfactant addition, the ionic equilibrium in BHF solution is considered not to be affected by the surfactant additio"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01041",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "ABSTRACT\nFor the purpose of preventing the generation of microroughness on the Si wafer surface in buffered hydrogen fluoride(BHF), the effect of the surfactant"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01071",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "Conclusions\nIt was found that the generation of microroughness on the Si wafer surface in BHF was prevented by a several 10 ppm order addition of surfactant. It"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01059",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.9957396711036188,
+    "content": "Accordingly, an addition of more than 50ppm hydrocarbon or perfluorocarbon anionic surfactant is very effective for both the prevention of the microroughness generation on the Si wafer surface and the suppression of the Si dissolution in 630BHF from Si wafer.\nIn general, Si is etched by OH\" in an alkaline solution as follows(6):\n$$\n\\ S 1 ~ + ~ 4 0 H ^ { - }  \\ S i ( 0 H ) _ { 4 } ~ + ~ 4 e ^ { - }\n$$\nIn conventional BHF, Si is oxidized by OH\\~ in BHF and is dissolved by HF in BHF as follows(7) :\n$$"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01076",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.9560975609756098,
+    "content": "Fig.2 SEM photographs of the P type Si(100) wafer surface after immersed in 630BHF containing 100 ppm surfactant for 24 hours at 25 ℃. Surfactant type is (a) hydrocarbon anionic, (b) hydrocarbon cationic, (c)perfluorocarbon anionic with 2000ppm IPA, and (d) only . IPA(2000ppm) addition.\nFig.5 Dependence of pH and the amount of dissolved Si after immersed in BHF on the HF concentration in BHF."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01071",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.9285203294543132,
+    "content": "Conclusions\nIt was found that the generation of microroughness on the Si wafer surface in BHF was prevented by a several 10 ppm order addition of surfactant. It was confirmed that the effective prevention of the microroughness generation was observed by 50 ppm addition of hydrocarbon anionic and perfluorocarbon anionic surfactant."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t01064",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.9058554835330226,
+    "content": "However, the dissolution of Si is suppressed by the addition of hydrocarbon anionic surfactant independently on the NH₄F and HF concentrations. Figure 6 shows SEM photographs of the N type Si(100) wafer surface after immersed in 630BHF and in BHF with a low NH4F concentration. The microroughness is suppressed by lowering the NH₄F concentration in BHF, and is also prevented by the addition of hydrocarbon anionic surfactant."
+   }
+  ],
+  "new_pool_ids": [
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01076",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01048",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01049",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01068",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01071",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01041",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01064",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01059",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01051",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01058",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00072",
+   "21世纪先进制造技术丛书 微纳米制造技术及应用 张德远 等编著 2015年版_p99-147__t00116",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01046",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01066",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01052",
+   "21世纪先进制造技术丛书 微纳米制造技术及应用 张德远 等编著 2015年版__t00331",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01073",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01053",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01045",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00071",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01111",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01072",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01086",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01047",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00932",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01063",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01065",
+   "半导体制程RCA清洗IC__t00011",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t01055",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t01189",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01070",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t01050",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00705",
+   "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00112"
+  ]
+ },
+ "dev_036": {
+  "q": "书里 SOI 硅纳米膜转移前释放埋氧层(BOX)用的是哪种刻蚀液?要浸泡多久?",
+  "baseline_top5": [
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00506",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "content": "SOI释放法制备薄膜片与外延剥离法类似。SOI(silicon on insulator)是绝缘体上薄层硅的英文缩写，其中绝缘体层通常是利用热氧化方法在Si片上形成的$\\mathrm { S i O _ { 2 } }$ 层，SOI通过键合方法制作在Si衬底上，然后再通过减薄和抛光工艺除去S片上表面的 $\\mathrm"
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00507",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "content": "由于商业可以购买到的SOI中的Si层最薄已经可以做到20nm左右，而氧化层 $\\mathrm { S i O _ { 2 } }$ 可以减少至2nm，同时具有非常高的表面均匀性(0.3 nm)。\n因此，利用SOI剥离制备Si纳米片的厚度可以通过SOI上面Si膜的厚度进行控制，获得Si薄膜的厚度选择范围较大。同时，可以根"
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291__t00049",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291",
+    "content": "SOI释放法制备薄膜片与外延剥离法类似。SOI(silicon on insulator)是绝缘体上薄层硅的英文缩写，其中绝缘体层通常是利用热氧化方法在Si片上形成的$\\mathrm { S i O _ { 2 } }$ 层，SOI通过键合方法制作在Si衬底上，然后再通过减薄和抛光工艺除去Si片上表面的 $\\mathr"
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291__t00050",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p195-291",
+    "content": "由于商业可以购买到的SOI中的Si层最薄已经可以做到20nm左右，而氧化层 $\\mathrm { S i O _ { 2 } }$ 可以减少至2nm，同时具有非常高的表面均匀性(0.3 nm)。\n因此，利用SOI剥离制备Si纳米片的厚度可以通过SOI上面Si膜的厚度进行控制，获得Si薄膜的厚度选择范围较大。同时，可以根"
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00508",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "content": "上面介绍的这些表面剥离技术在制备特殊结构及形状的纳米薄膜方面具有一定的优势，它可以将原来利用传统薄膜沉积、光刻及后续的溶脱工艺直接简化，既可以制备单个纳米薄片，也可以结合光刻和干法刻蚀形成图形阵列结构，再进行整体剥离和转移，因此具有较大灵活性和可操作性，为研究纳米材料特性、纳米结构与器件性能与系统集成应用提供了更为丰富"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "SEMI 标准合集_p5001-5500__t01957",
+    "stem": "SEMI 标准合集_p5001-5500",
+    "score": 0.850627575105005,
+    "content": "8.6.1.3 In evaluation by copper decoration method, an SOI layer is first etched off by KOH solution to expose a BOX layer. Then the wafer is immersed in methanol and brought downward into direct contact with the gold-coated cathode. A copper mesh as an anode is immersed in the liquid 5 mm above the wafer. Required voltage is applied, such as the electric field in the buried oxide layer is 1 MV/cm. The voltage is measured at the oxide surface with a surface voltage probe."
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00506",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "score": 0.842857142857143,
+    "content": "SOI释放法制备薄膜片与外延剥离法类似。SOI(silicon on insulator)是绝缘体上薄层硅的英文缩写，其中绝缘体层通常是利用热氧化方法在Si片上形成的$\\mathrm { S i O _ { 2 } }$ 层，SOI通过键合方法制作在Si衬底上，然后再通过减薄和抛光工艺除去S片上表面的 $\\mathrm { S i O } _ { 2 }$ 及多余的 Si至需要的厚度，原来 Si 片下面的 $\\mathrm { S i O _ { 2 } }$ 则成为 SOI层中绝缘层。图7.19(a)给出SOI释放剥离方法的基本工艺过程及制备的Si纳米薄膜SEM图，如图所示，通过利用HF酸刻蚀除去Si薄层下面的 $\\mathrm { S i O _ { 2 } }$ 层，从而释放顶层Si薄膜，最后剥离获得Si纳米薄膜。由于商业可以购买到的SOI中的Si层最薄已经可以做到20nm左右，而氧化层 $\\mathrm { S i O _ { 2 } }$ 可以减少至2nm，同时具有非常高的表面均匀性(0.3 nm)。"
+   },
+   {
+    "chunk_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00507",
+    "stem": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+    "score": 0.7128219915593725,
+    "content": "由于商业可以购买到的SOI中的Si层最薄已经可以做到20nm左右，而氧化层 $\\mathrm { S i O _ { 2 } }$ 可以减少至2nm，同时具有非常高的表面均匀性(0.3 nm)。\n因此，利用SOI剥离制备Si纳米片的厚度可以通过SOI上面Si膜的厚度进行控制，获得Si薄膜的厚度选择范围较大。同时，可以根据需要设计图形阵列，通过光刻实现图形制备，利用干法刻蚀露出结构侧壁，再采用 HF 酸腐蚀 $\\mathrm { S i O _ { 2 } }$ 释放顶层图形化Si薄膜，最后，用软模板粘连转移方法将图形化的Si纳米薄膜转移到目标衬底上，实现图形化阵列结构集成器件的应用14]，具体工艺步骤如图7.19(b)所示。除了利用这种方法制备Si纳米薄膜外，一些类SOI结构如VI族的 Ge/绝缘体结构(Ge on insulator)也可以采用相似的方法获得纳米薄膜，甚至可以制备SiGe等化合物半导体薄膜/绝缘体结构。与前面介绍的各向异性刻蚀法制备Si单晶纳米薄膜相比，SOI释放法工艺简单，可以制备薄膜厚度范围较大，最薄至～20nm的硅薄膜；而各向异性刻蚀法需要掩模制作，工艺相对复杂，但可以同时制备形成多层垛积的硅纳米片，因此单次制备百纳米厚度硅单晶纳米薄膜的数量较多。\n(a)制备 Si纳米片薄膜[14];(b)制备具有图形结构的Si纳米薄膜"
+   },
+   {
+    "chunk_id": "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t00489",
+    "stem": "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版",
+    "score": 0.5344447979319082,
+    "content": "9.5.5 二氧化硅湿法刻蚀\n最普通的刻蚀层是热氧化形成的二氧化硅。基本的刻蚀剂是氢氟酸(HF)，它有刻蚀二氧化硅而不伤及硅的优点。然而，饱和浓度的氢氟酸在室温下的刻蚀速率约为300Å/s[7]。这个速率对于一个要求控制的工艺来说太快了（3000Å薄膜层刻蚀仅用10s）。\n在实际中，氢氟酸（49%）与水或氟化铵与水混合。以氟化铵[NH<INF/4>F]①来缓冲会加速刻蚀速率的氢离子的产生。这种刻蚀溶液称为缓冲氧化物刻蚀（buffered oxide etche）或BOE。针对特定的氧化层厚度，它们以不同的浓度混合来达到合理的刻蚀时间（参见图9.18)。一些BOE公式包括一个湿化剂（表面活化剂如TritonX-100或同类物质）用以减小刻蚀表面的张力，以使其均匀地进入更小开孔区。"
+   }
+  ],
+  "new_pool_ids": [
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00063",
+   "Room_temperature_wafer_bonding_using_sur__t00063",
+   "Room_temperature_wafer_bonding_using_sur__t00014",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00014",
+   "Room_temperature_wafer_bonding_using_sur__t00010",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00010",
+   "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00506",
+   "Room_temperature_wafer_bonding_using_sur__t00026",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00026",
+   "Room_temperature_wafer_bonding_using_sur__t00028",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00030",
+   "Room_temperature_wafer_bonding_using_sur__t00030",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00028",
+   "SEMI 标准合集_p5001-5500__t01957",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00029",
+   "Room_temperature_wafer_bonding_using_sur__t00029",
+   "Room_temperature_wafer_bonding_using_sur__t00013",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00003",
+   "Room_temperature_wafer_bonding_using_sur__t00062",
+   "Room_temperature_wafer_bonding_using_sur__t00003",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00013",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00062",
+   "超大规模集成电路先进光刻理论与应用,韦亚一著,北京：版社_14062206_p501-598__t00117",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00015",
+   "Room_temperature_wafer_bonding_using_sur__t00015",
+   "14253655_晶圆键合手册__t00205",
+   "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t00698",
+   "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00507",
+   "CompilationTerms1218_0__t02241",
+   "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t00489",
+   "低温晶圆级转移键合Room_temperature_wafer_bonding_using_sur__t00067",
+   "半导体通讯协议__t02239"
+  ]
+ },
+ "dev_041": {
+  "q": "这台 magnatran 机器人能搬哪几种尺寸的晶圆？最大支持到多少？",
+  "baseline_top5": [
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00065",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "content": "Continuous rotation capability, no dynamic seals, drive belts or moving cables in effective operation.\nThe MagnaTran 7wafer transfer robot is designed for appli"
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00453",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "content": "MagnaTran 7.1 Wafer Handling Robot Overview\nThe MagnaTran 7 robot is a vacuum-compatible, central wafer handling robot that can service up to 16 stations per ar"
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00463",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "content": "While the maximum radial extension is dependent on the geometry ofthe arm specified by the user, the MagnaTran 7 is typically supplied with a BiSymmetrik arm th"
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00467",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "content": "While the maximum radial extension is dependent on the geometry ofthe arm specified by the user, the MagnaTran 7 is typically supplied with a Leapfrog arm that "
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00358",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "content": "Robot Arms\nThe arms supplied with the MagnaTran 7are designed for a vacuum environment for 100mm to 300mm wafers. Various arm sizes, end effectors and configura"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00065",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "score": 1.0,
+    "content": "Continuous rotation capability, no dynamic seals, drive belts or moving cables in effective operation.\nThe MagnaTran 7wafer transfer robot is designed for applications where a maximum reach of 1050 mm from the center line of the robot to the center line of the wafer is required. Wafer sizes from 100mm to 300mm may be handled.\nThis robot is supplied with either the Brooks Automation Single Pan Arm Set, the patented BiSymmetrik™ Dual Pan Arm Set, or the patented Leapfrog™ same-side Dual Arm Set."
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00358",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "score": 0.8739689420154308,
+    "content": "Robot Arms\nThe arms supplied with the MagnaTran 7are designed for a vacuum environment for 100mm to 300mm wafers. Various arm sizes, end effectors and configurations are available.\nArm sets follow the basic design of the Brooks Automation “frog-leg” arms and provide a maximum extension of1050mm from the center-line ofthe robot to the centerline of the wafer being handled."
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p501-657__t00325",
+    "stem": "双臂取晶圆机器人magnatran_71_p501-657",
+    "score": 0.6848346651460644,
+    "content": "Appendix E: User Setting Tables\nThe Brooks Automation MagnaTran 7 is customized at the factory to the users specified parameters. Accompanying the robot is a Brooks Automation Quality Report (QR) which lists all the factory assigned parameters.\nIn the occurrence that the user re-configures the robot, the new parameters should be recorded below in the event that a failure occurs and robot parameters must be restored.\nWafer Size:\n\\_\\_\\_ 100mm\n\\_\\_\\_ 125mm\n\\_\\_\\_ 150mm\n\\_\\_\\_ 200mm\n\\_\\_\\_ 300mm"
+   },
+   {
+    "chunk_id": "双臂取晶圆机器人magnatran_71_p1-500__t00453",
+    "stem": "双臂取晶圆机器人magnatran_71_p1-500",
+    "score": 0.6118242539005874,
+    "content": "MagnaTran 7.1 Wafer Handling Robot Overview\nThe MagnaTran 7 robot is a vacuum-compatible, central wafer handling robot that can service up to 16 stations per arm along a 360<sup>o</sup> circular path with superior vibration-free motion. If desired, it is possible to configure the robot for multiple stations with the same station coordinates. The two main axes ofmotion, Radial (R) and Rotational (T), are transmitted into the vacuum region through direct drive D.C."
+   }
+  ],
+  "new_pool_ids": [
+   "双臂取晶圆机器人magnatran_71_p1-500__t00065",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00453",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00463",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00358",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00467",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00459",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00455",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00064",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00549",
+   "晶圆分拣机及晶圆卸料机的详细技术开发__t00045",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00868",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00454",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00231",
+   "双臂取晶圆机器人magnatran_71_p501-657__t00325",
+   "Brooks VTM Magnatran7__t00001",
+   "EFEM半导体行业深度报告：国产替代核心部件，百舸争流加速崛起__t00040",
+   "EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001__t00001",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00183",
+   "混合EFEM晶圆传送装置详细技术开发__t00008",
+   "解决方案__t00034",
+   "晶圆分拣机及晶圆卸料机的详细技术开发__t00017",
+   "高精度、高清洁度磁悬浮晶圆搬运机器人传输系统的开发：实验评估__t00001",
+   "布鲁克斯晶圆对准器document (1)__t00204",
+   "解决方案__t00045",
+   "混合EFEM晶圆传送装置详细技术开发__t00006",
+   "晶圆搬送机手册__t00105",
+   "晶圆级扇出封装工艺设备的开发研究__t00186",
+   "晶圆分拣机及晶圆卸料机的详细技术开发__t00019",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00238",
+   "14253655_晶圆键合手册__t00689",
+   "Gravity-Aligner-2020-12__t00001",
+   "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612__t00001"
+  ]
+ },
+ "dev_043": {
+  "q": "这台机器人的晶圆放置重复精度（placement repeatability）标称多少？",
+  "baseline_top5": [
+   {
+    "chunk_id": "EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001__t00001",
+    "stem": "EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001",
+    "content": "该视频展示半导体领域的双臂晶圆机器人的 pick&place（取放）作业流程，场景为半导体制造设备操作现场。\n设备/材料为型号RR741 RB3K006的双晶圆搬运机器人，以及两个装载晶圆的透明晶圆盒（FOUP）；过程含机器人臂的旋转移动、取放晶圆的动作，通过双协作臂实现晶圆在盒间的转运。\n可读关键文字：“ROBOT:"
+   },
+   {
+    "chunk_id": "晶圆分拣机及晶圆卸料机的详细技术开发__t00045",
+    "stem": "晶圆分拣机及晶圆卸料机的详细技术开发",
+    "content": "• High Speed Wafer Align Through-put .\n•Robot Swing Arm  lô Foot Print，\n• Guaranty Spec\nReliability : MTBF(More than 100,000wfs) MTTR(Less than 1 Hrs)\nThrough-p"
+   },
+   {
+    "chunk_id": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401__t00065",
+    "stem": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401",
+    "content": "▪ Bidirectional repeatability: 10 nm (1 sigma)   \n▪ Position stability < 5 nm   \n▪ Z-Rotation Axis: High-Accuracy Motion up to 360°   \n▪ Piezo motor technology "
+   },
+   {
+    "chunk_id": "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612__t00084",
+    "stem": "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612",
+    "content": "Robot Specifications\nRepeatability: 3 sigma repeatability at +/- 25 microns\nWafer Sizes: 75mm (3 in) to 300 mm (12 in)\nContamination: Cleanroom Class 1"
+   },
+   {
+    "chunk_id": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401__t00066",
+    "stem": "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401",
+    "content": "▪ High resonance frequency for highest stability   \n▪ Travel range: up to +/-6 mrad for highest accuracy, can be extended to up to 360°   \n▪ Move and settling t"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612__t00084",
+    "stem": "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612",
+    "score": 0.9922077922077922,
+    "content": "Robot Specifications\nRepeatability: 3 sigma repeatability at +/- 25 microns\nWafer Sizes: 75mm (3 in) to 300 mm (12 in)\nContamination: Cleanroom Class 1"
+   },
+   {
+    "chunk_id": "超大规模集成电路先进光刻理论与应用,韦亚一著,北京：版社_14062206_p1-500__t00202",
+    "stem": "超大规模集成电路先进光刻理论与应用,韦亚一著,北京：版社_14062206_p1-500",
+    "score": 0.6850586826563834,
+    "content": "2.9.7 对机械手的要求\n机械手在匀胶显影设备中担负着传送晶圆的任务。在传送晶圆时，机械手必须定位准确。例如，晶圆在旋涂单元，其中心必须与转台的中心吻合，否则高速旋转时产生的离心力是不对称的，会影响胶膜的均匀性；而且，晶圆与转台的离心还会导致去边清洗的不对称。一般要求，机械手定位的精度和重复性小于±0.3mm。为了避免机械手接触晶圆时对晶圆的污染，一般要求机械手接触晶圆的部分是特殊的非金属件。"
+   },
+   {
+    "chunk_id": "混合EFEM晶圆传送装置详细技术开发__t00016",
+    "stem": "混合EFEM晶圆传送装置详细技术开发",
+    "score": 0.6722385773170433,
+    "content": "去。根据战略目标制定官方认证测试结果\n<表7> 目标达成评估结果\n评估项目(主要性能规格等) | 单位目标 | 评测内容 | 结果\n1 晶圆 | 尺寸英寸8~18 66 | 返回测试(SEMI标准)返回 | 经过\n2 吞吐 | 量 wfs/Hr 80 或更 | 高 | 测试(日志数据/表8,图14) | 经过\n3重 | 3 重复精度 mm 0.1 以下 | 0.042mm(韩国工业技术测试院/图15/16)0.638秒 | 经过\n4 响应 | 速度 1.0秒以下 | (韩国工业技术测试院/图15/16) | 经过\n测量结果验证方法的介绍"
+   },
+   {
+    "chunk_id": "如何实现高精度定位__t00007",
+    "stem": "如何实现高精度定位",
+    "score": 0.6332989519714536,
+    "content": "Due to capital expenditure concerns, volume production and shortened learning curves, it was decided to perform the initial development on an existing piece of placement equipment, a Universal Instruments GSMxs™ machine. This machine has a specified placement accuracy of ±18 microns at 6 sigma. See Figure 1.\nIn addition to the placement, verification of the placement also needed to be performed. Per the customer, all devices manufactured were to be measured, approximately 1000 per week."
+   }
+  ],
+  "new_pool_ids": [
+   "晶圆分拣机及晶圆卸料机的详细技术开发__t00045",
+   "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401__t00065",
+   "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612__t00084",
+   "Motion-Solutions-for-Photonics-Lasers-and-Semicon202401__t00066",
+   "EFEM (RORZE) RR741 RB3K006, RA210-C12-101-1, RV201-F06-001__t00001",
+   "超大规模集成电路先进光刻理论与应用,韦亚一著,北京：版社_14062206_p1-500__t00232",
+   "纳米级运动轨迹规划和控制_NormalPdf__t00015",
+   "PI-用于电子制造的运动系统__t00051",
+   "microtoolcatalog__t00048",
+   "晶圆上温度传感器，用于静电吸盘状态监测__t00008",
+   "如何实现高精度定位__t00013",
+   "半导体工艺控制设备，国产化率不足 5%，替__t00027",
+   "布鲁克斯晶圆对准器document (1)__t00024",
+   "H-Square - 150mm Automatic Flat Aligner - AFEZ6__t00001",
+   "解决方案__t00053",
+   "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report__t00740",
+   "如何实现高精度定位__t00007",
+   "高精度、高清洁度磁悬浮晶圆搬运机器人传输系统的开发：实验评估__t00001",
+   "光刻技术六十年__t00068",
+   "CP45FVNEO Administrator’s Guide (Eng, Ver3)__t00810",
+   "PI-用于电子制造的运动系统__t00057",
+   "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report__t00105",
+   "超大规模集成电路先进光刻理论与应用,韦亚一著,北京：版社_14062206_p1-500__t00222",
+   "microtoolcatalog__t00060",
+   "超大规模集成电路先进光刻理论与应用,韦亚一著,北京：版社_14062206_p1-500__t00202",
+   "2014-IWLPC-Development-on-FCB-for-3D__t00027",
+   "布鲁克斯晶圆对准器document (1)__t00188",
+   "CP45FVNEO Administrator’s Guide (Eng, Ver3)__t00816",
+   "解决方案__t00034",
+   "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report__t00735",
+   "混合EFEM晶圆传送装置详细技术开发__t00016",
+   "双臂取晶圆机器人magnatran_71_p1-500__t00065"
+  ]
+ },
+ "dev_070": {
+  "q": "氦离子束光刻(HIBL)用 HSQ 胶最细做到多少 nm 半间距?这个结果跟目前电子束光刻的最高分辨率记录比怎么样?",
+  "baseline_top5": [
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00403",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "content": "This line dose is an order of magnitude lower than the dose required for HSQ in EBL for the fabrication of similar features.<sup>54</sup> These findings on sens"
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00369",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "content": "Several groups have made breakthroughs into the sub-10-nm patterning regime, using HIBL on the high-resolution HSQ and PMMA resists.<sup>12,40,41</sup> The best"
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00398",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "content": "The demonstrated line widths in PMMA are well in excess of the resolution limits of the helium ion probe, indicating that resolution is being limited by propert"
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500__t02176",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500",
+    "content": "State-of-the-art techniques are electron-beam lithography (EBL) and ion-beam lithography (IBL), in which a focused beam of high-energy electrons (5e200 keV) or "
+   },
+   {
+    "chunk_id": "E-Beam Nanolithography Integrated with Scanning Electron Microscope__t00095",
+    "stem": "E-Beam Nanolithography Integrated with Scanning Electron Microscope",
+    "content": "HSQ has been employed as a negative resist for electron beam lithography, nanoimprint, and extreme ultraviolet (EUV) lithography [32–35]. As a competitive resis"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00403",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "score": 1.0,
+    "content": "This line dose is an order of magnitude lower than the dose required for HSQ in EBL for the fabrication of similar features.<sup>54</sup> These findings on sensitivity and resolution are consistent with the results obtained from the high-resolution investigations by Winston et al. and Sidorkin et al.<sup>12,41</sup> Moreover, the 4-nm half-pitch lines provided, for the first time, experimental evidence of HIBL exceeding the highest reported EBL resolution to date, which is a 4.5-nm half-pitch."
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00369",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "score": 0.9514517127950857,
+    "content": "Several groups have made breakthroughs into the sub-10-nm patterning regime, using HIBL on the high-resolution HSQ and PMMA resists.<sup>12,40,41</sup> The best results achieved in terms of feature size are comparable to the best results in EBL but with a sensitivity improvement of one to two orders of magnitude at the same beam energy. These studies also reveal that HIBL exhibits a very low proximity effect and makes pattern density irrelevant to pattern definition."
+   },
+   {
+    "chunk_id": "Lithography (Stefan Landis)__t00901",
+    "stem": "Lithography (Stefan Landis)",
+    "score": 0.9109747620076457,
+    "content": "3.12.9.3. HSQ\nHSQ, or hydrogen sylsesquioxane, was initially developed as a dielectric. Its good behavior under electron exposure, brought to light in 1998 [NAM 98], allowed it to be used as an e-beam lithography resist. It is a negative resist. A resolution below 10 nm is frequently reported [MAI 00].\nAs for PMMA, this resist is available under different concentrations, leading to different thicknesses after coating, from 30 nm to 900 nm."
+   },
+   {
+    "chunk_id": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00398",
+    "stem": "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614",
+    "score": 0.8664366981345528,
+    "content": "The demonstrated line widths in PMMA are well in excess of the resolution limits of the helium ion probe, indicating that resolution is being limited by properties of the PMMA resist such as molecular size rather than by the HIBL technique itself.\nHigher resolution feature definition with HIBL, at sub-10-nm scales, has been demonstrated by several groups, using HSQ resist. One study looked at the effect\nof HSQ resist thickness on ultimate feature size limits."
+   }
+  ],
+  "new_pool_ids": [
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00403",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00369",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00398",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500__t02176",
+   "E-Beam Nanolithography Integrated with Scanning Electron Microscope__t00095",
+   "Journal of Nanotechnology - 2014 - Joshi-Imre - Direct‐Write Ion Beam Lithography__t00198",
+   "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p1-97__t00160",
+   "Direct-Write Ion Beam Lithography (2014) [10.1155_2014_170415] -__t00186",
+   "New Generation Electron Beam Resists：A Review__t00068",
+   "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00160",
+   "New Generation Electron Beam Resists：A Review__t00207",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00387",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00292",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00404",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500__t02201",
+   "电子束光刻纳米加工及其应用：综述__t00012",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00413",
+   "New Generation Electron Beam Resists：A Review__t00070",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00399",
+   "纳米压印技术 [周伟民，张静，刘彥伯，张剑平 编著] 2012年版__t00079",
+   "Lithography (Stefan Landis)__t00901",
+   "衍射极限附近的光刻工艺 (伍强)_p1-500__t00333",
+   "Electron-beam-lithography-and-dimensional-metrology-for-f_2023_Microelectron__t00081",
+   "纳米压印技术 [周伟民，张静，刘彥伯，张剑平 编著] 2012年版__t00080",
+   "New Generation Electron Beam Resists：A Review__t00041",
+   "纳米制造手册 纳米科学进展系列 （导读版 英文版） [（美）维德雷希特 主编 ] 2011年版__t00829",
+   "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年_p1-97__t00138",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00377",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p1-500__t01620",
+   "衍射极限附近的光刻工艺 (伍强)_p1-500__t00334",
+   "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年__t00138",
+   "Materials and Processes for Next Generation Lithography (Alex Robinson and Richard Lawson (Eds.))_p501-614__t00397"
+  ]
+ },
+ "dev_083": {
+  "q": "预成形的 Paddle position recognition 有哪几种模式？各种模式下识别出错时机器怎么动作？",
+  "baseline_top5": [
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00194",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "content": "Input paddle position that is used for preform paddle position recognition in [Paddle X,Y] box to set it.\nPress [START] button. The machine execute the recognit"
+   },
+   {
+    "chunk_id": "日立DB800 Level 1-2 中文操作手册__t00189",
+    "stem": "日立DB800 Level 1-2 中文操作手册",
+    "content": "4.1.6 Preform Recognition 画胶识别\n4.1.6.1 Recognition Setting 识别设定\nNo. | Window Display | Unit | Description\nRecognition | Setting\n1. | Paddle positionrecognition "
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00192",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "content": "The machine execute the recognition for the designate paddle\nOr touch [Done ] to quit “Preform Paddle Alignment recognition.\nInput paddle position that is used "
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00564",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "content": "of recognition FOV (Field of View) (1shot or 2 shots)\n4. | Paddle recognitionmode | Option to set Die pad recognition mode (ALL/BLK/PRE)\n5. | No. of Block recog"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00477",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "content": "point | Option to set No. of recognition points (1-point or2-points)\n3. | Paddle recognitionmode | Option to set Die pad position recognition mode(ALL/BLK/PRE)\n"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "日立DB800 Level 1-2 中文操作手册__t00226",
+    "stem": "日立DB800 Level 1-2 中文操作手册",
+    "score": 0.9069167665449224,
+    "content": "4.1.8 Bonding Recognition 贴片识别\n5.1.8.1 Recognition Setting 4 识别设定\nNo. | Window Display | Unit | Description\n1. | Paddle positionrecognition | 基板上片区域识别模式开关\n2. | No. of Paddle Rec. point | 识别特征点数量\n3. | No. of Paddlerecognition view | 识别视野窗口数量\n4. | Paddle recognitionmode | 识别模式(单区域识别，整列区域识别，单区域预识别)\n5. | No. of Block recognitionpoint | 使用列区域识别模式时的特征点数量\n6. | Paddle recognition lightretry | 识别识别后的灯光照明重试模式\n7. | Paddle recognition errormode | 识别错误时的模式(重试,跳过，暂停)\n(1) 输入目标值.\n(2) 点击\"Fix\"按钮."
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00476",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "score": 0.8996228645633046,
+    "content": "5.1.6 Preform Recognition\nThis is an item to input data related to preform recognition in recipe data.\n5.1.6.1 Recognition Setting\nNo. | Window Display | Unit | Description\nRecognition | Setting\n1. | Paddle positionrecognition | Option to set Die pad recognition mode for preformDisable: No recognition is done.Auto 1: Manual recognition is done at recognition errorAuto 2: Auto recognition is done at recognition errorManual: Recognition is done in manual mode.\n2. | No. of Paddle Rec."
+   },
+   {
+    "chunk_id": "日立DB800 Level 1-2 中文操作手册__t00190",
+    "stem": "日立DB800 Level 1-2 中文操作手册",
+    "score": 0.8488254795518402,
+    "content": "| Paddle recognition lightretry | 重新识别时灯光开关\n10. | Paddle recognition errormode | 识别错误时的动作选项(重新识别，跳过，暂停)\nVisua | l Inspection—Movement s | etting\n11. | Presence inspection | _ | Presence识别模式开关\n12. | Area inspection | Area识别模式开关\n13. | Form inspection | Form识别模式开关\n14. | Inspection frequency | IC | 检查频率\n15. | Paste position shifttolerance X | μm | 位置偏移允许值(X)\n16. | Paste position shifttolerance Y | μm | 位置偏移允许值(Y)\n点击屏幕上想要修改的参数,数字修改菜单会弹出.\n(1) 输入目标值.\n(2) 点击\"Fix\"按钮.\n数字修改菜单会消失, 修改后的参数会显示在屏幕菜单中."
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00564",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "score": 0.7895097099023988,
+    "content": "of recognition FOV (Field of View) (1shot or 2 shots)\n4. | Paddle recognitionmode | Option to set Die pad recognition mode (ALL/BLK/PRE)\n5. | No. of Block recognitionpoint | Option to set No. of recognition blocks (1 or 2)\n6. | Paddle recognition lightretry | Option to set Enable/Disable Illumination retry for diepad recognition\n7. | Paddle recognition errormode | Option to set Process at die pad recognition error(Retry, Skip or Stop)"
+   }
+  ],
+  "new_pool_ids": [
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00194",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00192",
+   "日立DB800 Level 1-2 中文操作手册__t00189",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00477",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00564",
+   "日立DB800 Level 1-2 中文操作手册__t00190",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00476",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01161",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00222",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01235",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01263",
+   "日立DB800 Level 1-2 中文操作手册__t00226",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01172",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00190",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01248",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00309",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01157",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00057",
+   "日立DB800 Level 1-2 中文操作手册__t00232",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00188",
+   "日立DB800 Level 1-2 中文操作手册__t00741",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01209",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00069",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00196",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00087",
+   "日立DB800 Level 1-2 中文操作手册__t00582",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00563",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t01160",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00680",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00191",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00189",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00211"
+  ]
+ },
+ "dev_107": {
+  "q": "喷雾清洗机把 APM 总流量从 1650 提到 2400 cc/min，再叠加 95°C 在线加热器，晶圆上 APM 峰值温度和循环平均温度各自总共升高多少？",
+  "baseline_top5": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02299",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "Increasing the total flow rate from 1650 cc/min to 2400 cc/min increased the peak APM temperature from $5 0 ^ { \\circ }$ to ${ 5 6 ^ { \\circ } } \\mathbf { C } ."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02306",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "Combining the in-line chemical heater with high flows did not further reduce the duration of transient effects during APM but did significantly increase the pea"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02307",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "High flow dispense, 2400 cc/min, 0.6:1:5 APM blend, 2400 cc/min, 1:1:5 HPM blend, both with $9 5 \\mathrm { ^ \\circ C }$ in-line chemical heater set point\n3. 240"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02297",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "High flow dispense, 2400 cc/min, 0.6:1:5 APM blend, 2400 cc/min, 1:1:5 HPM blend, both with $9 5 ^ { \\circ } \\mathbf { C }$ in-line chemical heater set point\n3."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02298",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "RESULTS AND DISCUSSION\nFigures 1a, 1b and 1c show the on-wafer temperature data for DI water flowing at the total flow rate of the standard APM dispense conditi"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02299",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 1.0,
+    "content": "Increasing the total flow rate from 1650 cc/min to 2400 cc/min increased the peak APM temperature from $5 0 ^ { \\circ }$ to ${ 5 6 ^ { \\circ } } \\mathbf { C } .$ Equally important, it shortened the time constant of the transient effects. The time to reach 1/2 of the maximum temperature rise dropped from 42 to 30 seconds and the average temperature during the cycle rose by approximately ${ \\displaystyle { \\bf 8 ^ { \\circ } C } ."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02301",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.7682801192286268,
+    "content": "Combining the in-line chemical heater with the high flows further raised the peak temperature by $1 0 ^ { \\circ }$ to $6 6 ^ { \\circ } \\mathbf { C }$ and raised the average temperature by ${ \\mathfrak { 6 } } ^ { \\circ } \\mathbf { C }$ The transient response during the initial temperature rise was not improved with the activation of the heater. The temperature curves of the high flow with heater matched those of the high flow without heater for the first 30 seconds."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02306",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.7333663566214723,
+    "content": "Combining the in-line chemical heater with high flows did not further reduce the duration of transient effects during APM but did significantly increase the peak and average temperatures of both the APM and HPM chemistries.\nFigures 2a, 2b and 2c respectively show data on particle addition to initially clean wafers for three treatments:\n1. Standard dispense, 1650 cc/min, 0.6:1:5 APM blend and 1400 cc/min, 1:1:5 HPM blend\n2."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t02297",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.6995366138690026,
+    "content": "High flow dispense, 2400 cc/min, 0.6:1:5 APM blend, 2400 cc/min, 1:1:5 HPM blend, both with $9 5 ^ { \\circ } \\mathbf { C }$ in-line chemical heater set point\n3. 2400 cc/min dispenses with heater active and blend ratios reduced to 0.25:0.25:5 for both APM and HPM"
+   }
+  ],
+  "new_pool_ids": [
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02299",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02306",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02307",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02297",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02298",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02296",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02288",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02303",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02305",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02311",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02280",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02308",
+   "pv_97_35_p501-664__t00263",
+   "pv_97_35_p501-664__t00264",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02301",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02279",
+   "半导体单晶抛光片清洗工艺分析__t00027",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02315",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02282",
+   "pv_97_35_p501-664__t00260",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02290",
+   "半导体器件制造中的清洗技术 VIII__t00192",
+   "pv_97_35_p501-664__t00249",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02320",
+   "pv_97_35_p501-664__t00252",
+   "半导体单晶抛光片清洗工艺分析__t00011",
+   "在晶圆上芯片上高精度安装薄半导体相关的研究__t00073",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02289",
+   "TCP9600 parts identify_4_p1-500__t00555",
+   "TCP9600 parts identify_4__t00555",
+   "pv_97_35_p501-664__t00256",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t02236",
+   "在晶圆上芯片上高精度安装薄半导体相关的研究__t00082"
+  ]
+ },
+ "dev_111": {
+  "q": "书里兆声清洗的频率（MHz）标称值是多少？帮我查一下。",
+  "baseline_top5": [
+   {
+    "chunk_id": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00086",
+    "stem": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版",
+    "content": "是在RCA工艺过程中开发出来的技术，用以去除晶片上的微粒，并作为过氧化氢浸没清洗技术的补充\n• 声波能量是由压电传感器阵列产生频率范围在0.85\\~0.90 MHz的超高频声波\n● 使用能量密度为 $\\mathsf { \\pmb { \\varsigma } } \\sim 1 0 ~ \\mathsf { W } / \\m"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00954",
+    "stem": "半导体器件制造中的清洗技术 VIII",
+    "content": "Figure 4 shows the Power Spectral Density in a typical megasonic cleaning bath operating at a fundamental frequency of 950 kHz. The sound field was sensed with "
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00878",
+    "stem": "半导体器件制造中的清洗技术 VIII",
+    "content": "The ultrasonic nozzle with oscillation frequencies of approximately 1.5 MHz is used for these MHz cleaning units. In order to measure and control the sound pres"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00945",
+    "stem": "半导体器件制造中的清洗技术 VIII",
+    "content": "For instance, a 1 μm thick by 40 μm long cantilever would resonate near 1 MHz and could easily be excited to destruction during Megasonic cleaning. The possibil"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00876",
+    "stem": "半导体器件制造中的清洗技术 VIII",
+    "content": "INTRODUCTION\nIn the manufacturing processes of semiconductor devices, megahertz-band (MHz-band) ultrasonic cleaning is widely used for the removal of submicron "
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00944",
+    "stem": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版",
+    "score": 0.886284289276808,
+    "content": "在盛有SC-1溶液的槽中如果使用兆声波能量，可以大大地增加溶液去除颗粒的能力。一般来说，商业化的兆声波晶片清洗系统在700\\~1500kHz频率范围内工作。兆声传感器是由压电晶体构成的，它通常被镶嵌在化学清洗槽的底部。声压力波沿着平行于晶片表面的方向传播，通过压力波在颗粒表面上撞击而达到晶片清洗的目的。\n下面的一段内容是经过电汽化学协会允许后从Menon和Donovan[67]早期的文章中摘录下来的：\n能够从晶片表面上去除颗粒的驱动力，必须要大于等于黏附力。该力是关于颗粒尺寸、颗粒和晶片表面组分及液体介质性质的函数[50]。对于直径为1μm的硅土颗粒（质量等于 $\\pmb { 5 } \\times 1 0 ^ { - 1 3 } \\ \\mathbf { g } )$ ，其黏附在裸硅片的表面，在水中的黏附力大约为 ${ \\pmb 4 } \\times 1 0 ^ { - 4 }$ 达因[68]。这个力属于范德华黏附力。在颗粒上所施加的兆声波力是"
+   },
+   {
+    "chunk_id": "半导体晶圆的污染杂质及清洗技术__t00013",
+    "stem": "半导体晶圆的污染杂质及清洗技术",
+    "score": 0.844354255640769,
+    "content": "超声波清洗是半导体工业中广泛应用的一种清洗方法，其优点是：清洗效果好，操作简单，对于复杂的器件和容器也能清除。这种清洗方法是在强烈的超声波作用下（常用的超声波频率为 20～40 k<sub>Hz</sub>），液体介质内部会产生疏部和密部，疏部产生近乎真空的空腔泡，当空腔泡消失的瞬间，其附近便产生强大的局部压力，使分子内的化学键断裂将晶圆表面的杂质解吸[4]。超声波清洗的效果与超声条件（如温度、压力、超声频率、功率等）有关，多用于清除圆片表面附着的大块污染和颗粒。\n（4）兆声波清洗。兆声波清洗不但具有超声波清洗的优点，而且克服了它的不足。兆声波清洗是由高能 (<sub>850</sub> k<sub>Hz</sub> ) 频振效应并结合化学清洗剂的化学反应对圆片进行清洗[4]。在清洗时，溶液分子在兆声波的推动下作加速运动（最大瞬时速度可达到 <sub>30 cm</sub>/<sub>s</sub>），以高速的流体波连续冲击圆片表面，使圆片表面附着的污染物和细小微粒被强制除去并进入到清洗液中。这种方法能同时起到机械擦片和化学清洗两种方法的作用。"
+   },
+   {
+    "chunk_id": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00086",
+    "stem": "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版",
+    "score": 0.8352055506799809,
+    "content": "是在RCA工艺过程中开发出来的技术，用以去除晶片上的微粒，并作为过氧化氢浸没清洗技术的补充\n• 声波能量是由压电传感器阵列产生频率范围在0.85\\~0.90 MHz的超高频声波\n● 使用能量密度为 $\\mathsf { \\pmb { \\varsigma } } \\sim 1 0 ~ \\mathsf { W } / \\mathsf { c m } ^ { 2 }$ 的输入波，可以从晶片前后面去除尺寸为0.1μm到几微米的微粒（20\\~80kHz的超声波需要增加50%的能量密度，且对小颗粒效果有限)\n• 在 $3 5 ^ { \\circ } C \\sim 4 2 ^ { \\circ } C$ 下用 SC-1清洗液进行兆声清洗，可同时去除微粒和沾污薄膜。用SC-1/SC-2溶液的超声工艺使化学吸附的无机物完全脱附，则需要更高的温度（70℃）\n• 商用的兆声清洗系统可以从 Verteq 和 Semiconductor Technologies 公司购买\n表1.16 封闭系统中的液体置换方法\n• 系统是由 CFM Technology(“Full Flow”)公司于 1986 年开发的\n在整个清洗、冲洗和干燥循环过程中，保持晶片处于密闭和静止状态"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t00954",
+    "stem": "半导体器件制造中的清洗技术 VIII",
+    "score": 0.8065027983990415,
+    "content": "Figure 4 shows the Power Spectral Density in a typical megasonic cleaning bath operating at a fundamental frequency of 950 kHz. The sound field was sensed with an SPRH-S-1000 hydrophone (Onda Corporation) whose signal was digitized at 20 MHz by a PCIDAS4020/12 A/D board (Measurement Computing) and gathered and analyzed with the LabView software package (National Instruments)."
+   }
+  ],
+  "new_pool_ids": [
+   "半导体器件制造中的清洗技术 VIII__t00954",
+   "半导体器件制造中的清洗技术 VIII__t00878",
+   "半导体器件制造中的清洗技术 VIII__t00876",
+   "半导体器件制造中的清洗技术 VIII__t00945",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00086",
+   "68560-f06eacff-84bd-4e58-8527-d4e512daaf57__t00024",
+   "半导体器件制造中的清洗技术 VIII__t00764",
+   "半导体器件制造中的清洗技术 VIII__t00874",
+   "半导体器件制造中的清洗技术 VIII__t00952",
+   "半导体器件制造中的清洗技术 VIII__t00884",
+   "SEMI 标准合集_p4001-4500__t00386",
+   "半导体器件制造中的清洗技术 VIII__t00933",
+   "半导体器件制造中的清洗技术 VIII__t00942",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00944",
+   "SEMI 标准合集_p6501-7000__t02763",
+   "半导体晶圆的污染杂质及清洗技术__t00013",
+   "印制电路与印制电子先进技术 下册 何为 主编 2016年版__t00468",
+   "Principles of Lithography, Fourth Edition (Harry J. Levinson)_p1-500__t00974",
+   "Cleaning Systems Brochure__t00026",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00948",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00356",
+   "半导体器件制造中的清洗技术 VIII__t00877",
+   "印制电路与印制电子先进技术 下册 何为 主编 2016年版_p101-200__t00176",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00949",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00355",
+   "半导体制造工艺 [张渊主编] 2011年版__t00153",
+   "光栅干涉精密纳米测量技术_NormalPdf__t00045",
+   "Cu-SiO2混合键的处理技术研究__t00053",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00354",
+   "半导体晶片清洗科学、技术与应用 [（美）克恩 主编] 2012年版__t00941",
+   "半导体器件制造中的清洗技术 VIII__t00893",
+   "微纳制造的基础研究学术著作丛书 柔性电子制造 材料、器件与工艺 尹周平_p271-405__t00288"
+  ]
+ },
+ "dev_124": {
+  "q": "手册里有没有蓝宝石(sapphire)衬底的减薄配方或者推荐工艺参数?我们下一批想磨 sapphire。",
+  "baseline_top5": [
+   {
+    "chunk_id": "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00165",
+    "stem": "集成电路芯片制造实用技术 [卢静主编] 2011年版",
+    "content": "2. 蓝宝石衬底\n蓝宝石的主要成分是三氧化二铝，密度为3.98g/cm³（20℃时），熔点为 $2 ~ 0 5 0 \\mathrm { ‰}$ ，沸点为3500℃，最高工作温度为1900℃。其化学性能非常稳定，一般不溶于水，也不受酸、碱腐蚀。蓝宝石硬度很高，莫氏硬度达9级，仅次于最硬的金刚石，并且它具有很好的力学性能、"
+   },
+   {
+    "chunk_id": "抛光技术及抛光液__t00003",
+    "stem": "抛光技术及抛光液",
+    "content": "为解决蓝宝石的散热问题，需要将蓝宝石衬底的厚度减薄，从450nm左右减至100nm左右。主要有两步：先在横向减薄机上，用50-70um的砂轮研磨磨去300um左右的厚度；再用抛光机（秀和、NTS、WEC等）针对不同的研磨盘（锡/铜盘），采用合适的蓝宝石研磨液（水/油性）对芯片背面抛光，从150nm减至100nm[1]左"
+   },
+   {
+    "chunk_id": "先进材料合成与制备技术 [李爱东 编著] 2014年_p441-480__t00090",
+    "stem": "先进材料合成与制备技术 [李爱东 编著] 2014年_p441-480",
+    "content": "当凸凹结构的图案尺度达到亚波长，即500nm以下，甚至更小时，不仅图案化蓝宝石生产成本会大幅度降低，同时光的取出效率将远高于微米尺度的图案化蓝宝石衬底。\n但是目前可产业化的接触式、投影式等光刻技术只能制造微米尺度以上的图案，而用于半导体行业的步进式光刻技术，由于其成本非常昂贵，以及蓝宝石衬底本身表面起伏大、翘曲率高，无"
+   },
+   {
+    "chunk_id": "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00628",
+    "stem": "集成电路芯片制造实用技术 [卢静主编] 2011年版",
+    "content": "以超薄小外形封装（TSOP）为例。硅片上电路层的有效厚度一般为300μm，为了保证其功能，有一定的衬底支撑厚度，因此，硅片的厚度一般为900μm。衬底材料是为了保证硅片在制造、测试和运送过程中有足够的强度。在电路层制作完成后，需要对硅片进行背面减薄（Back SideThinning）处理，使其达到所需要的厚度，然后再"
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00795",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p1001-1500",
+    "content": "236985 | 2.00 EA | 7AF, BRKT, SHIPPING, | HANDLING S | FAB-SHMT | 7AF-236985D1\n236986 | 2.00 EA | 7AF, BRKT, SHIPPING, | LOWER GRIN | FAB-SHMT | 7AF-236986D1\n24"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "抛光技术及抛光液__t00003",
+    "stem": "抛光技术及抛光液",
+    "score": 1.0,
+    "content": "为解决蓝宝石的散热问题，需要将蓝宝石衬底的厚度减薄，从450nm左右减至100nm左右。主要有两步：先在横向减薄机上，用50-70um的砂轮研磨磨去300um左右的厚度；再用抛光机（秀和、NTS、WEC等）针对不同的研磨盘（锡/铜盘），采用合适的蓝宝石研磨液（水/油性）对芯片背面抛光，从150nm减至100nm[1]左右。\n三、蓝宝石抛光液\n蓝宝石抛光液是以高纯度硅粉为原料，经特殊工艺生产的一种高纯度低金属离子型抛光产品。\n蓝宝石抛光液主要用于蓝宝石衬底的抛光。还可广泛用于多种材料纳米级的高平坦化抛光，如：硅片、化合物晶体、精密光学器件、宝石等的抛光加工。\n蓝宝石抛光液的特点：\n1.高抛光速率，利用大粒径的胶体二氧化硅粒子达到高速抛光的目的。\n2.高纯度（Cu含量小于50 ppb），有效减小对电子类产品的沾污。\n3.高平坦度加工，蓝宝石抛光液是利用SiO2的胶体粒子进行抛光，不会对加工件造成物理损伤，达到高平坦化加工。\n蓝宝石抛光液根据pH值的不同可分为酸性抛光液和碱性抛光液。\n蓝宝石抛光液的型号："
+   },
+   {
+    "chunk_id": "抛光技术及抛光液__t00002",
+    "stem": "抛光技术及抛光液",
+    "score": 0.8249651210137743,
+    "content": "这是化学反应的主体。\n（2）抛光表面反应物脱离硅单晶表面，即解吸过程使未反应的硅单晶重新裸露出来的动力学过程。它是控制抛光速率的另一个重要过程。硅片的化学机械抛光过程是以化学反应为主的机械抛光过程，要获得质量好的抛光片，必须使抛光过程中的化学腐蚀作用与机械磨削作用达到一种平衡。如果化学腐蚀作用大于机械抛光作用，则抛光片表面产生腐蚀坑、桔皮状波纹。如果机械磨削作用大于化学腐蚀作用，则表面产生高损伤层。\n二、蓝宝石研磨液\n蓝宝石研磨液（又称为蓝宝石抛光液）是用于在蓝宝石衬底的研磨和减薄的研磨液。\n蓝宝石研磨液由优质聚晶金刚石微粉、复合分散剂和分散介质组成。\n蓝宝石研磨液利用聚晶金刚石的特性，在研磨抛光过程中保持高切削效率的同时不易对工件产生划伤。可以应用在蓝宝石衬底的研磨和减薄、光学晶体、硬质玻璃和晶体、超硬陶瓷和合金、磁头、硬盘、芯片等领域的研磨和抛光。\n蓝宝石研磨液在蓝宝石衬底方面的应用：\n1. 外延片生产前衬底的双面研磨：多用蓝宝石研磨液研磨一道或多道，根据最终蓝宝石衬底研磨要求用6um、3um、1um不等。\n2. LED芯片背面减薄"
+   },
+   {
+    "chunk_id": "LED制造技术与应用 第3版 [陈宇 编著] 2013年版__t00035",
+    "stem": "LED制造技术与应用 第3版 [陈宇 编著] 2013年版",
+    "score": 0.8032850413073686,
+    "content": "在上表面制作两个电极，造成有效发光面积减少，同时增加了器件制造中的光刻和刻蚀工艺过程，结果使材料利用率降低、成本增加。\n由于P型GaN掺杂困难，当前普遍采用在P型GaN上制备金属透明电极的方法，使电流扩散，以达到均匀发光的目的，但是金属透明电极一般要吸收30%～40%的光，同时GaN基材料的化学性能稳定、机械强度较高，不容易对其进行刻蚀，因此在刻蚀过程中需要较好的设备，这会增加生产成本。\n蓝宝石的硬度非常高，在自然材料中其硬度仅次于金刚石，但是在LED器件的制作过程中却需要对它进行减薄和切割（从400nm减到100nm左右）。添置完成减薄和切割工艺的设备又要增加一笔较大的投资。\n蓝宝石的导热性能不是很好，在100℃约为25 W/(m·K)，因此在使用LED器件时，会传导出大量的热量；特别是对面积较大的大功率器件，导热性能是一个非常重要的考虑因素。为了克服以上困难，很多人试图将GaN光电器件直接生长在硅衬底上，从而改善导热和导电性能。"
+   },
+   {
+    "chunk_id": "LED制造技术与应用 第3版 [陈宇 编著] 2013年版__t00034",
+    "stem": "LED制造技术与应用 第3版 [陈宇 编著] 2013年版",
+    "score": 0.7585879247482503,
+    "content": "通常，GaN基材料和器件的外延层主要生长在蓝宝石衬底上。蓝宝石衬底有许多的优点：首先，蓝宝石衬底的生产技术成熟、器件质量较好；其次，蓝宝石的稳定性很好，能够运用在高温生长过程中；最后，蓝宝石的机械强度高，易于处理和清洗。因此，大多数工艺一般都以蓝宝石作为衬底。图1-6所示为使用蓝宝石衬底做成的LED芯片。\n使用蓝宝石作为衬底也存在一些问题，例如，晶格失配和热应力失配，这会在外延层中产生大量缺陷，同时给后续的器件加工工艺造成困难。蓝宝石是一种绝缘体，常温下的电阻率大于 $1 0 ^ { 1 1 } \\Omega \\cdot \\mathrm { c m }$ ，在这种情况下无法制作垂直结构的器件；通常只在外延层上表面制作N型和P型电极（如图1-6所示)。在上表面制作两个电极，造成有效发光面积减少，同时增加了器件制造中的光刻和刻蚀工艺过程，结果使材料利用率降低、成本增加。"
+   }
+  ],
+  "new_pool_ids": [
+   "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00165",
+   "抛光技术及抛光液__t00003",
+   "先进材料合成与制备技术 [李爱东 编著] 2014年_p441-480__t00090",
+   "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00628",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00795",
+   "LED制造技术与应用 第3版 [陈宇 编著] 2013年版__t00035",
+   "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t00573",
+   "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t00698",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00091",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00575",
+   "LED制造技术与应用 第3版 [陈宇 编著] 2013年版__t00034",
+   "先进材料合成与制备技术 [李爱东 编著] 2014年__t01288",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00811",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00308",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00821",
+   "抛光技术及抛光液__t00002",
+   "半导体硅材料研磨液研究进展__t00005",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00361",
+   "半导体制造工艺-日本书籍__t00361",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00843",
+   "微电子封装技术 [张楼英] 2011年版__t00062",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00791",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00464",
+   "LED制造技术与应用 第3版 [陈宇 编著] 2013年版__t00118",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00323",
+   "14253655_晶圆键合手册__t00205",
+   "14253655_晶圆键合手册__t00087",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00592",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00854",
+   "晶圆翘曲测量系统的开发与研究__t00191",
+   "硅研磨片超声波清洗技术的研究__t00004",
+   "晶圆减薄strasbaugh Model 7AF_p1001-1500__t00655"
+  ]
+ },
+ "dev_127": {
+  "q": "终点检测器(End Point Detector Assembly 853-001983)上配的光学滤光片有哪几个波长,各自的件号是什么?探测用的光电二极管又是哪个件号?",
+  "baseline_top5": [
+   {
+    "chunk_id": "TCP9600 parts identify_4__t00334",
+    "stem": "TCP9600 parts identify_4",
+    "content": "9 | 714-002602-001 | Cover, End Point Detector\n10 | 668-002347-005 | Connector, Male, Hex, 5 Pin\n11 | 714-002600-001 | Connector, Bracket, End Point Detector\n12"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00286",
+    "stem": "TCP9600 parts identify_4_p1-500",
+    "content": "721-000926-002 | Washer, Lock, #4, SST\n6 7 | 722-007855-001 | Nut, Keps, 4-40, SST\n8 | 853-330416-002 | Assembly, CA, Ring Lug\n9 | 853-032166-001 | Assembly, Fe"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4__t00286",
+    "stem": "TCP9600 parts identify_4",
+    "content": "721-000926-002 | Washer, Lock, #4, SST\n6 7 | 722-007855-001 | Nut, Keps, 4-40, SST\n8 | 853-330416-002 | Assembly, CA, Ring Lug\n9 | 853-032166-001 | Assembly, Fe"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00334",
+    "stem": "TCP9600 parts identify_4_p1-500",
+    "content": "9 | 714-002602-001 | Cover, End Point Detector\n10 | 668-002347-005 | Connector, Male, Hex, 5 Pin\n11 | 714-002600-001 | Connector, Bracket, End Point Detector\n12"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00333",
+    "stem": "TCP9600 parts identify_4_p1-500",
+    "content": "PLL End Point Detector Assembly 853-005949-002 Rev. 1\nItem | Part No. | Description\n1 | 715-001986-001 | Plug, End Point Detector\n2 | 754-002571-001 | Spring, E"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00136",
+    "stem": "TCP9600 parts identify_4_p1-500",
+    "score": 0.9044067796610169,
+    "content": "Transformer RF Sense 50 Turn Assembly 853-033776-003 Rev. 1\nItem | Part No. | Description\n1 | 681-001967-001 | Cable, Coaxial, RG-213/U\n2 | 965-008952-001 | Tape, Glass Cloth, 1/2&quot; Width\n3 | 681-008421-024 | Wire, 24 AWG, Enamel\n4 | 638-000685-001 | Toroid 0.795 Diameter\nTP12E073 End Point Detector Assembly 853-001983-XXXA Rev. P\nEnd Point Detector Assembly 853-001983-XXX Rev. P\nItem | Part No. | Description\n1 | 720-001000-003 | Screw, Pan Head, 4- 40 x 3/16&quot; SST"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4__t00136",
+    "stem": "TCP9600 parts identify_4",
+    "score": 0.9044067796610169,
+    "content": "Transformer RF Sense 50 Turn Assembly 853-033776-003 Rev. 1\nItem | Part No. | Description\n1 | 681-001967-001 | Cable, Coaxial, RG-213/U\n2 | 965-008952-001 | Tape, Glass Cloth, 1/2&quot; Width\n3 | 681-008421-024 | Wire, 24 AWG, Enamel\n4 | 638-000685-001 | Toroid 0.795 Diameter\nTP12E073 End Point Detector Assembly 853-001983-XXXA Rev. P\nEnd Point Detector Assembly 853-001983-XXX Rev. P\nItem | Part No. | Description\n1 | 720-001000-003 | Screw, Pan Head, 4- 40 x 3/16&quot; SST"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4_p1-500__t00286",
+    "stem": "TCP9600 parts identify_4_p1-500",
+    "score": 0.8661568798309123,
+    "content": "721-000926-002 | Washer, Lock, #4, SST\n6 7 | 722-007855-001 | Nut, Keps, 4-40, SST\n8 | 853-330416-002 | Assembly, CA, Ring Lug\n9 | 853-032166-001 | Assembly, Feedthru Box, Upper Match\n714-032014-003 | CHAS, STA, Upper, Match Box,F/G\n10 | 714-032016-001 | Cover, ACS, Upper Match Box\nTP12E073 End Point Detector Assembly 853-001983-XXXA Rev. P\nEnd Point Detector 853-001983-XXX Rev. P\nItem | Part No. | Description\n1 | 720-001000-003 | Screw, Pan Head, 4-40 x 3/16, SST\n2 | 714-002602-001 | Cover"
+   },
+   {
+    "chunk_id": "TCP9600 parts identify_4__t00286",
+    "stem": "TCP9600 parts identify_4",
+    "score": 0.8661568798309123,
+    "content": "721-000926-002 | Washer, Lock, #4, SST\n6 7 | 722-007855-001 | Nut, Keps, 4-40, SST\n8 | 853-330416-002 | Assembly, CA, Ring Lug\n9 | 853-032166-001 | Assembly, Feedthru Box, Upper Match\n714-032014-003 | CHAS, STA, Upper, Match Box,F/G\n10 | 714-032016-001 | Cover, ACS, Upper Match Box\nTP12E073 End Point Detector Assembly 853-001983-XXXA Rev. P\nEnd Point Detector 853-001983-XXX Rev. P\nItem | Part No. | Description\n1 | 720-001000-003 | Screw, Pan Head, 4-40 x 3/16, SST\n2 | 714-002602-001 | Cover"
+   }
+  ],
+  "new_pool_ids": [
+   "TCP9600 parts identify_4_p1-500__t00286",
+   "TCP9600 parts identify_4__t00334",
+   "TCP9600 parts identify_4__t00286",
+   "TCP9600 parts identify_4_p1-500__t00333",
+   "TCP9600 parts identify_4_p1-500__t00334",
+   "TCP9600 parts identify_4__t00333",
+   "TCP9600 parts identify_4_p1-500__t00335",
+   "TCP9600 parts identify_4_p1-500__t00136",
+   "TCP9600 parts identify_4__t00335",
+   "TCP9600 parts identify_4__t00136",
+   "TCP9600 parts identify_4__t00261",
+   "TCP9600 parts identify_4_p1-500__t00261",
+   "TCP9600 parts identify_4_p1-500__t00219",
+   "TCP9600 parts identify_4__t00288",
+   "TCP9600 parts identify_4__t00320",
+   "TCP9600 parts identify_4_p1-500__t00288",
+   "TCP9600 parts identify_4_p1-500__t00320",
+   "SEMI 标准合集_p2001-2500__t01292",
+   "TCP9600 parts identify_4__t00219",
+   "TCP9600 parts identify_4__t00218",
+   "TCP9600 parts identify_4_p1-500__t00218",
+   "TCP9600 parts identify_4__t00138",
+   "微纳制造的基础研究学术著作丛书 柔性电子制造 材料、器件与工艺 尹周平__t00361",
+   "微纳制造的基础研究学术著作丛书 柔性电子制造 材料、器件与工艺 尹周平_p1-135__t00417",
+   "晶体硅太阳电池制造技术 [王文静 编著] 2014年_p217-270__t00120",
+   "TCP9600 parts identify_4_p1-500__t00138",
+   "电子束检测的报告__t00011",
+   "微纳制造的基础研究学术著作丛书 柔性电子制造 材料、器件与工艺 尹周平_p1-135__t00398",
+   "D03_一种高速深槽瞬变电压抑制器的封装设计及实现__t00029",
+   "半导体制造工艺 [张渊主编] 2011年版__t00709",
+   "TCP9600 parts identify_4__t00221",
+   "微纳制造的基础研究学术著作丛书 柔性电子制造 材料、器件与工艺 尹周平__t00339"
+  ]
+ },
+ "dev_169": {
+  "q": "层压报 71400013，说 Height teaching tool offset Y 与 Height teaching sensor position Y 之和必须在 -130mm 到 -83mm 之间。我把 tool offset Y 设成了 -100mm，那 sensor position Y 允许设在什么范围？",
+  "baseline_top5": [
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01487",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "content": "71400013 | Lamination Stage - Data error - Height teaching sensor position Y + Heightteaching tool offset YContents: The data of [Height teaching sensor positio"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01467",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "content": "71300017 | Lamination Head - Data error - Height teaching sensor position Y + Height teaching tool offset Y Contents: The data of [Height teaching sensor positi"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01466",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "content": "71300016 | teaching tool offset X Contents: The data of [Height teaching sensor position X] and/or [Height teaching tool offset X] is not set correctly Action: "
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01486",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "content": "71400012 | Lamination Stage - Data error - Height teaching sensor position X + Heightteaching tool offset XContents: The data of [Height teaching sensor positio"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00813",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500",
+    "content": "Y | μm | Y coordination of height teach sensor position\n6. | Head HGT Teach Sens. offset | μm | Height distance between frame transfer planeand height teaching "
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01487",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "score": 1.0,
+    "content": "71400013 | Lamination Stage - Data error - Height teaching sensor position Y + Heightteaching tool offset YContents: The data of [Height teaching sensor position Y] and/or [Height teachingtool offset Y] is not set correctlyAction:Check followings and rectify as necessary;(1)The data of [Height teaching tool offset Y], in [Recipe] -[Laminationcondition/Recognition] -[ Production tool Data] - [Tool], is set correctly(2)The data of [Height teaching sensor position Y], in [Setup data] - [Laminationmachine] - [Height teaching], is set correctly(3)The sum of [Height teaching tool offset Y] and [Height teaching sensor positionY] is in between -130mm and -83mm"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01467",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "score": 0.9550461383790902,
+    "content": "71300017 | Lamination Head - Data error - Height teaching sensor position Y + Height teaching tool offset Y Contents: The data of [Height teaching sensor position Y] and/or [Height teaching tool offset Y] is not set correctly Action: Check followings and rectify as necessary; (1)The data of [Height teaching tool offset Y], in [Recipe] -[Lamination condition/Recognition] -[ Production tool Data] - [Tool], is set correctly (2)The data of [Height teaching sensor position Y], in [Setup data] - [Lamination machine] - [Height teaching], is set correctly (3)The sum of [Height teaching tool offset Y] and [Height teaching sensor position Y] is in between -130mm and -83mm Lamination Head - Data error - Tool dimension"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01486",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "score": 0.7092611534029498,
+    "content": "71400012 | Lamination Stage - Data error - Height teaching sensor position X + Heightteaching tool offset XContents: The data of [Height teaching sensor position X] and/or [Height teachingtool offset X] is not set correctlyAction:Check followings and rectify as necessary;(1)The data of [Height teaching tool offset X], in [Recipe] -[Laminationcondition/Recognition] -[ Production tool Data] - [Tool], is set correctly(2)The data of [Height teaching sensor position X], in [Setup data] - [Laminationmachine] - [Height teaching], is set correctly(3)The sum of [Height teaching tool offset X] and [Height teaching sensor positionX] is in between -4mm and 4mm"
+   },
+   {
+    "chunk_id": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01466",
+    "stem": "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794",
+    "score": 0.6714427906676953,
+    "content": "71300016 | teaching tool offset X Contents: The data of [Height teaching sensor position X] and/or [Height teaching tool offset X] is not set correctly Action: Check followings and rectify as necessary; (1)The data of [Height teaching tool offset X], in [Recipe] -[Lamination condition/Recognition] -[ Production tool Data] - [Tool], is set correctly (2)The data of [Height teaching sensor position X], in [Setup data] - [Lamination machine] - [Height teaching], is set correctly (3)The sum of [Height teaching tool offset X] and [Height teaching sensor position X] is in between -4mm and 4mm"
+   }
+  ],
+  "new_pool_ids": [
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01487",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01467",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01466",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01486",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00813",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00812",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00315",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t01251",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00178",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00909",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00676",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p1-500__t00318",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00425",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00345",
+   "晶圆减薄strasbaugh Model 7AF_p2001-2493__t01190",
+   "Improvements to the alignment process in electron-beam lithography__t00132",
+   "CP45FVNEO Administrator’s Guide (Eng, Ver3)__t00893",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00233",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00246",
+   "NSRSTC-RF-MNTV-251-E1-1__t00599",
+   "SEMI 标准合集_p6501-7000__t03659",
+   "日立固晶机DB800_Manual-eng_ver01_012_00_p501-794__t00428",
+   "晶圆机器人Brooks_PRI_Automation_ABM_407B_1_S_CE_S293_Manual_20163184612__t00403",
+   "日立DB800 Level 1-2 中文操作手册__t00102",
+   "TT-MA-RS-Calibrations-3v1__t00144",
+   "SEMI 标准合集_p6501-7000__t03479",
+   "晶圆减薄strasbaugh Model 7AF_p2001-2493__t01220",
+   "SEMI 标准合集_p6501-7000__t03654",
+   "leap-EFEM平台详细使用手册__t00290",
+   "SEMI 标准合集_p6501-7000__t03662",
+   "TT-MA-ME_setupblock_1-5_1v3__t00061",
+   "CP45FVNEO Administrator’s Guide (Eng, Ver3)__t00892"
+  ]
+ },
+ "dev_180": {
+  "q": "我们要把栅氧前的最后一步从 SC1 换成 HF-last。帮我查清楚：HF-last 表面的铁为什么比有自然氧化层表面的难去除、单步清洗效率各多少、哪些多步序列能做到 99% 以上？这些序列对氧化前少子寿命有什么影响？另外 SC1 收尾本身有什么再污染风险？",
+  "baseline_top5": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00313",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "In the former case (SC1-last surface), we could remove iron from native oxide surfaces even with single-step cleans. $( 2 , 3 )$ The iron on HF-last surfaces wa"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术 VIII__t01562",
+    "stem": "半导体器件制造中的清洗技术 VIII",
+    "content": "Increasing the SC1 time and temperatures yielded better results but was found to be not economically feasible approaches.\nFurther testing lead to the replacemen"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00311",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "As shown in the table, we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. We also found that the SC1 was more"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00213",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "content": "We are left with the situation of the undesirability of SC1-last surfaces due to metal contamination, but the undesirability of anything else due to particle co"
+   },
+   {
+    "chunk_id": "pv_97_35_p1-500__t01026",
+    "stem": "pv_97_35_p1-500",
+    "content": "The characterization of HF-last cleaning was focused on cleaning performances by (1) the measurements of metallic and particulate contamination levels as well a"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00313",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.8869721059049158,
+    "content": "In the former case (SC1-last surface), we could remove iron from native oxide surfaces even with single-step cleans. $( 2 , 3 )$ The iron on HF-last surfaces was much more difficult to remove. To understand this behavior, we must consider the bonding between metals and silicon itself when we aim to dissolve metals in chemical solutions."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00315",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.822312427170574,
+    "content": "The presence of oxidizing agents in the solution also can help the dissolution of iron in the solution when the pH of the solution is below about 8.\nTable I Efficiency of RCA-based cleans on the removal of iron either from SC1-last surfaces or from HF-last surfaces.\nChemical Cleaning | Cleaning Efficiency (Fe on HF-last surface)\nHF only | 6\nSC1 only | 2\nSC2 only | 0\n$\\mathsf { S C 1 } + \\mathsf { S C 2 }$ | 4\n$\\mathsf { S C 1 } + \\mathsf { H F }$ | 99"
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00311",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.7685064726908275,
+    "content": "As shown in the table, we found that it took at least three separate steps to effectively remove iron from HF-last surfaces. We also found that the SC1 was more effective in removing iron from HF-last surfaces than the hydrochloric acidhydrogen peroxide solution (SC2)."
+   },
+   {
+    "chunk_id": "半导体器件制造中的清洗技术pv_94_07_p1-500__t00213",
+    "stem": "半导体器件制造中的清洗技术pv_94_07_p1-500",
+    "score": 0.7382981574928361,
+    "content": "We are left with the situation of the undesirability of SC1-last surfaces due to metal contamination, but the undesirability of anything else due to particle contamination. It is however becoming more necessary for modern processing to replace SC1-last sequences with others (SČ2 if native oxide is acceptable or HF or HF/H2O2 if native oxide free surfaces are required).\nFor metal removal water rinses can play an important role, as discussed above."
+   }
+  ],
+  "new_pool_ids": [
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00313",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00311",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00213",
+   "pv_97_35_p1-500__t01050",
+   "半导体器件制造中的清洗技术 VIII__t01562",
+   "pv_97_35_p1-500__t01026",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00315",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00317",
+   "pv_97_35_p1-500__t01028",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00619",
+   "pv_97_35_p1-500__t01061",
+   "pv_97_35_p1-500__t01044",
+   "pv_97_35_p1-500__t01037",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00312",
+   "半导体器件制造中的清洗技术 VIII__t00659",
+   "pv_97_35_p1-500__t02425",
+   "半导体器件制造中的清洗技术pv_94_07_p1-500__t00613",
+   "pv_97_35_p1-500__t01019",
+   "pv_97_35_p1-500__t01051",
+   "半导体表面的超洁净处理 XIII__t01680",
+   "4ecf6819245394bf0769aa2408ebbad7__t00021",
+   "pv_97_35_p1-500__t00484",
+   "芯片制造半导体工艺制程实用教程第5版 [韩郑生编著] 2010年版__t00257",
+   "半导体IC清洗技术__t00010",
+   "pv_97_35_p1-500__t01039",
+   "pv_97_35_p1-500__t01052",
+   "半导体表面的超洁净处理 XIII__t01679",
+   "b4f95-a4d06390-54b6-49f8-8bb3-141e5b8fff47__t00032",
+   "半导体器件制造中的清洗技术 VIII__t00636",
+   "pv_97_35_p1-500__t00583",
+   "pv_97_35_p501-664__t00172",
+   "pv_97_35_p1-500__t01027"
+  ]
+ },
+ "dev_184": {
+  "q": "同样是砂轮磨损超限,磨硅片时报 \"Coarse wheel wear limit\" 和磨 AlTiC 时报同样消息,机器的处理方式有什么不同?这个超限状态怎么清除?另外磨损量是在哪个卡盘上测的?",
+  "baseline_top5": [
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00479",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "content": "As in previous releases, the amount of wheel wear is compared to the Machine Variables Coarse Wear Lim microns (variable 25) and Fine Wear Lim microns (variable"
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00456",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "content": "Therefore, the first wafer will provide a “mark” for the current amount of wheel wear and subsequent wear (at the right chuck only) will be compared to the last"
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00431",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "content": "In the case of AlTiC and alternative materials grinding, the send cassettes are disabled and the turrets are locked.\nA new optional check is made, wheel wear pe"
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00432",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "content": "Therefore, the first wafer will provide a “mark” for the current amount of wheel wear and subsequent wear (at the right chuck only) will be compared to the last"
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00481",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "content": "If this amount is exceeded, a wear per wafer limit message is put on the screen. In the case of AlTiC and alternative materials grinding, the send cassettes are"
+   }
+  ],
+  "new_top6": [
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00481",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "score": 0.825,
+    "content": "If this amount is exceeded, a wear per wafer limit message is put on the screen. In the case of AlTiC and alternative materials grinding, the send cassettes are disabled and the turrets are locked.\nAlso, Wheel Wear is now reported via GEM. Variable ID number 139 is used to report Coarse Wheel Wear and Variable ID number 140 is used to report Fine Wheel Wear. Because the numbers can be undefined, the value of -1.0e6 is the value signifying an undefined response.\nAn undefined response is usually due to the wheel being unreferenced."
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00456",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "score": 0.7441401049524231,
+    "content": "Therefore, the first wafer will provide a “mark” for the current amount of wheel wear and subsequent wear (at the right chuck only) will be compared to the last grind (or “polish”). ). If this amount is exceeded, a wear per wafer limit message is put on the screen. In the case of AlTiC and alternative materials grinding, the send cassettes are disabled and the turrets are locked.\nAlso, Wheel Wear is now reported via GEM."
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00432",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "score": 0.7441401049524231,
+    "content": "Therefore, the first wafer will provide a “mark” for the current amount of wheel wear and subsequent wear (at the right chuck only) will be compared to the last grind (or “polish”). ). If this amount is exceeded, a wear per wafer limit message is put on the screen. In the case of AlTiC and alternative materials grinding, the send cassettes are disabled and the turrets are locked.\nAlso, Wheel Wear is now reported via GEM."
+   },
+   {
+    "chunk_id": "晶圆减薄strasbaugh Model 7AF_p501-1000__t00479",
+    "stem": "晶圆减薄strasbaugh Model 7AF_p501-1000",
+    "score": 0.733010943137925,
+    "content": "As in previous releases, the amount of wheel wear is compared to the Machine Variables Coarse Wear Lim microns (variable 25) and Fine Wear Lim microns (variable 35). If this amount is exceeded, a wear limit message is put on the screen. In the case of AlTiC and alternative materials grinding, the send cassettes are disabled and the turrets are locked.\nA new optional check is made, wheel wear per wafer."
+   }
+  ],
+  "new_pool_ids": [
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00479",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00456",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00432",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00481",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00431",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00454",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00455",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00430",
+   "晶圆减薄研磨机strasbaugh Model 7AA__t00263",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00452",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00477",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00555",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00428",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00434",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00458",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00480",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00193",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00459",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00435",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00093",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00483",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00200",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00238",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00774",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00462",
+   "集成电路芯片制造实用技术 [卢静主编] 2011年版__t00095",
+   "先进封装材料_p1-500__t00974",
+   "晶圆减薄strasbaugh Model 7AF_p1-500__t00609",
+   "晶圆减薄研磨机strasbaugh Model 7AA__t00238",
+   "晶圆减薄strasbaugh Model 7AF_p501-1000__t00239",
+   "高功率激光光学元件超精密制造技术__t00038",
+   "晶圆减薄研磨机strasbaugh Model 7AA__t00262"
+  ]
+ }
+}

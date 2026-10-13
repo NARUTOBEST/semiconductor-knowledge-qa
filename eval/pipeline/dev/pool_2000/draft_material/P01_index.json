@@ -1,0 +1,326 @@
+{
+ "doc": "20221017F109E723E35215DE",
+ "chunks": 6228,
+ "headings": [
+  [
+   "References",
+   174
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > References",
+   140
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > References",
+   101
+  ],
+  [
+   "Foreword by James R. Heath > List of Abbreviations",
+   81
+  ],
+  [
+   "2. Nanomaterials Synthesis and Applications: Molecule-Based Devices > 2.3.2 Langmuir-Blodgett Films",
+   66
+  ],
+  [
+   "20221017F109E723E35215DE_p153-228",
+   61
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > 6. Templated Self-Assembly of Particles",
+   60
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.4.1 Silicon Carbide",
+   55
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.1.2 Polycrystalline and Amorphous Silicon",
+   54
+  ],
+  [
+   "10. Stamping Techniques for Microand Nanofabrication > 10.4.1 Unconventional Electronic Systems",
+   53
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.3 Metals",
+   52
+  ],
+  [
+   "2. Nanomaterials Synthesis and Applications: Molecule-Based Devices > 2.2.5 Intermolecular Communication",
+   51
+  ],
+  [
+   "7. Three-Dimensional Nanostructure Fabrication by Focused lon Beam Chemical Vapor Deposition > 7.2.2 Free-Space Nanowiring",
+   50
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Electric Arc Method - Results",
+   49
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding",
+   48
+  ],
+  [
+   "2. Nanomaterials Synthesis and Applications: Molecule-Based Devices > 2.3.3 Self-Assembled Monolayers",
+   45
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.2.1 Limits of Molding",
+   45
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.1.1 Single-Wall Nanotubes",
+   44
+  ],
+  [
+   "10. Stamping Techniques for Microand Nanofabrication > 10.3 Nanotransfer Printing",
+   43
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.1.1 Single-Crystal Silicon",
+   42
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > References",
+   42
+  ],
+  [
+   "10. Stamping Techniques for Microand Nanofabrication > 10.2 Microcontact Printing",
+   40
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Heterogeneous Processes - Resultswith CCVD Involving Impregnated Catalysts",
+   39
+  ],
+  [
+   "7. Three-Dimensional Nanostructure Fabrication by Focused lon Beam Chemical Vapor Deposition > 7.2.1 Measuring Young's Modulus",
+   38
+  ],
+  [
+   "1. Introduction to Nanotechnology > 1.1 Nanotechnology - Definition and Examples",
+   38
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Polymer MatrixComposites",
+   38
+  ],
+  [
+   "Foreword by James R. Heath > Preface to the 2nd Edition",
+   37
+  ],
+  [
+   "Foreword by James R. Heath > Preface to the 3rd Edition",
+   37
+  ],
+  [
+   "8. Introduction to Micro-/Nanofabrication > Chemical Self-Assembly",
+   36
+  ],
+  [
+   "8. Introduction to Micro-/Nanofabrication > Wet Etching",
+   36
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.5 Conclusions and Outlook",
+   36
+  ],
+  [
+   "2. Nanomaterials Synthesis and Applications: Molecule-Based Devices > 2.3.4 Nanogaps and Nanowires",
+   35
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.2.4 Synthesis of Carbon Nanotubes with ControlledOrientation",
+   35
+  ],
+  [
+   "2.3.4 Nanogaps and Nanowires",
+   35
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.4.2 Patterned Magnetic Media for Hard-Disk Drives",
+   34
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Adsorption Sites and Binding Energy of the Adsorbates",
+   34
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.2.2 Squeeze Flow of Thin Films",
+   32
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.4.4 Electronic andOptical Properties",
+   32
+  ],
+  [
+   "8. Introduction to Micro-/Nanofabrication > Dry Etching",
+   32
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > 6.1.1 Energy and Length Scales",
+   32
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Catalyst Support",
+   32
+  ],
+  [
+   "1. Introduction to Nanotechnology > 1.3 Lessons from Nature (Biomimetics)",
+   32
+  ],
+  [
+   "Foreword by Neal Lane",
+   30
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Gas Storage - Hydrogen",
+   30
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > 5.3 Electrophoretic Deposition",
+   30
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.3.1 Resist Materials for Nanoimprinting",
+   30
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > The Dielectric Function",
+   29
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.4.2 Diamond",
+   29
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.4.6 Bio Applications",
+   29
+  ],
+  [
+   "8. Introduction to Micro-/Nanofabrication > References",
+   29
+  ],
+  [
+   "The Dielectric Function",
+   29
+  ],
+  [
+   "11.4.2 Diamond",
+   29
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Electric Arc Method",
+   28
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.1.4 Silicon Dioxide",
+   28
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.4.1 Types of Nanoimprinting Applications",
+   28
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.7 Toxicity and Environmental Impact of Carbon Nanotubes",
+   28
+  ],
+  [
+   "2. Nanomaterials Synthesis and Applications: Molecule-Based Devices > 2.2.4 Combinational Logic at theMolecular Level",
+   28
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Low-Temperature Conditions",
+   26
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Molten State FillingMethod",
+   26
+  ],
+  [
+   "8. Introduction to Micro-/Nanofabrication > Basic Surface-Micromachining Processes",
+   26
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > 5.3.2 Single Crystal OxideNanorod Arrays Obtained by Changing the Local pH",
+   26
+  ],
+  [
+   "11. Material Aspects of Micro and Nanoelectromechanical Systems > 11.2.1 Polycrystalline Ge",
+   24
+  ],
+  [
+   "8. Introduction to Micro-/Nanofabrication > 8.1.1 Lithography",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Biosensors",
+   24
+  ],
+  [
+   "10. Stamping Techniques for Microand Nanofabrication",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.2.1Solid Carbon Source-BasedProduction TechniquesforCarbon Nanotubes",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > Homogeneous Processes - Results",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.4.3 Adsorption Properties of SWNTs",
+   24
+  ],
+  [
+   "2. Nanomaterials Synthesis and Applications: Molecule-Based Devices > 2.2.3 Molecular AND, NOT, and OR Gates",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 3.1.2 MultiwallNanotubes",
+   24
+  ],
+  [
+   "1. Introduction to Nanotechnology > 1.2 Background and Research Expenditures",
+   24
+  ],
+  [
+   "3. Introduction to Carbon Nanotubes > 4.3.3 Optical Applications",
+   23
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > 5.2.1 Metals",
+   23
+  ],
+  [
+   "10. Stamping Techniques for Microand Nanofabrication > References",
+   23
+  ],
+  [
+   "4.3.3 Optical Applications",
+   23
+  ],
+  [
+   "10. Stamping Techniques for Microand Nanofabrication > 10.1 High-Resolution Stamps",
+   22
+  ],
+  [
+   "1. Introduction to Nanotechnology > 1.4 Applications in Different Fields",
+   22
+  ],
+  [
+   "5. Template-Based Synthesis of Nanorod or Nanowire Arrays > 5.1 Template-Based Approach",
+   22
+  ],
+  [
+   "9. Nanoimprint Lithography - Patterning of Resists Using Molding > 9.1.2 Variants of Nanoimprint Lithography",
+   22
+  ]
+ ]
+}

@@ -228,7 +228,7 @@ def classify_complexity(question: str,
     prompt = _ROUTER_PROMPT.format(question=question)
     try:
         resp, err = llm_create_with_retry(
-            get_client(), trace_id="router",
+            get_client(), trace_id="router", site="router",
             model=C.TIER_MODEL_SIMPLE,
             messages=[{"role": "user", "content": prompt}],
             temperature=0, timeout=C.ROUTER_TIMEOUT,
@@ -323,7 +323,7 @@ def classify_and_clarify(question: str,
     prompt = _ROUTER_FUSED_PROMPT.format(history=history_text, question=question)
     try:
         resp, err = llm_create_with_retry(
-            get_client(), trace_id="router-fused",
+            get_client(), trace_id="router-fused", site="router-fused",
             model=C.TIER_MODEL_SIMPLE,
             messages=[{"role": "user", "content": prompt}],
             temperature=0, max_tokens=200,
@@ -347,9 +347,14 @@ def classify_and_clarify(question: str,
                     text[:120])
         return {"need_clarify": False, "question": "", "options": [],
                 "tier": "react", "confidence": 0.0, "source": "fallback"}
-    # 澄清优先:需要澄清时不作答
+    # 澄清优先:需要澄清时不作答;但问题自身含型号/专名,或最近两轮历史已
+    # 出现具体设备/型号(指代可消解)时,不采纳 LLM 的反问判定,照常路由。
     if parsed["need_clarify"] and parsed["question"]:
-        return {**parsed, "tier": None, "confidence": parsed["confidence"]}
+        if _clarify._has_explicit_referent(question, history):
+            parsed = {**parsed, "need_clarify": False,
+                      "question": "", "options": []}
+        else:
+            return {**parsed, "tier": None, "confidence": parsed["confidence"]}
     tier = parsed["tier"] or "react"
     # 防提示漂移:模型判 react 但问题符合 raglite 规则准入 -> 降级 raglite
     if tier == "react" and _raglite_eligible(question):

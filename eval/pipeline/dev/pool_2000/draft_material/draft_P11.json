@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P11-01",
+  "query": "我们产线显影用的是 TMAH,书里说行业标准的当量浓度是多少来着?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "显影液浓度用当量浓度表示,0.26 N 的 TMAH 溶液已成为行业事实标准;这种标准化主要是为了降低显影液成本,而不是因为 0.26 N 被证明具有最佳光刻能力。",
+  "success_criteria": "答出 0.26 N TMAH 且说明标准化主要源于成本考量;单位(N)正确。",
+  "evidence": "--[p100]-- The concentration of developers is usually measured in terms of normality. While resist processes can work in principle over wide ranges of developer normality, 0.26-N TMAH solutions appear to have become somewhat of an industry standard. --[p100]-- This standardization has been done primarily to reduce developer costs, rather than because 0.26-N developer normality has been found to provide the greatest lithography capability."
+ },
+ {
+  "query_id": "P11-02",
+  "query": "第一台商品化的晶圆步进机 GCA DSW4800,当时用的是汞灯的哪条谱线曝光?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "GCA DSW4800 使用汞弧灯的 g 线;汞弧灯在蓝光和紫外波段有三条强谱线,g 线、h 线和 i 线,Nikon、Canon、ASML 和 TRE 最早制造的步进机同样工作在 g 线。",
+  "success_criteria": "明确答出 g 线(436 nm 谱线可加分);答出汞灯共有三条强谱线。",
+  "evidence": "--[p191]-- The mercury arc lamp has three intense spectral lines in the blue and ultraviolet portions of the electromagnetic spectrum (Table 5.2), along with some continuum emission in between these spectral lines. The first commercially available wafer stepper, the GCA DSW4800, operated at the mercury g-line, as did the first steppers built by Nikon, Canon, ASML, and TRE."
+ },
+ {
+  "query_id": "P11-03",
+  "query": "EUV 光刻最后敲定的曝光波长是几个纳米?当时是依据什么定下来的?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "13.5 nm。该选择部分由 Mo/Si 多层膜反射镜决定(限制了工作波长范围),并进一步与当时候选光源的峰值输出波长匹配而确定。",
+  "success_criteria": "答出 13.5 nm,并能说出与 Mo/Si 多层膜及光源峰值输出匹配这两点。",
+  "evidence": "--[p497]-- For EUV lithography, the semiconductor industry has settled on an operating wavelength of 13.5 nm. --[p497]-- This choice was dictated in part by the selection of Mo/Si multilayers, which limited the range for the operating wavelength. The operating wavelength was further pinned down by matching this wavelength to the peak outputs of candidate light sources at the time the wavelength was selected."
+ },
+ {
+  "query_id": "P11-04",
+  "query": "做成本核算:193 nm 光刻用的胶一升大概什么价位?和普通非关键层胶比差几倍?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "非关键层用胶可以低至 100 美元/升;DUV 胶(尤其 193 nm 曝光用胶)价格可达其五倍或更多;新兴技术用胶最高可达 2500 美元/升。",
+  "success_criteria": "三个价格区间(≥100 美元/升、5 倍以上、最高 2500 美元/升)至少答出前两个,货币单位正确。",
+  "evidence": "--[p82]-- Resists used for noncritical layers can cost as little as $100 per liter, but deep-ultraviolet (DUV) resists (particularly for 193-nm exposures) can cost five times that or more, while resists for emerging technologies can cost as much as $2500 per liter."
+ },
+ {
+  "query_id": "P11-05",
+  "query": "300 mm 晶圆显影用 puddle 工艺的话,一次打多少显影液、在片上停留多久比较典型?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": " puddle 显影是最常用的显影方法:每片 300 mm 晶圆喷注 150–300 cc 显影液形成覆盖整个表面的液池,停留时间典型为 30–75 秒,之后用去离子水冲净。",
+  "success_criteria": "答出 150–300 cc 和 30–75 sec 两个数值,单位正确。",
+  "evidence": "--[p100]-- The \"puddle process\" is the most common method for resist developing, where 150-300 cc of developer are dispensed on each (300-mm) wafer, forming a puddle that covers the entire wafer surface. The developer is left on the wafer for the desired length of time, typically 30-75 sec. The developer is then rinsed off with deionized water."
+ },
+ {
+  "query_id": "P11-06",
+  "query": "EUV 胶为什么都旋涂得特别薄?一般做到多薄?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "EUV 光刻胶涂得很薄,小于 50 nm;原因是大的胶膜高宽比会带来图形坍塌(resist collapse)问题,所以必须减薄胶厚。",
+  "success_criteria": "答出 &lt;50 nm 且说明原因是高宽比大导致图形坍塌。",
+  "evidence": "--[p23]-- Because of resist-collapse issues that accompany large resist aspect ratios, EUV resists are coated very thin (&lt;50 nm)."
+ },
+ {
+  "query_id": "P11-07",
+  "query": "帮我在书里查一下化学机械抛光(CMP)的抛光液成分、抛光头压力和转速这些参数,我们做工艺整合要用。",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书是光刻技术专著,未涉及 CMP 工艺的抛光液配方、抛光压力、转速等工艺参数;全书仅在讨论衬底形貌对胶厚的影响时提到过 chemical-mechanical polishing 这一名词,并建议用户查阅 CMP 方面的专门文献。不应编造任何 CMP 参数。",
+  "success_criteria": "正确拒答:明确指出书中没有 CMP 工艺参数,并给出理由与替代建议;不给出任何编造的抛光液/压力/转速数值。",
+  "evidence": "--[p83]-- This includes areas involving substrate topography, where the minimum resist thicknesses often occur. Prior to the widespread use of chemical-mechanical polishing, requirements imposed by wafer topography often determined resist thicknesses.(全书素材中 CMP 仅在此类背景叙述中被提及,无任何抛光液成分、压力、转速参数)"
+ },
+ {
+  "query_id": "P11-08",
+  "query": "书里有没有讲离子注入的剂量和能量怎么设置?我想查源漏注入的典型剂量当参考。",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书未涉及离子注入的剂量、能量等工艺参数设置;书中仅在说明光刻后道工序(反应离子刻蚀、离子注入在真空设备中进行)以及胶膜需在刻蚀/注入后仍保持完整时顺带提到 ion implantation,建议查阅离子注入工艺专著。不应编造剂量数值。",
+  "success_criteria": "正确拒答:明确说明书中无离子注入剂量/能量参数,理由正确;不输出编造的注入条件。",
+  "evidence": "--[p90]-- After the lithography patterning process is completed, the wafers usually go into another processing step, such as reactive ion etch or ion implantation, that takes place in a vacuum. --[p83]-- The resist film must be thick enough to have resist remaining at the end of the etch process over those areas of the substrate that are not supposed to be etched.(全书仅在光刻后工序的背景中提及离子注入,无任何剂量/能量参数)"
+ },
+ {
+  "query_id": "P11-11",
+  "query": "现在的曝光机工件台做曝光扫描时速度能跑到多少?加速度和 jerk 呢?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按书中 Table 5.12(高端工件台能力):扫描速度 800 mm/sec,加速度 0.5 G ≈ 4.9 m/sec²,jerk 为 500 m/sec³。书中注明这些是公开文献数值,实际最先进水平可能更高;装卸片等非精密操作时速度还会超过曝光扫描最大速度。",
+  "success_criteria": "三个数值(800 mm/sec、0.5 G≈4.9 m/sec²、500 m/sec³)至少答出速度与加速度,jerk 数值加分;单位正确。",
+  "evidence": "--[p232]-- Wafer stage speed (scanning)200,201 | 800 mm/sec; Acceleration199 | 0.5 G = 4.9 m/sec2; Jerk202 | 500 m/sec3 --[p232]-- These values are those available in the open literature, but they likely do not represent today's state-of-the-art for acceleration and jerk, which are probably much larger. During operations that do not require great precision, such as wafer loading and unloading, the wafer stage speed is usually greater than the maximum speed during exposure scanning."
+ },
+ {
+  "query_id": "P11-12",
+  "query": "NuFlare 那台 EBM-9500 电子束掩模写版机,束压、最小图形尺寸、图形放置精度和 CD 均匀性各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按 Table 7.4(EBM-9500 关键参数):最小数据地址单元 0.1 nm,主偏转场 90 μm,最小图形尺寸 9 nm,图形放置精度(3σ)2.1 nm,CD 均匀性(3σ)2.5 nm,束压 50 kV。",
+  "success_criteria": "至少答出束压 50 kV、最小图形 9 nm、放置精度 2.1 nm、CD 均匀性 2.5 nm 四项;单位正确。",
+  "evidence": "--[p314 [表]]-- For high resolution, the beam voltage in these systems is 50 kV. Parameters of the EBM-9500 are given Table 7.4. Table 7.4 The key parameters of the EBM-9500: Minimum data address unit | 0.1 nm; Main deflection field size | 90 μm; Minimum feature size | 9 nm; Pattern placement accuracy (3σ) | 2.1 nm; CD uniformity (3σ) | 2.5 nm; Beam voltage | 50 kV"
+ },
+ {
+  "query_id": "P11-13",
+  "query": "MEEF 在先进工艺里能大到什么程度?MEEF=4 的时候,4 倍缩小倍率机台上掩模线宽误差是怎么传到晶圆上的?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "领先工艺中 MEEF 达到 4 甚至更大很常见。按 σ_wafer = (MEEF/N)·σ_reticle,MEEF=4、N=4 时 MEEF/N=1,即掩模线宽变化在 4 倍缩倍机台上按 1:1 传递到晶圆,镜头缩倍对降低掩模线宽影响的收益完全丧失。",
+  "success_criteria": "答出 MEEF 可达 4 或更大,并正确给出 1:1 传递的结论及 σ_wafer=(MEEF/N)σ_reticle 的关系。",
+  "evidence": "--[p383]-- For leading-edge lithographic processes, MEEFs as large as four or greater are common. --[p383]-- σ_wafer = (MEEF/N)·σ_reticle (8.8) --[p383]-- For mask-error factors that equal 4, reticle linewidth variations transfer 1:1 on 4-reduction exposure tools. The entire benefit of lens reduction, to reduce the impact of reticle variations on wafer linewidth control, is completely absent."
+ },
+ {
+  "query_id": "P11-14",
+  "query": "EUV 掩模基板对平坦度和热膨胀系数的要求是多少?有哪些低膨胀玻璃可用?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "为满足 16 nm 半间距逻辑技术的套刻要求,EUV 掩模必须平坦到 24 nm 以内(峰谷值),否则须对图形位置做补偿;基板热膨胀系数须极低(&lt;30 ppb/K),可用玻璃如 Corning 的 ULE 和 Schott 的 Zerodur。",
+  "success_criteria": "答出 24 nm(峰谷)、CTE &lt;30 ppb/K,以及 ULE 和 Zerodur 两种材料。",
+  "evidence": "--[p493]-- For consistency with the overlay requirements of 16-nm half-pitch logic technology, EUV masks must be flat to within 24 nm (peak to valley; see Problem 12.6), unless techniques are implemented to compensate for the pattern placement errors caused by mask nonflatness. --[p493]-- EUV masks should be fabricated on substrates with extremely low coefficients of thermal expansion (&lt;30 ppb/K). Glass materials with such low coefficients of thermal expansion are available and have been characterized for use as EUV mask substrates. Examples of such glass materials are ULE from Corning, Inc. and Zerodur from Schott."
+ },
+ {
+  "query_id": "P11-15",
+  "query": "193 nm 浸没式光刻比干法成像分辨率能提升多少?那为什么 KrF 浸没一直没人推?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "193 nm 水浸没使分辨率比空气中成像提升 40% 以上。KrF 浸没不受推动的原因:水在 KrF 波长的折射率只有 1.378(远低于 ArF 的 1.437),改善效果差;且许多现有 KrF 胶体系浸水后表现不佳,因此业界几乎未投入 KrF 浸没开发。",
+  "success_criteria": "答出 &gt;40% 与 1.378 两个数值,并给出 KrF 胶浸水性能不佳的结论。",
+  "evidence": "--[p443]-- At = 193 nm, water immersion provides a significant extension of optical lithography, enabling &gt;40% increase in resolution over imaging in air. --[p443]-- However, the index of refraction of water is only 1.378 at KrF wavelengths, so water is less effective at improving KrF than ArF lithography. Also, it appears that many existing KrF resist platforms do not work well when the resists are immersed in water. Consequently, there has been little effort to develop KrF immersion lithography."
+ },
+ {
+  "query_id": "P11-16",
+  "query": "现在 ArF/KrF 准分子激光器换气周期和早期比差多少?脉冲重复频率做到了多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "早期光刻用准分子激光器每 100,000 脉冲就需完全换气,而较新的激光器每 20 亿脉冲才需换气、甚至完全不用换气;重复频率从 200 Hz 提高到 4 kHz,最终到 6 kHz。",
+  "success_criteria": "答出 100,000 脉冲与 20 亿脉冲(或不需换气)的对比,以及 200 Hz→4 kHz→6 kHz 的提升路径。",
+  "evidence": "--[p198]-- Early excimer lasers for lithography required complete gas refills every 100,000 pulses, while more recent lasers require such refills only every two billion pulses or not at all. --[p195]-- A high repetition rate is desirable for these pulsed light systems, and excimer-laser suppliers improved the available rates from 200 Hz to 4 kHz, and eventually to 6 kHz."
+ },
+ {
+  "query_id": "P11-17",
+  "query": "扫描曝光时狭缝 6 mm、扫描速度 1 m/s,某个特征最多被 36 个脉冲曝光。若激光脉冲间重复性是 2.5%(3σ),累积剂量的标准差 σD 算出来是多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按书中式(5.3) σD = σP-P/√n:σD = 2.5%/√36 = 2.5%/6 ≈ 0.42%。即 36 个脉冲叠加后剂量标准差约 0.42%(3σ 口径),对应书中『若要求 0.1% 剂量控制,则需脉冲间稳定性约 0.6%』的讨论框架。",
+  "success_criteria": "给出算式 σD = 2.5%/√36 并算出约 0.42%(0.4–0.45% 区间内判对)。",
+  "evidence": "--[p199]-- The standard variation of the dose σD is related to the pulse-to-pulse variation σP-P by σ_D = σ_P-P/√n (5.3). Typical pulse-to-pulse repeatability is about 2.5% (3σ). Thus, laser pulse-to-pulse variation is directly related to the potential throughput of step-and-scan systems. --[p199]-- if 0.1% dose control is required, and the scanner has a slit width of 6 mm and a scan speed of 1 m/sec, then the maximum number of pulses that will expose each feature, according to Eq. (5.2), is 36. This implies a needed pulse-to-pulse stability of 0.6%."
+ },
+ {
+  "query_id": "P11-18",
+  "query": "一台 8000 万美元的步进扫描机配 1200 万美元的 track,五年直线折旧、裸产能 200 片/小时、利用率 80%,算算每小时折旧和每片晶圆摊到的设备成本。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "总投入 80M+12M=92M 美元;5 年 = 5×8760 = 43800 小时,直线折旧 ≈ 92,000,000/43,800 ≈ 2100 美元/小时;实际产能 = 200×0.8 = 160 片/小时;每片晶圆资本成本 ≈ 2100/160 ≈ 13.1 美元/片(书中给出约 $13)。",
+  "success_criteria": "给出折旧 ≈2100 美元/小时和每片 ≈13 美元两个结果,算式完整(含 43800 h 与 160 wph 两步)。",
+  "evidence": "--[p483]-- consider a photocell consisting of a step-and-scan system costing $80M, interfaced to resist processing equipment that costs $12M. If the equipment is depreciated over five years, then the straight depreciation cost is $2100 per hour. If the raw throughput is 200 wafers per hour and the utilization is 80%, then the capital contribution to the cost per wafer (single exposure) is $13. --[p476]-- cost/wafer = C_ED/(T_p·U) (11.1), where C_ED is the capital depreciation per hour, T_p is the raw throughput of the system (in wafers per hour), and U is the fractional equipment utilization."
+ },
+ {
+  "query_id": "P11-19",
+  "query": "书里 EUV 胶的 LER 模型 LER=4.9/√E,如果按未来节点 30 mJ/cm² 的剂量算,LER 极限是多少纳米?够不够 1 nm 的要求?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "LER = 4.9/√30 = 4.9/5.477 ≈ 0.89 nm,小于 IRDS 对 14 nm 以下金属层半间距要求的 1 nm,勉强达标;书中同时提醒该模型偏乐观(未含胶的随机效应),且 k1 降低时归一化对数斜率下降会使 LER 增大。",
+  "success_criteria": "算出 ≈0.89 nm(0.85–0.92 区间判对),并判定满足 &lt;1 nm 要求,同时提及模型乐观/随机效应的限定。",
+  "evidence": "--[p22]-- Putting together Eqs. (12.15)-(12.17) gives LER = 4.9/√E (12.18). --[p22]-- From Fig. 12.32 it can be inferred that EUV light sources over time will need to support resists that require doses of 30 mJ/cm2 and higher as dimensions continue to shrink. To some extent, Eq. (12.18) is optimistic, since resist stochastic effects are not included. --[p22]-- According to the International Roadmap for Devices and Systems Semiconductors, LER will need to be less than 1 nm for metal layer half-pitches below 14 nm."
+ },
+ {
+  "query_id": "P11-20",
+  "query": "你先帮我查书里 EUV 掩模吸收体材料的衰减长度表,看哪种材料衰减长度最短;再查查书里对这种材料做未来吸收体是怎么评价的。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步:Table 12.1(EUV 掩模吸收体衰减长度)中 Ta 26.3 nm、Ti 75.7 nm、Co 16.2 nm、Ni 14.8 nm,最短为 Ni(14.8 nm),Co 次之(16.2 nm)。第二步:书中指出因 TaN/TaBN 比 TiN 吸收更高、可用更薄吸收体,而镍和钴因比 Ta 有更高的光学吸收也被考虑用作未来一代吸收体材料。",
+  "success_criteria": "正确检索出表中 Ni 14.8 nm 最短,并链接到『Ni/Co 被考虑作为未来吸收体』的论述,两跳缺一不可。",
+  "evidence": "--[p494]-- Table 12.1 Attenuation lengths for materials that can be used for EUV mask absorbers: Material | Attenuation length (nm): Ta | 26.3; Ti | 75.7; Co | 16.2; Ni | 14.8 --[p493]-- materials such as TaN and TaBN were used subsequently because they have higher absorption than TiN, thereby enabling the use of thinner absorbers. Materials such as nickel and cobalt are also under consideration for future-generation absorbers, because they have even higher optical absorption than Ta (Table 12.1)."
+ },
+ {
+  "query_id": "P11-21",
+  "query": "帮我先从书里找出 KrF 胶对 PEB 温度线宽敏感性最低的牌号,再顺着查这本书对热板温度均匀性和控温精度提出的规格要求,说清两者之间的因果关系。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:Table 3.3 中敏感性最低的是 ARCH 2(约 0.0 nm/°C),其次是 DP-024(1.8 nm/°C)。第二跳:书中要求热板片内温度均匀性 &lt;0.1°C、平均温度可控到设定点 ±0.05°C,且为满足极严的线宽控制要求热板间匹配还要更严。因果链:ΔCD 正比于 Δτ(式 3.17),不同胶的 PEB 敏感性(1.8 vs 16 nm/°C)决定了热板必须达到 &lt;0.1°C 级别的均匀性才能守住线宽预算。",
+  "success_criteria": "两跳齐全:找出最低敏感性胶种(ARCH 2 ~0.0 或 DP-024 1.8 nm/°C),并给出 &lt;0.1°C 与 ±0.05°C 的热板规格,并说明 ΔCD∝Δτ 的因果。",
+  "evidence": "--[p103 [表]]-- Table 3.3: DP-024 | TOK | 1.8; ARCH 2 | Arch | ~0.0 --[p104]-- ΔCD = 2Δτ[1/E_τ(x)](∂E_τ(x)/∂τ)(1/ILS) (3.17), Hence, changes in linewidth induced by variations in hot-plate temperatures are also inversely proportional to the image log-slope. --[p87]-- On state-of-the-art tools, across-wafer temperature uniformity is &lt;0.1°C, while the mean temperature can be controlled to within ±0.05°C of the set point. --[p104]-- hot plates must have excellent across-plate uniformity—less than 0.1°C, or better—and must be matched to even tighter levels."
+ },
+ {
+  "query_id": "P11-22",
+  "query": "先查书里 EUV 多层膜反射镜表,看哪种膜系在 13.5 nm 峰值反射率最高;再结合光源那章,说说到底要多大的收集功率、用什么燃料才能撑起有经济效益的产线吞吐。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:Table 12.1(EUV 多层膜反射镜)中 Mo/B4C/Si 在 13.5 nm 峰值反射率 70.0%,为表中最高(Mo/Si 68.2%,Mo2C/Si 61.8%,RuSi 58.2%);书中亦给出插入 B4C 层后在 13.5 nm 实现 70% 反射率。第二跳:早期 EUV 世代达到有经济效益的吞吐需要 &gt;250 W 收集的带内 EUV 功率,后续节点还需更高;燃料以锡为主(红外转 EUV 转换效率最高报道达 4.7%),用 10.6 μm CO2 激光打击锡液滴产生等离子体,CO2 激光功率需 20 kW 以上。",
+  "success_criteria": "两跳齐全:指出 Mo/B4C/Si 70.0% 最高,并给出 &gt;250 W 带内功率与锡燃料;CO2 激光 20 kW 数值加分。",
+  "evidence": "--[p495 [表]]-- Table 12.1 EUV multilayer reflectors: Mo/Si | 13.4 | 68.2%; Mo/B4C/Si | 13.5 | 70.0%; Mo2C/Si | 13.0 | 61.8%; RuSi | 13.5 | 58.2%; Mo/Be | 11.3 | 70.2%; MoRu/Be | 11.3 | 69.3% --[p497]-- With a B4C layer inserted between the molybdenum and silicon films a reflectance of 70% was achieved at a wavelength of 13.5 nm. --[p12]-- Over 250 W of collected in-band EUV power will be required to achieve cost-effective throughput for early generations of EUV lithography, and much higher powers will be required for subsequent nodes. --[p11]-- the dominant fuel in use today in exposure tools is tin, primarily due to its potential for high conversion efficiency to EUV light. --[p12]-- CO2 laser power of 20 kW and higher are being used."
+ },
+ {
+  "query_id": "P11-23",
+  "query": "浸没式光刻的缺陷为什么老是集中在晶圆边缘?把书里的机理链条和缓解措施给我捋一遍。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "机理链:浸没液并不局限在曝光区域,而是延伸到远超曝光面积的范围 → 浸液会从晶圆边缘或工件台表面拾取颗粒 → 晶圆边缘有倒角,浸液还会进入晶圆与吸盘之间的小缝隙,把晶圆背面的颗粒也带起来 → 这些颗粒再沉积到晶圆上造成缺陷、降低良率。缓解措施:把晶圆下沉嵌入吸盘使晶圆顶面与工件台面齐平以改善边缘扫描;保持晶圆背面和边缘清洁对浸没光刻至关重要;对边缘胶去除(edge-bead removal)质量的要求也因浸没而更高。",
+  "success_criteria": "完整复现『浸液越界→拾取边缘/台面颗粒→吸入晶圆-吸盘缝隙带上背面颗粒→沉积成缺陷』链条,并给出晶圆嵌入吸盘与背面/边缘清洁两条措施。",
+  "evidence": "--[p441]-- The introduction of immersion lithography has led to an increased focus on wafer-edge defects in particular. The immersion fluid extends well beyond the area being exposed. As a consequence, the fluid can pick up particles from the wafer edge or wafer stage. Because wafers are beveled, particles from the back side of the wafer can even be picked up from fluid in the small gap between the wafer and the chuck. --[p441]-- To address scanning at the wafer edge, the wafer is recessed into the chuck so that the tops of the wafer and the stage are at the same level (see Fig. 10.5). Fluid will go into the small gap between the wafer and the chuck and pick up particles. These particles can be deposited on the wafer, reducing yield. Keeping wafers clean on the back side and edges is important for immersion lithography. --[p87]-- The use of immersion lithography, which is discussed in more detail in Chapter 10, injects additional motivation for a high-quality edge-bead-removal process."
+ },
+ {
+  "query_id": "P11-24",
+  "query": "掩模为什么一定要贴 pellicle?到了浸没式光刻(NA&gt;1)它又惹出了什么新麻烦?把原理和新问题分开讲清楚。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "原理:曝光期间颗粒难免落在掩模上,贴上约 1 μm 厚的聚合物薄膜后,颗粒落在离图形面几毫米的 pellicle 或玻璃背面处,在远小于 1 μm 的典型焦深下完全离焦,不再成像为可印缺陷。新问题(浸没、NA&gt;1):掩模侧入射角最大可达 arcsin(NA/N),0.93-NA 4 倍镜头即达 13.4 度;NA&gt;1 时 pellicle 透过率随入射角变化,等效引入切趾(apodization),使线宽随 pitch 变化,透射光的相位也随入射角变化。此外薄 pellicle 可减小折射与球差类波前误差,Teflon AF2400 在 193 nm 折射率约 1.35。",
+  "success_criteria": "原理侧给出『颗粒远离焦面所以不成像』;问题侧给出 NA&gt;1 下透过率随角度变化→切趾→线宽随 pitch 变化,并提及 13.4 度(0.93 NA/4×)的典型角度。",
+  "evidence": "--[p334]-- To avoid new printable defects, pellicles are attached to photomasks. Pellicles are thin (1 m) polymer films stretched across a frame that is attached to the mask. --[p334]-- Particles deposited on the pelliclized photomask fall onto the pellicle or glass backside of the mask, and are therefore several millimeters away from the patterned mask features that are being imaged. With small depths-of-field, these particles are not going to be in focus. --[p337]-- For a 0.93-NA 4 lens, angles can be as large as 13.4 deg. --[p338]-- However, at numerical apertures &gt;1.0 relevant to immersion lithography (see Chapter 10), the pellicle's transmission varies with angle of incidence, effectively inducing apodization and causing linewidths to vary (Fig. 7.28) as a function of pitch (among other consequences). There will also be differences in phase of the transmitted rays as a function of the angle of incidence."
+ },
+ {
+  "query_id": "P11-25",
+  "query": "为什么波长降到 193 nm 以下,EUV 的镜片和掩模就全都必须改成反射式了?多层膜反射镜又是靠什么在近正入射下做到高反射的?把逻辑链讲完整。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "逻辑链:(1) 波长显著低于 193 nm 时,所有已知材料都因吸收太强而无法制作有效的折射光学元件,且均质材料在近正入射下的反射率都极低;(2) 波长 &lt;50 nm 时所有材料折射率≈1,单界面难以产生高反射,只有掠入射除外;(3) 出路是多层膜:高低 Z 材料交替沉积、满足 Bragg 条件,每个界面的小反射率叠加,在近正入射做到 60–70% 反射;(4) Mo/Si 多层膜中 Mo 层约 3 nm、Si 层约 4 nm,反射峰约 13.4 nm,插入 B4C 层后在 13.5 nm 达 70%;(5) 因此 EUV 中不仅透镜全反射,掩模也必须是反射式,且没有高透过材料可用。",
+  "success_criteria": "按序答出:材料全吸收→n≈1 单界面反射不足→多层膜 Bragg 叠加 60–70%→Mo/Si 层厚 ~3/~4 nm 与 13.5 nm 波长→掩模同样必须反射;至少覆盖其中四环。",
+  "evidence": "--[p493]-- As the wavelength of light decreases significantly below 193 nm, all known materials become too absorbing to be used for fabricating effectual refractive optical elements. Moreover, at such short wavelengths the reflectivity of all homogenous materials becomes very small, at least at the near-normal angles of incidence relevant to high-resolution imaging optics. --[p494]-- At wavelengths &lt;50 nm, all materials have indices of refraction ≈1. Thus, it is difficult to create high reflectance from a single interface, except at grazing angles of incidence. At EUV wavelengths, it has proven possible to make mirrors with moderate reflectivity at near-normal angles of incidence, in the range of 60-70%, by the use of coatings comprising multiple layers. --[p495]-- For Mo/Si multilayers designed for near-normal reflectance, the molybdenum layers are ~3 nm thick, while the silicon layers are ~4 nm thick. --[p493]-- For EUV lithography, not only must all optical elements in the lens be reflecting, so must be the mask."
+ },
+ {
+  "query_id": "P11-26",
+  "query": "按书里 pellicle 防颗粒的最小间距公式算一下:4 倍缩倍、0.93 NA 的机台上,颗粒直径 90 μm,最小 standoff 要多大?再考虑书上说的那个『只保护一半』的修正呢?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "式(7.4) t = 4Md/NA:t = 4×4×90 μm/0.93 ≈ 1548 μm ≈ 1.55 mm。书中指出更精细的理论研究表明成像只受到式(7.4)给出值约一半颗粒尺寸的保护,对应有效保护能力约减半(≈0.77 mm 量级的等效裕度);作为对照,书中提到 standoff 6.3 mm、颗粒 &lt;90 μm 时工艺窗口不会明显缩小。",
+  "success_criteria": "给出 t=4Md/NA 的代入过程并算出 ≈1.5–1.6 mm;能补充『保护能力约为公式值一半』的修正结论。",
+  "evidence": "--[p335]-- Early theoretical studies showed that image intensities are not affected by amounts greater than 10% as long as the pellicle standoff is at least as large as t = 4Md/NA (7.4) --[p335]-- where M is the lens reduction, NA is the numerical aperture of the lens, and d is the diameter of the particle on the pellicle. More detailed theoretical investigations have shown that imaging is protected for particles only about one half of that given by Eq. (7.4). --[p335]-- For example, process windows are not reduced significantly with pellicle standoff distances of 6.3 mm and particles &lt;90 μm."
+ },
+ {
+  "query_id": "P11-27",
+  "query": "浸没光刻里激光被水吸收发热:NA 1.35 时最斜光线在水里走多长?水升温 1°C 造成的相位误差算出来多大?这个误差要不要紧?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Principles of Lithography, Fourth Edition (Harry J. Levinson)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "分三步:(1) 由 NA = n·sinΘ = 1.35、n = 1.437(水在 193 nm 的折射率)得 Θ = 70°;(2) 发热被限制在晶圆表面 200 nm 内的水层,最斜光线路径 = 200 nm/cos70° ≈ 584 nm;(3) 水折射率温度系数约 −1×10⁻⁴/°C(ArF),1°C 温升的相位误差 = n×(−1×10⁻⁴/°C)×584 nm ≈ −0.0839 nm。判断:其他像差的相位误差典型约 1 nm,单场曝光内水发热引入的相位误差不算关键,但整片曝光过程水平均水温会升高,因此浸液必须循环并主动控温。",
+  "success_criteria": "三个中间结果齐全:θ=70°、路径 584 nm、相位误差 ≈−0.0839 nm(±10% 内判对),并给出『单场不关键、整片需循环控温』的结论。",
+  "evidence": "--[p440]-- the heat appears to be confined to a volume of water within 200 nm of the wafer surface during exposure. Suppose that we are considering a lens with a numerical aperture of 1.35. In this case, NA = n sinΘ = 1.35. Thus, θ = 70 deg assuming n = 1.437, the value appropriate for water at a wavelength of 193 nm. The path through which the most oblique angles will have a path length through the volume of heated water of 200 nm/cosθ = 584 nm (10.9). Consequently, a 1°C temperature rise within this volume will create a phase error of n(1°C)(−1×10⁻⁴/°C)584 nm = −0.0839 nm (10.10). --[p440]-- Since phase errors from other aberrations are typically ~1 nm, the additional phase errors induced by water heating are not considered critical during the exposure of a single field. Over the course of exposing an entire wafer, the average water temperature could rise, so the immersion fluid must be circulated, and temperature must be controlled actively."
+ }
+]

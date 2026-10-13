@@ -1,0 +1,326 @@
+{
+ "doc": "BESI-8800 FC 倒装固晶机结构研究-_Winters_-_MSc_-_Report",
+ "chunks": 1038,
+ "headings": [
+  [
+   "Chapter 3 Analysis current pick and place equipment > CONFIDENTIAL",
+   28
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > Disadvantages",
+   24
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > Opportunities",
+   21
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > D.4.2.8 Gantry bending",
+   19
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > Samenvatting",
+   18
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > Abstract",
+   17
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > Advantages",
+   15
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.3.3 Interactions with air",
+   14
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.2.3.2.1 Monopolar and multipolar clamps",
+   13
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.3.2 Electrostatic force, energy principles",
+   11
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.2.3.3.1 Vacuum force estimation",
+   11
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.2.2 Less desirable clamping mechanisms",
+   9
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.2.3.3.4 Local pressure chambers",
+   9
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > Contents",
+   9
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.4 Problem description",
+   8
+  ],
+  [
+   "Appendix L Experimental investigation of electrostatic tape > L.5.1 Capacitance",
+   8
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 3.2.2.2 Accuracy",
+   8
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.1 Basic layout of an electronic device",
+   8
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.2.4 Choice of clamping mechanism",
+   8
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.3.1 Electrical network",
+   8
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.3.4 Bending of die",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.1.4 Clamping and declamping times",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.2 Origin of clamping forces",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > B.6.5 Vibrations",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > I.2.2 Wafer stage target location",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.1.2 Risk of electrical damage",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.1.1 Introduction to the electrostatic clamp",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.3.3.1 Uncertainties and data corrections",
+   7
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.2.2 3D­integration with TSVs",
+   7
+  ],
+  [
+   "Appendix L Experimental investigation of electrostatic tape > CONFIDENTIAL",
+   7
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 4.1 Introducing parallelism",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 4.3 Trade­off",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.3.2.2 Effect of reducing electrode distance on holding force",
+   6
+  ],
+  [
+   "Appendix L Experimental investigation of electrostatic tape > L.5.4.1 Results",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 6.2 Requirements for flexible carrier system",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 3.3.1 Motion profile analysis",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.3.4 Other findings",
+   6
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.3 BlueBird project",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.3.2.3 Relative permittivity (dielectric constant)",
+   6
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.5 Summary and outline",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > Bibliography",
+   6
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 5.3.1 Working principle",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 4.2 Preliminary concepts",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.3.3 Clamping and declamping times",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.4.2.1 Effect of reducing electrode distance on holding force",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.3.2 Characterization of clamp",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > I.2.3 φ­Z actuator",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.1.2.2 Die with TSVs, bulk Si side",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.3.2.1 Electrostatic force, alternate explanation",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 6.1 Tapes in back­end",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > B.1.1 TSV overlap",
+   5
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.2 3D­integration",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > F.6.1 Throughput",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 8.1.2 Conceptual design",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > D.4.2.4.2 Roller guides induced vibrations",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.1.3 Forces acting on die",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.2.3.1 Chemical adhesion",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 4.5 Choice of concept",
+   5
+  ],
+  [
+   "Appendix L Experimental investigation of electrostatic tape > L.3.1 Clamps and clamped objects",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.5 Capacitive clamp vs. JR clamp in PnP scope",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > K.6.1 Paschen curve",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > F.2 Component supply concepts",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > J.1.2.1 Travel time and motion profile parameters",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 6.3.2 Electrostatic",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 4.1.1 Serial and parallel processes",
+   5
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 5.1.2.2 Placing of die on target wafer",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.2.3 Insulating layer and connection to electrodes",
+   4
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.4.1 Assignment",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > Cycle time limitations",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 5.1.2.1 Picking of die from source wafer",
+   4
+  ],
+  [
+   "Appendix L Experimental investigation of electrostatic tape > L.5.4 Force measurements third set",
+   4
+  ],
+  [
+   "Appendix L Experimental investigation of electrostatic tape > L.5.4.2 Corrected data",
+   4
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > 1.3.2 Road map",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > B.1.2 Angle",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 3.2 Analysis of the Datacon 8800 FC Quantum",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 3.2.2.3 Measurements",
+   4
+  ],
+  [
+   "Department of Precision and Microsystems Engineering > Preface",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 7.1.2.1 Die without TSVs, bulk Si side",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > Pick and place cycle",
+   4
+  ],
+  [
+   "Chapter 3 Analysis current pick and place equipment > 5.4.1.3 Wafer stage",
+   4
+  ]
+ ]
+}

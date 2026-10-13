@@ -15,6 +15,7 @@ import {
   Film,
   Play,
   HelpCircle,
+  ExternalLink,
 } from "lucide-react";
 import { Markdown } from "./Markdown";
 import type { Message } from "@/lib/types";
@@ -54,9 +55,45 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
   );
 }
 
+/** 视频播放浮层:<video> 标签不走导航,不受对象存储 Content-Disposition: attachment
+ *  强制下载头影响(新标签页打开签名链接会被浏览器当附件下载,故必须应用内播放) */
+function VideoLightbox({ src, onClose }: { src: string; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-8"
+      onClick={onClose}
+    >
+      <div
+        className="flex max-h-full w-full max-w-4xl flex-col gap-2"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <video
+          src={src}
+          controls
+          autoPlay
+          playsInline
+          className="max-h-[80vh] w-full rounded-lg bg-black"
+        />
+        <div className="flex justify-center">
+          <a
+            href={src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md border border-[#3a3a3e] bg-[#1f1f22] px-3 py-1 text-[12px] text-t2 hover:text-t1 hover:border-[#5b67d6]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            下载视频
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /** 来源引用条(命中知识库的文档+页码;图像块渲染缩略图,视频块渲染入口) */
 function SourcesBar({ sources }: { sources: NonNullable<Message["sources"]> }) {
   const [zoom, setZoom] = useState<string | null>(null);
+  const [video, setVideo] = useState<string | null>(null);
   if (!sources.length) return null;
   return (
     <>
@@ -85,14 +122,12 @@ function SourcesBar({ sources }: { sources: NonNullable<Message["sources"]> }) {
               </button>
             );
           }
-          // 视频块:播放入口(新标签页打开签名链接)
+          // 视频块:应用内播放入口(点击弹出播放浮层;新标签页会被强制下载,见 VideoLightbox)
           if (s.video_url && /^https?:/.test(s.video_url)) {
             return (
-              <a
+              <button
                 key={i}
-                href={s.video_url}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setVideo(s.video_url!)}
                 title={tip}
                 className="inline-flex items-center gap-1 rounded-md bg-[#1f1f22] border border-[#2f2f33] px-2 py-0.5 text-[11px] text-t2 hover:text-t1 hover:border-[#5b67d6] transition-colors"
               >
@@ -100,24 +135,48 @@ function SourcesBar({ sources }: { sources: NonNullable<Message["sources"]> }) {
                 <span className="max-w-[160px] truncate">{s.source_stem}</span>
                 <span className="text-t3">{s.page}</span>
                 <Play size={9} className="text-t3" />
+              </button>
+            );
+          }
+          // 普通文档块:有原文档直链时可点击在线打开(带 #page= 定位),否则原样式
+          const docHref = s.doc_url
+            ? s.doc_url + (s.doc_page ? `#page=${s.doc_page}` : "")
+            : null;
+          const chip = (
+            <>
+              <FileText size={11} />
+              <span className="max-w-[160px] truncate">{s.source_stem}</span>
+              <span className="text-t3">{s.page}</span>
+              {docHref && <ExternalLink size={9} className="text-t3" />}
+            </>
+          );
+          if (docHref) {
+            return (
+              <a
+                key={i}
+                href={docHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`${tip} · 点击在线查看原文档`}
+                className="inline-flex items-center gap-1 rounded-md bg-[#1f1f22] border border-[#2f2f33] px-2 py-0.5 text-[11px] text-t2 hover:text-t1 hover:border-[#5b67d6] transition-colors"
+              >
+                {chip}
               </a>
             );
           }
-          // 普通文档块:原样式
           return (
             <span
               key={i}
               title={tip}
               className="inline-flex items-center gap-1 rounded-md bg-[#1f1f22] border border-[#2f2f33] px-2 py-0.5 text-[11px] text-t2 hover:text-t1 hover:border-[#3a3a3e] transition-colors"
             >
-              <FileText size={11} />
-              <span className="max-w-[160px] truncate">{s.source_stem}</span>
-              <span className="text-t3">{s.page}</span>
+              {chip}
             </span>
           );
         })}
       </div>
       {zoom && <Lightbox src={zoom} onClose={() => setZoom(null)} />}
+      {video && <VideoLightbox src={video} onClose={() => setVideo(null)} />}
     </>
   );
 }
@@ -204,6 +263,15 @@ export function MessageItem(
   }
 
   // AI 消息:头像在左,内容直接渲染在底色上(无气泡)
+  // 正文引用 [文档名 pN] → 原文档直链映射(stem → doc_url + #page 锚点),
+  // 供 Markdown 把可点击的引用转成链接
+  const citeLinks: Record<string, string> = {};
+  for (const s of msg.sources ?? []) {
+    if (s.doc_url) {
+      citeLinks[s.source_stem] =
+        s.doc_url + (s.doc_page ? `#page=${s.doc_page}` : "");
+    }
+  }
   return (
     <div className="group flex gap-3 animate-fade-in">
       <AiAvatar />
@@ -220,7 +288,7 @@ export function MessageItem(
           <ClarifyCard clarify={msg.clarify} onPick={onClarifyPick} />
         ) : (
           <div className="relative">
-            <Markdown content={msg.content} />
+            <Markdown content={msg.content} citeLinks={citeLinks} />
             {msg.streaming && <span className="stream-cursor" />}
           </div>
         )}

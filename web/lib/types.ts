@@ -13,6 +13,8 @@ export interface Source {
   video_url?: string;    // 视频块签名链接 → 视频入口
   item_type?: string;    // 图像块类型标签(如 portrait/figure)
   description?: string;  // 图像描述(caption+description 前 160 字)
+  doc_url?: string;      // 原文档签名直链 → 点击在线打开(OSS,ResponseContentDisposition=inline)
+  doc_page?: number;     // 原始 PDF 的 1 基物理页 → 前端拼 #page= 锚点定位
 }
 
 export interface Clarify {

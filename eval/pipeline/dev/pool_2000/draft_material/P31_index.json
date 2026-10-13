@@ -1,0 +1,326 @@
+{
+ "doc": "TEL Vigus Maintenance Manual",
+ "chunks": 1381,
+ "headings": [
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > CAUTION",
+   49
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Equipment Damage",
+   48
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > NOTE",
+   39
+  ],
+  [
+   "4.5 Others",
+   35
+  ],
+  [
+   "4.13 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-3) <sub>16065.20191202</sub> > Equipment Damage",
+   29
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Required Resources:",
+   25
+  ],
+  [
+   "4.13 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-3) <sub>16065.20191202</sub> > CAUTION",
+   23
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > CAUTION",
+   20
+  ],
+  [
+   "Preventive Maintenance Schedule > NOTE",
+   17
+  ],
+  [
+   "1.4 About This Set of Manuals <sub>00102M.20181101</sub>",
+   16
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Final Tasks",
+   15
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Chemical",
+   15
+  ],
+  [
+   "4.13 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-3) <sub>16065.20191202</sub> > NOTE",
+   14
+  ],
+  [
+   "4.12 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-1/ B-2) <sub>16064.20191202</sub> > NOTE",
+   13
+  ],
+  [
+   "CAUTION",
+   13
+  ],
+  [
+   "5.4 Cleaning the Bonnet Gate Valve Plate and Inspecting the O-ring <sub>16201.20210301</sub> > Final Tasks",
+   13
+  ],
+  [
+   "4.12 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-1/ B-2) <sub>16064.20191202</sub> > Equipment Damage",
+   12
+  ],
+  [
+   "Chiller Inspection and Adjustment > Thermal Hazard",
+   11
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Purpose:",
+   11
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Equipment Damage",
+   10
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Chemical",
+   10
+  ],
+  [
+   "Chiller Maintenance > CAUTION",
+   10
+  ],
+  [
+   "4.12 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-1/ B-2) <sub>16064.20191202</sub> > CAUTION",
+   10
+  ],
+  [
+   "2.9 Locking Out and Tagging Out the Process Module Power Supply in Control System Maintenance <sub>15989FL-632.20210301</sub> > NOTE",
+   8
+  ],
+  [
+   "Preventive Maintenance Schedule > 6 Maintenance Tasks Performed Based on Process Conditions",
+   8
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Preparation Tasks",
+   8
+  ],
+  [
+   "2.8 Releasing the Lockout and Tagout of the Process Module Power Supply <sub>15988L-632.20210301</sub> > Main Tasks",
+   8
+  ],
+  [
+   "Equipment Damage",
+   8
+  ],
+  [
+   "4.13 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-3) <sub>16065.20191202</sub> > Chemical",
+   8
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Introduction",
+   7
+  ],
+  [
+   "5.4 Cleaning the Bonnet Gate Valve Plate and Inspecting the O-ring <sub>16201.20210301</sub> > NOTE",
+   7
+  ],
+  [
+   "2.10 Releasing the Lockout and the Tagout of the Process Module Power Supply in Control System Maintenance <sub>18058L-632.20210301</sub> > Main Tasks",
+   7
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Main Tasks – Disassembling",
+   7
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Required Resources:",
+   7
+  ],
+  [
+   "Vigus™ Maintenance Manual",
+   7
+  ],
+  [
+   "4.11 Disassembling and Reassembling the Upper Unit <sub>16198.20191202</sub> > Equipment Damage",
+   7
+  ],
+  [
+   "6.1 Replacing the Uninterruptible Power Supply (UPS) Battery <sub>16006M.20180901</sub> > Equipment Damage",
+   7
+  ],
+  [
+   "4.11 Disassembling and Reassembling the Upper Unit <sub>16198.20191202</sub> > NOTE",
+   7
+  ],
+  [
+   "4.15 Disassembling and Reassembling the Chamber Unit (Cover Ring–Shutter) <sub>16067.20191202</sub> > Main Tasks",
+   6
+  ],
+  [
+   "4.13 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-3) <sub>16065.20191202</sub> > Required Resources:",
+   6
+  ],
+  [
+   "8.7 Adjusting the Zero Point of the PCV (B.He Cooling Line) <sub>04269M.20160301</sub> > NOTE",
+   6
+  ],
+  [
+   "Lockout and Tagout > 6 Lockout and Tagout Locations Corresponding to Types of Energy",
+   6
+  ],
+  [
+   "4.11 Disassembling and Reassembling the Upper Unit <sub>16198.20191202</sub> > CAUTION",
+   6
+  ],
+  [
+   "2.7 Locking Out and Tagging Out the Process Module Power Supply <sub>15900F-632.20210301</sub> > NOTE",
+   6
+  ],
+  [
+   "5.4 Cleaning the Bonnet Gate Valve Plate and Inspecting the O-ring <sub>16201.20210301</sub> > Required Resources:",
+   6
+  ],
+  [
+   "Preventive Maintenance Schedule > CAUTION",
+   6
+  ],
+  [
+   "8.7 Adjusting the Zero Point of the PCV (B.He Cooling Line) <sub>04269M.20160301</sub> > Introduction",
+   6
+  ],
+  [
+   "4.13 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-3) <sub>16065.20191202</sub> > Final Tasks",
+   6
+  ],
+  [
+   "8.4 Adjusting 0 Point of the Process Module Capacitance Manometer <sub>16205.20180901</sub> > Main Tasks",
+   6
+  ],
+  [
+   "5.4 Cleaning the Bonnet Gate Valve Plate and Inspecting the O-ring <sub>16201.20210301</sub> > CAUTION",
+   6
+  ],
+  [
+   "General",
+   5
+  ],
+  [
+   "WARNING",
+   5
+  ],
+  [
+   "8.2 Inspecting the Process Module Base Pressure and Leak Rate <sub>16203.20180901</sub> > NOTE",
+   5
+  ],
+  [
+   "Preventive Maintenance Schedule > Introduction",
+   5
+  ],
+  [
+   "Preventive Maintenance Schedule > Main Tasks–Changing to Maintenance Mode",
+   5
+  ],
+  [
+   "2.4 Infringement",
+   5
+  ],
+  [
+   "5.4 Cleaning the Bonnet Gate Valve Plate and Inspecting the O-ring <sub>16201.20210301</sub> > Chemical",
+   5
+  ],
+  [
+   "8.7 Adjusting the Zero Point of the PCV (B.He Cooling Line) <sub>04269M.20160301</sub> > Main Tasks–Inspecting the Operation of the Process Gas Line Valves",
+   5
+  ],
+  [
+   "Chiller Inspection and Adjustment > Introduction",
+   5
+  ],
+  [
+   "8.4 Adjusting 0 Point of the Process Module Capacitance Manometer <sub>16205.20180901</sub> > Preparation Tasks",
+   5
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Main Tasks",
+   5
+  ],
+  [
+   "Chiller Inspection and Adjustment > CAUTION",
+   5
+  ],
+  [
+   "Chiller Maintenance > Preparation Tasks",
+   4
+  ],
+  [
+   "6.1 Replacing the Uninterruptible Power Supply (UPS) Battery <sub>16006M.20180901</sub> > CAUTION",
+   4
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Main Tasks–Installing the Spiral Tubing",
+   4
+  ],
+  [
+   "2.4 Releasing the Lockout and Tagout of the Main Breakers <sub>11503M.20190603</sub> > Main Tasks",
+   4
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Final Tasks",
+   4
+  ],
+  [
+   "4.12 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-1/ B-2) <sub>16064.20191202</sub> > Chemical",
+   4
+  ],
+  [
+   "2.7 Locking Out and Tagging Out the Process Module Power Supply <sub>15900F-632.20210301</sub> > NOTE NOTE",
+   4
+  ],
+  [
+   "8.7 Adjusting the Zero Point of the PCV (B.He Cooling Line) <sub>04269M.20160301</sub> > Main Tasks",
+   4
+  ],
+  [
+   "8.7 Adjusting the Zero Point of the PCV (B.He Cooling Line) <sub>04269M.20160301</sub> > Final Tasks",
+   4
+  ],
+  [
+   "4.11 Disassembling and Reassembling the Upper Unit <sub>16198.20191202</sub> > Chemical",
+   4
+  ],
+  [
+   "Japanese Export Trade Control",
+   4
+  ],
+  [
+   "Chiller Maintenance > Thermal Hazard",
+   4
+  ],
+  [
+   "Preventive Maintenance Schedule > Main Tasks",
+   4
+  ],
+  [
+   "4.12 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-1/ B-2) <sub>16064.20191202</sub> > Main Tasks–Reassembling",
+   4
+  ],
+  [
+   "4.6 Extracting and Replenishing Chiller Coolant Fluid (SMC HRZ Chiller) <sub>16197.20191202</sub> > Introduction",
+   4
+  ],
+  [
+   "1.3 Exception",
+   4
+  ],
+  [
+   "Chiller Inspection and Adjustment > Revision History",
+   4
+  ],
+  [
+   "4.12 Disassembling and Reassembling the Lower Unit (Cover Ring – Insulator Ring Inner) (Type B-1/ B-2) <sub>16064.20191202</sub> > Required Resources:",
+   4
+  ]
+ ]
+}

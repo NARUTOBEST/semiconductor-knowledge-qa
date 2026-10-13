@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P07-01",
+  "query": "书里 SOI 硅纳米膜转移前释放埋氧层(BOX)用的是哪种刻蚀液?要浸泡多久?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "使用浓氢氟酸水溶液(aqueous concentrated hydrofluoric acid, HF)选择性刻蚀 BOX 层,浸泡时间为 10–20 分钟;刻蚀过程中活性层靠范德华力贴回起始硅衬底。",
+  "success_criteria": "答出刻蚀液为 HF(氢氟酸)且时间为 10–20 min,两者都正确才算通过。",
+  "evidence": "--[p18]-- To release the strips of the active layer, photoresist on top of the strips is first stripped and then the sample is immersed in aqueous concentrated hydrofluoric acid (HF) for 10–20 min to etch away the BOX layer selectively. During the BOX removal process, the active layer falls down and attaches to the starting Si substrate [6] by van der Waals' forces."
+ },
+ {
+  "query_id": "P07-02",
+  "query": "水热法长 ZnO 纳米线最常用的两种化学试剂是什么?各自在生长里起什么作用?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最常用的是硝酸锌六水合物(zinc nitrate hexahydrate)和六亚甲基四胺(HMTA)。硝酸锌提供构建 ZnO 纳米线所需的 Zn2+ 离子,水分子提供 O2−;HMTA 起弱碱作用,在水中缓慢水解释放 OH−,避免 Zn2+ 因 pH 过高而快速沉淀。",
+  "success_criteria": "答出两种试剂名称(硝酸锌六水合物、HMTA)且说明硝酸锌供 Zn2+、HMTA 缓慢提供 OH−,即为通过。",
+  "evidence": "--[p233]-- The most commonly used chemical agents for the hydrothermal synthesis of ZnO nanowires are probably zinc nitrate hexahydrate and HMTA [9, 33]. The chemistry of the growth has already been well documented. Zinc nitrate hexahydrate salt provides Zn2+ ions required for building up ZnO nanowires. Water molecules in the solution provide O2− ions. …… it is believed to act as a weak base, which would slowly hydrolyze in the water solution and gradually produce OH−."
+ },
+ {
+  "query_id": "P07-03",
+  "query": "在 Inconel 600 合金上直接生长碳纳米管,温度窗口有多宽?哪个温度产率最高,生长速率是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Inconel 衬底上 CNT 生长温度窗口为 500–820°C,最大产率出现在 770°C,生长速率 2.8 μm/min;作为对比,在 SiO2 上生长速率更高,约 10 μm/min。",
+  "success_criteria": "答出窗口 500–820°C、最佳温度 770°C、速率 2.8 μm/min 三个数值,单位和数值均正确才算通过。",
+  "evidence": "--[p255]-- A wide temperature window (500–820°C) is available for the CNT growth on the Inconel substrates, with a maximum yield at 770°C with a growth rate of 2.8 μm/min (the growth rate on SiO2 is higher (~10 μm/min))."
+ },
+ {
+  "query_id": "P07-04",
+  "query": "柔性 SWNT/Pd 氢气传感器的检测下限能做到多少?网状 SWNT 器件弯折 1000 次之后灵敏度还剩多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "SWNT/Pd 氢气传感器检测下限约 30 ppm;SWNT 渗流网络器件弯折 1000 次后灵敏度保持原值的 87%。",
+  "success_criteria": "答出 30 ppm 与 87% 两个数值即通过。",
+  "evidence": "--[p283]-- The resulting SWNTs/Pd H2 sensors showed high sensitivity and good response time, with a low detection limit around 30 ppm (Table 9.1). The SWNT percolation network approach demonstrated good device robustness. After bending 1000 times, the sensitivity retained 87% of its original value (Figure 9.9)."
+ },
+ {
+  "query_id": "P07-05",
+  "query": "书中印刷微电池的光伏参数是在什么光照条件下测的?15 μm 厚、不带背反射器的典型微电池 Jsc、Voc、FF 和效率各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "测试条件为模拟 AM 1.5、1000 W/m²、室温。无 BSR 的约 15 μm 厚典型微电池:Jsc ≈ 23.6 mA/cm²,Voc ≈ 503 mV,FF ≈ 0.61,光电转换效率 η ≈ 7.2%。",
+  "success_criteria": "光照条件(AM 1.5, 1000 W/m²)与四个参数(23.6 mA/cm²、503 mV、0.61、7.2%)均答对才通过。",
+  "evidence": "--[p202]-- Photovoltaic characteristics of the printed microcells and modules were measured under simulated AM 1.5 illumination (1000 W/m2) at room temperature. …… Without a BSR, a typical microcell with ~15 μm thickness exhibits a short-circuit current density, Jsc, of ~23.6 mA/cm2, an open-circuit voltage, Voc, of ~503 mV, a fill factor of ~0.61 and overall solar-energy conversion efficiency (η) of ~7.2%."
+ },
+ {
+  "query_id": "P07-06",
+  "query": "柔性 SiNM 横向 PIN 二极管的理想因子测出来是多少?反向偏压加到多少伏还没有出现明显击穿?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "理想因子 n = 1.53(偏高,源于横向 PIN 结构大的周长/面积比带来的高复合速率);反向偏压至 10 V 仍无表观击穿,呈典型整流特性。",
+  "success_criteria": "答出 n=1.53 和 10 V 反向无明显击穿,两项均正确才通过。",
+  "evidence": "--[p120]-- The I–V curves of an 80 μm2 SiNM PIN diode on PET at room temperature are shown in Figure 3.23(c). Typical diode rectifying characteristics are demonstrated without apparent breakdown up to 10 V reverse bias. The ideal factor n is extracted to be 1.53."
+ },
+ {
+  "query_id": "P07-07",
+  "query": "柔性 rubrene 单晶晶体管的电流开关比和开启电压是多少?从 5.9 mm 弯曲半径释放回来后,迁移率能恢复到原值的百分之几?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "电流开关比约 10^6,开启电压 −2.1 V;从 5.9 mm(1.18% 应变)弯曲半径释放后迁移率恢复到原性能的 91.3%,说明晶体未发生永久损伤。",
+  "success_criteria": "答出 ~10^6、−2.1 V、91.3% 三个数值即通过。",
+  "evidence": "--[p34]-- 6 cm2/V·s, a current on/off ratio of ~10^6, switch-on voltage of -2.1 V, and a normalized subthreshold swing of 0.9 V·nF/decade·cm2. …… The mobility is restored to 91.3% of the original performance after releasing the flexible substrate from a bending radius of 5.9 mm (1.18% strain) to the original 'non-bent' position."
+ },
+ {
+  "query_id": "P07-08",
+  "query": "场发射要获得可观的电子电流,外加电场大概要达到什么量级?书里说的 Fowler-Nordheim 图是以什么量为坐标画出来的?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "需要约 10^7 V/cm 量级的外加电场;F-N 图是以 ln(J/E²) 对 1/E 作图,得到一条直线。",
+  "success_criteria": "答出电场量级 10^7 V/cm 且正确描述 F-N 图坐标(ln(J/E²) 对 1/E)即通过。",
+  "evidence": "--[p159]-- In field emission, external electric fields in the order of 10^7 V/cm are required for appreciable electron current as stated above. --[p158]-- Plotting ln(J/E^2) versus 1/E results in a straight line and this is often called the Fowler-Nordheim plot."
+ },
+ {
+  "query_id": "P07-09",
+  "query": "做混合取向互补反相器时,两种 SOI 的模板层厚度和晶向分别是什么?n-TFT 和 p-TFT 的栅长、栅宽怎么设计的?注入后的炉退火制度是怎样的?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "两种 SOI 分别为轻掺杂 p 型 270 nm Si (001) 和 190 nm Si (110) 模板层(均在 200 nm BOX 上);两类器件栅长均为 5 μm,栅宽不对称设计:n-TFT 15 μm、p-TFT 30 μm,以平衡开关速度;退火为 n 型注入后 950°C 45 min,p 型注入后再 30 min(较短 p 退火防止硼扩散进 BOX)。",
+  "success_criteria": "厚度/晶向(270 nm Si(001)、190 nm Si(110))、栅长 5 μm、栅宽 15/30 μm、退火 950°C 45 min + 30 min 全部答对才通过。",
+  "evidence": "--[p116]-- The fabrication of the TFTs in this study starts from two SOI wafers with lightly p-type doped 270 nm Si (001) and 190 nm Si (110) template layers on top of 200 nm BOX layers. …… Both types of device have gate lengths of 5 μm, while the gate widths were designed to be asymmetric, with 15 μm for n-TFT and 30 μm for p-TFT, to balance the switching speed. …… The samples were furnace annealed at 950°C for 45 min after the n-type implantation, and another 30 min after p-doping."
+ },
+ {
+  "query_id": "P07-10",
+  "query": "书里给 n 型 TFT 做源漏磷注入前后出现过哪两组剂量/能量组合?对应的退火条件分别是什么?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "组一(先形成源漏再作栅):磷 4×10^15 cm^-2、40 keV,水平炉 850°C、N2 气氛退火 45 min 激活;组二(低能掺杂方案):磷 1×10^16 /cm²、12 keV(对应 p-TFT 为硼 5×10^15 /cm²、5 keV),目的是低能量抑制离子损伤、获得更低接触电阻和方阻。",
+  "success_criteria": "两组剂量/能量(4×10^15 cm^-2 @40 keV 与 1×10^16 /cm² @12 keV)及第一组的 850°C/45 min/N2 退火均答出才通过。",
+  "evidence": "--[p107]-- the low-resistivity source and drain regions were first formed on the SOI substrate via phosphorus ion implantation at a dose of 4×10^15 cm^-2 and an energy of 40 keV, followed by annealing in a horizontal furnace at 850°C for 45 min in ambient N2 to activate the implanted dopants. --[p116]-- the source/drain regions were ion implanted with phosphorus with a dosage of 1×10^16/cm2 at 12 keV and boron with a dosage of 5×10^15/cm2 at 5 keV for n- and p-TFTs, respectively."
+ },
+ {
+  "query_id": "P07-11",
+  "query": "柔性 SiNM RF 开关在 5 GHz 和 20 GHz 的实测插入损耗是多少?D2 零偏和 D2 正偏 10 mA 两种情况下 5 GHz 的隔离度又各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "ON 态:5 GHz、If=30 mA 时插入损耗 0.62 dB,该偏置下直至 20 GHz 插入损耗低至 0.93 dB;OFF 态:D2 零偏(I2=0 mA)时 5 GHz 隔离 10.8 dB,D2 正偏 10 mA 时提升到 22.9 dB(20 GHz 尚有 6.9 dB)。",
+  "success_criteria": "0.62 dB、0.93 dB、10.8 dB、22.9 dB 四个数值全部答对才通过。",
+  "evidence": "--[p121]-- At 5 GHz, an insertion loss of 0.62 dB was measured at an If of 30 mA. At this bias level, as low as 0.93 dB insertion loss was measured up to 20 GHz …… --[p122]-- With the forward bias of D2, the resulting isolation is substantially improved from 10.8 to 22.9 dB at 5 GHz (Figure 3.24a). Although the isolation degrades quickly with the increase in frequency, at 20 GHz isolation of 6.9 dB was still achieved."
+ },
+ {
+  "query_id": "P07-12",
+  "query": "ZnO 纳米线染料敏化电池用的电解液是什么配方?在纳米线间隙填 ZnO 纳米颗粒之后,能量转换效率提升了多大幅度?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "电解液:0.5 M LiI + 50 mM I2 + 0.5 M 4-叔丁基吡啶,溶剂为 3-甲氧基丙腈;染料为 0.5 mM N719 乙醇溶液。填充 20 nm ZnO 纳米颗粒后,染料吸附量增加两倍以上,效率由 0.42% 提高到 0.9%,提升约 110%。",
+  "success_criteria": "电解液三种组分及浓度(0.5 M LiI、50 mM I2、0.5 M 4-TBP)与效率数据(0.42%→0.9%,约 110%)均答出才通过。",
+  "evidence": "--[p211]-- The electrolyte contains 0.5 M LiI, 50 mM I2 and 0.5 M 4-tertbutylpyridine in 3- methoxypropionitrile. --[p213]-- the higher dye loading in the film of nanoparticle-modified nanowires induces an improvement in energy conversion efficiency by ~110% (i.e. 0.9% vs 0.42%)."
+ },
+ {
+  "query_id": "P07-13",
+  "query": "金属掺杂能把 LiFePO4 的电子导电率提高多少个数量级?书里提到的纳米晶 LiFePO4 正极在 3C 和 65C 倍率下各放出理论容量的百分之多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "金属掺杂(M = Mg、Al、Ti、Nb 或 W)使 LiFePO4 电子导电率提高约 10^8 倍;该纳米复合材料在 3C 高倍率下放出接近 100% 理论容量,在 65C 超高倍率下仍保持 36%。",
+  "success_criteria": "答出 10^8、3C/100%、65C/36% 三个数值即通过。",
+  "evidence": "--[p264]-- Undoped and doped Li1-xMxFePO4 (with M = Mg, Al, Ti, Nb or W) synthesized by solid-state reaction and doping by metals increases the electronic conductivity of LiFePO4 by a factor of ~10^8. …… This nanocomposite delivered nearly 100% of its theoretical discharge capacity at a high discharge rate of 3C, and 36% of its theoretical capacity at an enormous discharge rate of 65 C."
+ },
+ {
+  "query_id": "P07-14",
+  "query": "以 Ti 箔为衬底的柔性 DSC,电解液和封装垫片是什么规格?背照光模式下效率还能做到多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "电解液:0.60 M BMII(丁基甲基咪唑碘)+ 0.03 M I2 + 0.10 M GuNCS(胍基硫氰酸盐)+ 0.50 M 4-叔丁基吡啶,溶剂为乙腈/戊腈(85:15 v/v);封装用 25 μm 厚 Surlyn 1702(DuPont)热熔垫片;背照光下效率仍可达 7.2%(电解液层尽量减薄时)。",
+  "success_criteria": "四种电解质组分浓度、乙腈/戊腈 85:15、垫片 Surlyn 1702 25 μm、背照光效率 7.2% 均答出才通过。",
+  "evidence": "--[p191]-- The electrolyte in the cell of Figure 6.4(c) is a solution of 0.60 M butylmethylimidazolium iodide (BMII), 0.03 M I2, 0.10 M guanidinium thiocyanate (GuNCS) and 0.50 M 4-tert-butylpyridine in a mixture of acetonitrile and valeronitrile (85:15 v/v) and is sealed between the photoanode and counterelectrode with a hot-melt gasket with 25 μm thickness, made of ionomer Surlyn 1702 (DuPont). …… back illumination of a DSC shown in Figure 6.4(c) can still generate high energy conversion efficiency (7.2%)"
+ },
+ {
+  "query_id": "P07-15",
+  "query": "书里那种 ZnO 纳米线平均直径 190 nm、长 7 μm,帮我算一下长径比大概是多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "长径比 = 7 μm ÷ 190 nm = 7000 nm ÷ 190 nm ≈ 36.8(约 37)。",
+  "success_criteria": "给出算式 7000/190 并得到约 36.8(允许 36~37 区间)即通过。",
+  "evidence": "--[p213]-- The average diameters and lengths of the ZnO nanowires are 190 nm and 7 μm, respectively."
+ },
+ {
+  "query_id": "P07-16",
+  "query": "书中说横向 PIN 二极管的有源面积等于 P+ 区宽度乘 SiNM 厚度(200 nm)。那一个 80 μm² 的二极管,P+ 区宽度得设计成多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "有源面积 = P+ 宽度 × SiNM 厚度(200 nm = 0.2 μm),故 P+ 宽度 = 80 μm² ÷ 0.2 μm = 400 μm。",
+  "success_criteria": "给出算式 80 μm² ÷ 0.2 μm 并得出 400 μm 即通过,单位必须正确。",
+  "evidence": "--[p120]-- The width of the I region is determined by the separation between photolithographically defined P+ and N+ regions and was chosen to be 2 μm in this study …… Consequently, the active diode area is determined by multiplying the width of the P+ (or N+) region with the thickness of the SiNM (200 nm). --[p120]-- The I–V curves of an 80 μm2 SiNM PIN diode on PET at room temperature are shown in Figure 3.23(c)."
+ },
+ {
+  "query_id": "P07-17",
+  "query": "书里说 ZnO 纳米线阵列密度最高能做到 350 亿根每平方厘米,换算成每 100 μm² 面积上大概是多少根?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "350 亿根/cm² = 3.5×10^10 根/cm²;1 cm² = 10^8 μm²,故每 100 μm² = 3.5×10^10 × (100/10^8) = 35 根。",
+  "success_criteria": "正确完成 cm²→μm² 换算并得出 35 根/100 μm² 即通过。",
+  "evidence": "--[p211]-- The high aspect ratios and densities (up to 35 billion wires/cm2) that can be achieved are well suited for DCSs because of the increased surface areas for dye adsorption. --[p234]-- From 0.1 mM to 5 mM, the density of the ZnO nanowires, defined as number of nanowires per 100 μm2, increases dramatically."
+ },
+ {
+  "query_id": "P07-18",
+  "query": "我要在实验室复现 ZnO 纳米线水热生长:先帮我在书里查典型生长液的配方浓度和生长温度,再查一下前驱体浓度对纳米线密度的影响规律。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳检索生长配方节:25 mM 硝酸锌水合物 + 25 mM HMTA + 5–7 mM 聚乙烯亚胺(PEI)的水溶液,于 92°C 下从 ZnO 晶种上生长,约 2.5 h 后生长趋缓(每 2.5 h 换新鲜生长液可持续长长);第二跳据此检索密度控制节:前驱体浓度决定纳米线密度,从 0.1 mM 到 5 mM 密度急剧增大,之后趋于饱和略降;HMTA/PEI 防侧向生长、利于高密度。",
+  "success_criteria": "配方(25 mM/25 mM/5–7 mM, 92°C)与浓度-密度规律(0.1→5 mM 急增后饱和)两步检索结果均正确给出才通过。",
+  "evidence": "--[p59]-- immersing the glass substrate with ZnO seeds in an aqueous solution of 25 mM zinc nitrate hydrate, 25 mM hexamethylenetetramine and 5-7 mM polyethylenimine drives the growth of ZnO nanowires from the ZnO dots at 92°C. The growth tends to slow after ~2.5 h. --[p234]-- In general, precursor concentration determines the nanowire density. Growth time and temperature control the ZnO nanowire morphology and aspect ratio. …… From 0.1 mM to 5 mM, the density of the ZnO nanowires, defined as number of nanowires per 100 μm2, increases dramatically."
+ },
+ {
+  "query_id": "P07-19",
+  "query": "这本书里 GaN 纳米线 VLS 生长的工艺温度具体是多少度?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出 GaN 纳米线 VLS 生长的具体工艺温度:书中 GaN 仅作为可由激光辅助催化生长制备的纳米线材料列于表 2.1,并出现在交叉纳米线 p-n 结/纳米 LED 器件讨论中;给出的具体相图温度是 Au-GaAs 体系(630°C 以上为液相合金与 GaAs 固相共存),并非 GaN。系统应正确指出未涉及该数据,不得编造温度。",
+  "success_criteria": "明确答出\"书中未提供 GaN 纳米线生长温度\"且不给出编造数值;能补充说明书中仅给出 Au-GaAs 相图 630°C 属加分。",
+  "evidence": "--[p56]-- Taking GaAs nanowire as example, the pseudobinary phase diagram of Au-GaAs (Figure 2.3a) shows that Au-Ga-As liquid and GaAs solid are the principal phases above 630°C in the GaAs-rich region of the phase diagram. --[p59]-- Table 2.1 Summary of nanowire materials grown by the laser-assisted catalytic growth approach: Si | GaN | Ga(AS(1-x)Px) | ZnS | PbSe ……(全书无 GaN 生长温度数值)"
+ },
+ {
+  "query_id": "P07-20",
+  "query": "你们这书里有没有钙钛矿太阳能电池的效率数据?我想拿它跟微电池对比一下。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及钙钛矿(perovskite)太阳能电池,全书检索不到相关内容;书中太阳能电池部分覆盖的是单晶硅微电池、染料敏化电池(DSC)和光电化学电池(PEC),如需对比可提供这些器件的效率数据(如 15 μm 微电池 η≈7.2%、背照光 DSC 7.2%)。系统应正确拒答并给出相近替代内容,不得虚构钙钛矿效率。",
+  "success_criteria": "明确答出\"该书未涉及钙钛矿太阳能电池\"且不编造效率数值;能主动给出书中已有的 DSC/微电池效率数据作为替代属加分。",
+  "evidence": "--[p191]-- back illumination of a DSC shown in Figure 6.4(c) can still generate high energy conversion efficiency (7.2%) …… --[p202]-- Without a BSR, a typical microcell with ~15 μm thickness exhibits …… overall solar-energy conversion efficiency (η) of ~7.2%.(全书(含目录与索引)无 perovskite/钙钛矿相关内容)"
+ },
+ {
+  "query_id": "P07-21",
+  "query": "帮我核一下账:书中 15 μm 微电池 Jsc≈23.6 mA/cm²、Voc≈503 mV、FF≈0.61,按 AM1.5 的 1000 W/m² 算,效率跟文中给的 7.2% 对不对得上?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "Pmax = Jsc × Voc × FF = 23.6 mA/cm² × 0.503 V × 0.61 ≈ 7.24 mW/cm²;η = 7.24 mW/cm² ÷ 100 mW/cm² × 100% ≈ 7.2%,与书中给出的 η ≈ 7.2% 一致,账对得上。",
+  "success_criteria": "列出 η = Jsc×Voc×FF/Pin 算式,算得约 7.2 mW/cm² 对应 η≈7.2%,与文中 7.2% 比对后结论一致才通过。",
+  "evidence": "--[p202]-- Photovoltaic characteristics of the printed microcells and modules were measured under simulated AM 1.5 illumination (1000 W/m2) at room temperature. …… Without a BSR, a typical microcell with ~15 μm thickness exhibits a short-circuit current density, Jsc, of ~23.6 mA/cm2, an open-circuit voltage, Voc, of ~503 mV, a fill factor of ~0.61 and overall solar-energy conversion efficiency (η) of ~7.2%."
+ },
+ {
+  "query_id": "P07-22",
+  "query": "书上说 0.3 μm 厚的 GaAs 膜在 Wact=10 μm、Win=400 μm、预应变 60% 的图案化 PDMS 上屈曲后最大应变只有 0.6%,帮我按书中公式一步步复算一遍,看是不是真约 0.6%。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "由式(10.9) εmax = (hπ/L1²)·√(L1·L2·εpre),其中 2L1 = Win/(1+εpre) = 400/(1+0.6) = 250 μm,故 L1 = 125 μm;2L2 = 2L1 + Wact,故 L2 = 130 μm。代入:hπ/L1² = 0.3π/125² ≈ 6.03×10^-5,√(125×130×0.6) = √9750 ≈ 98.7,εmax ≈ 6.03×10^-5 × 98.7 ≈ 5.95×10^-3 ≈ 0.6%,与书中结论一致(约为预应变 60% 的 1/100)。",
+  "success_criteria": "正确写出 L1=125 μm、L2=130 μm,代入式(10.9)算得 εmax≈0.6%(0.59%~0.60% 区间)并与原文 0.6% 吻合才通过。",
+  "evidence": "--[p304]-- 2L1 = Win/(1+εpre) is the buckling wavelength, 2L2 = Win/(1+εpre) + Wact is the sum of activated and inactivated regions after relaxation …… --[p307]-- εmax = (hπ/L1^2)√(L1L2εpre) (Eqn 10.9) …… For example, the maximum strain is only 0.6% for a 0.3 μm thin GaAs film buckled on a patterned PDMS substrate with Wact = 10 μm, Win = 400 μm, and εpre = 60%, which is two orders of magnitude smaller than the prestrain."
+ },
+ {
+  "query_id": "P07-23",
+  "query": "评估柔性 RF 开关的 OFF 态指标:先查书里对多数 RF 开关隔离度的通用要求,再分别对照 D2 零偏和 D2 正偏 10 mA 时 5 GHz 的实测隔离值,判断这两种偏置下达没达标。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳:书中指出\"多数 RF 开关一般要求隔离度大于 20 dB\";第二跳:5 GHz 下 D2 零偏(I2=0 mA)实测隔离 10.8 dB,&lt; 20 dB,不达标(20 GHz 时进一步退化到 3.4 dB);D2 正偏 10 mA 时 5 GHz 隔离提升至 22.9 dB,&gt; 20 dB,达标(但 20 GHz 时 6.9 dB 又不达标)。结论:零偏不满足要求,正偏 10 mA 在 5 GHz 满足要求,且可通过增大 D2 二极管面积进一步换取更高隔离(以插入损耗为代价)。",
+  "success_criteria": "先答出\"隔离 &gt;20 dB\"的通用要求,再分别给出 10.8 dB(不达标)与 22.9 dB(5 GHz 达标)的判定结论,三部分齐全才通过。",
+  "evidence": "--[p121]-- Isolation larger than 20 dB is generally required for most RF switches. --[p122]-- Under zero bias (I2 = 0 mA) 10.8 dB isolation was measured at 5 GHz and the value degraded to 3.4 dB at 20 GHz. …… With the forward bias of D2, the resulting isolation is substantially improved from 10.8 to 22.9 dB at 5 GHz (Figure 3.24a). …… Higher isolation may be achieved if the diode area of D2 is increased."
+ },
+ {
+  "query_id": "P07-24",
+  "query": "我打算把柔性微电池的硅厚度定在 15~20 μm,帮我从书里找依据:先查效率随硅厚度的变化规律,再查这个厚度区间的平均效率以及加漫射背反射器后能提到多少。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一跳(厚度-效率规律):效率随 Si 厚度增加到约 15 μm 前急剧上升,20~30 μm 逐渐饱和,约 40 μm 以上进入平台(更厚时体复合增加、对杂质耐受变差,且总吸收在 ~40 μm 以上不再显著增加);第二跳(具体数值):15–20 μm 厚微电池平均效率 6–8%,玻璃衬底背面加漫射 BSR 后可提高到 10–13%;另可补充:工业上无法经济地切出 &lt;300 μm 的单晶硅片,而微电池工艺可将源片反复化学抛光复用(KOH/TMAH),材料利用率高。结论:15~20 μm 兼顾效率与材料利用率,选择合理。",
+  "success_criteria": "给出厚度-效率三段规律(≤15 μm 急增、20–30 μm 饱和、&gt;40 μm 平台)及 6–8% 与 10–13%(加 BSR)两组数值,并形成\"选择合理\"的结论才通过。",
+  "evidence": "--[p202]-- energy conversion efficiency sharply increases with thickness of the Si cells up to ~15 μm, followed by a gradual saturation from 20 to 30 μm to a plateau above ~40 μm. …… The average efficiency of microcells of 15–20 μm thickness is in the range of 6–8%. This value increases to 10–13% with a diffuse BSR on the back side of the glass substrate. …… However, the bulk recombination of minority carriers in thicker Si increases, resulting in worse tolerance on impurity."
+ },
+ {
+  "query_id": "P07-25",
+  "query": "应变硅纳米膜的面内应变 0.362% 是怎么算出来的?把 XRD 角移、泊松比取值和换算公式这条链完整讲一遍。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "适用于柔性技术的半导体纳米材料从光电池学和电子学到传感器和能量储存 [美Yugagn Sun美John A Rogers] 2011年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链条:应变共享(应变释放)使 XRD 中 Si 峰产生 +0.11° 的刚性角移,由此得到应变 Si 层的面外晶格常数/面外应变 ε⊥;再用公式 ε∥ = ε⊥(1−ν)/2ν 换算面内应变,其中 Si 的泊松比取 ν = 0.277;最终算得 Si 层面内应变为 0.362%,与 Mooney 等的力平衡模型吻合很好。",
+  "success_criteria": "完整给出 +0.11° 角移 → 面外应变、ν=0.277、公式 ε∥=ε⊥(1−ν)/2ν、结果 0.362% 四个环节才通过。",
+  "evidence": "--[p99]-- The strain in Si thin films due to strain sharing is calculated from the +0.11° angular shift, which gives the out-of-plane lattice constant of the strained Si layers. The in-plane strain is calculated by using ε∥ = ε⊥(1−ν)/2ν, where ν is the Poisson ratio for Si and is chosen as 0.277. The calculated strain in the Si layers is thus 0.362%, which agrees very well with the force-balance model in Mooney et al. [7]."
+ }
+]

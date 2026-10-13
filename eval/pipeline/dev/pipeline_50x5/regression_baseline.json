@@ -1,0 +1,25 @@
+{
+  "run": {
+    "n": 200,
+    "completion_rate": 1.0,
+    "error_rate": 0.0,
+    "sources_hit_rate": 0.77,
+    "latency_median_s": 10.8,
+    "latency_p95_s": 53.3
+  },
+  "judge": {
+    "judged": 154,
+    "hallucination_rate": 0.2552,
+    "avg_faithfulness": 0.8133,
+    "avg_context_precision": 0.5297,
+    "avg_context_recall": 0.6116,
+    "avg_answer_relevancy": 0.94
+  },
+  "date": "2026-10-02",
+  "config": {
+    "base": "http://192.168.88.138:3000",
+    "users": 10,
+    "sets_dir": "runs/dev200_baseline/qa_sets(dev_200.json x 10 用户)",
+    "judge_note": "RAGAS 口径(LLM 语义判分;算术推导算 supported;拒答题单列 refusal_bucket 不计入)"
+  }
+}

@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "ULT-01",
+  "query": "我们线内想在 FEOL 用 TK-10 体系去 TiN 硬掩模,书里 E1 到 E4 四种刻蚀液在 60°C 下测出来哪些对 TiN 的刻蚀速率低于 30 Å/min?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "E1 和 E3 的 TiN 刻蚀速率 &lt;30 Å/min,E2 和 E4 则 &gt;80 Å/min(相同摩尔浓度、60°C)。最终选 E4 是因为 E2 虽刻速最高但 W 损失也大。",
+  "success_criteria": "答出 E1 和 E3 刻速 &lt;30 Å/min,且单位 Å/min 正确;能区分 E2/E4 &gt;80 Å/min 者加分。",
+  "evidence": "--[p105]-- Etchants 1-4 were tested (E1-E4) with the same molar concentration, in which E1 and E3 showed TiN E/R of &lt;30 Å/min, while E2 and E4 showed TiN E/R &gt;80 Å/min at $6 0 ^ { \\circ } \\mathrm { C }$ ."
+ },
+ {
+  "query_id": "ULT-02",
+  "query": "J.T.Baker CLk-228 残留物去除剂和双氧水 1:10 混合液放在 55°C 浴里,不加 Ti 负载时,书里说 pH 三个小时内从多少掉到多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "1:10 混合液在 55°C、无 Ti 负载条件下,3 小时内 pH 从 6.7 降到 6.3,说明该混合液随时间不稳定,需控制 pH 和 H2O2 水平。",
+  "success_criteria": "答出 6.7 → 6.3 且时间 3 小时、温度 55°C、配比 1:10 无误。",
+  "evidence": "--[p253]-- All J.T.Baker® CLk™-228 residue remover $/ \\mathrm { \\ H } _ { 2 } \\mathrm { O } _ { 2 }$ mixtures were found to be unstable over time... For a 1:10 mixture at $5 5 \\mathrm { { ^ \\circ C } }$ with no Ti loading, the pH drops from 6.7 to 6.3 within 3 hours (Figure 4.a)."
+ },
+ {
+  "query_id": "ULT-03",
+  "query": "高深宽比硅纳米柱干燥时容易倒塌,把去离子水换成 IPA 能把毛细力降多少?书里给的水和 IPA 的表面张力值是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "毛细力最多只能降为原来的约 1/3;298K 下 γ(H2O)=72 mN/m、γ(IPA)=21 mN/m。用 IPA 只能有限改善团簇尺寸,表面修饰(如 BUTS)效果更明显。",
+  "success_criteria": "答出\"降为约 1/3\"且两个表面张力数值 72 与 21 mN/m 正确(298K)。",
+  "evidence": "--[p150]-- replacing deionized water (DIW) (figure 2-a) by IPA (figure 2-b) reduces the cluster size formed after drying, but there is only a limited improvement because capillary forces can be reduced only by a factor of $3 \\ ( \\gamma _ { \\mathrm { H } 2 0 } = 7 2 \\ \\mathrm { \\ m N m } ^ { - 1 } , \\ \\gamma _ { \\mathrm { I P A } } = \\ 2 1 \\ \\mathrm { \\ m N m } ^ { - 1 }$ at 298K)."
+ },
+ {
+  "query_id": "ULT-04",
+  "query": "TMAH 西格玛槽刻蚀那篇文章里,新配的 TMAH 和浴寿命内稳定后的 TMAH,溶解氧各是多少 ppm?对器件应力偏差影响多大?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "新鲜 TMAH 约 6 ppm 溶解氧,稳定后约 8 ppm;两者相比可算出 15% 的应力偏差。向 TMAH 注入优化量的 O2(如 0.1 slm×385 s)可稳定刻蚀性能。",
+  "success_criteria": "答出 6 ppm 与 8 ppm 以及 15% 应力偏差。",
+  "evidence": "--[p32]-- A 15% stress deviation could be calculated comparing fresh TMAH (6 ppm oxygen) with stable TMAH (8 ppm oxygen) within the same bath lifetime."
+ },
+ {
+  "query_id": "ULT-05",
+  "query": "用电解水(AW-Cl)喷淋清洗 FOUP 去金属,效果最好那组条件的 pH 和 ORP 是多少?Zn、Fe、Ni 三种金属的去除效率各到多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最佳条件为 AW-Cl 在 pH 2.6、ORP 1110 mV,Zn 去除率最高约 69%、Fe 约 58%、Ni 约 40%;对比的稀释 SC2(pH 2.5、ORP 550 mV)三种金属去除率都明显更低,DIW 冲洗对 Zn 仅 18%、Fe 和 Ni 仅 2%。",
+  "success_criteria": "答出 pH 2.6、ORP 1110 mV,以及 Zn 69%/Fe 58%/Ni 40% 三个数值。",
+  "evidence": "--[p391]-- The highest metal removal efficiency – for all 3 metals – is observed for the AW-Cl at pH-value 2.6 and ORP= 1110 mV (black bar). A metal removal efficiency of up to 69% is reached for Zn, up to 58% for Fe and 40% for Ni."
+ },
+ {
+  "query_id": "ULT-06",
+  "query": "书里做 spacer 刻蚀那篇,气相 HF 工艺对 SiN 和 SiO2 的刻蚀选择比分别能做到多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在归一化 HF 浓度 0.5 C0 下,气相 HF 工艺对 SiN 和 SiO2 的选择比分别约 31 和 39;且 HF 浓度相对最优点翻倍时选择比仍可保持 &gt;10,对 Si/SiGe 本征无限选择比,适合 spacer 刻蚀。",
+  "success_criteria": "答出 31(对 SiN)和 39(对 SiO2)两个数值。",
+  "evidence": "--[p86]-- The resulting chart in Figure 8 shows that gaseous HF process can achieve a high selectivity to both SiN and $\\mathrm { S i O } _ { 2 }$ (respectively 31 and 39 at $0 . --[p86]-- 5 \\mathrm { C } _ { 0 }$ in normalized HF concentration) together with a large process window since HF concentration can be doubled with respect to optimum conditions and still maintain selectivity above 10."
+ },
+ {
+  "query_id": "ULT-07",
+  "query": "GaAs 数字刻蚀想用空气自然氧化做氧化步,书里说 30 分钟空气暴露氧化层才长多厚,结论是能不能用?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "30 分钟时间范围内空气氧化层厚度不超过 1.0 nm,要长到所需厚度耗时太长,因此空气氧不能用作数字刻蚀的氧化步;书中指出 gaseous O3 比 O2 长得更快,更适合数字刻蚀。",
+  "success_criteria": "答出 ≤1.0 nm 且明确结论\"不能/不适合用空气氧化作数字刻蚀氧化步\"。",
+  "evidence": "--[p76]-- On the other hand, oxide thickness obtained in a 30 minutes time range is not exceeding 1.0 nm. Time required to obtain such a thickness (or more) does not allowed the use of oxygen from air as an oxidation step for digital etching."
+ },
+ {
+  "query_id": "ULT-08",
+  "query": "我想给产线上一套 AW-Cl 电解水 FOUP 清洗设备,这本书里有没有给出这类设备的型号和采购报价?大概多少钱一套?",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书(会议技术文集)只报道了 AW-Cl 电解水的 pH/ORP 工艺窗口和金属去除效率等工艺结果,完全没有涉及设备型号、供应商报价或采购成本信息,无法回答价格,建议直接向设备/化学品供应商询价;不得编造任何价格数字。",
+  "success_criteria": "明确指出书中不含设备报价/成本信息并正确拒答,不出现任何编造的价格或型号;能转述书中仅有的工艺参数者加分。",
+  "evidence": "--[p392]-- Therefore it's an excellent candidate for fast and accurate process adaption. This innovative wet cleaning technology is a powerful application, not for FOUP's only, but also for semiconductor surface preparation and FEOL cleaning applications.(全书该节仅有工艺结果,无任何价格/型号信息)"
+ },
+ {
+  "query_id": "ULT-09",
+  "query": "TechniEtch TBR19 这种钛阻挡层刻蚀液,书里推荐在多少温度下工作?推荐这个温度是综合考虑了哪些因素?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "推荐工作温度 50°C,理由是综合考虑最佳浴寿命(bath ageing)、金属刻蚀速率、过程控制和溶液稳定性。另可补充其规格:对 Ti/TiN/TiW 刻蚀速率 &gt;450 Å/min,与 Al、Sn、Cu、Ni 兼容(ER&lt;10 Å/min)。",
+  "success_criteria": "答出 50°C 并给出至少两项综合因素(浴寿命/刻速/过程控制/稳定性)。",
+  "evidence": "--[p306]-- From the solution decomposition rate and Ti etching rate change with temperature, it is recommended to work at $5 0 ~ ^ { \\circ } \\mathrm { C }$ to combine best bath ageing, metal etch rate, process control and solution stability attributes. --[p305]-- Etch rate above 450Å/min for (Ti, TiN and TiW)."
+ },
+ {
+  "query_id": "ULT-10",
+  "query": "稀 HF 里溶解氧多高会开始腐蚀体铜?控制气氛和不控制气氛两种腔体条件下,要把铜损耗压到 1 nm 以下,DO 各需要控制在什么水平?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "0.05% HF 条件下,不控制气氛需要约 10 ppb DO、控制气氛需要约 200 ppb DO 才能满足铜损耗 &lt;1 nm 的规格;控制气氛下铜损耗更小且中心/边缘均匀,70~200 ppb DO 时铜损耗 &lt;1 nm,只有非控制气氛下 3000 ppb DO 才开始刻蚀铜。",
+  "success_criteria": "答出非控制 ≈10 ppb、控制 ≈200 ppb,并提到 HF 浓度 0.05% 与 &lt;1 nm Cu loss 规格。",
+  "evidence": "--[p265]-- From Fig. 2 it is clear that 10 ppb DO for the non-controlled and \\~200 ppb DO for the controlled was required to reach a spec of less than 1 nm Cu loss."
+ },
+ {
+  "query_id": "ULT-11",
+  "query": "书里氧化物对氮化物选择性刻蚀那篇开头引用 Harrap 的 85:1 高选择比,是在什么 HF 浓度和温度下做的?当时氮化物刻蚀速率多少?这和该文自己的目标指标(E/R 和选择比)差在哪?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Harrap 是在 0.0075% 极稀 HF、85°C 下得到 85:1 的 Si3N4:SiO2 选择比,但氮化物刻蚀速率只有约 6 Å/min。该文自己的目标是 SiOx 刻蚀速率约 10 Å/min、对 SiNx 选择比 &gt;5:1,并兼容 poly-Si 与 SiCN。",
+  "success_criteria": "答出 0.0075%、85°C、85:1、6 Å/min,以及目标 E/R ≈10 Å/min 与 &gt;5:1 选择比。",
+  "evidence": "--[p88]-- Harrap has reported high $\\mathrm { S i } _ { 3 } \\mathrm { N } _ { 4 } \\mathrm { : \\thinspace S i O } _ { 2 }$ selectivity of 85:1 in a highly diluted hydrofluoric acid solution of 0.0075% at $8 5 ~ ^ { \\circ } \\mathrm { C } _ { \\mathrm { i } }$ however the etch rate of nitride was very low (6 A/min) [1]. --[p88]-- ...selective removal of SiO&lt;sub&gt;x&lt;/sub&gt; materials with E/R around 10 A/min, with the associated requirements of &gt; 5:1 selectivity to SiN&lt;sub&gt;x&lt;/sub&gt; and good compatibility to poly-silicon (poly-Si) and silicon carbonitride (SiCN)."
+ },
+ {
+  "query_id": "ULT-12",
+  "query": "太阳能电池湿法清洗那篇,Fe 的交换长度是 70 µm,标准 6 寸(243 cm²)电池片按双面清洗算,单片的最低换液量应该是多少毫升?和书里表格给的值对得上吗?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "V_ex = 2 × 243 cm² × 70 µm(=70×10⁻⁴ cm)= 2 × 243 × 0.007 cm³ ≈ 3.40 ml/片,与书中表 2 给出的 3.39 ml/wafer 基本一致(差异来自舍入)。",
+  "success_criteria": "给出算式 2×243×0.007≈3.4 ml,并指出与表中 3.39 ml/wafer 吻合;单位 ml 正确。",
+  "evidence": "--[p359]-- The calculation was done for ... a standard square 6inch solar cell wafer (243cm&lt;sup&gt;2&lt;/sup&gt;). --[p359 [表]]-- Metal | Co | Cu | Zn | Fe | Cr | Ti ; L_ex [um] | 15 | 20 | 65 | 70 | 280 | 800 ; V_ex [ml/wafer] | 0.74 | 1.11 | 3.15 | 3.39 | 13.5 | 38.1"
+ },
+ {
+  "query_id": "ULT-13",
+  "query": "HF 吸附模型里 plateau 氟浓度只跟湿度有关的那个公式,如果环境湿度 RH=50%,铜面上氟的 plateau 值是多少 ions/cm²?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按 [F⁻]_plateau = 2.2×10^15 × RH + 2.4×10^14,RH=0.5 时 = 2.2×10^15×0.5 + 2.4×10^14 = 1.1×10^15 + 2.4×10^14 = 1.34×10^15 ions/cm²。",
+  "success_criteria": "给出算式与结果 ≈1.34×10^15 ions/cm²(允许 1.3~1.35×10^15);公式来源正确。",
+  "evidence": "--[p339]-- $$ [ F ^ { - } ] _ { p l a t e a u } = 2 . 2 1 0 ^ { 1 5 } R H + 2 . 4 1 0 ^ { 1 4 }\\tag{2} $$"
+ },
+ {
+  "query_id": "ULT-14",
+  "query": "TiW 上长无电镀镍那篇,五种处理里只有哪种处理后无电镀镍长上去了?机理上为什么氧化性处理都不行?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "只有 HF 处理后的样品成功生长了无电镀 Ni(表 4 中 1/H2O2/O2 均为 No)。原因是无电镀 Ni 生长需要去氧化、能给出电子的表面把 Pd 催化剂还原后沉积;HF 显著去除 Ti 氧化物(Ti 氧化比从 1.77 降到 0.43),而 H2SO4、H2O2、O2 都使表面更氧化,无法给出电子。",
+  "success_criteria": "答出\"只有 HF\"并说明去氧化/还原 Pd 催化剂的机理。",
+  "evidence": "--[p280]-- This could be explained by the needing of the electroless Ni growth process to be applied on a deoxidized surface, able to give electrons to the Pd catalyst, which needs to be reduced before being deposited onto the TiW surface [3]. --[p280]-- This deposition on TiW was successful only for the HF treatment, as reported in Table 4."
+ },
+ {
+  "query_id": "ULT-15",
+  "query": "图形倒塌参数研究里 AR 18 那组硅纳米柱,表中高度和平均直径各是多少纳米?用这两个数验证一下它的深宽比是不是 18。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "AR 18 组:高度 490 nm、平均直径 27 nm、pitch 90 nm。深宽比 = 490/27 ≈ 18.1 ≈ 18,与标称 AR 18 一致(直径为平均值,故为近似)。",
+  "success_criteria": "答出 490 nm 与 27 nm,并给出 490÷27≈18.1≈18 的验算。",
+  "evidence": "--[p149 [表]]-- Table I: Structure specifications. Aspect ratio | Height (nm) | Average diameter (nm) | Pitch (nm) ; 5 | 240 | 46 | 90 ; 10 | 380 | 37 | 90 ; 18 | 490 | 27 | 90"
+ },
+ {
+  "query_id": "ULT-16",
+  "query": "TK10X7 放大批次里,W 抑制剂 B-2 浓度从第 4 批降到第 5、第 6 批时,钨刻蚀速率和颗粒数分别怎么变?书里两条回归线交点说表面活性剂浓度到多少 W E/R 才小于 1 Å/min?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "第 4 批用 6α% B-2:初始片上颗粒 &lt;300;第 5 批降到 2α%:W E/R 仍 &lt;1 Å/min,初始颗粒约 120;第 6 批再降到 0.5α%:W E/R 升到 1.3 Å/min,颗粒不再改善。两条回归线交点在 0.75α,即表面活性剂浓度 0.75α 以上 W E/R 才 &lt;1 Å/min。",
+  "success_criteria": "答出 6α%→&lt;300、2α%→&lt;1 Å/min 且 ~120 颗粒、0.5α%→1.3 Å/min,以及交点 0.75α。",
+  "evidence": "--[p106]-- Then we further lowered the concentration of B-2 to 2α% in the $5 ^ { \\mathrm { t h } }$ batch; the performance for W E/R of the $5 ^ { \\mathrm { t h } }$ batch was still &lt;1 Å/min with the initial particle count data at \\~120. However, when we tried to reduce B-2 to 0.5α% in the $6 ^ { \\mathrm { t h } }$ batch, functional test results showed slight increasing to W E/R of 1.3 Å/min... --[p106]-- The two regression lines (indicated by dash line) were estimated to intersect at 0.75α, which refers to the surfactant concentration where W E/R would be &lt;1 Å/min."
+ },
+ {
+  "query_id": "ULT-17",
+  "query": "'just-clean-enough' 那篇的换液量表里,Co 单片交换体积是 0.74 ml,那一个 50 片的花篮要换多少毫升?跟书里给 50 片那行数值一致吗?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "0.74 ml/片 × 50 片 = 37 ml,与书表中 V_ex [ml/50 wafers] 行 Co 列的 37 完全一致。",
+  "success_criteria": "给出 0.74×50=37 ml 并指出与表中 37 一致。",
+  "evidence": "--[p359]-- V_ex [ml/wafer] 行: Co = 0.74 ... --[p359]-- $\\mathbf { V } _ { \\mathrm { e x } } \\ [ \\mathbf { m } \\mathbf { l } / 5 0 \\mathbf { w a f e r s } ]$ | 37 | 56 | 158 | 170 | 676 | 1906"
+ },
+ {
+  "query_id": "ULT-18",
+  "query": "电解水产 AW-Cl 时,把氯进料从 10000 ppm 降到 100 ppm 会发生什么?两种进料浓度下 ORP 和 pH 的可调范围各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "降低氯进料到 100 ppm 可扩大工艺窗口:在 pH 约 3.7 下可得到 860、900、950 mV 三档 ORP。10000 ppm 高氯进料时 ORP/pH 可调范围最大:ORP 约 860 mV 调到 1150 mV 以上,pH 从 3.9 到 2.2。实际金属去除应用选 pH 2.6~3.1、ORP 880~1100 mV 的 AW-Cl。",
+  "success_criteria": "答出 100 ppm 时 pH≈3.7 下 ORP 860/900/950 mV,以及 10000 ppm 时 ORP 860→1150+ mV、pH 3.9→2.2。",
+  "evidence": "--[p390]-- We are able to enlarge the process window by decreasing the Cl-feed concentration to 100 ppm (black symbols). For a pH- value of about 3.7 we received ORP values from 860 mV (black dot), 900 mV (black square) and 950 mV (black triangle). --[p390]-- For high chloride feed concentration of 10000 ppm (white symbols) the AW-Cl can be changed for a large ORP as well as pH-value range. The ORP can be tuned from about 860 mV up to more than 1150 mV by ranging from pH-value of 3.9 to 2.2."
+ },
+ {
+  "query_id": "ULT-19",
+  "query": "磷酸刻氮化硅生成 silica 那篇的凝聚模型里,单个 silica 单体的体积用的多少?密度取多少?浴液里 silica 浓度假定是多少 ppm?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "单体体积 ν1 = 4.51×10⁻²⁹ m³(由 silica 密度 2200 kg/m³ 算出);浴中 silica 浓度假定 40 ppm,据此得本体单体数密度 N1,∞≈?×10²⁷ m⁻³;另外传质系数 km=2.2×10⁻⁸ m/s。",
+  "success_criteria": "答出 4.51×10⁻²⁹ m³、2200 kg/m³、40 ppm 三个数值。",
+  "evidence": "--[p302]-- The monomer volume $\\nu _ { 1 } = 4 . 5 1 { \\times } 1 0 ^ { - 2 9 } \\mathrm { m } ^ { 3 }$ is calculated from the density of silica, 2200 $\\mathrm { k g / m } ^ { 3 }$ --[p300]-- 3 ${ \\times } 1 0 ^ { 2 7 } \\mathrm { m } ^ { - 3 }$ based on an assumed silica concentration of 40 ppm in the bath"
+ },
+ {
+  "query_id": "ULT-20",
+  "query": "书上有没有给出 SC1 清洗的标准配比(氨水:双氧水:水)和处理温度?我们想按书里的配方配一缸 SC1。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明:该书多处提到 SC1/APM 作为标准清洗液(如 DTI/TSV 试片清洗、深度孔洞金属去除讨论),但全书未给出 SC1 的 NH4OH:H2O2:H2O 配比和处理温度,无法据本书配缸,建议查阅标准工艺手册或化学品供应商规格;不得自行补常规配比(如 1:1:4、70°C 等)充当书内数据。",
+  "success_criteria": "明确说明书中未给出 SC1 配比/温度并拒答,不编造任何比例数字;能引用书中出现 SC1 但无参数的语境者加分。",
+  "evidence": "--[p143]-- The DTI and TSV structures were etched into a Si wafer (frontside) with standard lithography and silicon etch processes, then cleaned with standard solutions such as SPM and SC1, that allow to grow a chemical oxide on Si surface.(仅提及 SC1,无配比/温度)"
+ },
+ {
+  "query_id": "ULT-21",
+  "query": "轻离子注入后去改性 SiN 做 spacer,书里说液相 HF 工艺最大的短板是什么?后来开发的气相 HF 工艺怎么解决?反应副产物是什么、怎么去掉?请把三个环节串起来讲。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式回答:(1) 液相 HF 去除 H2 注入改性 SiN 的最大短板是对热氧化硅选择比 &lt;2(注入 LPCVD 氮化硅对热氧化硅),会过度损耗栅硬掩模与 STI;(2) 替代方案为气相 HF 工艺,不与 SiO2 反应,对 SiN 与 SiO2 选择比分别达 31 和 39(0.5 C0),且 HF 浓度翻倍仍保持选择比 &gt;10;(3) 反应(及远程等离子体路线)副产物为氟硅酸铵 (NH4)2SiF6,通过 100°C 以上 120 s 退火分解为挥发性 SiF4 和 NH3 而去除,恢复原始 SiN 表面。",
+  "success_criteria": "三个环节齐全:选择比 &lt;2、气相 HF 31/39(0.5 C0)、(NH4)2SiF6 经 &gt;100°C/120 s 退火分解去除。",
+  "evidence": "--[p83]-- The weakness of this removal process remains its low selectivity to silicon dioxide which is lower than 2 (implanted LPCVD nitride to thermal oxide). --[p86]-- ...gaseous HF process can achieve a high selectivity to both SiN and $\\mathrm { S i O } _ { 2 }$ (respectively 31 and 39 at 0.5 C0 in normalized HF concentration). --[p84]-- Data in the literature state that ammonium hexafluorosilicate decomposes into $\\mathrm { S i F _ { 4 } }$ and ${ \\mathrm { N H } } _ { 3 } .$ , which are both volatile species, as temperature rises [4]... --[p84]-- infrared spectra recorded after annealing wafers above $1 0 0 ^ { \\circ } \\mathrm { C }$ for 120 seconds indeed no longer exhibit the absorbance peaks described above."
+ },
+ {
+  "query_id": "ULT-22",
+  "query": "按书里的 HF 吸附经验模型算一下:铜片在 120 ppbv 气相 HF、相对湿度 40% 的环境里放 4 小时,表面氟浓度大概多少 ions/cm²?和书里表 1 实测值比一下差多少。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "分步计算:[F⁻]_plateau = 2.2×10^15×0.4 + 2.4×10^14 = 1.12×10^15 ions/cm²;k' = (2.3×10⁻³×120 + 1.0×10⁻¹) − 2.4×10⁻¹×0.4 = 0.276+0.1−0.096 = 0.28 h⁻¹;[F⁻] = 1.12×10^15×(1−e^(−0.28×4)) = 1.12×10^15×(1−e^(−1.12)) ≈ 1.12×10^15×0.674 ≈ 7.5×10^14 ions/cm²。与表 1 实测 4h/40%RH 的 6.6×10^14 同量级,偏差约 +15%,在模型/测试(±15%)不确定度范围内。",
+  "success_criteria": "plateau≈1.12×10^15、k'≈0.28 h⁻¹、结果≈(6.5~7.6)×10^14 ions/cm²,并与实测 6.6×10^14 对比;三个公式都要用上。",
+  "evidence": "--[p338]-- $$ [ F ^ { - } ] = [ F ^ { - } ] _ { p l a t e a u } \\big ( 1 - e x p ( - k ^ { \\prime } t ) \\big )\\tag{1} $$ --[p339]-- $$ [ F ^ { - } ] _ { p l a t e a u } = 2 . 2 1 0 ^ { 1 5 } R H + 2 . 4 1 0 ^ { 1 4 }\\tag{2} $$ --[p339]-- $$ k ^ { \\prime } = ( 2 . 3 1 0 ^ { - 3 } [ H F ] _ { a i r } + 1 . 0 1 0 ^ { - 1 } ) - 2 . 4 1 0 ^ { - 1 } R H\\tag{3} $$ --[p340]-- 4h, 40% RH | 6,6E+14 | ... --[p340]-- (uncertainty: ± 15%)"
+ },
+ {
+  "query_id": "ULT-23",
+  "query": "我要在 N5/N7 的高迁移率沟道工艺里把 Ge 损耗压到最低:书里 Ge 在纯水、氧饱和纯水、以及 ≥6M HCl 三种体系里的损耗各是多少?据此书里说要用什么工艺条件?请先查各体系数值再给结论。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "多跳链:(1) Ge 在 UPW 中化学稳定,损耗约 0.02 nm/min;(2) 在 O2 饱和 UPW 中因亚氧化物溶解度低,Ge 损耗限于 0.15 monolayer/min;(3) 在 ≥6M HCl 中亚氧化物溶解度足够,刻蚀速率可控到 0.6 monolayer/min;N2 吹脱 HCl 会降低刻速,证明 O2 是 Ge 的氧化剂。结论:要把 Ge 损失降到可忽略,必须无氧(oxygen-free)工艺。",
+  "success_criteria": "三个数值齐全(0.02 nm/min、0.15 ML/min、0.6 ML/min)且结论为 oxygen-free processing;体现先检索数值再推理的次序。",
+  "evidence": "--[p65]-- Ge is chemically stable in water: a loss $\\mathrm { { o f } } \\sim 0 . 0 2$ nm/min was measured. --[p65]-- The low solubility of the suboxides ... stabilizes the semiconductor in ${ \\bf O } _ { 2 }$ saturated UPW: Ge loss is limited to 0.15 monolayer minute&lt;sup&gt;-1&lt;/sup&gt;. However, in HCl solution (≥6M) ... the etch rate can be controlled up to 0.6 monolayer minute&lt;sup&gt;-1&lt;/sup&gt;. --[p65]-- As degassing of the HCl solution by $\\Nu _ { 2 }$ purging lowers the etch rate, it can be concluded that $\\mathrm { O } _ { 2 }$ serves as an oxidizing agent for Ge. These results further suggest that in case Ge loss needs to be minimized to negligible amounts, oxygen free processing will be essential."
+ },
+ {
+  "query_id": "ULT-24",
+  "query": "我们量产线上要用 CLk-228/H2O2 去 TiN 硬掩模:书里说要达到高 TiN 刻速、低 Cu/Co 刻蚀和 &gt;100:1 TiN:Cu 选择比,配比该控制在什么范围?浴寿命短,书里开发的 dump/fill 补液工艺具体怎么操作?Ti 负载约 4 ppm/小时时 8 小时内能稳住吗?请分步查证后回答。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "三跳链:(1) 刻速表:1:10 混合 TiN E/R &gt;116 Å/min 而 Cu/Co &lt;1 Å/min,书中指出配比须低于 1:2(CLk-228:H2O2(30%))才能同时满足高 TiN 刻速、低 Cu/Co 刻蚀和 &gt;100:1 TiN:Cu 选择比;(2) dump/fill 工艺:每 30 分钟用 1:6 的 CLk-228/H2O2 新混合液置换槽液的 6.4%;(3) 在约 4 ppm Ti/hour 的 Ti 负载下运行该工艺 8 小时,pH、TiN 刻速和 H2O2 浓度保持稳定(对照不控 dump/fill 时 4 小时后失控:TiN 刻速下降、Cu 刻速开始上升),可满足量产。",
+  "success_criteria": "三个环节齐全:配比 &lt;1:2(及 1:10 时 TiN&gt;116/Cu&lt;1)、每 30 min 换 6.4% 的 1:6 混液、4 ppm Ti/h 下 8 h 稳定。",
+  "evidence": "--[p252 [表]]-- mixing ratios less than 1:2 (for J.T.Baker® CLk™-228 residue remover $/ \\mathrm { H } _ { 2 } \\mathrm { O } _ { 2 }$ (30%)) are necessary to achieve the following targets: high TiN etch rates, low Cu and Co etch rates, and excellent (&gt;100:1) TiN:Cu selectivity. --[p253]-- This process involves replacing 6.4% of the solution with a 1:6 J.T.Baker® $\\mathrm { C L k ^ { T M } } { - 2 2 8 } \\ / \\ \\mathrm { H } _ { 2 } \\mathrm { O } _ { 2 }$ mixture every thirty minutes. --[p253]-- A bath life experiment was performed using this dump/fill procedure under Ti loading conditions of \\~4 ppm Ti/hour... over a period of 8 hours."
+ },
+ {
+  "query_id": "ULT-25",
+  "query": "磷酸里刻氮化硅的 silica 团聚沉积模型,控制体积的沟槽几何和传质系数是怎么设的?模型算出的 M1 稳态值和时间尺度说明为什么可以用准稳态近似?请先查几何参数再查动力学结果,串起来解释。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式回答:(1) 几何设置:主中央沟槽深 H=2000 nm、宽 L=50 nm,SiO2/SiN 层厚 h=20 nm,控制体积初始 0.1 µm²,瞬时刻蚀深度 ℓ 0~300 nm;(2) 传质系数 km=2.2×10⁻⁸ m/s,扩散远快于 SiN 刻速,故可解耦团簇演化和控制体积变化;(3) 动力学结果:达到稳态时间 t*=4.0 s,远小于约 1000 s 的总刻蚀时间,稳态值 M1,ss=α/β=4.1,因此准稳态近似成立。",
+  "success_criteria": "几何(H=2000 nm、L=50 nm、h=20 nm)、km=2.2×10⁻⁸ m/s、t*=4.0 s vs ~1000 s、M1,ss=4.1 四组数据齐全,并说清准稳态近似的理由。",
+  "evidence": "--[p300 [表]]-- Values are calculated by assuming a geometry with a main central trench of depth H = 2000 nm and width $L = 5 0$ nm, $\\mathrm { S i O } _ { 2 }$ and SiN layer thicknesses h = 20 nm, and instantaneous etch depth ℓ varies from 0 to 300 nm. --[p300]-- $k _ { m }$ ... $2 . 2 { \\times } 1 0 ^ { - 8 } \\mathrm { m } / \\mathrm { s }$ --[p302]-- or $t ^ { * } = 4 . 0 ~ \\mathrm { s }$ . Since this is much smaller than the overall etch time (on the order of $1 0 0 0 \\ \\mathrm { ~ s ~ } )$ , the steady-state value of $M _ { 1 , s s } = \\alpha / \\beta = 4 . 1$ can be used, confirming the assumption of the quasi-steady state approximation."
+ }
+]

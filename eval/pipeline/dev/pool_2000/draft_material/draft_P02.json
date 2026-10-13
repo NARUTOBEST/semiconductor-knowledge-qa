@@ -1,0 +1,357 @@
+[
+ {
+  "query_id": "P02-01",
+  "query": "EUVL 为什么最终选了 13.5 nm 这个波长?Mo/Si 多层膜反射镜的短波截止波长大概是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Mo/Si 多层膜反射镜在短波侧的截止波长约 12.5 nm,但没有任何光源能有效利用这一窗口;综合考虑制造与安全问题后(Mo/Be 光谱范围虽更宽),EUVL 最终选择 13.5 nm 作为工作波长。",
+  "success_criteria": "答出 Mo/Si 截止波长约 12.5 nm,且说明 13.5 nm 是 EUVL 当前选定波长,单位正确",
+  "evidence": "--[p64]-- The cutoff wavelength for Mo/Si mirrors is about 12.5 nm in the shortwave region. No source, though, has been found so far that can make effective use of this fact.\n--[p66]-- Currently, therefore, 13.5 nm is the wavelength of choice for EUVL."
+ },
+ {
+  "query_id": "P02-02",
+  "query": "如果用锂做 EUV 光源的工作介质,它的发射波长和线宽各是多少?为什么说锂对工具中心波长的选择最敏感?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Li 是线发射体,辐射波长 13.50 nm、线宽 0.03 nm;中心波长只要偏离 13.50 nm 很小的量就可能使 Li 完全无法用于 EUVL 光源,因此 Li 对波长选择最敏感。",
+  "success_criteria": "答出 13.50 nm 和 0.03 nm 两个数值且单位正确,并说明线发射体偏离即失效",
+  "evidence": "--[p65]-- Li, being a line emitter, is the most sensitive to the choice of operating wavelength of the lithographic tool. Li radiates at 13.50 nm with a linewidth of 0.03 nm. The choice of a central wavelength differing from 13.50 nm by even a small amount can eliminate the possibility of using Li as a working material in the source for EUVL."
+ },
+ {
+  "query_id": "P02-03",
+  "query": "各家曝光工具厂商对 HVM 光源在中间焦点(IF)处达成的联合规格,除了 115 W 带内功率外还有哪些关键指标?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HVM 联合规格(在 IF 处定义):中心波长 13.5 nm;带内 EUV 功率 115 W;重复频率不低于 7000~10000 Hz;积分能量稳定度(3σ、50 脉冲以上)&lt;0.3%;etendue(面积×立体角)3.3 mm²·sr;照明光学寿命 30000 h。",
+  "success_criteria": "至少答出重复频率 ≥7-10 kHz、稳定度 &lt;0.3%(3σ)、etendue 3.3 mm²·sr 三项,数值与单位正确",
+  "evidence": "--[p450]-- Central wavelength | 13.5 nm / EUV power (inband) at IF | 115 W / Repetition frequency | ≥7,000 to ≥10,000 Hz\n--[p450]-- Integrated energy stability (3σ, &gt;50 pulses) | &lt;0.3% / Maximum solid angle of input to illuminator | 0.03–0.2 sr / Etendue (area × solid angle) | 3.3 mm² sr"
+ },
+ {
+  "query_id": "P02-04",
+  "query": "书里测水滴激光等离子体电子密度用的是哪种干涉仪?条纹间距做到多少微米?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "采用偏振光干涉仪(polarized-light interferometer),其 Wollaston 棱镜由石英制成、偏转角 ε=8.7 mrad;用 7.5 cm 焦距透镜、b=37.7 cm 时,计算得到的条纹间距为 12.1 µm。",
+  "success_criteria": "答出偏振光干涉仪(Wollaston 棱镜、石英)及条纹间距 12.1 µm",
+  "evidence": "--[p231]-- The Wollaston prism used in our experiments is composed of quartz and has ε = 8.7 mrad. Using a 7.5-cm-focal-length lens and b = 37.7 cm, the fringe spacing is calculated to be 12.1 µm."
+ },
+ {
+  "query_id": "P02-05",
+  "query": "锡等离子体要高效发出 13.5 nm 带内辐射,电子温度得控制在什么范围?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "对光学薄等离子体,产生最佳离子阶分布(贡献 13.5 nm)对应的电子温度为 30–50 eV;按 Planck 辐射体估算,13.5 nm 对应光子能量 92.1 eV,最佳温度约 30 eV(T≈Eph/3)。",
+  "success_criteria": "答出 30–50 eV(或约 30 eV)且单位为 eV",
+  "evidence": "--[p198]-- It can be seen from this figure that the condition for the production of the optimum ion-stage distribution for an optically thin plasma corresponds to electron temperatures in the 30–50-eV range.\n--[p99]-- For EUVL the wavelength of interest is 13.5 nm, corresponding to Eph = 92.1 eV and therefore an optimum temperature T ≈ 30 eV."
+ },
+ {
+  "query_id": "P02-06",
+  "query": "Star Pinch 用氙气现在能跑到多高的重复频率和输入功率?带内输出能到多少瓦?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "截至 2004 年初,Star Pinch 重复频率已提升到 2 kHz,耗散能量 10 J,相当于 20 kW 功率沉积进等离子体;带内 13.5 nm 功率(2π sr)为 100 W。10 kW 可连续维持约 10 分钟,500 Hz(5 kW)可连续运行数小时。",
+  "success_criteria": "答出 2 kHz、20 kW、带内 100 W(2π sr)三项数值",
+  "evidence": "--[p1]-- As of early 2004, the Star Pinch repetition frequency had been scaled to 2 kHz at a dissipated energy of 10 J, corresponding to a power of 20 kW deposited into the plasma.\n--[p1]-- The inband 13.5-nm power in 2π sr was 100 W."
+ },
+ {
+  "query_id": "P02-07",
+  "query": "HCT 空心阴极触发灯,氙和锡两种工质分别最高跑到多少重复频率?当时输入功率多大?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "氙灯最高重复频率 7 kHz(输入功率 20 kW),锡灯最高 6 kHz(输入功率 14 kW);两种情况下 CE 对输入功率依赖都很弱,与低功率运行时基本相同。",
+  "success_criteria": "答出 Xe 7 kHz/20 kW、Sn 6 kHz/14 kW 四个数值",
+  "evidence": "--[p439]-- The highest frequency for the Xe lamp was 7 kHz (20-kW input power) and for the Sn lamp was 6 kHz (14-kW input power). In both cases, CEs did not depend strongly on input power and were almost the same as for low-power operation."
+ },
+ {
+  "query_id": "P02-08",
+  "query": "毛细管 Z-pinch 源的典型放电波形是什么量级?峰值电流和脉宽给个数。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "典型波形为:峰值电流 17.5 kA、脉宽 350 ns;MPC(磁脉冲压缩)发生器在末级磁芯饱和时把电能传给负载。",
+  "success_criteria": "答出 17.5 kA 与 350 ns 两个数值且单位正确",
+  "evidence": "--[p44]-- Figure 17.5 shows typical waveforms of the current, voltage, and EUV pulse. In this case, 17.5 kA of peak current and 350 ns of pulse duration were observed."
+ },
+ {
+  "query_id": "P02-09",
+  "query": "Xe、Sn、Li 三种工质在 DPP 和 LPP 两类光源里的 CE 大概各是什么水平?给个数范围。",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Xe:DPP 报道 0.45%、0.5%、1%;LPP 报道 0.7%、0.8%、0.8–1%。Sn:DPP 2%(路线图目标 3%);LPP 掺锡液滴靶 2.5%、锡带(25% Sn)2.5%、质量受限锡靶预期 3%、固体锡靶 3% 和 5%。Li:LPP 新报道 2.5–3%,DPP 预期 2.5%。文献中 Sn 相对 Xe 的实验 CE 通常 quoted 为 3–4 倍。",
+  "success_criteria": "至少正确给出 Xe DPP 0.45–1%、Xe LPP 0.7–1%、Sn DPP 2%、Sn LPP 2.5–3%、Li LPP 2.5–3% 中的五组范围",
+  "evidence": "--[p41]-- Today CEs for a Xe DPP system are reported in the ranges of 0.45%, 0.5%, and 1%.\n--[p42]-- For Xe LPP, CEs of 0.7%, 0.8%, and 0.8–1% have been reported.\n--[p42]-- For Sn DPP EUV sources, 2% CE has been reported, with a goal of 3% CE on the supplier roadmap.\n--[p42]-- Higher CE values have been reported for Sn LPP: 2.5% using Sn-doped drop[let targets] ... a 3% CE can be expected for mass-limited Sn targets.\n--[p42]-- recently much higher CE measurements of 2.5–3% have been reported for Li-based LPP EUV sources, and 2.5% CE is expected for Li-based DPP EUV sources.\n--[p42]-- A factor of 3–4 for Sn over Xe is usually quoted in the literature for experimental measurements of the CE."
+ },
+ {
+  "query_id": "P02-10",
+  "query": "放电电极寿命主要受什么限制?钨电极表面温升跟等离子体到壁的距离是什么定量关系?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "寿命首先由电极侵蚀决定,侵蚀由高放电电流和等离子体辐射共同作用。典型模型计算(E_d=4 J):放电脉冲期间约 70% 沉积能量留在几微米厚的电极表层;等离子体-壁距 10 mm 时钨表层温升约 200 K,2.5 mm 时超过 2000 K;连续高重复率运行下电极表面温度可达钨的熔点 3650 K。阳极侵蚀大于阴极,增大等离子体-壁距离是降低表面温度的有效手段。",
+  "success_criteria": "答出 70% 能量留在表层、10 mm→约 200 K、2.5 mm→&gt;2000 K、钨熔点 3650 K 四组数值",
+  "evidence": "--[p21]-- A typical model consideration for a tungsten electrode (E_d = 4 J) shows that during the discharge pulse about 70% of all deposited energy remains in an electrode surface layer of a few micrometers' thickness. During the discharge pulse the temperature of tungsten electrode surface layer jumps by approximately 200 K if the plasma-wall distance is 10 mm, and by more than 2000 K if it is 2.5 mm.\n--[p21]-- During continuous operation of an EUV source at a high repetition rate, the surface electrode temperature can attain the melting temperature of tungsten (3650 K)."
+ },
+ {
+  "query_id": "P02-11",
+  "query": "锡 LPP 里激光波长从 10.6 µm 缩到 1.06 µm 再到 0.26 µm,最优激光强度和对应的电子温度怎么变?CE 相对怎么变?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按表 11.3(10 ns 脉冲、各波长最优强度):10.6 µm→I_L=1×10^10 W/cm²、T_eS=31 eV;1.06 µm→1×10^11 W/cm²、46 eV;0.26 µm→1×10^12 W/cm²、63 eV。最优强度与波长的关系近似 I_L∝λ_L^1.2。10.6 µm 激光的 CE 约为 1.06 µm 的 1.9 倍,而 0.26 µm 的 CE 反而只有 0.55 倍(长波长更高 CE)。",
+  "success_criteria": "答出三个波长的最优强度(10^10/10^11/10^12 W/cm²)与电子温度(31/46/63 eV),并给出 1.9 倍与 0.55 倍关系",
+  "evidence": "--[p394]-- λ_L (µm) | τ_L (ns) | I_L (W/cm²) | x_S (µm) | n_is (cm^-3) | T_eS (eV) | L_S (µm) : 10.6 | 10 | 1×10^10 | 101 | 2.0×10^18 | 31 | 50 ; 1.06 | 10 | 1×10^11 | 180 | 1.3×10^19 | 46 | 160 ; 0.26 | 10 | 1×10^12 | 183 | 5.0×10^19 | 63 | 245\n--[p394]-- The 10.6-µm laser gives approximately 1.9 times higher CE than the 1.06-µm laser, while the 0.26-µm laser gives 0.55 times lower CE.\n--[p394]-- the relation between the optimum laser intensity and the laser wavelength is approximately given as I_L·λ_L^1.2, rather than I_L·λ_L^2."
+ },
+ {
+  "query_id": "P02-12",
+  "query": "Xe 丝流喷射 LPP 打冷凝镜,金、钼、硅三种材料的侵蚀速率各是多少?三者比例大概什么样?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "在 300 mJ 激光脉冲的 Xe 丝流喷射 LPP 源中暴露 3.6×10^5 脉冲,平均侵蚀速率:金 95 nm/10^6 脉冲、钼 18 nm/10^6 脉冲、硅 9 nm/10^6 脉冲,测量误差 ±1 nm/10^6 脉冲;相对侵蚀比约 11:2:1,与 20 keV Xe 离子溅射模型(≈4:1.5:1)接近,说明 Xe 离子溅射是主要侵蚀机制之一。",
+  "success_criteria": "答出 95/18/9 nm 每百万脉冲及比例约 11:2:1",
+  "evidence": "--[p46]-- Gold: 95 nm/10^6 pulses / Mo: 18 nm/10^6 pulses / Si: 9 nm/10^6 pulses\n--[p46]-- The relative rates of erosion (Au:Mo:Si) for the data above are approximately 11:2:1.\n--[p46]-- The experimental error associated with these measurements were all ±1 nm/10^6 pulses."
+ },
+ {
+  "query_id": "P02-13",
+  "query": "HCT 灯的收集效率,氙和锡 pinch 分别做到多少?对应什么收集口立体角和 etendue 条件?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按完整光学模型计算:在 1.8 sr 收集口开角、2.7 mm²·sr etendue 要求下,Xe pinch 收集效率 17%,Sn pinch 26%。另:短轴 FWHM 0.5 mm,只有源长小于 1–2 mm 才能实现完全 etendue 匹配。",
+  "success_criteria": "答出 Xe 17%、Sn 26%,并给出 1.8 sr 与 2.7 mm²·sr 两个条件",
+  "evidence": "--[p441]-- Calculating the true collection efficiencies according to the full optical model leads to a collection efficiency of 17% in the case of the Xe pinch, and 26% in the case of the Sn pinch, both for the case of a 1.8-sr collector opening and a 2.7-mm² sr etendue requirement.\n--[p441]-- The short axis has a FWHM of 0.5 mm in diameter ... Full etendue matching is achieved only for source lengths below 1–2 mm."
+ },
+ {
+  "query_id": "P02-14",
+  "query": "按书里典型的晶圆吞吐模型,曝光一片 300 mm 晶圆需要多少总能量、晶圆处 EUV 功率多少?帮我算下每片的曝光时间是多少秒。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "模型参数:89 个 25 mm×25 mm 场、曝光面积占 78.7%、胶灵敏度 5.0 mJ/cm²,每片总曝光能量 2.9 J;晶圆处功率 0.321 W。曝光时间 = 2.9 J ÷ 0.321 W ≈ 9.0 s;总时间 36.0 s(含 27.0 s 台阶开销),吞吐 = 3600/36 = 100 片/h。",
+  "success_criteria": "算式 2.9/0.321≈9.0 s 正确,并给出 36 s 总时间、100 片/h",
+  "evidence": "--[p66]-- Resist sensitivity | mJ/cm² | 5.0 / Total energy per wafer | J | 2.9 / Power at wafer | W | 0.321\n--[p66]-- Throughput | wafers/h | 100 / Total time per wafer | sec | 36.0 / Stage overhead | sec | 27.0 / Exposure time | sec | 9.0\n--[p67]-- It is expected that 115-W light power will be attenuated to 0.321 W from the IF point to the wafer as a result."
+ },
+ {
+  "query_id": "P02-15",
+  "query": "LPP 源要往中间焦点送 115 W 带内功率,源本身得往 2π sr 里发多少 EUV 功率?10 kHz 下每脉冲 EUV 能量要多少毫焦?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "收集链参数:Ω=5 sr(ε_Ω=0.8)、收集镜反射率 ε_R=0.55、碎屑缓解透射 ε_tm=0.9、碎屑收集器透射 ε_td=0.8。P_源 = 115 W ÷ (0.8×0.55×0.9×0.8) = 115 ÷ 0.3168 ≈ 363 W,书中给出 365 W(舍入差异)。每脉冲能量:10 kHz→365 W/10 kHz = 37 mJ;7 kHz→52 mJ。",
+  "success_criteria": "算式 115/(0.8×0.55×0.9×0.8)≈363~365 W 正确,且给出 37 mJ(10 kHz)与 52 mJ(7 kHz)",
+  "evidence": "--[p376]-- In order to achieve an EUV power of 115 W after the IF, the EUV power at the source should then be 365 W [= (115 W)/εΩ·εR·εtm·εtd], and the EUV energy per shot is then E_EUV = 37 mJ for a repetition rate of 10 kHz and 52 mJ for one of 7 kHz."
+ },
+ {
+  "query_id": "P02-16",
+  "query": "剂量控制要求积分能量稳定度 0.3%(3σ)时需要 50 个脉冲叠加,晶圆上一点的曝光时间是 7.8 ms,重复频率至少得多少 kHz?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "稳定度预算 0.2%、0.25%、0.3%(3σ)分别需要 112.5、72、50 个脉冲;7.8 ms 内打 50 个脉冲:f = 50 ÷ 7.8 ms = 50 ÷ 0.0078 s ≈ 6410 Hz ≈ 6.4 kHz,即需要高于 6.4 kHz。对照:0.25%→9.2 kHz,0.2%→14.4 kHz。",
+  "success_criteria": "算式 50/0.0078 s≈6.4 kHz 正确(误差&lt;0.2 kHz)",
+  "evidence": "--[p68]-- In a case where the energy stability budget of the EUV source for dose control is 0.2% (3σ), 0.25% (3σ), or 0.3% (3σ), EUV light must expose the point with 112.5, 72, or 50 pulses, respectively, if the integrated energy stability over 50 pulses is 0.3% (3σ).\n--[p68]-- The exposure time is 7.8 ms at a point on a wafer if the resist sensitivity is 5 mJ/cm²\n--[p69]-- To deliver more than those numbers of pulses in 7.8 ms, repetition frequencies more than 14.4, 9.2, and 6.4 kHz are needed, respectively."
+ },
+ {
+  "query_id": "P02-17",
+  "query": "同样要满足 IF 处 115 W,GDPP 源和 LPP 源各自得往 2π sr 里发多少 EUV 功率?把两者的功率链对比说清楚。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索 GDPP 章(表 14.2):etendue 接受因子 1.0–0.5、碎屑缓解透射 0.8、收集模块气体透射 0.85、收集角内所需功率 169–338 W、相对 2π sr 的几何收集效率 0.5(π sr 光学、±60°)、收集镜平均反射率 0.55 → 所需 2π sr 功率 615–1230 W。再检索 LPP 章(表 19.2):etendue 接受因子 1.0、碎屑缓解 0.95、气体透射 0.9、收集镜平均反射率 0.50、收集角内 269 W、几何效率 0.8(5 sr,约 2π 的 80%)→ 所需 2π sr 功率约 336~340 W。差异原因:LPP 等离子体小、etendue 接受因子可取 1、可收集 5 sr,而 GDPP 源尺寸大导致 etendue 损失且实用收集角限于 π sr。",
+  "success_criteria": "同时给出 GDPP 615–1230 W 与 LPP 约 336–340 W 两组数,并说明至少两条差异原因(etendue/收集立体角)",
+  "evidence": "--[p452]-- Etendue acceptance factor | 1.0–0.5 / Transmission of debris mitigation tool | 0.8 / Transmission of gas in collector module | 0.85 / Required power from the source in collection angle | 169-338 W / Geometrical collector efficiency with respect to 2π sr | 0.5\n--[p452]-- Taking these effects into account, the required power from the EUV source into 2π sr is between 615 and 1230 W, depending on the etendue transmission factor for GDPP sources.\n--[p74]-- Etendue acceptance factor | 1.0 / Transmission of debris mitigation/obscuration | 0.95 / Transmission of gas in source collector module | 0.9 / Angle-averaged collector reflectivity | 0.50 / Required power from the source within the collection angle | 269 W / Geometrical collector efficiency with respect to 2π sr | 0.8\n--[p74]-- Taking into account these losses, the required power from the EUV source into 2π sr amounts to about 340 W for the HVM LPP sources."
+ },
+ {
+  "query_id": "P02-18",
+  "query": "从发光的离子阶角度看,为什么氙的 CE 只有 1% 左右而锡能高出 3–4 倍?先查氙的发光机制再查锡的。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:氙等离子体中只有 Xe^10+ 一个离子阶对 13.5 nm 辐射带宽内发光有贡献,因此 CE 只有 1% 或更低。第二跳:锡是 Sn^+8 到 Sn^+12 多个离子阶共同贡献 13.5 nm 附近发射,形成更强的 UTA,CE 更高;文献中 Sn 相对 Xe 的实验 CE 通常引用为 3–4 倍。补充:Sn 贡献最大的阶为 Sn^8+ 至 Sn^12+。",
+  "success_criteria": "答出 Xe 仅 Xe^10+ 单阶发光、Sn 为 Sn^8+~Sn^12+ 多阶发光、CE 相差 3–4 倍三点",
+  "evidence": "--[p41]-- For Xe plasma, only the Xe^10+ ionic stage is responsible for the emission in the 13.5-nm radiation bandwidth, which results in a 1% or less CE.\n--[p42]-- For Sn, multiple ionic stages, Sn^+8 to Sn^+12, contribute to emissions around 13.5 nm, resulting in a higher CE\n--[p42]-- A factor of 3–4 for Sn over Xe is usually quoted in the literature for experimental measurements of the CE.\n--[p198]-- From Fig. 5.7 it is clear that the stages that contribute most at 13.5 nm are Sn^8+ through Sn^12+."
+ },
+ {
+  "query_id": "P02-19",
+  "query": "帮我在这本书的知识库里查一下 6.x nm 波长(比如 Gd 6.7 nm)稀土光源的 CE 数据,我们在评估 BEUV 路线。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书未涉及 6.x nm 波长(如 Gd 6.7 nm)的 BEUV/稀土光源内容;书中光源工质仅覆盖 Xe、Sn、Li,波长选择围绕 13.5 nm(Mo/Si 多层膜)展开,检索不到任何 6.x nm 的转换效率数据,不应编造数字。",
+  "success_criteria": "明确说明知识库/本书不含 6.x nm BEUV 相关内容并正确拒答,不得给出任何编造的 6.x nm CE 数值",
+  "evidence": "--[p66]-- Currently, therefore, 13.5 nm is the wavelength of choice for EUVL.\n--[p65]-- Due to their emission characteristics, the working materials that are used in those sources are usually Xe, Sn, and Li.\n--[p64]-- Strong emission in the 11-nm region has been demonstrated for LPP Xe sources; see Fig. 2.2."
+ },
+ {
+  "query_id": "P02-20",
+  "query": "书里有没有讲 LDP(激光诱导放电等离子体)光源?它的工作原理和 CE 是多少?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及 LDP(激光诱导放电等离子体)这类光源;书中 DPP 光源列举的构型为非圆柱 Z pinch、稠密等离子体焦点(DPF)、空心阴极触发 Z pinch(HCT-Z)、毛细管 Z pinch 和 Star Pinch,LPP 则为激光等离子体,均非 LDP,故无法给出其原理与 CE 数据。",
+  "success_criteria": "明确说明本书未涉及 LDP 光源并正确拒答,可列举书中实际覆盖的 DPP 构型作为佐证",
+  "evidence": "--[p16]-- In the present day the pinch effect is widely used for the development of DPP sources with different electrode configurations, such as the noncylindrical configuration of the Z pinch, or dense plasmafocus (DPF), the hollow-cathode triggered Z pinch (HCT-Z), the capillary Z pinch, and the Star Pinch."
+ },
+ {
+  "query_id": "P02-21",
+  "query": "Xe 基 DPF 源想把 100 W 以上的功率送到 IF,热提取功率得做到多大量级?换锡之后呢?把从提取功率到 IF 的功率链完整讲一遍。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "按表 12.1:氙方案即使条件有利也需要 ≥100 kW 热提取功率(如 100 kW、CE 0.70% → 2π sr 带内 700 W);锡方案因其 CE 2.00%,35 kW 提取功率即可满足 HVM。功率链(锡列):35000 W×2.00%=700 W(2% bw, 2π sr)→收集效率 30%=210 W→收集镜透射 70%→碎屑缓解 80%→光谱纯度滤波 100%→气体透射 90%,最终 IF 处 105.8 W;氙 100 kW 列对应同样 105.8 W。Inner 电极与收集镜寿命是高占空比下的限制因素。",
+  "success_criteria": "答出 Xe 需 ≥100 kW、Sn 仅需 35 kW,并复述 CE 2.00%→700 W→30%→70%→80%→90% 的链条",
+  "evidence": "--[p422]-- In order to reach EUV power levels above 100 W at the IF, even under favorable conditions, a thermal extraction power of 100 kW or more will be required in the case of a Xe-based DPF source. However, as shown in the last column of Table 12.1, due to its higher CE number, tin as source element will meet these requirements for HVM already at 35-kW extraction power.\n--[p422]-- Thermal extraction power (W) | 31,000 | 50,000 | 100,000 | 35000 / CE | 0.45% | 0.60% | 0.70% | 2.00% / EUV power (W), 2% bw, 2π sr | 140 | 300 | 700 | 700 / Collection efficiency | 20% | 30% | 30% | 30% / Collector transmission | 70% | 70% | 70% | 70% / Debris mitigation transm. | 80% | 80% | 80% | 80% / Gas transmission | 90% | 90% | 90% | 90% / EUV at IF (W) | 14.1 | 45.4 | 105.8 | 105.8"
+ },
+ {
+  "query_id": "P02-22",
+  "query": "Sn 的 13.5 nm 未分辨跃迁阵(UTA)具体由哪些电荷态和哪些跃迁阵列贡献?结合原子结构说明它为什么比氙的单阶线发射强。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "贡献 13.5 nm(2% 带宽)的辐射主要来自锡和氙的 4f-4d、4p-4d、5p-4d 跃迁;对锡,贡献最大的电荷态是 Sn^8+ 至 Sn^12+(开 4d 壳层),多阶 UTA 叠加使带宽内强度远超氙仅有的 Xe^10+ 4d-5p 线;SHM/HULLAC 计算给出各电荷态 4d-4f 跃迁能量约 12.8–18.8 nm(Sn^13+→Sn^5+)、4p-4d 约 12.7–14.0 nm,落在 Mo/Si 反射带内,因而锡 CE 更高。",
+  "success_criteria": "答出 Sn^8+~Sn^12+ 电荷态、4f-4d/4p-4d/5p-4d 跃迁、以及与 Xe^10+ 单阶的对比",
+  "evidence": "--[p377]-- The EUV radiation at 13.5 nm with 2% bandwidth is mostly due to the 4f-4d, 4p-4d, and 5p-4d transitions for tin and xenon.\n--[p198]-- From Fig. 5.7 it is clear that the stages that contribute most at 13.5 nm are Sn^8+ through Sn^12+.\n--[p384]-- Table 11.2 Transition energies of tin ion with different charge states given by the SHM and HULLAC code. 13 | 12.8/13.1 | 12.7/12.8 | 12.3/12.4 | 7.4/7.8 ; 8 | 14.3/14.1 | 14.0/14.1 | 18.7/17.5 | 10.6/11.3"
+ },
+ {
+  "query_id": "P02-23",
+  "query": "按 DPF 的锡方案算一笔账:热提取功率 35 kW、CE 2.00%,再经过收集效率、收集镜、碎屑缓解和气体透射,IF 处还剩多少瓦?和书里的表对一下。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "35000 W × 2.00% = 700 W(2% bw, 2π sr);× 30%(收集效率)= 210 W;× 70%(收集镜透射)= 147 W;× 80%(碎屑缓解)= 117.6 W;× 100%(光谱纯度滤波)= 117.6 W;× 90%(气体透射)= 105.84 W ≈ 105.8 W,与表 12.1 锡列 EUV at IF = 105.8 W 一致。",
+  "success_criteria": "逐级算式正确且最终结果 105.8 W(±0.5 W)与表中数值吻合",
+  "evidence": "--[p422]-- Thermal extraction power (W) | 31,000 | 50,000 | 100,000 | 35000 / CE | 0.45% | 0.60% | 0.70% | 2.00% / EUV power (W), 2% bw, 2π sr | 140 | 300 | 700 | 700 / Collection efficiency | 20% | 30% | 30% | 30% / Collector transmission | 70% | 70% | 70% | 70% / Debris mitigation transm. | 80% | 80% | 80% | 80% / Gas transmission | 90% | 90% | 90% | 90% / EUV at IF (W) | 14.1 | 45.4 | 105.8 | 105.8"
+ },
+ {
+  "query_id": "P02-24",
+  "query": "Star Pinch 的锡终极配置(60 kW 输入、CE 2.5%)按表 15.4 的收集立体角、etendue 匹配和传输系数一路算下来,IF 处能拿多少瓦?现在的氙配置又是多少?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "P_IF = P_源 × (Ω/2π) × etendue匹配 × 传输。锡终极方案:60 kW × 2.5% = 1500 W(源,2π sr);× (3.14/6.28)=750 W;× 100%(etendue 匹配)=750 W;× 40%(至 IF 传输)= 300 W,与表值 300 W 一致。现氙方案:20 kW × 0.5% = 100 W;× (2/6.28)=31.8 W;× 40% = 12.7 W;× 40% = 5.09 W ≈ 5 W,与表值 5 W 一致。",
+  "success_criteria": "两个方案的逐级算式正确,结果分别 ≈300 W 与 ≈5 W(与表 15.4 吻合,误差&lt;5%)",
+  "evidence": "--[p7]-- Input power (kW) | 20 | 60 | 60 / CE (%) | 0.5 | 0.9 | 2.5 / 13-nm power at source (W) | 100 (2π sr) | 540 | 1500 / Collection solid angle (sr) | 2 | 3.14 | 3.14 / Etendue match (%) | 40 | 50 | 100 / Optical transmission to intermediate focus (%) | 40 | 40 | 40 / Power at IF (W) | 5 | 54 | 300"
+ },
+ {
+  "query_id": "P02-25",
+  "query": "锡掺杂水滴靶的 LPP 源要是想出 200 W 带内功率,驱动激光器得配多大功率?再去查高效产生 EUV 需要的激光强度和脉宽,看这套参数能不能对得上。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "EUV Sources for Lithography (SPIE Press Monograph Vol. PM149) (Vivek Bakshi (Editor))",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "第一跳(26.4 章):锡掺杂水滴靶 CE 峰值稳定超过 2%(CE 接近 5% 亦可实现),按 200 W 带内源功率估算需要约 10 kW 激光功率(200 W ÷ 2% = 10 kW)。第二跳(20.2.2 章):高效 EUV 生成要求等离子体温度 T≈30 eV,对应聚焦激光强度 I~σT^4≈10^11 W/cm²;对 50 µm 氙丝靶(Z=10, m=131, n_e0=10^23 cm^-3, n_cr=10^21 cm^-3)等离子体寿命上限 t_max≈15 ns,故最优脉宽约 10 ns。结论:10 kW 级激光配合 ~10^11 W/cm²、~10 ns 脉冲与水滴源 CE 数据自洽,可行。",
+  "success_criteria": "给出 200 W→约 10 kW 激光功率的换算,并检索到 ~10^11 W/cm² 与 ~10 ns(或 t_max≈15 ns)两组参数",
+  "evidence": "--[p237]-- Peak values in excess of 2% are consistently obtained for the optimum laser and target conditions.\n--[p237]-- Assuming a required inband source power of ∼200 W for a full-scale scanner, these results would imply the need for a laser power of ∼10 kW.\n--[p99]-- This leads to the expression I ∼ σT^4, where σ is the Stefan–Boltzmann constant and T is the plasma temperature. For T ≈ 30 eV, this yields I ∼ 10^11 W cm^-2\n--[p101]-- Taking Z = 10, m = 131, T = 30 eV, n_e0 = 10^23 cm^-3, and n_cr = 10^21 cm^-3, the above expression gives t_max ≈ 15 ns. It follows that the optimum pulse duration for EUV generation using this target is of the order of 10 ns."
+ }
+]

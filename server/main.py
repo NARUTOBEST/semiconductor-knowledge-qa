@@ -18,8 +18,10 @@
   PORT           监听端口,默认 8001
   CORS_ORIGINS   逗号分隔的允许源,默认 "http://localhost:3000,http://127.0.0.1:3000"
 """
+import faulthandler
 import os
 import logging
+import signal
 from typing import Optional
 
 from fastapi import FastAPI, Request, Depends, HTTPException, Header
@@ -35,9 +37,14 @@ from auth.router import router as auth_router
 from support.metrics import metrics
 from chat.conversation.router import router as conversation_router
 from admin.router import router as admin_router
+from media.router import router as media_router
 from chat.conversation.db import init_table as init_conv_table
 from support import retriever_warmup
 import config as C
+
+# 诊断:SIGUSR1 触发全线程栈转储(stderr → docker logs),用于定位
+# 20 并发下请求静默挂死的位置(docker kill -s USR1 <container>)。
+faulthandler.register(signal.SIGUSR1, all_threads=True)
 # ==================== 环境配置 ====================
 # ENV=prod 时关闭文档端点、收紧 CORS;开发时 ENV=dev(默认)保留 /docs 方便调试
 ENV    = os.getenv("ENV", "dev").lower()
@@ -127,6 +134,7 @@ app.include_router(health_router)
 app.include_router(auth_router, prefix="/api/auth")
 app.include_router(conversation_router, prefix="/api/conversations")
 app.include_router(admin_router, prefix="/api/admin")
+app.include_router(media_router, prefix="/api/media")
 
 # 初始化会话表
 init_conv_table()
