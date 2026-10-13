@@ -124,3 +124,72 @@ class TestReactTierKwargs:
                            hard_deadline=0.0, qc_feedback=None,
                            on_event=None, search_future="fut"))
         assert "search_future" not in captured
+
+
+class TestClarifyPendingRegistration:
+    """入口判定器反问必须登记 _SCOPE_PENDING:否则应答轮 _scope_resolve
+    匹配不到,clarified_q 为空,检索退化成选项文本(对象名),turn-1 命中的
+    金块全丢(cascade_v2 dev200 五题硬失败根因)。"""
+
+    ENTRY = {"need_clarify": True, "question": "请问您想了解哪个设备?",
+             "options": ["WAFER HANDLER Mi30伺服电机", "Model 7AF"],
+             "tier": "react", "confidence": 0.8, "source": "llm"}
+    Q = "Overspeed 这个报警的判定条件是什么?"
+
+    def _run(self, message, history, entry, cap_search):
+        import server.chat.service as svc
+        with patch.object(svc, "classify_and_clarify", return_value=entry), \
+             patch.object(svc, "_speculative_search",
+                          side_effect=lambda q: cap_search.append(q)), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}), \
+             patch.object(svc, "run_agent_graph", _react_stub([])):
+            return list(svc.react_stream(message, history, thread_id="t",
+                                         username="alice"))
+
+    def test_fused_clarify_registers_pending(self):
+        # 轮1:反问 -> 事件含 clarify;pending 已登记
+        ev = self._run(self.Q, [], self.ENTRY, [])
+        assert any(e["type"] == "clarify" for e in ev)
+        import server.chat.service as svc
+        assert len(svc._SCOPE_PENDING) == 1
+        (pend,) = svc._SCOPE_PENDING.values()
+        assert pend["message"] == self.Q            # 原问题存进去了
+        assert pend["choices"][0][0] == "WAFER HANDLER Mi30伺服电机"
+
+        # 轮2:用户回选项文本 -> _scope_resolve 转正,clarified_q=原问题,
+        # 投机检索用原问题而非选项文本
+        history = [{"role": "user", "content": self.Q},
+                   {"role": "assistant", "content": "请问您想了解哪个设备?"}]
+        picked = []
+        entry2 = {"need_clarify": False, "tier": "react",
+                  "confidence": 0.8, "source": "rule"}
+        ev2 = self._run("WAFER HANDLER Mi30伺服电机", history, entry2,
+                        picked)
+        assert picked and picked[0] == self.Q
+        assert svc._SCOPE_PENDING == {}             # pending 已消费
+
+    def test_clarify_clarifies_too(self):
+        """非融合路径(check_clarify)同样要登记 pending。"""
+        import server.chat.service as svc
+        clarify = {"need_clarify": True, "question": "哪台设备?",
+                   "options": ["Mi30"], "source": "llm"}
+        cap = []
+        entry = {"need_clarify": False, "tier": "react",
+                 "confidence": 0.8, "source": "rule"}
+        with patch.object(svc.C, "ROUTER_FUSED", False), \
+             patch.object(svc, "check_clarify", return_value=clarify), \
+             patch.object(svc, "classify_complexity",
+                          return_value={"tier": "react", "confidence": 0.8,
+                                        "source": "rule"}), \
+             patch.object(svc, "_speculative_search",
+                          side_effect=lambda q: cap.append(q)), \
+             patch.object(svc, "run_agent_graph", _react_stub([])), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}):
+            ev = list(svc.react_stream(self.Q, [], thread_id="t",
+                                       username="bob"))
+        assert any(e["type"] == "clarify" for e in ev)
+        assert len(svc._SCOPE_PENDING) == 1
+        (pend,) = svc._SCOPE_PENDING.values()
+        assert pend["message"] == self.Q

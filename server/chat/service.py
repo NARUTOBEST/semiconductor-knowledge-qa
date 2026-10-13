@@ -115,6 +115,21 @@ def _scope_resolve(username, message, history):
     return "", ""
 
 
+def _register_clarify_pending(username, history, question, options):
+    """入口判定器反问(融合/独立两路)也要登记待选,与检索冲突反问路径对齐。
+    否则应答轮 _scope_resolve 匹配不到 pending,clarified_q 为空,检索与
+    路由全用选项文本(对象名)而非原问题——turn-1 已命中的金块全部丢失
+    (cascade_v2 dev200 实测 dev_033/094/098/114/128 五题硬失败的根因)。"""
+    try:
+        _SCOPE_PENDING[_scope_key(username, history, question)] = {
+            "choices": [(o, "") for o in (options or []) if str(o).strip()],
+            "stems": [], "ts": time.time(), "message": question}
+        if len(_SCOPE_PENDING) > 256:
+            _SCOPE_PENDING.clear()
+    except Exception:  # noqa: BLE001  登记失败不影响反问本身
+        logger.warning("clarify pending register failed", exc_info=True)
+
+
 def _conflict_probe(future, timeout=30.0):
     """投机检索 future → (conflict_stems, 候选块列表)。
     conflict_stems 为检索引擎机械冲突信号;候选块(heading/内容片段/source_stem)
@@ -401,6 +416,8 @@ def react_stream(message,
             logger.warning("check_clarify 异常,跳过澄清", exc_info=True)
             clarify = {"need_clarify": False}
         if clarify.get("need_clarify"):
+            _register_clarify_pending(username, history or [], entry_q,
+                                      clarify.get("options") or [])
             yield {"type": "clarify",
                    "question": clarify.get("question", ""),
                    "options": clarify.get("options") or [],
@@ -412,6 +429,8 @@ def react_stream(message,
                  "confidence": decision.get("confidence", 0.0),
                  "source": decision.get("source", "fallback")}
     if entry.get("need_clarify"):
+        _register_clarify_pending(username, history or [], entry_q,
+                                  entry.get("options") or [])
         yield {"type": "clarify",
                "question": entry.get("question", ""),
                "options": entry.get("options") or [],
