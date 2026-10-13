@@ -175,6 +175,10 @@ RAGLITE_MAX_TOTAL_SECONDS   = _int("RAGLITE_MAX_TOTAL_SECONDS", 25)  # 单次执
 RAGLITE_MAX_QUESTION_LEN    = _int("RAGLITE_MAX_QUESTION_LEN", 60)   # 超长问题走 react
 RAGLITE_SEARCH_K            = _int("RAGLITE_SEARCH_K", 5)            # 检索条数(sources 事件用;随 RERANK_FIXED_K 同步 8→5,方案A 双路补位)
 RAGLITE_SEARCH_SCORE_RATIO  = _float("RAGLITE_SEARCH_SCORE_RATIO", 0.4)
+# 20261013 复合题子检索:多事实问题各 fact 的金块竞争同一 top-4 席位(26 题漏损
+# 定位最大桶),投机检索整句之外再按子问题逐路检索、去重追加。0=关(回退单路)。
+RETRIEVAL_SUBQUERY_SPLIT     = os.getenv("RETRIEVAL_SUBQUERY_SPLIT", "1") == "1"
+RETRIEVAL_SUBQUERY_MERGE_CAP = _int("RETRIEVAL_SUBQUERY_MERGE_CAP", 8)    # 合并后总块数上限
 # 查询改写多路召回(2026-10-05):投机检索 top1 分低于阈值(或空结果)时,轻量 LLM
 RAGLITE_PROMPT_CHUNKS       = _int("RAGLITE_PROMPT_CHUNKS", 4)       # 喂给模型的前几块(控制 prefill;3→4 与扩容后的检索集匹配)
 RAGLITE_CHUNK_CHARS         = _int("RAGLITE_CHUNK_CHARS", 800)       # 每块截断字符

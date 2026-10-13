@@ -205,6 +205,24 @@ def _conflict_objects(message, items):
         return True, "", []
 
 
+def _split_composite_query(message: str) -> list[str]:
+    """复合问题确定性拆分:按问号/分号切成独立子问题(逐 fact 检索)。
+
+    20261013 26 题漏损定位:多事实复合题里各 fact 的金块竞争同一 top-4 席位,
+    整句检索时部分 fact 金块被挤出(如 dev_002 问三个细节只有部分进 top-4)。
+    启发式:问号/分号切分、去序号前缀、丢弃过短碎片;有效子问题 ≥2 才算复合。
+    """
+    parts = re.split(r"[？?；;]\s*", message or "")
+    subs = []
+    for p in parts:
+        p = p.strip()
+        # 去序号前缀("1." "①" "第一,")
+        p = re.sub(r"^(?:[0-9①②③④⑤]+[.、)〕]\s*|[第一二三四五六七八九十]+[,，]\s*)", "", p)
+        if len(p) >= 6:
+            subs.append(p)
+    return subs[:3] if len(subs) >= 2 else []
+
+
 def _speculative_search(message: str, scope_stem: str = ""):
     """投机检索:在后台工具池预发一次 search_text,与路由/分类重叠执行。
     返回 future(.result() -> (result, err),与 call_with_resilience 同构);
@@ -223,7 +241,47 @@ def _speculative_search(message: str, scope_stem: str = ""):
                 "with_scope_info": True}
         if scope_stem:
             args["scope_stem"] = scope_stem
-        return call_with_resilience("search_text", args, spec, invoke=dispatch)
+        out = call_with_resilience("search_text", args, spec, invoke=dispatch)
+        # 复合题子检索合并(20261013):主路(整句)排序与 scope/冲突信号原样保留,
+        # 各子问题检索的 top 块按 chunk_id 去重后追加到尾部(cap 内),给作答层
+        # 补上被整句排序挤出 top-4 的 fact 金块。子路失败静默忽略(增强层)。
+        try:
+            if getattr(C, "RETRIEVAL_SUBQUERY_SPLIT", True) and isinstance(out, dict):
+                subs = _split_composite_query(message)
+                if subs:
+                    items = out.get("items") or []
+                    have: set = set()
+                    for it in items:
+                        key = it.get("chunk_id") or it.get("source_stem")
+                        if key:
+                            have.add(key)
+                    merged = list(items)
+                    for sq in subs:
+                        sargs = dict(args)
+                        sargs["query"] = sq
+                        sargs["with_scope_info"] = False
+                        try:
+                            sres = call_with_resilience(
+                                "search_text", sargs, spec, invoke=dispatch)
+                            if not isinstance(sres, dict):
+                                continue
+                            for it in (sres.get("items") or []):
+                                key = it.get("chunk_id") or it.get("source_stem")
+                                if key and key in have:
+                                    continue
+                                if key:
+                                    have.add(key)
+                                merged.append(it)
+                        except Exception:  # noqa: BLE001  单子路故障不拖垮主结果
+                            continue
+                    if len(merged) > len(items):
+                        out = dict(out)
+                        out["items"] = merged[:max(
+                            int(getattr(C, "RETRIEVAL_SUBQUERY_MERGE_CAP", 8)),
+                            len(items))]
+        except Exception:  # noqa: BLE001  合并层故障退纯主路结果
+            pass
+        return out
 
     return get_pool().submit(_search)
 
