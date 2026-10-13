@@ -128,7 +128,8 @@ class TestServiceShortCircuit:
         assert types == ["clarify", "done"]
         c = events[0]
         assert c["question"] == "请问指哪台设备?"
-        assert c["options"] == ["A", "B"]
+        # 轮次20 无选项化:LLM 产出的候选在发射端剥空(用户自由文本作答)
+        assert c["options"] == []
         classify.assert_not_called()
         paths.assert_not_called()
 

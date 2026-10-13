@@ -195,7 +195,7 @@ function ClarifyCard({
         <HelpCircle size={15} className="mt-0.5 shrink-0 text-[#8b9cf6]" />
         <span>{clarify.question}</span>
       </div>
-      {clarify.options.length > 0 && (
+      {clarify.options.length > 0 ? (
         <div className="mt-2.5 flex flex-wrap gap-2 pl-6">
           {clarify.options.map((opt, i) => (
             <button
@@ -206,6 +206,11 @@ function ClarifyCard({
               {opt}
             </button>
           ))}
+        </div>
+      ) : (
+        // 无选项口径:请用户在输入框直接说明对象(设备名/型号)
+        <div className="mt-1.5 pl-6 text-[12px] text-t3">
+          请在下方输入框直接说明设备名称或型号
         </div>
       )}
     </div>

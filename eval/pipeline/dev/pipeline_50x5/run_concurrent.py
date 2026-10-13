@@ -12,6 +12,7 @@ results/<user>.jsonl,断点续跑。轮次13 起与 run_http.py 同步:检索冲
 import argparse
 import json
 import os
+import re
 import threading
 import time
 import urllib.error
@@ -64,8 +65,19 @@ def ensure_user(base, username, password):
     raise RuntimeError(f"{username}: register/login 重试耗尽 ({last})")
 
 
-def ask_once(base, token, question, source="", timeout_s=600):
-    """一次完整提问(含检索冲突反问自动应答,口径同 run_http.ask_once)。"""
+def derive_clarify_reply(source):
+    """反问无选项化(轮次20):预置用户应答的明确指代——取金文档族名原文,
+    去掉入库侧分片尾缀(_NN)。等价于"知道自己要问哪台设备的用户"。"""
+    return re.sub(r"[_\s]*\d+$", "", (source or "").strip()).strip()
+
+
+def ask_once(base, token, question, source="", timeout_s=600,
+             clarify_reply=None):
+    """一次完整提问(含反问自动应答,口径同 run_http.ask_once)。
+    clarify_reply:无选项反问(轮次20)时预置的用户明确指代;None 则从
+    source 派生。有选项事件(旧口径后端)仍走 pick_option_event 点选。"""
+    if clarify_reply is None:
+        clarify_reply = derive_clarify_reply(source)
     out = {"answer": "", "sources": [], "tier": None, "meta": None,
            "error": None, "done": False, "clarify_shown": [],
            "clarify_picked": None, "clarify_matched": None}
@@ -119,7 +131,14 @@ def ask_once(base, token, question, source="", timeout_s=600):
                          "options": ev.get("options") or []})
         if out["error"] or not last_clarify:
             break
-        opt, ratio = pick_option_event(last_clarify, source or "")
+        # 轮次20:无选项反问 → 回预置明确指代;有选项(旧口径)→ 按金文档点选
+        if not (last_clarify.get("options") or []):
+            opt, ratio = (clarify_reply or ""), None
+            if not opt:
+                out["error"] = out["error"] or "clarify without options/reply"
+                break
+        else:
+            opt, ratio = pick_option_event(last_clarify, source or "")
         out["clarify_picked"] = opt
         out["clarify_matched"] = ratio
         if not opt:

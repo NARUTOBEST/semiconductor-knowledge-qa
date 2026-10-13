@@ -80,13 +80,14 @@ _ROUTER_FUSED_PROMPT = (
     "(1)判断问题是否因缺少关键信息而需要先反问澄清;"
     "(2)判断应走哪条回答路径。只输出 JSON,不要解释,格式:"
     '{{"need_clarify": true/false, "question": "澄清反问(不需要澄清时为空串)",'
-    ' "options": ["..."], "tier": "simple|raglite|react", "confidence": 0.0~1.0}}\n'
+    ' "options": [], "tier": "simple|raglite|react", "confidence": 0.0~1.0}}\n'
     "澄清判定标准:\n"
     "- 问题已指明对象(设备名/机型系列/型号/明确术语,如 键合机、ASML、F200、wafer chuck)"
     "或属于闲聊/问候/关于助手自身的问题 -> need_clarify=false;\n"
-    "- 问题依赖代词(它/这个/那个)且对话历史里找不到可指代的具体对象,或过于宽泛"
+    "- 问题依赖代词(它/这个/那个/这台)且对话历史里找不到可指代的具体对象,或过于宽泛"
     "(只说'温度多少''怎么保养'却没说哪台设备) -> need_clarify=true,"
-    "question 给一句简短自然的中文反问,options 给 1~4 个候选机型(推测不出给空数组);\n"
+    "question 给一句简短自然的中文反问,请用户说明具体的设备/机型;"
+    "options 恒为空数组——绝不给候选项,由用户自行说明对象;\n"
     "- 有对话历史时,最近讨论的设备/机型能明确消解代词 -> need_clarify=false。\n"
     "路径判定标准:\n"
     "- simple:仅闲聊、寒暄、关于助手自身的元问题,明确不需要任何领域知识或检索;\n"

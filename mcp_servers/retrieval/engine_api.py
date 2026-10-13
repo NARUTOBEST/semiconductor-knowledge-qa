@@ -847,8 +847,15 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
                     out.append(_text_dict(p.payload or {}, score=rescue_score))
     if with_scope_info:
         # 轮次9:附带锁定/冲突信号(chat 层反问依据;检索结果本身不变)
+        # 轮次20(反问无选项化):附带词面推断 stem——应答轮用户自由文本
+        # (设备名/型号描述)靠它消解为文档族,注册会话 scope 锁。
+        try:
+            inferred = infer_target_stem(query) or ""
+        except Exception:  # noqa: BLE001  信号层故障不影响检索结果
+            inferred = ""
         scope_info = {"locked_stem": scope or "",
-                      "conflict_stems": conflict_stems}
+                      "conflict_stems": conflict_stems,
+                      "inferred_stem": inferred}
         if with_pool:
             seen = set()
             pool = []

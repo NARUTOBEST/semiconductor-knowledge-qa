@@ -109,8 +109,19 @@ def pick_option_event(ev, source):
     return pick_option(opts, source or "")
 
 
-def ask_once(base, token, question, source, timeout_s=600):
-    """一次完整提问(含检索冲突反问自动应答)。字段口径同 run_concurrent。"""
+def derive_clarify_reply(source):
+    """反问无选项化(轮次20):预置用户应答的明确指代——取金文档族名原文,
+    去掉入库侧分片尾缀(_NN)。等价于"知道自己要问哪台设备的用户"。"""
+    return re.sub(r"[_\s]*\d+$", "", (source or "").strip()).strip()
+
+
+def ask_once(base, token, question, source, timeout_s=600,
+             clarify_reply=None):
+    """一次完整提问(含反问自动应答)。字段口径同 run_concurrent。
+    轮次20:无选项反问时回预置明确指代(clarify_reply,缺省从 source 派生);
+    有选项事件(旧口径后端)仍走 pick_option_event 点选。"""
+    if clarify_reply is None:
+        clarify_reply = derive_clarify_reply(source)
     out = {"answer": "", "sources": [], "tier": None, "meta": None,
            "error": None, "done": False, "clarify_shown": [],
            "clarify_picked": None, "clarify_matched": None}
@@ -151,11 +162,17 @@ def ask_once(base, token, question, source, timeout_s=600):
                      "options": ev.get("options") or []})
         if out["error"] or not last_clarify:
             break
-        # 反问:选项按金文档匹配点选(模拟知道自己问什么的用户),进入下一轮
-        opt, ratio = pick_option_event(last_clarify, source or "")
+        # 轮次20:无选项反问 → 回预置明确指代;有选项(旧口径)→ 按金文档点选
+        if not (last_clarify.get("options") or []):
+            opt, ratio = (clarify_reply or ""), None
+            if not opt:
+                out["error"] = out["error"] or "clarify without options/reply"
+                break
+        else:
+            opt, ratio = pick_option_event(last_clarify, source or "")
         out["clarify_picked"] = opt
         out["clarify_matched"] = ratio
-        if not opt:                      # 无选项(router 反问):无法自动应答,止步
+        if not opt:
             out["error"] = out["error"] or "clarify without options"
             break
         history = history + [

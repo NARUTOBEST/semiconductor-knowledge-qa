@@ -426,6 +426,9 @@ RETRIEVAL_BREAKER_BACKOFF_MAX_S  = float(os.getenv("RETRIEVAL_BREAKER_BACKOFF_MA
 # 用户选定文档族;选定后按会话锁定 scope_stem 强制加权。默认关(评测可控)。
 RETRIEVAL_CONFLICT_CLARIFY = _feature_on("RETRIEVAL_CONFLICT_CLARIFY", False)
 CONFLICT_SCORE_MARGIN = float(os.getenv("CONFLICT_SCORE_MARGIN", "1.0"))
+# 反问无选项化:指代不明一律自由文本反问,不给候选项(用户作答明确对象后再按
+# 对象收窄检索)。置 1 回滚旧"对象化选项"口径(轮次12)。默认关(新口径)。
+CLARIFY_OFFER_OPTIONS = _feature_on("CLARIFY_OFFER_OPTIONS", False)
 # 词面误锁护栏:infer_target_stem 只认含数字型号 token/全大写缩写,纯字母
 # 通用词(screw 等)不计分。SOURCE_SCOPE_STRICT_TOKENS=0 关闭(轮次8 前行为)。
 SOURCE_SCOPE_STRICT_TOKENS = _feature_on("SOURCE_SCOPE_STRICT_TOKENS", True)

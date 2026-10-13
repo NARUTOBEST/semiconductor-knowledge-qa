@@ -139,10 +139,12 @@ class TestClarifyPendingRegistration:
     Q = "Overspeed 这个报警的判定条件是什么?"
 
     @pytest.fixture(autouse=True)
-    def _clean_scope_state(self):
+    def _clean_scope_state(self, monkeypatch):
         """_SCOPE_PENDING/_SCOPE_LOCKS 是模块级全局:用例间互清,防污染。
-        chat.service 与 server.chat.service 是两个独立模块实例,都要清。"""
+        chat.service 与 server.chat.service 是两个独立模块实例,都要清。
+        本类测的是选项口径(CLARIFY_OFFER_OPTIONS=1 回滚路径)的登记与转正。"""
         import server.chat.service as svc
+        monkeypatch.setattr(svc.C, "CLARIFY_OFFER_OPTIONS", True)
         for mod in (svc, sys.modules.get("chat.service")):
             if mod is not None:
                 mod._SCOPE_PENDING.clear()
@@ -177,9 +179,19 @@ class TestClarifyPendingRegistration:
         picked = []
         entry2 = {"need_clarify": False, "tier": "react",
                   "confidence": 0.8, "source": "rule"}
-        ev2 = self._run("WAFER HANDLER Mi30伺服电机", history, entry2,
-                        picked)
-        assert picked and picked[0] == self.Q
+        import server.chat.service as svc
+        with patch.object(svc, "classify_and_clarify",
+                          return_value=entry2), \
+             patch.object(svc, "_speculative_search",
+                          side_effect=lambda q, scope_stem="":
+                              picked.append((q, scope_stem))), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}), \
+             patch.object(svc, "run_agent_graph", _react_stub([])):
+            ev2 = list(svc.react_stream("WAFER HANDLER Mi30伺服电机",
+                                        history, thread_id="t",
+                                        username="alice"))
+        assert picked and picked[0][0] == self.Q   # 检索用原问题非选项文本
         assert svc._SCOPE_PENDING == {}             # pending 已消费
 
     def test_clarify_clarifies_too(self):
@@ -235,3 +247,127 @@ class TestClarifyPendingRegistration:
             "u", "选项A", [{"role": "user", "content": "原始问题?"}])
         assert q == "原始问题?" and stem == ""
         assert svc._SCOPE_LOCKS == {}                # 锁也在共享存储
+
+
+class TestClarifyFreeText:
+    """反问无选项化(轮次20):指代不明一律自由文本反问,不给候选项;
+    应答轮回复经引擎词面推断消解对象 → scope 锁 + 检索域收窄;
+    推断失败 fail-open 用原问题检索。"""
+
+    Q = "这台机器人的晶圆放置重复精度标称多少?"
+    REPLY = "双臂取晶圆机器人magnatran"
+    STEM = "双臂取晶圆机器人magnatran"
+
+    @pytest.fixture(autouse=True)
+    def _clean_and_default_off(self, monkeypatch):
+        import server.chat.service as svc
+        monkeypatch.setattr(svc.C, "CLARIFY_OFFER_OPTIONS", False)
+        # 注意:不能动 RETRIEVAL_CONFLICT_CLARIFY——_scope_resolve 只在该开关
+        # 开启时才被调用(service.react_stream 入口),关掉它应答轮整体旁路。
+        for mod in (svc, sys.modules.get("chat.service")):
+            if mod is not None:
+                mod._SCOPE_PENDING.clear()
+                mod._SCOPE_LOCKS.clear()
+        yield
+
+    def test_no_options_stripped_at_emission(self):
+        """LLM 仍产出候选时,无选项口径在发射端强制剥成空数组。"""
+        import server.chat.service as svc
+        entry = {"need_clarify": True,
+                 "question": "请问您指的是哪台设备?",
+                 "options": ["Brooks ABM 407B 晶圆机器人", "IC测试机机器人"],
+                 "tier": "react", "confidence": 0.8, "source": "llm"}
+        with patch.object(svc, "classify_and_clarify", return_value=entry), \
+             patch.object(svc, "_speculative_search"), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}):
+            ev = list(svc.react_stream(self.Q, [], thread_id="t",
+                                       username="carol"))
+        cl = next(e for e in ev if e["type"] == "clarify")
+        assert cl["question"] == "请问您指的是哪台设备?"
+        assert cl["options"] == []                    # 候选被剥掉
+        (pend,) = svc._SCOPE_PENDING.values()
+        assert pend["choices"] == []                  # 登记同样无选项
+        assert pend["message"] == self.Q
+
+    def test_free_text_reply_resolves_stem_and_scope(self, monkeypatch):
+        """应答轮自由文本 → 引擎推断出 stem:锁 scope + 检索域收窄生效,
+        检索 query = 原问题 + 回复(设备名进 query 触发 DEVICE_FILTER)。"""
+        import server.chat.service as svc
+        entry = {"need_clarify": True, "question": "哪台设备?",
+                 "options": [], "tier": "react", "confidence": 0.8,
+                 "source": "llm"}
+        cap = []
+        # 轮1 反问
+        with patch.object(svc, "classify_and_clarify", return_value=entry), \
+             patch.object(svc, "_speculative_search"), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}):
+            list(svc.react_stream(self.Q, [], thread_id="t", username="carol"))
+        # 轮2:自由文本回复,_resolve_free_reply 打桩为推断成功
+        history = [{"role": "user", "content": self.Q},
+                   {"role": "assistant", "content": "哪台设备?"}]
+        entry2 = {"need_clarify": False, "tier": "react", "confidence": 0.8,
+                  "source": "rule"}
+        with patch.object(svc, "_resolve_free_reply",
+                          return_value=(self.STEM, self.REPLY)), \
+             patch.object(svc, "classify_and_clarify",
+                          return_value=entry2), \
+             patch.object(svc, "_speculative_search",
+                          side_effect=lambda q, scope_stem="":
+                              cap.append((q, scope_stem))), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}), \
+             patch.object(svc, "run_agent_graph", _react_stub([])):
+            list(svc.react_stream(self.REPLY, history, thread_id="t",
+                                  username="carol"))
+        assert cap and cap[0] == (self.Q + " " + self.REPLY, self.STEM)
+        # 锁已登记(粘性轮不再反问)
+        assert any(v["stem"] == self.STEM for v in svc._SCOPE_LOCKS.values())
+
+    def test_free_text_reply_failopen_uses_original_q(self, monkeypatch):
+        """推断失败(纯语气词回复):fail-open——不加权不锁定,检索仍用原问题。"""
+        import server.chat.service as svc
+        entry = {"need_clarify": True, "question": "哪台设备?",
+                 "options": [], "tier": "react", "confidence": 0.8,
+                 "source": "llm"}
+        with patch.object(svc, "classify_and_clarify", return_value=entry), \
+             patch.object(svc, "_speculative_search"), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}):
+            list(svc.react_stream(self.Q, [], thread_id="t", username="dave"))
+        history = [{"role": "user", "content": self.Q},
+                   {"role": "assistant", "content": "哪台设备?"}]
+        entry2 = {"need_clarify": False, "tier": "react", "confidence": 0.8,
+                  "source": "rule"}
+        cap = []
+        with patch.object(svc, "_resolve_free_reply",
+                          return_value=("", "")), \
+             patch.object(svc, "classify_and_clarify",
+                          return_value=entry2), \
+             patch.object(svc, "_speculative_search",
+                          side_effect=lambda q, scope_stem="":
+                              cap.append((q, scope_stem))), \
+             patch.object(svc, "quality_check",
+                          return_value={"verdict": "passed", "warnings": []}), \
+             patch.object(svc, "run_agent_graph", _react_stub([])):
+            list(svc.react_stream("嗯", history, thread_id="t",
+                                  username="dave"))
+        assert cap and cap[0] == (self.Q, "")         # 原问题原样检索
+        assert svc._SCOPE_LOCKS == {}                 # 不误锁
+
+    def test_resolve_free_reply_token_fallback(self, monkeypatch):
+        """引擎推断不出但回复含设备 token → aux=回复原文(拼 query 交
+        DEVICE_FILTER);无 token 回复不拼(噪声)。"""
+        import server.chat.service as svc
+        monkeypatch.setattr(svc, "_resolve_free_reply",
+                            lambda r: ("", "") if r == "嗯" else ("", r))
+        svc._register_clarify_pending("u", [], self.Q, [])
+        stem, q = svc._scope_resolve(
+            "u", "嗯", [{"role": "user", "content": self.Q}])
+        assert (stem, q) == ("", self.Q)
+        svc._register_clarify_pending("v", [], self.Q, [])
+        stem, q = svc._scope_resolve(
+            "v", "WAFER HANDLER Mi30",
+            [{"role": "user", "content": self.Q}])
+        assert stem == "" and q == self.Q + " WAFER HANDLER Mi30"

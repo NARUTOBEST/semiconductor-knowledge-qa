@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import re
+import threading
 import time
 import uuid
 import logging
@@ -138,34 +139,110 @@ def _norm_opt(s):
     return re.sub(r"[\s_\-·・()（）]+", "", (s or "").lower())
 
 
+# 反问无选项化(轮次20):应答轮用户自由文本(设备名/型号描述)消解时限——
+# 引擎侧词面推断走一次轻量 search_text,超时即降级(fail-open,不阻断主链路)
+_FREE_RESOLVE_TIMEOUT_S = 12.0
+
+
+def _resolve_free_reply(reply):
+    """无选项反问应答轮:从用户自由文本回复推断所指文档族。
+    返回 (stem, aux):stem 非空 → 注册会话锁并启用检索域收窄;
+    stem 为空但 aux(回复原文)非空 → 回复含设备 token,拼到检索 query 后
+    由引擎侧 DEVICE_FILTER 双路承接;两者皆空 → 推断失败,仅用原问题检索。"""
+    reply = (reply or "").strip()
+    if not reply:
+        return "", ""
+    stem = ""
+    try:
+        from tools import dispatch, registry
+        from agent_reasoning.ReAct.support.tool_resilience import (
+            call_with_resilience)
+        spec = registry.get("search_text")
+        if spec is not None:
+            def _call():
+                return call_with_resilience(
+                    "search_text",
+                    {"query": reply, "k": 1, "score_ratio": 1.0,
+                     "with_scope_info": True},
+                    spec, invoke=dispatch)
+            box = {}
+
+            def _runner():
+                try:
+                    box["out"] = _call()
+                except Exception:  # noqa: BLE001
+                    box["out"] = None
+            t = threading.Thread(target=_runner, daemon=True)
+            t.start()
+            t.join(_FREE_RESOLVE_TIMEOUT_S)
+            out = box.get("out")
+            if isinstance(out, tuple) and len(out) == 2:
+                out = out[0] if out[1] is None else None
+            if isinstance(out, dict):
+                stem = ((out.get("scope") or {}).get("inferred_stem")) or ""
+    except Exception:  # noqa: BLE001  信号层故障不阻断主链路
+        logger.warning("free-reply stem resolve failed", exc_info=True)
+        stem = ""
+    if stem:
+        return stem, reply
+    # 降级:引擎不可达/推断不出时,进程内抽设备 token(devices.py 纯词面,
+    # 无重依赖)——有 token 说明回复确实指了某台设备,拼 query 交给
+    # 引擎侧 DEVICE_FILTER 双路;纯"嗯/好的"之类回复不拼(噪声)。
+    try:
+        from mcp_servers.retrieval.devices import extract_device_tokens
+        if extract_device_tokens(reply):
+            return "", reply
+    except Exception:  # noqa: BLE001
+        pass
+    return "", ""
+
+
 def _scope_resolve(username, message, history):
-    """反问应答轮:消息与待选选项(对象名,或兼容旧口径的文档族 stem)匹配
-    → 转正为锁定并返回 (stem, 原问题);不匹配则清除待选。
-    锁定活跃(TTL 内)→ 返回锁定 stem;否则空串。
-    轮次12:stem 仅作"本会话已消解、不再反问"标记,不注入检索加权。
-    原问题仅在本轮刚转正时非空:应答轮的检索 query 必须用原问题而非选项
-    文本——选项(对象名/文档名)不是信息需求,拿它当 query 只会命中标题/
-    概览块,金事实全 miss(20261008 轮次11 dev200 实测 34/37 反问题
-    recall=0 的根因)。"""
+    """反问应答轮:pending 存在即为应答轮,返回 (stem, clarified_q)。
+    clarified_q = 原问题(+回复消歧补充)——应答轮的检索/入口判定一律用它,
+    用户回复只是消歧信号不是信息需求(拿它当 query 只会命中标题/概览块,
+    金事实全 miss:20261008 轮次11 dev200 实测 34/37 反问题 recall=0 根因)。
+
+    消解优先级:
+    1. 选项口径(轮次12,CLARIFY_OFFER_OPTIONS=1 回滚用):回复与对象名/
+       文档族 stem 子串匹配 → 锁定该 stem;
+    2. 无选项自由文本(轮次20):引擎侧 infer_target_stem 对回复词面推断
+       (_resolve_free_reply)→ 确信则锁定 stem 并重启用检索域收窄——用户
+       显式指明的对象可信,不存在轮次12 退役加权时"LLM 确信锁错"问题;
+    3. 推断不出但回复含设备 token → 拼进 clarified_q 交 DEVICE_FILTER;
+    4. 全失败 → 仅用原问题检索(fail-open,不重问防循环)。
+    锁定活跃(TTL 内)→ 返回锁定 stem(粘性轮,不重问)。"""
     key = _scope_key(username, history, message)
     pend = _scope_pop(_SCOPE_PENDING, key)
     if pend and time.time() - pend["ts"] <= _SCOPE_TTL_S:
+        base_q = pend.get("message") or ""
+        choices = pend.get("choices") or []
         m = _norm_opt(message)
-        if m:
-            # 先按对象名匹配(轮次12 选项口径),再按文档族 stem 兜底
-            # (用户直接回文档名的情形)
-            for label, stem in (pend.get("choices") or []):
+        if choices and m:
+            # 1) 选项口径(轮次12,CLARIFY_OFFER_OPTIONS=1 回滚兼容):
+            #    先按对象名匹配,再按文档族 stem 兜底
+            for label, stem in choices:
                 ns = _norm_opt(label)
                 if ns and (ns in m or m in ns):
                     _scope_put(_SCOPE_LOCKS, key,
                                {"stem": stem, "ts": time.time()})
-                    return stem, (pend.get("message") or "")
+                    return stem, base_q
             for stem in pend.get("stems") or []:
                 ns = _norm_opt(stem)
                 if ns and (ns in m or m in ns):
                     _scope_put(_SCOPE_LOCKS, key,
                                {"stem": stem, "ts": time.time()})
-                    return stem, (pend.get("message") or "")
+                    return stem, base_q
+            return "", ""   # 选项口径匹配失败:清除待选,不留 clarified_q
+        # 2-4) 无选项自由文本应答轮:回复含设备名,拼进 clarified_q——
+        # 引擎侧 query_text 抽出 token 触发 DEVICE_FILTER 召回路(dev_043 类
+        # 泛查进不了候选池的题,靠它把目标家族块拉进池;scope 加权只在池内
+        # 重排,救不了池外金块)。
+        stem, aux = _resolve_free_reply(message)
+        if stem:
+            _scope_put(_SCOPE_LOCKS, key,
+                       {"stem": stem, "ts": time.time()})
+        return stem, (base_q + ((" " + aux) if aux else ""))
     lock = _scope_get(_SCOPE_LOCKS, key)
     if lock and time.time() - lock["ts"] <= _SCOPE_TTL_S:
         return lock["stem"], ""
@@ -455,7 +532,11 @@ def react_stream(message,
                 # 当 query(丢原问题信息需求,轮次11 dev200 事故)。
                 # clarified_q 非空时无视 _obviously_simple:选项文本(对象名)
                 # 往往短且无领域词面,会被误判闲聊跳过投机检索。
-                search_future = _speculative_search(clarified_q or message)
+                # 轮次20:反问应答轮用户显式作答消解出 stem 时,重启用检索域
+                # 收窄(scope_stem 加权只作用于该次投机检索 = raglite 主消费路;
+                # react 后续自主检索不受影响)。
+                search_future = _speculative_search(clarified_q or message,
+                                                    scope_stem=scope_stem)
             except Exception:  # noqa: BLE001  投机失败不影响主链路
                 search_future = None
         try:
@@ -471,11 +552,13 @@ def react_stream(message,
             logger.warning("check_clarify 异常,跳过澄清", exc_info=True)
             clarify = {"need_clarify": False}
         if clarify.get("need_clarify"):
-            _register_clarify_pending(username, history or [], entry_q,
-                                      clarify.get("options") or [])
+            uopts = clarify.get("options") or []
+            if not getattr(C, "CLARIFY_OFFER_OPTIONS", False):
+                uopts = []   # 无选项化口径,同 fused 路
+            _register_clarify_pending(username, history or [], entry_q, uopts)
             yield {"type": "clarify",
                    "question": clarify.get("question", ""),
-                   "options": clarify.get("options") or [],
+                   "options": uopts,
                    "source": clarify.get("source", "llm")}
             yield {"type": "done", "trace": {}}
             return
@@ -484,11 +567,14 @@ def react_stream(message,
                  "confidence": decision.get("confidence", 0.0),
                  "source": decision.get("source", "fallback")}
     if entry.get("need_clarify"):
-        _register_clarify_pending(username, history or [], entry_q,
-                                  entry.get("options") or [])
+        opts = entry.get("options") or []
+        if not getattr(C, "CLARIFY_OFFER_OPTIONS", False):
+            # 无选项化口径:一律自由文本反问,防 LLM 仍产出候选(用户自行说明对象)
+            opts = []
+        _register_clarify_pending(username, history or [], entry_q, opts)
         yield {"type": "clarify",
                "question": entry.get("question", ""),
-               "options": entry.get("options") or [],
+               "options": opts,
                "source": entry.get("source", "llm")}
         yield {"type": "done", "trace": {}}
         return
@@ -506,12 +592,19 @@ def react_stream(message,
             and not (history or []) and tier in ("raglite", "react")):
         stems, citems = _conflict_probe(search_future)
         if stems:
+            offer = getattr(C, "CLARIFY_OFFER_OPTIONS", False)
             specific, cquestion, choices = _conflict_objects(message, citems)
-            if not specific and len(choices) >= 2:
+            if offer:
+                fire = not specific and len(choices) >= 2
+            else:
+                # 无选项化:用户自由文本作答,应答轮走检索推断消歧,无需候选
+                choices = []
+                fire = not specific
+            if fire:
                 _scope_put(_SCOPE_PENDING,
                            _scope_key(username, history or [], message), {
                     "choices": choices, "stems": stems, "ts": time.time(),
-                    "message": message})   # 原问题:应答轮检索要用它(选项只是消歧)
+                    "message": message})   # 原问题:应答轮检索要用它(回复只是消歧)
                 yield {"type": "clarify",
                        "question": cquestion or _CONFLICT_CLARIFY_QUESTION,
                        "options": [c[0] for c in choices],
