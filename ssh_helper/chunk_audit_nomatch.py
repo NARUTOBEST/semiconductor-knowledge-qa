@@ -41,7 +41,7 @@ for qid, probe in PROBES.items():
     scored = sorted(((max((cov(f, d) for f in facts), default=0.0), i)
                      for i, d in enumerate(docs)), reverse=True)
     best_c, best_i = scored[0]
-    stems = {(pts[i].payload or {}).get("source_stem", "?") for i, _ in scored[:3]}
+    stems = {(pts[i].payload or {}).get("source_stem", "?") for _, i in scored[:3]}
     print(f"===== {qid} 探针: {probe}")
     print(f"  best_cov={best_c:.2f} top3来源={sorted(stems)[:2]}")
     for c, i in scored[:3]:
