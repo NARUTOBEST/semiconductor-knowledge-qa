@@ -67,9 +67,10 @@ for qid, q, fact_pat, stem_pat in CASES:
     pool = d.get("pool") or []
     top_ids = [it.get("chunk_id") for it in items]
     rank_ids = [r.get("chunk_id") for r in ranked]
+    pool_ids = [p.get("chunk_id") for p in pool]  # pool 是 dict 列表,须先取字段再比对
     hit_top = [g for g in gold if g in top_ids]
     hit_rank = [g for g in gold if g in rank_ids]
-    hit_pool = [g for g in gold if g in pool]
+    hit_pool = [g for g in gold if g in pool_ids]
     pos_rank = [rank_ids.index(g) + 1 for g in gold if g in rank_ids]
     print(f"===== {qid} 金块{len(gold)}个", flush=True)
     print(f"  top-4命中: {len(hit_top)}  精排序命中: {len(hit_rank)} {pos_rank}  池命中: {len(hit_pool)}", flush=True)
