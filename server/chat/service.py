@@ -65,6 +65,61 @@ _SCOPE_PENDING: dict = {}   # key -> {"choices": [(label, stem)...], "stems": [.
 _SCOPE_LOCKS: dict = {}     # key -> {"stem": base_stem, "ts"}   # 仅标记已消解
 _SCOPE_TTL_S = 30 * 60
 _CONFLICT_CLARIFY_QUESTION = "你想了解的具体对象是下面哪一个?(也可以直接补充说明)"
+# 多 worker 后端(uvicorn workers=N)下进程内字典不共享:turn-1 在 worker A
+# 登记 pending,应答轮落到 worker B 就查不到,clarified_q 丢失 → 检索退化成
+# 选项文本、turn-1 金块全丢(20261013 cascade_v2 五题硬失败定案根因)。
+# 因此 pending/lock 一律优先写共享 Redis(state_store 熔断器兜底回退本进程内存)。
+_SCOPE_REDIS_PREFIX = "chat:scope"
+_SCOPE_REDIS_TTL = _SCOPE_TTL_S
+
+
+def _scope_redis():
+    try:
+        from server.support.state_store import get_state_redis
+        return get_state_redis()
+    except Exception:  # noqa: BLE001  共享层故障回退内存
+        return None
+
+
+def _scope_rkey(key) -> str:
+    import hashlib
+    raw = json.dumps(list(key), ensure_ascii=False)
+    return f"{_SCOPE_REDIS_PREFIX}:{hashlib.sha1(raw.encode()).hexdigest()}"
+
+
+def _scope_put(store: dict, key, val, ttl: int = _SCOPE_REDIS_TTL):
+    r = _scope_redis()
+    if r is not None:
+        try:
+            r.set(_scope_rkey(key), json.dumps(val, ensure_ascii=False), ex=ttl)
+            return
+        except Exception:  # noqa: BLE001  Redis 故障回退内存
+            pass
+    store[key] = val
+
+
+def _scope_pop(store: dict, key):
+    r = _scope_redis()
+    if r is not None:
+        try:
+            raw = r.getdel(_scope_rkey(key))
+            if raw:
+                return json.loads(raw)
+        except Exception:  # noqa: BLE001  Redis 故障回退内存
+            pass
+    return store.pop(key, None)
+
+
+def _scope_get(store: dict, key):
+    r = _scope_redis()
+    if r is not None:
+        try:
+            raw = r.get(_scope_rkey(key))
+            if raw:
+                return json.loads(raw)
+        except Exception:  # noqa: BLE001  Redis 故障回退内存
+            pass
+    return store.get(key)
 
 
 def _scope_key(username, history, message):
@@ -93,7 +148,7 @@ def _scope_resolve(username, message, history):
     概览块,金事实全 miss(20261008 轮次11 dev200 实测 34/37 反问题
     recall=0 的根因)。"""
     key = _scope_key(username, history, message)
-    pend = _SCOPE_PENDING.pop(key, None)
+    pend = _scope_pop(_SCOPE_PENDING, key)
     if pend and time.time() - pend["ts"] <= _SCOPE_TTL_S:
         m = _norm_opt(message)
         if m:
@@ -102,14 +157,16 @@ def _scope_resolve(username, message, history):
             for label, stem in (pend.get("choices") or []):
                 ns = _norm_opt(label)
                 if ns and (ns in m or m in ns):
-                    _SCOPE_LOCKS[key] = {"stem": stem, "ts": time.time()}
+                    _scope_put(_SCOPE_LOCKS, key,
+                               {"stem": stem, "ts": time.time()})
                     return stem, (pend.get("message") or "")
             for stem in pend.get("stems") or []:
                 ns = _norm_opt(stem)
                 if ns and (ns in m or m in ns):
-                    _SCOPE_LOCKS[key] = {"stem": stem, "ts": time.time()}
+                    _scope_put(_SCOPE_LOCKS, key,
+                               {"stem": stem, "ts": time.time()})
                     return stem, (pend.get("message") or "")
-    lock = _SCOPE_LOCKS.get(key)
+    lock = _scope_get(_SCOPE_LOCKS, key)
     if lock and time.time() - lock["ts"] <= _SCOPE_TTL_S:
         return lock["stem"], ""
     return "", ""
@@ -121,11 +178,9 @@ def _register_clarify_pending(username, history, question, options):
     路由全用选项文本(对象名)而非原问题——turn-1 已命中的金块全部丢失
     (cascade_v2 dev200 实测 dev_033/094/098/114/128 五题硬失败的根因)。"""
     try:
-        _SCOPE_PENDING[_scope_key(username, history, question)] = {
+        _scope_put(_SCOPE_PENDING, _scope_key(username, history, question), {
             "choices": [(o, "") for o in (options or []) if str(o).strip()],
-            "stems": [], "ts": time.time(), "message": question}
-        if len(_SCOPE_PENDING) > 256:
-            _SCOPE_PENDING.clear()
+            "stems": [], "ts": time.time(), "message": question})
     except Exception:  # noqa: BLE001  登记失败不影响反问本身
         logger.warning("clarify pending register failed", exc_info=True)
 
@@ -453,11 +508,10 @@ def react_stream(message,
         if stems:
             specific, cquestion, choices = _conflict_objects(message, citems)
             if not specific and len(choices) >= 2:
-                _SCOPE_PENDING[_scope_key(username, history or [], message)] = {
+                _scope_put(_SCOPE_PENDING,
+                           _scope_key(username, history or [], message), {
                     "choices": choices, "stems": stems, "ts": time.time(),
-                    "message": message}   # 原问题:应答轮检索要用它(选项只是消歧)
-                if len(_SCOPE_PENDING) > 256:
-                    _SCOPE_PENDING.clear()
+                    "message": message})   # 原问题:应答轮检索要用它(选项只是消歧)
                 yield {"type": "clarify",
                        "question": cquestion or _CONFLICT_CLARIFY_QUESTION,
                        "options": [c[0] for c in choices],

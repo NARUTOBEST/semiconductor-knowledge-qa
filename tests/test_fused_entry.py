@@ -8,6 +8,8 @@
   - raglite 质检 needs_escalation -> 升级 react(_NEXT_TIER 含 raglite)。
 不连真实 LLM / MCP(全打桩)。
 """
+import sys
+
 import pytest
 from unittest.mock import patch, MagicMock
 
@@ -136,6 +138,17 @@ class TestClarifyPendingRegistration:
              "tier": "react", "confidence": 0.8, "source": "llm"}
     Q = "Overspeed 这个报警的判定条件是什么?"
 
+    @pytest.fixture(autouse=True)
+    def _clean_scope_state(self):
+        """_SCOPE_PENDING/_SCOPE_LOCKS 是模块级全局:用例间互清,防污染。
+        chat.service 与 server.chat.service 是两个独立模块实例,都要清。"""
+        import server.chat.service as svc
+        for mod in (svc, sys.modules.get("chat.service")):
+            if mod is not None:
+                mod._SCOPE_PENDING.clear()
+                mod._SCOPE_LOCKS.clear()
+        yield
+
     def _run(self, message, history, entry, cap_search):
         import server.chat.service as svc
         with patch.object(svc, "classify_and_clarify", return_value=entry), \
@@ -193,3 +206,32 @@ class TestClarifyPendingRegistration:
         assert len(svc._SCOPE_PENDING) == 1
         (pend,) = svc._SCOPE_PENDING.values()
         assert pend["message"] == self.Q
+
+    def test_scope_store_shared_redis(self, monkeypatch):
+        """Redis 可用时 pending/lock 必须走共享存储——多 worker 下进程内字典
+        不共享,是 cascade_v2 五题 clarify 应答轮 clarified_q 丢失的根因。"""
+        import server.chat.service as svc
+
+        class FakeR:
+            def __init__(self):
+                self.d = {}
+            def set(self, k, v, ex=None):
+                self.d[k] = v
+            def getdel(self, k):
+                return self.d.pop(k, None)
+            def get(self, k):
+                return self.d.get(k)
+
+        fake = FakeR()
+        monkeypatch.setattr(svc, "_scope_redis", lambda: fake)
+        # 清掉其他用例的内存残留(chat.service 与 server.chat.service 是两个
+        # 模块实例,各自持有独立 _SCOPE_PENDING)
+        for mod in (svc, sys.modules.get("chat.service")):
+            if mod is not None:
+                mod._SCOPE_PENDING.clear()
+        svc._register_clarify_pending("u", [], "原始问题?", ["选项A", "选项B"])
+        assert fake.d and svc._SCOPE_PENDING == {}   # 写进共享存储而非进程内
+        stem, q = svc._scope_resolve(
+            "u", "选项A", [{"role": "user", "content": "原始问题?"}])
+        assert q == "原始问题?" and stem == ""
+        assert svc._SCOPE_LOCKS == {}                # 锁也在共享存储
