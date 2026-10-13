@@ -256,6 +256,22 @@ def _rerank(query, points, k=3, text_fn=None):
         [text_fn(p) for p in points] if text_fn
         else [(p.payload or {}).get("content", "") for p in points]
     )
+    # ---- 内容去重(2026-10-13):入库分块产生的完全重复块在 top-N 里白吃席位
+    # (dev_184 实锤 top-6 两组一模一样,K=4 实际只有 ~3 席有效),按规范化文本
+    # 去重保留首现。去重后为空不可能(>1 块必有首现);sibling 去重按 chunk_id
+    # 在 _doc_cap_select,此处只治逐字节重复。
+    _seen_txt: set = set()
+    _ded: list = []
+    for _p, _d in zip(points, documents):
+        _h = hash(re.sub(r"\s+", "", _d))
+        if _h in _seen_txt:
+            continue
+        _seen_txt.add(_h)
+        _ded.append((_p, _d))
+    if len(_ded) < len(points):
+        logger.info("rerank dedup: %d -> %d", len(points), len(_ded))
+    points = [_p for _p, _ in _ded]
+    documents = [_d for _, _d in _ded]
     # ---- 级联粗筛(2026-10-13):副路(词面系,便宜)先对全量召回池打分,
     # 保留 top RERANK_CASCADE_KEEP 进混合双路精排——主路 4B 算力 ÷4(96→24),
     # 治 20u 并发重排排队。粗筛失败/副路未配置自动退全量(fail-open,级联是
