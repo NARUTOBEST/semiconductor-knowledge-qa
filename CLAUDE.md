@@ -19,6 +19,11 @@
 - 长任务用 PowerShell `Start-Process -WindowStyle Hidden` 分离进程 +
   `-RedirectStandardOutput/-RedirectStandardError` 落日志(harness 后台任务会被杀)。
 - judge 判分与答题口径一致(coding plan 裁判,meta 键必须是 query_id)。
+- **优化归档:每次优化被评测指标提升证实后,必须在
+  `eval/optimization_log/` 写一篇优化方法文档**(YYYYMMDD_主题.md:改动点/
+  根因/对照数据/运维注),并更新该目录 README.md 索引与生产配置定格;
+  顺手更新 auto-memory。小修(bug fix 无全量指标)至少记入 memory,
+  若对指标有可量化影响则同样补全量对照后再归档。
 
 ## AutoDL 实例规范
 
