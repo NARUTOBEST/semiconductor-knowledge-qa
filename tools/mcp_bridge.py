@@ -51,6 +51,14 @@ _CONNECT_TIMEOUT_S = float(os.getenv("MCP_CONNECT_TIMEOUT_S", "3"))
 # 与工具层策略超时(90s/200s)+重试对齐。
 _READ_TIMEOUT_S = float(os.getenv("MCP_READ_TIMEOUT_S", "300"))
 _RETRY_INTERVAL_S = float(os.getenv("MCP_RETRY_INTERVAL_S", "10"))
+# 握手超时(20261015):ClientSession 默认无请求超时——initialize 直返 200 后
+# list_tools 的响应走 SSE 流,SSE 流没建立就永久挂起(既不抛错也不重试,方案3
+# 20u 实测 200 连接只 7 条就绪、零失败日志、GPU 侧零流量,队列风暴全挤 7 条)。
+# 握手两步各给硬超时,超时即按连接失败走 10s 重试循环,自愈。
+_HANDSHAKE_TIMEOUT_S = float(os.getenv("MCP_HANDSHAKE_TIMEOUT_S", "20"))
+# 启动错峰:200 连接同秒齐发握手会挤爆服务端 SSE 建流(实测根因),
+# 按连接序号线性错开,60 连接内摊开 ~15s
+_STARTUP_STAGGER_S = float(os.getenv("MCP_STARTUP_STAGGER_S", "0.25"))
 _DEFAULT_SERVERS = [{"name": "retrieval",
                      "url": None}]  # url 运行时取 C.RETRIEVAL_SERVICE_URLS + "/mcp"
 
@@ -159,6 +167,9 @@ class _Conn:
         loop = asyncio.new_event_loop()
         self._loop = loop
         asyncio.set_event_loop(loop)
+        # 启动错峰:同 worker 内按序号摊开,20 连接摊 5s,避免齐发建流挤爆服务端
+        if self.index and _STARTUP_STAGGER_S > 0:
+            time.sleep(self.index * _STARTUP_STAGGER_S)
         while not self._stop.is_set():
             try:
                 loop.run_until_complete(self._serve())
@@ -179,10 +190,14 @@ class _Conn:
         # 传输层 yield (read, write) 二元组(memory 与 http 一致),其上再包 ClientSession
         async with self._open_session() as (read, write):
             async with ClientSession(read, write) as session:
-                await session.initialize()
+                # 握手两步各给硬超时(默认无超时会永久挂起,见 _HANDSHAKE_TIMEOUT_S 注释)
+                await asyncio.wait_for(session.initialize(),
+                                       timeout=_HANDSHAKE_TIMEOUT_S)
                 self._session = session
                 if self._on_ready is not None:
-                    self._on_ready(self, await session.list_tools())
+                    tools_res = await asyncio.wait_for(
+                        session.list_tools(), timeout=_HANDSHAKE_TIMEOUT_S)
+                    self._on_ready(self, tools_res)
                 self._ready.set()
                 logger.info("MCP server %s 已连接,工具就绪", self.label)
                 # 保活直到 stop 或会话失效重建(_session 须存续,handler 才能继续调用)
