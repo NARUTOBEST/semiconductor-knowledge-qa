@@ -109,11 +109,14 @@ def run_path(path_name: str,
 
 def _resolve_pre_search(search_future):
     """把服务层投机检索 future 解析为可序列化的块列表;失败返回 None。
-    轮次9:结果可能为 dict(with_scope_info 附加 scope 信号),取 items 列表。"""
+    轮次9:结果可能为 dict(with_scope_info 附加 scope 信号),取 items 列表。
+    20261015:等待 15→45s——冷启动(服务重启首请求加载模型)实测 >15s 会静默
+    放弃 pre_search,LLM 随即参数化直答+编造引用(dev_018 冒烟 srcs=0 根因);
+    45s 只在病态排队时才触底,正常排队 3-10s 内 result() 即返回。"""
     if search_future is None:
         return None
     try:
-        out = search_future.result(timeout=15)
+        out = search_future.result(timeout=45)
         if isinstance(out, tuple) and len(out) == 2:
             result, err = out
             if err is not None:
