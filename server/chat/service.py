@@ -411,6 +411,8 @@ def _speculative_search(message: str, scope_stem: str = "",
         # 复合题不同于单问题——拆出的每个子问题各自检索,其 top-PIN_K 块打 sub_pin
         # 标记后绑定进结果(sub_pin 块不受任何下游 top-k/压缩配额截断,作答层保证
         # 每个子问题都有各自的 top-4 进上下文)。子路失败静默忽略(增强层)。
+        logger.info("speculative main: err=%s items=%d", err is not None,
+                    len((out or {}).get("items") or []) if isinstance(out, dict) else -1)
         try:
             if (err is None and getattr(C, "RETRIEVAL_SUBQUERY_SPLIT", True)
                     and isinstance(out, dict)):
@@ -432,8 +434,18 @@ def _speculative_search(message: str, scope_stem: str = "",
                         try:
                             sres, serr = call_with_resilience(
                                 "search_text", sargs, spec, invoke=dispatch)
-                            if serr is not None or not isinstance(sres, dict):
+                            if serr is not None:
                                 continue
+                            if isinstance(sres, list):
+                                # 引擎 with_scope_info=False 返回裸列表(非 dict)
+                                sres = {"items": sres}
+                            if not isinstance(sres, dict):
+                                continue
+                            logger.info("subq %dth %r: %d items, first=%s",
+                                        subs.index(sq) + 1, sq[:20],
+                                        len(sres.get("items") or []),
+                                        [((it.get("chunk_id") or "")[-10:])
+                                         for it in (sres.get("items") or [])[:3]])
                             n = 0
                             for it in (sres.get("items") or []):
                                 key = it.get("chunk_id") or it.get("source_stem")
@@ -450,6 +462,8 @@ def _speculative_search(message: str, scope_stem: str = "",
                                 pinned = True
                         except Exception:  # noqa: BLE001  单子路故障不拖垮主结果
                             continue
+                    logger.info("subquery merge: subs=%d pinned=%s items=%d->%d",
+                                len(subs), pinned, len(items), len(merged))
                     if pinned:
                         out = dict(out)
                         cap = max(int(getattr(C, "RETRIEVAL_SUBQUERY_MERGE_CAP", 8)),

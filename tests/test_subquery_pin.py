@@ -53,11 +53,12 @@ def _patch_env(monkeypatch, main_items, sub_results, calls):
         if "with_scope_info" in args and args.get("with_scope_info"):
             return {"items": list(main_items),
                     "scope": {"inferred_stem": "", "locked_stem": ""}}, None
+        # 子路 with_scope_info=False:引擎回裸列表(20261014 实测形状),钉死
         sq = args["query"]
         for frag, items in sub_results.items():
             if frag in sq:
-                return {"items": list(items)}, None
-        return {"items": []}, None
+                return list(items), None
+        return [], None
 
     monkeypatch.setattr(tools, "registry", _Reg())
     monkeypatch.setattr(tools, "dispatch", lambda *a, **k: None)
