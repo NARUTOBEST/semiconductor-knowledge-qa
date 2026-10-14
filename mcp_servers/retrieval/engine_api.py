@@ -962,6 +962,44 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
     return out
 
 
+def search_batch(query, subs=None, k=3, score_ratio=0.4, scope_stem="",
+                 scope_hard=False):
+    """批量检索(方案2,20261015):主问题 + 各子问题合并为一次调用。
+
+    主路 with_scope_info=True(scope 锁定/冲突/inferred 信号原样保留);每个
+    子问题独立走完整 search_text(翻译双路/重排/τ 截断语义与单独调用完全
+    一致),with_scope_info=False 返回裸列表。返回
+    {"main": <search_text 主路返回>, "subs": {子问题: [块,...]}}。
+
+    动机:席位绑定/冲突探测后复合题每题 MCP 调用 ~4 次,并发下每条隧道会话
+    内调用串行排队,队头阻塞放大首延迟且成倍暴露熔断/超时窗口。合并后一次
+    网络往返,隧道排队/熔断记账都按 1 次计;GPU 侧算量不变(各子问题仍各自
+    重排)。失败语义:主路异常向上抛(与单路调用一致);子问题异常该子问题
+    返回 [](增强层,由调用方静默忽略)。"""
+    main = search_text(query, k=k, score_ratio=score_ratio,
+                       scope_stem=scope_stem, with_scope_info=True,
+                       scope_hard=scope_hard)
+    out = {"main": main if main is not None else [], "subs": {}}
+    picked = []
+    for sq in (subs or []):                # 先去空白再截 4(防御上限,与 agent 侧拆分对齐)
+        sq = (sq or "").strip()
+        if sq:
+            picked.append(sq)
+        if len(picked) >= 4:
+            break
+    for sq in picked:
+        try:
+            r = search_text(sq, k=k, score_ratio=score_ratio,
+                            scope_stem=scope_stem, with_scope_info=False,
+                            scope_hard=scope_hard)
+        except Exception:                  # noqa: BLE001  单子路故障不拖垮主结果
+            logger.warning("search_batch sub failed: %r", sq[:40],
+                           exc_info=True)
+            r = []
+        out["subs"][sq] = r if isinstance(r, list) else []
+    return out
+
+
 def search_image(query, k=3, include_portraits=False, score_ratio=0.4):
     """图像库检索(CLIP+BGE-m3 双路 RRF)+ Cross-Encoder 重排(动态截断同文本)。"""
     recall_k = getattr(C, "RERANK_RECALL_K", 20)

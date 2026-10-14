@@ -387,6 +387,65 @@ def _split_composite_query(message: str) -> list[str]:
     return subs[:3] if len(subs) >= 2 else []
 
 
+def _merge_sub_pins(out, subs, results):
+    """子问题席位合并(方案2 批量/逐路两路径共用):每个子问题 top-PIN_K 打
+    sub_pin 标记去重追加(sub_pin 块不受下游 top-k/压缩配额截断)。results 与
+    subs 对齐,元素为裸列表/{"items":...}/None(失败)。"""
+    if not (subs and isinstance(out, dict)):
+        return out
+    items = out.get("items") or []
+    have: set = set()
+    for it in items:
+        key = it.get("chunk_id") or it.get("source_stem")
+        if key:
+            have.add(key)
+    merged = list(items)
+    pin_k = max(1, int(getattr(C, "RETRIEVAL_SUBQUERY_PIN_K", 4)))
+    pinned = False
+    for sq, sres in zip(subs, results):
+        if isinstance(sres, list):
+            # 引擎 with_scope_info=False 返回裸列表(非 dict)
+            sres = {"items": sres}
+        if not isinstance(sres, dict):
+            continue
+        sitems = sres.get("items") or []
+        logger.info("subq %r: %d items, first=%s",
+                    sq[:20], len(sitems),
+                    [((it.get("chunk_id") or "")[-10:]) for it in sitems[:3]])
+        n = 0
+        for it in sitems:
+            key = it.get("chunk_id") or it.get("source_stem")
+            if key and key in have:
+                continue
+            if n >= pin_k:
+                break  # 每个子问题只保 top-PIN_K 席位
+            if key:
+                have.add(key)
+            pit = dict(it)
+            pit["sub_pin"] = True  # 下游作答层保席位标记
+            merged.append(pit)
+            n += 1
+            pinned = True
+    logger.info("subquery merge: subs=%d pinned=%s items=%d->%d",
+                len(subs), pinned, len(items), len(merged))
+    if pinned:
+        out = dict(out)
+        cap = max(int(getattr(C, "RETRIEVAL_SUBQUERY_MERGE_CAP", 8)),
+                  len(items))
+        kept = merged[:cap]
+        kept_ids = {it.get("chunk_id") or it.get("source_stem")
+                    for it in kept}
+        for it in merged:  # sub_pin 席位块不受 cap 截断
+            if not it.get("sub_pin"):
+                continue
+            key = it.get("chunk_id") or it.get("source_stem")
+            if key and key not in kept_ids:
+                kept.append(it)
+                kept_ids.add(key)
+        out["items"] = kept
+    return out
+
+
 def _speculative_search(message: str, scope_stem: str = "",
                         scope_hard: bool = False):
     """投机检索:在后台工具池预发一次 search_text,与路由/分类重叠执行。
@@ -394,7 +453,10 @@ def _speculative_search(message: str, scope_stem: str = "",
     无人消费时结果自然丢弃(daemon 池,不阻塞收尾)。
     (原低置信触发 LLM 查询改写已删除——轮次5 dev-200 验证四项指标均劣于
     单路且在噪声带内;跨语言鸿沟由检索服务内的翻译双路承担。)
-    with_scope_info=True:响应附带 scope 锁定/冲突信号,供冲突反问判定(轮次9)。"""
+    with_scope_info=True:响应附带 scope 锁定/冲突信号,供冲突反问判定(轮次9)。
+    方案2(20261015):复合题主+子问题合并为一次 search_batch 调用——并发下每条
+    隧道会话内调用串行排队,N 次调用队头阻塞放大首延迟且成倍暴露熔断/超时窗口;
+    合并后一次往返,GPU 侧算量不变。批量失败/旧引擎无此工具回退逐子问题调用。"""
     from tools import dispatch, registry
     from agent_reasoning.ReAct.support.tool_pool import get_pool
     from agent_reasoning.ReAct.support.tool_resilience import call_with_resilience
@@ -408,80 +470,57 @@ def _speculative_search(message: str, scope_stem: str = "",
             args["scope_stem"] = scope_stem
         if scope_hard and scope_stem:
             args["scope_hard"] = True
+        subs = (_split_composite_query(message)
+                if getattr(C, "RETRIEVAL_SUBQUERY_SPLIT", True) else [])
+        # ---- 方案2 批量快速路径:主+子一次调用 ----
+        if subs and getattr(C, "RETRIEVAL_SUBQUERY_BATCH", True):
+            bspec = registry.get("search_batch")
+            if bspec is not None:
+                bargs = {"query": message, "subs": subs,
+                         "k": C.RAGLITE_SEARCH_K,
+                         "score_ratio": C.RAGLITE_SEARCH_SCORE_RATIO}
+                if scope_stem:
+                    bargs["scope_stem"] = scope_stem
+                if scope_hard and scope_stem:
+                    bargs["scope_hard"] = True
+                bout, berr = call_with_resilience(
+                    "search_batch", bargs, bspec, invoke=dispatch)
+                if berr is None and isinstance(bout, dict) and "main" in bout:
+                    main = bout["main"]
+                    if isinstance(main, list):   # 兼容裸列表形状
+                        main = {"items": main}
+                    if isinstance(main, dict):
+                        logger.info("speculative main(batch): items=%d subs=%d",
+                                    len(main.get("items") or []),
+                                    len(bout.get("subs") or {}))
+                        bsubs = bout.get("subs") or {}
+                        return _merge_sub_pins(main, subs,
+                                               [bsubs.get(sq) for sq in subs]), None
+                # 批量失败(旧引擎/超时/熔断)→ 落回逐子问题路径
+                logger.warning("search_batch failed (err=%s), fallback per-sub",
+                               berr is not None)
+        # ---- 原路径:主路 + 逐子问题(回退) ----
         out, err = call_with_resilience(
             "search_text", args, spec, invoke=dispatch)
         # 复合题子检索席位绑定(20261014):主路(整句)排序与 scope/冲突信号原样保留;
         # 复合题不同于单问题——拆出的每个子问题各自检索,其 top-PIN_K 块打 sub_pin
-        # 标记后绑定进结果(sub_pin 块不受任何下游 top-k/压缩配额截断,作答层保证
-        # 每个子问题都有各自的 top-4 进上下文)。子路失败静默忽略(增强层)。
+        # 标记后绑定进结果。子路失败静默忽略(增强层)。
         logger.info("speculative main: err=%s items=%d", err is not None,
                     len((out or {}).get("items") or []) if isinstance(out, dict) else -1)
         try:
-            if (err is None and getattr(C, "RETRIEVAL_SUBQUERY_SPLIT", True)
-                    and isinstance(out, dict)):
-                subs = _split_composite_query(message)
-                if subs:
-                    items = out.get("items") or []
-                    have: set = set()
-                    for it in items:
-                        key = it.get("chunk_id") or it.get("source_stem")
-                        if key:
-                            have.add(key)
-                    merged = list(items)
-                    pin_k = max(1, int(getattr(C, "RETRIEVAL_SUBQUERY_PIN_K", 4)))
-                    pinned = False
-                    for sq in subs:
-                        sargs = dict(args)
-                        sargs["query"] = sq
-                        sargs["with_scope_info"] = False
-                        try:
-                            sres, serr = call_with_resilience(
-                                "search_text", sargs, spec, invoke=dispatch)
-                            if serr is not None:
-                                continue
-                            if isinstance(sres, list):
-                                # 引擎 with_scope_info=False 返回裸列表(非 dict)
-                                sres = {"items": sres}
-                            if not isinstance(sres, dict):
-                                continue
-                            logger.info("subq %dth %r: %d items, first=%s",
-                                        subs.index(sq) + 1, sq[:20],
-                                        len(sres.get("items") or []),
-                                        [((it.get("chunk_id") or "")[-10:])
-                                         for it in (sres.get("items") or [])[:3]])
-                            n = 0
-                            for it in (sres.get("items") or []):
-                                key = it.get("chunk_id") or it.get("source_stem")
-                                if key and key in have:
-                                    continue
-                                if n >= pin_k:
-                                    break  # 每个子问题只保 top-PIN_K 席位
-                                if key:
-                                    have.add(key)
-                                pit = dict(it)
-                                pit["sub_pin"] = True  # 下游作答层保席位标记
-                                merged.append(pit)
-                                n += 1
-                                pinned = True
-                        except Exception:  # noqa: BLE001  单子路故障不拖垮主结果
-                            continue
-                    logger.info("subquery merge: subs=%d pinned=%s items=%d->%d",
-                                len(subs), pinned, len(items), len(merged))
-                    if pinned:
-                        out = dict(out)
-                        cap = max(int(getattr(C, "RETRIEVAL_SUBQUERY_MERGE_CAP", 8)),
-                                  len(items))
-                        kept = merged[:cap]
-                        kept_ids = {it.get("chunk_id") or it.get("source_stem")
-                                    for it in kept}
-                        for it in merged:  # sub_pin 席位块不受 cap 截断
-                            if not it.get("sub_pin"):
-                                continue
-                            key = it.get("chunk_id") or it.get("source_stem")
-                            if key and key not in kept_ids:
-                                kept.append(it)
-                                kept_ids.add(key)
-                        out["items"] = kept
+            if err is None and subs:
+                sub_results = []
+                for sq in subs:
+                    sargs = dict(args)
+                    sargs["query"] = sq
+                    sargs["with_scope_info"] = False
+                    try:
+                        sres, serr = call_with_resilience(
+                            "search_text", sargs, spec, invoke=dispatch)
+                        sub_results.append(None if serr is not None else sres)
+                    except Exception:  # noqa: BLE001  单子路故障不拖垮主结果
+                        sub_results.append(None)
+                out = _merge_sub_pins(out, subs, sub_results)
         except Exception:  # noqa: BLE001  合并层故障退纯主路结果
             pass
         return out, err

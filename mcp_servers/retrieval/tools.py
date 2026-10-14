@@ -81,6 +81,36 @@ def search_text(
 
 
 @mcp.tool(
+    name="search_batch",
+    description=(
+        "内部批量检索(复合题管线自动调用,不要手动调用):"
+        "主问题 + 各子问题一次调用内顺序检索,返回 "
+        '{"main": 主路结果(含 scope/冲突信号), "subs": {子问题: [块列表]}}。'
+    ),
+)
+def search_batch(
+    query: Annotated[str, Field(
+        description="主问题(整句)。")],
+    subs: Annotated[list[str], Field(
+        description="子问题列表(≤4 个,由调用方拆分,勿手动构造)。")] = [],
+    k: Annotated[int, Field(description="每个问题返回的条数上限。")] = 3,
+    score_ratio: Annotated[float, Field(
+        description="相关分阈值系数,语义同 search_text。")] = 0.6,
+    scope_stem: Annotated[str, Field(
+        description="内部参数(调用时不要设置):会话锁定的目标文档族。")] = "",
+    scope_hard: Annotated[bool, Field(
+        description="内部参数(调用时不要设置):源限定硬模式。")] = False,
+) -> dict:
+    """主+子问题批量检索(主路 with_scope_info=True,子路裸列表)。"""
+    out = _run(engine_api.search_batch, query, subs=subs, k=k,
+               score_ratio=score_ratio, scope_stem=scope_stem,
+               scope_hard=scope_hard)
+    if not isinstance(out, dict):
+        return {"main": {"items": []}, "subs": {}}
+    return out
+
+
+@mcp.tool(
     name="search_image",
     description=(
         "在【图像库】做跨模态检索(CLIP 文本->图 + BGE-m3 描述 RRF 融合)。"

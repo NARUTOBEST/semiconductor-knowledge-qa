@@ -180,6 +180,11 @@ RAGLITE_SEARCH_SCORE_RATIO  = _float("RAGLITE_SEARCH_SCORE_RATIO", 0.4)
 RETRIEVAL_SUBQUERY_SPLIT     = os.getenv("RETRIEVAL_SUBQUERY_SPLIT", "1") == "1"
 RETRIEVAL_SUBQUERY_MERGE_CAP = _int("RETRIEVAL_SUBQUERY_MERGE_CAP", 8)    # 合并后总块数上限
 RETRIEVAL_SUBQUERY_PIN_K     = _int("RETRIEVAL_SUBQUERY_PIN_K", 4)     # 席位绑定(20261014):每个子问题保入上下文的 top-k,不受总配额截断
+# 方案2(20261015):复合题主+子问题合并为一次引擎调用(search_batch)——并发下
+# 每条隧道会话内调用串行排队,N 次调用队头阻塞放大首延迟且成倍暴露熔断/超时
+# 窗口;合并后一次往返。0=关(回退逐子问题调用,兼容旧引擎)。子问题合并逻辑
+# (席位标记/cap/去重)与拆分阈值不变,仅传输层合并。
+RETRIEVAL_SUBQUERY_BATCH     = os.getenv("RETRIEVAL_SUBQUERY_BATCH", "1") == "1"
 # 查询改写多路召回(2026-10-05):投机检索 top1 分低于阈值(或空结果)时,轻量 LLM
 RAGLITE_PROMPT_CHUNKS       = _int("RAGLITE_PROMPT_CHUNKS", 4)       # 喂给模型的前几块(控制 prefill;3→4 与扩容后的检索集匹配)
 RAGLITE_CHUNK_CHARS         = _int("RAGLITE_CHUNK_CHARS", 800)       # 每块截断字符

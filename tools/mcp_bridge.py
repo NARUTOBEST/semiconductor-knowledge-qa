@@ -46,9 +46,10 @@ logger = logging.getLogger("tools.mcp")
 _CONNECT_TIMEOUT_S = float(os.getenv("MCP_CONNECT_TIMEOUT_S", "3"))
 # 桥层读超时(20261015 环境可调):检索(翻译双路+重排排队)在并发下普遍 >5s,
 # 且席位绑定/冲突探测后调用数 ~3 倍——偶发 >60s 属正常排队,ReadTimeout 会被
-# 上层判成会话失效连环重建(轮次19 20x10 srcs=0 全员故障根因)。默认放宽 180s,
-# 与工具层策略超时(90s)+重试对齐。
-_READ_TIMEOUT_S = float(os.getenv("MCP_READ_TIMEOUT_S", "180"))
+# 上层判成会话失效连环重建(轮次19 20x10 srcs=0 全员故障根因)。默认放宽 300s:
+# 方案2 search_batch(主+≤3 子路串行)策略超时 200s 也要在此之下,桥不能先掐。
+# 与工具层策略超时(90s/200s)+重试对齐。
+_READ_TIMEOUT_S = float(os.getenv("MCP_READ_TIMEOUT_S", "300"))
 _RETRY_INTERVAL_S = float(os.getenv("MCP_RETRY_INTERVAL_S", "10"))
 _DEFAULT_SERVERS = [{"name": "retrieval",
                      "url": None}]  # url 运行时取 C.RETRIEVAL_SERVICE_URLS + "/mcp"

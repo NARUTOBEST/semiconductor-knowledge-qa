@@ -131,6 +131,14 @@ class SearchTextRequest(BaseModel):
     with_scope_info: bool = False  # 轮次9:附带 scope 锁定/冲突信号
     scope_hard: bool = False   # 轮次21:源限定硬模式(召回层族过滤)
 
+class SearchBatchRequest(BaseModel):
+    query: str
+    subs: list[str] = []      # 子问题列表(≤4,方案2 批量检索)
+    k: int = 3
+    score_ratio: float = 0.6
+    scope_stem: str = ""
+    scope_hard: bool = False
+
 class SearchImageRequest(BaseModel):
     query: str
     k: int = 3
@@ -151,6 +159,15 @@ def search_text(req: SearchTextRequest):
                                   scope_stem=req.scope_stem,
                                   with_scope_info=req.with_scope_info,
                                   scope_hard=req.scope_hard)
+
+
+@app.post("/search_batch", dependencies=[Depends(_require_internal_token)])
+def search_batch(req: SearchBatchRequest):
+    """主+子问题批量检索(方案2:一次网络往返,子路语义与单独调用一致)。"""
+    return engine_api.search_batch(req.query, subs=req.subs, k=req.k,
+                                   score_ratio=req.score_ratio,
+                                   scope_stem=req.scope_stem,
+                                   scope_hard=req.scope_hard)
 
 
 @app.post("/search_image", dependencies=[Depends(_require_internal_token)])

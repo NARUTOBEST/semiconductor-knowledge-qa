@@ -102,6 +102,20 @@ POLICIES = {
         # recall 持平但 precision -0.10,恢复单 query 串行
         # (eval/optimization_log/20261008_round10_20u200.md)。
     },
+    "retrieval:search_batch": {
+        # 方案2(20261015):复合题主+子问题批量检索(内部工具,LLM 不直接调用;
+        # 返回 {"main": ..., "subs": {...}} 分组形状,来源由调用方拆分提取,
+        # 不走 extract_doc_sources)。超时按主+≤3 子路串行预算 ~4×单路:
+        # 90s 单路常态秒级,排队病态下 4 路串行需 200s 上限(须小于桥层
+        # MCP_READ_TIMEOUT_S,否则桥先掐)。
+        "category": Category.RETRIEVAL,
+        "produces_sources": False,
+        "source_extractor": None,
+        "truncate": _RETRIEVAL_TRUNCATE,
+        "timeout": 200.0,
+        "retry_times": 1,
+        "max_input_length": {"query": 500},
+    },
     "retrieval:search_image": {
         "category": Category.RETRIEVAL,
         "produces_sources": True,
