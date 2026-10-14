@@ -42,6 +42,8 @@ def extract_doc_sources(result):
             "score": round(float(r.get("score") or 0), 4),
             "content": (r.get("content", "") or "")[:160],
         }
+        if r.get("sub_pin"):  # 子问题席位块(20261014),来源事件保席位用
+            item["sub_pin"] = True
         # 多媒体透传:仅在有值且是可访问 URL(http(s))时下发,本地残留路径不给前端
         image_url = r.get("image_url") or next(
             iter(r.get("image_urls") or []), None)

@@ -405,12 +405,15 @@ def _speculative_search(message: str, scope_stem: str = "",
             args["scope_stem"] = scope_stem
         if scope_hard and scope_stem:
             args["scope_hard"] = True
-        out = call_with_resilience("search_text", args, spec, invoke=dispatch)
-        # 复合题子检索合并(20261013):主路(整句)排序与 scope/冲突信号原样保留,
-        # 各子问题检索的 top 块按 chunk_id 去重后追加到尾部(cap 内),给作答层
-        # 补上被整句排序挤出 top-4 的 fact 金块。子路失败静默忽略(增强层)。
+        out, err = call_with_resilience(
+            "search_text", args, spec, invoke=dispatch)
+        # 复合题子检索席位绑定(20261014):主路(整句)排序与 scope/冲突信号原样保留;
+        # 复合题不同于单问题——拆出的每个子问题各自检索,其 top-PIN_K 块打 sub_pin
+        # 标记后绑定进结果(sub_pin 块不受任何下游 top-k/压缩配额截断,作答层保证
+        # 每个子问题都有各自的 top-4 进上下文)。子路失败静默忽略(增强层)。
         try:
-            if getattr(C, "RETRIEVAL_SUBQUERY_SPLIT", True) and isinstance(out, dict):
+            if (err is None and getattr(C, "RETRIEVAL_SUBQUERY_SPLIT", True)
+                    and isinstance(out, dict)):
                 subs = _split_composite_query(message)
                 if subs:
                     items = out.get("items") or []
@@ -420,32 +423,51 @@ def _speculative_search(message: str, scope_stem: str = "",
                         if key:
                             have.add(key)
                     merged = list(items)
+                    pin_k = max(1, int(getattr(C, "RETRIEVAL_SUBQUERY_PIN_K", 4)))
+                    pinned = False
                     for sq in subs:
                         sargs = dict(args)
                         sargs["query"] = sq
                         sargs["with_scope_info"] = False
                         try:
-                            sres = call_with_resilience(
+                            sres, serr = call_with_resilience(
                                 "search_text", sargs, spec, invoke=dispatch)
-                            if not isinstance(sres, dict):
+                            if serr is not None or not isinstance(sres, dict):
                                 continue
+                            n = 0
                             for it in (sres.get("items") or []):
                                 key = it.get("chunk_id") or it.get("source_stem")
                                 if key and key in have:
                                     continue
+                                if n >= pin_k:
+                                    break  # 每个子问题只保 top-PIN_K 席位
                                 if key:
                                     have.add(key)
-                                merged.append(it)
+                                pit = dict(it)
+                                pit["sub_pin"] = True  # 下游作答层保席位标记
+                                merged.append(pit)
+                                n += 1
+                                pinned = True
                         except Exception:  # noqa: BLE001  单子路故障不拖垮主结果
                             continue
-                    if len(merged) > len(items):
+                    if pinned:
                         out = dict(out)
-                        out["items"] = merged[:max(
-                            int(getattr(C, "RETRIEVAL_SUBQUERY_MERGE_CAP", 8)),
-                            len(items))]
+                        cap = max(int(getattr(C, "RETRIEVAL_SUBQUERY_MERGE_CAP", 8)),
+                                  len(items))
+                        kept = merged[:cap]
+                        kept_ids = {it.get("chunk_id") or it.get("source_stem")
+                                    for it in kept}
+                        for it in merged:  # sub_pin 席位块不受 cap 截断
+                            if not it.get("sub_pin"):
+                                continue
+                            key = it.get("chunk_id") or it.get("source_stem")
+                            if key and key not in kept_ids:
+                                kept.append(it)
+                                kept_ids.add(key)
+                        out["items"] = kept
         except Exception:  # noqa: BLE001  合并层故障退纯主路结果
             pass
-        return out
+        return out, err
 
     return get_pool().submit(_search)
 

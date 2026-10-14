@@ -115,7 +115,26 @@ def compress_chunks(chunks: list[dict], question: str, *,
     if not getattr(C, "CONTEXT_COMPRESS_ENABLED", True):
         return None
     try:
-        return _compress(chunks, question, trace_id=trace_id, min_chars=min_chars)
+        # 子问题席位绑定(20261014):sub_pin 块不受 MAX_CHUNKS 配额截断,追加在
+        # 常规配额之后参与压缩;返回列表与调用方输入保持等长对齐(未入选块回退截断)。
+        full = [c for c in (chunks or [])
+                if isinstance(c, dict) and str(c.get("content") or "").strip()]
+        cap = C.CONTEXT_COMPRESS_MAX_CHUNKS
+        keep = [i for i, c in enumerate(full) if not c.get("sub_pin")][:cap]
+        keep_set = set(keep)
+        keep += [i for i, c in enumerate(full)
+                 if c.get("sub_pin") and i not in keep_set]
+        picked = _compress([full[i] for i in keep], question,
+                           trace_id=trace_id, min_chars=min_chars)
+        if picked is None or len(keep) == len(full):
+            return picked
+        out = [""] * len(full)
+        for i, sub in zip(keep, picked):
+            out[i] = sub
+        for i, c in enumerate(full):
+            if not out[i]:
+                out[i] = str(c.get("content") or "")[:C.CONTEXT_COMPRESS_KEEP_CHARS]
+        return out
     except Exception:  # noqa: BLE001  压缩链路任何意外都不允许打断问答
         logger.exception("compress unexpected error, fallback truncate (trace=%s)",
                          trace_id)

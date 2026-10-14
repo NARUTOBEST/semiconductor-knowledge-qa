@@ -179,6 +179,7 @@ RAGLITE_SEARCH_SCORE_RATIO  = _float("RAGLITE_SEARCH_SCORE_RATIO", 0.4)
 # 定位最大桶),投机检索整句之外再按子问题逐路检索、去重追加。0=关(回退单路)。
 RETRIEVAL_SUBQUERY_SPLIT     = os.getenv("RETRIEVAL_SUBQUERY_SPLIT", "1") == "1"
 RETRIEVAL_SUBQUERY_MERGE_CAP = _int("RETRIEVAL_SUBQUERY_MERGE_CAP", 8)    # 合并后总块数上限
+RETRIEVAL_SUBQUERY_PIN_K     = _int("RETRIEVAL_SUBQUERY_PIN_K", 4)     # 席位绑定(20261014):每个子问题保入上下文的 top-k,不受总配额截断
 # 查询改写多路召回(2026-10-05):投机检索 top1 分低于阈值(或空结果)时,轻量 LLM
 RAGLITE_PROMPT_CHUNKS       = _int("RAGLITE_PROMPT_CHUNKS", 4)       # 喂给模型的前几块(控制 prefill;3→4 与扩容后的检索集匹配)
 RAGLITE_CHUNK_CHARS         = _int("RAGLITE_CHUNK_CHARS", 800)       # 每块截断字符

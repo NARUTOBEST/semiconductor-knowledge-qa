@@ -87,7 +87,26 @@ def _prompt_chunks(result):
             "page": it.get("page_num", it.get("page", "")),
             "content": it.get("content", "") or "",
             "score": float(it.get("score") or 0.0),
+            "sub_pin": bool(it.get("sub_pin")),
         })
+    return out
+
+
+def _pin_select(chunks: list[dict], cap: int) -> list[dict]:
+    """子问题席位选择(20261014):常规配额取未钉块,带 sub_pin 的子问题块
+    全部保留(按 chunk_id 去重、原相对顺序),保证复合题每个子问题的 top-k
+    都进上下文——复合题不同于单问题,不能按总分类一刀切 top-cap。"""
+    keep = [c for c in chunks if not c.get("sub_pin")][:cap]
+    seen = {c.get("chunk_id") for c in keep if c.get("chunk_id")}
+    out = list(keep)
+    for c in chunks:
+        if not c.get("sub_pin"):
+            continue
+        cid = c.get("chunk_id") or id(c)
+        if cid in seen:
+            continue
+        seen.add(cid)
+        out.append(c)
     return out
 
 
@@ -210,11 +229,23 @@ def raglite_answer_stream(message: str,
                     logger.info("raglite requery: %.40r -> %.40r score %.2f->%.2f",
                                 message, rq, old_top, new_top)
 
+    # 子问题席位绑定(20261014):常规 top-cap 之外保留全部 sub_pin 块,
+    # 之后 blocks/grounding 直接用选中集,不再二次截断。
+    if chunks:
+        chunks = _pin_select(chunks, C.RAGLITE_PROMPT_CHUNKS)
+
     # sources 事件在生成前发出:生成失败来源也已透出(评测/前端来源面板依赖)。
     if chunks:
         try:
             items = sources_from_result(result, spec=registry.get("search_text"))
-            yield {"type": "sources", "items": items[:C.RAGLITE_SEARCH_K],
+            _pin_ids = {it.get("chunk_id") for it in _result_items(result)
+                        if isinstance(it, dict) and it.get("sub_pin")}
+            _sel = list(items[:C.RAGLITE_SEARCH_K])
+            _have = {s.get("chunk_id") for s in _sel}
+            _sel += [s for s in items
+                     if s.get("chunk_id") in _pin_ids
+                     and s.get("chunk_id") not in _have]
+            yield {"type": "sources", "items": _sel,
                    "trace_id": trace_id, "step": 1}
         except Exception:  # noqa: BLE001  来源提取失败不阻断作答
             pass
@@ -244,7 +275,7 @@ def raglite_answer_stream(message: str,
         except Exception:  # noqa: BLE001
             picked = None
         blocks = []
-        for i, c in enumerate(chunks[:C.RAGLITE_PROMPT_CHUNKS]):
+        for i, c in enumerate(chunks):  # 已过 _pin_select,含席位块
             head = c["source_stem"] + (f" p{c['page']}" if c["page"] else "")
             body = (picked[i] if picked and i < len(picked) and picked[i]
                     else c["content"][:C.RAGLITE_CHUNK_CHARS])
@@ -349,7 +380,7 @@ def raglite_answer_stream(message: str,
                "trace_id": trace_id, "step": 1}
         srcs = [{"source_stem": c["source_stem"], "page": c["page"],
                  "content": c["content"]}
-                for c in chunks[:C.RAGLITE_PROMPT_CHUNKS]]
+                for c in chunks]  # 已过 _pin_select,含席位块
         try:
             from agent_reasoning.ReAct.support.grounding import grounding_filter
             content_buf, ginfo = grounding_filter(

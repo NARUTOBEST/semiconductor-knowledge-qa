@@ -139,6 +139,8 @@ def _extract_doc_sources(result):
                 "score": round(float(r.get("score") or 0), 4),
                 "content": (r.get("content", "") or "")[:160],
             })
+            if r.get("sub_pin"):  # 子问题席位块(20261014)
+                out[-1]["sub_pin"] = True
             if r.get("doc_url") and str(r["doc_url"]).startswith("http"):
                 # 文档换后端代理直链(TOS 桶强制下载,直链无法 inline);失败回落原值
                 try:

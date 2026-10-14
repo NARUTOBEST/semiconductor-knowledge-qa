@@ -57,6 +57,17 @@ from ..utils.events import meta_event  # noqa: E402
 logger = logging.getLogger("agent")
 
 
+def _pin_fill(items: list, limit: int) -> list:
+    """子问题席位绑定(20261014):常规配额之外追加带 sub_pin 的来源条目,
+    保证复合题每个子问题的 top-k 块在 sources 事件(评测召回口径)中可见。"""
+    sel = list(items[:limit])
+    have = {s.get("chunk_id") for s in sel if isinstance(s, dict)}
+    sel += [s for s in items
+            if isinstance(s, dict) and s.get("sub_pin")
+            and s.get("chunk_id") not in have]
+    return sel
+
+
 def _compressed_result_content(result, *, question: str,
                                trace_id: str) -> str | None:
     """单条 list[dict] 检索结果 -> 轻模型抽关键句后的 JSON 文本(保留元数据)。
@@ -572,7 +583,7 @@ def agent_node(state: AgentState, config) -> dict:
                "result_preview": preview[:RESULT_PREVIEW_LEN]
                    + ("…" if len(preview) > RESULT_PREVIEW_LEN else ""),
                "error": None, "error_type": None})
-            w({"type": "sources", "items": list(pre_srcs.values())[:8],
+            w({"type": "sources", "items": _pin_fill(list(pre_srcs.values()), 8),
                "trace_id": trace_id, "step": 0})
             pre_patch = {
                 "collected_sources": pre_srcs,
@@ -1214,7 +1225,7 @@ def execute_tools_node(state: AgentState, config) -> dict:
 
     if total_sources:
         metrics.record_search(hit=True)
-        w({"type": "sources", "items": list(total_sources.values())[:8],
+        w({"type": "sources", "items": _pin_fill(list(total_sources.values()), 8),
            "trace_id": trace_id, "step": step})
     else:
         metrics.record_search(hit=False)
