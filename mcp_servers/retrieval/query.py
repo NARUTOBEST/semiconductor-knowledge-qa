@@ -62,6 +62,24 @@ _EXACT_SCAN = 200
 _CODE_BOUND = re.compile(r"(?<![\d.,])\d{3,5}(?![\d.,])")
 
 
+def _scope_flt(scope_stems):
+    """源限定硬过滤(轮次21):锁定文档族(含全部分段变体)的 source_stem
+    MatchAny 过滤;scope_stems 为空返回 None(不过滤)。"""
+    if not scope_stems:
+        return None
+    return models.Filter(must=[models.FieldCondition(
+        key="source_stem", match=models.MatchAny(any=list(scope_stems)))])
+
+
+def _merge_flt(a, b):
+    """合并两个 Filter 的 must 条件(设备过滤 × 源限定硬过滤同用时)。"""
+    if a is None:
+        return b
+    if b is None:
+        return a
+    return models.Filter(must=list(a.must) + list(b.must))
+
+
 def extract_codes(q):
     """提取查询中的报警/故障代码(3~5 位独立数字)。过滤常见年份(19xx/20xx)。"""
     codes = []
@@ -73,13 +91,13 @@ def extract_codes(q):
     return codes
 
 
-def exact_code_recall(q, limit=6):
+def exact_code_recall(q, limit=6, scope_stems=None):
     """精确报警/故障代码兜底召回:词面(带数字边界)含查询代码的块。
 
     报警码表行在 dense/sparse 向量检索里排名靠后(实测 4 位码块纯 sparse 仅第 46
     名,进不了 RRF 池)。这里用 broad sparse 池 + 正则子串兜底,把含该代码的块
     显式捞回,交给服务层并入候选;真实 reranker 启用后仍按相关性重排。
-    无代码或无命中返回 []。"""
+    无代码或无命中返回 []。scope_stems 非空时只在该文档族内捞(源限定硬模式)。"""
     codes = extract_codes(q)
     if not codes:
         return []
@@ -92,6 +110,7 @@ def exact_code_recall(q, limit=6):
         query=models.SparseVector(indices=[int(x) for x in sp.keys()],
                                   values=[float(x) for x in sp.values()]),
         using="sparse", limit=_EXACT_SCAN, with_payload=True,
+        query_filter=_scope_flt(scope_stems),
     )
     pat = re.compile(r"(?<![\d.,])(?:" + "|".join(codes) + r")(?![\d.,])")
     hits, seen = [], set()
@@ -105,11 +124,12 @@ def exact_code_recall(q, limit=6):
     return hits
 
 
-def sparse_rescue(q, limit=2):
+def sparse_rescue(q, limit=2, scope_stems=None):
     """sparse 词面保底召回:cross-encoder 对表格/码表类块常打低分被 τ 截掉
     (run20 探针:垫脚数量表 dense 第10、重排 <0.3,而泛相关段落 0.78+),
     但这类块恰是查询词面命中率最高的。返回纯 sparse top-N 点,由服务层
-    按 chunk_id 去重后追加到重排结果尾部(评分压在 τ 之下,只排尾不抢位)。"""
+    按 chunk_id 去重后追加到重排结果尾部(评分压在 τ 之下,只排尾不抢位)。
+    scope_stems 非空时只在该文档族内捞(源限定硬模式)。"""
     global _te
     _te = _te or embed.get_text_encoder()
     _, sparse = _te.encode([q])
@@ -119,34 +139,38 @@ def sparse_rescue(q, limit=2):
         query=models.SparseVector(indices=[int(x) for x in sp.keys()],
                                   values=[float(x) for x in sp.values()]),
         using="sparse", limit=limit, with_payload=True,
+        query_filter=_scope_flt(scope_stems),
     )
     return res.points
 
 
-def query_text(q, k=5):
+def query_text(q, k=5, scope_stems=None):
     """文本库混合检索:dense + sparse,RRF 融合(召回池 _RECALL_POOL)。
 
     设备型号双路融合(DEVICE_FILTER):问题抽到型号 token 时,并列加一条
     devices 过滤的 dense/sparse prefetch(池 DEVICE_POOL_LIMIT)——被同族设备
     手册淹没的块从过滤路以高 RRF 名次进入融合池,交给下游 reranker 定夺;
-    无过滤两路始终保留,金标不丢(不做硬过滤,见 devices.py 模块注释)。"""
+    无过滤两路始终保留,金标不丢(不做硬过滤,见 devices.py 模块注释)。
+    scope_stems 非空(源限定硬模式):dense/sparse/device 各路 prefetch 一律
+    追加 source_stem MatchAny 过滤——召回池只剩锁定文档族的块。"""
     global _te
     _te = _te or embed.get_text_encoder()
     dense, sparse = _te.encode([q])
     sp = sparse[0]
     idx = [int(x) for x in sp.keys()]
     val = [float(x) for x in sp.values()]
+    flt = _scope_flt(scope_stems)
     prefetch = [
         models.Prefetch(query=dense[0].tolist(), using="dense",
-                        limit=_RECALL_POOL),
+                        limit=_RECALL_POOL, filter=flt),
         models.Prefetch(query=models.SparseVector(indices=idx, values=val),
-                        using="sparse", limit=_RECALL_POOL),
+                        using="sparse", limit=_RECALL_POOL, filter=flt),
     ]
     if getattr(C, "DEVICE_FILTER", False):
         toks = devices.extract_device_tokens(q)
         if toks:
-            dev_flt = models.Filter(must=[models.FieldCondition(
-                key="devices", match=models.MatchAny(any=toks))])
+            dev_flt = _merge_flt(models.Filter(must=[models.FieldCondition(
+                key="devices", match=models.MatchAny(any=toks))]), flt)
             prefetch += [
                 models.Prefetch(query=dense[0].tolist(), using="dense",
                                 limit=max(k, int(getattr(C, "DEVICE_POOL_LIMIT", 40))),
