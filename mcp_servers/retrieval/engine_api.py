@@ -744,30 +744,46 @@ def _recall_queries(query):
 
 
 def search_text(query, k=3, score_ratio=0.4, with_pool=False,
-                with_ranked=False, scope_stem="", with_scope_info=False):
+                with_ranked=False, scope_stem="", with_scope_info=False,
+                scope_hard=False):
     """文本库混合检索(dense+sparse RRF)+ 精确代码兜底召回 + Cross-Encoder 重排。
     截断不再固定 top-k:重排分 ≥RERANK_TAU 才保留(动态 0~MAX_K 块,保底 top-1)。
     with_pool=True:额外返回重排前候选池(评测口径"池内召回"分母用),返回
     {"items": [...], "pool": [{"chunk_id","source_stem","score"}]}——池含送入
     reranker 的全部候选 + sparse_rescue 尾部块(否则经 rescue 返回的金块会
-    分子有分母无,召回率虚高)。"""
+    分子有分母无,召回率虚高)。
+    scope_hard=True(轮次21 源限定硬模式):召回各路 prefetch 加 source_stem
+    过滤,池内只剩锁定文档族的块;τ 截断后不足 k 用族内 top-k 回填(负证据题
+    需要族内上下文陈述"实际覆盖范围",不能因 τ 全截光)。"""
     recall_k = getattr(C, "RERANK_RECALL_K", 20)
+    # 源限定(scope_stem 非空):硬模式在召回层族过滤(需先把锁定 base 展开
+    # 为全部分段变体,寄存器缺该族时退回软加权防全库误滤);软模式仅重排后加权。
+    scope = _base_stem(scope_stem) if scope_stem else None
+    scope_variants = None
+    if scope and scope_hard:
+        reg = _load_stem_registry() or {}
+        scope_variants = sorted(reg.get(scope) or [])
+        if not scope_variants:
+            logger.warning("scope hard: no variants for %r, fallback soft", scope[:40])
+            scope_variants = None
     # 多路召回构造(轮次19):原句 + 翻译路 + 术语表替换;各路 RRF 并入同池。
     # 只进召回不进重排——英文/分区重排已离线证伪无增益
     # (eval/optimization_log/20261007_inpool_rerank_test.md)。
     _t0 = time.perf_counter()
     qs = _recall_queries(query)
     _t1 = time.perf_counter()
-    fused = Q.query_text(qs[0], k=recall_k)
+    fused = Q.query_text(qs[0], k=recall_k, scope_stems=scope_variants)
     _t2 = time.perf_counter()
     for extra in qs[1:]:
-        fused = _rrf_merge(fused, Q.query_text(extra, k=recall_k),
+        fused = _rrf_merge(fused, Q.query_text(extra, k=recall_k,
+                                               scope_stems=scope_variants),
                            w_b=float(getattr(C, "TRANSLATE_RRF_WEIGHT", 0.7)))
     _t3 = time.perf_counter()
     # 精确报警/故障代码兜底:含代码词面的块常排在 RRF 池外,显式并入候选,
     # 再统一交给 reranker 按相关性重排。RETRIEVAL_EXACT_CODE=0 关闭(实验:
     # 主路修复后是否还需要独立兜底通道)。
-    exact = (Q.exact_code_recall(query, limit=max(k, 6))
+    exact = (Q.exact_code_recall(query, limit=max(k, 6),
+                                 scope_stems=scope_variants)
              if getattr(C, "RETRIEVAL_EXACT_CODE", True) else [])
     exact_ids = {p.id for p in exact}
     # score_ratio 阈值只约束向量融合召回部分(兜底块原始 sparse 分偏低,不参与)。
@@ -800,12 +816,12 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
     # 直接加权——查询时的词面推断收窄已删(20261008 轮次12):反问机制上线后
     # 歧义交由用户消解,词面自动推断属重复防线且有"确信地锁错"风险
     # (dev_067 类),infer_target_stem 保留仅供冲突信号判定使用。
-    scope = None
-    if scope_stem:
-        scope = _base_stem(scope_stem)
-        if scope:
-            ranked = _apply_source_scope(ranked, scope)
-            logger.info("source scope: %s (q=%r)", scope[:40], (query or "")[:40])
+    # 轮次21:硬模式已在召回层族过滤,此处 boost 对族内全块等比、排序不变,保留
+    # 仅为软/硬两模式走同一条后处理链。
+    if scope:
+        ranked = _apply_source_scope(ranked, scope)
+        logger.info("source scope%s: %s (q=%r)",
+                    " hard" if scope_hard else "", scope[:40], (query or "")[:40])
     conflict_stems: list[str] = []
     if with_scope_info:
         # 冲突信号在 scope boost 之前、按自然重排序判定(轮次9 反问触发依据)
@@ -814,6 +830,16 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
         except Exception:  # noqa: BLE001  信号层故障不影响检索结果
             logger.warning("scope conflict detect failed", exc_info=True)
     kept = _dynamic_cut(ranked, k)
+    # 硬模式 τ 回填:τ 截断不足 k 时用族内 top-k 补齐(负证据题需族内上下文
+    # 陈述"实际覆盖范围";池已族内,弱相关块不构成跨文档污染)。
+    if scope and scope_hard and len(kept) < min(k, len(ranked)):
+        chosen = {id(p) for p, _ in kept}
+        for p, s in ranked:
+            if len(kept) >= k:
+                break
+            if id(p) not in chosen:
+                kept.append((p, s))
+                chosen.add(id(p))
     # τ/K 离线扫描用:返回截断前全部候选的重排分(scope boost 后、doc_cap 前;
     # rescue 未并入)。生产链路不传此参,零影响。
     if with_ranked:
@@ -833,7 +859,8 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
     # τ 之下);固定 top-K 模式(方案一):RETRIEVAL_RESCUE_SEAT 开启时保留一个
     # "弱末位让位"补录席位,返回块数仍恰为 RERANK_FIXED_K。
     if getattr(C, "RETRIEVAL_SPARSE_RESCUE", True) and not _reranker_failed:
-        rescued = Q.sparse_rescue(query, limit=int(getattr(C, "RETRIEVAL_SPARSE_RESCUE_K", 2)))
+        rescued = Q.sparse_rescue(query, limit=int(getattr(C, "RETRIEVAL_SPARSE_RESCUE_K", 2)),
+                                  scope_stems=scope_variants)
         pool_pts.extend(rescued)
         if int(getattr(C, "RERANK_FIXED_K", 0) or 0):
             if getattr(C, "RETRIEVAL_RESCUE_SEAT", False):
@@ -855,7 +882,8 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
             inferred = ""
         scope_info = {"locked_stem": scope or "",
                       "conflict_stems": conflict_stems,
-                      "inferred_stem": inferred}
+                      "inferred_stem": inferred,
+                      "scope_hard": bool(scope and scope_hard)}
         if with_pool:
             seen = set()
             pool = []

@@ -129,6 +129,7 @@ class SearchTextRequest(BaseModel):
     with_ranked: bool = False  # 评测用:附带返回截断前全部候选的重排分(τ/K 扫描)
     scope_stem: str = ""       # 轮次9:会话锁定的目标文档族(非空跳过词面推断)
     with_scope_info: bool = False  # 轮次9:附带 scope 锁定/冲突信号
+    scope_hard: bool = False   # 轮次21:源限定硬模式(召回层族过滤)
 
 class SearchImageRequest(BaseModel):
     query: str
@@ -148,7 +149,8 @@ def search_text(req: SearchTextRequest):
                                   with_pool=req.with_pool,
                                   with_ranked=req.with_ranked,
                                   scope_stem=req.scope_stem,
-                                  with_scope_info=req.with_scope_info)
+                                  with_scope_info=req.with_scope_info,
+                                  scope_hard=req.scope_hard)
 
 
 @app.post("/search_image", dependencies=[Depends(_require_internal_token)])

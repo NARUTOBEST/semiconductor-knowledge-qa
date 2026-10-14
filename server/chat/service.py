@@ -47,7 +47,7 @@ _MAX_REDOS = 1         # 同一 tier 质检 failed 最多重做一次
 
 # run_simple 不认这些 ReAct 预算/重做参数,分发前剔除。
 _NON_SIMPLE_KW = ("max_steps", "max_total_seconds", "hard_deadline",
-                  "qc_feedback", "search_future", "scope_stem")
+                  "qc_feedback", "search_future", "scope_stem", "scope_hard")
 
 
 # ---- 轮次9:检索冲突反问 + 会话 scope 锁(轮次12 改版)----
@@ -143,6 +143,48 @@ def _norm_opt(s):
 # 引擎侧词面推断走一次轻量 search_text,超时即降级(fail-open,不阻断主链路)
 _FREE_RESOLVE_TIMEOUT_S = 12.0
 
+# 源限定(轮次21):题面以这些词样把问题限定在某份资料内(负证据题的题面特征)。
+_BOUNDED_CORPUS_RE = re.compile(
+    r"手册里|手册中|说明书里|说明书内|书里|书中|该书中|这本书|资料里|资料中|文档里|书内")
+
+
+def _infer_stem_via_engine(query, timeout_s: float = _FREE_RESOLVE_TIMEOUT_S):
+    """引擎侧词面推断文档族:轻量 search_text(with_scope_info)取
+    scope.inferred_stem,daemon 线程+超时降级(fail-open,不阻断主链路)。
+    _resolve_free_reply(反问应答轮)与源限定直推(轮次21)共用。"""
+    try:
+        from tools import dispatch, registry
+        from agent_reasoning.ReAct.support.tool_resilience import (
+            call_with_resilience)
+        spec = registry.get("search_text")
+        if spec is None:
+            return ""
+
+        def _call():
+            return call_with_resilience(
+                "search_text",
+                {"query": query, "k": 1, "score_ratio": 1.0,
+                 "with_scope_info": True},
+                spec, invoke=dispatch)
+        box = {}
+
+        def _runner():
+            try:
+                box["out"] = _call()
+            except Exception:  # noqa: BLE001
+                box["out"] = None
+        t = threading.Thread(target=_runner, daemon=True)
+        t.start()
+        t.join(timeout_s)
+        out = box.get("out")
+        if isinstance(out, tuple) and len(out) == 2:
+            out = out[0] if out[1] is None else None
+        if isinstance(out, dict):
+            return ((out.get("scope") or {}).get("inferred_stem")) or ""
+    except Exception:  # noqa: BLE001  信号层故障不阻断主链路
+        logger.warning("stem infer via engine failed", exc_info=True)
+    return ""
+
 
 def _resolve_free_reply(reply):
     """无选项反问应答轮:从用户自由文本回复推断所指文档族。
@@ -152,37 +194,7 @@ def _resolve_free_reply(reply):
     reply = (reply or "").strip()
     if not reply:
         return "", ""
-    stem = ""
-    try:
-        from tools import dispatch, registry
-        from agent_reasoning.ReAct.support.tool_resilience import (
-            call_with_resilience)
-        spec = registry.get("search_text")
-        if spec is not None:
-            def _call():
-                return call_with_resilience(
-                    "search_text",
-                    {"query": reply, "k": 1, "score_ratio": 1.0,
-                     "with_scope_info": True},
-                    spec, invoke=dispatch)
-            box = {}
-
-            def _runner():
-                try:
-                    box["out"] = _call()
-                except Exception:  # noqa: BLE001
-                    box["out"] = None
-            t = threading.Thread(target=_runner, daemon=True)
-            t.start()
-            t.join(_FREE_RESOLVE_TIMEOUT_S)
-            out = box.get("out")
-            if isinstance(out, tuple) and len(out) == 2:
-                out = out[0] if out[1] is None else None
-            if isinstance(out, dict):
-                stem = ((out.get("scope") or {}).get("inferred_stem")) or ""
-    except Exception:  # noqa: BLE001  信号层故障不阻断主链路
-        logger.warning("free-reply stem resolve failed", exc_info=True)
-        stem = ""
+    stem = _infer_stem_via_engine(reply)
     if stem:
         return stem, reply
     # 降级:引擎不可达/推断不出时,进程内抽设备 token(devices.py 纯词面,
@@ -370,7 +382,8 @@ def _split_composite_query(message: str) -> list[str]:
     return subs[:3] if len(subs) >= 2 else []
 
 
-def _speculative_search(message: str, scope_stem: str = ""):
+def _speculative_search(message: str, scope_stem: str = "",
+                        scope_hard: bool = False):
     """投机检索:在后台工具池预发一次 search_text,与路由/分类重叠执行。
     返回 future(.result() -> (result, err),与 call_with_resilience 同构);
     无人消费时结果自然丢弃(daemon 池,不阻塞收尾)。
@@ -388,6 +401,8 @@ def _speculative_search(message: str, scope_stem: str = ""):
                 "with_scope_info": True}
         if scope_stem:
             args["scope_stem"] = scope_stem
+        if scope_hard and scope_stem:
+            args["scope_hard"] = True
         out = call_with_resilience("search_text", args, spec, invoke=dispatch)
         # 复合题子检索合并(20261013):主路(整句)排序与 scope/冲突信号原样保留,
         # 各子问题检索的 top 块按 chunk_id 去重后追加到尾部(cap 内),给作答层
@@ -510,10 +525,51 @@ def react_stream(message,
                 username, message, history or [])
         except Exception:  # noqa: BLE001  信号层故障不阻断主链路
             logger.warning("scope resolve failed", exc_info=True)
+    # 轮次21:源限定硬模式统一判定——SOURCE_LOCK 开启且 stem 已锁定(反问应答
+    # 轮消解/粘性锁/直推)即召回层族过滤;开关关闭退回轮次20 软加权行为。
+    scope_hard = bool(scope_stem) and getattr(C, "SOURCE_LOCK_ENABLED", True)
     # 反问应答轮:入口判定(澄清/路由)必须用原问题——本轮 message 是选项
     # 文本(对象名,往往短且无领域词面),拿它判定会被误路由到 simple
     # (simple 不检索,recall 归零)或再触发一次澄清(轮次12)。
     entry_q = clarified_q or message
+
+    # 源限定(轮次21,负证据题治理):题面以"手册里/书里"等把问题限定在某份
+    # 资料内 → 锁定该文档族。两路:
+    #   Path A 直推:题面/近 2 轮历史含设备 token,引擎词面推断确信 → 直接锁定
+    #               (单轮完成,不打扰用户);
+    #   Path B 反问:直推失败 → 无选项反问请用户给出资料名,应答轮经
+    #               _scope_resolve 消解(机制与轮次20 共用)。
+    # 仅普通轮检测(应答轮/粘性锁轮 scope 已定,fail-open 失败也不重问防循环);
+    # 锁定后的检索走硬模式(scope_hard),作答层由各路径注入"未涉及"口径。
+    if (getattr(C, "SOURCE_LOCK_ENABLED", True)
+            and not scope_stem and not clarified_q
+            and _BOUNDED_CORPUS_RE.search(message or "")):
+        hist_txt = " ".join(
+            str(t.get("content") or "") for t in (history or [])[-2:]
+            if isinstance(t, dict))
+        stem = ""
+        try:
+            from mcp_servers.retrieval.devices import extract_device_tokens
+            has_tokens = bool(extract_device_tokens(
+                (message or "") + " " + hist_txt))
+        except Exception:  # noqa: BLE001  设备词面模块故障按无 token 处理
+            has_tokens = False
+        if has_tokens:
+            stem = _infer_stem_via_engine((message or "") + " " + hist_txt)
+        if stem:
+            scope_stem = stem
+            scope_hard = True
+            logger.info("source lock (direct): %s (q=%.40r)",
+                        stem[:40], (message or "")[:40])
+        elif getattr(C, "CLARIFY_ENABLED", True):
+            _register_clarify_pending(username, history or [], message, [])
+            yield {"type": "clarify",
+                   "question": "请问您指的是哪份资料(手册/文档的名称)?",
+                   "options": [],
+                   "source": "source-lock"}
+            yield {"type": "done", "trace": {}}
+            return
+        # 直推不可行且反问关闭:fail-open,按原问题无 scope 作答
 
     search_future = None
     if getattr(C, "ROUTER_FUSED", True):
@@ -535,8 +591,12 @@ def react_stream(message,
                 # 轮次20:反问应答轮用户显式作答消解出 stem 时,重启用检索域
                 # 收窄(scope_stem 加权只作用于该次投机检索 = raglite 主消费路;
                 # react 后续自主检索不受影响)。
+                # 轮次21:源限定锁定的轮,scope 全链路透传(投机检索硬过滤 +
+                # raglite 参数 + react configurable + 升级路),react 自主补检
+                # 也限制在锁定文档族内。
                 search_future = _speculative_search(clarified_q or message,
-                                                    scope_stem=scope_stem)
+                                                    scope_stem=scope_stem,
+                                                    scope_hard=scope_hard)
             except Exception:  # noqa: BLE001  投机失败不影响主链路
                 search_future = None
         try:
@@ -668,8 +728,10 @@ def react_stream(message,
             on_event=on_event,
             # 投机检索 future:raglite 直接消费,react 作为预检索注入;simple 不消费
             search_future=(search_future if tier in ("raglite", "react") else None),
-            # 轮次12:不再向下传 scope_stem——锁定仅作"本会话已消解、不再反问"
-            # 标记,检索一律正常翻译双路,无文档族加权
+            # 轮次12 曾全面停传 scope;轮次21 在源限定/反问消解锁定场景恢复
+            # 透传(scope_stem 非空才生效),升级/重做轮同样带上,保证族内一致
+            scope_stem=scope_stem,
+            scope_hard=scope_hard,
         )
         for ev in gen:
             etype = ev.get("type")
@@ -703,6 +765,9 @@ def react_stream(message,
             # simple 直答不带这两个字段(默认 0,不触发 react 低置信规则)。
             "retrieval_max_score": float(held_done.get("retrieval_max_score") or 0.0),
             "search_count": int(held_done.get("search_count") or 0),
+            # 源限定(轮次21):锁定轮硬过滤零召回 = 正确答案"未涉及",
+            # 质检门不得按"检索失败"升级(升级会跨族重检,前功尽弃)。
+            "scoped": bool(scope_stem),
         }
         result = quality_check(answer, context, tier=tier)
         verdict = result.get("verdict", "passed")

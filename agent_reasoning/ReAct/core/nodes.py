@@ -428,10 +428,17 @@ def build_messages_node(state: AgentState, config) -> dict:
     except Exception:  # noqa: BLE001
         pass
 
+    # 源限定口径(轮次21):scope 锁定生效时,system 追加"只准引用该族/
+    # 无命中明说未涉及"指令(与 raglite 口径共用同一文案)
+    scope_stem_cfg = cfg.get("scope_stem") or ""
+
     def _with_blocks(base_sys: str) -> str:
         for blk in (format_summary_block(summary), prefetch_block):
             if blk:
                 base_sys += "\n\n" + blk
+        if scope_stem_cfg:
+            from system_prompt import scope_lock_guidance
+            base_sys += "\n\n" + scope_lock_guidance(scope_stem_cfg)
         return base_sys
 
     patch: dict[str, Any] = {}
@@ -1013,6 +1020,8 @@ def execute_tools_node(state: AgentState, config) -> dict:
     # 轮次9:会话锁定的目标文档族,注入本轮 search_text 调用(用户反问选定后
     # 强制 scope 加权,跳过词面推断)。
     mem_scope_stem = config.get("configurable", {}).get("scope_stem") or ""
+    # 轮次21:源限定硬模式与 scope_stem 配套注入(召回层族过滤)
+    mem_scope_hard = bool(config.get("configurable", {}).get("scope_hard"))
     mem_prefetch_ids: set = set()
     try:
         from tools.memory_tool import (
@@ -1043,6 +1052,8 @@ def execute_tools_node(state: AgentState, config) -> dict:
         cache_hit_var.set(False)  # 复位;handler 命中缓存时置 True(同线程可见)
         if name == "search_text" and mem_scope_stem and not args.get("scope_stem"):
             args = {**args, "scope_stem": mem_scope_stem}
+        if name == "search_text" and mem_scope_hard and mem_scope_stem:
+            args = {**args, "scope_hard": True}
         try:
             result, err = call_with_resilience(
                 name, args, spec, deadline=hard_deadline,

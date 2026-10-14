@@ -45,14 +45,18 @@ def _extract_usage(chunk):
     }
 
 
-def _do_search(message, hard_deadline, search_future, scope_stem=""):
+def _do_search(message, hard_deadline, search_future, scope_stem="",
+               scope_hard=False):
     """执行 search_text:优先取投机检索 future,失败回退同步调用。
-    返回 (result, err)。scope_stem 非空时注入会话锁定的目标文档族(轮次9)。"""
+    返回 (result, err)。scope_stem 非空时注入会话锁定的目标文档族(轮次9);
+    scope_hard(轮次21 源限定)同步回退路也要带上,否则投机失败后丢硬过滤。"""
     spec = registry.get("search_text")
     args = {"query": message, "k": C.RAGLITE_SEARCH_K,
             "score_ratio": C.RAGLITE_SEARCH_SCORE_RATIO}
     if scope_stem:
         args["scope_stem"] = scope_stem
+    if scope_hard:
+        args["scope_hard"] = True
     if search_future is not None:
         budget = C.RAGLITE_MAX_TOTAL_SECONDS
         if hard_deadline:
@@ -147,7 +151,8 @@ def raglite_answer_stream(message: str,
                           hard_deadline: Optional[float] = None,
                           qc_feedback: Optional[str] = None,
                           search_future=None,
-                          scope_stem: str = ""):
+                          scope_stem: str = "",
+                          scope_hard: bool = False):
     """生成器:执行 raglite 单检索单作答,yield SSE 事件 dict。"""
     history = history or []
 
@@ -168,7 +173,7 @@ def raglite_answer_stream(message: str,
     # ---- 1 次检索(投机 future 或同步)----
     t_search = time.time()
     result, err = _do_search(message, hard_deadline, search_future,
-                             scope_stem=scope_stem)
+                             scope_stem=scope_stem, scope_hard=scope_hard)
     chunks = _prompt_chunks(result) if err is None else []
     if err is None:
         search_count = 1
@@ -188,7 +193,10 @@ def raglite_answer_stream(message: str,
                "trace_id": trace_id, "step": 1}
         rq = _rewrite_query(message, prior_turns, trace_id)
         if rq and rq != message:
-            result2, err2 = _do_search(rq, hard_deadline, None)
+            # 源限定轮:重查同样带 scope(换词不换文档族,轮次21)
+            result2, err2 = _do_search(rq, hard_deadline, None,
+                                       scope_stem=scope_stem,
+                                       scope_hard=scope_hard)
             if err2 is None:
                 merged = _merge_results(result, result2)
                 new_top = max((c["score"] for c in _prompt_chunks(merged)),
@@ -217,6 +225,11 @@ def raglite_answer_stream(message: str,
     # ---- 构建消息 ----
     messages: list[dict[str, Any]] = [{"role": "system",
                                        "content": RAGLITE_SYSTEM_PROMPT}]
+    # 源限定口径(轮次21):scope 锁定生效时追加"只准引用该族/无命中明说未涉及"
+    if scope_stem:
+        from system_prompt import scope_lock_guidance
+        messages.append({"role": "system",
+                         "content": scope_lock_guidance(scope_stem)})
     for turn in prior_turns:
         messages.append({"role": turn["role"],
                          "content": turn.get("content", "")})

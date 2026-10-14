@@ -60,6 +60,8 @@ def search_text(
         description="内部参数(会话状态自动注入,调用时不要设置):用户选定的目标文档族,非空时跳过词面推断直接锁定加权。")] = "",
     with_scope_info: Annotated[bool, Field(
         description="内部参数(调用时不要设置):响应附带 scope 锁定/冲突信号。")] = False,
+    scope_hard: Annotated[bool, Field(
+        description="内部参数(会话状态自动注入,调用时不要设置):源限定硬模式,召回只在该文档族内进行。")] = False,
 ) -> dict:
     """文本库混合检索(dense+sparse RRF)+ 精确代码兜底 + 重排。
 
@@ -68,7 +70,8 @@ def search_text(
     结果 dict 过不了校验,tool 直接 isError(20261007 部署踩坑)。
     """
     return _run(engine_api.search_text, query, k=k, score_ratio=score_ratio,
-                scope_stem=scope_stem, with_scope_info=with_scope_info)
+                scope_stem=scope_stem, with_scope_info=with_scope_info,
+                scope_hard=scope_hard)
 
 
 @mcp.tool(

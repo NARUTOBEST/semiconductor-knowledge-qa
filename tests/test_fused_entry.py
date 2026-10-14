@@ -183,7 +183,7 @@ class TestClarifyPendingRegistration:
         with patch.object(svc, "classify_and_clarify",
                           return_value=entry2), \
              patch.object(svc, "_speculative_search",
-                          side_effect=lambda q, scope_stem="":
+                          side_effect=lambda q, scope_stem="", scope_hard=False:
                               picked.append((q, scope_stem))), \
              patch.object(svc, "quality_check",
                           return_value={"verdict": "passed", "warnings": []}), \
@@ -314,7 +314,7 @@ class TestClarifyFreeText:
              patch.object(svc, "classify_and_clarify",
                           return_value=entry2), \
              patch.object(svc, "_speculative_search",
-                          side_effect=lambda q, scope_stem="":
+                          side_effect=lambda q, scope_stem="", scope_hard=False:
                               cap.append((q, scope_stem))), \
              patch.object(svc, "quality_check",
                           return_value={"verdict": "passed", "warnings": []}), \
@@ -346,7 +346,7 @@ class TestClarifyFreeText:
              patch.object(svc, "classify_and_clarify",
                           return_value=entry2), \
              patch.object(svc, "_speculative_search",
-                          side_effect=lambda q, scope_stem="":
+                          side_effect=lambda q, scope_stem="", scope_hard=False:
                               cap.append((q, scope_stem))), \
              patch.object(svc, "quality_check",
                           return_value={"verdict": "passed", "warnings": []}), \

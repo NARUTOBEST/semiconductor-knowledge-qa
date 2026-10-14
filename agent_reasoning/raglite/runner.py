@@ -23,6 +23,7 @@ def run_raglite(message: str,
                 qc_feedback: Optional[str] = None,
                 search_future=None,
                 scope_stem: str = "",
+                scope_hard: bool = False,
                 **_):
     """生成器:raglite 路径(1 次检索 + 1 次主模型流式作答)。
 
@@ -54,6 +55,7 @@ def run_raglite(message: str,
         username=username, thread_id=store_thread_id,
         hard_deadline=hard_deadline, qc_feedback=qc_feedback,
         search_future=search_future, scope_stem=scope_stem,
+        scope_hard=scope_hard,
     )
     yield from run_path(
         "raglite", event_iterable,

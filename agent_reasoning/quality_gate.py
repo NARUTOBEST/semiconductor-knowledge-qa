@@ -101,6 +101,12 @@ def _check_raglite(answer: str, context: dict[str, Any]) -> dict[str, Any]:
                 "feedback": "未生成有效回答,请重试。",
                 "warnings": warnings}
     if int(context.get("search_count") or 0) == 0:
+        # 源限定(轮次21):锁定文档族后硬过滤零召回是预期结果——族内确实没有
+        # 该事实,正确行为是作答"未涉及";升级 react 会跨族重检,前功尽弃。
+        if context.get("scoped"):
+            return {"verdict": "passed",
+                    "feedback": "",
+                    "warnings": ["源限定检索零召回,答案应为\"该资料未涉及\"。"]}
         return {"verdict": "needs_escalation",
                 "feedback": "检索服务未返回结果,升级 react 换关键词检索作答。",
                 "warnings": warnings}

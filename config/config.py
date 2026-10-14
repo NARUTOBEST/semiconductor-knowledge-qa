@@ -432,6 +432,11 @@ CLARIFY_OFFER_OPTIONS = _feature_on("CLARIFY_OFFER_OPTIONS", False)
 # 词面误锁护栏:infer_target_stem 只认含数字型号 token/全大写缩写,纯字母
 # 通用词(screw 等)不计分。SOURCE_SCOPE_STRICT_TOKENS=0 关闭(轮次8 前行为)。
 SOURCE_SCOPE_STRICT_TOKENS = _feature_on("SOURCE_SCOPE_STRICT_TOKENS", True)
+# 源限定(轮次21,负证据题治理):题面以"手册里/书里/说明书里"等限定某份资料时,
+# 锁定该文档族——词面可直推则直接锁定,推不出则反问用户作答资料名;锁定后检索
+# 走硬模式(召回层族过滤)+作答只准引用该族、无命中明说"未涉及"。
+# 置 0 回退轮次20 行为(无此检测,scope 仅反问应答轮软加权)。
+SOURCE_LOCK_ENABLED = _feature_on("SOURCE_LOCK_ENABLED", True)
 
 # === 设备型号双路融合(机制3治理:邻题文档挤占 top-k)===
 # 入库侧 RAG/RAG_tools/backfill_devices.py 给每块 payload.devices 打"正文/标题
