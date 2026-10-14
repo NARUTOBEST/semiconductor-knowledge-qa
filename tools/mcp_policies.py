@@ -92,7 +92,10 @@ POLICIES = {
         "produces_sources": True,
         "source_extractor": extract_doc_sources,
         "truncate": _RETRIEVAL_TRUNCATE,
-        "timeout": 30.0,
+        # 20261015 放宽:席位绑定/冲突探测后每题检索调用数 ~3 倍,F40(4080
+        # vGPU)排队下单次检索偶发 >30s,30s 超时→重试再超→熔断开闸 30s 内
+        # 全失败(10u 全量实测 68% srcs=0 根因)。90s 与桥层读超时(180s)匹配。
+        "timeout": 90.0,
         "retry_times": 1,
         "max_input_length": {"query": 500},
         # 轮次11 回退:首轮多角度并行检索(queries 数组扇出)已撤销——实测同题
@@ -104,7 +107,7 @@ POLICIES = {
         "produces_sources": True,
         "source_extractor": extract_doc_sources,
         "truncate": _RETRIEVAL_TRUNCATE,
-        "timeout": 30.0,
+        "timeout": 90.0,
         "retry_times": 1,
         "max_input_length": {"query": 500},
     },

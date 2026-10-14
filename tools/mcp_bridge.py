@@ -44,6 +44,11 @@ from .base import Category, ToolSpec, TruncatePolicy
 logger = logging.getLogger("tools.mcp")
 
 _CONNECT_TIMEOUT_S = float(os.getenv("MCP_CONNECT_TIMEOUT_S", "3"))
+# 桥层读超时(20261015 环境可调):检索(翻译双路+重排排队)在并发下普遍 >5s,
+# 且席位绑定/冲突探测后调用数 ~3 倍——偶发 >60s 属正常排队,ReadTimeout 会被
+# 上层判成会话失效连环重建(轮次19 20x10 srcs=0 全员故障根因)。默认放宽 180s,
+# 与工具层策略超时(90s)+重试对齐。
+_READ_TIMEOUT_S = float(os.getenv("MCP_READ_TIMEOUT_S", "180"))
 _RETRY_INTERVAL_S = float(os.getenv("MCP_RETRY_INTERVAL_S", "10"))
 _DEFAULT_SERVERS = [{"name": "retrieval",
                      "url": None}]  # url 运行时取 C.RETRIEVAL_SERVICE_URLS + "/mcp"
@@ -202,12 +207,12 @@ class _Conn:
 
         @asynccontextmanager
         async def _with_token():
-            # 显式放宽读超时:httpx 默认 5s,而检索(翻译双路+重排排队)在
-            # 20 并发下普遍 >5s,ReadTimeout 会被上层判成会话失效连环重建
-            # (轮次19 20x10 评测 srcs=0 全员故障根因)。工具层 30s 超时兜底。
+            # 显式放宽读超时:httpx 默认 5s,检索在并发下普遍 >5s(见
+            # _READ_TIMEOUT_S 注释)。工具层 90s 策略超时兜底。
             async with httpx2.AsyncClient(
                     headers={"X-Internal-Token": tok},
-                    timeout=httpx2.Timeout(60.0, read=60.0)) as client:
+                    timeout=httpx2.Timeout(_READ_TIMEOUT_S + 30,
+                                           read=_READ_TIMEOUT_S)) as client:
                 async with streamable_http_client(
                         self.url, http_client=client) as streams:
                     yield streams
