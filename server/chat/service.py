@@ -554,6 +554,8 @@ def react_stream(message,
                 (message or "") + " " + hist_txt))
         except Exception:  # noqa: BLE001  设备词面模块故障按无 token 处理
             has_tokens = False
+        logger.info("source lock detect: tokens=%s (q=%.40r)",
+                    has_tokens, (message or "")[:40])
         if has_tokens:
             stem = _infer_stem_via_engine((message or "") + " " + hist_txt)
         if stem:
