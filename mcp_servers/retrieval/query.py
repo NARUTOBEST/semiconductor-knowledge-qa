@@ -47,7 +47,14 @@ def get_client():
 # dense/sparse 各召回多少条再进 RRF 融合。40->80:加大融合池让重排器有机会
 # 看到 RRF 排 20 名以后的 gold 块(R@10≈0.97 说明它们多半在池内,只是被截掉);
 # 下游由 RERANK_RECALL_K=32 + 重排 τ 动态截断控制精度,召回加宽不伤 P。
-_RECALL_POOL = 80
+# 80->200(轮次20):dev_198 定因——金块处近重复簇悬崖(cos 0.70-0.74 密集带),
+# fp16 跨进程编码噪声使 dense 排名在 14-20 与 >96 间翻转,旧窗口 80/96 时
+# 服务实例稳定丢点。窗口加宽后悬崖块掉不出局;代价 = 粗筛(m3,小模型)输入
+# 翻倍 +~100ms,KEEP 精排不变(见 memory/dev043-dev198-diagnosis.md)。
+_RECALL_POOL = int(os.getenv("RECALL_PREFETCH_POOL", "200"))
+# RRF 融合输出下限(每路):96->192 与 prefetch 窗口配套,双路(原文+翻译)
+# 合并后召回池 192->384。RECALL_FUSION_LIMIT=0 退回 max(k, _RECALL_POOL)。
+_FUSION_LIMIT = int(os.getenv("RECALL_FUSION_LIMIT", "192"))
 # 精确码兜底召回时扫描的 sparse 池大小。
 _EXACT_SCAN = 200
 # 数字串两侧边界:既不能是另一个数字/小数点(避免 24120 含 2412 误命中),
@@ -153,7 +160,7 @@ def query_text(q, k=5):
         collection_name=C.TEXT_COLLECTION,
         prefetch=prefetch,
         query=models.FusionQuery(fusion=models.Fusion.RRF),
-        limit=max(k, _RECALL_POOL), with_payload=True,
+        limit=max(k, _FUSION_LIMIT or _RECALL_POOL), with_payload=True,
     )
     return res.points
 
