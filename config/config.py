@@ -423,9 +423,11 @@ RETRIEVAL_BREAKER_COOLDOWN_S     = float(os.getenv("RETRIEVAL_BREAKER_COOLDOWN_S
 RETRIEVAL_BREAKER_RETRY_ATTEMPTS = int(os.getenv("RETRIEVAL_BREAKER_RETRY_ATTEMPTS", "2"))
 RETRIEVAL_BREAKER_BACKOFF_BASE_S = float(os.getenv("RETRIEVAL_BREAKER_BACKOFF_BASE_S", "0.5"))
 RETRIEVAL_BREAKER_BACKOFF_MAX_S  = float(os.getenv("RETRIEVAL_BREAKER_BACKOFF_MAX_S", "4"))
-# 检索冲突反问:top-4 跨多文档族且分差小且词面未确信命中榜首族时,chat 层反问
-# 用户选定文档族;选定后按会话锁定 scope_stem 强制加权。默认关(评测可控)。
-RETRIEVAL_CONFLICT_CLARIFY = _feature_on("RETRIEVAL_CONFLICT_CLARIFY", False)
+# 检索冲突反问(20261015 定为产品规则):top-4 跨多文档族且分差小且词面未确信
+# 命中榜首族时,chat 层反问用户指定资料/对象;应答轮走引擎词面推断锁定 stem,
+# 并按轮次21 统一规则硬过滤(scope_hard)。前置 LLM 判定(specific 不反问)防
+# 具体问题被相似手册误伤(轮次11 主要伤害面)。env 可关回退。
+RETRIEVAL_CONFLICT_CLARIFY = _feature_on("RETRIEVAL_CONFLICT_CLARIFY", True)
 CONFLICT_SCORE_MARGIN = float(os.getenv("CONFLICT_SCORE_MARGIN", "1.0"))
 # 反问无选项化:指代不明一律自由文本反问,不给候选项(用户作答明确对象后再按
 # 对象收窄检索)。置 1 回滚旧"对象化选项"口径(轮次12)。默认关(新口径)。

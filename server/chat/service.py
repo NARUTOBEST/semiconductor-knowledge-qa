@@ -66,6 +66,9 @@ _SCOPE_PENDING: dict = {}   # key -> {"choices": [(label, stem)...], "stems": [.
 _SCOPE_LOCKS: dict = {}     # key -> {"stem": base_stem, "ts"}   # 仅标记已消解
 _SCOPE_TTL_S = 30 * 60
 _CONFLICT_CLARIFY_QUESTION = "你想了解的具体对象是下面哪一个?(也可以直接补充说明)"
+# 源限定反问句(轮次21 Path B 与冲突反问共用):自由文本让用户报资料/对象名,
+# 应答轮 _resolve_free_reply 引擎词面推断——资料名与对象名都能锁到文档族。
+_SOURCE_CLARIFY_QUESTION = "请问您指的是哪份资料(手册/文档的名称)?"
 # 多 worker 后端(uvicorn workers=N)下进程内字典不共享:turn-1 在 worker A
 # 登记 pending,应答轮落到 worker B 就查不到,clarified_q 丢失 → 检索退化成
 # 选项文本、turn-1 金块全丢(20261013 cascade_v2 五题硬失败定案根因)。
@@ -604,7 +607,7 @@ def react_stream(message,
         elif getattr(C, "CLARIFY_ENABLED", True):
             _register_clarify_pending(username, history or [], message, [])
             yield {"type": "clarify",
-                   "question": "请问您指的是哪份资料(手册/文档的名称)?",
+                   "question": _SOURCE_CLARIFY_QUESTION,
                    "options": [],
                    "source": "source-lock"}
             yield {"type": "done", "trace": {}}
@@ -705,8 +708,11 @@ def react_stream(message,
                            _scope_key(username, history or [], message), {
                     "choices": choices, "stems": stems, "ts": time.time(),
                     "message": message})   # 原问题:应答轮检索要用它(回复只是消歧)
+                # 20261015 规则:冲突即源限定反问——自由文本口径直接问资料名
+                # (对象名同样能被应答轮推断锁定,轮次21 Path B 同一句式)
+                cq = (cquestion if offer else "") or _SOURCE_CLARIFY_QUESTION
                 yield {"type": "clarify",
-                       "question": cquestion or _CONFLICT_CLARIFY_QUESTION,
+                       "question": cq,
                        "options": [c[0] for c in choices],
                        "option_stems": [c[1] for c in choices],
                        "source": "retrieval-conflict"}
