@@ -17,19 +17,32 @@ _dir="$(cd "$(dirname "$0")" && pwd)"
 # transport 流控窗口,治单隧道的队头阻塞(20 并发队尾超时单点)。
 # 回退单隧道:GPU_TUNNEL_PORTS 只留 8002 即可。
 : "${GPU_TUNNEL_PORTS:=8002 8003 8004 8005 8006 8007 8008 8009 8010 8011}"
+# 方案3(20261015)双卡副本:GPU_TUNNEL_TARGETS="host1:sshport:本地端口组;host2:sshport:端口组"
+# 例:"a.com:111:8002 8003 8004 8005 8006;b.com:222:8007 8008 8009 8010 8011"
+# 设置后 GPU_SSH_HOST/PORT 与 GPU_TUNNEL_PORTS 失效(全部由 TARGETS 描述);
+# 未设置时保持单卡旧口径,一行回退。
 _ssh_opts=(-N -o ServerAliveInterval=30 -o ExitOnForwardFailure=yes
            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null)
 _watch() {  # 单端口 watchdog 子 shell:该隧道挂了只重建自己,不拖累其他端口
-  local port="$1"
+  local host="$1" sshport="$2" lport="$3"
   while true; do
-    ssh "${_ssh_opts[@]}" -p "$GPU_SSH_PORT" "root@$GPU_SSH_HOST" \
-        -L "0.0.0.0:${port}:127.0.0.1:8002"
+    ssh "${_ssh_opts[@]}" -p "$sshport" "root@$host" \
+        -L "0.0.0.0:${lport}:127.0.0.1:8002"
     sleep 5
   done
 }
-_i=0
-for _p in $GPU_TUNNEL_PORTS; do
-  _watch "$_p" "$_i" &
-  _i=$((_i + 1))
-done
+if [ -n "${GPU_TUNNEL_TARGETS:-}" ]; then
+  IFS=';' read -ra _targets <<< "$GPU_TUNNEL_TARGETS"
+  for _t in "${_targets[@]}"; do
+    _h="${_t%%:*}"; _rest="${_t#*:}"
+    _sp="${_rest%%:*}"; _pl="${_rest#*:}"
+    for _p in $_pl; do
+      _watch "$_h" "$_sp" "$_p" &
+    done
+  done
+else
+  for _p in $GPU_TUNNEL_PORTS; do
+    _watch "$GPU_SSH_HOST" "$GPU_SSH_PORT" "$_p" &
+  done
+fi
 wait

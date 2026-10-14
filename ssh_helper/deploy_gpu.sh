@@ -14,7 +14,9 @@ cd "$(dirname "$0")/.."
 export MSYS_NO_PATHCONV=1
 export MSYS2_ARG_CONV_EXCL="*"
 # 连接信息从本地 ssh_helper/gpu_ssh.env 读取(不入库):HOST/PORT/USER/PASS
-source "$(dirname "$0")/gpu_ssh.env"
+# 方案3(20261015)第二张卡:GPU_SSH_ENV=gpu2_ssh.env bash ssh_helper/deploy_gpu.sh
+# ——此时不改写 tunnel_target.env(VM 隧道目标由 start_tunnel.sh 双目标组管理)
+source "$(dirname "$0")/${GPU_SSH_ENV:-gpu_ssh.env}"
 APP=/root/autodl-tmp/app
 GWDIR=/root/autodl-tmp/gw
 MODE=${1:-restart}
@@ -49,8 +51,15 @@ python ssh_helper/ssh_push.py --host $HOST --port $PORT --user $USER \
   --password "$PASS" --local ssh_helper/start_vllm_rerank.sh --remote "$GWDIR/start_vllm_rerank.sh"
 
 # 生成 VM 侧隧道目标文件(换 GPU 实例后重跑本脚本即自动更新)
-printf 'GPU_SSH_HOST=%s\nGPU_SSH_PORT=%s\n' "$HOST" "$PORT" > ssh_helper/tunnel_target.env
-echo "== tunnel_target.env updated (HOST=$HOST PORT=$PORT)"
+# 第二卡部署(GPU_SSH_ENV 指向非默认 env)时跳过:双卡隧道目标由
+# start_tunnel.sh 的 GPU_TUNNEL_TARGETS 管理,不能被单卡覆盖
+if [ -z "${GPU_SSH_ENV:-}" ]; then
+  # 保留既有 GPU_TUNNEL_TARGETS 行(方案3双卡口径),只更新本卡 HOST/PORT
+  _tt="$(grep '^GPU_TUNNEL_TARGETS=' ssh_helper/tunnel_target.env 2>/dev/null || true)"
+  printf 'GPU_SSH_HOST=%s\nGPU_SSH_PORT=%s\n' "$HOST" "$PORT" > ssh_helper/tunnel_target.env
+  [ -n "$_tt" ] && printf '%s\n' "$_tt" >> ssh_helper/tunnel_target.env
+  echo "== tunnel_target.env updated (HOST=$HOST PORT=$PORT, dual-target kept: $([ -n "$_tt" ] && echo yes || echo no))"
+fi
 
 if [ "$MODE" = "norestart" ]; then echo "== SYNC ONLY (no restart)"; exit 0; fi
 
