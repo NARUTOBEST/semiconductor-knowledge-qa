@@ -65,10 +65,13 @@ def _do_search(message, hard_deadline, search_future, scope_stem="",
             out = search_future.result(timeout=budget)
             # 投机 future 经 call_with_resilience,返回 (result, err) 元组
             if isinstance(out, tuple) and len(out) == 2:
+                logger.info("raglite spec future ok: items=%d",
+                            len((out[0] or {}).get("items") or [])
+                            if isinstance(out[0], dict) else -1)
                 return out
             return out, None
-        except Exception:  # noqa: BLE001  投机结果不可用则同步重查
-            pass
+        except Exception as e:  # noqa: BLE001  投机结果不可用则同步重查
+            logger.warning("raglite spec future failed, sync fallback: %s", e)
     return call_with_resilience(
         "search_text", args, spec, deadline=hard_deadline, invoke=dispatch)
 
