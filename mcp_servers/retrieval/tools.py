@@ -69,9 +69,15 @@ def search_text(
     注解必须与实际一致——标 list[dict] 时 mcp 2.x 按 list 生成输出 schema,
     结果 dict 过不了校验,tool 直接 isError(20261007 部署踩坑)。
     """
-    return _run(engine_api.search_text, query, k=k, score_ratio=score_ratio,
-                scope_stem=scope_stem, with_scope_info=with_scope_info,
-                scope_hard=scope_hard)
+    out = _run(engine_api.search_text, query, k=k, score_ratio=score_ratio,
+               scope_stem=scope_stem, with_scope_info=with_scope_info,
+               scope_hard=scope_hard)
+    # with_scope_info=False 时 engine 回裸列表,而本工具注解 -> dict(FastMCP 2.x
+    # 按注解生成输出 schema,list 过不了校验,structured_content 变空,20261014
+    # 子检索排障实测)——这里统一归一为 {"items": [...]},两种形状都合法。
+    if not isinstance(out, dict):
+        return {"items": out or []}
+    return out
 
 
 @mcp.tool(
