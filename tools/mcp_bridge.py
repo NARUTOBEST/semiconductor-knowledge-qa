@@ -140,6 +140,7 @@ class _Conn:
     def __init__(self, server: str, url, module=None, index=0,
                  on_ready=None):
         self.server = server
+        self.index = index                # 池内序号(启动错峰用)
         self.label = f"{server}#{index}"   # 日志标识(区分同池成员)
         self.url = url
         self.module = module
