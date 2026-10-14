@@ -641,6 +641,19 @@ def infer_target_stem(query):
             tops = sorted(b for b, s in scored.items()
                           if s >= best[1] * float(
                               getattr(C, "SOURCE_SCOPE_TIE_RATIO", 0.9)))
+            if len(tops) > 1:
+                # 区分度细分(轮次21):同系列多卷(清洗技术 VIII / pv_94_07)
+                # 仅凭标题 CJK 恒平分,但用户回复常带卷别 token(pv_94/VIII)。
+                # base 原始 alnum token(宽松,≥2 字符)在 q 中出现的计区分度,
+                # 恰有一家最高且 >0 → 单锁该卷;并列 → 仍联合锁定。
+                raw = {}
+                for b in tops:
+                    raw[b] = sum(1 for t in set(_ALNUM_TOK.findall(b.lower()))
+                                 if len(t) >= 2 and t in q)
+                dmax = max(raw.values())
+                winners = [b for b in tops if raw[b] == dmax] if dmax else []
+                if len(winners) == 1:
+                    return winners[0]
             return _SCOPE_STEM_SEP.join(tops)
     return None
 

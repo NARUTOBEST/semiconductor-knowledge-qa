@@ -381,3 +381,32 @@ class TestTieGroupUnionLock:
         g = scope_lock_guidance("族A||族B")
         assert "《族A》《族B》" in g
         assert "未涉及" in g
+
+
+class TestTieDistinguishTiebreak:
+    """并列组区分度细分:同系列多卷带卷别 token 时单锁该卷。"""
+
+    def test_volume_token_single_locks(self, monkeypatch):
+        import mcp_servers.retrieval.engine_api as E
+        reg = {"半导体器件制造中的清洗技术 VIII": set(),
+               "半导体器件制造中的清洗技术pv_94_07": set()}
+        monkeypatch.setattr(E, "_load_stem_registry", lambda: reg)
+        assert E.infer_target_stem("半导体器件制造中的清洗技术pv_94") == \
+            "半导体器件制造中的清洗技术pv_94_07"
+        assert E.infer_target_stem("半导体器件制造中的清洗技术 VIII") == \
+            "半导体器件制造中的清洗技术 VIII"
+
+    def test_no_volume_token_still_union(self, monkeypatch):
+        import mcp_servers.retrieval.engine_api as E
+        reg = {"X 6DS-SP 手册": set(), "Y 6DS-SP 手册": set()}
+        monkeypatch.setattr(E, "_load_stem_registry", lambda: reg)
+        stem = E.infer_target_stem("手册里 6DS-SP 的参数")
+        assert stem == "X 6DS-SP 手册||Y 6DS-SP 手册"
+
+    def test_ambiguous_volume_token_union(self, monkeypatch):
+        """两家都有区分 token(平局)→ 联合不误选。"""
+        import mcp_servers.retrieval.engine_api as E
+        reg = {"A型 mk3 手册": set(), "B型 mk3 手册": set()}
+        monkeypatch.setattr(E, "_load_stem_registry", lambda: reg)
+        stem = E.infer_target_stem("mk3 手册里的参数")
+        assert stem == "A型 mk3 手册||B型 mk3 手册"

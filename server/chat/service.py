@@ -251,6 +251,8 @@ def _scope_resolve(username, message, history):
         # 泛查进不了候选池的题,靠它把目标家族块拉进池;scope 加权只在池内
         # 重排,救不了池外金块)。
         stem, aux = _resolve_free_reply(message)
+        logger.info("scope resolve free-reply: stem=%r aux=%.30r (pend q=%.30r)",
+                    stem[:40], aux, base_q[:30])
         if stem:
             _scope_put(_SCOPE_LOCKS, key,
                        {"stem": stem, "ts": time.time()})
