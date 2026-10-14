@@ -37,15 +37,18 @@
 | 2026-10-12 | 重排吞吐治理:长度分桶批处理 + vLLM score 服务证伪回退 + 混合双路重排定型(4B+m3,W1=0.6) | 0.9393 | 8.74% | 0.7549 | 0.6714 | 长度分桶/混合双路保留;vLLM 回退(短块可修长块错乱,"未找到"51.5%);幻觉率历史最好(详见 20261012_rerank_throughput_vllm_falsified.md) |
 | 2026-10-13 | 级联重排:m3 粗筛全量召回池(153-192)→24,混合双路精排;跳过 ratio 压池 | 0.9241 | 11.48% | **0.7907** | 0.6776 | 保留(recall +3.6pp 历史最高,faith -1.5pp/幻觉 +2.7pp 为代价;200 题 3h→15min 0 挂死;含 26 题三关漏损定位,详见 20261013_cascade_rerank.md) |
 | 2026-10-13 | cascade_v2:复合题子检索(整句主路+子问题逐路去重追加)+ 重排前 content 哈希去重 + KEEP 24→32 | 0.9587 | 6.04% | **0.8195** | 0.6690 | 保留全部(recall/faith/幻觉率三项历史最好,级联双代价完全反转;含 NO_MATCH 五题分块排查定论:仅 dev_018 类表格推理链属索引缺口,详见 20261013_cascade_v2_subquery_dedup_keep32.md) |
+| 2026-10-15 | 席位绑定(子问题各自top-4钉进上下文,修20261013死代码)+ 冲突即源限定反问(默认开)+ 检索超时放宽(90/180s,breaker 4) | **0.9712** | **4.35%** | **0.8821** | 0.5267 | 保留(recall +6.3pp/faith +1.3pp/幻觉 -1.7pp 三项历史最好;precision -14.2pp 为多块上下文结构性代价;dev_043/018/124/176/069 清账;详见 20261015_subpin_conflict_srclock.md) |
 
-## 当前生产配置(2026-10-13 定格)
+## 当前生产配置(2026-10-15 定格)
 
 - 检索:RETRIEVAL_SOURCE_SCOPE=1 + SOURCE_SCOPE_BOOST=1.35,ROW_CONTEXT=0,
   NEIGHBOR_EXPAND=0,FIXED_K=4,RESCUE_SEAT=1,EXACT_CODE=0,
   RERANK_RECALL_K=96,RERANK_BATCH_SIZE=64(长度分桶),
   混合双路重排 RERANK_MODEL=Qwen/Qwen3-Reranker-4B + RERANK2_MODEL=BAAI/bge-reranker-v2-m3(W1=0.6),
   **级联 RERANK_CASCADE=1(KEEP=32,粗筛吃全量召回池、跳过 ratio 压池,重排前 content 哈希去重)**;
-  **复合题子检索 RETRIEVAL_SUBQUERY_SPLIT=1(整句主路+子问题逐路检索去重追加,cap 8)**;
+  **复合题子检索 RETRIEVAL_SUBQUERY_SPLIT=1(整句主路+子问题逐路检索去重追加,cap 8;席位绑定 RETRIEVAL_SUBQUERY_PIN_K=4,sub_pin 不受 cap 截断,raglite/compressor/react 三层保席位)**;
+  **冲突反问 RETRIEVAL_CONFLICT_CLARIFY=1(冲突信号→specific 前置判定→源限定反问→_scope_resolve 锁 stem→scope_hard 硬过滤;SOURCE_LOCK_ENABLED=1)**;
+  **检索超时:search 策略 90s + MCP_READ_TIMEOUT_S=180 + RETRIEVAL_BREAKER_THRESHOLD=4/COOLDOWN 20s**;
   翻译双路 QUERY_TRANSLATE=1(coding plan 接入点,关思考)
 - LLM:火山 coding plan(主 deepseek-v4-flash-ga-260731 / 副 doubao-seed-2-0-lite);
   LLM 三状态熔断 + 会话级限流槽(TTL120)
