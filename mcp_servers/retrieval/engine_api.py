@@ -528,6 +528,15 @@ _CJK_SEG = re.compile(r"[一-鿿]{2,}")
 
 _stem_registry = None   # base_stem -> set(实际 stem);惰性加载一次
 
+# 轮次21:联合锁定多 base 分隔符(infer 并列组/会话锁透传均用它)
+_SCOPE_STEM_SEP = "||"
+
+
+def _scope_bases(scope_stem):
+    """scope_stem(可含 "||" 联合)→ base stem 集合。"""
+    return {_base_stem(s) for s in (scope_stem or "").split(_SCOPE_STEM_SEP)
+            if s.strip()}
+
 
 def _base_stem(stem):
     """分段文档的实际 stem 归并到 base(…_p1-500 / …_p501-794 → 同一文档)。"""
@@ -592,6 +601,7 @@ def infer_target_stem(query):
     q = query.lower()
     strict = bool(getattr(C, "SOURCE_SCOPE_STRICT_TOKENS", True))
     best, second = None, 0.0
+    scored = {}
     for base in reg:
         score = 0.0
         for tok in _ALNUM_TOK.findall(base.lower()):
@@ -612,6 +622,7 @@ def infer_target_stem(query):
                 score += len(seg)
         if score <= 0:
             continue
+        scored[base] = score
         cur = best[1] if best else 0.0
         if score > cur:
             second, best = cur, (base, score)
@@ -619,8 +630,18 @@ def infer_target_stem(query):
             second = score
     lo = float(getattr(C, "SOURCE_SCOPE_MIN_SCORE", 4))
     mg = float(getattr(C, "SOURCE_SCOPE_MARGIN", 1.5))
-    if best and best[1] >= lo and best[1] >= second * mg:
-        return best[0]
+    if best and best[1] >= lo:
+        if best[1] >= second * mg:
+            return best[0]
+        # 轮次21:近全等并列(同型号"手册+设备介绍"等子集命名恒平分,如 6DS-SP
+        # 四族全含 6ds-sp)→ 并列组联合锁定,"||" 连接。硬过滤语义:同型号
+        # 全族资料都在范围内(负证据题答案本就该综述该型号资料的实际覆盖),
+        # 别家书仍被排除;软加权退化为并列族 union boost。
+        if second >= best[1] * float(getattr(C, "SOURCE_SCOPE_TIE_RATIO", 0.9)):
+            tops = sorted(b for b, s in scored.items()
+                          if s >= best[1] * float(
+                              getattr(C, "SOURCE_SCOPE_TIE_RATIO", 0.9)))
+            return _SCOPE_STEM_SEP.join(tops)
     return None
 
 
@@ -660,13 +681,15 @@ def _rescue_seat(out, rescued):
     return out
 
 
-def _apply_source_scope(ranked, scope):
-    """重排分软收窄:目标文档块乘 SOURCE_SCOPE_BOOST 后重排序。scope 为空原样返回。"""
-    if not scope or not ranked:
+def _apply_source_scope(ranked, scopes):
+    """重排分软收窄:目标文档块(并列族集合任一命中)乘 SOURCE_SCOPE_BOOST 后
+    重排序。scopes 为空原样返回。"""
+    scopes = scopes or set()
+    if not scopes or not ranked:
         return ranked
     boost = float(getattr(C, "SOURCE_SCOPE_BOOST", 1.35))
     rescored = [(p, s * boost
-                 if _base_stem((p.payload or {}).get("source_stem", "")) == scope
+                 if _base_stem((p.payload or {}).get("source_stem", "")) in scopes
                  else s)
                 for p, s in ranked]
     rescored.sort(key=lambda x: x[1], reverse=True)
@@ -758,14 +781,17 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
     recall_k = getattr(C, "RERANK_RECALL_K", 20)
     # 源限定(scope_stem 非空):硬模式在召回层族过滤(需先把锁定 base 展开
     # 为全部分段变体,寄存器缺该族时退回软加权防全库误滤);软模式仅重排后加权。
-    scope = _base_stem(scope_stem) if scope_stem else None
+    scope_bases = _scope_bases(scope_stem)
     scope_variants = None
-    if scope and scope_hard:
+    if scope_bases and scope_hard:
         reg = _load_stem_registry() or {}
-        scope_variants = sorted(reg.get(scope) or [])
+        variants = set()
+        for b in scope_bases:
+            variants |= reg.get(b) or set()
+        scope_variants = sorted(variants) or None
         if not scope_variants:
-            logger.warning("scope hard: no variants for %r, fallback soft", scope[:40])
-            scope_variants = None
+            logger.warning("scope hard: no variants for %r, fallback soft",
+                           scope_stem[:40])
     # 多路召回构造(轮次19):原句 + 翻译路 + 术语表替换;各路 RRF 并入同池。
     # 只进召回不进重排——英文/分区重排已离线证伪无增益
     # (eval/optimization_log/20261007_inpool_rerank_test.md)。
@@ -818,10 +844,11 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
     # (dev_067 类),infer_target_stem 保留仅供冲突信号判定使用。
     # 轮次21:硬模式已在召回层族过滤,此处 boost 对族内全块等比、排序不变,保留
     # 仅为软/硬两模式走同一条后处理链。
-    if scope:
-        ranked = _apply_source_scope(ranked, scope)
+    if scope_bases:
+        ranked = _apply_source_scope(ranked, scope_bases)
         logger.info("source scope%s: %s (q=%r)",
-                    " hard" if scope_hard else "", scope[:40], (query or "")[:40])
+                    " hard" if scope_hard else "", scope_stem[:40],
+                    (query or "")[:40])
     conflict_stems: list[str] = []
     if with_scope_info:
         # 冲突信号在 scope boost 之前、按自然重排序判定(轮次9 反问触发依据)
@@ -832,7 +859,7 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
     kept = _dynamic_cut(ranked, k)
     # 硬模式 τ 回填:τ 截断不足 k 时用族内 top-k 补齐(负证据题需族内上下文
     # 陈述"实际覆盖范围";池已族内,弱相关块不构成跨文档污染)。
-    if scope and scope_hard and len(kept) < min(k, len(ranked)):
+    if scope_bases and scope_hard and len(kept) < min(k, len(ranked)):
         chosen = {id(p) for p, _ in kept}
         for p, s in ranked:
             if len(kept) >= k:
@@ -880,10 +907,11 @@ def search_text(query, k=3, score_ratio=0.4, with_pool=False,
             inferred = infer_target_stem(query) or ""
         except Exception:  # noqa: BLE001  信号层故障不影响检索结果
             inferred = ""
-        scope_info = {"locked_stem": scope or "",
+        scope_info = {"locked_stem": scope_stem or "",
+                      "locked_bases": sorted(scope_bases),
                       "conflict_stems": conflict_stems,
                       "inferred_stem": inferred,
-                      "scope_hard": bool(scope and scope_hard)}
+                      "scope_hard": bool(scope_bases and scope_hard)}
         if with_pool:
             seen = set()
             pool = []

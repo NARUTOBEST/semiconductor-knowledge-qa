@@ -304,3 +304,80 @@ class TestQualityGateScoped:
         from agent_reasoning.quality_gate import check
         r = check("答案", {"search_count": 0}, tier="raglite")
         assert r["verdict"] == "needs_escalation"
+
+
+class TestTieGroupUnionLock:
+    """近全等并列组联合锁定(轮次21 补):同型号"手册+设备介绍"子集命名
+    词面恒平分,margin 必败 → 并列组 "||" 联合 stem,引擎按多 base 联合
+    展开/过滤/加权。"""
+
+    def test_infer_tie_group_returns_union(self, monkeypatch):
+        import mcp_servers.retrieval.engine_api as E
+        reg = {"晶圆CMP研磨机Strasbaugh 6DS-SP Production CMP Planarizer":
+               set(),
+               "晶圆CMP研磨机Strasbaugh 6DS-SP 设备介绍": set()}
+        monkeypatch.setattr(E, "_load_stem_registry", lambda: reg)
+        stem = E.infer_target_stem("手册里 6DS-SP 支持哪些载具尺寸?")
+        assert stem == ("晶圆CMP研磨机Strasbaugh 6DS-SP "
+                        "Production CMP Planarizer||"
+                        "晶圆CMP研磨机Strasbaugh 6DS-SP 设备介绍")
+
+    def test_infer_single_still_works(self, monkeypatch):
+        """无并列时 margin 确信路径不变(回归护栏)。"""
+        import mcp_servers.retrieval.engine_api as E
+        reg = {"晶圆减薄strasbaugh Model 7AF": set(),
+               "别的书": set()}
+        monkeypatch.setattr(E, "_load_stem_registry", lambda: reg)
+        assert E.infer_target_stem("手册里晶圆减薄 7AF 的配方?") == \
+            "晶圆减薄strasbaugh Model 7AF"
+
+    def test_search_text_multi_base_hard_expansion(self, monkeypatch):
+        """联合锁定:各 base 的分段变体并集进 MatchAny,别族仍被排除。"""
+        import mcp_servers.retrieval.engine_api as E
+        from mcp_servers.retrieval import query as Q
+
+        class FakePoints:
+            points = []
+
+        class FakeClient:
+            def query_points(self, **kw):
+                FakeClient.kw = kw
+                return FakePoints()
+        monkeypatch.setattr(Q, "get_client", lambda: FakeClient())
+
+        class FakeTE:
+            def encode(self, qs):
+                return [MagicMock()] * len(qs), [MagicMock()] * len(qs)
+        monkeypatch.setattr(Q, "_te", FakeTE())
+        monkeypatch.setattr(E, "_recall_queries", lambda q: [q])
+        monkeypatch.setattr(E, "_rerank", lambda q, f, k=0, text_fn=None: [])
+        monkeypatch.setattr(E.C, "RETRIEVAL_RERANK_CASCADE", False)
+        monkeypatch.setattr(E, "_load_stem_registry", lambda: {
+            "族A": {"族A_p1", "族A_p2"}, "族B": {"族B_p1"}})
+        monkeypatch.setattr(E, "_base_stem", lambda s: s.split("_p")[0])
+        E.search_text("q", k=3, scope_stem="族A||族B", scope_hard=True,
+                      with_scope_info=True)
+        pf = FakeClient.kw["prefetch"]
+        assert set(pf[0].filter.must[0].match.any) == \
+            {"族A_p1", "族A_p2", "族B_p1"}
+
+    def test_soft_scope_multi_base_boost(self, monkeypatch):
+        """软模式(寄存器缺族回退):并列族任一命中都 boost。"""
+        import mcp_servers.retrieval.engine_api as E
+
+        def pt(stem):
+            m = MagicMock()
+            m.payload = {"source_stem": stem}
+            return m
+        ranked = [(pt("族A_p1-500"), 1.0), (pt("族B_p1-500"), 1.0),
+                  (pt("族C_p1-500"), 1.0)]
+        out = E._apply_source_scope(ranked, {"族A", "族B"})
+        scores = {p.payload["source_stem"]: s for p, s in out}
+        assert scores["族A_p1-500"] > scores["族C_p1-500"]
+        assert scores["族B_p1-500"] > scores["族C_p1-500"]
+
+    def test_guidance_multi_name_render(self):
+        from system_prompt import scope_lock_guidance
+        g = scope_lock_guidance("族A||族B")
+        assert "《族A》《族B》" in g
+        assert "未涉及" in g
