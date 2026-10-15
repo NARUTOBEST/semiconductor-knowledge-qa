@@ -8,14 +8,14 @@
 
 ## 评测规范
 
-- **dev ragas 评测自 2026-10-06 起一律单用户串行**,不用多用户并发(run_concurrent.py 的
-  `--users N` 并发模式弃用):并发会触发后端 per-IP 429 限流与 nginx 偶发 5xx,
-  auth 阶段动辄卡 40 分钟,且故障排查困难。单用户(一个账号顺序问完 200 题)
-  稳定可复现,单题 ~50s、全程 ~3h 属预期(入口:run_single.py)。
-  既有并发跑完的答案数据可沿用判分,不必重答。
-- qa_sets 目录(dev200_baseline/qa_sets/user1..10.json)只是题目分片,
-  单用户跑时全部合并为一个队列,不必按分片对应用户。
-- 评测输出必须新目录(断点续跑按已答题去重,旧目录会把上次 error 记录当已完成)。
+- **dev 评测一律 20 用户 × 10 题并发**(run_concurrent.py `--users 20`,题目分片
+  qa_sets/user1..20.json 每片 10 题;入口与断点续跑见 run_concurrent.py)。
+  **严禁单用户串行口径**(run_single.py 弃用,仅作单题调试用途)。
+  并发前置条件:后端 RETRIEVAL_SERVICE_URLS 必须为 20 URL(双卡各 10 端口,
+  验证口径:`docker exec semi-backend env | grep RETRIEVAL_SERVICE_URLS | tr , '\n' | wc -l`,
+  验容器运行时而非 env 文件——compose 真读的是 projectdocker/.env,改后须
+  `docker compose up -d --force-recreate backend`)。评测输出必须新目录
+  (断点续跑按已答题去重,旧目录会把上次 error 记录当已完成)。
 - 长任务用 PowerShell `Start-Process -WindowStyle Hidden` 分离进程 +
   `-RedirectStandardOutput/-RedirectStandardError` 落日志(harness 后台任务会被杀)。
 - judge 判分与答题口径一致(coding plan 裁判,meta 键必须是 query_id)。
