@@ -2,12 +2,15 @@
 """嵌入:BGE-m3 文本(dense+sparse)+ CLIP 图像。懒加载,首次实例化时下载模型。"""
 import os
 os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")   # 国内 HF 镜像
+import logging
 import threading
 import time
 
 import numpy as np
 
 import config as C
+
+logger = logging.getLogger("retrieval.embed")
 
 _te = None      # BGEM3FlagModel(在线:用户查询/记忆嵌入)
 _ie = None      # CLIP SentenceTransformer(在线)
@@ -561,6 +564,7 @@ class _BatchedReranker:
 
     def rerank(self, query, documents):
         documents = list(documents)
+        _t0 = time.time()
         with self._cond:
             slot = _RerankSlot(query, documents)
             self._pending.append(slot)
@@ -573,6 +577,15 @@ class _BatchedReranker:
             with self._cond:
                 # 结果/异常由 leader 回填并 notify
                 self._cond.wait_for(lambda: slot.done)
+            # 排队可观测(20261016 D29 排队雪崩复盘):10u 到达率 >> 单副本
+            # 排空率时 _pending 无界增长,请求等待静默膨胀到分钟级,VM 侧
+            # 60s per-call 超时把排队的全判死(src=0 无检索作答 171/200 实锤)。
+            # 副本锁已把模型层并发钳在 RERANK_REPLICAS,这里只暴露等待水位
+            # (>1s 才记,容量调参与雪崩告警依据)。
+            _wait = time.time() - _t0
+            if _wait > 1.0:
+                logger.info("rerank queue: wait=%.1fs replicas=%d",
+                            _wait, len(self._replicas))
         if slot.error is not None:
             raise slot.error
         return slot.result
