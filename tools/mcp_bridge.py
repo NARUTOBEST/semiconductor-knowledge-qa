@@ -59,6 +59,9 @@ _HANDSHAKE_TIMEOUT_S = float(os.getenv("MCP_HANDSHAKE_TIMEOUT_S", "20"))
 # 启动错峰:200 连接同秒齐发握手会挤爆服务端 SSE 建流(实测根因),
 # 按连接序号线性错开,60 连接内摊开 ~15s
 _STARTUP_STAGGER_S = float(os.getenv("MCP_STARTUP_STAGGER_S", "0.25"))
+# 单次尝试总期限(从传输层 CM 进入起算):超看门狗取消重试,须 > 错峰摊尾+
+# 两步握手超时之和
+_ATTEMPT_DEADLINE_S = float(os.getenv("MCP_ATTEMPT_DEADLINE_S", "60"))
 _DEFAULT_SERVERS = [{"name": "retrieval",
                      "url": None}]  # url 运行时取 C.RETRIEVAL_SERVICE_URLS + "/mcp"
 
@@ -177,6 +180,10 @@ class _Conn:
                 # 正常返回:stop 或会话失效重建(_reopen)后落到这里继续循环
                 if self._stop.is_set():
                     break
+            except asyncio.CancelledError:
+                # 看门狗取消(建连超时):与连接失败同路,退避重试
+                logger.warning("MCP server %s 连接尝试超时,%ss 后重试",
+                               self.label, _RETRY_INTERVAL_S)
             except Exception as e:
                 logger.warning("MCP server %s 连接失败,%ss 后重试: %s",
                                self.label, _RETRY_INTERVAL_S, str(e)[:160])
@@ -188,23 +195,41 @@ class _Conn:
 
     async def _serve(self) -> None:
         from mcp.client.session import ClientSession
+        # 尝试级看门狗(20261015):实测挂点不止握手两步——传输层 CM 建立
+        # (TCP/SSE 流创建)同样可能永久挂起且无任何超时可用(wait_for 盖不到
+        # CM entry)。从进入 CM 起计时,握手未在期限内完成就取消整个尝试,
+        # 抛 CancelledError 走重试循环;就绪后看门狗失效,保活不受影响。
+        loop = asyncio.get_running_loop()
+        task = asyncio.current_task()
+        ready = False
+
+        def _deadline():
+            if not ready:
+                logger.warning("MCP server %s 建连超时(看门狗),重试", self.label)
+                task.cancel()
+
+        _wd = loop.call_later(_ATTEMPT_DEADLINE_S, _deadline)
         # 传输层 yield (read, write) 二元组(memory 与 http 一致),其上再包 ClientSession
-        async with self._open_session() as (read, write):
-            async with ClientSession(read, write) as session:
-                # 握手两步各给硬超时(默认无超时会永久挂起,见 _HANDSHAKE_TIMEOUT_S 注释)
-                await asyncio.wait_for(session.initialize(),
-                                       timeout=_HANDSHAKE_TIMEOUT_S)
-                self._session = session
-                if self._on_ready is not None:
-                    tools_res = await asyncio.wait_for(
-                        session.list_tools(), timeout=_HANDSHAKE_TIMEOUT_S)
-                    self._on_ready(self, tools_res)
-                self._ready.set()
-                logger.info("MCP server %s 已连接,工具就绪", self.label)
-                # 保活直到 stop 或会话失效重建(_session 须存续,handler 才能继续调用)
-                while not self._stop.is_set() and not self._reopen:
-                    await asyncio.sleep(0.2)
-                self._reopen = False
+        try:
+            async with self._open_session() as (read, write):
+                async with ClientSession(read, write) as session:
+                    # 握手两步各给硬超时(默认无超时会永久挂起,见 _HANDSHAKE_TIMEOUT_S 注释)
+                    await asyncio.wait_for(session.initialize(),
+                                           timeout=_HANDSHAKE_TIMEOUT_S)
+                    self._session = session
+                    if self._on_ready is not None:
+                        tools_res = await asyncio.wait_for(
+                            session.list_tools(), timeout=_HANDSHAKE_TIMEOUT_S)
+                        self._on_ready(self, tools_res)
+                    ready = True
+                    self._ready.set()
+                    logger.info("MCP server %s 已连接,工具就绪", self.label)
+                    # 保活直到 stop 或会话失效重建(_session 须存续,handler 才能继续调用)
+                    while not self._stop.is_set() and not self._reopen:
+                        await asyncio.sleep(0.2)
+                    self._reopen = False
+        finally:
+            _wd.cancel()
 
     def _open_session(self):
         """返回传输层 async CM,进入后 yield (read, write) 流二元组。"""
