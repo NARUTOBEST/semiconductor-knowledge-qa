@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """LLM 客户端单例 + 带指数退避的流式调用(从原 chat.service 抽出)。"""
 import json
+import os
 import threading
 import time
 import logging
@@ -14,7 +15,14 @@ logger = logging.getLogger("agent")
 
 LLM_RETRIES = 3
 # 非流式 LLM 请求的读超时(秒):必须在此时间内返回完整响应体。
-LLM_TIMEOUT = 20
+# 20261015 轮次22:20s 在 10u 并发重载下低于正常生成尾延迟(12k 上下文 15 路
+# 并发实测单次 12-30s),排队稍重即 TTFT>20s → 空答案(29/200 实锤,
+# elapsed 精确 60s = SDK 默认 2 重试 ×20s 烧光)。改为 env 可调并放大。
+LLM_TIMEOUT = float(os.getenv("LLM_TIMEOUT", "20"))
+# SDK 自带重试关闭:重试/failover 由下方 _llm_create_impl 的应用层统一负责
+# (指数退避 + 主备切换,可观测)。SDK 静默重试只会把单次失败放大成
+# 3 倍超时浪费,还把应用层 failover 的预算提前烧光。
+LLM_MAX_RETRIES = int(os.getenv("LLM_MAX_RETRIES", "0"))
 # 流式 LLM 请求的读超时(秒):这是 token 间"空闲超时",持续吐字不会被切断,
 # 仅当连续 10s 无任何新数据才判定卡死断开。
 STREAM_TIMEOUT = 10
@@ -143,6 +151,7 @@ def get_client():
             api_key=getattr(C, "EFFECTIVE_LLM_API_KEY", C.OPENAI_API_KEY),
             base_url=getattr(C, "EFFECTIVE_LLM_BASE_URL", C.OPENAI_BASE_URL),
             timeout=LLM_TIMEOUT,
+            max_retries=LLM_MAX_RETRIES,
         )
     return _llm_client
 
