@@ -40,10 +40,12 @@ vs round21:recall +0.6pp,faith -1.0pp,幻觉率持平。判分目录
 
 ## 运维注
 
-- 双卡服务启动(GPU):`setsid nohup env CUDA_VISIBLE_DEVICES={0,1}
-  RETRIEVAL_PORT={8002,8003} /root/envs-gateway/bin/python -m
-  mcp_servers.retrieval.service > /root/autodl-tmp/logs/retrieval_gpu{0,1}.log ...`
-  (qdrant 先起;ENV_HOME 必须显式传 env,存在展开为空的坑)。
+- 双卡服务启动(GPU):**必须先 `set -a; . ./ret.env; set +a`**(QDRANT_URL 与
+  重排参数全在 ret.env,漏了会掉 qdrant 本地文件模式空库,20261016 heldout 轮
+  踩坑),再 `CUDA_VISIBLE_DEVICES={0,1} RETRIEVAL_PORT={8002,8003}` 起服务;
+  已固化 GPU 侧 `/root/start_ret_dual.sh`。qdrant 二进制用
+  `/root/autodl-tmp/bin/qdrant`(1.19.0;/root/qdrant 是 1.12.4 读不了现库,
+  其余 1.19 副本缺 GLIBC_2.38);等服务"预热完成"日志再冒烟(模型加载 ~40s)。
 - ssh_push.py 直调必须带 `MSYS_NO_PATHCONV=1`,否则 /home/... 被改写成
   C:/Git/home/... 推到错误位置(本次踩坑)。
 - 换实例流程:克隆等数据盘 Succeed → deploy_gpu.sh norestart(带
