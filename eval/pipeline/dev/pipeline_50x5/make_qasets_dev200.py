@@ -15,8 +15,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--users", type=int, default=5)
     ap.add_argument("--out", default=os.path.join(HERE, "runs", "dev200_baseline", "qa_sets"))
+    ap.add_argument("--qa", default=QA,
+                    help="题集 json(默认 dev_200.json;heldout_200.json 等同规格集可用此参)")
     a = ap.parse_args()
-    items = json.load(open(QA, encoding="utf-8"))
+    items = json.load(open(a.qa, encoding="utf-8"))
     conv = [{"id": q["query_id"], "q": q["query"], "source": q["source_id"],
              "facts": q["gold_standard"], "tier": q["expected_rounds"],
              "difficulty": q["difficulty"], "task_type": q["task_type"]}
