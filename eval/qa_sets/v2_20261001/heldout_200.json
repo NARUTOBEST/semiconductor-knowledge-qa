@@ -1,0 +1,2843 @@
+[
+ {
+  "query_id": "heldout_001",
+  "query": "ASML 这台机器 host 接口的 SECS 连接默认监听的 TCP 端口号是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Host Interface 的 TCP port 默认值为 5000，即 Passive Entity 在该端口等待连接。",
+  "success_criteria": "答出默认端口 5000，且能说明是 Host Interface（SEMI E37 HSMS 连接）的 Passive Entity 监听端口。",
+  "evidence": "--[p162 [表]]-- TCP port | Any valid TCP port | 5000 | Specifies the TCP port number at which the Passive Entity waits for connection."
+ },
+ {
+  "query_id": "heldout_002",
+  "query": "和 track 对接的那路 SECS 接口（Track Interface）默认 TCP 端口是几？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Track Interface 的 TCP port 默认值为 4711。",
+  "success_criteria": "答出 4711，并能与 Host Interface 的 5000 端口区分开。",
+  "evidence": "--[p163 [表]]-- TCP port | 4711 | Specifies the TCP port number at which the Passive Entity waits for connection. Table 4.8 Track Interface Settings"
+ },
+ {
+  "query_id": "heldout_003",
+  "query": "S5F1 报文里的报警文本 ALTX 最多能放多少个字符？超长会被怎么处理？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "ALTX 最大长度 40 字符；若异常文本超过 40 字符，报文中的文本会在第 37 个字符处截断并追加 \"...\" 表示被截断。",
+  "success_criteria": "同时答出最大 40 字符与\"截断到 37 字符 + 追加 ...\"两个要点。",
+  "evidence": "--[p169]-- ALTX | Format: 20 | Description | Alarm text. Values | See &lt;ALID&gt;. The maximum length is 40 characters. Where Used | S5F1, F6, F8 | Note | Please note that ALTX has a maximum length of 40 characters. If the exception text is longer than 40 characters, the text in the SECS-message will be cut at character 37 and \"...\" will be added to indicate that the text has been cut off."
+ },
+ {
+  "query_id": "heldout_004",
+  "query": "S14F2/F4 对象服务应答里的 OBJACK 取值 0 和 1 分别代表什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "OBJACK（Format 51）：0 = Successful completion of requested data（请求的数据成功完成）；1 = Error（出错）；&gt;1 为保留值，用于 S14F2、S14F4。",
+  "success_criteria": "0 与 1 的含义都答对，最好提及 &gt;1 保留、用于 S14F2/F4。",
+  "evidence": "--[p185]-- OBJACK | Format: 51 Description | Acknowledge code. Values | 0 = Successful completion of requested data 1 = Error &gt;1 Reserved Where Used | S14F2, F4"
+ },
+ {
+  "query_id": "heldout_005",
+  "query": "S3F67 清洗 chuck spot 请求里的 CHUCK_ID 可以填哪些值？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "CHUCK_ID（Format 51）取值为 1 或 2，对应两个 chuck，用于 S3F67。",
+  "success_criteria": "答出\"1 或 2\"（两个值），并关联到 S3F67。",
+  "evidence": "--[p171]-- CHUCK_ID | Format: 51 Description | Chuck ID. Values | 1 or 2. Where Used | S3F67"
+ },
+ {
+  "query_id": "heldout_006",
+  "query": "host 通过 S2F41 发 \"STOP_QUEUE\" 这个 remote command 是让设备干什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "\"STOP_QUEUE\" 用于停止 process job 处理队列（Stop the process job processing queue），即 S2F41 Process job Queue Processing 服务，无 CPNAME/CPVAL 参数。",
+  "success_criteria": "答出\"停止 process job 队列处理\"，能说明该命令不带参数。",
+  "evidence": "--[p50]-- Table 6.3 Message Detail Process job Queue Processing: Process job Queue Processing message: Stop the process job processing queue RCMD | CPNAME | CPVAL | Format \"STOP_QUEUE\" | - | -"
+ },
+ {
+  "query_id": "heldout_007",
+  "query": "想知道设备里现在存了哪些 recipe/process program，host 该发哪对消息？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "发 S7F19（Current EPPD Request）请求系统上的全部 Process Program 目录，设备用 S7F20 返回目录中所有 Process Program 的列表（Current EPPD Data）。",
+  "success_criteria": "答出 S7F19 请求、S7F20 返回目录列表。",
+  "evidence": "--[p154]-- The Host requests a list of all Process Programs on the System | S7F19 → ← S7F20 | The system responds with a list of all Process Programs in the directory --[p153]-- Scenario 4.104 Process Program Directory Request: Current EPPD Request | S7F19 → ← S7F20 | Current EPPD Data"
+ },
+ {
+  "query_id": "heldout_008",
+  "query": "host 想读设备侧当前时间，用哪条 SECS 消息？设备怎么回？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "host 发 S2F17（Date and Time Request）请求时间，系统用 S2F18 回送 &lt;TIME&gt; 值（Scenario 4.95）。",
+  "success_criteria": "答出 S2F17 请求 / S2F18 带 &lt;TIME&gt; 应答。",
+  "evidence": "--[p151 [表]]-- Host requests time | S2F17 → ← S2F18 | System responds with &lt;TIME&gt; value"
+ },
+ {
+  "query_id": "heldout_009",
+  "query": "EUV 光刻用的曝光波长到底是多少纳米？这个波长对应的光子能量大约是多少 eV?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "中心波长 13.5 nm(表 3A.1 光源要求:Wavelength 13.5 nm);对应光子能量约 92 eV——书中 10.4.2 指出二次电子能量可接近入射光子的全部 92 eV(可由 1240/13.5≈91.9 eV 验证,答 91.9~92 eV 均算对)。",
+  "success_criteria": "答出 13.5 nm 且光子能量为 92 eV(91.9~92 eV 区间均可)且单位正确。",
+  "evidence": "--[p148]-- Wavelength | 13.5 nm …… --[p208]-- Depending on binding energy, these secondary electrons can have energies approaching the full 92 eV of the incident photon."
+ },
+ {
+  "query_id": "heldout_010",
+  "query": "Mo/Si 多层膜反射镜在 13.5 nm 的理论峰值反射率极限是多少？为什么实际做产品时达不到这个理论值？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "理想 Mo/Si 多层膜 N=50、周期 d=6.91 nm 时峰值反射率饱和于约 75.2%(FWHM 0.6 nm);实际峰值反射率受界面扩散/粗糙度等限制,实践中约 70%。",
+  "success_criteria": "答出理论极限约 75.2%(约 75%)且实际约 70%,两个数值都要给出。",
+  "evidence": "--[p331]-- N = 50 d = 6.91 nm R_max = 75.2% FWHM = 0.6 nm …… --[p332]-- the peak reflectance increases with the number of periods, saturating with 50 periods at about 75%. …… --[p333]-- Therefore, in practice, the peak reflectance is limited to about 70%."
+ },
+ {
+  "query_id": "heldout_011",
+  "query": "EUV 光罩 pellicle 对单程 EUV 透过率的要求定在多少？反射式光罩下这个要求合理吗？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "HVM 初步要求 pellicle 薄膜 EUV 单程透过率大于 90%(表 7.2:90% single pass / 81% double pass,空间不均匀性 &lt;0.2%);由于光罩是反射式,光要穿过 pellicle 两次。",
+  "success_criteria": "答出单程透过率要求 &gt;90%,并能提到反射式光罩导致双程透过 81%。",
+  "evidence": "--[p484]-- a top priority requirement for the EUV pellicle is to meet more than 90% single-pass transmittance, as shown in Table 7.2. …… --[p485]-- Pellicle film EUV transmission | 90% single pass (81% double pass); EUV transmission spatial nonuniformity | &lt;0.2%"
+ },
+ {
+  "query_id": "heldout_012",
+  "query": "下一代 0.55 NA 的 EUV 扫描机(ASML High-NA)规格表里,场尺寸、分辨率和产能分别写的多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "表 9.5(ASML High-NA):NA 0.55,场尺寸 26×16.5 mm²(半场),分辨率 8 nm,产能 185 wph,σ 约 0~1/高度可调。",
+  "success_criteria": "NA=0.55、场尺寸 26×16.5 mm²、分辨率 8 nm、产能 185 wph 四项全部答出。",
+  "evidence": "--[p148]-- Table 9.5 The projected high-NA half-field production. Tool | ASML High-NA; NA | 0.55; Field size | 26 × 16.5 mm2; Resolution | 8nm; Throughput | 185 wph …… --[p142]-- the NA of future-generation EUV tools (Table 9.5) will be 0.55. This allows for a resolution of 8-nm lines and spaces."
+ },
+ {
+  "query_id": "heldout_013",
+  "query": "NXE:3300B 实机曝光数据怎么样？能印多密的线条，曝光宽容度和焦深各做到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "NXE:3300B(SPIE AL 2013 数据):16 nm 密集线条具显著工艺余量;剂量容差(曝光宽容度)&gt;15%;焦深 DOF &gt;120 nm;此外 flare 降到 4%。",
+  "success_criteria": "答出 16 nm 密集线、曝光宽容度 &gt;15%、DOF &gt;120 nm 三项。",
+  "evidence": "--[p271]-- Dense lines of 16 nm were printed with significant process margins. Dose tolerance, or exposure latitude, was larger than 15%, proving that the increased contrast due to the reduced flare level of 4% indeed enables a robust imaging process. Depth of focus (DOF) was shown to be larger than 120 nm."
+ },
+ {
+  "query_id": "heldout_014",
+  "query": "收集镜上的锡污染是靠氢气清掉的吗？化学反应式是什么，生成的产物最后去哪了？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "是。Sn + 4·H → SnH₄(氢自由基由 H₂ 解离产生);生成的 SnH₄(stannane,锡烷)在源工作条件下是气体,可被泵抽走。",
+  "success_criteria": "给出反应式 Sn+4H→SnH₄ 并说明产物 SnH₄ 为气态可被泵抽走。",
+  "evidence": "--[p180]-- Sn etching with hydrogen is described by the following reaction: Sn + 4·H → SnH4. Hydrogen radicals ·H are produced in the source by dissociation of molecular hydrogen …… --[p181]-- Once SnH4 (stannane) is formed, it can be pumped away since it is gas under the source conditions."
+ },
+ {
+  "query_id": "heldout_015",
+  "query": "传统聚合物 EUV 胶的吸收系数大概在什么量级？金属氧化物胶能做到多高？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "典型聚合物胶吸收系数约 4 µm⁻¹;金属氧化物(metal oxide)胶最高可到约 20 µm⁻¹(但吸收过高会导致胶体厚度方向曝光不均、侧壁角问题)。",
+  "success_criteria": "答出聚合物约 4 µm⁻¹、金属氧化物最高约 20 µm⁻¹ 且单位正确。",
+  "evidence": "--[p212]-- A typical polymer resist will have an absorptivity of approximately 4 μm−1, whereas metal oxide resists have been shown to achieve values as high as 20 μm−1."
+ },
+ {
+  "query_id": "heldout_016",
+  "query": "EUV 掩膜基板对热膨胀系数 CTE 的标准要求是多少？测 CTE 的设备精度要达到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "SEMI P37-0613 标准:CTE 0±5 ppb/K(总空间变化 6 ppb/K)至 0±30 ppb/K(总空间变化 10 ppb/K);目前没有商用膨胀仪满足 EUVL 要求,测量分辨率需达 1 ppb/K。",
+  "success_criteria": "答出 0±5 ppb/K 与 0±30 ppb/K 两档要求,且测量分辨率 1 ppb/K。",
+  "evidence": "--[p446]-- The mask substrate standard SEMI P37-0613 requires a CTE in the range from 0 ± 5 ppb/K with a 6 ppb/K total spatial variation to 0 ± 30 ppb/K with a 10 ppb/K total spatial variation. Since there is no commercial dilatometer that meets EUVL requirements (measurement resolution of 1 ppb/K), a technique to measure the absolute CTE with high accuracy and reproducibility is required."
+ },
+ {
+  "query_id": "heldout_017",
+  "query": "HMDS 这个东西的沸点是多少?我们热板最高才 130℃,想确认拿它做 vapor prime 会不会有安全问题。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "书中给出 HMDS(hexamethyldisilazane)是无色液体,沸点为 125℃。",
+  "success_criteria": "答出沸点 125℃ 且单位正确;能结合该沸点说明 130℃ 以内热板使用的安全性判断。",
+  "evidence": "--[p485]-- &lt;sup&gt;7&lt;/sup&gt;HMDS is a colorless liquid that boils at 1258C."
+ },
+ {
+  "query_id": "heldout_018",
+  "query": "前烘(soft bake)一般用什么条件?热板上烘多长时间、多少度?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "典型软烘条件为 90–120℃、热板上 60 秒,随后在 chill plate 上冷却以保证晶圆温度均匀。另外书中提到多数光刻胶溶剂沸点约 140℃,远高于软烘温度。",
+  "success_criteria": "答出 90–120℃ 且 60 秒;提到后续 chill plate 冷却为加分项。",
+  "evidence": "--[p4]-- Typical soft bake temperatures are 90–1208C for 60 seconds on a hot plate, followed by a cooling step on a chill plate to achieve uniform wafer temperature control. The boiling points of most resist solvents are on the order of $1 4 0 ^ { \\circ } \\mathrm { C } ,$ far higher than the soft bake temperatures of resists."
+ },
+ {
+  "query_id": "heldout_019",
+  "query": "显影液温度对显影结果影响大吗?车间空调坏了温度偏高会有什么风险?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "显影温度在低/中十几度或高于 26℃ 时会改变给定胶所需的显影时间;显影温度远高于 26℃ 会造成图形胶结构损伤,而显影温度过低会导致显影不完全或 scumming(残渣)。",
+  "success_criteria": "答出 26℃ 这一阈值,并说明高温→图形损伤、低温→显影不全/scumming 两种后果。",
+  "evidence": "--[p211]-- Generally, temperatures in the low or mid-teens or above 268C may tend to cause changes in the required developing time for a given resist. Developer temperatures much higher than $2 6 \\mathrm { { ^\\circ C } }$ may cause pattern resist feature damage, whereas incomplete developing or scumming may occur at low developer temperatures."
+ },
+ {
+  "query_id": "heldout_020",
+  "query": "正胶显影完之后用什么漂洗(rinse)?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "正胶显影后用去离子水(deionized water)漂洗;现代半导体光刻工艺中只用去离子水漂洗显影后的正胶(水中钙可能形成低溶解度酸性盐导致 scumming,故对水质有要求)。",
+  "success_criteria": "答出去离子水(DI water)。",
+  "evidence": "--[p211]-- Rinsing of positive resists after developing is done with deionized water. --[p212]-- Hence, only deionized water is used for rinsing developed positive resists in modern semiconductor lithographic practices."
+ },
+ {
+  "query_id": "heldout_021",
+  "query": "EUV 多层膜反射镜里 Mo 层和 Si 层每层多厚?一共堆多少对?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "理想平滑界面的 50 对交替钼/硅层:Mo 每层 2.5 nm、Si 每层 4.2 nm,理论峰值反射率 74%。",
+  "success_criteria": "答出 Mo 2.5nm、Si 4.2nm、50 对;74% 理论反射率为加分项。",
+  "evidence": "--[p228]-- Figure 14.5 shows the calculated reflectivity curve for perfectly smooth interfaces of 50 alternating pairs of molybdenum (2.5 nm) and silicon layers (4.2 nm), indicating a theoretical peak reflectivity of 74%."
+ },
+ {
+  "query_id": "heldout_022",
+  "query": "193nm 浸没式光刻里,水在 193nm 波长的折射率是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在标准大气温度和压力下、波长 193nm 处,水的折射率为 1.44。",
+  "success_criteria": "答出 1.44 并注明条件(193nm、常温常压)。",
+  "evidence": "--[p211]-- From Eqs. (13.32)–(13.35), resolution in dry and immersion lithographies are equal for the same wavelength and NA, while the DOF of immersion lithography is greater than that of dry lithography by a factor that is at least as great as the refractive index of water (which is 1.44 at l 193 nm at standard atmospheric temperature and pressure)."
+ },
+ {
+  "query_id": "heldout_023",
+  "query": "同步辐射光源产出的 X 射线波长范围大概在哪个区间?电子要加速到多高能量?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "同步辐射储存环产生的 X 射线波长为 0.1–10 nm;环中电子被加速到最高 1 GeV 并维持该能量,在强磁场包围的真空管道中循环。",
+  "success_criteria": "答出 0.1–10 nm;1 GeV 为加分项。",
+  "evidence": "--[p221]-- Synchrotron storage rings produce x rays (0.1–10-nm wavelength) that have been used in x-ray lithography. In the synchrotron, electrons are accelerated to up to 1 GeV and maintained at that energy, and circulated in an evacuated ring of pipe surrounded by a strong magnetic field."
+ },
+ {
+  "query_id": "heldout_024",
+  "query": "DNQ 感光剂的分解温度是多少?硬烘(hard bake)时对温度要有什么讲究?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "DNQ 的分解温度为 110℃;将 DNQ/novolac 胶烘到该温度以上会破坏 PAC(光活性化合物),阻止其参与后续不必要的反应(如防止注入工序中残留 DNQ 辐解放氮导致 popping)。",
+  "success_criteria": "答出 110℃,并说明高于此温度烘烤可分解 PAC/消除残留 DNQ。",
+  "evidence": "--[p55]-- Baking the DNQ/novolac resist above the decomposition temperature of DNQ $( 1 1 0 ^ { \\circ } \\mathrm { C } )$ has been reported to destroy the PAC and prevent it from participating in any unwanted reactions."
+ },
+ {
+  "query_id": "heldout_025",
+  "query": "SAC305 这款无铅焊料的熔化温度大概在多少度？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "SAC305 等常用 SnAgCu 合金（SAC359/SAC387/SAC396/SAC405）的熔化温度均在 217°C 左右。",
+  "success_criteria": "答出约 217°C，允许 ±3°C 误差",
+  "evidence": "--[p192]-- Sn96.5Ag3Cu0.5 (SAC305), Sn95.6Ag3.5Cu0.9 (SAC359, ternary eutectic SnAgCu), Sn95.5Ag3.8Ag0.7 (SAC387), Sn95.5Ag3.9Cu0.6 (SAC396), and Sn95.5Ag4.0Cu0.5 (SAC405) are all commonly used for reflow, wave, and hand soldering, and all exhibit a melting temperature around 217°C"
+ },
+ {
+  "query_id": "heldout_026",
+  "query": "Sn-Zn 共晶焊料熔点挺低的，书里为什么说它不太适合电子焊接？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "共晶 Sn91Zn9 熔点 199°C，但 Zn 表面张力高（0.768 N/m）且对助焊剂和氧反应性强，因此不适合电子焊接。",
+  "success_criteria": "答出熔点 199°C 且给出表面张力高/易与助焊剂和氧反应任一原因",
+  "evidence": "--[p194]-- Eutectic Sn91Zn9 exhibits a melting temperature 199°C. Although attractive in its low melting temperature, its high surface tension (0.768 N/m for Zn) and high reactivity toward flux and oxygen prohibit its use for electronic soldering."
+ },
+ {
+  "query_id": "heldout_027",
+  "query": "做球焊用的金丝对纯度有什么讲究？里面掺什么东西来稳定性能？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "球焊用金纯度极高（99.99%），总杂质通常低于 10 ppm；铍（Be）是用于稳定线材并控制机械性能的关键杂质元素。",
+  "success_criteria": "答出 99.99% 纯度、杂质 &lt;10 ppm、铍(Be) 三要素",
+  "evidence": "--[p140]-- The gold used is extremely pure (99.99%) …… with total impurities typically less than 10 ppm. …… Beryllium is the key impurity used to stabilize the wire and control some of its mechanical properties."
+ },
+ {
+  "query_id": "heldout_028",
+  "query": "EMC 传递模塑成型之后还要后固化，一般是什么条件？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "后固化条件一般为 170–180°C、2–8 小时。",
+  "success_criteria": "同时答出温度区间 170–180°C 与时间 2–8 h",
+  "evidence": "--[p355]-- The semiconductor package after molding is normally post-cured to fully cure the EMC and achieve optimal properties. The post-curing condition is generally at 170–180°C for 2–8 h."
+ },
+ {
+  "query_id": "heldout_029",
+  "query": "铜线球焊比起金线是不是更容易把芯片压伤？硬度差多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "是：铜剪切模量 48 GPa 高于金 26 GPa，铜球努氏硬度约 50 高于金球 35，因此键合过程易造成凹坑（cratering）损伤。",
+  "success_criteria": "答出 48 vs 26 GPa 或努氏硬度 50 vs 35，并提到 cratering 风险",
+  "evidence": "--[p142]-- Copper has a higher shear modulus than gold (48 GPa versus 26 GPa) and Cu balls are significantly harder than gold balls (e.g., 50 compared to 35 on the Knoop Hardness Scale), thus, creating the potential for damage to delicate chips and substrates in the bonding process. Copper ball bonding produces a significant increase in cratering [23]."
+ },
+ {
+  "query_id": "heldout_030",
+  "query": "E-glass 玻纤在 1GHz 下的介电常数大概落在一个什么范围？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "E-glass 在 1 GHz 的介电常数可在 5.9–6.4 范围内变化（因原料来源与等级不同）。",
+  "success_criteria": "答出 5.9–6.4 区间",
+  "evidence": "--[p288]-- As a result, the dielectric constant of E-Glass at 1 GHz can vary within a range of 5.9–6.4."
+ },
+ {
+  "query_id": "heldout_031",
+  "query": "大家常说的紫瘟（purple plague）指的是哪种金铝金属间化合物？它在多少度就会形成？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "AuAl2，形成温度 150°C，呈深紫色（purple plague），活化能 1.20 eV。",
+  "success_criteria": "答出 AuAl2 与 150°C",
+  "evidence": "--[p163]-- AuAl2 | 150 | 1.20 | 115.8 | 27.7 | Deep purple in color (purple plague-"
+ },
+ {
+  "query_id": "heldout_032",
+  "query": "掺 1% 硅的铝线主要用在什么场合？加硅图的是什么？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Al+1%Si 是标准 IC 键合线（主要用于楔形超声键合/wedge bonding）；1% 硅与半导体器件金属化常用合金匹配，并比纯铝提高强度与刚度。",
+  "success_criteria": "答出标准 IC 键合线（楔焊）且说明与器件金属化合金匹配/提高强度",
+  "evidence": "--[p141]-- Aluminum with 1% silicon matches the common alloy used for semiconductor device metallization and offers improved strength and stiffness over pure aluminum in small diameter applications. …… Aluminum + 1% Silicon …… Standard integrated circuit bonding wire (wedge bonding)."
+ },
+ {
+  "query_id": "heldout_033",
+  "query": "查一下这本书里 1978 年第一台 stepper 和 2006 年浸没式扫描机的规格对比：波长、NA、曝光场、缩小倍率、晶圆尺寸各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "按书中表 1.2：First Stepper (1978)：波长 436nm、NA 0.28、Field Size 10×10mm、Reduction Ratio 10、Wafer Size 4″(100mm)；Immersion Scanner (2006)：193nm、NA 1.2、Field Size 26×33mm、Reduction Ratio 4、Wafer Size 300mm。另 p21 补充：1978 年第一台 stepper 用 g-line 436nm、NA 0.28、场直径 14mm；现代机型用 ArF 193nm、干式 NA 0.93、水浸没最高 1.35。",
+  "success_criteria": "两组共 10 项参数全部答出且数值、单位正确（436nm/0.28/10×10mm/10/100mm 与 193nm/1.2/26×33mm/4/300mm）",
+  "evidence": "--[p20 [表]]-- Table 1.2 The change in projection tool specifications over time First Stepper (1978) | Immersion Scanner (2006) Wavelength | 436nm | 193 nm Numerical Aperture | 0.28 | 1.2 Field Size | 10 × 10mm | 26 × 33 mm Reduction Ratio | 10 | 4 Wafer Size | 4″(100mm) | 300mm；--[p21]-- The first stepper in 1978 employed an imaging wavelength of 436 nm (the g-line of the mercury spectrum), a lens numerical aperture of 0.28 and a field size of 14 mm in diameter. Today's tools use an ArF excimer laser at 193 nm, a lens with a numerical aperture of 0.93 dry, and up to 1.35 with water immersion, and a field size of 26 × 33 mm."
+ },
+ {
+  "query_id": "heldout_034",
+  "query": "驻波在光刻胶里沿深度方向的周期公式是啥？书里怎么写的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "驻波强度周期 Period = λ/2n₂（式 4.20），由式 (4.19) 中的余弦项得出；其中 λ 为曝光波长、n₂ 为光刻胶折射率。",
+  "success_criteria": "答出 Period = λ/(2n₂) 且说明来源是式 (4.19) 余弦项",
+  "evidence": "--[p133]-- The cosine term in Equation (4.19) shows that the period of the standing wave is given by Period = λ / 2 n_2 (4.20)"
+ },
+ {
+  "query_id": "heldout_035",
+  "query": "DNQ 胶曝光动力学里 Dill 参数 C 到底代表什么？控制感光剂相对浓度的速率方程长什么样？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "C 是标准曝光速率常数（standard exposure rate constant），是第三个 Dill 光刻胶参数，三个 Dill 参数合称 ABC 参数；C 可分解为 C = Φσ_M-abs(λ/hc) = Φa_M λ/(N_A hc)，即量子效率与感光剂吸收截面的乘积项。速率方程为 dm/dt = −CIm（式 5.27），m 为相对感光剂浓度（M/M₀）。",
+  "success_criteria": "答出 C=标准曝光速率常数、ABC 参数含义，且速率方程 dm/dt=−CIm 正确",
+  "evidence": "--[p196]-- where the relative sensitizer concentration m (= M/M_0) has been used and C is the standard exposure rate constant and the third Dill photoresist parameter (collectively, the three Dill parameters are also called the ABC parameters)；--[p196]-- \\frac { \\mathrm { d } m } { \\mathrm { d } t } { = } { - } C I m\\tag{5.27}；--[p196]-- C = \\Phi \\sigma _ { M \\mathrm { - } \\mathrm { a b s } } \\left( { \\frac { \\lambda } { h c } } \\right) = { \\frac { \\Phi B _ { \\mathrm { E } } } { \\nu } } = { \\frac { \\Phi a _ { M } \\lambda } { N _ { \\mathrm { A } } h c } }\\tag{5.28}"
+ },
+ {
+  "query_id": "heldout_036",
+  "query": "两光束成像时 pitch 分辨率的物理极限公式是什么？对应的 k_pitch 最小能到多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "极限 pitch 分辨率 = λ/2NA（式 10.4，当 sinθ 达到最大值 NA 时）；两光束成像时 k_pitch 最小值为 0.5（对比三光束成像 k_pitch 最小为 1.0）。该极限可用交替相移掩模或优化的离轴照明实现。",
+  "success_criteria": "答出 λ/2NA 且 k_pitch 最小值 0.5",
+  "evidence": "--[p415]-- The ultimate pitch resolution of an imaging tool is obtained when sinq becomes its maximum value, the NA: ultimate pitch resolution = λ / 2 NA (10.4) for all duty cycles. Thus, for two-beam imaging, the minimum k_pitch is 0.5. This ultimate pitch resolution uses two-beam imaging that can be obtained from an alternating phaseshifting mask or an optimized off-axis illumination scheme"
+ },
+ {
+  "query_id": "heldout_037",
+  "query": "swing ratio 这个指标在书里是怎么定义的？给我定义式。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "swing ratio 定义为摆动曲线相邻最小值与最大值之差除以二者的平均值；对 E₀ swing curve：SR = (E₀max − E₀min)/[(E₀min + E₀max)/2]（式 4.56）。",
+  "success_criteria": "给出 SR 定义式 (4.56) 且分子分母形式正确",
+  "evidence": "--[p150]-- A simple metric for the magnitude of the swing is called the swing ratio, defi ned as the difference between adjacent min and max values of the swing curve divided by their average value. For example, for an E_0 swing curve, the swing ratio (SR) would be SR = \\frac { E _ { \\mathrm { 0 m a x } } - E _ { \\mathrm { 0 m i n } } } { ( E _ { \\mathrm { 0 m i n } } + E _ { \\mathrm { 0 m a x } } ) /  }\\tag{4.56}"
+ },
+ {
+  "query_id": "heldout_038",
+  "query": "Original Mack 显影模型里那个溶解选择性参数 n 是什么意思？完整速率方程给我。",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "Original Mack 模型速率方程：r = r_max·(a+1)(1−m)ⁿ / [a+(1−m)ⁿ] + r_min（式 7.10）；n 是溶解选择性参数（dissolution selectivity parameter），物理上表示需要多少次曝光/脱保护反应共同作用才能使一个树脂分子溶解；n→∞ 时胶变成理想阈值胶（阶跃函数）。a = k_D/k_R·M₀ⁿ 描述扩散速率常数相对表面反应速率常数之比；加 r_min 后真实最大速率实际是 r_max+r_min。",
+  "success_criteria": "给出式 (7.10) 完整形式且解释 n 的物理含义",
+  "evidence": "--[p259]-- r = r _ { \\mathrm { m a x } } \\frac { ( a + 1 ) ( 1 - m ) ^ { n } } { a + ( 1 - m ) ^ { n } } + r _ { \\mathrm { m i n } }\\tag{7.10}；--[p260]-- The key parameter in this development model that affects lithographic performance is the dissolution selectivity n. As n goes to infi nity, the behavior seen in Figure 7.1 reaches its extreme of a step function. In other words, for n = ∞ the resist becomes an ideal threshold resist. Physically, this parameter represents the number of exposure or deblocking reactions that work together to cause one resin molecule to go into solution."
+ },
+ {
+  "query_id": "heldout_039",
+  "query": "我们要采购 193nm 浸没式光刻机，这本书里有没有 ASML、Nikon、Canon 各家具体机型的产能和选型对比建议？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书是光学光刻原理专著，未提供任何设备厂商机型选型对比或产能推荐内容；书中对 ASML 仅有一处历史性提及（早期机型为透过透镜对准采用中心遮拦，p89）， nowhere 有 Nikon/Canon 机型对比。可补充书中仅有的相关数据：表 1.2 给出第一台 stepper(1978) 与浸没式扫描机(2006) 的技术规格演进、吞吐 20→120 wafers per hour。应建议用户查阅设备商规格书/选型资料。",
+  "success_criteria": "明确说明书中没有厂商机型选型对比内容（正确拒答该部分），不编造机型数据，且能指出书中仅有表 1.2 历史规格与吞吐数据可参考",
+  "evidence": "--[p20 [表]]-- Table 1.2 The change in projection tool specifications over time…Wafer Size | 4″(100mm) | 300mm；--[p21]-- Throughput | 20 wafers per hour (0.44 cm²/s) | 120 wafers per hour (24 cm²/s)；--[p89]-- 1× steppers made by Ultratech Stepper and early steppers made by ASML include such central obscurations for through-the-lens alignment purposes.（全书无 Nikon/Canon 机型选型对比内容）"
+ },
+ {
+  "query_id": "heldout_040",
+  "query": "做浸没式建模需要水在 193nm 的吸收系数（消光系数 κ），书里给的这个数值是多少？",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书只给出水在 193nm 的（实）折射率约 1.44（p118，用于讨论浸没式 NA 上限 1.35），并未给出水在 193nm 波长的吸收系数/消光系数 κ，无法从本书获得该数值；不应编造 κ 值，建议查阅水在深紫外的光学常数文献。",
+  "success_criteria": "明确指出书中仅有水折射率 n≈1.44、无 193nm 吸收/消光系数数据（正确拒答数值），且不编造 κ 值",
+  "evidence": "--[p118]-- At a wavelength of 193 nm, resists have refractive indices of about 1.7 and water has a refractive index of about 1.44；--[p118]-- Practical numerical apertures for immersion systems are probably in the range of 93 % of the refractive index of the fl uid. For water, with n = 1.44 at 193 nm, this means a numerical aperture of up to 1.35.（全书未给出水在 193nm 的 κ/吸收系数）"
+ },
+ {
+  "query_id": "heldout_041",
+  "query": "我们一块要反复动态弯折的FPC，铜箔到底该选压延的还是电解的？教材里怎么说的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "动态弯曲的FPC一般使用压延铜箔(RA)。依据：电解铜箔(ED)铜微粒结晶为垂直针状，弯曲半径小于5mm或动态挠曲时针状结构易断裂，主要用于刚性印制板；压延铜箔铜微粒呈水平轴状结构，能适应多次挠曲。",
+  "success_criteria": "答出选压延铜箔，且能说出ED为垂直针状结晶易断裂、RA为水平轴状结构耐挠曲任一依据",
+  "evidence": "--[p26]-- 电解铜箔是采用电镀的方式形成，其铜微粒结晶状态为垂直针状，易在蚀刻时形成垂直的线条边缘，利于精细导线的制作。但是在弯曲半径小于5mm或动态挠曲时，针状结构易发生断裂，因此主要用于刚性印制板。挠性覆铜基材多选用压延铜箔，其铜微粒呈水平轴状结构，能适应多次挠曲。……线路图形高密度化发展要求导线具有更高的耐弯折性能，因此对于动态弯曲的FPC一般使用压延铜箔。"
+ },
+ {
+  "query_id": "heldout_042",
+  "query": "PI绝缘基膜在空气中长期使用的温度范围是多少度？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "PI薄膜可在250～280℃空气中长期使用；并补充20℃时拉伸强度为200MPa、200℃时大于100MPa。",
+  "success_criteria": "答出250～280℃长期使用且单位℃正确",
+  "evidence": "--[p22]-- PI薄膜呈黄色透明(图1-13(a))，相对密度1.39~1.45g/cm³，有突出的耐高温、耐辐射、耐化学腐蚀性能，介电强度高，电气性能和机械性能极佳，可在250～280℃空气中长期使用。……20℃时PI的拉伸强度为200MPa，200℃时大于100MPa"
+ },
+ {
+  "query_id": "heldout_043",
+  "query": "HDI挠性板要在元件体下开直径200μm以下的小窗，传统覆盖膜压合工艺做得到吗？书里各覆盖膜工艺的最小窗口精度分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "做不到。传统覆盖膜最小窗口800μm；覆盖膜+激光钻孔可达50μm；感光干膜型和感光液态油墨型均为80μm；网印液态油墨600μm。HDI挠性电路需要窗口直径小于200μm、位置精度小于100μm时，传统覆盖膜因人工操作难以满足。",
+  "success_criteria": "答出传统覆盖膜800μm无法满足200μm小窗要求，且至少给出覆盖膜+激光钻孔50μm这一替代工艺数据",
+  "evidence": "--[p29]-- 有的HDI挠性电路需要制作窗口直径小于200μm，位置精度要求小于100μm。--表1-9： 传统覆盖膜 低(800μm)；覆盖膜+激光钻孔 高(50μm)；网印液态油墨 低(600μm)；感光干膜型 高(80μm)；感光液态油墨型 高(80μm)"
+ },
+ {
+  "query_id": "heldout_044",
+  "query": "CO2激光和UV激光钻盲孔，成孔原理上有什么不同？能不能直接打铜箔？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "CO2激光为光热烧蚀（波长大于760nm的红外光强热熔化或气化材料），可直接加工树脂、玻纤，不可直接加工铜箔（需减薄铜+棕化处理），加工孔径75~200μm，效率高、成本低、后续需去钻污；UV激光为光化学烧蚀，可直接加工铜箔，孔径30~150μm，不需去钻污可直接孔金属化。",
+  "success_criteria": "答出CO2为光热烧蚀、UV为光化学烧蚀，且答出CO2不能直接加工铜箔（或UV可以直接加工铜箔）",
+  "evidence": "--[p63]-- CO2激光钻孔的基本原理是被加工的材料吸收高能量的激光，以波大于760nm的红外光，在极短的时间将有机板材予以强热熔化或气化……属于光热烧蚀原理。--[p64]-- 表2-2： 成孔原理 CO2激光钻孔-光热烧蚀 / UV激光钻孔-光化学烧蚀；材料的加工性 CO2-可直接加工树脂、玻纤，不可直接加工铜箔 / UV-可直接加工铜箔；加工尺寸范围 75~200μm / 30~150μm；后续工序 需要去钻污 / 不需去钻污，直接孔金属化"
+ },
+ {
+  "query_id": "heldout_045",
+  "query": "LTCC陶瓷基板烧结温度能降到多少？为什么布线导体能用银、铜代替钨钼？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "低温共烧可使烧结温度下降到900℃以下，因此可以用Ag、Cu、Ag-Pd等熔点较低的金属代替W、Mo等难熔金属作为布线导体，既可以提高电导率，又可以在大气中烧结（对比：HTCC需1500~1900℃与W或Mo/Mn浆料烧结）。",
+  "success_criteria": "答出900℃以下及可换用Ag、Cu、Ag-Pd低熔点金属并说明提高电导率",
+  "evidence": "--[p101]-- 高温共烧陶瓷基板是把瓷粉和黏结剂、增塑剂、润滑剂和溶剂混合后，制成生瓷片并与W或Mo/Mn等难熔金属的浆料，在1500~1900℃烧结而成。……低温烧结技术是1982年休斯公司开发的新型材料技术。……可使烧结温度下降到900℃以下，可以用Ag、Cu、Ag-Pd等熔点较低的金属代替W、Mo等难熔金属作为布线导体，既可以提高电导率，又可以在大气中烧结。"
+ },
+ {
+  "query_id": "heldout_046",
+  "query": "按教材的对比，各种高频基板材料的介电特性和耐热性从优到劣分别怎么排序？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "介电特性（包括介电常数ε和损耗因子tanδ）：PTFE&gt;CE&gt;PPO&gt;BT&gt;PI&gt;EP；耐热性：PI&gt;BT&gt;PPO&gt;CE&gt;EP&gt;PTFE。其中'&gt;'表示前者性能较优于后者，而不是指数值的大小。",
+  "success_criteria": "两组排序均答对（介电PTFE最优、耐热PI最优）",
+  "evidence": "--[p138]-- 介电特性(包括介电常数ε 和损耗因子 tan δ): PTFE&gt;CE&gt;PPO&gt;BT&gt;PI&gt;EP……耐热性： PI&gt;BT&gt;PPO&gt;CE&gt;EP&gt;PTFE。"
+ },
+ {
+  "query_id": "heldout_047",
+  "query": "做光电板眼图测试的时候，'眼睛'张开得越大说明信号质量怎么变化？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "眼睛张得越大且眼图越端正，表示码间串扰越小；反之表示码间串扰越大。",
+  "success_criteria": "答出眼睛越大码间串扰越小（或眼图越端正码间串扰越小）",
+  "evidence": "--[p329]-- 眼图的\"眼睛\"张开的大小反映着码间串扰的强弱。\"眼睛\"张的越大，且眼图越端正，表示码间串扰越小；反之表示码间串扰越大。"
+ },
+ {
+  "query_id": "heldout_048",
+  "query": "TLCP覆铜箔基材的吸水率只有0.04%，那PI基材的吸水率是它的多少倍？帮我算一下。",
+  "task_type": "数据计算",
+  "difficulty": "easy",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "查表1-3：TLCP吸水率0.04%，PI吸水率2.9%，2.9÷0.04=72.5，即PI的吸水率约为TLCP的72倍（正文亦称LCP吸水率极低仅为0.04%，而PI基材吸湿性大）。",
+  "success_criteria": "答出约72倍（数值在70~73倍之间均判对）且两个原始数据引用正确",
+  "evidence": "--[p24]-- 优良的耐腐蚀性、阻燃性、电性能(介电常数为2.9，介电损耗低)和成型加工性能，吸水率极低(仅为0.04%)。--[p25]-- 表1-3 TLCP覆铜箔基材与其他基材的性能对比： 吸水率/% TLCP 0.04 | PI 2.9"
+ },
+ {
+  "query_id": "heldout_049",
+  "query": "我们线内想在 FEOL 用 TK-10 体系去 TiN 硬掩模,书里 E1 到 E4 四种刻蚀液在 60°C 下测出来哪些对 TiN 的刻蚀速率低于 30 Å/min?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "E1 和 E3 的 TiN 刻蚀速率 &lt;30 Å/min,E2 和 E4 则 &gt;80 Å/min(相同摩尔浓度、60°C)。最终选 E4 是因为 E2 虽刻速最高但 W 损失也大。",
+  "success_criteria": "答出 E1 和 E3 刻速 &lt;30 Å/min,且单位 Å/min 正确;能区分 E2/E4 &gt;80 Å/min 者加分。",
+  "evidence": "--[p105]-- Etchants 1-4 were tested (E1-E4) with the same molar concentration, in which E1 and E3 showed TiN E/R of &lt;30 Å/min, while E2 and E4 showed TiN E/R &gt;80 Å/min at $6 0 ^ { \\circ } \\mathrm { C }$ ."
+ },
+ {
+  "query_id": "heldout_050",
+  "query": "J.T.Baker CLk-228 残留物去除剂和双氧水 1:10 混合液放在 55°C 浴里,不加 Ti 负载时,书里说 pH 三个小时内从多少掉到多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "1:10 混合液在 55°C、无 Ti 负载条件下,3 小时内 pH 从 6.7 降到 6.3,说明该混合液随时间不稳定,需控制 pH 和 H2O2 水平。",
+  "success_criteria": "答出 6.7 → 6.3 且时间 3 小时、温度 55°C、配比 1:10 无误。",
+  "evidence": "--[p253]-- All J.T.Baker® CLk™-228 residue remover $/ \\mathrm { \\ H } _ { 2 } \\mathrm { O } _ { 2 }$ mixtures were found to be unstable over time... For a 1:10 mixture at $5 5 \\mathrm { { ^ \\circ C } }$ with no Ti loading, the pH drops from 6.7 to 6.3 within 3 hours (Figure 4.a)."
+ },
+ {
+  "query_id": "heldout_051",
+  "query": "高深宽比硅纳米柱干燥时容易倒塌,把去离子水换成 IPA 能把毛细力降多少?书里给的水和 IPA 的表面张力值是多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "毛细力最多只能降为原来的约 1/3;298K 下 γ(H2O)=72 mN/m、γ(IPA)=21 mN/m。用 IPA 只能有限改善团簇尺寸,表面修饰(如 BUTS)效果更明显。",
+  "success_criteria": "答出\"降为约 1/3\"且两个表面张力数值 72 与 21 mN/m 正确(298K)。",
+  "evidence": "--[p150]-- replacing deionized water (DIW) (figure 2-a) by IPA (figure 2-b) reduces the cluster size formed after drying, but there is only a limited improvement because capillary forces can be reduced only by a factor of $3 \\ ( \\gamma _ { \\mathrm { H } 2 0 } = 7 2 \\ \\mathrm { \\ m N m } ^ { - 1 } , \\ \\gamma _ { \\mathrm { I P A } } = \\ 2 1 \\ \\mathrm { \\ m N m } ^ { - 1 }$ at 298K)."
+ },
+ {
+  "query_id": "heldout_052",
+  "query": "TMAH 西格玛槽刻蚀那篇文章里,新配的 TMAH 和浴寿命内稳定后的 TMAH,溶解氧各是多少 ppm?对器件应力偏差影响多大?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "新鲜 TMAH 约 6 ppm 溶解氧,稳定后约 8 ppm;两者相比可算出 15% 的应力偏差。向 TMAH 注入优化量的 O2(如 0.1 slm×385 s)可稳定刻蚀性能。",
+  "success_criteria": "答出 6 ppm 与 8 ppm 以及 15% 应力偏差。",
+  "evidence": "--[p32]-- A 15% stress deviation could be calculated comparing fresh TMAH (6 ppm oxygen) with stable TMAH (8 ppm oxygen) within the same bath lifetime."
+ },
+ {
+  "query_id": "heldout_053",
+  "query": "用电解水(AW-Cl)喷淋清洗 FOUP 去金属,效果最好那组条件的 pH 和 ORP 是多少?Zn、Fe、Ni 三种金属的去除效率各到多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "最佳条件为 AW-Cl 在 pH 2.6、ORP 1110 mV,Zn 去除率最高约 69%、Fe 约 58%、Ni 约 40%;对比的稀释 SC2(pH 2.5、ORP 550 mV)三种金属去除率都明显更低,DIW 冲洗对 Zn 仅 18%、Fe 和 Ni 仅 2%。",
+  "success_criteria": "答出 pH 2.6、ORP 1110 mV,以及 Zn 69%/Fe 58%/Ni 40% 三个数值。",
+  "evidence": "--[p391]-- The highest metal removal efficiency – for all 3 metals – is observed for the AW-Cl at pH-value 2.6 and ORP= 1110 mV (black bar). A metal removal efficiency of up to 69% is reached for Zn, up to 58% for Fe and 40% for Ni."
+ },
+ {
+  "query_id": "heldout_054",
+  "query": "书里做 spacer 刻蚀那篇,气相 HF 工艺对 SiN 和 SiO2 的刻蚀选择比分别能做到多少?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在归一化 HF 浓度 0.5 C0 下,气相 HF 工艺对 SiN 和 SiO2 的选择比分别约 31 和 39;且 HF 浓度相对最优点翻倍时选择比仍可保持 &gt;10,对 Si/SiGe 本征无限选择比,适合 spacer 刻蚀。",
+  "success_criteria": "答出 31(对 SiN)和 39(对 SiO2)两个数值。",
+  "evidence": "--[p86]-- The resulting chart in Figure 8 shows that gaseous HF process can achieve a high selectivity to both SiN and $\\mathrm { S i O } _ { 2 }$ (respectively 31 and 39 at $0 . --[p86]-- 5 \\mathrm { C } _ { 0 }$ in normalized HF concentration) together with a large process window since HF concentration can be doubled with respect to optimum conditions and still maintain selectivity above 10."
+ },
+ {
+  "query_id": "heldout_055",
+  "query": "GaAs 数字刻蚀想用空气自然氧化做氧化步,书里说 30 分钟空气暴露氧化层才长多厚,结论是能不能用?",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "30 分钟时间范围内空气氧化层厚度不超过 1.0 nm,要长到所需厚度耗时太长,因此空气氧不能用作数字刻蚀的氧化步;书中指出 gaseous O3 比 O2 长得更快,更适合数字刻蚀。",
+  "success_criteria": "答出 ≤1.0 nm 且明确结论\"不能/不适合用空气氧化作数字刻蚀氧化步\"。",
+  "evidence": "--[p76]-- On the other hand, oxide thickness obtained in a 30 minutes time range is not exceeding 1.0 nm. Time required to obtain such a thickness (or more) does not allowed the use of oxygen from air as an oxidation step for digital etching."
+ },
+ {
+  "query_id": "heldout_056",
+  "query": "我想给产线上一套 AW-Cl 电解水 FOUP 清洗设备,这本书里有没有给出这类设备的型号和采购报价?大概多少钱一套?",
+  "task_type": "异常处理",
+  "difficulty": "easy",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书(会议技术文集)只报道了 AW-Cl 电解水的 pH/ORP 工艺窗口和金属去除效率等工艺结果,完全没有涉及设备型号、供应商报价或采购成本信息,无法回答价格,建议直接向设备/化学品供应商询价;不得编造任何价格数字。",
+  "success_criteria": "明确指出书中不含设备报价/成本信息并正确拒答,不出现任何编造的价格或型号;能转述书中仅有的工艺参数者加分。",
+  "evidence": "--[p392]-- Therefore it's an excellent candidate for fast and accurate process adaption. This innovative wet cleaning technology is a powerful application, not for FOUP's only, but also for semiconductor surface preparation and FEOL cleaning applications.(全书该节仅有工艺结果,无任何价格/型号信息)"
+ },
+ {
+  "query_id": "heldout_057",
+  "query": "193nm的曝光机里泡水做浸没式曝光，有效波长能缩短到多少纳米？折射率取多少算的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "在193nm曝光机中，光源与衬底(光刻胶)之间加入水作为浸没介质，水的折射率约为1.4，波长可缩短为132nm。",
+  "success_criteria": "答出132nm且指出介质为水、折射率约1.4，单位正确。",
+  "evidence": "--[p32]-- 例如，在193nm曝光机中，在光源与衬底(光刻胶)之间加入水(折射率约为1.4)作为介质，则波长可缩短为132nm。"
+ },
+ {
+  "query_id": "heldout_058",
+  "query": "HSQ电子束抗蚀剂的极性、20keV下的灵敏度和配套显影液分别是什么？书里表2.2怎么写的？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "按表2.2：HSQ为负性抗蚀剂，分辨率10nm，20keV灵敏度100 μC/cm²，显影液为TMAH:DI = 1:9。",
+  "success_criteria": "极性(负)、灵敏度数值100 μC/cm²(20keV)、显影液TMAH:DI=1:9三项均答对。",
+  "evidence": "--[p64 [表]]-- 表 2.2 常用电子束抗蚀剂 极性 | 分辨率/nm | 20 keV 灵敏度/(μC/cm²) | 显影液 …… HSQ | 负 | 10 | 100 | TMAH:DI1:9"
+ },
+ {
+  "query_id": "heldout_059",
+  "query": "用KOH腐蚀单晶硅时，(110)、(100)、(111)三个晶向的腐蚀速率比是多少？这决定了能刻出什么剖面？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "KOH对硅(110)、(100)、(111)晶向的腐蚀速率比为400:200:1；因此对[100]晶向硅片腐蚀时，可沿[111]晶向与[100]晶向的夹角形成斜锥状剖面。",
+  "success_criteria": "答出400:200:1且三个晶向对应顺序正确。",
+  "evidence": "--[p149]-- 例如，利用氢氧化钾(KOH)对于硅(110)、(100)、(111)晶向的腐蚀速率比达到400：200:1[8]，因此用KOH对[100]晶向的硅片进行腐蚀时，能够沿[111]晶向与[100]晶向的夹角形成斜锥状的剖面。"
+ },
+ {
+  "query_id": "heldout_060",
+  "query": "硅的Bosch工艺刻蚀气体和钝化气体各用哪种？一个刻蚀-钝化转换周期大概多少秒？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "对硅的Bosch工艺通常使用SF6作为刻蚀气体、C4F8作为钝化气体，刻蚀和钝化交替进行，通常3～15s转换一个周期。",
+  "success_criteria": "刻蚀气体SF6、钝化气体C4F8、周期3～15s三项均正确。",
+  "evidence": "--[p160]-- 对于硅而言，通常使用SF6作为刻蚀气体，C4F8作为钝化气体。……刻蚀和钝化交替进行(通常3～15s转换一个周期），在垂直表面方向上由于有离子轰击作用，钝化膜很快被剥离。"
+ },
+ {
+  "query_id": "heldout_061",
+  "query": "硅片RCA清洗的稀HF、SC1、SC2各自配比是多少？每步分别去掉什么沾污？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "先用稀HF(HF:去离子水=1:10～1:100)清洗自然氧化层；再用SC1(NH4OH:H2O2:去离子水=1:1:5)去除颗粒、有机物及金属杂质；随后再用稀HF去除过程中形成的氧化膜；最后用SC2(HCl:H2O2:去离子水=1:1:6)去除原子和离子杂质沾污。",
+  "success_criteria": "三个配比(1:10~1:100、1:1:5、1:1:6)及各步骤作用均答出。",
+  "evidence": "--[p151]-- 以硅片的RCA清洗为例，需要首先使用稀HF(HF：去离子水=1:10～1:100)清洗其自然氧化层，再使用SC1(NH4OH:H2O2：去离子水=1:1:5)去除硅片表面的颗粒、有机物以及金属杂质，随后继续使用稀HF去除在此过程中形成的氧化膜，然后使用SC2(HCl:H2O2：去离子水=1：1：6)去除硅片表面的原子和离子杂质沾污。"
+ },
+ {
+  "query_id": "heldout_062",
+  "query": "不加导电层直接在玻璃上做电子束曝光，书里说的临界能量曝光用950k PMMA时临界能量是多少？能做出的最小线宽多大？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "对玻璃衬底上65nm厚、分子量950k的PMMA，临界能量为1.3keV，曝光得到的最小线宽为60nm。",
+  "success_criteria": "临界能量1.3keV和最小线宽60nm均答出，胶厚65nm、分子量950k等条件可一并给出。",
+  "evidence": "--[p80]-- 研究人员采用该方法，对玻璃衬底上65nm厚的分子量为950000(950k)的PMMA进行研究，发现其临界能量为1.3keV，曝光得到的最小线宽为60nm"
+ },
+ {
+  "query_id": "heldout_063",
+  "query": "平面射频磁控溅射的最佳工作压强是多少？比没有磁场束缚的辉光放电低多少倍？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "平面射频磁控溅射最佳工作压强为0.1～1 Pa，比没有磁场束缚的辉光放电低10～30倍。",
+  "success_criteria": "0.1～1 Pa与低10～30倍两个数值均正确。",
+  "evidence": "--[p198]-- 对于平面射频磁控溅射来说最佳的工作压强为0.1～1 Pa。这比没有磁场束缚的辉光放电要低10～30倍。"
+ },
+ {
+  "query_id": "heldout_064",
+  "query": "热压印时加热温度要比压印胶的玻璃化温度高出多少度才开始保压？",
+  "task_type": "信息查询",
+  "difficulty": "easy",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "对衬底加热，使温度高于压印胶玻璃化温度(Tg)50～100°C，达到压印温度后保持温度并施加压力进行压印。",
+  "success_criteria": "答出高出玻璃化温度50～100°C。",
+  "evidence": "--[p132]-- 首先，在衬底上旋涂适合厚度的纳米压印胶，将压印模板放置于涂胶的衬底上，如图5.3(a)所示，并对衬底进行加热，使温度高于压印胶玻璃化温度(Tz)50～100°C"
+ },
+ {
+  "query_id": "heldout_065",
+  "query": "Host Interface 里 t3 这个定时器是干嘛的？默认值和允许范围各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "t3 是设备发出带 w-bit 置位的主消息后等待应答数据消息的最长秒数，超时则认为应答不会到来；允许范围 [10-120] 秒，默认 10 秒。",
+  "success_criteria": "语义、范围 [10-120]、默认 10 三个要素齐全。",
+  "evidence": "--[p162 [表]]-- t3 | [10 - 120] | 10 | The number of seconds the Equipment will wait after sending a primary message with w-bit set, before giving up and assuming that the expected reply data message will not arrive. Table 4.7 Host Interface Settings"
+ },
+ {
+  "query_id": "heldout_066",
+  "query": "S2F41 host command 的应答 S2F42 里 HCACK 各个码值都是什么含义？把 0 到 6 都列一下。",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "HCACK（Format 10，1 字节）：0 = Acknowledge, command has been performed（已执行）；1 = Command does not exist（命令不存在）；2 = Cannot perform now（当前无法执行）；3 = At least one parameter is invalid（至少一个参数无效）；4 = Acknowledge, command will be performed with completion signaled later by an event（将执行，稍后用事件通知完成）；5 = Rejected, Already in Desired Condition（已处于期望状态被拒绝）；6 = No such object exists（对象不存在）；7-63 保留；用于 S2F42。",
+  "success_criteria": "0-6 七个码值含义全部答出（顺序不限），遗漏超过 1 个即不通过。",
+  "evidence": "--[p178]-- HCACK | Format: 10 Description | Host Command Parameter Acknowledge Code, 1 byte. Values | 0 = Acknowledge, command has been performed 1 = Command does not exist 2 = Cannot perform now 3 = At least one parameter is invalid 4 = Acknowledge, command will be performed with completion signaled later by an event 5 = Rejected, Already in Desired Condition 6 = No such object exists Where Used | 7-63 Reserved S2F42"
+ },
+ {
+  "query_id": "heldout_067",
+  "query": "S2F40（S16F2）里的 GRANT 应答码都有哪些取值？特别是收到 Duplicate DATAID 时会回几？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "GRANT（Format 10，1 字节）：0 = Permission Granted（允许发送）；1 = Busy, Try Again（忙，请重试）；2 = No Space Available（无可用空间）；3 = Duplicate DATAID（DATAID 重复）；&gt;3 = 设备自定义错误码；4-63 保留；用于 S2F40 与 S16F2。所以 Duplicate DATAID 回 3。",
+  "success_criteria": "0/1/2/3 四个标准码全答对，且明确 Duplicate DATAID 对应 3。",
+  "evidence": "--[p178]-- GRANT | Format: 10 Description | Grant code, 1 byte. Values | 0 = Permission Granted 1 = Busy, Try Again 2 = No Space Available 3 = Duplicate DATAID &gt;3 = Equipment Specific Error Code 4-63 Reserved Where Used | S2F40; S16F2"
+ },
+ {
+  "query_id": "heldout_068",
+  "query": "这套接口里 exception 分几种严重级别？当 Exception Reporting Method 配成 E41 时，error/warning/notification 各走哪组消息，alarm 又走哪组？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "exception 分 4 种严重级别：alarm、error、warning、notification。按 Table 6.9：alarm 级别在 E30/E41 两种方式下都用 S5F1...S5F8；error、warning、notification 在 E41 方式下用 S5F9...S5F12 和 S14F1...S14F4（E30 方式下仍用 S5F1...S5F8）。",
+  "success_criteria": "答出 4 种级别 + E41 下 error/warning/notification 用 S5F9-F12 与 S14F1-F4、alarm 仍用 S5F1-F8。",
+  "evidence": "--[p60]-- This stream contains messages regarding exceptions. Exceptions are classified in 4 severities: alarm, error, warning and notification (see data items ALCD and EXTYPE). --[p60 [表]]-- Table 6.9 Applicable messages depending on \"Exception Reporting Method\": Severity | Exception Reporting Method = \"E30\" | Exception Reporting Method = \"E41\" Alarm | S5F1...S5F8 | S5F1...S5F8 Error | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4 Warning | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4 Notification | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4"
+ },
+ {
+  "query_id": "heldout_069",
+  "query": "S9 流的系统错误消息，什么情况下发、什么情况下不发？Message Fault 和 Communications Fault 的区别是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Stream 9 用于告知 host 收到的消息块无法处理或事务（接收）定时器超时，只指示 Message Fault 或 Communications Fault，不指示 Communications Failure。Message Fault：收到因内容、上下文或长度问题而无法处理的消息；Communications Fault：未收到预期消息（事务定时器或会话定时器超时）；发生 Communications Failure 时不发送任何 Stream 9 消息。",
+  "success_criteria": "答出两类 Fault 的区别 + Communications Failure 时不发 S9。",
+  "evidence": "--[p74]-- This stream provides a method of informing the host that a received message block cannot be handled, or that a timeout on a transaction (receive) timer has occurred. The messages indicate either Message Faults or Communications Faults, but they do not indicate Communications Failures. Message Fault: A Message Fault occurs when the system receives a message which it cannot process because of a fault that arises from the content, context, or length of the message. Communications Fault: A Communications Fault occurs when the system does not receive an expected message (when a transaction timer or a conversation timer has expired). In the event of a Communications Failure, no Stream 9 message is sent."
+ },
+ {
+  "query_id": "heldout_070",
+  "query": "S6F1 追踪数据如果是多块传输，需不需要像 S6F9 那样先走 Inquire/Grant？它按什么配置发数据？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "不需要。手册明确：即使 S6F1 是多块报文，也不需要前置 Inquire/Grant 事务；S6F1（Trace Data Send）按照 S2F23 建立的 trace 设置向 host 发送采样数据。（对比：S6F9 若为多块则必须先走 S6F5/S6F6 Inquire/Grant。）",
+  "success_criteria": "答出\"S6F1 多块也无需 Inquire/Grant 前置\"且提到按 S2F23 的 trace 设置发送。",
+  "evidence": "--[p62]-- S6F1 | Trace Data Send (TDS) | M,H ← E [Reply] Description | Even if S6F1 is multi-block, it is not preceded by an Inquire/Grant transaction. | This function sends samples to the host according the trace setup done by S2F23."
+ },
+ {
+  "query_id": "heldout_071",
+  "query": "S3F67 里 WTC_SPOT_POSITION_X 和 WTC_SPOT_POSITION_Y 的取值范围都是 [-150.000, 150.000] mm，帮我算一下单个方向的全量程跨度是多少毫米。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "查得 WTC_SPOT_POSITION_X、WTC_SPOT_POSITION_Y 均为 Format 40，取值范围 [-150.000, 150.000] mm。跨度 = 150.000 - (-150.000) = 300.000 mm。",
+  "success_criteria": "给出算式 150-(-150)=300 并答出 300 mm。",
+  "evidence": "--[p204]-- WTC_SPOT POSITION_X | Format: 40 Description | X position of a chuck spot which has been or has to be cleaned. Values Where Used | [-150.000, 150.000] mm S3F67 --[p204]-- WTC_SPOT POSITION_Y | Format: 40 Description | Y position of a chuck spot which has been or has to be cleaned. Values | [-150.000, 150.000] mm Where Used | S3F67"
+ },
+ {
+  "query_id": "heldout_072",
+  "query": "我用 S2F23 建了个 trace：TOTSMP 设 120、REPGSZ 设 12，设备一共会给我发几份 trace 报告？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "手册规定 TOTSMP（完整 trace 周期内采样的总次数）与 REPGSZ 组合决定发送的 trace 报告份数 = TOTSMP/REPGSZ。代入：120 ÷ 12 = 10 份。",
+  "success_criteria": "先检索到 TOTSMP/REPGSZ 公式，再算出 10 份，给出算式。",
+  "evidence": "--[p204]-- Description | Total samples to be taken during a complete trace period. In combination with &lt;REPGSZ&gt;, the number of trace reports sent is determined by TOTSMP/REPGSZ. For format 20, a printed integer number is expected, with a maximum length of 10 characters. Where Used | S2F23"
+ },
+ {
+  "query_id": "heldout_073",
+  "query": "Table 6.2 里 ECID 14（ESTABLISHCOMMUNICATIONSTIMER）和 ECID 15（HEARTBEAT）这两个可改的 equipment constant，默认值加起来是多少秒？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "查 Table 6.2：ECID 14 ESTABLISHCOMMUNICATIONSTIMER 默认 30（MIN 0 / MAX 1800）；ECID 15 HEARTBEAT 默认 30（MIN 0 / MAX 1800）。两者默认值之和 = 30 + 30 = 60 秒。",
+  "success_criteria": "答出 30+30=60 秒，且两个 ECID 对应正确。",
+  "evidence": "--[p46]-- Table 6.2 Unprotected ECIDs that can be set via S2F15: ECID | ECNAME | MIN | MAX | DEFAULT | MACHINE CONSTANT ... 14 | ESTABLISHCOMMUNICATIONSTIMER | 0 | 1800 | 30 | Establish Communication Timer 15 | HEARTBEAT | 0 | 1800 | 30 | Heartbeat"
+ },
+ {
+  "query_id": "heldout_074",
+  "query": "SLOTSTATUS 这个数据项在 TWINSCAN_RELEASE_340 和 E109-0704 两种兼容模式下取值个数不一样，340 版比 0704 版多定义了几个值？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "TWINSCAN_RELEASE_340 版定义 6 个取值（0=Undefined, 1=Empty, 2=Not empty, 3=Correctly occupied, 4=Double slotted, 5=Cross slotted）；0704 版只定义 3 个（0=Undefined, 1=Empty, 2=Correctly occupied）。多出 6 - 3 = 3 个值（2=Not empty、4=Double slotted、5=Cross slotted）。",
+  "success_criteria": "答出 6 与 3 的对比，并给出 6-3=3。",
+  "evidence": "--[p165]-- Description | TWINSCAN_RELEASE_340 | 0704 Data Item SLOTSTATUS | 0 = Undefined 1 = Empty 2 = Not empty 3 = Correctly occupied 4 = Double slotted 5 = Cross slotted | 0 = Undefined 1 = Empty 2 = Correctly occupied"
+ },
+ {
+  "query_id": "heldout_075",
+  "query": "S9F13 Conversation Timeout 对应的会话定时器，这台设备默认超时是多少秒？手册里能查到吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该标准/手册未给出 S9F13 所涉会话定时器的默认超时秒数：手册仅描述 S9F13 的含义——预期数据未在合理时间内收到、资源被清除，结构为 L,2（&lt;MEXP&gt;、&lt;EDID&gt;）——并未提供任何默认值或范围；具体定时器配置属于机器常数层面，建议查设备机器常数设置或与 ASML 确认，不得编造数值。",
+  "success_criteria": "明确指出素材中不存在该默认值，给出 S9F13 的实际定义并建议查机器常数，不虚构数字。",
+  "evidence": "--[p74]-- This stream provides a method of informing the host that a received message block cannot be handled, or that a timeout on a transaction (receive) timer has occurred. --[p75]-- S9F13 | Conversation Timeout (CTN) S,H← E Description Structure | Expected data was not received within a reasonable length of time. Resources are cleared. L,2 1. | &lt;MEXP&gt; 2. &lt;EDID&gt;"
+ },
+ {
+  "query_id": "heldout_076",
+  "query": "S10F9 广播消息（Broadcast）发到设备终端的文本 TEXT 有没有最大长度限制？是多少个字符？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该手册未规定 S10F9 的文本最大长度：S10F9 仅描述为\"generally the same as S10F3，但不需要指定 TID，文本发往系统上每个终端\"，结构只给出 &lt;TEXT&gt;，未给出任何字符数上限（手册中明确给出长度限制的是 ALTX 40 字符等其他数据项，S10F9 的 TEXT 无此说明），因此不能给出数字，需与设备侧确认。",
+  "success_criteria": "明确说素材未给出 S10F9 TEXT 的长度限制，引用 S10F9 的实际描述，不编造数字。",
+  "evidence": "--[p76]-- S10F9 | Broadcast (BCN) | S,H → E Reply Description | This function is generally the same as S10F3 with the exception that in each system a specific TID Structure | does not need to be specified. Instead, the text is directed to each terminal on the system when the function is received. &lt;TEXT&gt; S10F10 Description | Broadcast Acknowledge (BCA) | S,H← E Structure &lt;ACKC10&gt;"
+ },
+ {
+  "query_id": "heldout_077",
+  "query": "LPP 光源里中间焦点(IF)处的 EUV 功率是怎么由激光功率算出来的？书里那个公式各项怎么定义，尤其 CE?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "式(3A.1):EUV power at IF (W) = laser power (W) × CE × [1 − overhead] × f。CE 为激光功率转化为 13.5 nm 中心波长 ±2% 带宽内、辐射到 2π sr 立体角的 EUV 功率的转换效率;overhead 为维持晶圆面剂量稳定所需预留的 EUV 功率比例;f 涵盖从等离子体主焦点到 IF 之间真空腔内影响 EUV 传输的物理因素。",
+  "success_criteria": "给出式 3A.1 完整形式,并正确解释 CE(2π sr、13.5 nm ±2% 带宽)、overhead、f 三项含义。",
+  "evidence": "--[p152]-- EUV power at IF (W) = laser power (W) * CE * [1 - overhead] * f …… CE is the conversion efficiency of the laser power into EUV power radiated into 2π sr within 2% bandwidth around the central wavelength of 13.5 nm, overhead is the amount of EUV power required to deliver the specified dose stability, and f includes all of the physical factors in the plasma-containing vessel that impact EUV transmission from the primary focus where plasma is generated to the IF."
+ },
+ {
+  "query_id": "heldout_078",
+  "query": "要把产能做到 100 wph,对 EUV 光源的功率、重复频率和稳定性都有哪些硬指标？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "60% 占空比下 100 wph 需晶圆面功率 &gt;约 550 mW,对应 IF 处光源功率 &gt;250 W(表 3A.1:inband EUV 功率 250 W @20 mJ/cm²,重复频率 &gt;50 kHz,积分能量稳定性 ±0.5%、3σ,经 2 mm 狭缝);此外 IF 到晶圆的总透过率不足 1%(光罩反射、背景气体吸收等)。",
+  "success_criteria": "答出晶圆面 &gt;550 mW、IF &gt;250 W(或 250 W @20 mJ/cm²)、重复频率 &gt;50 kHz、稳定性 ±0.5% 3σ,至少四项中的三项。",
+  "evidence": "--[p146]-- To achieve a throughput of 100 wafers per hour (wph) at a typical scanner duty cycle of 60%, the power at the wafer should be greater than about 550 mW, which means that the EUV source power provided to the exposure tool at IF should be greater than 250 W …… --[p148]-- Table 3A.1: Wavelength | 13.5 nm; EUV power (inband) | 250 W @ 20 mJ/cm²; Repetition frequency | &gt;50 kHz; Integrated energy stability | ±0.5%, 3σ through 2-mm slit."
+ },
+ {
+  "query_id": "heldout_079",
+  "query": "Starlith 3100 那套照明系统支持哪几种标准照明设置？每种能印多小的线条？flare 最终压到了多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Starlith 3100:NA 0.25、MAG 4、全场 26×33 mm 不变;大常规照明(s≈0.8)印 27 nm L/S,环形照明 25 nm,偶极照明 22 nm;ADT flare 16%、初设目标 &lt;8%,实际出货机型 flare &lt;6%(3300/3400 一代进一步到 &lt;4%),Mo/Si 界面粗糙度改善使整机透过率提高 50%。",
+  "success_criteria": "答出 27/25/22 nm 三种设置对应关系,且 flare &lt;6%(目标 &lt;8%)。",
+  "evidence": "--[p267]-- the NA of 0.25, the MAG of 4 and the full-field size remained unchanged …… --[p268]-- 27-nm lines and spaces can be printed with the large conventional setting, 25-nm lines and spaces with the annular setting, and 22-nm lines and spaces with the dipole setting. …… The ADT exhibited a flare level of 16% … a general target for flare of &lt;8% was set. …… The Starlith 3100 generation with flare values &lt;6%—clearly below the original flare target—was shipped …… increasing the transmission of the Starlith 3100 by 50%."
+ },
+ {
+  "query_id": "heldout_080",
+  "query": "EUV 投影物镜每面反射镜要吃掉多少入射光？波前误差从第一代机到现在压到什么水平，高 NA 还要求多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "曝光时每面镜子吸收 40% 的 EUV 光;波前 RMS:第一代 &lt;1 nm → 现行系统 &lt;0.3 nm → 高 NA 要求约 0.15 nm;晶圆台上内联波前传感器单个 Zernike 系数测量精度优于 0.1 nm。",
+  "success_criteria": "答出每面镜吸收 40%,波前 RMS 三档 &lt;1 nm / &lt;0.3 nm / ≈0.15 nm。",
+  "evidence": "--[p157]-- When wafers are exposed, 40% of EUV light is absorbed on every mirror. …… The first-generation EUV systems were characterized by a RMS value less than 1 nm, while current systems have a RMS value below 0.3 nm. The requirement for the high-NA systems should match the ultimate resolution requirement and will need to be around 0.15 nm."
+ },
+ {
+  "query_id": "heldout_081",
+  "query": "EUV 曝光产生的光电子在光刻胶里最远能跑多远？不同团队测的结果差别大吗？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "早期若干团队估计电子迁移距离约 2~4 nm;但 CNSE 与 LBNL CXRO 的实验表明低能电子(15~250 eV)在胶中可穿透达 10 nm,后续结果显示可达 20 nm,说明电子俘获与产酸位置不必邻近。",
+  "success_criteria": "给出 2~4 nm 的估计值和 10 nm(乃至 20 nm)的实验上限两个层次。",
+  "evidence": "--[p47]-- This distance has been estimated by a couple of groups to be on the order of 2–4 nm. …… experiments conducted at CNSE (Fig. 8.17) and at the Center for X-ray Optics (CXRO) of LBNL (Fig. 8.18), have shown that low-energy electrons (15–250 eV) can penetrate up to 10 nm in resists …… --[p48]-- The results by CNSE and CXRO show that electrons can travel up to 20 nm in EUV resists."
+ },
+ {
+  "query_id": "heldout_082",
+  "query": "pellicle 单程透过率 90% 的话，光罩是反射式的要穿两次，到达胶面的剂量还剩百分之多少？对产能影响大概几个点？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "双程透过率 = 0.9 × 0.9 = 0.81,即曝光剂量降为入射的 81%;对应约 20% 的产能损失,且这部分被吸收的能量还会加热 pellicle 薄膜。",
+  "success_criteria": "算出 81%(0.9²)且产能损失 20%,与书中结论一致。",
+  "evidence": "--[p482]-- If the EUV pellicle has 90% transmittance, the exposure dose will be reduced to 81% of incident. This means a productivity loss of 20%, and this lost energy will heat the pellicle membrane, potentially inducing thermo-mechanical challenges."
+ },
+ {
+  "query_id": "heldout_083",
+  "query": "按 k1=0.3 估算，13.5 nm 波长配 0.55 NA 单次曝光能到几纳米分辨率？帮我验算一下，跟书里的表能不能对上？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "R = k1·λ/NA = 0.3 × 13.5 nm / 0.55 ≈ 7.36 nm ≈ 7.4 nm,与书中分辨率表(NA 0.55 → 7.4 nm @k1=0.3)一致;同表中 0.33 NA 对应 12.3 nm(0.3×13.5/0.33≈12.27)。",
+  "success_criteria": "算式正确、结果 7.36~7.4 nm,并指出与书中表格数值吻合。",
+  "evidence": "--[p274]-- Figure 5.14 Resolution of an EUVL optical system depending on NA. NA | 0.25 | 0.33 | 0.45 | 0.50 | 0.55; Resolution @k1=0.3 single exposure / nm | 16.2 | 12.3 | 9.0 | 8.1 | 7.4"
+ },
+ {
+  "query_id": "heldout_084",
+  "query": "书里说光柱透过率加倍后，功率/剂量比 8.3 时能跑 125 wph；如果剂量用 60 mJ/cm²，那光源功率得给到多少瓦？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "功率/剂量 = 500 W ÷ 60 mJ/cm² = 8.33 ≈ 8.3,即需要约 500 W 光源功率(与书中 125 wph @ power/dose 8.3 的说法自洽;同一配置在 20 W/(mJ/cm²) 时产能饱和于约 180 wph)。",
+  "success_criteria": "算出 500/60=8.33≈8.3,结论为约 500 W。",
+  "evidence": "--[p146]-- the throughput of this system now saturates at 180 wph for a power/dose around 20 W/(mJ/cm²). And a still very workable throughput of 125 wph is reached at a power/dose of 8.3. In other words, with a dose of 60 mJ/cm², a source power of 500 W is needed."
+ },
+ {
+  "query_id": "heldout_085",
+  "query": "NA 从 0.33 往上提的时候，为什么光罩上入射和反射的光锥会撞在一起？后来业界是用什么 anamorphic 方案解决这个问题的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:NXE:3300B 中 NA_mask=NA/MAG=0.33/4=0.0825,入射/出射光锥靠 CRAO=6 deg 分开;NA 提到 0.4 以上光锥重叠,等效 pupil 边缘遮挡会降 NA。第二跳:解决方案是把 y 方向 MAG 从 4 增到 8(x 方向保持 4)形成 anamorphic(变形)投影,缩小 mask 面光锥角度;6 英寸光罩标准物场成像为 26×16.5 mm 半场,有望支持 ≥150 wph。",
+  "success_criteria": "先解释光锥重叠原因(CRAO 6 deg、NA_mask),再答出 anamorphic 4×/8×(仅 y 方向 8×)与 26×16.5 mm 半场,两跳都命中。",
+  "evidence": "--[p273]-- NA_mask = NA/MAG = 0.33/4x = 0.0825. The incoming and outgoing light cones are separated by a chief ray angle at object (CRAO) of 6 deg …… --[p274]-- The MAG only has to be increased from 4 to 8 in the y direction, while the MAG of 4 can be maintained in the x direction. The MAGs in x and y become different, and thus the MAG becomes direction dependent, a concept called anamorphic projection. …… a standard object field of a 6-inch mask can be imaged onto a half field of size 26 mm × 16.5 mm (after scanning) at the wafer …… has the potential to enable a high throughput of ≥150 wph"
+ },
+ {
+  "query_id": "heldout_086",
+  "query": "EUV 光源真空腔里为什么一定要充氢气做缓冲气体？它对收集镜上的锡到底起了什么作用，净刻蚀速率又是怎么定义的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳:缓冲气体需同时完成冷却等离子区、阻挡快 Sn 离子、刻蚀收集镜上 Sn 三项功能,且 EUV 吸收不能超过功率预算的 20~30%,氢气三项均最优。第二跳:化学机制为 H₂ 解离成 ·H 后 Sn + 4·H → SnH₄(气态被抽走);净刻蚀速率 K_net = K_SnH4-formation × (1 − K_Sn-redep),即生成速率扣去 Sn 再沉积(光解/催化分解)的影响。",
+  "success_criteria": "答出三大功能(含 20~30% 吸收上限)、Sn+4H→SnH₄ 反应、K_net 定义式三项。",
+  "evidence": "--[p179]-- It must efficiently cool the region near the plasma and efficiently stop fast Sn ions, and it should be able to efficiently etch Sn from the collector surface … Typically, maximum EUV absorption by the buffer gas of 20–30% is acceptable in the EUV power budget. …… --[p180]-- Sn + 4·H → SnH4 …… --[p181]-- K_net = K_SnH4-formation · (1 − K_Sn-redep), where K_net is the net etch rate of Sn."
+ },
+ {
+  "query_id": "heldout_087",
+  "query": "我想评估上 EUV 的综合成本，这本书里有没有光刻成本(Cost of Ownership)方面的章节或数据？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明《EUV Lithography》第二版未收录 lithography cost of ownership 一章(该章因无新数据且偏历史性被移除,内容保留在第一版中),因此本书第二版不提供 CoO 分析数据;不应凭记忆编造成本数字。",
+  "success_criteria": "正确说明第二版不含成本章节、数据在第一版,且不编造任何成本数值。",
+  "evidence": "--[p23]-- Two earlier chapters, for which we did not have new data and were of historical nature, were not included: a chapter on high-resolution EUV tools for resist exposure and aerial image monitoring … and a chapter on lithography cost of ownership. However, these chapters are preserved for readers in the first edition."
+ },
+ {
+  "query_id": "heldout_088",
+  "query": "顺便问下，从这本书里能查到 EUV 光刻机的市场售价或者报价信息吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书是技术专著,未涉及 EUV 扫描仪的售价/报价信息,无法给出任何价格数字;书中建议需要最新、详细信息时查阅 SPIE 会议论文集及 JM3 期刊(论文库)等来源。",
+  "success_criteria": "明确拒答价格(书中无此信息)且不编造数字,并能给出 SPIE 论文集/JM3 的替代信息来源建议。",
+  "evidence": "--[p23]-- Readers also are encouraged to review the extensive database of SPIE's conference proceedings as well as refereed papers from the Journal of Micro/Nano Lithography, MEMS, and MOEMS (JM3) for detailed, current information about various aspects of EUVL. SPIE's Digital Library (www.spiedigitallibrary.org) remains the most extensive source of EUVL-related information."
+ },
+ {
+  "query_id": "heldout_089",
+  "query": "书里那个接触孔热回流收缩(reflow shrink)实验是 170℃/60s 吧?CD 能缩百分之多少?按这个比例,我 150nm 的接触孔回流后 CD 变多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "书中实验:170℃ 回流加热 60 秒,接触孔 CD 收缩 70%,胶图形厚度下降 56%。计算:150nm × (1 − 0.70) = 45nm,即回流后接触孔 CD 约为 45nm。",
+  "success_criteria": "答出 70% 收缩比例且算出 45nm(算式 150×0.30=45)。",
+  "evidence": "--[p315]-- Figure 17.4 shows cross-sectional SEM micrographs of contact holes printed in a resist that was not subjected to reflow heating and another that was subjected to reflow heating at $1 7 0 \\mathrm { { } ^ \\circ C }$ for 60 seconds, which resulted in 70% shrinkage in the CD and 56% decrease in the thickness of the contact hole resist pattern."
+ },
+ {
+  "query_id": "heldout_090",
+  "query": "浸没式光刻的景深(DOF)相比干式至少能提升多少倍?如果干式工艺 DOF 是 400nm,换到浸没式至少能有多少?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "书中指出:相同波长和 NA 下干式与浸没式分辨率相同,而浸没式 DOF 比干式至少大水折射率倍数(193nm 处 n=1.44)。计算:400nm × 1.44 = 576nm,即浸没式 DOF 至少约 576nm。",
+  "success_criteria": "答出 1.44 倍且算出 576nm(算式 400×1.44)。",
+  "evidence": "--[p211]-- From Eqs. (13.32)–(13.35), resolution in dry and immersion lithographies are equal for the same wavelength and NA, while the DOF of immersion lithography is greater than that of dry lithography by a factor that is at least as great as the refractive index of water (which is 1.44 at l 193 nm at standard atmospheric temperature and pressure)."
+ },
+ {
+  "query_id": "heldout_091",
+  "query": "LPP 型 EUV 光源里,Sn、Xe、Li 三种靶材的转换效率各是多少?Sn 比 Xe 高几倍?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Sn 转换效率 3%,Xe 为 1%,反应性高的 Li 为 2–3%;因此优选 Sn。计算:3% ÷ 1% = 3,即 Sn 的转换效率是 Xe 的 3 倍。",
+  "success_criteria": "答出 Sn 3%、Xe 1%(Li 2–3%)且算出 3 倍。",
+  "evidence": "--[p233]-- with Sn being preferred because of its higher conversion efficiency (3%) compared to that of Xe (1%) and the highly reactive Li (2–3%)."
+ },
+ {
+  "query_id": "heldout_092",
+  "query": "顶部抗反射涂层(TARC)最早是谁、哪一年提出来的?现在用的水性 TARC 显影时怎么去掉?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "顶部抗反射涂层最早由日立(Hitachi)的 Tanaka 等人在 1990 年提出(ARCOR);1990 年代推出的商用水性 TARC 不需要溶剂处理,可在常规显影中于 0.26 N 四甲基氢氧化铵(TMAH)水性显影液中去除,或直接用水冲洗掉。",
+  "success_criteria": "答出 1990 年/Hitachi(或 Tanaka)以及 0.26 N TMAH 显影去除或水洗去除。",
+  "evidence": "--[p443]-- Top antireflection coatings were first proposed by Tanaka and co-workers at Hitachi in $1 9 9 0 . ^ { 5 }$ --[p445]-- The 1990s saw the introduction of commercial water-based top antireflection coating materials that do not require a solvent treatment but are removed during normal resist development in 0.26 N aqueous tetramethyl ammonium hydroxide developer solution or simply dissolved with a water rinse."
+ },
+ {
+  "query_id": "heldout_093",
+  "query": "光刻胶图形倒塌(pattern collapse)和胶本身的力学性能有什么关系?书里给的光刻胶杨氏模量典型范围是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "光刻胶杨氏模量典型范围 2–6 GPa(novolac 胶在高端,丙烯酸酯类胶在低端);胶的 Tg 与杨氏模量正相关,Tg 高则模量高。倒塌倾向随线条高宽比(纵横比)的立方增长,降低纵横比能显著减少倒塌;外侧线条比内侧更易倒塌。",
+  "success_criteria": "答出 2–6 GPa 并说明 novolac 高端/acrylate 低端,且提到倒塌随纵横比立方增加。",
+  "evidence": "--[p53]-- In general, resists have a Young's modulus in the range of 2–6 GPa (with novolac resists occupying the high end of the range and the acrylate resists occupying the low end of the range). The $T _ { \\mathrm { g } }$ of a resist correlates positively with its Young's modulus --[p54]-- By far, the most critical factor in pattern collapse is the aspect ratio of the line, given that the tendency to collapse increases as the cube of the line aspect ratio; decreasing the aspect ratio of the line will significantly reduce pattern collapse."
+ },
+ {
+  "query_id": "heldout_094",
+  "query": "DNQ/novolac 显影之后想硬烘提高抗刻蚀能力,温度该怎么定?烘太狠会出什么问题?",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步检索 postbake/hard bake 目的:去除胶膜中残留的涂布溶剂、显影液和水,并硬化胶膜以承受等离子刻蚀;由于感光度不再需要,烘烤温度可尽量高,有时接近溶剂沸点。第二步检索上限:novolac 胶 Tg 为 80–120℃、聚羟基苯乙烯类 DUV 胶 Tg 为 140–180℃;温度高于 120–130℃ 时 DNQ/novolac 中硬化和流动两个过程互相竞争,130℃ 下大图形会因表面张力变圆变形(先于交联温度流动)。结论:硬烘温度应控制在约 120–130℃ 以下并结合 DNQ 分解温度 110℃ 权衡。",
+  "success_criteria": "给出硬烘目的、novolac Tg 80–120℃(或 PHS 140–180℃)以及 120–130℃ 以上硬化与流动竞争/图形变形的风险。",
+  "evidence": "--[p55]-- The function of the postdevelopment bake step is to remove residual casting solvent, developer, and water within the resist film, as well as to harden the resist film so that it can withstand the rigors of plasma etching... the baking temperature can be elevated to as high as possible, sometimes approaching the solvent boiling point --[p56]-- At temperatures higher than $1 2 0 { - } 1 3 0 ^ { \\circ } \\mathbf { C } .$ , hardening and flow of the resist patterns are two competing processes in DNQ/novolac resists. Poly(hydroxystyrene)-based DUV resists have $T _ { \\mathrm { g } }$ values on the order of $1 4 0 { - } 1 8 0 ^ { \\circ } \\mathrm { C }$ , while novolacs have $T _ { \\mathrm { g } }$ values in the range of $8 0 - 1 2 0 ^ { \\circ } \\mathrm { C } .$"
+ },
+ {
+  "query_id": "heldout_095",
+  "query": "软烘温度对 DNQ/novolac 显影溶解速率的影响是单调的吗?书里是怎么分温度区间的?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "不是单调的,书中共分四区:(i) 不烘区:残溶剂多、溶解速率高;(ii) 低温区(≤80℃):溶剂去除,溶解速率明显下降;(iii) 中温区(80–110℃):DNQ 被热优先转化为茚并羧酸(indene carboxylic acid),溶解速率上升;(iv) 高温区(&gt;120℃):薄膜致密化、DNQ 热分解、失水、novolac 交联,造成剧烈的溶解抑制。",
+  "success_criteria": "答出四个温度区并正确给出 80℃/110℃/120℃ 边界及各区趋势。",
+  "evidence": "--[p7]-- 11.16).&lt;sup&gt;86&lt;/sup&gt; Four zones can be distinguished in this plot: (i) a no-bake zone where residual solvent and dissolution rates are high, (ii) a low-temperature zone (up to $8 0 ^ { \\circ } \\mathrm { C } )$ where the dissolution rate shows an appreciable decrease due to solvent removal, (iii) a mid-temperature zone $( 8 0 { - } 1 1 0 ^ { \\circ } \\mathrm { C } )$ where the DNQ is thermally and preferentially converted to indene carboxylic acid, leading to an increase in dissolution rate, and (iv) a high-temperature zone $( &gt; 1 2 0 ^ { \\circ } \\mathrm { C } )$ where the film densification takes place, DNQ is thermally decomposed, the film is depleted of water, and the novolac resin is cross-linked, resulting in dramatic dissolution inhibition."
+ },
+ {
+  "query_id": "heldout_096",
+  "query": "193nm/248nm 曝光机光罩和透镜上那些 haze 缺陷晶体是什么成分?为什么 193nm 机器上问题特别严重?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "拉曼光谱分析表明这些晶体主要是硫酸铵 [(NH4)2SO4],是随生产使用不断增长的 progressive 缺陷;在 193nm 波长问题尤其严重,原因一是光子能量高(6.4 eV),二是同期向 300mm 晶圆过渡,使光罩和透镜要经受更长时间的暴露。",
+  "success_criteria": "答出 ammonium sulfate((NH4)2SO4)及 6.4 eV(或 300mm 晶圆暴露更久)的原因。",
+  "evidence": "--[p158]-- Raman spectroscopic compositional analyses of these crystals have shown them to be made primarily of ammonium sulfate $[ ( \\mathrm { N H } _ { 4 } ) _ { 2 } \\mathrm { S O } _ { 4 } ]$ --[p158]-- Although these progressive defects have been observed at almost all lithographic wavelengths, the problem is especially severe in 193-nm lithography because of the highly energetic (6.4-eV) photons and the concurrent transition to 300-mm wafers, which require photomasks and lenses to endure more prolonged exposure compared to 200-mm wafers."
+ },
+ {
+  "query_id": "heldout_097",
+  "query": "CaF2 做 DUV/VUV 透镜的话,热导率、热膨胀系数、在水里的溶解度这些关键物性书里给的是什么数?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "CaF2 的关键物性(Table 13.9):273K 下热导率 10 W/(m·K);293K 下线膨胀系数 18.7 ppm/K;298K 下在水中的溶解度 0.015 g/100g H2O;晶体结构为立方(cubic)。",
+  "success_criteria": "至少答出其中两个数值且单位/条件正确(如热导率 10 W/m·K、膨胀系数 18.7 ppm/K、溶解度 0.015 g/100g)。",
+  "evidence": "--[p173 [表]]-- Table 13.9 Select properties of ${ \\mathsf { C a F } } _ { 2 } . ^ { 1 5 0 }$ Property | Value Thermal conductivity $( \\mathbf { W } / \\mathbf { m } ^ { \\circ } \\mathbf { K } )$ at $2 7 3 ^ { \\circ } \\mathrm { K }$ | 10 Linear expansion coefficient $\\left( { \\mathrm { p p m } } / { } ^ { \\circ } \\mathrm { K } \\right)$ at $2 9 3 ^ { \\circ } \\mathrm { K }$ | 18.7 --[p173]-- Solubility in water $( \\mathbf { g } / 1 0 0 \\mathbf { g }$ of $_ { \\mathrm { H } _ { 2 } \\mathrm { O } )}$ at $2 9 8 ^ { \\circ } \\mathrm { K }$ | 0.015 Crystal structure | Cubic"
+ },
+ {
+  "query_id": "heldout_098",
+  "query": "浸没式机台上 topcoat 除了光学上的作用,还有什么用处?PEB 延迟(曝光后到前烘的等待)能撑多久不出问题?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "topcoat 还提供防护功能,阻挡胺类等空气分子污染物进入胶内中和化学放大胶中的光酸;书载带 topcoat 保护的胶膜 PEB 延迟稳定性可达 15 分钟,即使延迟 15 分钟,80nm 和 90nm 线条/间隔图形的 CD 仍保持稳定(明显优于不用 topcoat 的情况)。",
+  "success_criteria": "答出阻挡胺类等空气污染物、以及 PEB 延迟稳定性达 15 分钟(80nm/90nm L/S CD 稳定)。",
+  "evidence": "--[p213]-- Topcoats also provide a protective function against airborne molecular contaminants such as amines. Figure 13.53 shows PEB delay stabilty of up to 15 minutes obtained on a resist film protected with a topcoat. Following the indicated PEB delay times, the resist film was postexposure baked and developed. Even after 15 minutes, the CD values of the 80-nm and 90-nm lines/space features remained remarkably stable."
+ },
+ {
+  "query_id": "heldout_099",
+  "query": "书里 DNQ/novolac 用的标准显影液是 5% NaOH 溶液吧?具体浓度写的是多少?",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应纠正该前提:书中并未提及\"5% NaOH 标准显影液\",不得编造该浓度。书中实际说法为:早期半导体光刻流行使用氢氧化钾等无机碱显影液,而现代半导体光刻偏好有机显影液(不含会造成器件电气失效的金属离子);正胶显影液中的碱在现代配方中为四甲基氢氧化铵(TMAH),文献中亦有 0.26 N 水性 TMAH 显影液的记载。",
+  "success_criteria": "明确否定\"5% NaOH\"说法且不编造浓度;正确给出 TMAH 为现代显影液碱源(0.26 N 为加分)、KOH 等无机碱属早期做法。",
+  "evidence": "--[p212]-- While inorganic developers such as potassium hydroxide were popular during the early days of semiconductor lithography, in modern semiconductor lithography, organic developers are the preferred option because unlike their inorganic counterparts, they do not contain metallic ions, which can cause electrical failures in devices fabricated with them. --[p211]-- ...is neutralized by the alkali substance present in older developers of bygone eras or a tetramethylammonium hydroxide (TMAH) base in modern developers, forming salts."
+ },
+ {
+  "query_id": "heldout_100",
+  "query": "HMDS prime 做过头(over prime)会有什么坏处?客户那边离子注入工序曝光剂量很大,听说会\"炸胶\",是怎么回事、怎么防?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "priming 过度会导致去润湿(dewetting);在高辐照剂量(如离子注入工序中的强紫外曝光)条件下会引发 \"popping\":DNQ/novolac 类胶中产生的氮气来不及通过扩散逸出膜外,在胶-晶圆界面处聚集,削弱两者附着力并形成气泡,高 fluence 下气泡可能爆炸并把胶碎屑散布到邻近区域。缓解措施:缩短 priming 时间、使用低表面张力的光刻胶溶剂、涂胶前先用光刻胶涂布溶剂预冲晶圆表面、以及对晶圆做氧或臭氧等离子处理。",
+  "success_criteria": "答出 popping 机理(N2 在胶-晶圆界面聚集形成气泡)及至少两条缓解措施。",
+  "evidence": "--[p486]-- In conditions of high fluence exposure such as obtained in heavy UV exposure in ion-implantation steps, overpriming can also lead to a phenomenon known as \"popping,\" in which nitrogen formed in the DNQ/novolac-type resists may not escape from the film quickly enough through diffusion, but may instead accumulate at the resist-wafer interface, weakening the adhesion between the two surfaces, and resulting in the formation of bubbles there. --[p486]-- Remedies for mitigating against overpriming include the use of shorter priming times, resist solvents with lower surface tension, prerinsing the wafer surface with the resist casting solvent before resist coating, and oxygen or ozone plasma treatments of the wafer."
+ },
+ {
+  "query_id": "heldout_101",
+  "query": "无铅回流如果走 linear-ramp 升温曲线，Motorola 和 Solectron 量产时实际用的峰值温度各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Motorola 采用峰值 235±5°C、液相线以上时间 70±10 s 的线性升温 profile，量产超过 1 亿部手机；Solectron 将 SAC387 峰值压到 225°C（仅高于液相线约 8°C），0–100°C 热循环可靠性超过 3500 次。",
+  "success_criteria": "分别答出 235±5°C 与 225°C，两处数据都来自本书",
+  "evidence": "--[p206]-- Motorola has adopted a linear-ramp profile with peak temperature 235°C +/- 5°C and time above liquidus 70 s +/-10 s for manufacturing of more than 100 millions cell phones with high yield and high quality [58]. …… Solectron pushed the peak temperature down to 225°C for reflowing SAC387 in air, and reported a reliability of greater than 3500 thermal cycles cycled between 0 and 100°C [59]. In the latter case, the peak temperature is less than 8°C above the liquidus temperature."
+ },
+ {
+  "query_id": "heldout_102",
+  "query": "DF-A 这款芯片粘接膜和传统银浆比，吸水率和剥离强度到底差多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "吸水率 0.2 vol% 对银浆 1.2 vol%（约 1/6）；剥离强度 8.1×10^5 Pa 对银浆 1.0×10^5 Pa（约 8 倍），因此抗爆米花/抗封装开裂性能优异。",
+  "success_criteria": "答出 0.2 vs 1.2 vol% 与 8.1 vs 1.0×10^5 Pa",
+  "evidence": "--[p431]-- Water absorption | vol% | 0.2 | 1.2 | RT for 24 h …… Peel strength | 245°C | ×10^5 Pa | 8.1 | 1.0 …… Water absorption of DF-A is 1/6 times as small as that of a current silver paste. Peel strength of DF-A is 8 times greater than that of the paste."
+ },
+ {
+  "query_id": "heldout_103",
+  "query": "晶圆减薄的研磨、甩蚀（spin-etch）、干法刻蚀和抛光这四种工艺，材料去除率分别是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "研磨约 300 μm/min；甩蚀 10–40 μm/min；干法刻蚀 3–30 μm/min；抛光 &lt;2 μm/min。",
+  "success_criteria": "四项数值齐全且单位为 μm/min",
+  "evidence": "--[p43]-- Process medium | Diamonds in ceramic wheel | HF + HNO3 + additives | SF6, NF3, XeF2 | Slurry: SiO2 grains in soft etchant …… Removal rate | 300 μm/min | 10...40 μm/min | 3...30 μm/min | &lt;2 μm/min"
+ },
+ {
+  "query_id": "heldout_104",
+  "query": "no-flow underfill 想掺二氧化硅提可靠性又怕颗粒卡在焊点里，书里给过哪几条解决路线？各自的填充量到多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "三条路线：(1) 双层 no-flow——不含填料的底层+含 silica 的上层，上层 65 wt% silica 可高良率；(2) TCR 类工艺（NAMICS），填料经表面处理前最高可到 60 wt% 仍能良好成焊；(3) 3M 纳米 silica 路线——123 nm 粒径、50 wt% 填充，CTE 42 ppm/°C。",
+  "success_criteria": "说出至少两条路线并给出对应填充量（65 wt%、60 wt%、50 wt% 任二）",
+  "evidence": "--[p331]-- It was demonstrated that high yield was achieved using the upper layer underfill with 65 wt% silica [56]. …… [p330]-- It was found that good solder connection can be made with underfill with up to 60 wt% filler loading without filler surface treatment. …… [p331]-- This high performance no-flow underfill developed by 3M used 123 nm silica filler. With filler loading of 50 wt%, the CTE of the material was 42 ppm/°C"
+ },
+ {
+  "query_id": "heldout_105",
+  "query": "ENEPIG 这个表面处理金层能做得多薄？和镍金比它省成本省在哪？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "ENEPIG 浸金层约 0.1 μm，钯层厚度相当但金属成本远低于金，总成本低于 NiAu；有用户已把最小金厚从 0.5 μm 降到 0.3 μm。它既可线键合又可焊接（universal finish），且无 ENIG 的'黑盘'缺陷风险。",
+  "success_criteria": "答出浸金约 0.1 μm 及 0.5→0.3 μm 任一，并说明无黑盘/universal 任一优势",
+  "evidence": "--[p269]-- The cost savings for ENEPIG is derived by the thinness of the immersion gold layer which is projected to be about 0.1 μm. …… some users have reduced the minimum gold thickness from 0.5 to 0.3 μm. …… ENEPIG is wirebondable and solderable and therefore considered a universal finish just like NiAu. …… ENEPIG is therefore expected to be competitive with ENIG (electroless nickel immersion gold) without the concern for 'black pad' defects"
+ },
+ {
+  "query_id": "heldout_106",
+  "query": "现在量产的细间距球焊 pitch 能做到多小？焊球直径和线径是什么比例关系？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "60–90 μm pitch 已量产、60 μm 及以下有限使用；现代球径标准约为线径的 1.4–1.5 倍（最小见 1.2D），钉头高约 5–15 μm，多数细间距球焊仍用 25 μm 金线。",
+  "success_criteria": "答出 60–90 μm 量产 pitch 与球径 1.4–1.5 倍线径",
+  "evidence": "--[p168]-- Pitches in the 60–90 μm range are in volume production, while pitches of 60 μm and below have been used on a limited scale. …… Most fine pitch ball bonds are still done with 25 μm diameter gold wire, although 15–20 μm wire is gaining popularity. …… [p166]-- Today ball bonds are small nail heads with sizes down to approximately 25 μm in diameter (for 15 μm diameter wire). Thus, the typical modern ball diameter standard requires the \"ball\" to be about 1.4–1.5 times the wire diameter (D)."
+ },
+ {
+  "query_id": "heldout_107",
+  "query": "铜对硅的干接触，把装配压力从 10 psi 加到 100 psi，接触热阻能降下来百分之多少？帮我算算。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "书给出 Cu/Si 界面 Rcs 在 P=10 psi(68 kPa) 时为 6.2°C·cm²/W，P=100 psi(680 kPa) 时为 0.7°C·cm²/W；(6.2−0.7)/6.2≈88.7%，即降低约 88.7%（5.5°C·cm²/W）。",
+  "success_criteria": "给出 6.2→0.7°C·cm²/W 且算出降幅约 88.7%（±1%）",
+  "evidence": "--[p444]-- Rcs is 6.2°C cm²/W for P = 10 psi (68 kPa) and 0.7°C cm²/W for P = 100 psi (680 kPa) for Cu/Si interface."
+ },
+ {
+  "query_id": "heldout_108",
+  "query": "金-金键合打在硅上，经 500°C 老化后拉力值比刚键合时掉了多少个百分比？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "表 4.14：Si 上 as-bonded 拉力 12.3 gf，500°C 老化后 10.2 gf；(12.3−10.2)/12.3≈17.1%，即下降约 17.1%（2.1 gf）。",
+  "success_criteria": "答出 12.3→10.2 gf 且降幅约 17%（±0.5%）",
+  "evidence": "--[p180 [表]]-- Table 4.14 Thermal aging wirebond test results. …… As Bonded | 12.3 (1.9) | 54.0 (2.7) | 12.5 (1.0) | 62.5 (3.5) …… --[p181]-- 500°C | 10.2 (1.1) | 57.5 (4.9)"
+ },
+ {
+  "query_id": "heldout_109",
+  "query": "DF-B 膜在聚酰亚胺基板和玻纤环氧基板上的剥离强度分别是现用粘贴剂的几倍？帮我按数据验证一下书里'4–5倍'的说法。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "表 12.11（120°C 剥离强度，×10^5 Pa）：聚酰亚胺基板 2.4/0.5=4.8 倍；玻纤环氧基板 7.2/2.0=3.6 倍；两者落在 3.6–4.8 倍，与书中'4–5 倍'的说法基本相符。",
+  "success_criteria": "算出 4.8 倍与 3.6 倍，并给出与'4–5倍'说法相符的判断",
+  "evidence": "--[p438]-- Peel strength (120°C) | Polyimide Substrate | ×10^5 Pa | 2.4 | 0.5 …… Glass epoxy substrate | 7.2 | 2.0 …… --[p439]-- Peel strength of DF-B was 4–5 times greater than that of a current die attach paste in both cases of a polyimide substrate and a glass-epoxy substrate"
+ },
+ {
+  "query_id": "heldout_110",
+  "query": "我想把芯片粘接温度降到 160°C。你先查查 PI-4 这个树脂的 Tg 是多少，再看基于它的膜在这个温度还粘不粘得住？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索出 PI-4 的 Tg=57°C（低于 PI-1 的 120°C）；再据 12.2.4.3：基于 PI-4 的膜在 160–250°C 间均为内聚破坏（Co）、剥离强度稳定，140°C 才出现界面破坏（Ad/Co），故 160°C 粘接可行；而基于 PI-1 的膜降温后剥离强度直线下降。",
+  "success_criteria": "先答 PI-4 Tg 57°C，再答 160–250°C 保持内聚破坏/剥离稳定",
+  "evidence": "--[p432]-- PI-4 | DBTA (100) | (50) BAPP (50) / DODE | 96.3 | 28900 | 88600 | 3.07 | 57 …… --[p437]-- Because the Tg of PI-4 (57°C) is lower than that of PI-1 (120°C), the film based on PI-4 can exert sufficient flow to wet the surface of the silicon chip even at lower attaching temperatures …… The film based on PI-4 can keep good adhesion between 160°C and 250°C, resulting in the stable peel strength. …… --[p438]-- Based on PI-1 | Ad | Ad | Ad | Ad | Ad/Co | Co ；Based on PI-4 | Ad/Co | Ad/Co | Co | Co | Co | Co"
+ },
+ {
+  "query_id": "heldout_111",
+  "query": "3M 和 Georgia Tech 合作的那个纳米 silica no-flow underfill，用的 silica 粒径多大、填充量多少？热循环寿命提升了多少倍？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "123 nm silica 填料、50 wt% 填充，材料 CTE 42 ppm/°C（用 PB10 芯片 5×5 mm、64 周边凸点验证良率）；AATC（空气对空气热循环）可靠性测试中特征寿命提升 1.5 倍。",
+  "success_criteria": "答出 123 nm、50 wt% 与 1.5 倍特征寿命",
+  "evidence": "--[p331]-- This high performance no-flow underfill developed by 3M used 123 nm silica filler. With filler loading of 50 wt%, the CTE of the material was 42 ppm/°C and the good interconnect yield was achieved using PB10 die (5 mm × 5 mm, 64 peripheral bumps). …… --[p332]-- A joint research study was conducted by 3M and Georgia Tech on the process and reliability evaluation of the nano-silica incorporated no-flow underfill [59]. …… A 1.5X increase of characteristics life was observed in the air-to-air thermal cycling (AATC) reliability test with the nano-silica fillers."
+ },
+ {
+  "query_id": "heldout_112",
+  "query": "你们这书里有没有讲石墨烯做热界面材料的数据？我想看看 k 值。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 1,
+  "gold_standard": "应说明该书第 13 章 TIM 部分只讨论聚合物 TIM、焊料合金 TIM 及 CNT/纳米颗粒等纳米 TIM，未涉及石墨烯基 TIM 及其热导率数据，无法提供，可建议参考 CNT 相关章节内容。",
+  "success_criteria": "明确说明书中未涉及石墨烯 TIM，不得编造 k 值",
+  "evidence": "--[p458]-- 13.5 Nanotechnology Based TIMs Ever since carbon nanotube (CNT) [23] was demonstrated to have very high thermal conductivity, various CNT based composites have been proposed and evaluated …… [p458]-- In addition to CNT, researchers also proposed nano particles as TIM fillers [36, 37].（全书检索无 graphene/石墨烯 相关内容）"
+ },
+ {
+  "query_id": "heldout_113",
+  "query": "书里说 aerial image 对正负离焦是对称的，那 Bossung 曲线为什么看起来不对称？原因是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "因为光刻胶有非零厚度：焦平面放置位置不同，胶顶和胶底经历不同程度的离焦（焦面在胶上方时顶部清晰底部弯曲/模糊，在胶下方时底部清晰顶部圆化），正负离焦方向得到不同的胶轮廓和 CD，不对称来自 aerial image 与光刻胶相互作用产生最终 CD 的方式，根源是光刻胶厚度；当胶厚成为该特征 DOF 的可观比例时不对称明显。",
+  "success_criteria": "答出根因是光刻胶厚度（胶内不同深度离焦量不同），而非 aerial image 本身",
+  "evidence": "--[p330]-- Since the aerial image responds to focus symmetrically, the cause of the observed asymmetry must involve the way that the aerial image interacts with the photoresist to produce the fi nal CD. In fact, it is the thickness of the photoresist that gives rise to this asymmetry；--[p331]-- The asymmetry becomes apparent whenever the thickness of the photoresist becomes an appreciable fraction of the depth of focus of that feature."
+ },
+ {
+  "query_id": "heldout_114",
+  "query": "图 8.22 那个工艺窗分析里，如果规定最小曝光宽容度 10%，矩形法和椭圆法给出的 DOF 分别是多少？另外最佳焦点设偏 Δf 后 DOF 会怎么变？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "DOF(矩形) = 0.40 mm，DOF(椭圆) = 0.52 mm（10% 最小曝光宽容度下）；矩形法（系统误差为主）偏悲观，椭圆法（随机误差为主）偏乐观。若焦点偏离最佳焦点 Δf，DOF 一般减少 2Δf。",
+  "success_criteria": "0.40mm 与 0.52mm 都答出且对应方法不搞反，且答出 DOF 减少 2Δf",
+  "evidence": "--[p334]-- For the example given in Figure 8.22, a minimum acceptable exposure latitude of 10 %, in addition to the other profi le specifi cations, would lead to the following depth of focus results: • DOF (rectangle) = 0.40 mm • DOF (ellipse) = 0.52 mm；--[p334]-- For example, if focus is set in error from best focus by an amount ∆f, the resulting DOF will generally be reduced by 2∆f."
+ },
+ {
+  "query_id": "heldout_115",
+  "query": "193nm 工艺的 LER 典型水平是多少？100nm 以下节点对 3σ LER 的规格一般定在什么量级？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "193nm 光刻中 LER ≥4nm 很常见；对于 100nm 以下制程节点，3σ LER 的典型规格约为标称 CD 的 5%；LER 常以线边缘偏离直线的 3σ 偏差表征，且在 65nm 以下量产节点 LER 可能成为 CD 控制的主要限制。",
+  "success_criteria": "答出 193nm 常见 LER≥4nm、3σ 规格≈标称 CD 的 5%",
+  "evidence": "--[p403]-- LER is usually characterized as the 3s deviation of a line edge from a straight line… For 193-nm lithography, LER values of 4 nm and larger are common. …For lithography generations below 100 nm, typical specifi cations for the 3s LER are about 5 % of the nominal CD；--[p403]-- It is possible that LER will become the main limiter of CD control below 65-nm production."
+ },
+ {
+  "query_id": "heldout_116",
+  "query": "ArF 胶防图形倒塌那节，书中用 60° 接触角、100nm 间距（空间深宽比 3）算出的极限线宽是多少？计算时水的表面张力取了多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "在无表面活性剂、ArF 胶 E/σ≈35 nm⁻¹、60° 水-胶接触角、100nm 间距且空间深宽比为 3 的算例中，线的最大深宽比为 4.3，对应约 70nm 线宽（再宽即倒塌）；水的表面张力取 0.072 N/m（72 dyne/cm，室温）。书中另举例：空间缩到 50nm 且空间深宽比保持 3 时，最大线深宽比降到 3.4（44nm 线宽）。",
+  "success_criteria": "答出最大线深宽比 4.3→约 70nm 线宽，且水的表面张力 0.072 N/m",
+  "evidence": "--[p364]-- Putting some numbers into the equation, ArF resists will have E/s in the range of about 35 nm⁻¹ assuming no surfactants in the water. Assuming a 60° water–resist contact angle, consider a 100-nm space with a space aspect ratio of 3. The maximum aspect ratio of the line will be 4.3 (a 70-nm linewidth before the line collapses)；--[p363]-- the surface tension of water, which at room temperature is about 0.072 N/m (72 dyne/cm)"
+ },
+ {
+  "query_id": "heldout_117",
+  "query": "浸没式光刻的 NA 天花板：用水做浸没液最高能到多少？书里提到高折射率液体能推到多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "实用 NA 约为浸没液折射率的 93%；水在 193nm 下 n=1.44，故水浸没 NA 最高约 1.35；高折射率液体（如 n=1.65）可把 NA 推到约 1.5，再往上则受光刻胶折射率限制（193nm 胶约 1.7），需要提高胶的折射率才能继续增加。",
+  "success_criteria": "答出 NA≤1.35（水）与高折射率液体约 1.5 两个数字",
+  "evidence": "--[p118]-- Practical numerical apertures for immersion systems are probably in the range of 93 % of the refractive index of the fl uid. For water, with n = 1.44 at 193 nm, this means a numerical aperture of up to 1.35；--[p118]-- High-index fl uids (n = 1.65, for example) could enable numerical apertures as high as 1.5. Beyond this level, the maximum angle is limited by the refractive index of the photoresist"
+ },
+ {
+  "query_id": "heldout_118",
+  "query": "光子散粒噪声这块，为什么说 EUV 比 193nm 严重得多？书里给的数量级对比是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "13.5nm 一个光子能量 1.47×10⁻¹⁷ J，约为 193nm（1.03×10⁻¹⁸ J）的 15 倍；加上 EUV 胶灵敏度目标是比 193nm 胶灵敏 2–4 倍，因此 EUV 像面单位区域接收的光子数比 193nm 少 30–60 倍，相对散粒噪声按 1/√⟨n⟩ 增大，故严重得多。193nm 例子：剂量 10 mJ/cm²、1×1nm 区域约 97 个光子（σ≈10%），10×10nm 区域约 200 个光子（σ≈7%，相对标准差约 1%）。",
+  "success_criteria": "答出光子能量约 15 倍、光子数少 30–60 倍的对比关系",
+  "evidence": "--[p238]-- At a wavelength of 13.5 nm, the energy of one photon will be 1.47 × 10⁻¹⁷ J, about 15 times greater than at 193 nm. Also, the goal for resist sensitivity will be to have EUV resists that are 2–4 times more sensitive than 193-nm resists…Thus, the number of photons will be 30–60 times less for EUV than for a 193-nm lithography；--[p237]-- \\frac { \\sigma _ { I } } { \\langle I \\rangle } = \\frac { \\sigma _ { n } } { \\langle n \\rangle } = \\frac { 1 } { \\sqrt { \\langle n \\rangle } }\\tag{6.36}"
+ },
+ {
+  "query_id": "heldout_119",
+  "query": "为什么 248/193nm 光刻不能像 i-line 那样光靠 PEB 扩散把驻波抹平、非得用 BARC？书里的理由是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "要消除驻波，扩散长度必须达到约半个驻波周期量级；i-line 驻波半周期约 70–80nm 量级而 i-line 极限特征约 300nm 以上，尚可行；但 248nm 下驻波半周期约 35–40nm，而特征尺寸小于 130nm，有效消除驻波所需扩散长度要接近特征尺寸的三分之一，这个比例太大、会明显劣化图像本身，因此 248/193nm 光刻改用底部抗反射涂层（BARC）而不是单靠 PEB 扩散来抑制驻波。",
+  "success_criteria": "答出'扩散长度需≈1/3 特征尺寸、过大导致图像劣化，故用 BARC'这一因果链",
+  "evidence": "--[p212]-- The standing wave half period is about 35–40 nm, but features smaller than 130 nm are regularly imaged；--[p212]-- Thus, to remove standing waves effectively, the diffusion length must approach one-third of the feature size, a fraction that is too large to avoid signifi cant image degradation. As a result, for 248- and 193-nm lithography, standing waves are reduced using bottom antirefl ection coatings rather than relying solely on diffusion during PEB"
+ },
+ {
+  "query_id": "heldout_120",
+  "query": "帮我按书里的驻波周期公式算一下：i-line 365nm、胶折射率取 1.7，驻波周期是多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Period = λ/2n₂ = 365nm/(2×1.7) ≈ 107.4nm（约 107nm）。依据式 (4.20)；365nm 为书所述 UV 波段，胶折射率 1.7 取自书中'光刻胶折射率约 1.6–1.7'的典型范围。",
+  "success_criteria": "算式 λ/(2n₂) 正确，结果约 107nm（104–111nm 区间内且单位 nm）",
+  "evidence": "--[p133]-- Period = λ / 2 n_2\\tag{4.20}；--[p20]-- Lithography systems have progressed from blue wavelengths (436 nm) to UV (365 nm) to deep-UV (248 nm) to today's mainstream high-resolution wavelength of 193 nm；--[p110]-- For typical photoresists (with refractive indices between 1.6 and 1.7)"
+ },
+ {
+  "query_id": "heldout_121",
+  "query": "用书里 193nm、dose-to-clear 10 mJ/cm² 那组数据，自己推一遍 1×1nm 区域的平均光子数和相对标准差，看跟书里给的对不对得上。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "平均曝光能量⟨I⟩T≈剂量 10 mJ/cm²=0.01 J/cm²；1nm×1nm 面积=10⁻¹⁴ cm²；光子能量 hc/λ≈1.03×10⁻¹⁸ J（193nm）。光子数 ⟨n⟩ = 0.01/1.03e-18 × 1e-14 ≈ 97 个；相对标准差 = 1/√97 ≈ 0.10 即约 10%（σ≈10 个光子）。与书中给的 97 和 10% 一致。",
+  "success_criteria": "给出换算过程，光子数≈97（90–105 区间），相对标准差≈10%",
+  "evidence": "--[p238]-- As an example, consider a 193-nm exposure of a resist with a dose-to-clear of 10 mJ/ cm2…At this wavelength, the energy of one photon, hc/l, is about 1.03 × 10⁻¹⁸ J. For an area of 1 × 1 nm, the mean number of photons during the exposure, from Equation (6.34), is about 97. The standard deviation is about 10, or about 10 % of the average；--[p237]-- \\frac { \\sigma _ { I } } { \\langle I \\rangle } = \\frac { 1 } { \\sqrt { \\langle n \\rangle } }\\tag{6.36}"
+ },
+ {
+  "query_id": "heldout_122",
+  "query": "2006 年那台浸没式机（NA 1.2、193nm），按书里双光束极限 pitch 公式算，理论最小可成像 pitch 是多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "ultimate pitch resolution = λ/2NA = 193nm/(2×1.2) ≈ 80.4nm（约 80nm，对应 k_pitch=0.5 的双光束极限，需交替相移掩模或优化 OAI 实现）。",
+  "success_criteria": "算式 λ/(2NA)，结果约 80nm（79–82nm 区间）且说明这是双光束极限",
+  "evidence": "--[p415]-- ultimate pitch resolution = λ / 2 NA\\tag{10.4}…Thus, for two-beam imaging, the minimum k_pitch is 0.5；--[p20 [表]]-- Table 1.2…Numerical Aperture | 0.28 | 1.2"
+ },
+ {
+  "query_id": "heldout_123",
+  "query": "驻波振幅受哪几个因素控制？顺着书里的思路，BARC 和 TARC 分别是通过压哪个因素来压驻波的？帮我串起来讲。",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一步（4.1.2/4.2.4）：驻波振幅取决于衬底反射率 |ρ₂₃|、空气-胶反射率 |ρ₁₂| 和胶体吸收 e^(−αD)，标准减振手段有三：(1) 用 BARC 降低衬底反射率 |ρ₂₃|；(2) 用 TARC 降低空气-胶反射率 |ρ₁₂|；(3) 提高吸收（加染料增大 α）减小 e^(−αD)。第二步（4.3/BARC 章节）：BARC 是衬底上的薄吸收层，可把衬底对胶所见的反射率压到远低于 1%。应按'先查驻波公式 → 再查减振措施 → 再查 BARC 原理'的多跳路径作答。",
+  "success_criteria": "答出三个反射率/吸收因素并正确对应 BARC→ρ₂₃、TARC→ρ₁₂ 的映射",
+  "evidence": "--[p151]-- (1) reduce substrate refl ectivity |ρ_23| by using a bottom antirefl ection coating; (2) reduce air–resist refl ectivity |ρ_12| by using a top antirefl ection coating; and (3) reduce e^−αD by increasing absorption；--[p133]-- The fi rst is to reduce the refl ectivity of the substrate (reduce ρ_23). The use of an antirefl ection coating on the substrate is one of the most common methods of reducing standing waves (see section 4.3). The second method…is to increase absorption in the resist (reduce the e^−αD term). This is accomplished by adding a dye to the photoresist (increasing α)；--[p21]-- coating the substrate with a thin absorbing layer called a bottom antirefl ective coating (BARC) that can reduce the refl ectivity of the substrate as seen by the photoresist to much less than 1 %"
+ },
+ {
+  "query_id": "heldout_124",
+  "query": "帮我从定义推到应用串一遍：NILS 是怎么定义的？等线/空间相干三光束的 image MEEF 用 NILS 怎么表示？掩模误差又是怎么按这个关系侵蚀有效曝光宽容度的？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "第一跳：NILS = w·dln(I)/dx（式 3.92），在标称线边处、以标称线宽归一化的对数斜率。第二跳：对等线/空间，∂lnI/∂lnw 在 x=CD/2 处为常数 2（式 8.78），故 image MEEF = 4/NILS（式 8.79）。第三跳：掩模 CD 误差等效为剂量误差，有效曝光宽容度 EL_eff ≈ EL(1 − MEEF·ΔCD_mask/ΔCD_spec)（式 8.81），ΔCD_spec 为定义曝光宽容度所用 CD 公差（如 0.2×标称 CD），即掩模误差按 MEEF 倍数缩减可用曝光宽容度。",
+  "success_criteria": "三个公式（3.92、8.79、8.81）全部正确且逻辑链完整",
+  "evidence": "--[p122]-- NILS = w \\frac { \\mathrm { d } \\ln ( I ) } { \\mathrm { d } x }\\tag{3.92}；--[p353]-- \\left. \\frac { \\partial \\ln { I } } { \\partial \\ln { w } } \\right| _ { x = C D / 2 } = 2\\tag{8.78} Thus, the coherent three-beam equal line/space image MEEF, including defocus, becomes image MEEF = \\frac { 4 } { N I L S }\\tag{8.79}；--[p354]-- If EL is the exposure latitude when no mask errors are present, then the effective exposure latitude in the presence of mask errors of range ∆CD_mask will be EL_eff ≈ EL(1 − MEEF·∆CD_mask/∆CD_spec)\\tag{8.81}"
+ },
+ {
+  "query_id": "heldout_125",
+  "query": "液体感光型覆盖层跟传统覆盖膜比，解像度和耐温能力怎么样？适合SMT挠性板吗？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "三井化学、Sanwa化学的薄膜状感光型覆盖膜可用碱性水溶液显影，解像度小于50μm；液体感光型覆盖层能耐120℃的工作环境，分辨率达0.07mm，显影后膜侧面陡直，适用于SMT的挠性板；它省去传统层压工序，提高散热性并增加可弯曲性。",
+  "success_criteria": "答出解像度&lt;50μm、耐120℃、分辨率0.07mm中至少两项，并答出适用SMT挠性板",
+  "evidence": "--[p29]-- 如有三井化学、Sanwa化学公司介绍的薄膜状感光型覆盖膜，可用碱性水溶液显影，解像度小于50μm，有很高的尺寸稳定性、挠曲性，无环保问题。……液体感光型覆盖层能耐120℃的工作环境，在弯曲半径为5mm时能耐10%次挠曲循环，其分辨率达0.07mm，而且显影后膜的侧面是陡直的，适用于SMT的挠性板。"
+ },
+ {
+  "query_id": "heldout_126",
+  "query": "用铝基板替代同规格有机基板，整板温度大概能降多少？金属层在板子里都起哪些作用？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "采用金属基板的产品比同规格的有机基板在高发热领域使用时整板温度一般可降低30~50℃。金属层主要作用有三点：①导热作用（通过\"冷指\"效应形成内部热传递快速通道，降低整板温度并使其快速均匀化）；②起刚性或控制线性热膨胀系数(CTE)作用；③起\"屏蔽\"作用（电磁屏蔽，还可作为接地层）。",
+  "success_criteria": "答出降低30~50℃且说出导热、刚性/CTE控制、屏蔽三个作用",
+  "evidence": "--[p82]-- 实际证明，采用金属基板的产品比同规格的有机基板在高发热领域使用时其整板温度一般可降低30~50℃。……金属基板中金属层的主要作用有以下几点。(1)在印制电路板中起导热作用……通过一种\"冷指\"效应……(2)在印制电路板中起刚性或控制线性热膨胀系数(CTE)作用……(3)在印制电路板中起\"屏蔽\"作用。"
+ },
+ {
+  "query_id": "heldout_127",
+  "query": "书里图形电镀半加成做50μm精细线路那个实例，关键工艺参数（铜箔厚度、曝光能量、电流密度、电镀时间）都是多少？最细验证到多少线宽？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "实例参数：选用铜箔厚度2μm的覆铜板，线宽/线距均为50μm的照相底版，曝光能量250mJ/cm²，显影后在1.6A/dm²条件下图形电镀50min，再用H2SO4-H2O2微蚀液蚀刻；电镀铜后蚀刻前线路铜厚达21.53μm；线宽线距减少到30μm时效果同样很好。",
+  "success_criteria": "答出2μm铜箔、250mJ/cm²、1.6A/dm²、50min四项参数，并答出30μm精细线路",
+  "evidence": "--[p192]-- 选用铜箔厚度为2μm的覆铜箔层压板，进行除油、微蚀表面处理，铜箔热压贴覆干膜后放置15min，用线宽和线距均为50μm的照相底版覆盖干膜表面，在曝光能量为250mJ/cm²平行曝光机完成曝光过程，放置15min后显影。显影后的铜箔在1.6A/dm²的条件下图形电镀50min……直接在铜箔表面镀铜最终形成铜精细线路，线路铜厚度达到21.53μm。……即使当线宽和线距减少到30μm时，效果同样很好"
+ },
+ {
+  "query_id": "heldout_128",
+  "query": "后程埋嵌芯片那套工艺，阻焊层、镀铜层、开窗结构的典型厚度各是多少？这个工艺最早是谁提出的？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "由佐治亚理工学院(Georgia Institute of Technology)提出。典型参数：阻焊层厚度25μm；孔金属化采用化学镀和电镀铜半加成法，典型镀铜厚度10μm；开窗结构深度（介质层厚度）为50μm；第二次光致介质积层易引起阶梯形宽度尺寸误差，一般达50μm以上。",
+  "success_criteria": "答出佐治亚理工学院及25μm/10μm/50μm三个厚度对应关系正确",
+  "evidence": "--[p246]-- 佐治亚理工学院(Georgia Institute of Technology)提出了后程埋嵌 IC 元件工艺。--[p247]-- 整阻焊层的厚度为25μm……典型的镀铜厚度为10μm……开窗结构的深度(介质层厚度)为50μm……容易引起阶梯形的宽度尺寸误差，一般会达到50μm以上"
+ },
+ {
+  "query_id": "heldout_129",
+  "query": "想埋嵌电容的话，什么样的绝缘材料才够格？高速信号传输线旁边适不适合放埋嵌电容材料？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "电容材料是指介电常数ε≥10的绝缘材料，某些陶瓷材料（如钛酸钡、锆酸铅）的ε可达到1000以上。电容材料不宜用来作高速数字信号和高频信号传输的介电材料，所以在PCB中只有电容值要求的部位才布设埋嵌电容材料。",
+  "success_criteria": "答出ε≥10这一判据，并答出不宜用于高速/高频信号传输介电层",
+  "evidence": "--[p231]-- 电容材料是指介电常数ε≥10的绝缘材料，某些陶瓷材料的介电常数ε可达到1000以上，如钛酸钡、锆酸铅等。……电容材料是不宜用来作高速数字信号和高频信号传输的介电材料的，所以在PCB中只有电容值要求的部位，才布设埋嵌电容材料。"
+ },
+ {
+  "query_id": "heldout_130",
+  "query": "HDI板线间绝缘可靠性要做高温高湿偏置试验，教材里给的温湿度组合和施加电压条件是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "①固定湿度85%RH，温度分别为75℃、85℃和95℃；②固定温度85℃，湿度分别为75%RH、85%RH和95%RH；③在上述温湿度下同时施加直流电压5V、10V或30V进行性能考核测量。",
+  "success_criteria": "答出85%RH+75/85/95℃、85℃+75/85/95%RH两组组合及5V/10V/30V直流电压",
+  "evidence": "--[p74]-- (1)固定湿度为85%RH，改变温度分别为75℃、85℃和95℃下进行性能考核试验。(2)固定温度为85℃，改变湿度分别为75%RH、85%RH和95%RH下进行性能考核试验。(3)施加电压试验。在上述温度和湿度下，同时施加直流电压5V、10V或30V进行性能考核测量。"
+ },
+ {
+  "query_id": "heldout_131",
+  "query": "喷墨打印做埋嵌电阻，油墨固化温度上限是多少？杜邦那款油墨的阻值误差能做到什么水平？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "PCB树脂基板的玻璃化温度一般都在200℃以下，因此喷墨打印油墨的固化温度不能超过250℃。DuPont制作的油墨使用炭黑颗粒作为导电填料，打印获得的电阻阻值误差在1%以内，不需要激光修饰；Parelec公司则使用银、钯、锡及铟中的一种或两种、两种不同尺寸的金属颗粒作导电填料。",
+  "success_criteria": "答出固化温度不超过250℃和DuPont阻值误差1%以内不需激光修饰",
+  "evidence": "--[p222]-- PCB树脂基板的玻璃化温度一般都在200℃以下，因此，喷墨打印油墨的固化温度不能超过250℃……DuPont制作的油墨是使用炭黑颗粒作为导电填料。该油墨打印获得的电阻阻值误差在1%以内，不需要激光修饰。Parelec公司是使用两种不同尺寸的金属颗粒作为埋嵌电阻油墨的导电填料，其中金属为银、钯、锡及铟其中的一种或两种。"
+ },
+ {
+  "query_id": "heldout_132",
+  "query": "恒温式热阻测试里，三极管Vce=5V、集电极电流1.8A，模块温度91.8℃，恒温槽97℃，这块铝基板的热阻算出来是多少？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "先检索公式 R_th=(T1-T2)/P，其中P=Vce×IC。P=5V×1.8A=9W；R_th=|91.8-97|/9=5.2/9≈0.58℃/W，与书中例3的结果一致。",
+  "success_criteria": "给出算式 P=9W、R_th≈0.58℃/W，单位℃/W正确",
+  "evidence": "--[p98]-- R_th = (T1 - T2) / P 式中，P=Vce×IC；Vce为耗散功率源三极管集电极和发射极之间的电压(V)；IC为耗散功率源三极管集电极电流(A)。例3：某公司采用恒温式方案测试某个铝基板的热阻，其实验数据为：耗散功率源三极管集电极和发射极之间的电压Vce=5.0V，耗散功率源三极管集电极电流IC=1.8A 模块温度分别是91.8℃，超级恒温槽温度控制在97℃，则计算测试铝基板的热阻为0.58℃/W。"
+ },
+ {
+  "query_id": "heldout_133",
+  "query": "按书里的胶含量公式，一张PP上胶后总重100g、玻璃布重28g，树脂含量是多少？这个值落在哪种类别玻璃布的范围内？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "RC=(1-BW/TW)×100%=(1-28/100)×100%=72%。对照书中薄织物树脂含量排序106(71%~75%)、1080(61%~70%)、2116(51%~60%)，72%落在106薄织物的71%~75%区间内。",
+  "success_criteria": "算出RC=72%且判断属于106玻璃布的范围",
+  "evidence": "--[p123]-- 薄织物从树脂含量的指标由大到小排序是106(71%~75%)、1080(61%~70%)、2116(51%~60%)……胶含量的计算公式为 RC = (1 - BW/TW) × 100% 其中，RC为树脂含量%；BW为织物(玻璃布)重量；TW为PP上胶后总重量。"
+ },
+ {
+  "query_id": "heldout_134",
+  "query": "LDS做龋齿检测手持激光笔那个案例，装配时间从20s降到6s，缩短了百分之几？零件数从8个减到3个又减少百分之几？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "装配时间缩短率=(20-6)/20=70%；零件数减少率=(8-3)/8=62.5%；书中同时给出总成本缩减78%。",
+  "success_criteria": "时间缩短70%和零件减少62.5%两个百分比均答对",
+  "evidence": "--[p202]-- 采用LDS技术实现尺寸小型化、质量大幅缩减，同时也使用将产品制造的装配时间从20s缩短到了6s，零件数量从8个缩减到了3个，生产效率获得提高，总成本缩减78%。"
+ },
+ {
+  "query_id": "heldout_135",
+  "query": "厚铜板叠构我想用7628玻纤布的半固化片，教材里7628的含胶量和凝胶时间参数是多少？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及7628型号玻璃布半固化片的参数，无法提供其含胶量与凝胶时间，不可编造数值。可补充说明书中只给出：薄织物106含胶量71%~75%、1080为61%~70%、2116为51%~60%；不流动环氧半固化片104厚0.064mm含胶量72±1%、108厚0.088mm含胶量62±1%，凝胶时间均无。",
+  "success_criteria": "明确指出书中没有7628相关数据并正确拒答，未编造参数；能正确复述书中已有的106/1080/2116或104/108参数作替代参考",
+  "evidence": "--[p123]-- 尽量选择薄织物的PP片，如106、1080、2116……薄织物从树脂含量的指标由大到小排序是106(71%~75%)、1080(61%~70%)、2116(51%~60%)。--[p28]-- 表1-8 不流动环氧半固化片： 104 半固化片厚度0.064mm 含胶量72±1% 流动度2% 凝胶时间无； 108 半固化片厚度0.088mm 含胶量62±1% 流动度2% 凝胶时间无（全书未出现7628规格）"
+ },
+ {
+  "query_id": "heldout_136",
+  "query": "金手指镀硬金的厚度要求（比如镀金厚度下限）和插拔耐磨次数指标，这本书里有讲吗？",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出金手指镀硬金的厚度要求和插拔耐磨次数指标，无法从本书检索到该数据，应正确拒答并声明未涉及，不可编造数值。可说明书中仅在电镀镍金一节提到：电镀金分软金和硬金两类，硬金（含钴等元素，平滑坚硬耐磨）主要用在非焊接处的电气互连（如金手指）。",
+  "success_criteria": "明确说明书中未涉及金手指镀层厚度与插拔耐磨次数的具体指标并拒答；能提到硬金用于金手指这一相关背景信息",
+  "evidence": "--[p273]-- 现在的电镀金有两类：电镀软金(纯金，表面较暗)和电镀硬金(表面平滑坚硬，耐磨，含有钴等其他元素，表面看起来较光亮)。软金主要用于芯片封装时打金线；硬金主要用在非焊接处的电气互连(如金手指)，由于其硬度高、抗腐蚀能力强作为保护表面(如SD卡表面金属层)。（全书未给出金手指镀金厚度与插拔次数指标）"
+ },
+ {
+  "query_id": "heldout_137",
+  "query": "TechniEtch TBR19 这种钛阻挡层刻蚀液,书里推荐在多少温度下工作?推荐这个温度是综合考虑了哪些因素?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "推荐工作温度 50°C,理由是综合考虑最佳浴寿命(bath ageing)、金属刻蚀速率、过程控制和溶液稳定性。另可补充其规格:对 Ti/TiN/TiW 刻蚀速率 &gt;450 Å/min,与 Al、Sn、Cu、Ni 兼容(ER&lt;10 Å/min)。",
+  "success_criteria": "答出 50°C 并给出至少两项综合因素(浴寿命/刻速/过程控制/稳定性)。",
+  "evidence": "--[p306]-- From the solution decomposition rate and Ti etching rate change with temperature, it is recommended to work at $5 0 ~ ^ { \\circ } \\mathrm { C }$ to combine best bath ageing, metal etch rate, process control and solution stability attributes. --[p305]-- Etch rate above 450Å/min for (Ti, TiN and TiW)."
+ },
+ {
+  "query_id": "heldout_138",
+  "query": "稀 HF 里溶解氧多高会开始腐蚀体铜?控制气氛和不控制气氛两种腔体条件下,要把铜损耗压到 1 nm 以下,DO 各需要控制在什么水平?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "0.05% HF 条件下,不控制气氛需要约 10 ppb DO、控制气氛需要约 200 ppb DO 才能满足铜损耗 &lt;1 nm 的规格;控制气氛下铜损耗更小且中心/边缘均匀,70~200 ppb DO 时铜损耗 &lt;1 nm,只有非控制气氛下 3000 ppb DO 才开始刻蚀铜。",
+  "success_criteria": "答出非控制 ≈10 ppb、控制 ≈200 ppb,并提到 HF 浓度 0.05% 与 &lt;1 nm Cu loss 规格。",
+  "evidence": "--[p265]-- From Fig. 2 it is clear that 10 ppb DO for the non-controlled and \\~200 ppb DO for the controlled was required to reach a spec of less than 1 nm Cu loss."
+ },
+ {
+  "query_id": "heldout_139",
+  "query": "书里氧化物对氮化物选择性刻蚀那篇开头引用 Harrap 的 85:1 高选择比,是在什么 HF 浓度和温度下做的?当时氮化物刻蚀速率多少?这和该文自己的目标指标(E/R 和选择比)差在哪?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "Harrap 是在 0.0075% 极稀 HF、85°C 下得到 85:1 的 Si3N4:SiO2 选择比,但氮化物刻蚀速率只有约 6 Å/min。该文自己的目标是 SiOx 刻蚀速率约 10 Å/min、对 SiNx 选择比 &gt;5:1,并兼容 poly-Si 与 SiCN。",
+  "success_criteria": "答出 0.0075%、85°C、85:1、6 Å/min,以及目标 E/R ≈10 Å/min 与 &gt;5:1 选择比。",
+  "evidence": "--[p88]-- Harrap has reported high $\\mathrm { S i } _ { 3 } \\mathrm { N } _ { 4 } \\mathrm { : \\thinspace S i O } _ { 2 }$ selectivity of 85:1 in a highly diluted hydrofluoric acid solution of 0.0075% at $8 5 ~ ^ { \\circ } \\mathrm { C } _ { \\mathrm { i } }$ however the etch rate of nitride was very low (6 A/min) [1]. --[p88]-- ...selective removal of SiO&lt;sub&gt;x&lt;/sub&gt; materials with E/R around 10 A/min, with the associated requirements of &gt; 5:1 selectivity to SiN&lt;sub&gt;x&lt;/sub&gt; and good compatibility to poly-silicon (poly-Si) and silicon carbonitride (SiCN)."
+ },
+ {
+  "query_id": "heldout_140",
+  "query": "太阳能电池湿法清洗那篇,Fe 的交换长度是 70 µm,标准 6 寸(243 cm²)电池片按双面清洗算,单片的最低换液量应该是多少毫升?和书里表格给的值对得上吗?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "V_ex = 2 × 243 cm² × 70 µm(=70×10⁻⁴ cm)= 2 × 243 × 0.007 cm³ ≈ 3.40 ml/片,与书中表 2 给出的 3.39 ml/wafer 基本一致(差异来自舍入)。",
+  "success_criteria": "给出算式 2×243×0.007≈3.4 ml,并指出与表中 3.39 ml/wafer 吻合;单位 ml 正确。",
+  "evidence": "--[p359]-- The calculation was done for ... a standard square 6inch solar cell wafer (243cm&lt;sup&gt;2&lt;/sup&gt;). --[p359 [表]]-- Metal | Co | Cu | Zn | Fe | Cr | Ti ; L_ex [um] | 15 | 20 | 65 | 70 | 280 | 800 ; V_ex [ml/wafer] | 0.74 | 1.11 | 3.15 | 3.39 | 13.5 | 38.1"
+ },
+ {
+  "query_id": "heldout_141",
+  "query": "HF 吸附模型里 plateau 氟浓度只跟湿度有关的那个公式,如果环境湿度 RH=50%,铜面上氟的 plateau 值是多少 ions/cm²?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按 [F⁻]_plateau = 2.2×10^15 × RH + 2.4×10^14,RH=0.5 时 = 2.2×10^15×0.5 + 2.4×10^14 = 1.1×10^15 + 2.4×10^14 = 1.34×10^15 ions/cm²。",
+  "success_criteria": "给出算式与结果 ≈1.34×10^15 ions/cm²(允许 1.3~1.35×10^15);公式来源正确。",
+  "evidence": "--[p339]-- $$ [ F ^ { - } ] _ { p l a t e a u } = 2 . 2 1 0 ^ { 1 5 } R H + 2 . 4 1 0 ^ { 1 4 }\\tag{2} $$"
+ },
+ {
+  "query_id": "heldout_142",
+  "query": "TiW 上长无电镀镍那篇,五种处理里只有哪种处理后无电镀镍长上去了?机理上为什么氧化性处理都不行?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "只有 HF 处理后的样品成功生长了无电镀 Ni(表 4 中 1/H2O2/O2 均为 No)。原因是无电镀 Ni 生长需要去氧化、能给出电子的表面把 Pd 催化剂还原后沉积;HF 显著去除 Ti 氧化物(Ti 氧化比从 1.77 降到 0.43),而 H2SO4、H2O2、O2 都使表面更氧化,无法给出电子。",
+  "success_criteria": "答出\"只有 HF\"并说明去氧化/还原 Pd 催化剂的机理。",
+  "evidence": "--[p280]-- This could be explained by the needing of the electroless Ni growth process to be applied on a deoxidized surface, able to give electrons to the Pd catalyst, which needs to be reduced before being deposited onto the TiW surface [3]. --[p280]-- This deposition on TiW was successful only for the HF treatment, as reported in Table 4."
+ },
+ {
+  "query_id": "heldout_143",
+  "query": "图形倒塌参数研究里 AR 18 那组硅纳米柱,表中高度和平均直径各是多少纳米?用这两个数验证一下它的深宽比是不是 18。",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "AR 18 组:高度 490 nm、平均直径 27 nm、pitch 90 nm。深宽比 = 490/27 ≈ 18.1 ≈ 18,与标称 AR 18 一致(直径为平均值,故为近似)。",
+  "success_criteria": "答出 490 nm 与 27 nm,并给出 490÷27≈18.1≈18 的验算。",
+  "evidence": "--[p149 [表]]-- Table I: Structure specifications. Aspect ratio | Height (nm) | Average diameter (nm) | Pitch (nm) ; 5 | 240 | 46 | 90 ; 10 | 380 | 37 | 90 ; 18 | 490 | 27 | 90"
+ },
+ {
+  "query_id": "heldout_144",
+  "query": "TK10X7 放大批次里,W 抑制剂 B-2 浓度从第 4 批降到第 5、第 6 批时,钨刻蚀速率和颗粒数分别怎么变?书里两条回归线交点说表面活性剂浓度到多少 W E/R 才小于 1 Å/min?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "第 4 批用 6α% B-2:初始片上颗粒 &lt;300;第 5 批降到 2α%:W E/R 仍 &lt;1 Å/min,初始颗粒约 120;第 6 批再降到 0.5α%:W E/R 升到 1.3 Å/min,颗粒不再改善。两条回归线交点在 0.75α,即表面活性剂浓度 0.75α 以上 W E/R 才 &lt;1 Å/min。",
+  "success_criteria": "答出 6α%→&lt;300、2α%→&lt;1 Å/min 且 ~120 颗粒、0.5α%→1.3 Å/min,以及交点 0.75α。",
+  "evidence": "--[p106]-- Then we further lowered the concentration of B-2 to 2α% in the $5 ^ { \\mathrm { t h } }$ batch; the performance for W E/R of the $5 ^ { \\mathrm { t h } }$ batch was still &lt;1 Å/min with the initial particle count data at \\~120. However, when we tried to reduce B-2 to 0.5α% in the $6 ^ { \\mathrm { t h } }$ batch, functional test results showed slight increasing to W E/R of 1.3 Å/min... --[p106]-- The two regression lines (indicated by dash line) were estimated to intersect at 0.75α, which refers to the surfactant concentration where W E/R would be &lt;1 Å/min."
+ },
+ {
+  "query_id": "heldout_145",
+  "query": "'just-clean-enough' 那篇的换液量表里,Co 单片交换体积是 0.74 ml,那一个 50 片的花篮要换多少毫升?跟书里给 50 片那行数值一致吗?",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "0.74 ml/片 × 50 片 = 37 ml,与书表中 V_ex [ml/50 wafers] 行 Co 列的 37 完全一致。",
+  "success_criteria": "给出 0.74×50=37 ml 并指出与表中 37 一致。",
+  "evidence": "--[p359]-- V_ex [ml/wafer] 行: Co = 0.74 ... --[p359]-- $\\mathbf { V } _ { \\mathrm { e x } } \\ [ \\mathbf { m } \\mathbf { l } / 5 0 \\mathbf { w a f e r s } ]$ | 37 | 56 | 158 | 170 | 676 | 1906"
+ },
+ {
+  "query_id": "heldout_146",
+  "query": "电解水产 AW-Cl 时,把氯进料从 10000 ppm 降到 100 ppm 会发生什么?两种进料浓度下 ORP 和 pH 的可调范围各是多少?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "降低氯进料到 100 ppm 可扩大工艺窗口:在 pH 约 3.7 下可得到 860、900、950 mV 三档 ORP。10000 ppm 高氯进料时 ORP/pH 可调范围最大:ORP 约 860 mV 调到 1150 mV 以上,pH 从 3.9 到 2.2。实际金属去除应用选 pH 2.6~3.1、ORP 880~1100 mV 的 AW-Cl。",
+  "success_criteria": "答出 100 ppm 时 pH≈3.7 下 ORP 860/900/950 mV,以及 10000 ppm 时 ORP 860→1150+ mV、pH 3.9→2.2。",
+  "evidence": "--[p390]-- We are able to enlarge the process window by decreasing the Cl-feed concentration to 100 ppm (black symbols). For a pH- value of about 3.7 we received ORP values from 860 mV (black dot), 900 mV (black square) and 950 mV (black triangle). --[p390]-- For high chloride feed concentration of 10000 ppm (white symbols) the AW-Cl can be changed for a large ORP as well as pH-value range. The ORP can be tuned from about 860 mV up to more than 1150 mV by ranging from pH-value of 3.9 to 2.2."
+ },
+ {
+  "query_id": "heldout_147",
+  "query": "磷酸刻氮化硅生成 silica 那篇的凝聚模型里,单个 silica 单体的体积用的多少?密度取多少?浴液里 silica 浓度假定是多少 ppm?",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "单体体积 ν1 = 4.51×10⁻²⁹ m³(由 silica 密度 2200 kg/m³ 算出);浴中 silica 浓度假定 40 ppm,据此得本体单体数密度 N1,∞≈?×10²⁷ m⁻³;另外传质系数 km=2.2×10⁻⁸ m/s。",
+  "success_criteria": "答出 4.51×10⁻²⁹ m³、2200 kg/m³、40 ppm 三个数值。",
+  "evidence": "--[p302]-- The monomer volume $\\nu _ { 1 } = 4 . 5 1 { \\times } 1 0 ^ { - 2 9 } \\mathrm { m } ^ { 3 }$ is calculated from the density of silica, 2200 $\\mathrm { k g / m } ^ { 3 }$ --[p300]-- 3 ${ \\times } 1 0 ^ { 2 7 } \\mathrm { m } ^ { - 3 }$ based on an assumed silica concentration of 40 ppm in the bath"
+ },
+ {
+  "query_id": "heldout_148",
+  "query": "书上有没有给出 SC1 清洗的标准配比(氨水:双氧水:水)和处理温度?我们想按书里的配方配一缸 SC1。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明:该书多处提到 SC1/APM 作为标准清洗液(如 DTI/TSV 试片清洗、深度孔洞金属去除讨论),但全书未给出 SC1 的 NH4OH:H2O2:H2O 配比和处理温度,无法据本书配缸,建议查阅标准工艺手册或化学品供应商规格;不得自行补常规配比(如 1:1:4、70°C 等)充当书内数据。",
+  "success_criteria": "明确说明书中未给出 SC1 配比/温度并拒答,不编造任何比例数字;能引用书中出现 SC1 但无参数的语境者加分。",
+  "evidence": "--[p143]-- The DTI and TSV structures were etched into a Si wafer (frontside) with standard lithography and silicon etch processes, then cleaned with standard solutions such as SPM and SC1, that allow to grow a chemical oxide on Si surface.(仅提及 SC1,无配比/温度)"
+ },
+ {
+  "query_id": "heldout_149",
+  "query": "超声显影能在多厚的PMMA上做出多细的线条？目前最高的电子束曝光分辨率纪录是多少？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "W.Chen等利用超声显影技术超越10nm极限，在65nm厚的PMMA上实现了线宽5～7nm的图形；目前报道的3～4nm最高分辨率电子束曝光图形都是利用该技术实现的。",
+  "success_criteria": "答出65nm厚PMMA、5～7nm线宽、最高3～4nm分辨率三组数值。",
+  "evidence": "--[p67]-- 他们利用超声显影技术成功地超越了人们长期认为电子束曝光分辨率难于突破的10 nm极限，在65 nm 厚的 PMMA 上实现了线宽为 5～7 nm 图形的制备。……--[p67]-- 虽然超声显影的机理还不明确，但目前报道的3～4nm最高分辨率的电子束曝光图形都是利用该技术实现的。"
+ },
+ {
+  "query_id": "heldout_150",
+  "query": "显影温度升高的情况下，PMMA、ZEP-520、HSQ还有SAL-601这些胶的对比度和灵敏度各往哪个方向变？想把PMMA做到4nm线宽该选高温还是低温显影？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "正性抗蚀剂PMMA和ZEP-520：对比度随温度升高而降低，灵敏度随温度升高而增大；负性抗蚀剂HSQ趋势与正胶相反；化学放大负胶SAL-601是例外，其变化趋势与PMMA相同。要实现高分辨图形，正胶应采用低温显影，负胶采用高温显影；利用低温显影已在60nm厚PMMA上实现4nm线宽。",
+  "success_criteria": "四种胶的变化方向均正确、指出SAL-601为例外、并答出正胶低温显影实现4nm线宽。",
+  "evidence": "--[p67]-- 可以看出对于正性的抗蚀剂，如PMMA和ZEP-520，对比度随着温度的升高而降低，灵敏度则随着温度的升高而增大。对于负性抗蚀剂HSQ，其变化趋势与正性抗蚀剂相反。……但这一规律并不适用于化学放大抗蚀剂SAL-601，该抗蚀剂为负性抗蚀剂，但该抗蚀剂对比度及灵敏度随温度的变化趋势与正性抗蚀剂PMMA相同。……对于正胶应该采用低温显影，而负胶采用高温显影。人们利用低温显影在厚度为60nm的PMMA上已实现了4nm线宽的图形"
+ },
+ {
+  "query_id": "heldout_151",
+  "query": "ICP-RIE和常规RIE的等离子体密度各在什么量级？为什么ICP-RIE能把离子能量和等离子体密度分开控制？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "常规RIE等离子体密度为10^9～10^10/cm³，ICP-RIE大于10^11/cm³。ICP-RIE在传统RIE基础上增加一个ICP射频源，通过感应线圈从外部耦合产生等离子体，而样品台基板的RF源可独立输入功率，从而实现对加速自偏置电压的独立控制，兼顾高刻蚀速率与高选择比。",
+  "success_criteria": "两个密度量级正确，并答出双射频源(ICP源+RF源)分离控制等离子体激发与自偏压的原理。",
+  "evidence": "--[p158 [表]]-- 表6.3 常规 RIE 与 ICP-RIE的对比 …… 低等离子体密度：10^9～10^10/cm³ | 高等离子体密度：&gt;10^11/cm³ ……--[p158]-- 接通样品台基板的射频源(与ICP端射频源区分，通常被称为RF源或RIE源)则可以独立地输入功率，从而实现对加速自偏置电压的独立控制。"
+ },
+ {
+  "query_id": "heldout_152",
+  "query": "电子束曝光邻近效应里的内部邻近效应，对一个矩形图形来说中心、边上、角上的附加剂量是什么比例关系？邻近效应强弱受哪些因素影响？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "矩形中心处附加剂量最强，边上的附加剂量为中心的一半，角上的附加剂量仅为中心的1/4。影响因素包括：(1)电子能量——能量越高邻近效应越弱；(2)衬底材料——原子质量小则减弱；(3)抗蚀剂材料及厚度——平均原子数目越小、胶层越薄效应越小；(4)抗蚀剂对比度——对比度越高效应越小。",
+  "success_criteria": "比例1:1/2:1/4正确，且至少列出4个影响因素及其影响方向。",
+  "evidence": "--[p74]-- 例如矩形，其中心处接受到的附加剂量最强，矩形边上附加剂量为中心的一半，角上的附加剂量仅为中心附加剂量的1/4。……邻近效应受以下因素的影响：（1）电子的能量。随能量的增加，邻近效应减弱。……（2）衬底材料。对于原子质量小的材料，邻近效应减弱。……（3）抗蚀剂材料及厚度。……（4）抗蚀剂的对比度。对比度越高，邻近效应越小。"
+ },
+ {
+  "query_id": "heldout_153",
+  "query": "光刻胶去胶的湿法和干法各怎么做？为什么衬底上有银或铜的时候不能用干法去胶？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "湿法去胶用酸碱溶液或有机溶剂腐蚀胶层，常用硫酸与双氧水混合液(H2SO4:H2O2=3:7)，最普通的溶剂是丙酮，可配合超声或加热增强；干法多采用氧化去胶或等离子体刻蚀去胶。干法去胶发生氧化反应，Ag、Cu等易氧化衬底会被氧化，因此不适用干法去胶。",
+  "success_criteria": "答出H2SO4:H2O2=3:7、丙酮、干法氧化/等离子体去胶，并说明Ag/Cu因易氧化不适用。",
+  "evidence": "--[p25]-- 湿法是用各种酸碱类溶液或有机溶剂将胶层腐蚀掉，常用溶剂有硫酸与双氧水的混合液(H2SO4:H2O2=3:7)，而最普通的腐蚀溶剂是丙酮……干法去胶多采用氧化去胶或等离子体刻蚀去胶……--[p25]-- 但对于Ag、Cu等易氧化衬底，则不适用干法去胶。"
+ },
+ {
+  "query_id": "heldout_154",
+  "query": "湿法腐蚀里，氮化硅、铝、铜、金这几种材料各自常用的腐蚀液是什么？",
+  "task_type": "信息查询",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "按表6.1：氮化硅用热磷酸(H3PO4)，铝用PAN，铜用FeCl3，金用NH4I/I2；另外硅用KOH、EDP、TMAH、HNA，氧化硅用HF、BOE。",
+  "success_criteria": "四种材料对应腐蚀液全部正确（氮化硅-热H3PO4、铝-PAN、铜-FeCl3、金-NH4I/I2）。",
+  "evidence": "--[p149 [表]]-- 表6.1 部分材料的常用湿法腐蚀溶液 被刻蚀材料 | 刻蚀溶液 硅 | KOH,EDP,TMAH,HNA 氧化硅 | HF,BOE 氮化硅 | 热H3PO4 铝 | PAN 铜 | FeCl3 金 | NH4I/I2"
+ },
+ {
+  "query_id": "heldout_155",
+  "query": "按书里的电子波长公式算一下，加速电压30keV时电子的德布罗意波长是多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "λe = 1.226/√V (nm)，V=30000eV，√30000≈173.2，λe ≈ 1.226/173.2 ≈ 0.0071nm（约0.07Å），落在书中给出的10～50keV对应0.1～0.05Å范围内。",
+  "success_criteria": "公式λe=1.226/√V正确代入，结果约0.007nm(0.05~0.005nm之间均判对)，单位nm或Å。",
+  "evidence": "--[p53]-- 电子本身是一种带电的粒子，根据波粒二象性，电子的波长可表示为 λe = 1.226/√V (nm) (2.1) ……对于加速电压为10～50keV的电子束，其波长范围为0.1～0.05 Å。……--[p85]-- 前面已经提到电子的波长非常的小，10keV时约为0.012nm。"
+ },
+ {
+  "query_id": "heldout_156",
+  "query": "书里说用ALD把约20nm的氮化硅孔缩到了4.8nm，如果ALD每循环沉积0.09～0.1nm，这一步大概跑了多少个循环？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "孔径为直径方向尺寸，ALD在孔壁四周沉积，直径缩减量=20-4.8=15.2nm，半径方向（单边）缩减7.6nm；按每循环0.09～0.1nm计算，循环数=7.6/0.1～7.6/0.09≈76～84个循环，约80个循环。",
+  "success_criteria": "算式(20-4.8)/2=7.6nm且循环数在76～84（约80）范围内；若按直径方向直接除以0.09~0.1给出152~169循环则判错（忽略双边沉积）。",
+  "evidence": "--[p222]-- 原子层沉积速率不仅可以控制在每循环0.09～0.1nm的平均厚度，而且原子层沉积的包覆性非常好，特别适合深孔结构尺寸的缩小……--[p223]-- 通过沉积不同厚度的Al2O3分别把百纳米的孔径缩小至～10 nm，～20 nm的孔径缩小至4.8 nm，～7.8 nm的孔径缩小至～2nm。"
+ },
+ {
+  "query_id": "heldout_157",
+  "query": "书里说自组装单层膜用5mW/cm²的汞灯曝光15～20分钟，帮我换算一下这对应的曝光剂量是多少J/cm²？",
+  "task_type": "数据计算",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "剂量=光强×时间：5mW/cm²=0.005W/cm²；15min=900s → 0.005×900=4.5 J/cm²；20min=1200s → 0.005×1200=6 J/cm²。对应曝光剂量约4.5～6 J/cm²。",
+  "success_criteria": "给出4.5～6 J/cm²区间且算式正确，单位J/cm²。",
+  "evidence": "--[p247]-- 例如以光强为5mW/cm²的汞灯光源紫外光进行曝光需要15～20min的曝光时间，但是有趣的是当利用波长193nm的准分子激光作为光源则曝光时间降低到1min"
+ },
+ {
+  "query_id": "heldout_158",
+  "query": "我要用压印翻模的办法做金属纳米锥阵列，书里这套流程选的什么光刻胶、为什么？压印温度、压强和时间给的多少？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "需先检索金属纳米锥压印加工(5.4节)再检索压印参数(5.4.2)。模板为无掩模等离子体刻蚀制备的硅纳米锥阵列；光刻胶选S1813，原因是它具有较低的玻璃化温度，对后续金属纳米锥阵列的剥离翻转十分重要；压印参数为60°C、20bar压强、压印4min。",
+  "success_criteria": "先查工艺流程再查参数（体现先A后B的多跳），答出S1813、低玻璃化温度原因、60°C/20bar/4min。",
+  "evidence": "--[p142]-- 选用S1813作为纳米压印的光刻胶，是因为它具有较低的玻璃化温度，对于后续的金属纳米锥阵列的剥离翻转十分重要。……--[p143]-- 可以选用60°C的压印温度，20bar的压印压强，压印4min。"
+ },
+ {
+  "query_id": "heldout_159",
+  "query": "我要刻一层氮化硅薄膜，刻完还要把底下的硅牺牲层干法释放掉，书里推荐什么刻蚀气体和释放工艺？释放时对氮化硅的选择比能到多少？",
+  "task_type": "工具编排",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 3,
+  "gold_standard": "先检索反应离子刻蚀气体表(表6.2)：Si3N4可用CF4/O2、CF4/H2、CHF3、CH3CHF2；再检索牺牲层释放(气浴刻蚀)：用XeF2气浴刻蚀释放硅牺牲层，XeF2与硅反应生成挥发性SiF4，对金属、二氧化硅及其他掩模材料几乎无侵蚀，对氮化硅选择比达(400～800):1，对光刻胶、金属、氧化硅选择比可上千。",
+  "success_criteria": "两个环节都检索到（先RIE气体表后气浴刻蚀），答出Si3N4刻蚀气体组与XeF2对氮化硅(400～800):1的选择比。",
+  "evidence": "--[p156]-- Si3N4 | CF4/O2, CF4/H2, CHF3, CH3CHF2 ……--[p170]-- 气态二氟化氙可以直接与硅反应生成挥发性SiF4产物，而对金属、二氧化硅或其他掩模材料几乎没有侵蚀，具有极高的刻蚀选择比，如对氮化硅为(400～800)：1，对光刻胶、金属、氧化硅的选择比可以上千。"
+ },
+ {
+  "query_id": "heldout_160",
+  "query": "书里给ZEP-520这胶的显影温度和时间参数了吗？我要按书里的条件复现显影工序。",
+  "task_type": "异常处理",
+  "difficulty": "medium",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及ZEP-520的具体显影温度和显影时间参数：表2.2仅给出ZEP为正胶、分辨率10nm、20keV灵敏度30 μC/cm²、显影液为xylene:p-dioxane；书中只论述了显影温度是影响抗蚀剂对比度与灵敏度的重要因素（变温显影一节），未给出具体温度与时间数值，应如实告知并建议查阅抗蚀剂厂商数据表。",
+  "success_criteria": "明确说明书中未给出该参数而非编造数值，同时能正确复述表2.2中ZEP的显影液等已有信息。",
+  "evidence": "--[p64 [表]]-- ZEP | 正 | 10 | 30 | xylene : p-dioxane （表2.2各列仅为极性、分辨率、灵敏度、显影液，无显影温度/时间列）……--[p67]-- 我们刚才提到，影响显影的主要因素有显影液的类型、浓度、显影的时间及温度等，通过改变显影液的类型及浓度对很多电子束抗蚀剂难于实现，但是改变显影的温度对大部分的抗蚀剂都有一定的调控作用。"
+ },
+ {
+  "query_id": "heldout_161",
+  "query": "把 host 上线/下线这几个场景给我串一遍：Scenario 4.102 里当前是 HOST OFFLINE，host 发 S1F17 后系统回什么、ONLACK 是几、状态转到哪？再对比 Scenario 4.99，operator 请求 ONLINE 时如果 host 拒绝，host 要发什么消息？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "Scenario 4.102（Host sets ONLINE）：当前 control state 为 HOST OFFLINE 时，host 发 S1F17 请求 ONLINE，系统回 S1F18 且 ONLACK = 0，并转换到 ONLINE LOCAL 或 REMOTE。Scenario 4.99（Operator requests ONLINE）：operator 打开 ONLINE 开关后系统发 S1F1 请求上线；若 host 拒绝 ONLINE（[ELSE] 分支），host 发 S1F0（Abort Transaction 中止事务）作为响应。",
+  "success_criteria": "Scenario 4.102 的 ONLACK=0 与目标状态（ONLINE LOCAL or REMOTE）正确，Scenario 4.99 拒绝时为 S1F0，三要素齐全。",
+  "evidence": "--[p152]-- Scenario 4.100/4.102 ... Scenario 4.102 Host sets ONLINE: Host request oNLINE | S1F17 | → [IF] control state HOST OFFLINE [THEN] ← | S1F18 | System acknowledges request with ONLACK = 0 and transitions to ONLINE LOCAL Or REMOTE --[p152]-- Scenario 4.99 Operator requests ONLINE: Operator sets the oNLINE switch when system oFFLINE state is active | S1F1 | System requests oNLINE [IF] host grants oNLINE [THEN] Host sends grant | S1F2 | → ... Host denies ONLINE [END IF] | S1F0 | →"
+ },
+ {
+  "query_id": "heldout_162",
+  "query": "Table 6.2 里主机可设的 HEARTBEAT（ECID 15）最大能到 1800 秒，而 Track Interface 里对 track 的 Heartbeat 默认是 60 秒：1800 是 track 默认值的多少倍？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳：查 Table 6.2 得 ECID 15 HEARTBEAT 的 MIN=0、MAX=1800、DEFAULT=30，即主机可设的最大值为 1800 秒；第二跳：查 Table 4.8 Track Interface Settings 得 track 侧 Heartbeat 允许 [60,600]、默认 60 秒；计算：1800 ÷ 60 = 30 倍。",
+  "success_criteria": "两个来源（Table 6.2 的 MAX 1800、Table 4.8 的默认 60）都检索正确，并给出 1800/60=30 倍。",
+  "evidence": "--[p46]-- 15 | HEARTBEAT | 0 | 1800 | 30 | Heartbeat --[p164]-- Heartbeat | [60,600] | 60 | Specifies the interval in seconds between subsequent heartbeat messages (S1F1) that are being send to the track."
+ },
+ {
+  "query_id": "heldout_163",
+  "query": "现场一个 warning 级别的 exception 被置位了，我们机器没改过 Exception Reporting Method（用默认值）。host 上应该等着收哪几组消息？另外这些异常消息里的 EXID 最长多少个字符？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "多跳链：第一步查 Compatibility Settings（Table 4.10），Exception ReportingMethod 默认值为 E41；第二步按 Table 6.9，warning 级别在 E41 方式下适用 S5F9...S5F12 和 S14F1...S14F4（exception set 报 S5F9 Exception Post Notify，clear 报 S5F11 Exception Clear Notify）；第三步查数据项 EXID：Format 20，最长 7 个字符。结论：默认配置下 host 应期待 S5F9-F12 及 S14F1-F4 这组消息，EXID 最长 7 字符。",
+  "success_criteria": "先答出默认 E41，再映射到 S5F9-F12+S14F1-F4，最后答出 EXID 最长 7 字符；三跳齐全才通过。",
+  "evidence": "--[p165]-- Exception ReportingMethod[a] | E30E41 | E41 | Switches the reporting style for exceptions with severities error, warning or notification between SEMI E41 and SEMI E30. --[p60 [表]]-- Warning | S5F1...S5F8 | S5F9...S5F12 andS14F1...S14F4 --[p178]-- EXID | Format: 20 Description Values | Unique identifier for the exception. Maximum length 7 characters. Where Used | See Appendix A for list of values. S5F9, F11 As OBJID in S14F1, F2, F3, F4"
+ },
+ {
+  "query_id": "heldout_164",
+  "query": "我要让设备把某个 reticle pod 的内容盘点（inventory）一遍并上报：S2F41 里用哪个 RCMD？需要带什么参数？用之前有个 factory constant 前提条件是什么？设备用什么消息应答？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "多跳链：第一步查 Table 6.4 Reticle Handling，RCMD=\"INVENTORISE_POD\"，CPNAME=\"Pod ID\"（必填，Format 20，值如 \"POD2\"）；第二步查表注 [a]：使用 Inventory 功能的前提是 Reticle Handling Factory Constant 'Inventory Carrier' 设为 EXPLICIT；第三步查 S2F41 的应答：设备回 S2F42 Host Command Acknowledge（HCACK 确认）。即：确认 'Inventory Carrier'=EXPLICIT 后发 S2F41 [\"INVENTORISE_POD\", L,1(L,2(\"Pod ID\",\"POD2\"))]，收 S2F42。",
+  "success_criteria": "答出 RCMD=INVENTORISE_POD、参数 Pod ID（必填）、前提 Inventory Carrier=EXPLICIT、应答 S2F42 四个要点。",
+  "evidence": "--[p50]-- Table 6.4 Message Detail Reticle Handling: Reticle Handling message: Inventory[a] RCMD | CPNAME | CPVAL | Mandatory | Format \"INVENTORISE POD\" | \"Pod ID\" | &lt;PODID&gt; | Yes | 20 [a] To use the Inventory functionality please make sure that the Reticle Handling Factory Constant 'Inventory Carrier' is set to EXPLICIT. --[p51]-- Note Message for inventorising Pod 2: S2F41 ```csv L,2 1. \"INVENTORISE_POD\" 2. L,1 1. L,2 1. \"Pod ID\" 2. \"POD2\" ``` --[p52]-- S2F42 Host Command Acknowledge (HCA) S,H ← E Description The message acknowledges the host command or an error is reported."
+ },
+ {
+  "query_id": "heldout_165",
+  "query": "host 想把一片 reticle 从设备的一个库存位置挪到另一个位置：该用哪个 object service？对 OPID 有什么要求？服务执行后设备会先后上报哪两个 CEID、分别代表什么？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "SECS 500",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳链：第一步确定服务为 MoveReticle，通过 S14F19 下发（SVCNAME=\"MoveReticle\"），OPID 必须 &lt;&gt; 0（因为该服务耗时，需用 OPID 关联延迟完成信息），设备回 S14F20 应答；第二步查 Scenario 4.73：当 SVCACK=4 时 reticle 将被移动，随后设备先后发送两个事件——先 CEID=6901（Reticle moves off reticle location，离开原位置），带 S6F12 确认；再 CEID=6900（Reticle moves to reticle location，到达新位置），带 S6F12 确认。",
+  "success_criteria": "答出 S14F19+SVCNAME=MoveReticle、OPID 必须&lt;&gt;0、S14F20 应答、CEID 6901（离开）在先且 CEID 6900（到达）在后。",
+  "evidence": "--[p144]-- Scenario 4.73 Host requests to move reticle to another inventory location: SVCNAME = \"MoveReticle\", OPID must be &lt;&gt; 0 | S14F19 → ← S14F20 Acknowledge [IF] SVCACK= 4 [THEN] Reticle is going to be moved. ← S6F11 | CEID = 6901 Reticle moves off reticle location Acknowledge S6F12 | → ← S6F11 | CEID = 6900 Reticle moves to reticle location Acknowledge S6F12 | →"
+ },
+ {
+  "query_id": "heldout_166",
+  "query": "掩膜基板上有个高斯形状的凸起缺陷，高度 h0=2 nm、FWHM=20 nm，按书里的 SEVD 公式换算成等效球体积直径是多少纳米？这种缺陷能不能被多层膜沉积直接抚平？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索到式(7.2):(SEVD)_G = 2 × [3·h0·(FWHM)² / (16·ln2)]^(1/3);代入 h0=2 nm、FWHM=20 nm:3×2×400=2400,16·ln2≈11.09,2400/11.09≈216.4,立方根≈6.00,×2≈12.0 nm。再检索到 Abbas 等人的结论:深度 &lt;2 nm 且 FWHM &lt;20 nm(即约 12 nm SEVD)的基板缺陷会被其 ML 沉积工艺完全抚平——计算值与文献实例吻合。",
+  "success_criteria": "算式代入正确,结果 12 nm(±0.2 nm),并与书中 Abbas et al. 的 12 nm SEVD 实例相互印证。",
+  "evidence": "--[p449]-- (SEVD)_G = 2(3h0(FWHM)² / 16 ln2)^(1/3) (7.2) …… --[p450]-- Abbas et al. reported that defects &lt;2 nm deep with a FWHM &lt;20 nm (equivalent to 12 nm SEVD) on the substrate were completely smoothed by their ML deposition processes (Fig. 7.6)."
+ },
+ {
+  "query_id": "heldout_167",
+  "query": "10 nm 半间距的接触孔，书里随机模型预测的 CDU 是多少？相对 CDU 有没有超 10% 的要求？要把 QE 和 blur 调到多少才能在 10 nm 上做到 1 nm 的 CDU?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "表 10.4:半间距 10 nm 时 CDU=1.7 nm,相对 CDU = 1.7/10 = 17%,超过 10% 要求(书中也指出 CD 降到 14 nm 以下即无法满足 10% CDU)。优化:把量子效率 QE 从 2 提高到 4、化学 blur 从 7 nm 降到 4 nm,可在 10 nm 接触孔上实现 CDU=1 nm,相对值 1/10=10%,恰好达标(此配置剂量仍为 80 mJ/cm²)。",
+  "success_criteria": "算出 17%(超标)与 10%(达标)两个相对值,并给出 QE 2→4、blur 7→4 nm 的参数组合。",
+  "evidence": "--[p214]-- Table 10.4 MPPM-predicted contact CDU as a function of contact half-pitch. Half-pitch (nm) | CDU (nm): 16 | 1.2; 14 | 1.3; 12 | 1.5; 10 | 1.7. …… once the CD drops to below 14 nm, the 10% CDU requirement can no longer be met …… we consider increasing the QE from 2 to 4 and decreasing the blur from 7 nm to 4 nm. Doing so, we can achieve a CDU of 1 nm on 10-nm contacts."
+ },
+ {
+  "query_id": "heldout_168",
+  "query": "掩膜阴影效应会让 space 印小、line 印大，这个 CD 偏移量跟哪些参数有关？想压制这个效应的话 absorber 该选哪些材料，哪些材料反而更糟？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "第一跳(定量关系):Space CD(printed) = CD(designed) − (2d×tanθ)×M,Line CD(printed) = CD(designed) + (2d×tanθ)×M,其中 d 为 absorber 厚度、θ 为光罩面入射角、M 为扫描机缩放倍率——偏移随 absorber 厚度增大而放大。第二跳(材料选择):减薄 absorber 应选对 EUV 消光系数高的 Ni、Pd、Pt、Co;而 TaN 和 Cr 因 Δn(与真空实折射率之差)较大,阴影效应比 Al、Ge 更严重。",
+  "success_criteria": "给出含 2d·tanθ·M 的 CD 偏移公式,并答出推荐材料 Ni/Pd/Pt/Co 与应避开材料 TaN/Cr 两组。",
+  "evidence": "--[p491]-- Space CD (printed) = CD (designed) − (2d × tanθ) × M (7.7) …… Line CD (printed) = CD (designed) + (2d × tanθ) × M (7.8) …… Studies have been performed on reducing the shadowing effect by using thin absorber materials such as Ni, Pd, Pt, and Co, which have high extinction coefficients for the EUV wavelength …… the use of TaN and Cr, which have a larger Δn (the difference between the real part of the refractive index and that of vacuum), results in a larger shadowing effect compared to other materials such as Al and germanium (Ge)."
+ },
+ {
+  "query_id": "heldout_169",
+  "query": "帮我把 ASML LPP 光源这些年的 EUV 功率爬坡路线捋一遍：NOMO、MOPA、MOPA pre-pulse 各代架构分别做到多少瓦，CE 和打在锡滴上的激光功率各是多少？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节链式梳理 3A.3.1:①NOMO(NXE:3100):2011 年多家客户现场 10 W 受控 EUV,打滴激光约 8 kW,平均 CE 0.8%,剂量 overhead 近 45%;②MOPA(NXE:3100):30 W 受控 EUV,但无 pre-pulse 限 CE 约 1%;③MOPA+pre-pulse(NXE:3100 平台,2013 年开发中):50 W(30% overhead),打滴 12 kW,CE 2.5%;④NXE:3300B:2014 年中 &gt;40 W → 80 W → 100 W;HPSS/HPDL 后平均 CE &gt;5.5%,2015 底~2016 初 210 W 一小时;⑤2017 Q2 出货配置 250 W(300 W 开环)。",
+  "success_criteria": "至少覆盖 NOMO(10 W/0.8%/8 kW)、MOPA pre-pulse(50 W/2.5%/12 kW)、&gt;5.5% CE 与 210/250 W 里程碑,年份与数值对应正确。",
+  "evidence": "--[p153]-- These light sources produced up to 10 W of dose-controlled EUV power at multiple customer sites by 2011 … the lasers produced roughly 8 kW of power on-droplet … with an average CE of 0.8% and dose overhead near 45%. …… --[p155]-- By 2013, the NXE:3100 MOPA pre-pulse systems under development were capable of 50-W EUV power while meeting dose specifications with 30% overhead … the drive laser was capable of 12-kW on-droplet power with 2.5% CE. …… --[p159]-- … leading to a mean CE in excess of 5.5% … a modified NXE:3300B source with HPSS and HPDL had demonstrated one-hour dose-controlled EUV power at 210 W …… --[p160]-- In the second quarter of 2017, 250 W was achieved in the shipping configuration EUV source to be paired with the NXE:3400B scanner."
+ },
+ {
+  "query_id": "heldout_170",
+  "query": "对比一下 Starlith 3100 和 3300/3400 两代投影物镜：NA 提了多少、分辨率和 flare 指标各有什么变化？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Euv Lithography (Vivek Bakshi)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "跨节对比:3100 代 NA 0.25、MAG 4、26×33 mm 全场,常规/环形/偶极分别 27/25/22 nm L/S,flare &lt;6%(目标 &lt;8%);3300/3400 代 NA 提高逾 30% 至 0.33(保持 MAG 4 与 26×33 mm 全场),大常规照明 σ 至 0.9 即可达 22 nm,环形/偶极/四极支撑 18 nm,flare 目标 &lt;4%,NXE:3300B 实印 16 nm 密集线(曝光宽容度 &gt;15%,DOF &gt;120 nm)。",
+  "success_criteria": "NA 0.25→0.33(提高 &gt;30%)、分辨率 27~22 nm→18~16 nm、flare &lt;6%→&lt;4% 三条对比链均正确。",
+  "evidence": "--[p267]-- The NA of the projection optics has been increased by more than 30%—from 0.25 to 0.33—keeping the MAG of 4 and the full-field size of 26 mm × 33 mm (after scanning). …… --[p269]-- The basic illumination setting of the Starlith 3300 is a large conventional pupil filling up to σ 0.9, which is sufficient for 22-nm resolution. In order to enable 18-nm resolution, annular, dipole, and quadrupole base settings are provided …… --[p268]-- currently, a flare target of &lt;4% is required and was indeed achieved for the Starlith 3300/3400 family. …… --[p271]-- Dense lines of 16 nm were printed with significant process margins."
+ },
+ {
+  "query_id": "heldout_171",
+  "query": "EUV 的激光等离子体(LPP)光源选哪个靶材最好?为什么它效率最高但用起来又有麻烦?这个麻烦在书里有没有对应的处理办法?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "三跳链:①先检索 LPP 光源靶材:LPP 用高强脉冲激光(Nd-YAG、CO2 或二极管泵浦光纤激光)打 Sn、Li、Xe 等靶材产生等离子体,Sn 因转换效率最高(3%,对比 Xe 1%、Li 2–3%)而受青睐;②再检索 Sn 的问题:Sn 是可凝结燃料(condensable fuel),在标准 EUV 工具运行条件下会沉积到表面,污染光学面并降低被污染光学元件的反射率;③再检索缓解/清理方案:EU V 源中实施 debris-mitigation(碎片缓解)方案;对已污染反射镜,可用 Ar/Cl2 反应离子刻蚀(RIE)选择性刻蚀 Sn 来清洁。",
+  "success_criteria": "按序答出转换效率比较(Sn 3%&gt;Li 2–3%&gt;Xe 1%)、Sn 可凝结沉积污染/降反射率的机理、以及 Ar/Cl2 RIE 清洁(或 debris mitigation)方案。",
+  "evidence": "--[p233]-- with Sn being preferred because of its higher conversion efficiency (3%) compared to that of Xe (1%) and the highly reactive Li (2–3%). It must be mentioned that Sn has several critical challenges, the main one of which is the fact that it is a condensable fuel that deposits on surfaces under standard EUV tool operating conditions. Not only does the Sn deposition contaminate optical surfaces, it also degrades the reflectivity of the affected optics. --[p253]-- Reactive-ion etching (RIE) of debris is a potential method for cleaning contaminated mirror surfaces. In particular, RIE with $\\mathbf { A r / C l } _ { 2 }$ can selectively etch Sn, offering the potential for using this approach to clean contaminated mirrors."
+ },
+ {
+  "query_id": "heldout_172",
+  "query": "我们要上线 HMDS vapor prime,书里给的工艺条件是什么?qual 判定用什么指标?另外客户离子注入那道工序光刻剂量很大,担心 prime 过头出 popping,书里怎么解释、怎么防?显影后硬烘和这事有关系吗?",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳链:①工艺条件:先对衬底做 UV/ozone、HF、等离子等\"氧化性\"清洗,再约 150℃ 脱水烘去除吸附水分,随后在约 100℃ 的工艺温度下做增黏底涂(HMDS 或 TMSDEA,液相或气相);②qual 判定指标: sessile drop 水接触角,正常 primed 表面为 50°&lt;θ&lt;70°(过大偏疏水/过度 prime,过小偏亲水/prime 不足,prime 不足附着失效、过度去润湿);③popping 机理与防范:高 fluence(如离子注入强紫外曝光)下,overpriming 引发 popping——DNQ/novolac 产生的氮气无法及时扩散逸出,在胶-晶圆界面聚集、削弱附着并成气泡,气泡爆炸散布胶屑;防范可用更短 priming 时间、低表面张力溶剂、涂胶前用 casting solvent 预冲、氧/臭氧等离子处理;④与硬烘的关联:显影后硬烘超过 DNQ 分解温度 110℃ 可分解破坏 PAC,消除残留 DNQ,防止后续注入工序中 DNQ 辐解急速放氮导致 popping。",
+  "success_criteria": "四点齐全:~100℃ prime 与 ~150℃ 脱水烘、水接触角 50–70°、popping 机理(N2 界面积聚成气泡)与对策、硬烘&gt;110℃ 分解 DNQ 消除隐患的关联。",
+  "evidence": "--[p485]-- In either case, priming is done at elevated process temperatures ${ \\sim } 1 0 0 ^ { \\circ } \\mathrm { C } .$ . Substrates are typically cleaned with UV/ozone treatment, HF, plasma, or other \"oxidative\" cleaning methods, followed by dehydration bake at ${ \\sim } 1 5 0 ^ { \\circ } \\mathrm { C }$ to remove adsorbed moisture before the application of the adhesion promoter. --[p487]-- A properly primed wafer surface typically has water contact angle values of 50 deg $&lt; \\Theta &lt; 7 0$ deg. --[p486]-- In conditions of high fluence exposure such as obtained in heavy UV exposure in ion-implantation steps, overpriming can also lead to a phenomenon known as \"popping,\" in which nitrogen formed in the DNQ/novolac-type resists may not escape from the film quickly enough through diffusion, but may instead accumulate at the resist-wafer interface, weakening the adhesion between the two surfaces, and resulting in the formation of bubbles there. --[p55]-- For DNQ/novolac resist, unreacted DNQ compounds can lead to problems in subsequent process steps such as implantation, which may cause the rapid release of nitrogen from the radiolysis of DNQ."
+ },
+ {
+  "query_id": "heldout_173",
+  "query": "EUV 多层膜反射镜 50 对 Mo/Si 的反射带宽有多窄?按书里的公式在 13.5nm 处换算成波长是多少?理论峰值反射率和实际做到的反射率各是多少?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式:①多层膜是共振结构,工作在布拉格条件附近的窄波段,相对带宽公式为 2Δλ/λ = 1/N;②代入 N=50:2Δλ/λ = 1/50 = 0.02,即总相对带宽 2%;在 λ=13.5nm 处,2Δλ = 13.5×0.02 = 0.27nm,即 Δλ = ±0.135nm(半宽约 0.135nm);③反射率:50 对 Mo(2.5nm)/Si(4.2nm)理想平滑界面理论峰值反射率 74%,实际因界面粗糙度等只能接近(approaching)70%(@13.5nm 正入射)。",
+  "success_criteria": "答出 2Δλ/λ=1/N=2%、Δλ=±0.135nm(或总带宽 0.27nm)、理论 74% 与实际约 70%。",
+  "evidence": "--[p229]-- Given that multilayer reflectors are resonant structures, they typically operate within a narrow range of wavelengths around the Bragg condition $$\\frac { 2 \\Delta \\lambda } { \\lambda } = \\frac { 1 } { N } .\\tag{14:7}$$ --[p228]-- normal incidence multilayer mirrors with reflectivity approaching 70% at 13.5 nm have been fabricated using the molybdenum-silicon pair. Figure 14.5 shows the calculated reflectivity curve for perfectly smooth interfaces of 50 alternating pairs of molybdenum (2.5 nm) and silicon layers (4.2 nm), indicating a theoretical peak reflectivity of 74%."
+ },
+ {
+  "query_id": "heldout_174",
+  "query": "线条倒塌对高宽比到底多敏感?高宽比从 2 提到 4,线弯曲量变多少倍?结合书里的杨氏模量数据,想抗倒塌该选哪类胶、怎么改?",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式:①力学模型:把胶线弯曲视作弹性悬臂梁,施加毛细力 F 时线弯移量 δ = (3/2)(F/E)(h/d)^3(E 为杨氏模量),弯曲量与线条高宽比(h/d)的立方成正比;②计算:高宽比从 2 到 4,弯曲量变为 (4/2)^3 = 8 倍;③结合杨氏模量:光刻胶 E 典型 2–6 GPa(novolac 高端、acrylate 低端),Tg 高则 E 高;因此抗倒塌应选高 Tg/高模量胶(如 novolac 类)并降低线条高宽比(也可在漂洗液中加表面活性剂降低表面张力、用超临界 CO2 显影等)。",
+  "success_criteria": "答出 δ∝(h/d)^3、8 倍((4/2)^3)、杨氏模量 2–6 GPa,并给出提高 E(高 Tg)/降低高宽比的选胶或工艺建议。",
+  "evidence": "--[p53]-- $$\\hat { 8 } = \\frac { 3 } { 2 } \\left( \\frac { F } { E } \\right) \\left( \\frac { h } { d } \\right) ^ { 3 } .\\tag{11:41}$$ The fact that the amount of bending is proportional to the cube of the aspect ratio of the resist line implies that bending is very sensitive to the aspect ratio. --[p53]-- In general, resists have a Young's modulus in the range of 2–6 GPa (with novolac resists occupying the high end of the range and the acrylate resists occupying the low end of the range)."
+ },
+ {
+  "query_id": "heldout_175",
+  "query": "书里 EUV 光刻胶的灵敏度给了多少 mJ/cm²?直接给我一个具体数。",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "Chemistry and Lithography (Press Monograph) (Uzodinma Okoroanyanwu)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未给出 EUV 光刻胶灵敏度的具体 mJ/cm² 数值,不得编造数字;书中的 EUV 光刻胶性能仅以图 14.24–14.26 形式展示:密集线条/间隔分辨率低至 25nm、40nm 线条/间隔图形的景深大于 200nm、接触孔分辨率低至 55nm;并补充:EUV 光刻胶以化学放大机制成像,树脂多为羟基苯乙烯、丙烯酸酯和脂环族聚合物,PAG 与 KrF/ArF 光刻胶化学类似但针对 EUV 优化,设计上通过聚合物骨架键合 PAG 或低活化能胶来限制光酸扩散。",
+  "success_criteria": "明确说明书中无 EUV 光刻胶灵敏度的 mJ/cm² 具体数值且不编造;能以 25nm L/S、&gt;200nm DOF@40nm L/S、55nm contact hole 等书中实际性能数据作为替代答复。",
+  "evidence": "--[p254]-- Dense line/space resolution down to 25-nm (Fig. 14.24), greater than 200-nm depth of focus for 40-nm line/space features (Fig. 14.25), and contact hole resolution down to 55 nm (Fig. 14.26) have been demonstrated with this technology. --[p254]-- Resins for EUV resists are mostly hydroxystyrene,&lt;sup&gt;144&lt;/sup&gt; acrylate,&lt;sup&gt;145&lt;/sup&gt; and alicyclic&lt;sup&gt;146&lt;/sup&gt; polymers of the kinds in use in KrF and ArF lithographic resists."
+ },
+ {
+  "query_id": "heldout_176",
+  "query": "SnZn 系焊料熔点最低但书里说只能做消费品。帮我捋一下：问题出在哪？加 Bi 的改良牌号成分和熔程是多少？这个体系在焊膏回流兼容性评分里排第几、得了多少分？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索 5.2.4：Zn 表面张力高（0.768 N/m）、对助焊剂和氧反应性强，且易在 Cu 表面 CuZn IMC 上方生成空洞，故限于消费品应用；改良牌号 Sn89Zn8Bi3 熔程 189–199°C（另有 Sn86.5Zn5.5Bi3.5In4.5 为 174–186°C）；再跨到 5.3 焊膏评价：Sn89Zn8Bi3 兼容性评分仅 2.2，在无铅合金回流兼容性排序中垫底（末位）。",
+  "success_criteria": "三跳齐全：原因（表面张力/反应性）、Sn89Zn8Bi3 189–199°C、评分 2.2 排最末",
+  "evidence": "--[p194]-- Eutectic Sn91Zn9 exhibits a melting temperature 199°C. …… its high surface tension (0.768 N/m for Zn) and high reactivity toward flux and oxygen prohibit its use for electronic soldering. Addition of Bi, such as Sn89Zn8Bi3 (189–199°C), effectively reduces the surface tension and reactivity …… the tendency to form voids on top of CuZn IMC layer on Cu surface further confines this alloy to consumer applications …… --[p198]-- Sn89Zn8Bi3, rated only 2.2 in compatibility, fell far short in every category when compared with all other alloy systems."
+ },
+ {
+  "query_id": "heldout_177",
+  "query": "ABF 积层介质从 SH9K 升级到 GX13，帮我算一下：CTE 降了百分之多少？杨氏模量升了多少？1GHz 下的 Df 降了多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "表 7.6：CTE 95→46 ppm/°C，降幅 (95−46)/95≈51.6%；杨氏模量 3.0→4.0 GPa，升幅 (4.0−3.0)/3.0≈33.3%；Df@1GHz 0.022→0.012，降幅 (0.022−0.012)/0.022≈45.5%（同时 Tg 165→156°C，SiO2 填料 12→38 份）。",
+  "success_criteria": "三个百分比 51.6%、33.3%、45.5% 各允许 ±1% 误差",
+  "evidence": "--[p273 [表]]-- Table 7.6 Properties of ABF materials：ABF Type | SH9K | GX3 | GX13；CTE (ppm/°C) | 95 | 60 | 46；Tg (°C) | 165 | 153 | 156；Young's modulus (GPa) | 3.0 | 3.5 | 4.0 …… --[p274]-- Df @ 1 GHz | 0.022 | 0.023 | 0.012 …… Filler (SiO2) | 12 | 18 | 38"
+ },
+ {
+  "query_id": "heldout_178",
+  "query": "按书里表 4.14 的数据，350°C 老化一周后，Si 和 SiO2 两种基材上的金-金键合拉力值各降了百分之几？哪个降幅更大？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "表 4.14：as-bonded Si 拉力 12.3 gf、SiO2 拉力 12.5 gf；350°C 后 Si 10.0 gf、SiO2 9.8 gf。降幅：Si (12.3−10.0)/12.3≈18.7%；SiO2 (12.5−9.8)/12.5≈21.6%；SiO2 基材降幅更大（约 21.6% 对 18.7%）。",
+  "success_criteria": "算出约 18.7% 与 21.6%（±1%），并判断 SiO2 降幅更大",
+  "evidence": "--[p180 [表]]-- As Bonded | 12.3 (1.9) | 54.0 (2.7) | 12.5 (1.0) | 62.5 (3.5) …… --[p183]-- 350°C | 10.0 (0.8) | 56.3 (3.7) | 9.8 (0.7) | 59.9 (5.7)"
+ },
+ {
+  "query_id": "heldout_179",
+  "query": "环氧塑封料（EMC）封装报废之后怎么回收再利用？书里有给具体的回收工艺流程吗？",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明：该书第 10 章 EMC 仅在引言提到环保（environment protection, recycle, and reuse）的需求背景，其'环保 EMC'指的无铅化与去除卤素/锑阻燃剂，并未给出 EMC 封装回收再利用的具体工艺流程或参数，故该书未涉及此信息，应正确拒答或说明缺口。",
+  "success_criteria": "明确说明书中未给出 EMC 回收工艺流程，不得编造工艺步骤",
+  "evidence": "--[p347]-- On the other hand, with the increasing attention onto measures to cope with environmental issues such as environment protection, recycle, and reuse, there is a strong need for environmentally friendly products. …… The major approaches, which have been pursued for achieving environmentally sound semiconductor packages, include the removal of lead from the solder …… and the removal of halogen and antimony-based flame retardants from the EMCs.（全书无 EMC 回收工艺流程内容）"
+ },
+ {
+  "query_id": "heldout_180",
+  "query": "金线打铝.pad 的体系在高温下到底行不行？上限多少度、机制是什么？书里建议高温场景换什么键合体系？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "先进封装材料",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "金-铝体系因生成脆性金属间化合物与 Kirkendall 空洞，高温性能上限约 200°C（AuAl2 在 150°C 即形成、Au5Al2 23–100°C 形成，高温下 Al 向 Au 快速扩散留下空洞）；书建议高温环境采用单金属体系（金-金或铝-铝，或形成固溶体的金+贵金属体系），金-金界面强度随时间与温度升高而增大，金-金体系在 SiO2 上至少可稳定到 500°C；另注意 Al 熔点 660°C 低于 Au 的 1060°C，Al 体系使用上限更受限。",
+  "success_criteria": "答出上限约 200°C、脆性 IMC+Kirkendall 空洞机制、建议金-金/铝-铝单金属体系（含 Au-Au 稳定至 500°C 任一数据）",
+  "evidence": "--[p178]-- …… because of the formation of brittle intermetallics and Kirkendall voids [67] the high temperature performance is limited to about 200°C. …… --[p163]-- AuAl2 | 150 | 1.20 | 115.8 | 27.7 | Deep purple in color (purple plague- …… --[p180]-- Single metal systems, such as gold-gold or aluminum-aluminum, have been shown to be more reliable in high temperature applications and operate at higher temperatures. In fact, gold-gold interface strength has been shown to increase with both time and temperature [46]. …… --[p184]-- the gold-gold interface will remain strong and stable to at least 500°C temperatures. …… --[p181]-- Given aluminum's melting point of 660°C (compared to gold at 1060°C), it should be recognized that its upper temperature use limit would be more restricted than that of gold."
+ },
+ {
+  "query_id": "heldout_181",
+  "query": "驻波周期这块我要两个数：193nm、NA 0.93、σ=0.7 的典型算例里，正入射的摆动周期是多少、部分相干下变成多少？300nm 厚胶的 swing ratio 又被压低百分之几？把书里的推导思路说一下。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "正入射时摆动（驻波）周期为 λ/2n₂，该算例下为 56nm；部分相干（扩展光源多角度）下周期按 Period = λ/(2n₂cosθ_eff)、θ_eff=θ₂max/√2 变为约 59nm；对 300nm 厚胶，swing ratio 按 sin(c)/c 压低，sin(c)/c = 0.77，即降低 23%。推导思路：对源内各角度的摆动曲线积分，余弦项生成摆动、sinc 项作振幅调制，c = πD(σNA)²/(λn₂)，s_max=σNA/n₂。",
+  "success_criteria": "56nm、59nm、sin(c)/c=0.77（23%）三个数全部正确",
+  "evidence": "--[p152]-- Consider a typical 193-nm imaging case where NA = 0.93 and σ = 0.7…--[p152]-- The swing curve period for normally incident light would be 56 nm, but for the partially coherent light it grows slightly to 59 nm. The real impact is in the reduction of the swing ratio, which for a 300-nm-thick resist would produce sin(c)/c = 0.77, meaning a 23% reduction in the swing ratio；--[p152]-- \\mathrm { P e r i o d } = \\frac { \\lambda } { 2 n _ { 2 } \\cos \\theta _ { \\mathrm { e f f } } } \\quad \\mathrm { w h e r e } \\quad \\theta _ { \\mathrm { e f f } } = \\frac { \\theta _ { 2 \\mathrm { m a x } } } { \\sqrt { 2 } }\\tag{4.70}；--[p152]-- c = \\frac { \\pi D ( \\sigma N A ) ^ { 2 } } { \\lambda n _ { 2 } }"
+ },
+ {
+  "query_id": "heldout_182",
+  "query": "等线/空间三光束成像下，CD-剂量对数斜率随离焦按平方变化：让这个斜率翻倍的离焦量 Δ 的近似公式是什么？这个离焦下 NILS 等于什么？两者书里分别是哪几个式子？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "dlnCD/dlnE 在最佳焦点处的值随离焦按 [1+((F−F₀)/Δ)²] 变化（式 8.37）；Δ 是使 log-CD-vs-log-dose 斜率翻倍的离焦量，Δ = λ/(√2·πn)·(1−√(1−(λ/p)²))⁻¹ ≈ √2·p²/(πnλ)（式 8.41）。同一模型下三光束纯相干成像的 NILS = 8cos(ΔΦ)（式 8.39），其中 ΔΦ = 2πn(F−F₀)(1−√(1−(λ/p)²))/λ。",
+  "success_criteria": "写出式 8.41 的 Δ 近似式与式 8.39 的 NILS=8cosΔΦ，且说明 Δ 的定义（斜率翻倍的离焦量）",
+  "evidence": "--[p328]-- \\frac { \\mathrm { d } \\ln C D } { \\mathrm { d } \\ln E } { = } \\frac { \\mathrm { d } \\ln C D } { \\mathrm { d } \\ln E } \\Bigg [ { _ { F = F _ { 0 } } } \\Bigg [ 1 { + } \\Bigg ( \\frac { F - F _ { 0 } } { \\Delta } \\Bigg ) ^ { 2 } \\Bigg ]\\tag{8.37} where…∆ is the focus error that causes the log-CD-versus-log-dose slope to double；--[p329]-- \\Delta = \\frac { \\lambda } { \\sqrt { 2 } \\pi n } \\Big ( 1 - \\sqrt { 1 - \\left( \\lambda / p \\right) ^ { 2 } } \\Big ) ^ { - 1 } \\approx \\frac { \\sqrt { 2 } p ^ { 2 } } { \\pi n \\lambda }\\tag{8.41}；--[p328]-- NILS = 8 \\cos ( \\Delta \\Phi )\\tag{8.39}"
+ },
+ {
+  "query_id": "heldout_183",
+  "query": "按书里 Tanaka 悬臂梁模型帮我定量估一下：193nm 胶 E 取 3 GPa、水表面张力 0.072 N/m、接触角 60°，线高 300nm、线宽 70nm、间距 100nm，干燥时的毛细力和线顶偏移量 δ 各是多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "毛细力（每单位线长）F = 2σH·cosθ/w_s（式 8.84）= 2×0.072 N/m×300nm×cos60°/100nm = 0.216 N/m；线顶偏移 δ = (3/2)(F/E)(H/w₁)³（式 8.85）= 1.5×(0.216/3e9)×(300/70)³ ≈ 1.5×7.2×10⁻¹¹×78.7 ≈ 8.5×10⁻¹⁰ m ≈ 0.85nm。所有输入（E 取 2–6 GPa 范围内、σ=0.072 N/m、式 8.84/8.85）均出自书中；且偏移随线深宽比三次方变化。",
+  "success_criteria": "F≈0.216 N/m 且 δ≈0.85nm（0.7–1.0nm 区间），两个公式来源正确",
+  "evidence": "--[p363]-- F = { \\frac { \\sigma H } { R } } { = } { \\frac { 2 \\sigma H \\cos { \\theta } } { w _ { \\mathrm { s } } } }\\tag{8.84}；--[p363]-- \\delta = { \\frac { 3 } { 2 } } \\biggl ( { \\frac { F } { E } } \\biggr ) \\biggl ( { \\frac { H } { w _ { 1 } } } \\biggr ) ^ { 3 }\\tag{8.85} Note that the amount of bending is proportional to the cube of the aspect ratio of the resist line；--[p363]-- Resists have been measured to have Young's modulus values in the range of 2–6 GPa…the surface tension of water, which at room temperature is about 0.072 N/m (72 dyne/cm)"
+ },
+ {
+  "query_id": "heldout_184",
+  "query": "掩模误差吃曝光宽容度：设某层曝光宽容度 10%、所用特征 MEEF=3、掩模 CD 误差范围 5nm、标称 CD 100nm（规格取 0.2×标称 CD）。按书里的公式算，有效曝光宽容度还剩多少？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "按式 (8.81)：EL_eff ≈ EL(1 − MEEF·ΔCD_mask/ΔCD_spec)。ΔCD_spec = 0.2×100nm = 20nm；EL_eff = 10%×(1 − 3×5/20) = 10%×0.25 = 2.5%。即掩模 CD 误差按 MEEF 倍数放大侵占 CD 公差后，10% 宽容度仅剩 2.5%；该式还可用来整体缩放曝光宽容度-DOF 曲线以评估掩模误差对可用 DOF 的影响。",
+  "success_criteria": "算式与结果 EL_eff=2.5% 正确（中间量 ΔCD_spec=20nm 明确）",
+  "evidence": "--[p354]-- EL_eff ≈ EL( 1 − MEEF \\frac { \\Delta C D _ { \\mathrm { m a s k } } } { \\Delta C D _ { \\mathrm { s p e c } } } )\\tag{8.81} where ∆CD_spec is the CD tolerance used to defi ne the exposure latitude (for example, 0.2 times the nominal CD). This expression can be used to scale an entire exposure latitude versus depth of focus plot, such as Figure 8.22, and thus can also be used to determine the effect of mask errors on the available depth of focus"
+ },
+ {
+  "query_id": "heldout_185",
+  "query": "我想优化 LER，帮我按书串一条链：先讲酸扩散长度怎么影响脱保护浓度涨落和潜像梯度，再讲扩散长度本身由哪些 PEB 参数决定，最后说清为什么存在一个最优扩散长度、偏离两侧分别受什么限制。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "Fundamental Principles of Optical Lithography The Science of Microfabrication (Chris Mack)",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "链路 1（9.8 LER）：LER ∝ σ_m*/(dm*/dx)（式 9.94），要低 LER 须同时降低脱保护浓度的标准差 σ_m* 并增大其梯度；酸扩散增大可减小 σ_m* 但会减小潜像梯度（式 9.92 与 9.43 合并可见两者对扩散的依赖相反）。链路 2（6.2.2/5.3）：扩散长度 σ_D = √(2Dt)（D 为酸在胶中的扩散率），扩散率随温度服从 Arrhenius 形式 D₀(T)=A_r·e^(−Ea/RT)（式 6.13），故由 PEB 温度和时间决定。链路 3：存在最优扩散长度使 LER 最小——低于最优值时 LER 受 σ_m* 限制（增大扩散改善 LER），高于最优值时受梯度限制（再增大扩散劣化梯度、恶化 LER）；书中 45nm 特征算例对捕获范围 a=1/2/3nm 均存在最小化 LER 的扩散长度。",
+  "success_criteria": "三段链完整：LER∝σ_m*/梯度、σ_D=√(2Dt) 与 Arrhenius 温度依赖、'低于最优受 σ_m* 限制/高于最优受梯度限制'的结论全部答出",
+  "evidence": "--[p404]-- There is one interesting variable in common to both: acid diffusion. Increasing acid diffusion will reduce σ_m*, but will reduce the latent image gradient. One would expect, then, an optimum level of diffusion to minimize the LER；--[p404]-- LER \\propto \\frac { \\sigma _ { m ^ { * } } } { \\mathrm { d } m ^ { * } / \\mathrm { d } x }\\tag{9.94}；--[p405]-- Below the optimum diffusion length, LER is limited by σ_m* so that increasing the diffusion will improve LER. Above the optimum diffusion length the LER is gradient limited, so that increases in diffusion further degrade the gradient and worsen the LER；--[p228]-- The Gaussian diffusion kernel is affected by time integration through the diffusion length, σ_D = √(2Dt), where D is the acid diffusivity in resist；--[p226]-- D _ { 0 } ( T ) = A _ { \\mathrm { r } } { \\mathrm { e } } ^ { - E _ { \\mathrm { a } } / R T }\\tag{6.13}"
+ },
+ {
+  "query_id": "heldout_186",
+  "query": "500MHz射频信号在导线表面的趋肤深度是多少？如果基板铜箔底部粗糙度做在3~5μm，信号传输会出什么问题？该怎么处理？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "由表4-2及正文：信号频率500MHz时信号在导线表面传输厚度（趋肤深度）为3μm；当基板铜箔底部粗糙度为3~5μm时，信号传输仅在粗糙度的厚度范围内进行，必然产生严重的信号\"驻波\"和\"反射\"，使信号造成损失，严重时失真。处理思路：高频板应选用低粗糙度（低轮廓）铜箔，并控制铜箔粗糙度使信号传输层避开粗糙度尺寸层。",
+  "success_criteria": "答出500MHz趋肤深度3μm，说明会产生驻波、反射、信号损失/失真，并给出采用低粗糙度/低轮廓铜箔的对策",
+  "evidence": "--[p140]-- 例如，存在当信号传输频率在500MHz时，其信号在导线表面的传输厚度为3μm，基板铜箔底部粗糙度为3~5μm时，信号传输仅在粗糙度的厚度范围内进行。当信号仅在\"粗糙度\"的尺寸层传输内进行传输时，必然产生严重的信号\"驻波\"和\"反射\"等，使信号造成损失，甚至严重时失真。"
+ },
+ {
+  "query_id": "heldout_187",
+  "query": "帮我对比一下：AlN陶瓷基板的热导率是96%氧化铝基板的多少倍？另外为什么说AlN特别适合大芯片安装？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "先检索表3-9四种陶瓷封装材料性能：AlN导热系数180 W/(m·K)，Al2O3(96%)为21 W/(m·K)，再计算180÷21≈8.6倍，与正文\"AlN的热导率是Al2O3的5~10倍\"\"开发出热传导率是Al2O3基板材料的10倍以上的高性能AIN基板\"相印证。AlN热膨胀系数4.3×10⁻⁶/℃接近Si，对大型芯片安装的可靠性提高十分有利；且介电常数(6.7)、介质损耗、热导率均优于氧化铝，综合性能优异且无毒。",
+  "success_criteria": "检索到180和21 W/(m·K)两个原始数据，算出约8.6倍（8~9倍区间判对），并答出AlN热膨胀系数接近Si",
+  "evidence": "--[p103]-- 表3-9 四种陶瓷封装材料的性能对比： 导热系数(W/(m·K)) BeO 285 | AlN 180 | Al2O3(96%) 21 | Al2O3(99.5%) 25.1；热膨胀系数/(×10⁻⁶℃⁻¹) AlN 4.3……AIN的热导率是Al2O3的5~10倍，更适合大规模集成电路要求……由于氮化铝基板的热膨胀系数接近Si，对大型芯片在此上安装的可靠性提高十分有利。"
+ },
+ {
+  "query_id": "heldout_188",
+  "query": "一块挠性板上既有动态弯折区又有射频传输线：铜箔该选哪种类型？10mil以上的射频线宽公差按什么标准管控，用什么措施保证？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需先检索铜箔选型再检索射频线管控：动态弯曲FPC一般使用压延铜箔（RA水平轴状结构耐多次挠曲；ED垂直针状结晶在弯曲半径&lt;5mm或动态挠曲时易断裂）。射频线管控标准：10mil以下线宽按公差±20%控制，10mil及以上线宽按公差不超过±2mil控制，不允许缺口、空洞、针孔，更不允许补线。保证措施：(1)线宽补偿准确、镀铜层均匀、保证蚀刻后传输线线宽均匀一致；(2)蚀刻时射频线一面向下放置，使蚀刻面与药水充分接触及时循环。",
+  "success_criteria": "答出压延铜箔、10mil及以上公差≤±2mil（及10mil以下±20%），并给出至少一条蚀刻面朝下/线宽补偿等措施",
+  "evidence": "--[p26]-- 线路图形高密度化发展要求导线具有更高的耐弯折性能，因此对于动态弯曲的FPC一般使用压延铜箔。--[p156]-- 目前公认的管控标准为：10mil以下线宽按公差±20%控制；10mil及以上线宽按公差不超过±2mil控制。不允许出现缺口、空洞、针孔等，更不允许补线。……(1)要求线宽补偿准确、镀铜层均匀、保证蚀刻后的传输线线宽均匀一致。(2)蚀刻时射频线一面向下放置，使蚀刻面与药水充分接触及时循环。"
+ },
+ {
+  "query_id": "heldout_189",
+  "query": "表3-19里3oz厚铜箔的单位面积质量是915.0g/m²，帮我推算10oz（350μm）超厚铜箔的单位面积质量是多少？每1oz对应多少克重？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "由表3-19：3oz对应915.0g/m²，则每oz单位面积质量=915.0÷3=305.0g/m²；10oz为305.0×10=3050g/m²，对应标准厚度350μm（表中标注13.50mil）。可交叉验证：6oz=305×6=1830g/m²，与表中210μm/6oz对应的1830完全一致。",
+  "success_criteria": "答出每oz为305.0g/m²、10oz为3050g/m²，且350μm/13.50mil对应关系正确",
+  "evidence": "--[p117]-- 表3-19 厚铜箔及超厚铜箔的主要产品规格： 厚铜箔 105 | 915.0 | 3 | 102.9 | 4.05； 210 | 1830 | 6 | 205.7 | 8.10； 超厚铜箔 350 | 10 | 342.9 | 13.50； 500 | 14.5 | 497.4 | 19.58"
+ },
+ {
+  "query_id": "heldout_190",
+  "query": "打算用溅射NiCr做埋嵌电阻：书里NiCr材料的方阻范围是多少？溅射完要做什么热处理让阻值稳定？做成电阻器时两次蚀刻分别用什么蚀刻液？",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "印制电路与印制电子先进技术 上册 何为 主编 2016年版",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "多跳检索：①表6-1中德国宇航公司NiCr溅射阻值范围35~100Ω/□（GOULD Electronics的NiCr/NiCrAlSi为25~100Ω/□）；②TICER Technologies公司溅射NiCr合金薄膜到铜箔上后，在250℃下处理5h使NiCr电阻性能稳定；③制作埋嵌电阻器需两次蚀刻：第一次采用酸性蚀刻液，第二次采用碱性蚀刻液去除电阻层上面的铜层，在铜电极之间留下NiCr薄膜形成埋嵌电阻器。",
+  "success_criteria": "答出NiCr溅射方阻范围35~100Ω/□、250℃/5h热稳定处理、第一次酸性蚀刻+第二次碱性蚀刻三项全部正确",
+  "evidence": "--[p218]-- 表6-1： 德国宇航公司 | NiCr | 溅射 | 35~100；GOULD Electronics | NiCr、NiCrAlSi | 25~100。--[p227]-- TICER Technologies公司使用溅射的方法将NiCr合金薄膜沉积到铜箔上面，然后在250℃下处理5 h，使得NiCr的电阻性能稳定……需要进行两次蚀刻。第一次蚀刻采用酸性蚀刻液将铜箔和NiCr电阻层去除，形成铜导电图形，第二次蚀刻采用碱性蚀刻液去除铜箔，从而在铜电极之间留下NiCr薄膜，形成埋嵌电阻器。"
+ },
+ {
+  "query_id": "heldout_191",
+  "query": "轻离子注入后去改性 SiN 做 spacer,书里说液相 HF 工艺最大的短板是什么?后来开发的气相 HF 工艺怎么解决?反应副产物是什么、怎么去掉?请把三个环节串起来讲。",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式回答:(1) 液相 HF 去除 H2 注入改性 SiN 的最大短板是对热氧化硅选择比 &lt;2(注入 LPCVD 氮化硅对热氧化硅),会过度损耗栅硬掩模与 STI;(2) 替代方案为气相 HF 工艺,不与 SiO2 反应,对 SiN 与 SiO2 选择比分别达 31 和 39(0.5 C0),且 HF 浓度翻倍仍保持选择比 &gt;10;(3) 反应(及远程等离子体路线)副产物为氟硅酸铵 (NH4)2SiF6,通过 100°C 以上 120 s 退火分解为挥发性 SiF4 和 NH3 而去除,恢复原始 SiN 表面。",
+  "success_criteria": "三个环节齐全:选择比 &lt;2、气相 HF 31/39(0.5 C0)、(NH4)2SiF6 经 &gt;100°C/120 s 退火分解去除。",
+  "evidence": "--[p83]-- The weakness of this removal process remains its low selectivity to silicon dioxide which is lower than 2 (implanted LPCVD nitride to thermal oxide). --[p86]-- ...gaseous HF process can achieve a high selectivity to both SiN and $\\mathrm { S i O } _ { 2 }$ (respectively 31 and 39 at 0.5 C0 in normalized HF concentration). --[p84]-- Data in the literature state that ammonium hexafluorosilicate decomposes into $\\mathrm { S i F _ { 4 } }$ and ${ \\mathrm { N H } } _ { 3 } .$ , which are both volatile species, as temperature rises [4]... --[p84]-- infrared spectra recorded after annealing wafers above $1 0 0 ^ { \\circ } \\mathrm { C }$ for 120 seconds indeed no longer exhibit the absorbance peaks described above."
+ },
+ {
+  "query_id": "heldout_192",
+  "query": "按书里的 HF 吸附经验模型算一下:铜片在 120 ppbv 气相 HF、相对湿度 40% 的环境里放 4 小时,表面氟浓度大概多少 ions/cm²?和书里表 1 实测值比一下差多少。",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "分步计算:[F⁻]_plateau = 2.2×10^15×0.4 + 2.4×10^14 = 1.12×10^15 ions/cm²;k' = (2.3×10⁻³×120 + 1.0×10⁻¹) − 2.4×10⁻¹×0.4 = 0.276+0.1−0.096 = 0.28 h⁻¹;[F⁻] = 1.12×10^15×(1−e^(−0.28×4)) = 1.12×10^15×(1−e^(−1.12)) ≈ 1.12×10^15×0.674 ≈ 7.5×10^14 ions/cm²。与表 1 实测 4h/40%RH 的 6.6×10^14 同量级,偏差约 +15%,在模型/测试(±15%)不确定度范围内。",
+  "success_criteria": "plateau≈1.12×10^15、k'≈0.28 h⁻¹、结果≈(6.5~7.6)×10^14 ions/cm²,并与实测 6.6×10^14 对比;三个公式都要用上。",
+  "evidence": "--[p338]-- $$ [ F ^ { - } ] = [ F ^ { - } ] _ { p l a t e a u } \\big ( 1 - e x p ( - k ^ { \\prime } t ) \\big )\\tag{1} $$ --[p339]-- $$ [ F ^ { - } ] _ { p l a t e a u } = 2 . 2 1 0 ^ { 1 5 } R H + 2 . 4 1 0 ^ { 1 4 }\\tag{2} $$ --[p339]-- $$ k ^ { \\prime } = ( 2 . 3 1 0 ^ { - 3 } [ H F ] _ { a i r } + 1 . 0 1 0 ^ { - 1 } ) - 2 . 4 1 0 ^ { - 1 } R H\\tag{3} $$ --[p340]-- 4h, 40% RH | 6,6E+14 | ... --[p340]-- (uncertainty: ± 15%)"
+ },
+ {
+  "query_id": "heldout_193",
+  "query": "我要在 N5/N7 的高迁移率沟道工艺里把 Ge 损耗压到最低:书里 Ge 在纯水、氧饱和纯水、以及 ≥6M HCl 三种体系里的损耗各是多少?据此书里说要用什么工艺条件?请先查各体系数值再给结论。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "多跳链:(1) Ge 在 UPW 中化学稳定,损耗约 0.02 nm/min;(2) 在 O2 饱和 UPW 中因亚氧化物溶解度低,Ge 损耗限于 0.15 monolayer/min;(3) 在 ≥6M HCl 中亚氧化物溶解度足够,刻蚀速率可控到 0.6 monolayer/min;N2 吹脱 HCl 会降低刻速,证明 O2 是 Ge 的氧化剂。结论:要把 Ge 损失降到可忽略,必须无氧(oxygen-free)工艺。",
+  "success_criteria": "三个数值齐全(0.02 nm/min、0.15 ML/min、0.6 ML/min)且结论为 oxygen-free processing;体现先检索数值再推理的次序。",
+  "evidence": "--[p65]-- Ge is chemically stable in water: a loss $\\mathrm { { o f } } \\sim 0 . 0 2$ nm/min was measured. --[p65]-- The low solubility of the suboxides ... stabilizes the semiconductor in ${ \\bf O } _ { 2 }$ saturated UPW: Ge loss is limited to 0.15 monolayer minute&lt;sup&gt;-1&lt;/sup&gt;. However, in HCl solution (≥6M) ... the etch rate can be controlled up to 0.6 monolayer minute&lt;sup&gt;-1&lt;/sup&gt;. --[p65]-- As degassing of the HCl solution by $\\Nu _ { 2 }$ purging lowers the etch rate, it can be concluded that $\\mathrm { O } _ { 2 }$ serves as an oxidizing agent for Ge. These results further suggest that in case Ge loss needs to be minimized to negligible amounts, oxygen free processing will be essential."
+ },
+ {
+  "query_id": "heldout_194",
+  "query": "我们量产线上要用 CLk-228/H2O2 去 TiN 硬掩模:书里说要达到高 TiN 刻速、低 Cu/Co 刻蚀和 &gt;100:1 TiN:Cu 选择比,配比该控制在什么范围?浴寿命短,书里开发的 dump/fill 补液工艺具体怎么操作?Ti 负载约 4 ppm/小时时 8 小时内能稳住吗?请分步查证后回答。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 5,
+  "gold_standard": "三跳链:(1) 刻速表:1:10 混合 TiN E/R &gt;116 Å/min 而 Cu/Co &lt;1 Å/min,书中指出配比须低于 1:2(CLk-228:H2O2(30%))才能同时满足高 TiN 刻速、低 Cu/Co 刻蚀和 &gt;100:1 TiN:Cu 选择比;(2) dump/fill 工艺:每 30 分钟用 1:6 的 CLk-228/H2O2 新混合液置换槽液的 6.4%;(3) 在约 4 ppm Ti/hour 的 Ti 负载下运行该工艺 8 小时,pH、TiN 刻速和 H2O2 浓度保持稳定(对照不控 dump/fill 时 4 小时后失控:TiN 刻速下降、Cu 刻速开始上升),可满足量产。",
+  "success_criteria": "三个环节齐全:配比 &lt;1:2(及 1:10 时 TiN&gt;116/Cu&lt;1)、每 30 min 换 6.4% 的 1:6 混液、4 ppm Ti/h 下 8 h 稳定。",
+  "evidence": "--[p252 [表]]-- mixing ratios less than 1:2 (for J.T.Baker® CLk™-228 residue remover $/ \\mathrm { H } _ { 2 } \\mathrm { O } _ { 2 }$ (30%)) are necessary to achieve the following targets: high TiN etch rates, low Cu and Co etch rates, and excellent (&gt;100:1) TiN:Cu selectivity. --[p253]-- This process involves replacing 6.4% of the solution with a 1:6 J.T.Baker® $\\mathrm { C L k ^ { T M } } { - 2 2 8 } \\ / \\ \\mathrm { H } _ { 2 } \\mathrm { O } _ { 2 }$ mixture every thirty minutes. --[p253]-- A bath life experiment was performed using this dump/fill procedure under Ti loading conditions of \\~4 ppm Ti/hour... over a period of 8 hours."
+ },
+ {
+  "query_id": "heldout_195",
+  "query": "磷酸里刻氮化硅的 silica 团聚沉积模型,控制体积的沟槽几何和传质系数是怎么设的?模型算出的 M1 稳态值和时间尺度说明为什么可以用准稳态近似?请先查几何参数再查动力学结果,串起来解释。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "半导体表面的超洁净处理 XIII",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "链式回答:(1) 几何设置:主中央沟槽深 H=2000 nm、宽 L=50 nm,SiO2/SiN 层厚 h=20 nm,控制体积初始 0.1 µm²,瞬时刻蚀深度 ℓ 0~300 nm;(2) 传质系数 km=2.2×10⁻⁸ m/s,扩散远快于 SiN 刻速,故可解耦团簇演化和控制体积变化;(3) 动力学结果:达到稳态时间 t*=4.0 s,远小于约 1000 s 的总刻蚀时间,稳态值 M1,ss=α/β=4.1,因此准稳态近似成立。",
+  "success_criteria": "几何(H=2000 nm、L=50 nm、h=20 nm)、km=2.2×10⁻⁸ m/s、t*=4.0 s vs ~1000 s、M1,ss=4.1 四组数据齐全,并说清准稳态近似的理由。",
+  "evidence": "--[p300 [表]]-- Values are calculated by assuming a geometry with a main central trench of depth H = 2000 nm and width $L = 5 0$ nm, $\\mathrm { S i O } _ { 2 }$ and SiN layer thicknesses h = 20 nm, and instantaneous etch depth ℓ varies from 0 to 300 nm. --[p300]-- $k _ { m }$ ... $2 . 2 { \\times } 1 0 ^ { - 8 } \\mathrm { m } / \\mathrm { s }$ --[p302]-- or $t ^ { * } = 4 . 0 ~ \\mathrm { s }$ . Since this is much smaller than the overall etch time (on the order of $1 0 0 0 \\ \\mathrm { ~ s ~ } )$ , the steady-state value of $M _ { 1 , s s } = \\alpha / \\beta = 4 . 1$ can be used, confirming the assumption of the quasi-steady state approximation."
+ },
+ {
+  "query_id": "heldout_196",
+  "query": "书里HFCVD刻出来的金刚石纳米锥阵列，锥长约5000nm、密度约2×10^8 cm^-2，按这个密度算一下相邻锥的平均间距大概是多少纳米？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "每个锥平均占地=1/(2×10^8 cm^-2)=5×10^-9 cm²；平均间距≈√(5×10^-9 cm²)=√5×10^-4.5 cm≈7.07×10^-5 cm≈707nm（约0.7μm）。",
+  "success_criteria": "算式1/n取平方根正确，结果在600～800nm范围内并给出单位；仅答密度倒数面积不换算成间距判部分正确。",
+  "evidence": "--[p176]-- 图6.29(a)给出一个典型的金刚石纳米锥阵列的SEM照片，锥的长度约为5000nm，密度约为2×10^8 cm^-2。"
+ },
+ {
+  "query_id": "heldout_197",
+  "query": "我想在60nm厚的PMMA上把电子束曝光线条做到10nm以下，书里推荐配合什么显影技术？再帮我把书里列的获得高分辨图形的工艺要点归纳一下。",
+  "task_type": "工具编排",
+  "difficulty": "hard",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "需跨节检索：2.3.4特殊显影工艺/变温显影与超声显影一节指出通过控制显影工艺（超声显影技术及低温显影技术）可在60nm厚PMMA上实现亚10nm线条（低温显影甚至4nm线宽）；2.7节归纳获得高分辨图形的要点：①高的电子能量；②小的孔径光阑；③低束流；④小的扫描场(写场)；⑤低灵敏度、高对比度的电子束抗蚀剂；⑥薄的抗蚀剂层；⑦高对比度显影工艺；⑧低图形密度；⑨低密度、高导电性衬底；⑩稳定的工作环境(震动、磁场、温度)。另可指出HSQ为目前分辨率最高的抗蚀剂(7nm线宽/14nm周期)。",
+  "success_criteria": "指出超声显影/低温(变温)显影路径并关联60nm PMMA亚10nm结果，且高分辨工艺要点至少列出8条。",
+  "evidence": "--[p85]-- 然而，通过控制显影工艺，利用前面提到的超声显影技术及低温显影技术，人们在厚度为60 nm的传统抗蚀剂 PMMA 上已实现了亚10 nm线条图形的曝光[5,16]。……--[p86]-- 要获得高分辨率的图形，主要应从以下几个方面考虑：①高的电子能量；②小的孔径光阑；③低束流；④小的扫描场(写场)；⑤低灵敏度、高对比度的电子束抗蚀剂；⑥薄的电子束抗蚀剂层；⑦高对比度显影工艺；⑧低图形密度；⑨低密度、高导电性衬底材料；⑩稳定的工作环境(主要是震动、磁场、温度)。"
+ },
+ {
+  "query_id": "heldout_198",
+  "query": "在石英这类绝缘衬底上做电子束曝光，充电效应怎么破？书里提到哪几条技术路线，各自的代价是什么？",
+  "task_type": "信息查询",
+  "difficulty": "hard",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "书中的路线包括：(1)2.5.1引入导电膜；(2)2.5.3临界能量电子束曝光——利用总电子产额σ=δ+η在临界能量处电荷平衡，不需导电层和特殊设备，玻璃上950k PMMA临界能量1.3keV、最小线宽60nm，代价是能量低、电子穿透深度有限无法曝厚胶，且前散射严重使分辨率受限、很难低于60nm；(3)2.5.2变压电子束曝光系统——引入低压气体(如水蒸气)离化正离子中和负电荷，分辨率可小于20nm，但需要特殊的压差抽气电子光柱体及精确的气体传送系统，应用受限。",
+  "success_criteria": "至少给出临界能量与变压电子束曝光两条路线，且各自局限(60nm分辨率/需特殊设备)表述正确。",
+  "evidence": "--[p80]-- 研究人员采用该方法，对玻璃衬底上65nm厚的分子量为950000(950k)的PMMA进行研究，发现其临界能量为1.3keV，曝光得到的最小线宽为60nm。该工艺可以利用现有的曝光设备，不需要附加的工艺步骤便可以实现绝缘衬底上纳米尺度图形的制备。但缺点是：由于临界曝光能量较低……电子的穿透深度有限，无法实现厚胶的曝光。同时，由于能量较低，电子的前散射严重，因此导致该工艺的曝光分辨率受限，很难实现低于60nm图形的制作。……--[p80]-- 发现所引入气体与电子束发生的散射对设备的曝光分辨率基本没有影响，可实现的曝光分辨率小于20nm[48]。……但它需要特殊的压差抽气电子光柱体及精确的气体传送系统，因此在应用上受到很大的限制。"
+ },
+ {
+  "query_id": "heldout_199",
+  "query": "帮我从这本书里查一下AZ9260光刻胶的详细配方和树脂成分，我要评估它和我的溶剂的兼容性。",
+  "task_type": "异常处理",
+  "difficulty": "hard",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库"
+  ],
+  "expected_rounds": 2,
+  "gold_standard": "应说明该书未涉及AZ9260的配方和成分信息：书中仅在4.3.3新型光学微纳结构的加工一节提及在涂有厚胶AZ9260的ITO表面用激光三维加工制备弹簧结构这一应用实例，全书没有给出AZ9260的树脂、感光化合物或溶剂组成，应如实告知无法从本书获得该信息，不编造成分。",
+  "success_criteria": "正确拒答并说明书中仅有AZ9260作厚胶的应用提及而无配方信息，不输出任何编造成分。",
+  "evidence": "--[p122]-- 此外，人们还应用激光三维加工设备在涂有厚胶AZ9260的ITO表面上制备了弹簧结构，经显影后，再电镀制得了金弹簧阵列的超材料[16]。"
+ },
+ {
+  "query_id": "heldout_200",
+  "query": "用汞灯G线(436nm)对直径10μm的不透光圆盘做接近式曝光，圆盘到光刻胶的距离取10μm：按书里的菲涅耳不等式算一下泊松亮斑条件是否满足？再按轴线光强公式算出亮斑中心光强是入射光强的多少倍？",
+  "task_type": "数据计算",
+  "difficulty": "hard",
+  "source_id": "微纳加工及在纳米材料与器件研究中的应用 [顾长志 编著] 2013年",
+  "required_tools": [
+   "检索知识库",
+   "计算器"
+  ],
+  "expected_rounds": 4,
+  "gold_standard": "菲涅耳不等式F=d²/(lλ)，d=10μm，l=10μm，λ=0.436μm：F=100/(10×0.436)≈22.9≥1，泊松亮斑条件满足。轴线光强I=|U(P1)|²=b²/(b²+a²)·I0，圆盘半径a=5μm、距离b=10μm：I/I0=100/(100+25)=100/125=0.8，即亮斑中心光强约为入射光强I0的0.8倍。",
+  "success_criteria": "F≈22.9(≥22，判满足)与I/I0=0.8两个结果均正确，算式与代入数值完整。",
+  "evidence": "--[p30]-- 泊松亮斑，又称为阿喇戈亮斑，其产生条件要满足菲涅耳不等式 F = d²/(lλ) ≥ 1 (1.8)，其中，d为不透光的小圆盘的直径，l为圆盘与接收屏间的距离，λ为入射光源的波长。……--[p31]-- 考虑到光场强度为振幅的平方则有 I = |U(P1)|² = b²/(b²+a²)·I0 (1.13)。……图1.13给出了直径为10μm和2μm的圆盘，障碍物与接收屏的距离均为10μm，曝光剂量为150 mJ/cm²时，绕过圆盘传播的菲涅耳衍射光强分布的理论模拟结果。……--[p16]-- 高压汞灯是目前实验室最常用的曝光光源，包含有三条特征谱线，分别为G线（436nm）、H线（405nm)、I线（365nm）。"
+ }
+]

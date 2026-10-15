@@ -1,0 +1,17 @@
+{
+ "total": 200,
+ "difficulty": {
+  "easy": 0.32,
+  "medium": 0.48,
+  "hard": 0.2
+ },
+ "task_type": {
+  "信息查询": 0.6,
+  "数据计算": 0.2,
+  "工具编排": 0.12,
+  "异常处理": 0.08
+ },
+ "distribution_check": "pass",
+ "duplicate_check": "pass",
+ "same_source_similar_pairs": []
+}
