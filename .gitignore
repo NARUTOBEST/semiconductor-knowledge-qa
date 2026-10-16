@@ -134,3 +134,7 @@ RAG/xlsx/
 RAG/pdf/checklist.json*
 eval_results_part1.json
 facet_*.json
+
+# 大体积数据产物不入库(快照另存,chunk 明细可由 dump_all_chunks.py 重新生成)
+projectdocker/snapshots_*/
+ssh_helper/all_chunks.jsonl
