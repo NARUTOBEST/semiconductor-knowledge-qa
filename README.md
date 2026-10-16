@@ -6,63 +6,71 @@
 
 ## ✨ 核心特性
 
-- **三级范式路由**：simple / raglite / react 按问题复杂度自动分流 + 质检门低置信自动升级重答，用户无感
-- **防幻觉闸门**：判定"有支撑"必须给出可字符串验证的原文引文，裁判造假即失败；低置信整段不出后端，降级为翻阅指引
-- **混合检索**：BGE-m3 稠密 + 稀疏 + RRF 融合，章节路径注入重排（重排池保底 32，经 1000 题 × 10 配置免 LLM 扫描调优），低召回自动改写重查；报警码精确召回兜底、稀疏保底救表格块
+- **三级范式路由**：simple / raglite / react 按问题复杂度自动分流 + 质检门低置信自动重做与跨范式升级，用户无感
+- **防幻觉闸门**：判定"有支撑"必须给出可字符串验证的原文引文，裁判造假即失败；grounding 落地校验过滤越界断言、零来源引用架势前置拦截；低置信整段不出后端，降级为翻阅指引
+- **级联混合检索**：BGE-M3 稠密 + 稀疏双路粗筛全量召回池 → RRF 融合 → 跨请求攒批精排（重排池保底 32，经 1000 题 × 10 配置免 LLM 扫描调优）；复合题子检索席位绑定（子问题各自 top-4 钉进上下文）；报警码精确召回、稀疏保底救表格块、中英翻译双路三重兜底
+- **澄清反问与源锁定**：信息不足时生成对象化澄清反问并自动消解用户作答（跨 worker 共享 pending）；提问限定某文档时锁定来源检索，族内无命中明确答复"未涉及"，杜绝跨文档凑数
+- **全链路高可用兜底**：主备双模型故障转移 + 三态熔断器（按环节计数）+ 波次并发闸门 + 流式看门狗 + 空答案终答救援 + MCP 60s 建连看门狗 + 隧道自愈子壳，故障不落终态静默
+- **检索侧水平扩展**：G23 双卡每卡一检索实例，20 条 SSH 隧道分组映射 20 路（backend 零改动），根治单卡精排排队雪崩（平均等待 82s → 2.3s 有界）
 - **图文双模态**：2.1 万 CAD 零件/装配自动渲染入库，跨模态检索
 - **记忆系统**：后台异步记忆图 + 升迁门，会话记忆不阻塞回答
-- **高并发流式链路**：SSE 流式输出、看门狗断流恢复、空答案跨模型救援、双层限流
-- **全链路故障韧性**：熔断降级 + 本地 WAL/spool 兜底，恢复后幂等回填；崩溃安全的上下文压缩（先落盘再删除，重跑幂等）
+- **高并发流式链路**：SSE 流式输出、会话级限流 + TTL 槽回收、auth 限流只计失败；host 网络根治 docker-proxy 600s 挂死，20 并发全量回归 0 错误 0 挂死
+- **崩溃安全**：本地 WAL/spool 兜底恢复后幂等回填；上下文压缩先落盘再删除，重跑幂等
 
 ## 🏗️ 架构
 
 ```
 内网用户浏览器 ──> VM (Docker Compose 五容器)
-                                    ├── web        (Next.js :3000)
-                                    ├── backend    (FastAPI :8001)
-                                    ├── qdrant / redis / postgres
-                                    └── SSH 隧道 ──> AutoDL GPU 服务器
-                                                      ├── vLLM 推理 :8000/:8001（主模型 Qwen3-32B-FP8 + 副模型 Qwen3-14B-FP8，均稠密）──> LiteLLM 网关 :4000（main/light 别名，云端 API 仅兜底）
-                                                      └── 检索微服务 :8002（BGE-m3 / Reranker / CLIP）
+                  ├── web        (Next.js :3000)
+                  ├── backend    (FastAPI :8001)
+                  ├── qdrant / redis / postgres
+                  ├── LLM 主答 ──> 火山方舟 ARK 云端（OpenAI 兼容端点，主/备双模型故障转移）
+                  └── SSH 隧道 ×20 ──> AutoDL GPU 服务器（双卡）
+                        ├── 检索微服务 ×2：卡0 :8002 / 卡1 :8003（20 条隧道分两组映射，backend 侧统一为 20 URL）
+                        └── qdrant GPU 本机副本 :6333（检索零跨隧道查库，VM 写入主库后快照同步）
 ```
 
-- 三机分工：LLM 与向量检索在 GPU（AutoDL 实例），业务后端与存储在 VM；本地部署后供内网用户直接访问
-- 检索微服务与业务后端解耦，通过 MCP 协议 + 内部令牌鉴权互访
+- 三机分工：**LLM 主答走云端 ARK（本地 vLLM 方案保留，见教程阶段 2）**；嵌入/精排检索在 GPU 双卡；业务后端与存储在 VM；本地部署后供内网用户直接访问
+- 检索微服务与业务后端解耦，通过 MCP 协议 + 内部令牌鉴权互访；GPU 侧 qdrant 本机副本消除了跨隧道查库的 3-5s IO 瓶颈
 
 ## 📊 评测体系与指标
 
-自建 RAGAS 口径评测线束：20 并发 × 50 题真实 HTTP（SSE）全量回归、题级断点续跑、GPU 本地 LLM-as-Judge（Qwen3-32B 裁判，零云成本、无限流）+ 确定性检索硬指标（MRR / NDCG@K / Rfact@K / P_ret / R_pool），与基线自动对比，可一键复跑：
+自建 ragas 口径评测线束：**dev-200 开发集 + heldout-200 独立测试集**（8 篇出题/调参隔离的未见文档，防过拟合），10–20 并发真实 HTTP（SSE）全量回归、题级断点续跑，云端 LLM-as-Judge（忠实度/幻觉率/上下文召回/精确率/切题五维），与基线自动对比，可一键复跑：
 
 ```bash
-eval\pipeline\dev\pipeline_50x5\regression_50x5.bat          # 全量 20 用户 × 50 题（1000 条记录）
-eval\pipeline\dev\pipeline_50x5\fetch_pools.py               # 离线补查 1000 题重排前候选池（R_pool 分母）
-eval\pipeline\dev\pipeline_50x5\concurrent_metrics.py        # 检索硬指标计算（--pools 池内召回）
-eval\pipeline\dev\pipeline_50x5\judge_50x5.py                # GPU LLM-as-Judge（忠实度/幻觉率/上下文召回/切题/答案准确）
-eval\pipeline\dev\pipeline_50x5\sweep_retrieval.py           # 免 LLM 参数扫描（/debug_cfg 热调参，1000 题 × 10 配置）
-eval\pipeline\dev\pipeline_full100\run_eval.py               # 全量 100 题白盒评测
+eval/pipeline/dev/pipeline_50x5/make_qasets_dev200.py            # 题集分片（--qa 可换 heldout_200.json 等同规格集）
+eval/pipeline/dev/pipeline_50x5/run_concurrent.py --users 20     # 并发全量回归（真实 HTTP/SSE，断点续跑）
+eval/pipeline/dev/pipeline_50x5/judge_50x5.py                    # LLM-as-Judge 判分（判分前强制校验 6333 转发存活）
+eval/pipeline/dev/pipeline_50x5/sweep_retrieval.py               # 免 LLM 参数扫描（/debug_cfg 热调参，1000 题 × 10 配置）
 ```
 
-**检索调优方法**：直调检索服务 `/search_text`（不经 LLM）扫 RERANK_POOL_MIN{8,16,24,32,48} × score_ratio{0.4,0} × 截断模式（τ+断崖 / 固定 K），真值分母统一取 48 候选全集，选定 **RERANK_POOL_MIN=32**（MRR +2.5pt、NDCG@5 +4.6pt、R@10 +5.8pt，P_ret 仅 -1.7pt）；扫描还证明 τ/MIN_K/断崖/固定 K 变体收益均 <1pt，池深是唯一显著杠杆。
+**检索调优方法**：直调检索服务 `/search_text`（不经 LLM）扫 RERANK_POOL_MIN{8,16,24,32,48} × score_ratio{0.4,0} × 截断模式（τ+断崖 / 固定 K），真值分母统一取候选全集，选定 **RERANK_POOL_MIN=32**（MRR +2.5pt、NDCG@5 +4.6pt、R@10 +5.8pt，P_ret 仅 -1.7pt）；扫描证明 τ/MIN_K/断崖/固定 K 变体收益均 <1pt，池深是唯一显著杠杆，96 为拐点。
 
-**最新一轮实测（2026-09-21，20 并发 × 50 题 = 1000 条记录全量完成，内网全链路：VM Docker → SSH 隧道 → GPU vLLM/检索微服务）**：
+### 最新实测（2026-10-16，G23 双卡，dev-200 全量 10 并发 × 20 题/片 = 200/200 有效）
 
-| 类别 | 指标 | 数值（对比 09-20 基线） |
-|---|---|---|
-| 运行 | 完成率 / 错误率 | **100% / 0%**（1000/1000，基线 98.3% / 1.7%） |
-| 检索 | MRR / NDCG@3 / NDCG@5 | **0.7452 / 0.7112 / 0.7584**（基线 0.7289 / 0.6973 / 0.7361） |
-| 检索 | Rfact@5 / Rfact@10（要点级召回） | **0.7919 / 0.7919**（基线同口径 0.7519，**+4.0pt**） |
-| 质量 | 忠实度 Faithfulness（LLM 裁判） | **0.9849**（基线 0.9821） |
-| 质量 | 幻觉率 | **1.99%**（17/854 例，逐题可复核；基线 2.56%） |
-| 质量 | 上下文召回 Context Recall | **0.9567** |
-| 质量 | 答案切题度 Answer Relevancy | **0.9604** |
-| 质量 | 答案准确度 Answer Accuracy | 0.8554 |
-| 路由 | tier 路由准确率 | **93.4%**（基线 90.3%） |
+| 指标 | 2026-09-18 基线 | 2026-10-16 当前 | 提升 |
+|---|---|---|---|
+| 忠实度 Faithfulness | 0.8133 | **0.9615** | **+14.8pt** |
+| 幻觉率 | 25.52% | **4.37%** | **-21.2pt** |
+| 上下文召回 Context Recall | 0.6116 | **0.8880** | **+27.6pt** |
+| 上下文精确率 Context Precision | 0.5297 | 0.5503 | +2.1pt |
+| 答案切题度 Answer Relevancy | — | 0.9689 | — |
 
-> 口径说明：**Rfact@K** = 金标要点的证据块进入返回前 K 名的要点占比（分母=要点数，跨版本可比，是召回能力的真实口径）；块级 R@K 的分母为金标文档在候选全集中的全部命中切块（均值 ~14 块/题），受返回容量（MAX_K=8）结构性封顶（上限 ≈ 8/14 ≈ 0.56），故不作为召回主指标。Rfact@K 本轮为评测记录内 sources 文本口径；上一轮表中 0.8481 为 Qdrant 全文口径，同口径基线为 0.7519。
+**25+ 轮评测驱动迭代**：每轮改动经 dev-200 全量对照证实才保留、证伪即回退，根因归档于 [`eval/optimization_log/`](eval/optimization_log/README.md)（含 22 篇方法文档与轮次索引）。关键里程碑：级联重排（粗筛全量池→精排，200 题 3h→15min）、复合题席位绑定、伪引用守门、600s 并发挂死定因 docker-proxy 并根治、单卡精排排队雪崩定因到达率>排空率并以双卡分片治本。
 
-完整产物见 [`eval/runs/dev/50x5_20260921_1000_v2/`](eval/runs/dev/50x5_20260921_1000_v2/)（本轮）与 [`eval/runs/dev/50x5_20260920_poolmin32/`](eval/runs/dev/50x5_20260920_poolmin32/)（上轮，REPORT.md 含 10 配置扫描全表）。
+### 泛化验证：heldout-200 未见文档独立测试集（同日同栈，10u × 20 题全量）
 
-> **评测口径声明**：以上指标均产自 `eval/runs/dev/`（题集参与了迭代调参，属开发集口径，用于版本间回归对比）。独立泛化效果以 `eval/runs/heldout/`（出题与调参隔离、配置冻结后一次定版，协议见 `eval/pipeline/heldout/README.md`）为准。
+| 指标 | heldout-200 | dev-200（同日） | 差值 |
+|---|---|---|---|
+| 忠实度 | 0.9455 | 0.9615 | -1.6pt |
+| 上下文召回 | 0.8259 | 0.8880 | **-6.2pt** |
+| 上下文精确率 | 0.5789 | 0.5503 | +2.9pt |
+| 答案切题度 | 0.9764 | 0.9689 | +0.8pt |
+| 幻觉率 | 7.07% | 4.37% | +2.7pt |
+
+> **泛化解读**：8 篇 dev 未见文档上召回掉 6.2pt（陌生文档族的型号/词面通道失效），是当前已知主要短板与下一阶段优化方向；精确率反而更高（陌生题更谨慎）。独立集出题与调参隔离、配置冻结后一次定版，协议见 `eval/pipeline/heldout/`。
+
+> **口径说明**：以上均为 ragas 判分口径（judge 与答题同源云端端点），拒答题单独分桶剔除；早期 1000 题 × Rfact@K/MRR 硬指标口径已被本口径取代，历史产物保留于 `eval/runs/dev/50x5_*/`。运行侧指标：全量回归 0 错误、0 挂死、0 熔断，双卡精排排队等待 max 2.3s（有界）。
 
 ## 🚀 从 0 到 1 保姆级搭建教程
 
@@ -76,7 +84,7 @@ eval\pipeline\dev\pipeline_full100\run_eval.py               # 全量 100 题白
 > | 3 | VM Docker 五容器(业务前后端 + 存储 + 知识库) | 内网 Ubuntu VM | 0 |
 > | 4 | SSH 三向隧道(VM ↔ GPU) | VM | 0 |
 > | 5 | 端到端验证 | 浏览器 | 0 |
-> | 6 | 评测复跑(20×50 全量) | Windows + GPU | GPU 时长 |
+> | 6 | 评测复跑(dev-200 全量并发) | Windows + GPU | GPU 时长 |
 >
 > 三机分工:**LLM 与向量检索在 GPU 机,业务后端与存储在 VM,Windows 只做开发/评测客户端**。
 
@@ -183,6 +191,8 @@ ls /root/autodl-fs/models/Qwen3-32B-FP8/*.safetensors | wc -l
 > ⚠️ 实测注意:**释放实例前先确认网盘数据的保留策略**(以控制台提示为准);重要权重建议在 OSS/本地另留一份备份。
 
 ### 阶段 2:GPU 实例开机与全栈启动
+
+> 📌 **当前生产形态说明**：主答 LLM 已迁至火山方舟云端端点（`env/env.env` 的 `OPENAI_BASE_URL/OPENAI_TEXT_MODEL/OPENAI_FALLBACK_MODEL`），GPU 机只承载嵌入/精排检索（当前为双卡各一实例）；本阶段 vLLM×2 + LiteLLM 本地推理链路完整保留、可复现，适合完全离线场景。
 
 **2.1 开机**
 
@@ -352,29 +362,28 @@ curl -s -m2 http://127.0.0.1:6333/collections         # -R 反向:GPU 上的检�
 
 全链路即:浏览器 → VM web:3000 → backend:8001 → (隧道) GPU LiteLLM:4000 → vLLM:8000/8001;backend → (隧道) 检索:8002 → (-R 隧道) VM qdrant:6333。
 
-### 阶段 6:评测复跑(20 并发 × 50 题 = 1000 条)
+### 阶段 6:评测复跑(dev-200 全量,10–20 并发 × 200 题)
 
-工具五件套在 `eval/pipeline/dev/pipeline_50x5/`,全部可一键复跑:
+工具在 `eval/pipeline/dev/pipeline_50x5/`,全部可一键复跑:
 
 ```bash
 cd eval/pipeline/dev/pipeline_50x5
 
-# 1) 全量回归(真实 HTTP/SSE,题集 qa_sets_20x50,20 用户各 50 题)
-regression_50x5.bat
+# 0) 题集分片(dev_200.json 按用户切片;heldout_200.json 等同规格集用 --qa 换)
+python make_qasets_dev200.py [--qa ../../../qa_sets/v2_20261001/heldout_200.json]
+
+# 1) 全量回归(真实 HTTP/SSE,--users 20 或 10,输出目录必须全新——旧 error 记录会被断点续跑当已完成)
+python run_concurrent.py --users 20 --base http://<VM>:8001 --sets-dir <分片目录> --out <新目录>
 #    断点续跑:删除输出目录里的 error/空答案记录后重跑,已成功题目自动跳过
 
-# 2) 离线补查重排前候选池(R_pool 分母;注意必须用 (user,id) 联合键,裸 id 跨用户撞车)
-python fetch_pools.py
+# 2) LLM-as-Judge 判分(云端裁判;判前自动校验 6333 转发存活;务必显式 --out-dir)
+python judge_50x5.py --out-dir <判分输出目录>
 
-# 3) 检索硬指标(MRR/NDCG@k/Rfact@k/P_ret,--pools 池内召回)
-python concurrent_metrics.py --pools <pools.jsonl 路径>
-
-# 4) GPU LLM-as-Judge(Qwen3-32B 本地裁判,零云成本;务必显式 --out-dir 指到本次 run 目录)
-python judge_50x5.py --out-dir eval/runs/<run目录>
-
-# 5) 免 LLM 参数扫描(直调 /search_text + /debug_cfg 热调参;需 ret.env 开 RETRIEVAL_DEBUG_CFG=1)
+# 3) 免 LLM 参数扫描(直调 /search_text + /debug_cfg 热调参;需 ret.env 开 RETRIEVAL_DEBUG_CFG=1)
 python sweep_retrieval.py
 ```
+
+评测规范(详见项目 CLAUDE.md 与 `eval/optimization_log/`):dev 评测一律并发口径(严禁单用户串行)、评测输出必须新目录、judge 判分口径与答题一致、空答案/流中断记录不得入库判分(签名:elapsed≈60s 带检索块=LLM 超时;srcs=0=检索降级;elapsed=0=流中断)。
 
 评测注意事项(全部实测踩过):
 - Windows 侧先 `export NO_PROXY="192.168.88.138,127.0.0.1,localhost"`,否则系统代理劫持一切请求;
@@ -398,6 +407,9 @@ python sweep_retrieval.py
 12. **judge 必须显式 `--out-dir`**,默认会写进 runs/adhoc。
 13. **镜像内 Next.js rewrite 硬编码 127.0.0.1:8001**,所以 web 容器用 host 网络模式——不要改成 bridge。
 14. **数据盘 vs 网盘**:`/root/autodl-tmp` 随实例释放清空;权重/长存文件一律放 `/root/autodl-fs`。
+15. **qdrant 二进制必须用 1.19.0 副本**(如 `/root/autodl-tmp/bin/qdrant`):1.12.4 读现库 `shard_key_mapping.json`(数组格式)直接 panic;其余 1.19 副本可能缺 GLIBC_2.38。
+16. **检索服务启动必须先 `set -a; . ./ret.env; set +a`**:漏 source 会掉进 qdrant 本地文件模式(空库 + 双进程抢锁 `already accessed by another instance` → 全部 srcs=0);起服后等"预热完成"日志(模型加载 ~40s)再冒烟。
+17. **评测打 VM 必带 `NO_PROXY=192.168.88.138`**;web 容器 Next.js rewrite 是 600s 挂死主凶,评测直连 backend :8001。
 
 ### 附 B:日常开关机标准流程
 
